@@ -10,7 +10,7 @@ img:  ""
 
 La instalación guiada se encuentra por el momento solo en formato vídeo, mas adelante intentare ofrecer otro medio guiado.
 
-
+{{< youtube code="gAP7y2pEC1M">}}
 
 # Preguntas más frecuentes
 ### ¿Qué es KDE neon?
