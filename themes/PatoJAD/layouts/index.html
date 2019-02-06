@@ -13,22 +13,23 @@
     </div>
   </div>
 
-<section id="blog-section" >
-  <div class="container">
-      <div class="row">
-        <!-- News Secction -->
-        <div class="col-lg-8">
-          <div class="row">
-            {{- partial "listpost/home.html" . -}}
+  <section id="blog-section" >
+    <div class="container">
+        <div class="row">
+          <!-- News Secction -->
+          <div class="col-lg-8">
+            <div class="row">
+              {{- partial "listpost/home.html" . -}}
+              {{ with .Site.GetPage "section" "instalaciones/ubuntu" }}{{ .Title }}{{ end }}
+            </div>
+          </div>
+
+          <!-- Widget Secction -->
+          <div class="col-lg-4">
+            {{- partial "widgets/categorias.html" . -}}
+            {{- partial "widgets/sitiosamigos.html" . -}}
           </div>
         </div>
-
-        <!-- Widget Secction -->
-        <div class="col-lg-4">
-          {{- partial "widgets/categorias.html" . -}}
-          {{- partial "widgets/sitiosamigos.html" . -}}
-        </div>
-      </div>
-  </div>
-</section>
+    </div>
+  </section>
 {{ end }}
