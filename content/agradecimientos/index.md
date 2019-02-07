@@ -2,7 +2,7 @@
 title: '¡Gracias Totales!'
 date: '2018-12-11'
 type: 'page'
-img:  ''
+img:  'http://cdn.atomix.vg/wp-content/uploads/2014/09/ceratigraciastotales.png'
 ---
 
 {{< img src="http://cdn.atomix.vg/wp-content/uploads/2014/09/ceratigraciastotales.png">}}
