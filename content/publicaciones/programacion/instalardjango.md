@@ -3,7 +3,7 @@ title: "Instalar Django"
 date: "2018-12-19"
 description: "Un exelente framework de Python"
 type: "programacion"
-img:  "https://1.bp.blogspot.com/-ql7GjZQAV9Q/XDTXjRNuDNI/AAAAAAAAekQ/xofzQib7VD0c36hOXCY-RjCmGAkHDB0VACLcBGAs/s640/solid-resumen-de-los-principios.png"
+img:  "https://4.bp.blogspot.com/-keihHIsVOU8/XDTYLT-UZxI/AAAAAAAAekc/ckQbw2_oTuYGdeY42ZXRZN_XmCKu5dQwACLcBGAs/s640/django-python.png"
 ---
 
 {{< img src="https://4.bp.blogspot.com/-keihHIsVOU8/XDTYLT-UZxI/AAAAAAAAekc/ckQbw2_oTuYGdeY42ZXRZN_XmCKu5dQwACLcBGAs/s640/django-python.png">}}
