@@ -10,9 +10,10 @@ img:  ""
 
 La instalación guiada se encuentra por el momento solo en formato vídeo, mas adelante intentare ofrecer otro medio guiado.
 
-{{< youtube code="gAP7y2pEC1M">}}
+{{< youtube code="gAP7y2pEC1M" >}}
 
 # Preguntas más frecuentes
+
 ### ¿Qué es KDE neon?
 KDE neon es un repositorio de software rápidamente actualizado. La mayoría de los usuarios querrán usar los paquetes creados a partir del software lanzado que conforma nuestra Edición de Usuario. Los colaboradores y evaluadores de KDE pueden usar los paquetes creados a partir de KDE Git en las Ediciones para desarrolladores. Utiliza la base de la última Ubuntu LTS (18.04).
 
@@ -59,6 +60,7 @@ Si prefiere usar la línea de comandos, puede usar el comando pkcon:
 
     pkcon refresh
     pkcon update
+
 Esto instalará todos los paquetes nuevos y usará el mismo código PackageKit que Plasma Discover. Algunos usos de apt no instalan nuevos paquetes, lo que lo hace menos adecuado para KDE neon.
 
 Página principal
