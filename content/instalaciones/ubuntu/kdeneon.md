@@ -3,7 +3,7 @@ title: "Instalcion KDE Neon"
 date: "2019-01-28"
 description: "Distribucion basada en Ubuntu con entorno KDE"
 type: "instalacion"
-img:  ""
+img:  "https://i.ytimg.com/vi/gAP7y2pEC1M/maxresdefault.jpg"
 ---
 
 # KDE Neon
