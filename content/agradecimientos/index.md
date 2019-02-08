@@ -36,6 +36,12 @@ Ambos colaboraron con la estética del sitio presente, Marco me predispuso su va
 
 ___
 
+### Tehuel
+
+Mas que agradecerle deberia darle un premio, la verdad es una persona que se porto de 10 y me aguanto con todas mis consultas, gracias a el que me enseño a usar Hugo y que me dio soporte durante todo mi trayecto. Gracias por todo y estimo que ya no me queres aguantar mas!
+
+___
+
 ### Colegas
 
 Finalmente quiero agradecerles a esas personas que en el día al día me dan su apoyo incondicional, Felipe, GatoOscuro, RioHam, Jose, etc. ¡De cada uno de ellos puedo hablar horas, pero ellos saben todo lo que significa su apoyo!
