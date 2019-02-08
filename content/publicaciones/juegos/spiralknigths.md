@@ -4,6 +4,9 @@ date: "2018-12-12"
 description: "MMORPG Online"
 type: "juegos"
 img:  "https://wiki.spiralknights.com/es/images/b/bd/SpiralKnights_News_44-big.png"
+atname: "PatoJAD"
+atdesc: "Desarrollador"
+atimg: "https://patojad.gitlab.io/blog/img/perfil.jpg"
 ---
 
 # Te has estrellado.

@@ -4,6 +4,9 @@ date: "2018-12-20"
 description: "GNU"
 type: "linux"
 img:  "http://entreparentesis.org/wp-content/uploads/Libertad-aut%C3%A9ntica-696x464.jpg"
+atname: "PatoJAD"
+atdesc: "Desarrollador"
+atimg: "https://patojad.gitlab.io/blog/img/perfil.jpg"
 ---
 
 El software libre es todo programa informático cuyo código fuente puede ser estudiado, modificado, y utilizado libremente con cualquier fin y redistribuido con o sin cambios o mejoras. De acuerdo con la definición establecida por Richard Stallman, un software es "libre" cuando garantiza las siguientes 4 libertades:

@@ -4,13 +4,16 @@ date: "2019-01-28"
 description: "Distribucion basada en Ubuntu con entorno KDE"
 type: "instalacion"
 img:  "https://i.ytimg.com/vi/gAP7y2pEC1M/maxresdefault.jpg"
+atname: "PatoJAD"
+atdesc: "Desarrollador"
+atimg: "https://patojad.gitlab.io/blog/img/perfil.jpg"
 ---
 
 # KDE Neon
 
 La instalación guiada se encuentra por el momento solo en formato vídeo, mas adelante intentare ofrecer otro medio guiado.
 
-{{< youtube code="gAP7y2pEC1M" >}}
+{{< youtube code="nLNnuyBsxAg" >}}
 
 # Preguntas más frecuentes
 

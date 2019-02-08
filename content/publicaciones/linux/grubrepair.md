@@ -4,6 +4,9 @@ date: "2018-12-20"
 description: "Una app que repara tu GRUB"
 type: "linux"
 img:  "https://4.bp.blogspot.com/-I5zIqvQU6yE/XDTYpNILQZI/AAAAAAAAekk/ooS-hHTiygYIv62VLvMXObxsPpqTm5yXQCLcBGAs/s640/Ubuntu-Grub-Console.png"
+atname: "PatoJAD"
+atdesc: "Desarrollador"
+atimg: "https://patojad.gitlab.io/blog/img/perfil.jpg"
 ---
 
 

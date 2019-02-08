@@ -4,6 +4,9 @@ date: "2019-01-03"
 description: "SO a la carta"
 type: "linux"
 img:  "https://i.pinimg.com/originals/c9/d6/9b/c9d69bef2fa1a15e72c00244089d3668.jpg"
+atname: "PatoJAD"
+atdesc: "Desarrollador"
+atimg: "https://patojad.gitlab.io/blog/img/perfil.jpg"
 ---
 
 En esta nueva entrada presentamos una comparación que nos ayuda a comprender las diferencias entre los sistemas operativos libres y propietarios. Para esto vamos a usar una comparación que hizo Sergio un gran colega que apoya el software libre. Al principio pensé en modificar un poco el texto pero no quiero perder su esencia por ende quiero aclarar que lo que viene a continuación es literalmente lo que Segio publico en Escuela libre!

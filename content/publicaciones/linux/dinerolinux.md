@@ -4,6 +4,9 @@ date: "2019-01-03"
 description: "SO a la carta"
 type: "linux"
 img:  "https://3.bp.blogspot.com/-fbQBacSf3a0/XDTW5nHZYVI/AAAAAAAAej8/brsHdOymO3gIZSdqtlSiJ-VeFAE8DGzHwCLcBGAs/s640/rmsdollar.jpg"
+atname: "PatoJAD"
+atdesc: "Desarrollador"
+atimg: "https://patojad.gitlab.io/blog/img/perfil.jpg"
 ---
 
 Hace un tiempo se armó un debate sobre el software libre y el privativo en un entorno de desarrolladores. El fundamento más pesado en el apoyo al software privativo se basa en “los programadores tenemos que comer” lo cual es una realidad, y ahí caí que siempre en fondo esa inquietud me pesaba. Y decidí decantar por completo. ¿Solo sería un usuario de Software Libre o también sería un desarrollador de Software Libre?

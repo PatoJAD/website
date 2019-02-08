@@ -4,6 +4,9 @@ date: "2018-12-18"
 description: "Principios SOLID Programacion"
 type: "programacion"
 img:  "https://1.bp.blogspot.com/-ql7GjZQAV9Q/XDTXjRNuDNI/AAAAAAAAekQ/xofzQib7VD0c36hOXCY-RjCmGAkHDB0VACLcBGAs/s640/solid-resumen-de-los-principios.png"
+atname: "PatoJAD"
+atdesc: "Desarrollador"
+atimg: "https://patojad.gitlab.io/blog/img/perfil.jpg"
 ---
 
 {{< img src="https://1.bp.blogspot.com/-ql7GjZQAV9Q/XDTXjRNuDNI/AAAAAAAAekQ/xofzQib7VD0c36hOXCY-RjCmGAkHDB0VACLcBGAs/s640/solid-resumen-de-los-principios.png">}}

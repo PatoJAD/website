@@ -4,6 +4,9 @@ date: "2018-12-12"
 description: "Arcade Games"
 type: "juegos"
 img:  "https://1.bp.blogspot.com/-MEnmuisaPTU/XDTZ1fekq-I/AAAAAAAAelI/7NxidHReSwoXzKRDxGts0DJC4vuUGZIaQCLcBGAs/s1600/maxresdefault.jpg"
+atname: "PatoJAD"
+atdesc: "Desarrollador"
+atimg: "https://patojad.gitlab.io/blog/img/perfil.jpg"
 ---
 
 Muchos de nosotros crecimos con juegos de otra época, y tenemos cierta fidelidad a esos juegos, Soy de los que prefieren jugar al Pokemon Esmeralda al Pokemon GO. Y por suerte es algo que pude inculcar en mi familia, Siempre tenemos que volver a los orígenes.
