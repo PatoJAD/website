@@ -7,6 +7,7 @@ img:  "https://1.bp.blogspot.com/-4_wiFDX5KH4/XDdXcf0CVNI/AAAAAAAAem4/OmohUYH21-
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/blog/img/perfil.jpg"
+atbio: "Sobre mi no hay mucho para decir, me dedico a desarrollar en una empresa de telecomunicaciones, utilizo linux desde el 2012 y hace años que es mi sistema operativo main. Soy una persona que busca crecer profesionalmente sin dejar de divertirse y hacer lo que me gusta. Siempre digo que cuando un proyecto sale es importate agradecer, por lo cual les recomiendo a todos leer la seccion Agreadecimientos en la cual me tome un tiempito para poder agradecer a todos y cada uno de los que hicieron posible todo esto."
 ---
 
 En la vida cotidiana cuando adquirimos un producto del cual desconocemos correctamente su funcionamiento o alguna funcionalidad recurrimos al manual. Esta es una practica que viene hace años y que, si bien, no se valora mucho es lo que nos permite hacernos con nuevos productos facilitando nuestro día a día.
