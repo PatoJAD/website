@@ -1,10 +1,14 @@
-<title>{{ block "title" . }}{{- .Title }} - {{ .Site.Title -}}{{ end }}</title>
+<title>{{ $isHomePage := eq .Title .Site.Title }}{{ .Title }}{{ if eq $isHomePage false }} - {{ .Site.Title }}{{ end }}</title>
+
 
 <!-- META Head -->
 <meta charset="utf-8">
 <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
 <meta content='GNU, Linux, Juegos, Software Libre' name='keywords'/>
 <meta name="author" content="PatoJAD">
+<meta content="{{ $isHomePage := eq .Title .Site.Title }}{{ .Title }}{{ if eq $isHomePage false }} - {{ .Site.Title }}{{ end }}" property="og:title">
+<meta content="{{ $isHomePage := eq .Title .Site.Title }}{{ .Site.Params.description }}{{ if eq $isHomePage false }} - {{ .Description }}{{ end }}" property="og:description">
+
 
 <!-- import css -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
@@ -27,3 +31,6 @@
 
 <!-- Google Search Meta -->
 <meta name="google-site-verification" content="AB62lAN6bYFzpeZoN7yIodQqshuK3E4R7qQYEsq8T4Y" />
+
+<!-- Bing Meta Data -->
+<meta name="msvalidate.01" content="8A4FD3C15526528D48C910421066EC92" />
