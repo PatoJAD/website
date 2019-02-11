@@ -3,6 +3,8 @@ title: "Poner las paginas de man en español"
 date: "2019-01-15"
 description: "Manual de Linux"
 type: "linux"
+tags: ["Manual","MAN","español","Terminal"]
+category: ["Linux"]
 img:  "https://3.bp.blogspot.com/-4Z74uIayvog/XDtN7Fxs_lI/AAAAAAAAer4/-33UsE9oQD4aOcTgq_fqtIKChM5TxIB6gCLcBGAs/s640/aplicar-la-configuracion-regional_patojad.png"
 atname: "PatoJAD"
 atdesc: "Desarrollador"

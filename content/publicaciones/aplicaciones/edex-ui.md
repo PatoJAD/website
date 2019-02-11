@@ -3,6 +3,8 @@ title: 'eDEX-UI'
 date: '2018-12-11'
 description: 'Una terminal futurista que dejara anonados a nuestros colegas'
 type: 'aplicaciones'
+tags: ["Terminal","edex-ui","console","futurista"]
+category: ["Aplicaciones"]
 img:  'https://4.bp.blogspot.com/-KsW2QQ4-j3Y/W_Li-0Brf0I/AAAAAAAAB5M/PYI7Lb_C2lQv2cJTZ_aWfQwTl7OP7MxrwCLcBGAs/s1600/edex-ui-scifi-computer-interface.jpg'
 atname: "PatoJAD"
 atdesc: "Desarrollador"

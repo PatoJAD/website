@@ -3,6 +3,8 @@ title: "Spiral Knights"
 date: "2018-12-12"
 description: "MMORPG Online"
 type: "juegos"
+tags: ["spiral Knights","MMORPG","Online"]
+category: ["Juegos"]
 img:  "https://wiki.spiralknights.com/es/images/b/bd/SpiralKnights_News_44-big.png"
 atname: "PatoJAD"
 atdesc: "Desarrollador"

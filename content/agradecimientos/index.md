@@ -2,6 +2,8 @@
 title: '¡Gracias Totales!'
 date: '2018-12-11'
 type: 'page'
+tags: ["Gracias","Agradecimientos","informacion"]
+category: ["Pages"]
 img:  'http://cdn.atomix.vg/wp-content/uploads/2014/09/ceratigraciastotales.png'
 atname: "PatoJAD"
 atdesc: "Desarrollador"

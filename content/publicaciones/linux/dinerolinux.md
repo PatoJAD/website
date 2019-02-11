@@ -3,6 +3,8 @@ title: "¿Se puede ganar dinero con el software libre?"
 date: "2019-01-03"
 description: "SO a la carta"
 type: "linux"
+tags: ["Libertad","Dinero","Stallman"]
+category: ["Linux"]
 img:  "https://3.bp.blogspot.com/-fbQBacSf3a0/XDTW5nHZYVI/AAAAAAAAej8/brsHdOymO3gIZSdqtlSiJ-VeFAE8DGzHwCLcBGAs/s640/rmsdollar.jpg"
 atname: "PatoJAD"
 atdesc: "Desarrollador"

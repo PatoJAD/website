@@ -3,6 +3,8 @@ title: "Sobre Mi"
 date: "2018-12-18"
 description: "El hombre tras PatoJAD"
 type: "sobremi"
+tags: ["Sobre mi","comunidad","informacion"]
+category: ["Pages"]
 img: "https://data.whicdn.com/images/113748982/large.jpg"
 atname: "PatoJAD"
 atdesc: "Desarrollador"

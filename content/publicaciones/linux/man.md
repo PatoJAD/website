@@ -3,6 +3,8 @@ title: "Man, tu Manual para Linux!"
 date: "2019-01-14"
 description: "Manual de Linux"
 type: "linux"
+tags: ["Manual","MAN","console","Terminal"]
+category: ["Linux"]
 img:  "https://1.bp.blogspot.com/-4_wiFDX5KH4/XDdXcf0CVNI/AAAAAAAAem4/OmohUYH21-4n07RIxsNZn0b60go5CsDggCLcBGAs/s640/man_patojad.png"
 atname: "PatoJAD"
 atdesc: "Desarrollador"

@@ -3,6 +3,8 @@ title: "Las 4 Libertades del Software Libre"
 date: "2018-12-20"
 description: "GNU"
 type: "linux"
+tags: ["Libertad","GNU","Stallman"]
+category: ["Linux"]
 img:  "http://entreparentesis.org/wp-content/uploads/Libertad-aut%C3%A9ntica-696x464.jpg"
 atname: "PatoJAD"
 atdesc: "Desarrollador"

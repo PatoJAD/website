@@ -3,6 +3,8 @@ title: "RetroPie"
 date: "2018-12-12"
 description: "Arcade Games"
 type: "juegos"
+tags: ["RetroPie","Retro","8bits"]
+category: ["Juegos"]
 img:  "https://1.bp.blogspot.com/-MEnmuisaPTU/XDTZ1fekq-I/AAAAAAAAelI/7NxidHReSwoXzKRDxGts0DJC4vuUGZIaQCLcBGAs/s1600/maxresdefault.jpg"
 atname: "PatoJAD"
 atdesc: "Desarrollador"

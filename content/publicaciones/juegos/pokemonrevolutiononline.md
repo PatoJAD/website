@@ -3,6 +3,8 @@ title: "Pokemon Revolution Online"
 date: "2018-12-12"
 description: "MMORPG Online"
 type: "juegos"
+tags: ["Pokemon","MMORPG","PRO"]
+category: ["Juegos"]
 img:  "https://2.bp.blogspot.com/-yfqvN3VBvo4/XDTaBmf7dXI/AAAAAAAAelM/lE_xabEerH4euLe5VdW-0Tjp63AdtWhBQCLcBGAs/s640/pokemon_patojad.jpg"
 atname: "PatoJAD"
 atdesc: "Desarrollador"

@@ -3,6 +3,8 @@ title: "Paralelismo entre sistemas operativos y comidas"
 date: "2019-01-03"
 description: "SO a la carta"
 type: "linux"
+tags: ["Libertad","Comparacion","Comida"]
+category: ["Linux"]
 img:  "https://i.pinimg.com/originals/c9/d6/9b/c9d69bef2fa1a15e72c00244089d3668.jpg"
 atname: "PatoJAD"
 atdesc: "Desarrollador"

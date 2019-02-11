@@ -3,6 +3,8 @@ title: "RunScape"
 date: "2018-12-11"
 description: "MMORPG Online"
 type: "juegos"
+tags: ["RunScape","MMORPG","Online"]
+category: ["Juegos"]
 img:  "https://areajugones.sport.es/wp-content/uploads/2018/09/Old-School-RuneScape-810x400.jpg"
 atname: "PatoJAD"
 atdesc: "Desarrollador"

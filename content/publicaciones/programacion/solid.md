@@ -3,6 +3,8 @@ title: "Principios SOLID"
 date: "2018-12-18"
 description: "Principios SOLID Programacion"
 type: "programacion"
+tags: ["POO","SOLID","Objetos","Desarrollo"]
+category: ["Programacion"]
 img:  "https://1.bp.blogspot.com/-ql7GjZQAV9Q/XDTXjRNuDNI/AAAAAAAAekQ/xofzQib7VD0c36hOXCY-RjCmGAkHDB0VACLcBGAs/s640/solid-resumen-de-los-principios.png"
 atname: "PatoJAD"
 atdesc: "Desarrollador"
