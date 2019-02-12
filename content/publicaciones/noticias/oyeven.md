@@ -41,4 +41,4 @@ Un proyecto tan grande como este tiene que ser reconocido por todos los que usam
 {{< br >}}
 {{< br >}}
 
-¿Qué piensas de este gran proyecto? ¿Cómo colaboras vos con esta difuncion?
+¿Qué piensas de este gran proyecto? ¿Cómo colaboras vos con esta tarea de difundir?
