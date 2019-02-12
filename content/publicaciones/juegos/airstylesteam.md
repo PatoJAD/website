@@ -4,7 +4,7 @@ date: "2019-01-19"
 description: "Un theme que nos permite renovar un poco nuestro Steam"
 type: "juegos"
 tags: ["Steam","AirStyle","Themes"]
-category: ["Juegos","Steam"]
+category: ["Juegos"]
 img: "https://4.bp.blogspot.com/-I9UOGYDprdY/XCzUz1roqHI/AAAAAAAAeY0/3QgmcO4GQHkem-J8l3BO4B1jj5LSaF39gCLcBGAs/s640/DeepinScreenshot_20181205105759.png"
 atname: "PatoJAD"
 atdesc: "Desarrollador"
