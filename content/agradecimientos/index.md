@@ -26,7 +26,7 @@ ___
 
 ### Marcelo y Craken
 
-Marcelo fue una de las personas que me impulso a crear mi propio contenido al igual que cracken, A ellos les agradezco su tiempo y por ser sinceros ayudándome con cada post y publicación. Las mejores en mis contenidos se las debo a ellos y espero que siempre estén ahí para ayudarme a mantener el camino del blog.
+Marcelo fue una de las personas que me impulso a crear mi propio contenido al igual que Craken, A ellos les agradezco su tiempo y por ser sinceros ayudándome con cada post y publicación. Las mejores en mis contenidos se las debo a ellos y espero que siempre estén ahí para ayudarme a mantener el camino del blog.
 
 ___
 
