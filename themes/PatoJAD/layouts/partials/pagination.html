@@ -1,13 +1,22 @@
 {{ if gt .TotalPages 1 }}
-  <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+  <div class="col-lg-12 col-md-12">
+    <br /> <br />
+    <center>
+      <nav aria-label="...">
+        <ul class="pagination pagination-lg justify-content-center">
+          {{ if .HasPrev }}
+            <li class="page-item">
+              <a class="page-link" href="{{ .Prev.URL }}" tabindex="-1">&laquo; Anterior</a>
+            </li>
+          {{ end }}
 
-    {{ if .HasPrev }}
-      <a href="{{ .Prev.URL }}" class="pagination-previous button is-dark">&laquo; Anterior</a>
-    {{ end }}
-
-    {{ if .HasNext }}
-      <a href="{{ .Next.URL }}" class="pagination-next button is-dark">Siguiente &raquo;</a>
-    {{ end }}
-
-  </nav>
+          {{ if .HasNext }}
+            <li class="page-item">
+              <a class="page-link" href="{{ .Next.URL }}" tabindex="-1">Siguiente &raquo;</a>
+            </li>
+          {{ end }}
+        </ul>
+      </nav>
+    </center>
+  </div>
 {{ end }}
