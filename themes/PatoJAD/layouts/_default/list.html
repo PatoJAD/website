@@ -15,8 +15,8 @@
           <!-- News Secction -->
           <div class="col-lg-8">
             <div class="row">
-              {{ $paginator := .Paginate .Data.Pages }}
-              {{ range $paginator.Pages.Reverse }}
+              {{ $paginator := .Paginate .Data.Pages.ByDate.Reverse }}
+              {{ range $paginator.Pages }}
 
                 {{ .Render "card" }}
 
