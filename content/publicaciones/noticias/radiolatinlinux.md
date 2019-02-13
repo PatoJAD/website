@@ -26,3 +26,8 @@ Dejamos su porpia descripción de la radio:
 Todos estan invitados a participar. Sumate
 
 ¡Y hay un detalle ULTRA importante, Vos podés sumarte a la radio! ¡No esperes más y comenzá a ser parte de esta gran oportunidad!
+
+{{< br >}}
+{{< br >}}
+
+{{< link url="https://latinlinux.com/radio-latin-linux" text="ir a la radio">}}
