@@ -9,7 +9,7 @@ img:  "https://3.bp.blogspot.com/-4Z74uIayvog/XDtN7Fxs_lI/AAAAAAAAer4/-33UsE9oQD
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/blog/img/perfil.jpg"
-atbio: "Sobre mi no hay mucho para decir, me dedico a desarrollar en una empresa de telecomunicaciones, utilizo linux desde el 2012 y hace años que es mi sistema operativo main. Soy una persona que busca crecer profesionalmente sin dejar de divertirse y hacer lo que me gusta. Siempre digo que cuando un proyecto sale es importate agradecer, por lo cual les recomiendo a todos leer la seccion Agreadecimientos en la cual me tome un tiempito para poder agradecer a todos y cada uno de los que hicieron posible todo esto."
+atbio: "Sobre mi no hay mucho para decir, me dedico a desarrollar en una empresa de telecomunicaciones, utilizo linux desde el 2012 y hace años que es mi sistema operativo main. Soy una persona que busca crecer profesionalmente sin dejar de divertirse y hacer lo que me gusta. Siempre digo que cuando un proyecto sale es importante agradecer, por lo cual les recomiendo a todos leer la seccion Agreadecimientos en la cual me tome un tiempito para poder agradecer a todos y cada uno de los que hicieron posible todo esto."
 ---
 
 Ya hablamos de man y podes verlo {{< textlink url="https://patojad.gitlab.io/blog/publicaciones/linux/man/" text="aquí" >}}. Sin embargo muchas personas no tienen dominio del ingles o simplemente no quieren estar traduciendo todo constantemente. Para esas personas les traigo una forma de poner las paginas de man en español, antes de iniciar con esto debo aclarar que solo estará en español lo que tiene una traducción. Puede que algunas cosas no dispongan este idioma y lo veamos en inglés. En dicho caso se puede colaborar con la traducción.
