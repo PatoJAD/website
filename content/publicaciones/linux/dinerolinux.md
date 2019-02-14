@@ -9,7 +9,7 @@ img:  "https://3.bp.blogspot.com/-fbQBacSf3a0/XDTW5nHZYVI/AAAAAAAAej8/brsHdOymO3
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/blog/img/perfil.jpg"
-atbio: "Sobre mi no hay mucho para decir, me dedico a desarrollar en una empresa de telecomunicaciones, utilizo linux desde el 2012 y hace años que es mi sistema operativo main. Soy una persona que busca crecer profesionalmente sin dejar de divertirse y hacer lo que me gusta. Siempre digo que cuando un proyecto sale es importate agradecer, por lo cual les recomiendo a todos leer la seccion Agreadecimientos en la cual me tome un tiempito para poder agradecer a todos y cada uno de los que hicieron posible todo esto."
+atbio: "Sobre mi no hay mucho para decir, me dedico a desarrollar en una empresa de telecomunicaciones, utilizo linux desde el 2012 y hace años que es mi sistema operativo main. Soy una persona que busca crecer profesionalmente sin dejar de divertirse y hacer lo que me gusta. Siempre digo que cuando un proyecto sale es importante agradecer, por lo cual les recomiendo a todos leer la seccion Agreadecimientos en la cual me tome un tiempito para poder agradecer a todos y cada uno de los que hicieron posible todo esto."
 ---
 
 Hace un tiempo se armó un debate sobre el software libre y el privativo en un entorno de desarrolladores. El fundamento más pesado en el apoyo al software privativo se basa en “los programadores tenemos que comer” lo cual es una realidad, y ahí caí que siempre en fondo esa inquietud me pesaba. Y decidí decantar por completo. ¿Solo sería un usuario de Software Libre o también sería un desarrollador de Software Libre?
