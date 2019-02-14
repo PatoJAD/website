@@ -24,7 +24,7 @@ Por otro lado, a mi Hermano, el creador de Guitando la Tocarra, siempre me inspi
 
 ___
 
-### Marcelo y Craken
+### Marcelo y Cr4ck3n
 
 Marcelo fue una de las personas que me impulso a crear mi propio contenido al igual que Craken, A ellos les agradezco su tiempo y por ser sinceros ayudándome con cada post y publicación. Las mejores en mis contenidos se las debo a ellos y espero que siempre estén ahí para ayudarme a mantener el camino del blog.
 
