@@ -5,7 +5,7 @@ description: "MMORPG Online"
 type: "juegos"
 tags: ["RunScape","MMORPG","Online"]
 category: ["Juegos"]
-img:  "https://areajugones.sport.es/wp-content/uploads/2018/09/Old-School-RuneScape-810x400.jpg"
+img:  "https://postimg.cc/0rd1ZcgL][img]https://i.postimg.cc/0rd1ZcgL/image2.png"
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/blog/img/perfil.jpg"
