@@ -5,20 +5,20 @@ description: 'Ayer hablamos de un Dial sobre Software libre! Hoy hablamos de una
 type: 'noticias'
 tags: ["Latin Linux","Libre","Radio"]
 category: ["noticias"]
-img: 'https://latinlinux.com/images/imgllmag/radiolatinlinux.png'
+img: 'https://i.postimg.cc/Pr0CxJV8/latinlinux.png'
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/blog/img/perfil.jpg"
 atbio: "Sobre mi no hay mucho para decir, me dedico a desarrollar en una empresa de telecomunicaciones, utilizo linux desde el 2012 y hace años que es mi sistema operativo main. Soy una persona que busca crecer profesionalmente sin dejar de divertirse y hacer lo que me gusta. Siempre digo que cuando un proyecto sale es importante agradecer, por lo cual les recomiendo a todos leer la seccion Agreadecimientos en la cual me tome un tiempito para poder agradecer a todos y cada uno de los que hicieron posible todo esto."
 ---
 
-Ayer hablamos de {{< textlink url="https://patojad.gitlab.io/blog/publicaciones/noticias/oyeven/" text="Oyeven" >}} ¡ Una radio que habla de software libre!
+Ayer hablamos de {{< textlink url="https://patojad.gitlab.io/blog/publicaciones/noticias/oyeven/" text="Oyeven" >}} ¡ Una radio que habla de software libre!.
 
 ### Radio Latin Linux
 
-Las radios son un éxito como medio de difusión de contenidos, en este caso queremos traerle no solo un programa, sino ¡Una radio!.
+Las radios son un éxito como medio de difusión de contenidos, en este caso queremos traerles no solo un programa, sino ¡Una radio!.
 
-Pero no es cualquier Radio, es una radio completamente libre donde incluso la música que pasan las 24 hs. es COMPLETAMENTE LIBRE. ¡Y esto no es para menos, estamos ante la posibilidad de poder escuchar libertad las 24 hs. !.
+Pero no es cualquier radio, es una radio completamente libre donde incluso la música que pasan las 24 hs. es COMPLETAMENTE LIBRE. ¡Y esto no es para menos, estamos ante la posibilidad de poder escuchar libertad las 24 hs. !.
 
 Dejamos la descripción de la propia radio:
 
