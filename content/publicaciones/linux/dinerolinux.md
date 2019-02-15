@@ -1,5 +1,5 @@
 ---
-title: "¿Se puede ganar dinero con el software libre?"
+title: "¿Se puede ganar dinero con el Software Libre?"
 date: "2019-01-03"
 description: "SO a la carta"
 type: "linux"
