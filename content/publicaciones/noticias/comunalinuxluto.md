@@ -5,7 +5,7 @@ description: 'Comunidad de luto, no hay tiempo para bromas'
 type: 'noticias'
 tags: ["Linux","Comunidad","luto"]
 category: ["noticias"]
-img: 'https://1.bp.blogspot.com/-xsafxLmhnVk/XCYMIznggtI/AAAAAAAAeK8/rgXQekHJOw4s-XUqdsOM3Ok89jhqIUscQCLcBGAs/s640/Capturefedora.PNG'
+img: 'https://i.postimg.cc/prmDD6jL/Capturefedora.png'
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/blog/img/perfil.jpg"
@@ -15,12 +15,12 @@ atbio: "Sobre mi no hay mucho para decir, me dedico a desarrollar en una empresa
 
 Más allá de cualquier noticia de broma que nos podamos encontrar hablando de que supuestamente Firefox se rinde ante Chromium (lo cual no es verdad) no tenemos que perder el foco de las cosas importantes y hoy lamentablemente lo importante es una noticia triste.
 
-Como podemos ver en su Twitter del dia 24 de diciembre fedora nos trae una triste noticia.
+Como podemos ver en su Twitter del dia 24 de diciembre, Fedora nos trae una triste noticia.
 
-{{< img src="https://1.bp.blogspot.com/-xsafxLmhnVk/XCYMIznggtI/AAAAAAAAeK8/rgXQekHJOw4s-XUqdsOM3Ok89jhqIUscQCLcBGAs/s640/Capturefedora.PNG" >}}
+{{< img src="https://i.postimg.cc/prmDD6jL/Capturefedora.png" >}}
 
-> El Proyecto Fedora lamenta la pérdida del Líder del Proyecto Fedora @gafton. Todas nuestras simpatías y apoyo se extienden a su familia
+> El Proyecto Fedora lamenta la pérdida del Líder del Proyecto Fedora @gafton. Todas nuestras simpatías y apoyo se extienden a su familia.
 
-El Líder de proyecto Cristian Gafton nos ha dejado. Y esta noticia es muy triste para todos mas allá de que usen fedora o no, dado que es un hombre que se fue respirando libertad y trabajando por la misma.
+El Líder de proyecto Cristian Gafton nos ha dejado. Y esta noticia es muy triste para todos mas allá de que usen Fedora o no, dado que es un hombre que se fue respirando libertad y trabajando por la misma.
 
-En lo personal me duele mucho que esto no salga entre los blogs o stios mas populares que si se dedican a desinformar con noticias falsas
+En lo personal me duele mucho que esto no salga entre los blogs o sitios mas populares que si se dedican a desinformar con noticias falsas.
