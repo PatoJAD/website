@@ -15,7 +15,7 @@ atbio: "Sobre mi no hay mucho para decir, me dedico a desarrollar en una empresa
 ### Elige tu Lucha
 El combate de RuneScape es emocionante y desafiante, con muchas opciones y capacidades diferentes para elegir. Hay disponibles miles de combinaciones de armaduras y armas, y los jugadores más fuertes son aquellos que se preparan bien para la batalla. Los jugadores pueden tratar de derrotar a cientos de NPC diferentes a medida que avanzan en su aventura o pueden participar en combates con otros jugadores en áreas específicas de PvP. Sigue leyendo para descubrir por qué Combat es una parte tan importante del juego de RuneScape.
 
-{{< img src="https://vignette.wikia.nocookie.net/eswikia/images/6/65/RuneScape.png/revision/latest?cb=20160825005327" >}}
+{{< img src="https://i.postimg.cc/KcpfRnTY/image.png" >}}
 
 ### Evolución del combate
 Un sistema de combate dinámico y moderno basado en las habilidades de hacer clic. Se puede jugar completamente de forma manual o semiautomatizada, y permite batallas emocionantes y visualmente impresionantes. Es una excelente forma de jugar en todos los niveles, y se recomienda encarecidamente para los desafiantes encuentros de jefes finales del juego. Hay tres tipos de habilidades:
