@@ -5,7 +5,7 @@ description: 'Opiniones sobre los diversos gestores de inicio'
 type: 'linux'
 tags: ["linux","init","opiniones"]
 category: ["Linux"]
-img : 'https://3.bp.blogspot.com/-JEbdBgSj6FA/XFLnWTyf0YI/AAAAAAAAe_8/A1vPVFhLZpU8QHa2x329V9LdaeXeOxNtwCLcBGAs/s640/opiniones_patojad.jpg'
+img : 'https://i.postimg.cc/ZKvq1ZYY/opiniones-patojad.jpg'
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/blog/img/perfil.jpg"
@@ -18,7 +18,7 @@ Este formato nuevo de generar un post para invitar a un debate me parecía algo 
 
 ### Comentarios
 
-{{< img src ="https://4.bp.blogspot.com/-pNZLtAGxYTM/XFLoHB98ltI/AAAAAAAAfAE/d4XxX_S_OHUMyUVm0nPtFI0sczYteGVqACLcBGAs/s640/opiniones2_patojad.jpg" >}}
+{{< img src ="https://i.postimg.cc/QdpddbWR/opiniones2-patojad.jpg" >}}
 
 Mucha gente se acerco al {{< textlink url="https://t.me/comunidadsoftwarelibre" text="grupo de telegram" >}} y tambien a otros grupos a comentar, y debatir, una de las cosas que mas note es que muy pocas personas defienden systemd, solo lo usan porque viene, como hacemos la mayoría...
 
@@ -53,7 +53,7 @@ Una de las cosas que suele romper systemd al actualizar el sistema, es que cuand
 Como les comente me faltaron algunos init, en principal me nombraron dos y son por los que voy a ir...
 
 ### OpenRC
-{{< img src="https://3.bp.blogspot.com/-gISAuDBsY6o/XFLqiUvy0RI/AAAAAAAAfAQ/MNmQYRM5-T4Y-Z7D1gNk1FgfNJICVVGVQCLcBGAs/s640/openrc_patojad.png" >}}
+{{< img src="https://i.postimg.cc/Bv4QLKTt/openrc-patojad.png" >}}
 
 Básicamente es un sistema de inicio que es compatible con BSD, SystemV mantenido por los mismos desarrolladores de Gentoo, que trabaja con el programa init proveído, normalmente SysVinit y está basado en dependencias.  Que cuenta con ventajas también es como systemd permite el inicio de los procesos simultáneo. No es un reemplazo para SysVinit.
 También es posible utilizar Openrc junto a otros kernels además del GNU/Linux, claro está que también como lo mencioné anteriormente con procesos como son cgroups.
@@ -67,7 +67,7 @@ Los que prefieren éste init (que a mi entender entre las alternativas es el má
 
 ### Runit
 
-{{< img src="https://1.bp.blogspot.com/-MLRAFL5nIsA/XFLqo1vM0VI/AAAAAAAAfAU/m85FPwriFT0dVsZbrIVlEkdvgpkiuXQ6QCLcBGAs/s640/runit_patojad.png" >}}
+{{< img src="https://i.postimg.cc/fbCWxRCC/runit-patojad.png" >}}
 
 Este init es un conjunto de herramientas que también incluyen un init PID 1, así como un sistema de chequeo de procesos compatibles con demonios y utilidades que nos agilizan la ejecución de procesos, así también la creación de los mismos y el mantenimiento. Además creo que algo que destaco obviamente de su simpleza es el “concepto” de un directorio de servicios que se encarga de manejar los servicios individualmente y obviamente de tener todo registrado perfectamente.
 
