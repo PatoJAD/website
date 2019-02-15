@@ -5,7 +5,7 @@ description: 'Una terminal futurista que dejara anonados a nuestros colegas'
 type: 'aplicaciones'
 tags: ["Terminal","edex-ui","console","futurista"]
 category: ["Aplicaciones"]
-img:  'https://4.bp.blogspot.com/-KsW2QQ4-j3Y/W_Li-0Brf0I/AAAAAAAAB5M/PYI7Lb_C2lQv2cJTZ_aWfQwTl7OP7MxrwCLcBGAs/s1600/edex-ui-scifi-computer-interface.jpg'
+img:  'https://i.postimg.cc/YSxfkgkM/edex-ui-scifi-computer-interface.jpg'
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/blog/img/perfil.jpg"
@@ -14,7 +14,7 @@ atbio: "Sobre mi no hay mucho para decir, me dedico a desarrollar en una empresa
 
 eDEX-UI es una aplicación de escritorio de pantalla completa que se asemeja a una interfaz de computadora de ciencia ficción, inspirada en gran medida en DEX-UI y los efectos de película TRON Legacy. Ejecuta el shell de su elección en un terminal real y muestra información en vivo sobre su sistema. Fue diseñado para ser usado en pantallas táctiles grandes, pero funcionará bien en una computadora de escritorio normal o tal vez en una tableta o en una de esas computadoras portátiles de 360 ° con pantalla táctil.
 
-{{< img src="https://4.bp.blogspot.com/-KsW2QQ4-j3Y/W_Li-0Brf0I/AAAAAAAAB5M/PYI7Lb_C2lQv2cJTZ_aWfQwTl7OP7MxrwCLcBGAs/s1600/edex-ui-scifi-computer-interface.jpg" >}}
+{{< img src="https://i.postimg.cc/YSxfkgkM/edex-ui-scifi-computer-interface.jpg" >}}
 
 {{< br >}}
 
