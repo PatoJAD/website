@@ -5,14 +5,14 @@ description: "Caminando entre grupos nos encontramos con esta radio venezolana"
 type: "juegos"
 tags: ["Radio","Software Libre","Venezuela"]
 category: ["Noticias"]
-img: "https://i1.sndcdn.com/avatars-000086556984-4c88xe-t500x500.jpg"
+img: "https://i.postimg.cc/FK41yq4r/avatars-000086556984-4c88xe-t500x500.jpg"
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/blog/img/perfil.jpg"
 atbio: "Sobre mi no hay mucho para decir, me dedico a desarrollar en una empresa de telecomunicaciones, utilizo linux desde el 2012 y hace años que es mi sistema operativo main. Soy una persona que busca crecer profesionalmente sin dejar de divertirse y hacer lo que me gusta. Siempre digo que cuando un proyecto sale es importante agradecer, por lo cual les recomiendo a todos leer la seccion Agreadecimientos en la cual me tome un tiempito para poder agradecer a todos y cada uno de los que hicieron posible todo esto."
 ---
 
-El día de ayer me encontraba contento por la inauguración del nuevo sitio, y con el apoyo de muchas personas dándome sus opiniones y comentarios, en ese momento me encontré con un héroe, de esos que llevan el mensaje que todos portamos en otro nivel y quiero hablar un poco de esto...
+El día de ayer me encontraba contento por la inauguración del nuevo sitio, y con el apoyo de muchas personas dandome sus opiniones y comentarios, en ese momento me encontré con un héroe, de esos que llevan el mensaje que todos portamos en otro nivel y quiero hablar un poco de esto...
 
 ### Radio Oyeven
 
@@ -20,7 +20,7 @@ El día de ayer me encontraba contento por la inauguración del nuevo sitio, y c
 
 Como encontré en su {{< textlink url="http://www.oyeven.com/somos-oyeven" text="Sitio Oficial" >}} su descripción es excelente:
 
->Oyeven 106.9 FM, inscrita en la filosofía ecologista de defensa y protección de los espacios verdes y parques nacionales con los que contamos en la Gran Caracas y el territorio nacional; nos sumamos al esfuerzo del Movimiento Ecologista Venezolano (MEVEN), motor conservacionista del Frente Francisco de Miranda, en cuya sede hacemos vida.
+>Oyeven 106.9 FM, inscripta en la filosofía ecologista de defensa y protección de los espacios verdes y parques nacionales con los que contamos en la Gran Caracas y el territorio nacional; nos sumamos al esfuerzo del Movimiento Ecologista Venezolano (MEVEN), motor conservacionista del Frente Francisco de Miranda, en cuya sede hacemos vida.
 
 >La nuestra es una emisora de expresión joven cuyo estandarte es el compromiso democrático y la participación protagónica para emitir valores de una nueva sociedad, mediante una programación que busca entretener, formar e informar a las y los jóvenes, la familia, las organizaciones y movimientos sociales de los cinco Municipios de la Gran Caracas.
 
