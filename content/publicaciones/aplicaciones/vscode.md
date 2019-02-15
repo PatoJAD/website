@@ -5,7 +5,7 @@ description: 'Editor de Código'
 type: 'aplicaciones'
 tags: ["","","",""]
 category: ["Aplicaciones"]
-img: 'https://3.bp.blogspot.com/-2os_MjmR0TQ/XDTZH-R4AfI/AAAAAAAAekw/5WnseRt5UrYMGOJonu4hMywneWBtlOgzQCLcBGAs/s640/Visual-Studio-Code.png'
+img: 'https://i.postimg.cc/g0vBxwYS/Visual-Studio-Code.png'
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/blog/img/perfil.jpg"
@@ -13,13 +13,13 @@ atbio: "Sobre mi no hay mucho para decir, me dedico a desarrollar en una empresa
 
 ---
 
-Si bien no esta en mi stock de aplicaciones para programar no podemos dejar de lado el trabajo que esta realizando y el esfuerzo que realiza microsoft para participar del Open Source.
+Si bien no esta en mi stock de aplicaciones para programar no podemos dejar de lado el trabajo que esta realizando y el esfuerzo que realiza MS Microsoft para participar del Open Source.
 
-En esta oportunidad en su actualización no trae herramientas que están pensadas para simplificarnos el día a día de los programadores!
+En esta oportunidad en su actualización, ¡Nos trae herramientas que están pensadas para simplificarnos el día a día de los Programadores!
 
-Lo primero que se ha destacado de Visual Studio Code 1.30 es la mejora del soporte de la búsqueda multilínea que fue introducido en el anterior lanzamiento de la aplicación. Haciendo que ahora no sea imprescindible la introducción de una expresión regular. El usuario puede recurrir a la combinación de teclas “shift+intro” para introducir varias líneas en la barra de búsqueda o bien copiar y pegar un texto de varias líneas procedente de un fichero.
+Lo primero que se ha destacado de Visual Studio Code 1.30 es la mejora del soporte de la búsqueda multilínea que fue introducido en el anterior lanzamiento de la aplicación. Haciendo que ahora no sea imprescindible la introducción de una expresión regular. El usuario puede recurrir a la combinación de teclas _“Shift + Intro”_ para introducir varias líneas en la barra de búsqueda o bien copiar y pegar un texto de varias líneas procedente de un fichero.
 
-{{< img src="https://www.muylinux.com/wp-content/uploads/2018/12/Mejora-en-el-soporte-de-la-busqueda-multilinea-en-Visual-Studio-Code-1.30.png" >}}
+{{< img src="https://i.postimg.cc/jqQcy0Y5/Mejora-en-el-soporte-de-la-busqueda-multilinea-en-Visual-Studio.pngg" >}}
 
 Se incrusta la barra de menú en la barra de título, haciendo que se ahorre espacio en pantalla, pero posiblemente dificulte la gestión de la propia ventana en monitores que no tengan mucha resolución.
 
