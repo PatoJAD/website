@@ -36,9 +36,9 @@ Dentro de esta gran radio se encuentra nuestro héroe llamado John, el contiene 
 
 >Bueno tengo un programa de radio en Caracas - Venezuela llamado Tecnatural que se transmite a las 8 a 10 am los jueves el cual tiene objetivo de divulgar informaciones ambientales y promover el uso de software libre mediante noticias, recomendaciones
 
-Un proyecto tan grande como este tiene que ser reconocido por todos los que usamos software libre y predicamos sobre el mismo, para todos nosotros tenemos un compromiso todos los jueves de 8 a 10 (hs de venezuela)
+Un proyecto tan grande como este tiene que ser reconocido por todos los que usamos software libre y predicamos sobre el mismo, para todos nosotros tenemos un compromiso todos los jueves de 8 a 10 (hs de venezuela).
 
 {{< br >}}
 {{< br >}}
 
-¿Qué piensas de este gran proyecto? ¿Cómo colaboras vos con esta tarea de difundir?
+¿Qué piensas de este gran proyecto?, ¿Cómo colaborarías Vos con la tarea de difundirlo ?.
