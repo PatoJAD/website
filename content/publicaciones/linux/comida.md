@@ -5,14 +5,14 @@ description: "SO a la carta"
 type: "linux"
 tags: ["Libertad","Comparacion","Comida"]
 category: ["Linux"]
-img:  "https://i.pinimg.com/originals/c9/d6/9b/c9d69bef2fa1a15e72c00244089d3668.jpg"
+img:  "https://i.postimg.cc/qvgbM1qQ/mastiquin.jpg"
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/blog/img/perfil.jpg"
 atbio: "Sobre mi no hay mucho para decir, me dedico a desarrollar en una empresa de telecomunicaciones, utilizo linux desde el 2012 y hace años que es mi sistema operativo main. Soy una persona que busca crecer profesionalmente sin dejar de divertirse y hacer lo que me gusta. Siempre digo que cuando un proyecto sale es importante agradecer, por lo cual les recomiendo a todos leer la seccion Agreadecimientos en la cual me tome un tiempito para poder agradecer a todos y cada uno de los que hicieron posible todo esto."
 ---
 
-En esta nueva entrada presentamos una comparación que nos ayuda a comprender las diferencias entre los sistemas operativos libres y propietarios. Para esto vamos a usar una comparación que hizo Sergio un gran colega que apoya el software libre. Al principio pensé en modificar un poco el texto pero no quiero perder su esencia por ende quiero aclarar que lo que viene a continuación es literalmente lo que Segio publico en Escuela libre!
+En esta nueva entrada presentamos una comparación que nos ayuda a comprender las diferencias entre los Sistemas Operativos Libres y propietarios. Para esto vamos a usar una comparación que hizo Sergio, un gran colega que apoya el Software Libre. Al principio pensé en modificar un poco el texto pero no quiero perder su esencia, por ende quiero aclarar que lo que viene a continuación es literalmente lo que Segio publicó en Escuela libre!.
 
 # ¿Que tipo de comida es tu Sistema Operativo?​
 
@@ -36,13 +36,13 @@ En esta nueva entrada presentamos una comparación que nos ayuda a comprender la
 
 
 * Es cara.
-* La presentación es casi más importante que el producto en sí.
-* El usuario no puede aderezar libremente la comida. Tiene que comerla como se la sirven y si cuestiona el sabor, generalmente se le tachará de tener mal gusto.
+* La presentación es casi más importante que el producto en si.
+* El usuario no puede aderezar libremente la comida. Tiene que comerla como se la sirven y si cuestiona el sabor, generalmente se lo tachará de tener mal gusto.
 * Mucha gente la come no porque crea que es más sabrosa, sino porque al hacerlo aparenta ser un entendido culinario frente a sus amigos.
 * Sólo la consigues en lugares exclusivos, donde cosas comunes que podrías conseguir en otros lados salen muchísimo más caras.
 * Siempre innovando y reinventando, aunque a veces no por agradar al usuario, sino por mantener vivo el negocio.
 * Te aseguran que está elaborado con lo mejor de lo mejor, pero no te dejan entrar a la cocina a ver cómo lo hacen.
-Si algún plato te desagradó, estaba mal preparado o te sentó mal, no te explicarán qué pasó, aunque te regalarán un descuento para tu próxima comida.
+* Si algún plato te desagradó, estaba mal preparado o te sentó mal, no te explicarán qué pasó, aunque te regalarán un descuento para tu próxima comida.
 * Para ellos, la comida que se hace en otros lados es de mala calidad, aunque no la hayan probado nunca o alguna vez usen sus recetas en sus propios platos.
 * El Gourmet se acercará como una persona sencilla, cercana y espontánea, pero apenas empiece a hablar de sus cosas, te darás cuenta que está en un nivel que no te puedes permitir. Sencillamente lo hace porque es bueno para la imagen de su negocio.
 
