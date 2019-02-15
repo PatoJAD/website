@@ -5,7 +5,7 @@ description: "MMORPG Online"
 type: "juegos"
 tags: ["RunScape","MMORPG","Online"]
 category: ["Juegos"]
-img:  "https://postimg.cc/0rd1ZcgL][img]https://i.postimg.cc/0rd1ZcgL/image2.png"
+img:  "https://i.postimg.cc/TwC9jbHC/Old-School-Rune-Scape-810x400.png"
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/blog/img/perfil.jpg"
