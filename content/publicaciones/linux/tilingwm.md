@@ -6,7 +6,7 @@ type: 'linux'
 tags: ["i3-wm","Bspwm","Awesome","qtile","GNU/Linux"]
 category: ["Linux"]
 img: 'https://i.postimg.cc/Z5N7xMhn/wm-00.jpg'
-atname: "Juan Adrián Castro Quintana"
+atname: "J.A. Castro Quintana"
 atdesc: "Estudiante de Licenciatura en Educación Nivel Medio."
 atimg: "https://i.postimg.cc/KYr0d3jy/photo-2019-02-19-19-40-50.jpg"
 atbio: "Futuro docente y amante de la informática y los videojuegos. Uso Linux desde el 2016 y me gusta poder aprender y compartir lo que aprendo con otros."
@@ -21,14 +21,14 @@ Un _Tiling Window Manager_ se diferencía de un Gestor de Ventanas normal en que
 
 Hasta ahorita, he instalado en mi sistema y probado cuatro de estos WM:
 
-+ **i3wm.** 
-+ **bspwm.** 
++ **i3wm.**
++ **bspwm.**
 + **awesome.**
 + y **Qtile.**
 
 ## i3
 
-Quizá [i3wm](https://i3wm.org/) sea el _Tiling Window Manager_ más famoso y el más amigable para los principiantes. Fue el primero que usé ya que instalé _Manjaro i3_. **i3** se configura mediante un archivo de texto, su documentación es muy buena y amplia (aunque en Inglés) y permite crear "layouts" tan complejas como se desee, algunas configuraciones rayando en lo ridículo. 
+Quizá [i3wm](https://i3wm.org/) sea el _Tiling Window Manager_ más famoso y el más amigable para los principiantes. Fue el primero que usé ya que instalé _Manjaro i3_. **i3** se configura mediante un archivo de texto, su documentación es muy buena y amplia (aunque en Inglés) y permite crear "layouts" tan complejas como se desee, algunas configuraciones rayando en lo ridículo.
 
 {{< img src="https://i.postimg.cc/rmfQp65n/i3.png" >}}
 
@@ -39,9 +39,9 @@ Es un buen WM, muy bien documentado, aunque carece de "layouts" automáticas y p
 
 ## Bspwm
 
-[Bspwm](https://github.com/baskerville/bspwm) es el Window Manager en el que más tiempo he pasado y el que uso actualmente. **Bspwm** solo se encarga de mostrar ventanas, quien se encarga de controlarlas es un módulo llamado `bspc`, es decir que podemos enviar órdenes a `bspwm` (mover ventanas, cerrar ventanas, cambiar tamaño de los bordes, etc.) con comandos en terminal. 
+[Bspwm](https://github.com/baskerville/bspwm) es el Window Manager en el que más tiempo he pasado y el que uso actualmente. **Bspwm** solo se encarga de mostrar ventanas, quien se encarga de controlarlas es un módulo llamado `bspc`, es decir que podemos enviar órdenes a `bspwm` (mover ventanas, cerrar ventanas, cambiar tamaño de los bordes, etc.) con comandos en terminal.
 
-**Bspwm** se configura en 2 partes: un script de bash (`bspwmrc`) donde indicamos algunas reglas y configuraciones de ventanas, y la aplicación que deseemos usar para configurar atajos de teclado, aunque, como viene recomendado en la página de **Bspwm**, la mayoría usa [sxhkd](https://github.com/baskerville/sxhkd), pero podemos usar la que queramos, como _obkey_ o la herramienta de algún Entorno de Escritorio. Las ventanas se abren como "hojas de un arbol binario", es decir, al abrir una ventana, la última ventana abierta se divide en 2, ya sea vertical u horizontal, para ir formando una espiral, también se pueden preseleccionar donde queremos que se abra la nueva ventana, similar a _i3_, aunque en mi opinión, tiene un acomodo de ventanas manual más poderoso, al poder elegir la proporción en la que queremos se divida la ventana. 
+**Bspwm** se configura en 2 partes: un script de bash (`bspwmrc`) donde indicamos algunas reglas y configuraciones de ventanas, y la aplicación que deseemos usar para configurar atajos de teclado, aunque, como viene recomendado en la página de **Bspwm**, la mayoría usa [sxhkd](https://github.com/baskerville/sxhkd), pero podemos usar la que queramos, como _obkey_ o la herramienta de algún Entorno de Escritorio. Las ventanas se abren como "hojas de un arbol binario", es decir, al abrir una ventana, la última ventana abierta se divide en 2, ya sea vertical u horizontal, para ir formando una espiral, también se pueden preseleccionar donde queremos que se abra la nueva ventana, similar a _i3_, aunque en mi opinión, tiene un acomodo de ventanas manual más poderoso, al poder elegir la proporción en la que queremos se divida la ventana.
 
 {{< img src="https://i.postimg.cc/ZqCrL9Nc/bspwm.png" >}}
 
@@ -51,7 +51,7 @@ Es un buen WM, muy bien documentado, aunque carece de "layouts" automáticas y p
 
 {{< img src="https://i.postimg.cc/1z2D79cZ/awesome.png" >}}
 
-[Awesome](https://awesomewm.org/) es un WM desarrollado en _Lua_. Tiene mucha mejor integración con el ratón que los demás y es posible usarlo como un WM flotante, como _openbox_, incluso viene con bordes y botones de cerrar y minimizar, bandeja de notificaciones, temas, menú de ventanas abiertas y lanzador de aplicaciones. 
+[Awesome](https://awesomewm.org/) es un WM desarrollado en _Lua_. Tiene mucha mejor integración con el ratón que los demás y es posible usarlo como un WM flotante, como _openbox_, incluso viene con bordes y botones de cerrar y minimizar, bandeja de notificaciones, temas, menú de ventanas abiertas y lanzador de aplicaciones.
 
 Viene con un conjunto de "layouts" preseleccionadas y podemos elegir cuales usar, entre ellas las de otros WM como _Bspwm_ y _Xmonad_, sin embargo, no tiene modo manual para colocar ventanas como si lo tienen _Bspwm_ o _i3_. Posee un panel integrado llamado _wiibar_, totalmente personalizable desde su archivo de configuración, y existen muchos módulos (widgets) que podemos agregar o podemos desarrollar los propios.
 
