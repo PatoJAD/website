@@ -6,7 +6,7 @@ type: 'linux'
 tags: ["i3-wm","Bspwm","Awesome","qtile","GNU/Linux"]
 category: ["Linux"]
 img: 'https://i.postimg.cc/Z5N7xMhn/wm-00.jpg'
-atname: "J.A. Castro Quintana"
+atname: "Castro Quintana"
 atdesc: "Estudiante de Licenciatura en Educación Nivel Medio."
 atimg: "https://i.postimg.cc/KYr0d3jy/photo-2019-02-19-19-40-50.jpg"
 atbio: "Futuro docente y amante de la informática y los videojuegos. Uso Linux desde el 2016 y me gusta poder aprender y compartir lo que aprendo con otros."
