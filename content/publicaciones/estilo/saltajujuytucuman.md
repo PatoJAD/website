@@ -1,6 +1,6 @@
 ---
 title: "Regalo de Vacaciones"
-date: "2019-02-14"
+date: "2019-03-06"
 description: "Despues de estas vacaciones les traigo un pequeño regalo"
 type: "estilo"
 tags: ["fondos","GTK","KDE","QT","wallpapers"]
