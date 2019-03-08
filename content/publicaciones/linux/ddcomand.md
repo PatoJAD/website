@@ -5,7 +5,7 @@ description: "Muchas nos preguntamos cuál es la mejor APP para armar nuestros U
 type: "linux"
 tags: ["dd","terminal","linux"]
 category: ["Linux"]
-img:  "https://www.tecmint.com/wp-content/uploads/2015/03/dd-Command-Example.gif"
+img:  "https://cloud.addictivetips.com/wp-content/uploads/2018/03/dd-e1520370085938.png"
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"
@@ -34,7 +34,8 @@ Uno de los principales problemas a la hora de usar dd es que no comprendemos bie
 El único “problema” de este comando básico es que no deja una incertidumbre de cuanto falta, cómo va el proceso y demás… Recordemos que no nos da un feedback de lo que está pasando mientras se está grabando.
 
 Esto se puede solucionar con un pequeño cambio en el comando original que nos mostrara como va ocurriendo todo:
-Sudo dd if=origen |pv|dd of=destino
+
+    sudo dd if=origen |pv|dd of=destino
 
 Como resultado obtendríamos en el terminal una especie de barra de progreso, la información sobre bytes transferidos, el tiempo que lleva ejecutándose y la tasa de transferencia, todo esto en tiempo real.
 
@@ -57,5 +58,7 @@ Además al terminar nos muestra estadísticas de la tasa de transferencia, el to
     └──┤
 
  * Comprobar antes de ejecutar cualquier linea de comandos con esta segunda sintaxis, que tenemos instalado en el sistema el paquete pv, o instalarlo si no lo tuviéramos: ambas cosas con Synaptic.
+
+Si necesitas mas informacion sobre este comando podemos usar {{< textlink url="https://patojad.gitlab.io/publicaciones/linux/man/" text="MAN siguiendo nuestro tuto" >}}
 
 Fuente: desdelinux
