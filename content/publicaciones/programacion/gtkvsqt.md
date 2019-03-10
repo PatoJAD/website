@@ -1,6 +1,6 @@
 ---
 title: "GTK vs QT"
-date: "2019-03-11"
+date: "2019-03-10"
 description: "Ambas librerias tiene sus ventajas y hoy vamos a ver mi sorpresa con estas librerias"
 type: "programacion"
 tags: ["GTK","QT","Librerias","versus"]
