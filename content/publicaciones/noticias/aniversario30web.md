@@ -1,7 +1,7 @@
 ---
-title: '30 años de la web!'
+title: '30 años de la World Wide Web!'
 date: '2019-03-12'
-description: 'Nuestra querida web celebra 30 años y compartimos un poco de su historia con vos '
+description: 'Nuestra querida World Wide Web tambien conocida como Madre de las Webs celebra hoy sus 30 años y compartimos un poco de su historia con vos '
 type: 'noticias'
 tags: ["ChromeOS"]
 category: ["Noticias"]
