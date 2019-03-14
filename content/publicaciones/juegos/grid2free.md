@@ -56,4 +56,4 @@ Si bien solo es nativo para windows nos conviene tener en nuestra biblioteca el 
 {{< br >}}
 {{< br >}}
 
-{{< linik url="https://www.humblebundle.com/store/grid2-spa-bathurst" text="Pedir Key" >}}
+{{< link url="https://www.humblebundle.com/store/grid2-spa-bathurst" text="Pedir Key" >}}
