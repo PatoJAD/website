@@ -20,7 +20,7 @@ Así se presenta uno de los mejores juegos de carreras, este juego se encuentra 
 
 Ponte a los mandos, pisa a fondo y persigue la fama en GRID 2, la nueva entrega de Race Driver: GRID, el juego que ganó un premio BAFTA y vendió millones de copias. Sumérgete en agresivas carreras rueda con rueda contra una IA avanzada y vive a fondo la competición con el nuevo sistema de control TrueFeel™, que transmite al detalle la emoción de ponerse al volante de unos coches legendarios. La nueva generación de la plataforma tecnológica para juegos EGO te ofrece unos gráficos únicos en este género y un sistema de daños sensacional para que te pongas a prueba en tres continentes distintos con competiciones de otro nivel. Saborea la fama y amasa una fortuna a un ritmo vertiginoso con carreras intensas e implacables dentro de circuitos oficiales, calles perfectamente recreadas y peligrosas carreteras de montaña. GRID 2 también establecerá un nuevo estándar en cuanto a carreras multijugador gracias a modos innovadores, un sistema de progresión totalmente independiente y una total integración en RaceNet, la extensión gratuita en línea para los juegos de Codemasters Racing.
 
-{{ img src="https://steamcdn-a.akamaihd.net/steam/apps/44350/header.jpg?t=1546282708" }}
+{{< img src="https://steamcdn-a.akamaihd.net/steam/apps/44350/header.jpg?t=1546282708" >}}
 
 Grid 2 Es Competición Como Nunca.
 * Las carreras cobran vida con el alucinante sistema de control TrueFeel™ de GRID 2.
