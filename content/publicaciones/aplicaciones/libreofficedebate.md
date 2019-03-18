@@ -24,8 +24,7 @@ Muchos conocemos ya a "Switched to Linux" por lo cual vamos a proceder a ver el 
 >libreoffice siempre ha tratado de parecerse a MSoffice
 >
 >aunque ambos son buenos word siempre esta un paso adelante
->
->{{<citaname name=" ensarman">}}
+
 
 {{<br>}}
 
