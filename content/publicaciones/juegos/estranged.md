@@ -25,6 +25,7 @@ Estranged cuenta la historia de un pescador solitario, cuyo barco queda varado e
 Explora los ricos ambientes y conoce a los curiosos habitantes de la isla mientras buscas un camino de regreso a tierra firme. Planta cara al riesgo y a la intriga en esta peligrosa aventura, donde pronto te darás cuenta de que no todo es tan normal como parece.
 
 Características:
+
 * Insólita jugabilidad e historia - El juego cuenta con alrededor de una hora de aventuras impulsadas por una historia. Incluye un elenco completamente original, con un guión cuidadosamente elaborado para traer el mundo de Estranged a la vida.
 
 * Gráficos alucinantes - Estranged se basa en el mismo motor gráfico que Half-Life 2, con algunas características adicionales. Hemos ampliado el sistema de iluminación dinámica, lo que nos permite iluminar nuestros niveles de una manera realista. Además, hemos incluido efectos tales como el granulado de película y el reflejo en la lente para ayudar a crear ambiente en el juego.
