@@ -7,10 +7,6 @@ tags: ["Libertad","Comparacion","Comida"]
 category: ["Linux"]
 img:  "https://i.postimg.cc/qvgbM1qQ/mastiquin.jpg"
 authors: ["PatoJAD"]
-atname: "PatoJAD"
-atdesc: "Desarrollador"
-atimg: "https://patojad.gitlab.io/img/perfil.jpg"
-atbio: "Sobre mi no hay mucho para decir, me dedico a desarrollar en una empresa de telecomunicaciones, utilizo linux desde el 2012 y hace años que es mi sistema operativo main. Soy una persona que busca crecer profesionalmente sin dejar de divertirse y hacer lo que me gusta. Siempre digo que cuando un proyecto sale es importante agradecer, por lo cual les recomiendo a todos leer la seccion Agreadecimientos en la cual me tome un tiempito para poder agradecer a todos y cada uno de los que hicieron posible todo esto."
 ---
 
 En esta nueva entrada presentamos una comparación que nos ayuda a comprender las diferencias entre los Sistemas Operativos Libres y propietarios. Para esto vamos a usar una comparación que hizo Sergio, un gran colega que apoya el Software Libre. Al principio pensé en modificar un poco el texto pero no quiero perder su esencia, por ende quiero aclarar que lo que viene a continuación es literalmente lo que Segio publicó en Escuela libre!.

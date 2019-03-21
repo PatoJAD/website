@@ -7,10 +7,6 @@ tags: ["RetroPie","Retro","8bits"]
 category: ["Juegos"]
 img:  "https://i.postimg.cc/mksFBfCJ/maxresdefault.jpg"
 authors: ["PatoJAD"]
-atname: "PatoJAD"
-atdesc: "Desarrollador"
-atimg: "https://patojad.gitlab.io/img/perfil.jpg"
-atbio: "Sobre mi no hay mucho para decir, me dedico a desarrollar en una empresa de telecomunicaciones, utilizo linux desde el 2012 y hace años que es mi sistema operativo main. Soy una persona que busca crecer profesionalmente sin dejar de divertirse y hacer lo que me gusta. Siempre digo que cuando un proyecto sale es importante agradecer, por lo cual les recomiendo a todos leer la seccion Agreadecimientos en la cual me tome un tiempito para poder agradecer a todos y cada uno de los que hicieron posible todo esto."
 ---
 
 Muchos de nosotros crecimos con juegos de otra época, y tenemos cierta fidelidad a esos juegos. Soy de los que prefieren jugar al Pokemon Esmeralda al Pokemon GO. Y por suerte es algo que pude inculcar en mi familia. Siempre tenemos que volver a los orígenes.

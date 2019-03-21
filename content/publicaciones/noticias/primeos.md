@@ -7,11 +7,6 @@ tags: ["PrimeOS","PC","Android"]
 category: ["noticias"]
 img: https://i.postimg.cc/cL1qyB0x/prime-Os-Artwork2-X.png'
 authors: ["PatoJAD"]
-atname: "PatoJAD"
-atdesc: "Desarrollador"
-atimg: "https://patojad.gitlab.io/img/perfil.jpg"
-atbio: "Sobre mi no hay mucho para decir, me dedico a desarrollar en una empresa de telecomunicaciones, utilizo linux desde el 2012 y hace años que es mi sistema operativo main. Soy una persona que busca crecer profesionalmente sin dejar de divertirse y hacer lo que me gusta. Siempre digo que cuando un proyecto sale es importante agradecer, por lo cual les recomiendo a todos leer la seccion Agreadecimientos en la cual me tome un tiempito para poder agradecer a todos y cada uno de los que hicieron posible todo esto."
-
 ---
 
 Hace tiempo pasaron proyectos como RemixOS o Phoenix OS pero perdieron el enfoque callendo en el olvido y terminando por desaparecer. Sin embargo Android en una PC es una buena salida para todos aquellos que tenemos algún equipo antiguo en el cual nos sirve para estudiar o realizar búsquedas y demás.

@@ -7,10 +7,6 @@ tags: ["Krunner","KDE","Ulauncher","dmenu"]
 category: ["Aplicaciones"]
 img:  'https://cdn.slant.co/a7f6a944-60e4-4974-a2aa-da2e93f0294b/-/format/jpeg/-/progressive/yes/-/preview/480x480/'
 authors: ["PatoJAD"]
-atname: "PatoJAD"
-atdesc: "Desarrollador"
-atimg: "https://patojad.gitlab.io/img/perfil.jpg"
-atbio: "Sobre mi no hay mucho para decir, me dedico a desarrollar en una empresa de telecomunicaciones, utilizo linux desde el 2012 y hace años que es mi sistema operativo main. Soy una persona que busca crecer profesionalmente sin dejar de divertirse y hacer lo que me gusta. Siempre digo que cuando un proyecto sale es importante agradecer, por lo cual les recomiendo a todos leer la seccion Agreadecimientos en la cual me tome un tiempito para poder agradecer a todos y cada uno de los que hicieron posible todo esto."
 ---
 
 {{< img src="http://www.kdeblog.com/wp-content/uploads/2010/05/krunner-main-image.jpg" >}}
