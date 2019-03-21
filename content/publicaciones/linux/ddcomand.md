@@ -6,6 +6,7 @@ type: "linux"
 tags: ["dd","terminal","linux"]
 category: ["Linux"]
 img:  "https://cloud.addictivetips.com/wp-content/uploads/2018/03/dd-e1520370085938.png"
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

@@ -6,6 +6,7 @@ type: "juegos"
 tags: ["OpenSource","MMORPG","Free"]
 category: ["Juegos"]
 img:  "https://wiki.spiralknights.com/es/images/b/bd/SpiralKnights_News_44-big.png"
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

@@ -6,6 +6,7 @@ type: 'linux'
 tags: ["Música","Desarrollo","Programación","GNU/Linux"]
 category: ["Linux"]
 img: 'https://i.postimg.cc/fyRSfK8k/00-program-music.png'
+authors: ["tanomarcelo"]
 atname: "tanomarcelo"
 atdesc: "Usuario"
 atimg: "https://i.postimg.cc/FsnCcCTd/tae-to-work1.png"

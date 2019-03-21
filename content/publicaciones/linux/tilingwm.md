@@ -6,6 +6,7 @@ type: 'linux'
 tags: ["i3-wm","Bspwm","Awesome","qtile","GNU/Linux"]
 category: ["Linux"]
 img: 'https://i.postimg.cc/Z5N7xMhn/wm-00.jpg'
+authors: ["Castro Quintana"]
 atname: "Castro Quintana"
 atdesc: "Estudiante de Licenciatura en Educación Nivel Medio."
 atimg: "https://i.postimg.cc/KYr0d3jy/photo-2019-02-19-19-40-50.jpg"

@@ -6,6 +6,7 @@ type: "juegos"
 tags: ["MOD","Steam","Free"]
 category: ["Juegos"]
 img:  "https://steamcdn-a.akamaihd.net/steam/apps/582890/header.jpg?t=1552600294"
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

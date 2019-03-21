@@ -6,6 +6,7 @@ type: "linux"
 tags: ["GRUB","Repair"]
 category: ["Linux"]
 img:  "https://i.postimg.cc/nzF9q5J8/Ubuntu-Grub-Console.png"
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

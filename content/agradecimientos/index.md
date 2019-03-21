@@ -5,6 +5,7 @@ type: 'page'
 tags: ["Gracias","Agradecimientos","informacion"]
 category: ["Pages"]
 img:  'http://cdn.atomix.vg/wp-content/uploads/2014/09/ceratigraciastotales.png'
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

@@ -6,6 +6,7 @@ type: 'noticias'
 tags: ["Latin Linux","Libre","Radio"]
 category: ["noticias"]
 img: 'https://i.postimg.cc/Pr0CxJV8/latinlinux.png'
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

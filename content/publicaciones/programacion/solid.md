@@ -6,6 +6,7 @@ type: "programacion"
 tags: ["POO","SOLID","Objetos","Desarrollo"]
 category: ["Programacion"]
 img:  "https://i.postimg.cc/g2V3qRx8/solid-resumen-de-los-principios.png"
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

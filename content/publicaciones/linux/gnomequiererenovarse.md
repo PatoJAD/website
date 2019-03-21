@@ -6,6 +6,7 @@ type: 'linux'
 tags: ["Gnome","GNU/Linux","renovarse"]
 category: ["linux"]
 img: 'https://i.postimg.cc/0ytMkCFk/login-screen-gnome-redesign.jpg'
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

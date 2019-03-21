@@ -6,6 +6,7 @@ type: "linux"
 tags: ["Libertad","Comparacion","Comida"]
 category: ["Linux"]
 img:  "https://i.postimg.cc/qvgbM1qQ/mastiquin.jpg"
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

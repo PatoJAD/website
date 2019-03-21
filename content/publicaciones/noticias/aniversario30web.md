@@ -6,6 +6,7 @@ type: 'noticias'
 tags: ["ChromeOS"]
 category: ["Noticias"]
 img: 'https://i.postimg.cc/8cLMwJFF/www-patojad.jpg'
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

@@ -6,6 +6,7 @@ type: "estilo"
 tags: ["fondos","GTK","KDE","QT","wallpapers"]
 category: ["Estilo"]
 img: "https://i.postimg.cc/W403DrFy/patojad.jpg"
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

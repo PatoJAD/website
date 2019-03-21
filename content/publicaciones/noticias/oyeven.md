@@ -6,6 +6,7 @@ type: "juegos"
 tags: ["Radio","Software Libre","Venezuela"]
 category: ["Noticias"]
 img: "https://i.postimg.cc/FK41yq4r/avatars-000086556984-4c88xe-t500x500.jpg"
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

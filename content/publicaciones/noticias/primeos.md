@@ -6,6 +6,7 @@ type: 'noticias'
 tags: ["PrimeOS","PC","Android"]
 category: ["noticias"]
 img: https://i.postimg.cc/cL1qyB0x/prime-Os-Artwork2-X.png'
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

@@ -6,6 +6,7 @@ type: "programacion"
 tags: ["Python","Django","framework","instalar"]
 category: ["Programacion"]
 img:  "https://i.postimg.cc/GpQLQ3PX/django-python.png"
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

@@ -6,6 +6,7 @@ type: "juegos"
 tags: ["Steam","AirStyle","Themes"]
 category: ["Juegos"]
 img: "https://i.postimg.cc/DzPcG0ZB/Deepin-Screenshot-20181205105759.png"
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

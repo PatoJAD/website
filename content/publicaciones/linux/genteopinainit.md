@@ -6,6 +6,7 @@ type: 'linux'
 tags: ["linux","init","opiniones"]
 category: ["Linux"]
 img : 'https://i.postimg.cc/ZKvq1ZYY/opiniones-patojad.jpg'
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

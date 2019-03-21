@@ -6,6 +6,7 @@ type: "sobremi"
 tags: ["Sobre mi","comunidad","informacion"]
 category: ["Pages"]
 img: "https://data.whicdn.com/images/113748982/large.jpg"
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

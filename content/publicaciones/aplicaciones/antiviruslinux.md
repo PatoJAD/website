@@ -6,6 +6,7 @@ type: 'aplicaciones'
 tags: ["GNU/Linux","Antivirus"]
 category: ["aplicaciones"]
 img: 'https://i.postimg.cc/FHqVhh3P/virusyantivirus-xl.png'
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

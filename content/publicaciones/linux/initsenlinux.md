@@ -6,6 +6,7 @@ type: 'linux'
 tags: ["linux","init"]
 category: ["Linux"]
 img : 'https://i.postimg.cc/cCnN5xRV/init-script-tux-patojad.png'
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

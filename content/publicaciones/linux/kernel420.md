@@ -6,6 +6,7 @@ type: 'linux'
 tags: ["Navidad","Kernel","GNU/Linux"]
 category: ["linux"]
 img: 'https://i.postimg.cc/c4b70sNv/KERNEL2560x1600.jpg'
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

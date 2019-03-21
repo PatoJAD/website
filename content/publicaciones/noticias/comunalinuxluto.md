@@ -6,6 +6,7 @@ type: 'noticias'
 tags: ["Linux","Comunidad","luto"]
 category: ["noticias"]
 img: 'https://i.postimg.cc/prmDD6jL/Capturefedora.png'
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

@@ -6,6 +6,7 @@ type: "estilo"
 tags: ["icons","GTK","KDE","QT"]
 category: ["Estilo"]
 img: "https://i.postimg.cc/ncK4tMB6/implement-patojad.png"
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

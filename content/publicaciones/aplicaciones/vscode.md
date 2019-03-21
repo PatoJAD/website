@@ -6,6 +6,7 @@ type: 'aplicaciones'
 tags: ["","","",""]
 category: ["Aplicaciones"]
 img: 'https://i.postimg.cc/g0vBxwYS/Visual-Studio-Code.png'
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

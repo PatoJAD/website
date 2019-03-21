@@ -6,6 +6,7 @@ type: "linux"
 tags: ["Manual","MAN","console","Terminal"]
 category: ["Linux"]
 img:  "https://i.postimg.cc/G2D38xB0/man-patojad.png"
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

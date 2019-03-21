@@ -6,6 +6,7 @@ type: 'aplicaciones'
 tags: ["Terminal","edex-ui","console","futurista"]
 category: ["Aplicaciones"]
 img:  'https://i.postimg.cc/YSxfkgkM/edex-ui-scifi-computer-interface.jpg'
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

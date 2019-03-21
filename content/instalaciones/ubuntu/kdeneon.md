@@ -6,6 +6,7 @@ type: "instalacion"
 tags: ["Ubuntu","KDE","Instalacion"]
 category: ["Ubuntu"]
 img:  "https://i.ytimg.com/vi/gAP7y2pEC1M/maxresdefault.jpg"
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

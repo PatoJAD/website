@@ -6,6 +6,7 @@ type: "juegos"
 tags: ["Steam","GRID2","Juego"]
 category: ["Juegos"]
 img: "https://i.postimg.cc/SsJ2LrZy/grid2-patojad.png"
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

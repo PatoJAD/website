@@ -6,6 +6,7 @@ type: 'aplicaciones'
 tags: ["Linux","Mensajería","Aplicaciones"]
 category: ["Aplicaciones"]
 img: 'https://i.postimg.cc/Fz3HkgBd/sshot-510.jpg'
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

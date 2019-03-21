@@ -6,6 +6,7 @@ type: 'linux'
 tags: ["Libertad"]
 category: ["linux"]
 img: 'https://i.postimg.cc/F159VdLf/porque-patojad.jpg'
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

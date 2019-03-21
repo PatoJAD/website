@@ -6,6 +6,7 @@ type: 'aplicaciones'
 tags: ["Libre Office","MS Office"]
 category: ["Aplicaciones"]
 img:  'https://i.postimg.cc/FFBY9K5d/librevsms-patojad.jpg'
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

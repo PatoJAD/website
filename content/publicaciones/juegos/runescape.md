@@ -6,6 +6,7 @@ type: "juegos"
 tags: ["RunScape","MMORPG","Online"]
 category: ["Juegos"]
 img:  "https://i.postimg.cc/TwC9jbHC/Old-School-Rune-Scape-810x400.png"
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

@@ -6,6 +6,7 @@ type: "programacion"
 tags: ["GTK","QT","Librerias","versus"]
 category: ["Programacion"]
 img:  "https://i.postimg.cc/pXfgbk5p/gtkvsqt-patojad.jpg"
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

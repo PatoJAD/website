@@ -6,6 +6,7 @@ type: "linux"
 tags: ["Libertad","GNU","Stallman"]
 category: ["Linux"]
 img:  "http://entreparentesis.org/wp-content/uploads/Libertad-aut%C3%A9ntica-696x464.jpg"
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

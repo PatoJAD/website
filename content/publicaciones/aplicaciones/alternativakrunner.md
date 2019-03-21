@@ -6,6 +6,7 @@ type: 'aplicaciones'
 tags: ["Krunner","KDE","Ulauncher","dmenu"]
 category: ["Aplicaciones"]
 img:  'https://cdn.slant.co/a7f6a944-60e4-4974-a2aa-da2e93f0294b/-/format/jpeg/-/progressive/yes/-/preview/480x480/'
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

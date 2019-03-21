@@ -6,6 +6,7 @@ type: "linux"
 tags: ["Manual","MAN","español","Terminal"]
 category: ["Linux"]
 img:  "https://i.postimg.cc/KzCKCYTb/aplicar-la-configuracion-regional-patojad.png"
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

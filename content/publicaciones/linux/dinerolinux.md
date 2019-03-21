@@ -6,6 +6,7 @@ type: "linux"
 tags: ["Libertad","Dinero","Stallman"]
 category: ["Linux"]
 img:  "https://i.postimg.cc/TwxJm0dz/rmsdollar.jpg"
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"

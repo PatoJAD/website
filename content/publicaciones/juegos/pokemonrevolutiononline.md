@@ -6,6 +6,7 @@ type: "juegos"
 tags: ["Pokemon","MMORPG","PRO"]
 category: ["Juegos"]
 img:  "https://i.postimg.cc/KYD6JtQT/pokemon-patojad.jpg"
+authors: ["PatoJAD"]
 atname: "PatoJAD"
 atdesc: "Desarrollador"
 atimg: "https://patojad.gitlab.io/img/perfil.jpg"
