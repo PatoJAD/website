@@ -6,10 +6,7 @@ type: "linux"
 tags: ["Manual","MAN","español","Terminal"]
 category: ["Linux"]
 img:  "https://i.postimg.cc/KzCKCYTb/aplicar-la-configuracion-regional-patojad.png"
-atname: "PatoJAD"
-atdesc: "Desarrollador"
-atimg: "https://patojad.gitlab.io/img/perfil.jpg"
-atbio: "Sobre mi no hay mucho para decir, me dedico a desarrollar en una empresa de telecomunicaciones, utilizo linux desde el 2012 y hace años que es mi sistema operativo main. Soy una persona que busca crecer profesionalmente sin dejar de divertirse y hacer lo que me gusta. Siempre digo que cuando un proyecto sale es importante agradecer, por lo cual les recomiendo a todos leer la seccion Agreadecimientos en la cual me tome un tiempito para poder agradecer a todos y cada uno de los que hicieron posible todo esto."
+authors: ["PatoJAD"]
 ---
 
 Ya hablamos de man y podes verlo {{< textlink url="https://patojad.gitlab.io/publicaciones/linux/man/" text="aquí" >}}. Sin embargo muchas personas no tienen dominio del Inglés o simplemente no quieren estar traduciendo todo constantemente. Para esas personas les traigo una forma de poner las páginas de man en Español, antes de iniciar con esto debo aclarar que solo estará en Español lo que tiene una traducción. Puede que algunas cosas no dispongan este idioma y lo veamos en Inglés. En dicho caso se puede colaborar con la traducción.

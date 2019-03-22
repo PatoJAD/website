@@ -6,10 +6,7 @@ type: "estilo"
 tags: ["fondos","GTK","KDE","QT","wallpapers"]
 category: ["Estilo"]
 img: "https://i.postimg.cc/W403DrFy/patojad.jpg"
-atname: "PatoJAD"
-atdesc: "Desarrollador"
-atimg: "https://patojad.gitlab.io/img/perfil.jpg"
-atbio: "Sobre mi no hay mucho para decir, me dedico a desarrollar en una empresa de telecomunicaciones, utilizo linux desde el 2012 y hace años que es mi sistema operativo main. Soy una persona que busca crecer profesionalmente sin dejar de divertirse y hacer lo que me gusta. Siempre digo que cuando un proyecto sale es importante agradecer, por lo cual les recomiendo a todos leer la seccion Agreadecimientos en la cual me tome un tiempito para poder agradecer a todos y cada uno de los que hicieron posible todo esto."
+authors: ["PatoJAD"]
 ---
 
 ¡Buenas! Ya estamos de regreso después de unas vacaciones por el norte argentino. Este post merece una pequeña explicación, eventualmente cuando una persona va de vacaciones suele traer recuerdos o regalos para sus seres queridos. ¡Estos días pensé mucho en mi comunidad y en que podía traerle (Imaginan que distribuir alfajores se hacía un poco difícil) por lo cual mi mujer me dio una solución usando sus habilidades!

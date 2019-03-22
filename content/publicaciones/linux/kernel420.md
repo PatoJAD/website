@@ -6,11 +6,7 @@ type: 'linux'
 tags: ["Navidad","Kernel","GNU/Linux"]
 category: ["linux"]
 img: 'https://i.postimg.cc/c4b70sNv/KERNEL2560x1600.jpg'
-atname: "PatoJAD"
-atdesc: "Desarrollador"
-atimg: "https://patojad.gitlab.io/img/perfil.jpg"
-atbio: "Sobre mi no hay mucho para decir, me dedico a desarrollar en una empresa de telecomunicaciones, utilizo linux desde el 2012 y hace años que es mi sistema operativo main. Soy una persona que busca crecer profesionalmente sin dejar de divertirse y hacer lo que me gusta. Siempre digo que cuando un proyecto sale es importante agradecer, por lo cual les recomiendo a todos leer la seccion Agreadecimientos en la cual me tome un tiempito para poder agradecer a todos y cada uno de los que hicieron posible todo esto."
-
+authors: ["PatoJAD"]
 ---
 
 Hace pocas horas y después de dos meses de desarrollo, **Linus Torvalds anunció la nueva versión del Kernel de Linux 4.20**.

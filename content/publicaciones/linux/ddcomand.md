@@ -6,10 +6,7 @@ type: "linux"
 tags: ["dd","terminal","linux"]
 category: ["Linux"]
 img:  "https://cloud.addictivetips.com/wp-content/uploads/2018/03/dd-e1520370085938.png"
-atname: "PatoJAD"
-atdesc: "Desarrollador"
-atimg: "https://patojad.gitlab.io/img/perfil.jpg"
-atbio: "Sobre mi no hay mucho para decir, me dedico a desarrollar en una empresa de telecomunicaciones, utilizo linux desde el 2012 y hace años que es mi sistema operativo main. Soy una persona que busca crecer profesionalmente sin dejar de divertirse y hacer lo que me gusta. Siempre digo que cuando un proyecto sale es importante agradecer, por lo cual les recomiendo a todos leer la seccion Agreadecimientos en la cual me tome un tiempito para poder agradecer a todos y cada uno de los que hicieron posible todo esto."
+authors: ["PatoJAD"]
 ---
 
 Muchas nos preguntamos cuál es la mejor APP para armar nuestros USB booteables... En los grupos encontramos muchas respuestas diferentes y cada uno con su fanatismo.
