@@ -1,5 +1,5 @@
 ---
-title: 'Música y Desarrollo'
+title: 'Música y Desarrollo 1'
 date: '2019-02-19'
 description: 'Música Desarrollo'
 type: 'linux'
@@ -20,7 +20,7 @@ _________________________________________________________________________
 
 Cita el antiquísimo lema: _La Música es el poncho del Alma._
 
- Cita un escrito contemporáneo alojado en las pampas del saber con _quizá_, el mayor raconto de Parroquianos Visitantes ([Wikipedia](https://es.wikipedia.org/wiki/M%C3%BAsica)), que el arte de las _musas_ no es otra cosa que:
+Cita un escrito contemporáneo alojado en las pampas del saber con _quizá_, el mayor raconto de Parroquianos Visitantes ([Wikipedia](https://es.wikipedia.org/wiki/M%C3%BAsica)), que el arte de las _musas_ no es otra cosa que:
 
  * _El arte de organizar sensible y lógicamente una combinación coherente de sonidos y silencios respetando los principios fundamentales de la melodía, la armonía y el ritmo, mediante la intervención de complejos procesos psicoanímicos_.
 
@@ -38,7 +38,7 @@ Williams dijo:
 
 Listo. Marcha con fritas. A otra cosa.
 
-##### Código.
+<##### Código.
 
 Con el tiempo, la manipulación de datos hizo aterrizar en nuestras vidas a toda una caterva de aparetejos dedicados a tal fin.
 <br>
