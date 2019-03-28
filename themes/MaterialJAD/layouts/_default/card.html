@@ -1,0 +1,22 @@
+<div class="col-md-6">
+  <a href="{{ .RelPermalink }}">
+	<div class="recent-game-item">
+		<div class="rgi-thumb set-bg" data-setbg="{{ .Params.img }}">
+			<div class="cata {{ .Params.type }}">{{ .Params.type }}</div>
+		</div>
+		<div class="rgi-content {{ .Params.type }}">
+			<h5 class="text-white">{{ .Title }}</h5>
+			<p class="text-light">{{ .Params.description }}</p>
+      {{ $pages := .Site.Pages.ByPublishDate.Reverse }}
+      {{ range .Params.authors }}
+        {{ range first 1 (where (where $pages "Type" "authors") ".Params.name" .) }}
+          <img class="user-small-img" src="{{ .Params.photo }}" alt="{{ .Params.name }}">
+          <span style="font-size: 16px;color: #fff;">
+            {{ .Params.name }}
+          </span>
+        {{ end }}
+      {{ end }}
+		</div>
+	</div>
+  </a>
+</div>
