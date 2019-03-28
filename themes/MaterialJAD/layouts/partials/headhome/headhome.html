@@ -1,5 +1,7 @@
-<div class="row">
-  {{ range first 3 (where .Data.Pages "Type" "in" (slice "juegos" "linux" "programacion" "noticias" "estilo" "aplicaciones")).ByDate.Reverse }}
-  	Pato
-  {{ end }}
-</div>
+<section class="hero-section">
+	<div class="hero-slider owl-carousel">
+    {{ range first 3 (where .Data.Pages "Type" "in" (slice "juegos" "linux" "programacion" "noticias" "estilo" "aplicaciones")).ByDate.Reverse }}
+      {{ .Render "banner" }}
+    {{ end }}
+  </div>
+</section>
