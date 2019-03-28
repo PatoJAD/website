@@ -21,9 +21,9 @@ Por otro lado, a mi Hermano, el creador de _Guitando la Tocarra_, siempre me ins
 
 ___
 
-### Marcelo y Cr4ck3n
+### Marcelo y Cr4K3n
 
-Marcelo fue una de las personas que me impulsó a crear mi propio contenido al igual que Cr4ck3n, les agradezco su tiempo y por ser sinceros ayudándome con cada post y publicación. Les debo las mejoras en mis contenidos y espero que siempre estén ahí para ayudarme a mantener el camino del blog.
+Marcelo fue una de las personas que me impulsó a crear mi propio contenido al igual que Cr4K3n, les agradezco su tiempo y por ser sinceros ayudándome con cada post y publicación. Les debo las mejoras en mis contenidos y espero que siempre estén ahí para ayudarme a mantener el camino del blog.
 
 ___
 
