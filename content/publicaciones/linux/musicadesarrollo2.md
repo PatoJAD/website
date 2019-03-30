@@ -1,6 +1,6 @@
 ---
 title: 'Música y Desarrollo 2'
-date: '2019-03-26'
+date: '2019-03-25'
 description: 'Música Desarrollo'
 type: 'linux'
 tags: ["Música","Desarrollo","Programación","GNU/Linux"]
