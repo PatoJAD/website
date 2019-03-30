@@ -1,0 +1,15 @@
+<div class="latest-news-section bg-dark">
+  <div class="ln-title">Ultimas Noticias</div>
+  <div class="news-ticker">
+    <div class="news-ticker-contant">
+
+      {{ range first 6 (where .Data.Pages "Type" "in" (slice "juegos" "linux" "programacion" "noticias" "estilo" "aplicaciones")).ByDate.Reverse }}
+        <div class="nt-item">
+          <span class="{{ .Params.type }}">{{ .Params.type }}</span>
+          {{ .Title }}
+        </div>
+      {{ end }}
+
+    </div>
+  </div>
+</div>
