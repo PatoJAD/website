@@ -5,7 +5,7 @@ description: 'Se nos acerca el FLISOL 2019 y La gente del maraton linuxero les d
 type: 'noticias'
 tags: ["Linux","Comunidad","luto"]
 category: ["noticias"]
-img: 'https://i.postimg.cc/h4MT9Vjd/photo-2019-04-03-10-11-58.jpg'
+img: 'https://i.postimg.cc/1RW03Vjm/head-pato.png'
 authors: ["PatoJAD"]
 ---
 
