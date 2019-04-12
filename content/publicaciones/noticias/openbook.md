@@ -1,7 +1,7 @@
 ---
 title: 'OpenBook el Facebook Libre'
 date: '2019-04-11'
-description: 'Estos dias se habrio la inscripcion a la BETA de OpenBook la alternativa libre a Facebook y queremos contarte todo!'
+description: 'Estos dias se abrió la inscripcion a la BETA de OpenBook la alternativa libre a Facebook y queremos contarte todo!'
 type: 'noticias'
 tags: ["OpenBook","Facebook","OpenSource", "Libre"]
 category: ["noticias"]
@@ -70,6 +70,6 @@ Openbook se encuentra actualmente en pruebas alfa cerradas con más de 2000 usua
 
 {{< img src="https://i.postimg.cc/05GML78y/ob01.png" >}}
 
-Asi es como se precenta OpenBook, dice mucho y esperamos que cumpla, sin embargo ya nos incribimos para la BETA de esta red social que promete ser el futuro y lograr lo que G+ no pudo...
+Asi es como se presenta OpenBook, dice mucho y esperamos que cumpla, sin embargo ya nos incribimos para la BETA de esta red social que promete ser el futuro y lograr lo que G+ no pudo...
 
 {{< link url="https://www.openbook.social/en/home" text="OpenBook BETA" >}}
