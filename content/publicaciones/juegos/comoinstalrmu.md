@@ -84,4 +84,4 @@ El único problema que encontré es que no inicia el Launcher, pero podemos juga
 
 Y ejecutando el main.exe
 
-(Dentro de nuestro file manajer podemos presionar ctrl+h para ver los archivos y carpetas ocultos por ejemplo .wine)
+(Dentro de nuestro file manager podemos presionar ctrl+h para ver los archivos y carpetas ocultos por ejemplo .wine)
