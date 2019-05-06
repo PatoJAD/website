@@ -5,7 +5,7 @@ description: "Muchos conocemos este MMORPG Medieval que lleva años entre nosotr
 type: "juegos"
 tags: ["MMORPG","MUOnline","Free", "Wine"]
 category: ["Juegos"]
-img: "https://i.postimg.cc/DzPcG0ZB/Deepin-Screenshot-20181205105759.png"
+img: "https://i.postimg.cc/T3WhnLzd/Whats-App-Image-2019-05-05-at-17-40-54.jpg"
 authors: ["PatoJAD"]
 ---
 
@@ -75,6 +75,8 @@ Para otras distribuciones o BDS o MacOS revisar en su {{< textlink text="sitio o
 <br/>
 
 Una vez instalado nos descargamos el instalador del juego, en mi caso lo testee con {{< textlink text="LynxMu" url="http://lynxmu.tk/" >}} (Mas adelante hablare del mismo) El cual contiene un instalado. ¡El instalador lo ejecutamos con wine y usamos la metodología Windows Siguiente, siguiente, siguiente y Acepto!
+
+{{< img src="https://i.postimg.cc/vHT4HSX6/Whats-App-Image-2019-05-02-at-20-06-07.jpg" >}}
 
 El único problema que encontré es que no inicia el Launcher, pero podemos jugar ingresando en:
 
