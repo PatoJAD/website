@@ -1,6 +1,6 @@
 ---
 title: "Ategros se despide de sus usuarios"
-date: "2018-05-21"
+date: "2019-05-21"
 description: "Esta querida distribucion presento hoy su carta de despedida"
 type: "linux"
 tags: ["Adios","Antegros","Despedida"]
