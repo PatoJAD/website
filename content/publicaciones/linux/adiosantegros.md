@@ -23,4 +23,4 @@ Hoy encontramos la siguiente publicacion en el sitio oficial de Antegros, donde 
 >
 >{{< citaname name="-Dustin, Alex, & Gustau" >}}
 
-Podes ver el texto original sin errores de traduccion en su {{< textlink text="pagina oficial" link="https://antergos.com/blog/antergos-linux-project-ends/" >}}
+Podes ver el texto original sin errores de traduccion en su {{< textlink text="pagina oficial" url="https://antergos.com/blog/antergos-linux-project-ends/" >}}
