@@ -1,7 +1,7 @@
 ---
-title: "Sobre Mi"
+title: "Sobre PatoJAD"
 date: "2018-12-18"
-description: "El hombre tras PatoJAD"
+description: "La comunidad tras PatoJAD algo mas que un blog, una familia"
 type: "page"
 tags: ["Sobre mi","comunidad","informacion"]
 category: ["Pages"]
