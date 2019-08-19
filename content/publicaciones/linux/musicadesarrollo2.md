@@ -12,7 +12,7 @@ _________________________________________________________________________
 ## Sonidos y Código.
 ##### Sonidos.
 
-Veníamos de [aquí](https://patojad.gitlab.io/publicaciones/linux/musicadesarrollo/).
+Veníamos de [aquí](https://patojad.tk/publicaciones/linux/musicadesarrollo/).
 Había quedado como tema de continuación, la reproducción de audio en entornos GNU/Linux
 
 Lo que aqui se observe, es *mi caso de uso*. Y nada mas que eso.
@@ -54,7 +54,7 @@ Es un clasicazo de esos que uno lleva clavado en el pecho. <br>Juntos atravesamo
 Sería lógico pensar que luego de mencionar a *VLC Media Player*, es un acto osado citar a un reproductor de video y sonido como *mpv*.
 
 Es aqui donde rompo una lanza en favor de este último. <br>
-Que no tenga una interface gráfica por defecto acorde a la ceremonia *VLC* no significa que haya que dejarlo de lado, No Señor. Es tan potente como el mencionado rey del trono en esta entrada, pero un quilombo peliagudo manejarlo hasta que no se dominan los modificadores que hay que escribir en la terminal para que empiece a mostrar de una vez por todas el bendecido video en cuestión. 
+Que no tenga una interface gráfica por defecto acorde a la ceremonia *VLC* no significa que haya que dejarlo de lado, No Señor. Es tan potente como el mencionado rey del trono en esta entrada, pero un quilombo peliagudo manejarlo hasta que no se dominan los modificadores que hay que escribir en la terminal para que empiece a mostrar de una vez por todas el bendecido video en cuestión.
 
 Desde que aprendí a manejarlo, mi vida sigue igual, a que negarlo, pero anda como los dioses de bien (que no es poco) y lo declaro fiel ladero del aqui escribiente.
 

@@ -9,7 +9,7 @@ img : 'https://i.postimg.cc/ZKvq1ZYY/opiniones-patojad.jpg'
 authors: ["PatoJAD"]
 ---
 
-Como todos saben, o al menos ahora van a saber, {{< textlink url="https://patojad.gitlab.io/publicaciones/linux/initsenlinux/" text="ayer realizamos un post que invitaba a todos a debatir sobre los init que se utilizan en linux!" >}} En este post muchas cosa se hicieron agrede, tales como omitir los principales init para que inicien el debate de porque debían estar en post..
+Como todos saben, o al menos ahora van a saber, {{< textlink url="https://patojad.tk/publicaciones/linux/initsenlinux/" text="ayer realizamos un post que invitaba a todos a debatir sobre los init que se utilizan en linux!" >}} En este post muchas cosa se hicieron agrede, tales como omitir los principales init para que inicien el debate de porque debían estar en post..
 
 Este formato nuevo de generar un post para invitar a un debate me parecía algo arriesgado y la verdad no esperaba que funcionara en lo mas mínimo sin embargo muchas voces se alzaron para dar una opinión y en este post solo voy a citar los comentarios de la comunidad y obviamente agregar esos 2 init que me pidieron!
 

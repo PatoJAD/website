@@ -5,7 +5,7 @@ description: 'Te traemos una facilidad para que tu blog pueda compartir en las r
 type: 'noticias'
 tags: ["ChromeOS"]
 category: ["Noticias"]
-img: 'https://patojad.gitlab.io/img/compartelibre.png'
+img: 'https://patojad.tk/img/compartelibre.png'
 authors: ["PatoJAD"]
 ---
 
