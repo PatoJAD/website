@@ -11,7 +11,7 @@ authors: ["PatoJAD"]
 
 Ya habíamos hablado antes de OpenBook, el "Facebook OpenSource" y muchos de nosotros nos inscribimos a la BETA esperando el día que nos informen que ya podríamos ingresar...
 
-Mucho recibí desde la creación del {{< textlink link="https://patojad.gitlab.io/publicaciones/noticias/openbook/" text="primer post">}} como consultas de su avance y demás sin poder dar una respuesta certera a todo esto sin embargo hoy puedo notificar un gran Avance
+Mucho recibí desde la creación del {{< textlink link="https://patojad.tk/publicaciones/noticias/openbook/" text="primer post">}} como consultas de su avance y demás sin poder dar una respuesta certera a todo esto sin embargo hoy puedo notificar un gran Avance
 
 
 {{< img src="https://i.postimg.cc/g0VjRQrX/Capture.png" >}}
