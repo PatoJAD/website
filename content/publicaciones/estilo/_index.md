@@ -1,3 +1,4 @@
 ---
 type: 'estilo'
+title: 'Estilo'
 ---

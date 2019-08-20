@@ -1,3 +1,4 @@
 ---
 type: 'juegos'
+title: 'Juegos'
 ---

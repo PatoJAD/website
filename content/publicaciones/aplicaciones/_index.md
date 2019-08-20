@@ -1,3 +1,4 @@
 ---
 type: 'aplicaciones'
+title: 'Aplicaciones'
 ---

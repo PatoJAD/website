@@ -1,3 +1,4 @@
 ---
 type: 'programacion'
+title: 'Programacion'
 ---
