@@ -22,7 +22,7 @@ En Wordpress deberemos ir al menú Ajustes → Compartir y en el siguiente menú
 {{< img src="https://victorhckinthefreeworld.files.wordpress.com/2014/01/diaspora2.png" >}}
 
 * En Nombre del servicio: ponemos el texto que queremos que aparezca en nuestro botón ej: "Comparte Libre"
-* En Compartiendo URL: pondremos lo siguiente: https://patojad.gitlab.io/compartelibre/?text=%post_title%&url=%post_url%
+* En Compartiendo URL: pondremos lo siguiente: https://compartelibre.patojad.tk/?text=%post_title%&url=%post_url%
 * En URL del icono: la dirección de la imagen que quieres que se muestre como icono al lado del botón
 
 Nos creará el botón y deberemos activarlo y guardar los cambios. Ya estará disponible en el blog para que quien lo visite pueda compartirlo en redes sociales libres.
