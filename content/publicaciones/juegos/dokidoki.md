@@ -1,6 +1,6 @@
 ---
 title: "Doki Doki Literature Club"
-date: "2019-08-20"
+date: "2019-08-22"
 description: "Una novela visual que rompe la expectativas de todos nosotros."
 type: "juegos"
 tags: ["itch","Doki","Juego"]
