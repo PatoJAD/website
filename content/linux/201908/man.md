@@ -62,4 +62,4 @@ En algunos sistemas están disponibles también las siguientes secciones:
 | n | Tcl/Tk |
 | x | X Window System |
 
-No te llevas bien con Inglés, no te preocupes {{< textlink url="https://patojad.tk/publicaciones/linux/manenespañol/" text="aquí" >}} podes ver como traducirlo al español!
+No te llevas bien con Inglés, no te preocupes {{< textlink url="https://patojad.tk/linux/manenespañol/" text="aquí" >}} podes ver como traducirlo al español!

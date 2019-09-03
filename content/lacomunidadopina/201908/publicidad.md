@@ -4,7 +4,7 @@ date: "2019-08-19"
 description: "¿Que piensa la comunidad con respecto a las publicidades?"
 type: "comunidad"
 tags: ["Comunidad","Opinion","Publicidad"]
-category: ["comunidad"]
+category: ["Comunidad"]
 img:  "https://lh3.googleusercontent.com/f1enzVAwEm_TN21KYIrGqdpNcpKWtsHn6_3D0mEwliyMUoJM30Gzzlen3LVtVo3CXQQRIjnzAgo=w640-h400-e365"
 authors: ["PatoJAD"]
 ---

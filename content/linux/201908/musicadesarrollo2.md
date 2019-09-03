@@ -12,7 +12,7 @@ _________________________________________________________________________
 ## Sonidos y Código.
 ##### Sonidos.
 
-Veníamos de [aquí](https://patojad.tk/publicaciones/linux/musicadesarrollo/).
+Veníamos de [aquí](https://patojad.tk/linux/musicadesarrollo/).
 Había quedado como tema de continuación, la reproducción de audio en entornos GNU/Linux
 
 Lo que aqui se observe, es *mi caso de uso*. Y nada mas que eso.
