@@ -2,9 +2,9 @@
 title: 'Lo que la Gente opina sobre los inits'
 date: '2019-01-31'
 description: 'Opiniones sobre los diversos gestores de inicio'
-type: 'linux'
+type: 'comunidad'
 tags: ["linux","init","opiniones"]
-category: ["Linux"]
+category: ["Comunidad"]
 img : 'https://i.postimg.cc/ZKvq1ZYY/opiniones-patojad.jpg'
 authors: ["PatoJAD"]
 ---

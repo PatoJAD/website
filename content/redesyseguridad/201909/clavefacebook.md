@@ -2,9 +2,9 @@
 title: 'La Clave de Facebook fue Filtrada'
 date: '2019-09-05'
 description: 'Se filtra una clave criptográfica usada por Facebook para firmar sus aplicaciones'
-type: 'noticias'
+type: 'redesyseguridad'
 tags: ["Facebook","Clave","Filtrada"]
-category: ["noticias"]
+category: ["redesyseguridad"]
 img: 'https://masquedigital.com/wp-content/uploads/2019/02/M%C3%A1sQueDigital-%C2%A1Otra-vez-Facebook-Nueva-filtraci%C3%B3n-de-datos-afectar%C3%ADa-a-m%C3%A1s-de-un-mill%C3%B3n-de-usuarios-IMG.jpg'
 authors: ["PatoJAD"]
 ---
