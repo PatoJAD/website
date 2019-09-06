@@ -5,7 +5,7 @@ description: "Una novela visual que rompe la expectativas de todos nosotros."
 type: "juegos"
 tags: ["itch","Doki","Juego"]
 category: ["Juegos"]
-img: "https://ddlc.moe/images/screen1.png"
+img: "https://steamcdn-a.akamaihd.net/steam/apps/698780/header.jpg?t=1509687157"
 authors: ["PatoJAD"]
 ---
 

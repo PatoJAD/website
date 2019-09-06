@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-md-6 newstop">
+      {{ range first 1 (where .Data.Pages "Type" "in" (slice "juegos" "redesyseguridad" "comunidad" "linux" "programacion" "noticias" "estilo" "aplicaciones")).ByDate.Reverse }}
+        <div style="height: 100%; width: 100%;	background: url({{ .Params.img }}) no-repeat center top; background-size: cover;">
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <div class="transparent info">
+            <h3 class="{{ .Params.type }}">{{ .Title }}</h3>
+            <p class="minitext">{{ .Params.description }}</p>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+
+    <div class="col-md-6 newstop">
+
+      <div class="container-fluid">
+        <div class="row">
+
+          {{ range first 4 (after 1 (where .Data.Pages "Type" "in" (slice "juegos" "redesyseguridad" "comunidad" "linux" "programacion" "noticias" "estilo" "aplicaciones")).ByDate.Reverse) }}
+            <div class="col-md-6 newstop">
+              <div style="height: 100%; width: 100%;	background: url({{ .Params.img }}) no-repeat center top; background-size: cover;">
+                <br />
+                <br />
+                <div class="transparent info">
+                  <h3 class="{{ .Params.type }}">{{ .Title }}</h3>
+                  <p class="minitext">{{ .Params.description }}</p>
+                </div>
+              </div>
+            </div>
+          {{ end }}
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
