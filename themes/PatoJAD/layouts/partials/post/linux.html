@@ -1,0 +1,55 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-md-12 newstop" style="border-bottom: 3px var(--linux) solid;">
+  		<h2 style="margin-bottom: 0rem;"><span style="background: var(--linux); padding: 0px 15px;">Linux</span></h2>
+    </div>
+    <div class="col-md-12">
+      <br>
+    </div>
+    <div class="col-md-6">
+      {{ range first 1 (where .Data.Pages "Type" "in" (slice "linux" )).ByDate.Reverse }}
+      <a href="{{ .RelPermalink }}">
+        <div style="height: 100%; width: 100%;	background: url({{ .Params.img }}) no-repeat center top; background-size: cover;">
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <div class="transparent info">
+            <h3 class="{{ .Params.type }}">{{ .Title }}</h3>
+            <p class="minitext">{{ .Params.description }}</p>
+          </div>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+
+    <div class="col-md-6">
+
+      {{ range first 4 (after 1 (where .Data.Pages "Type" "in" (slice "linux")).ByDate.Reverse) }}
+      <a href="{{ .RelPermalink }}">
+        <div class="container-fluid" style="margin-top: 10px; margin-bottom: 10px;">
+          <div class="row">
+            <div class="col-md-4" style="width: 100%;	background: url({{ .Params.img }}) no-repeat center top; background-size: cover;">
+              &nbsp;
+            </div>
+            <div class="col-md-8">
+              <h5 class="{{ .Params.type }}">{{ .Title }}</h5>
+              <p class="minitext">{{ .Params.description }}</p>
+            </div>
+          </div>
+        </div>
+      </a>
+      {{ end }}
+
+    </div>
+
+  </div>
+</div>
