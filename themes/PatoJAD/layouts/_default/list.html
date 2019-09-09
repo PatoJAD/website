@@ -8,4 +8,94 @@
       border: 1px solid var(--{{ .Params.type }}) !important;
     }
   </style>
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-md-6 newstop2">
+        {{ range first 1 .Data.Pages.ByDate.Reverse }}
+          <a href="{{ .RelPermalink }}">
+            <div style="height: 100%; width: 100%;	background: url({{ .Params.img }}) no-repeat center top; background-size: cover;">
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <div class="transparent info">
+                <h3 class="{{ .Params.type }}-h">{{ .Title }}</h3>
+                <p class="minitext">{{ .Params.description }}</p>
+              </div>
+            </div>
+          </a>
+        {{ end }}
+      </div>
+
+
+      <div class="col-md-6 newstop">
+
+        <div class="container-fluid">
+          <div class="row">
+
+            {{ range first 4 (after 1 .Data.Pages.ByDate.Reverse) }}
+
+              <div class="col-md-6 newstop">
+                <a href="{{ .RelPermalink }}">
+                  <div style="height: 100%; width: 100%;	background: url({{ .Params.img }}) no-repeat center top; background-size: cover;">
+                    <br />
+                    <br />
+                    <div class="transparent info">
+                      <h3 class="{{ .Params.type }}-h">{{ .Title }}</h3>
+                      <p class="minitext">{{ .Params.description }}</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+            {{ end }}
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-md-12">
+        <br />
+        <!-- Publicidad -->
+        <div id="42927-1">
+          <script src="//ads.themoneytizer.com/s/gen.js?type=1"></script>
+          <script src="//ads.themoneytizer.com/s/requestform.js?siteId=42927&formatId=1"></script>
+        </div>
+        <!-- Publicidad END -->
+        <br />
+      </div>
+
+      <div class="col-md-12">
+        {{ $paginator := .Paginate .Data.Pages.ByDate.Reverse }}
+        {{ range $paginator.Pages }}
+
+          {{ .Render "card" }}
+
+        {{ end }}
+
+        <br />
+        <!-- Publicidad -->
+        <div id="42927-28">
+          <script src="//ads.themoneytizer.com/s/gen.js?type=28"></script>
+          <script src="//ads.themoneytizer.com/s/requestform.js?siteId=42927&formatId=28"></script>
+        </div>
+        <!-- Publicidad END -->
+        <br />
+
+        {{ partial "pagination.html" $paginator }}
+      </div>
+
+
+    </div>
+  </div>
 {{ end }}
