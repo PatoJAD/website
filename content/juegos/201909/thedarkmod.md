@@ -16,6 +16,8 @@ The Dark Mod es un autónomo videojuego de género Sigilo inspirado en la seria 
 
 El mundo del Dark Mod es oscuro y anacrónico de forma que tiene elementos medievales al igual que elementos de la era victoriana. Aunque el Dark Mod fue inspirado en la seria Thief del Looking Glass Studios, no tiene ni materiales ni nombres de ella a causa del Copyright.
 
+{{< publicidadvideo >}}
+
 El jugador es un ladrón que tiene que ir tirando en un mundo hostil y siniestro. Por eso él roba a la gente o escala en las casas de la gente rica por la noche. Chantajes y asesinatos también pueden ser una opción. Como el jugador tiene las habilidades de lucha capadas, debe evitar a sus enemigos, escondiéndose en las sombras y evitando hacer algún ruido. Para lograr su objetivo el jugador puede utilizar un equipamiento especial como ganzúas, varios tipos de flechas, pociones, explosivas y más.
 
 ## Imagenes
