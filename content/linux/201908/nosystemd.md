@@ -1,5 +1,5 @@
 ---
-title: 'SystemD al volante mata...'
+title: 'SystemD al volante mata'
 date: '2019-04-15'
 description: 'Una hermosa comparación entre SystemD y un motor... No hay que ser mecánico para entenderlo solo hace falta no querer morir'
 type: 'linux'
