@@ -1,6 +1,6 @@
 ---
 title: "The Dark Mode"
-date: "2019-09-10"
+date: "2019-11-10"
 description: "Un juego Libre bajo la licencia GNU/GPL v3. Lanzado inicialmente como un mod para el Doom 3"
 type: "juegos"
 tags: ["Steam","AirStyle","Themes"]
