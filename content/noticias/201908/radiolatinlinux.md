@@ -9,7 +9,7 @@ img: 'https://i.postimg.cc/Pr0CxJV8/latinlinux.png'
 authors: ["PatoJAD"]
 ---
 
-Ayer hablamos de {{< textlink url="https://patojad.tk/noticias/oyeven/" text="Oyeven" >}} ¡ Una radio que habla de software libre!.
+Ayer hablamos de {{< textlink url="https://patojad.com.ar/noticias/oyeven/" text="Oyeven" >}} ¡ Una radio que habla de software libre!.
 
 ### Radio Latin Linux
 

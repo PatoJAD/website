@@ -56,6 +56,6 @@ Además al terminar nos muestra estadísticas de la tasa de transferencia, el to
 
  * Comprobar antes de ejecutar cualquier linea de comandos con esta segunda sintaxis, que tenemos instalado en el sistema el paquete pv, o instalarlo si no lo tuviéramos: ambas cosas con Synaptic.
 
-Si necesitas mas informacion sobre este comando podemos usar {{< textlink url="https://patojad.tk/linux/man/" text="MAN siguiendo nuestro tuto" >}}
+Si necesitas mas informacion sobre este comando podemos usar {{< textlink url="https://patojad.com.ar/linux/man/" text="MAN siguiendo nuestro tuto" >}}
 
 Fuente: desdelinux

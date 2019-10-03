@@ -15,4 +15,4 @@ Ante esta necesidad un tanto especifica me decidí a buscar una app que realicé
 
 ¿Qué te parece?
 
-{{< link url="https://rest.patojad.tk/" text="Ir a REST Client" >}}
+{{< link url="https://rest.patojad.com.ar/" text="Ir a REST Client" >}}

@@ -40,7 +40,7 @@ Las amenazas de minería de criptomonedas no solo afectan el rendimiento de un s
 {{< br >}}
 
 
-Como ya habíamos hablado anteriormente en GNU/Linux si existen virus, hoy nuevamente lo estamos comprobando. Por lo cual caemos en la pregunta {{< textlink text="¿Usamos antivirus?" url="https://patojad.tk/aplicaciones/2019/01/antivirus-en-gnu/linux./" >}}. Más allá de la decisión de cada uno leyendo el post citado les recomiendo recordar lo que siempre decimos: La mayor vulnerabilidad es el ser humano (conocido como error de capa 8) y es siempre el eslabón más débil como {{< textlink text="el problema de la base de datos de la que hablamos ayer" url="https://patojad.tk/redesyseguridad/2019/09/se-filtran-datos-de-una-db/" >}}. Y es por eso que les recordamos:
+Como ya habíamos hablado anteriormente en GNU/Linux si existen virus, hoy nuevamente lo estamos comprobando. Por lo cual caemos en la pregunta {{< textlink text="¿Usamos antivirus?" url="https://patojad.com.ar/aplicaciones/2019/01/antivirus-en-gnu/linux./" >}}. Más allá de la decisión de cada uno leyendo el post citado les recomiendo recordar lo que siempre decimos: La mayor vulnerabilidad es el ser humano (conocido como error de capa 8) y es siempre el eslabón más débil como {{< textlink text="el problema de la base de datos de la que hablamos ayer" url="https://patojad.com.ar/redesyseguridad/2019/09/se-filtran-datos-de-una-db/" >}}. Y es por eso que les recordamos:
 
 * No utilizar sudo si no es requerido
 * Descargar desde sitios de confianza

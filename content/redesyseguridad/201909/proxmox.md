@@ -17,7 +17,7 @@ Proxmox Virtual Environment (También conocido como ProxmoxVE) es un entorno de 
 
 {{< img src="http://www.centrodeserviciosti.com.mx/wp-content/uploads/2018/02/proxmox4_webgui-1110x550.png" >}}
 
-Proxmox, a diferencia de otros, incluye una consola Web y herramienta de líneas de comando. También proporciona una API REST (que dicho sea de paso se puede testear con nuestra {{< textlink text="restclient" url="https://rest.patojad.tk/" >}}) para herramientas de terceros. Es compatible con dos tipos de virtualización:
+Proxmox, a diferencia de otros, incluye una consola Web y herramienta de líneas de comando. También proporciona una API REST (que dicho sea de paso se puede testear con nuestra {{< textlink text="restclient" url="https://rest.patojad.com.ar/" >}}) para herramientas de terceros. Es compatible con dos tipos de virtualización:
 *	Los contenedores LXC
 *	Y la virtualización con KVM
 
