@@ -47,6 +47,8 @@ En paralelo con el coworking, se darán charlas todo el día. El contenido está
 Cerramos la jornada invitando al público a pasar al frente a contar en 5 minutos o menos lo que quieran y consideren que puede ser de interés. ¡Animate!
 
 {{< br >}}
+{{< publicidad >}}
+{{< br >}}
 
 #### **Día 3 (Sábado, 19 de octubre)**
 
@@ -58,8 +60,6 @@ Sumadas a las charlas técnicas, se exponen temas no necesariamente ligados con 
 
 Tambien podes ver especificamente la agenda ingresando desde {{< textlink text="aquí" url="https://nerdear.la/agenda/" >}}
 
-{{< br >}}
-{{< publicidad >}}
 {{< br >}}
 
 ## Sobre el evento en general
@@ -74,6 +74,8 @@ No nos interesa que S.O. utilizás, si sabés programar o no, ni tampoco tu expe
 * Conocer gente
 * Jugar jueguitos
 
+{{< br >}}
+{{< publicidadvideo >}}
 {{< br >}}
 
 ## ¿Qué necesitás traer?

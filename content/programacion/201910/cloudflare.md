@@ -1,6 +1,6 @@
 ---
 title: "CloudFlare ¿Que es? Ventajas y Desventajas"
-date: "2019-10-03"
+date: "2019-10-04"
 description: "Muchas personas preguntan como hice el blog, hoy veremos que es CloudFlare y sus ventajas y Desventajas."
 type: "programacion"
 tags: ["GitLab","CloudFlare","Pages","Dominio"]
@@ -38,3 +38,13 @@ CloudFlare es un sistema gratuito que actúa como un proxy (intermediario) entre
 * Actualmente, las peticiones deben ser redirigidas a www.$dominio en lugar de $dominio (lo cual puede significar que se deben realizar algunos cambios de configuración).
 * CloudFlare puede afectar algunos programas de estadística interna que leen directamente los logs de Apache. CloudFlare no afectará programas de análisis basados en web que usen Javascript o Google Analytics. Mientras que los logs van a reflejar menos peticiones al servidor y menos carga, la experiencia hacia los visitantes de los sitios permanecerá igual.
 * CloudFlare guarda contenido estático del sitio. Esto reduce la carga en el servidor y significa que si se hace un cambio de un archivo estático existente como una imagen, puede existir un retraso pequeño mientras aparece el cambio. **Mientras se hace una actualización se puede configurar CloudFlare en Modo de Desarrollo para que el cambio aparezca inmediatamente.**
+
+{{< br >}}
+{{< publicidadvideo >}}
+{{< br >}}
+
+## PatoJAD y CloudFlare
+
+{{< br >}}
+
+Cuando decidí utilizar CloudFlare (recomendado por Tehuel) me pareció que era demasiado para solo un dominio (primera vez con .tk) sin embargo con el tiempo vi que las funcionalidades me permitían ir mucho más allá. Incluso me sirvió para realizar pruebas de desarrollo particulares. Actualmente lo sigo utilizando y si bien el blog es pequeño aun, algún día pagare para poder llevar todo esto a otro nivel dado que el potencial que tiene desde el control de DNS hasta la cache geo localizada para cargar más rápido los sitios son ampliamente útiles.
