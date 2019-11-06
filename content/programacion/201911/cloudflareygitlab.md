@@ -1,6 +1,6 @@
 ---
 title: "Configurar GitLab Pages con CloudFlare"
-date: "2019-11-03"
+date: "2019-11-06"
 description: "Muchas personas preguntan como hice el blog, aqui una parte mas de como configurar CloudFlare para el dominio del GitLab Pages."
 type: "programacion"
 tags: ["GitLab","CloudFlare","Pages","Dominio"]

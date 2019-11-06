@@ -1,6 +1,6 @@
 ---
 title: '¿Que es proxmox?'
-date: '2019-11-05'
+date: '2019-11-09'
 description: 'Hoy vamos a hablar de Proxmox VE una distro para la virtualización '
 type: 'redesyseguridad'
 tags: ["Facebook","Clave","Filtrada"]
