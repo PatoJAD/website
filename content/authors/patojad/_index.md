@@ -1,6 +1,7 @@
 ---
 name: "PatoJAD"
 description: "Desarrollador"
+type: 'page'
 photo: 'https://patojad.com.ar/img/perfil.jpg'
 title: "PatoJAD - Desarrollador"
 img: 'https://patojad.com.ar/img/perfil.jpg'

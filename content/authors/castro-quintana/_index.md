@@ -1,6 +1,7 @@
 ---
 name: "Castro Quintana"
 description: "Estudiante de Licenciatura en Educación Nivel Medio."
+type: 'page'
 photo: 'https://i.postimg.cc/KYr0d3jy/photo-2019-02-19-19-40-50.jpg'
 title: "Castro Quintana - Estudiante de Licenciatura en Educación Nivel Medio."
 img: 'https://i.postimg.cc/KYr0d3jy/photo-2019-02-19-19-40-50.jpg'

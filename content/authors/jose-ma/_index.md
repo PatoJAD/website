@@ -1,6 +1,7 @@
 ---
 name: "Jose Ma"
 description: "Usuario de la Comunidad"
+type: 'page'
 photo: 'https://i.postimg.cc/3r1PgqVJ/photo-2016-06-11-11-09-21.jpg'
 title: "Jose Ma - Usuario de la Comunidad"
 img: 'https://i.postimg.cc/3r1PgqVJ/photo-2016-06-11-11-09-21.jpg'
