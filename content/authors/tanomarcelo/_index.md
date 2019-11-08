@@ -1,7 +1,6 @@
 ---
 name: "tanomarcelo"
-description: "Usuario"
-type: 'page'
+descriptionp: "Usuario"
 photo: 'https://i.postimg.cc/FsnCcCTd/tae-to-work1.png'
 title: "tanomarcelo - Usuario"
 img: 'https://i.postimg.cc/FsnCcCTd/tae-to-work1.png'
