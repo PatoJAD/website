@@ -1,0 +1,62 @@
+<title>
+  {{ $isHomePage := eq .Title .Site.Title }}{{ .Title }} {{ if eq $isHomePage false }} | {{ .Site.Title }}{{ end }}
+</title>
+
+<!-- META DATA -->
+<meta charset="utf-8" />
+<meta
+  content='width=device-width, initial-scale=1, maximum-scale=1'
+  name='viewport' />
+<meta content='{{ range .Params.tags }} {{.}}, {{ end }} GNU, Linux, Juegos, Software Libre' name='keywords' />
+<meta name="author" content="PatoJAD" />
+<meta
+  content="{{ $isHomePage := eq .Title .Site.Title }}{{ .Title }}{{ if eq $isHomePage false }} - {{ .Site.Title }}{{ end }}"
+  property="og:title" />
+<meta
+  name="description"
+  content="{{ .Params.description }} . Todos tenemos en nuestro interior algo para contar o decir y un pensamiento para compartir"
+  property="og:description" />
+
+<!-- Social media META -->
+<meta content='@DecimaJoaquin' name='twitter:site'/>
+<meta content='@DecimaJoaquin' name='twitter:creator'/>
+
+<meta property="og:url" content="https://pensamientos.patojad.com.ar{{ .RelPermalink }}" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="{{ .Title }}" />
+<meta property="og:image" content="{{ .Params.img }}" />
+<meta property="og:locale" content="es-ES" />
+
+<!-- Google Search Meta -->
+<meta
+  name="google-site-verification"
+  content="AB62lAN6bYFzpeZoN7yIodQqshuK3E4R7qQYEsq8T4Y" />
+
+<!-- CANONICAL LINK -->
+<link rel="canonical" href="https://patojad.com.ar{{ .RelPermalink }}"/>
+
+<!-- RSS -->
+{{ if .RSSLink }}
+  <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+  <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+{{ end }}
+
+<!-- CSS -->
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+  crossorigin="anonymous" />
+<link
+  href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap"
+  rel="stylesheet" />
+<link
+  href="https://fonts.googleapis.com/css?family=Lato&display=swap"
+  rel="stylesheet" />
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css"
+  integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY="
+  crossorigin="anonymous" />
+<link rel="stylesheet" href="/css/style.css"/>
+<link rel="stylesheet" href="/css/postcard.css"/>

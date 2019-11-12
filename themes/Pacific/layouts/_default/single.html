@@ -1,0 +1,91 @@
+{{ define "main" }}
+  <style media="screen">
+    .masthead {
+      height: 100vh;
+      min-height: 500px;
+      background-image: url('{{ .Params.img }}');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  </style>
+
+  <!-- Full Page Image Header with Vertically Centered Content -->
+  <header class="masthead">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12 text-center bg-dark text-light" style="padding: 15px; border-radius: 20px;">
+          <h1 class="font-weight-light">{{ .Title }}</h1>
+          <p class="lead">{{ .Params.description }}</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="row">
+        <!-- CONTENIDO DE LA PUBLICACION -->
+        <div class="col-md-12">
+          <h1 class="text-center">{{ .Title }}</h1>
+          <br />
+          {{ .Content }}
+        </div>
+
+        <!-- SHARE -->
+        <div class="col-md-12">
+          <br />
+          <center>
+            <a href="https://compartelibre.patojad.com.ar/?url=https://pensamientos.patojad.com.ar{{ .RelPermalink }}&text={{ .Title }}" target="_blank" type="button" class="btn btn-primary btn-lg text-white" style="background-color:#2b90d9;">
+              <i class="fa fa-mastodon" aria-hidden="true"></i>
+            </a>
+            <a href="https://compartelibre.patojad.com.ar/?url=https://pensamientos.patojad.com.ar{{ .RelPermalink }}&text={{ .Title }}" target="_blank" type="button" class="btn btn-primary btn-lg text-white" style="background-color:#222222;">
+              <i class="fa fa-diaspora" aria-hidden="true"></i>
+            </a>
+            <a href="https://compartelibre.patojad.com.ar/?url=https://pensamientos.patojad.com.ar{{ .RelPermalink }}&text={{ .Title }}" target="_blank" type="button" class="btn btn-primary btn-lg text-white" style="background-color:#a22430;">
+              <i class="fa fa-gnu-social" aria-hidden="true" style="font: normal normal normal 20px/1 ForkAwesome;"></i>
+            </a>
+            <a href="https://compartelibre.patojad.com.ar/?url=https://pensamientos.patojad.com.ar{{ .RelPermalink }}&text={{ .Title }}" target="_blank" type="button" class="btn btn-primary btn-lg text-white" style="background-color:#43488a;">
+              <i class="fa fa-hubzilla" aria-hidden="true" style="font: normal normal normal 20px/1 ForkAwesome;"></i>
+            </a>
+            <a href="http://www.digg.com/submit?url=https://pensamientos.patojad.com.ar/{{ .RelPermalink }}" target="_blank" type="button" class="btn btn-primary btn-lg text-white" style="background-color:#0277bd;">
+              <i class="fa fa-digg" aria-hidden="true"></i>
+            </a>
+            <a href="http://vkontakte.ru/share.php?url=https://pensamientos.patojad.com.ar/{{ .RelPermalink }}" target="_blank" type="button" class="btn btn-primary btn-lg text-white" style="background-color:#4680c2;">
+              <i class="fa fa-vk" aria-hidden="true"></i>
+            </a>
+            <a href="https://twitter.com/share?url=https://pensamientos.patojad.com.ar/{{ .RelPermalink }}&text={{ .Title }}&hashtags=PatoJAD" target="_blank" type="button" class="btn btn-primary btn-lg text-white" style="background-color:#1DA1F2;">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="http://www.stumbleupon.com/submit?url=https://pensamientos.patojad.com.ar/{{ .RelPermalink }}&title={{ .Title }}" target="_blank" type="button" class="btn btn-primary btn-lg text-white" style="background-color: #EB4823;">
+              <i class="fa fa-stumbleupon" aria-hidden="true"></i>
+            </a>
+            <a href="http://www.facebook.com/sharer.php?u=https://pensamientos.patojad.com.ar/{{ .RelPermalink }}" target="_blank" type="button" class="btn btn-primary btn-lg text-white" style="background-color:#3C5A99;">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="http://reddit.com/submit?url=https://pensamientos.patojad.com.ar/{{ .RelPermalink }}&title={{ .Title }}" target="_blank" type="button" class="btn btn-primary btn-lg text-white" style="background-color:#ff4301;">
+              <i class="fa fa-reddit-alien" aria-hidden="true"></i>
+            </a>
+            <a href="https://telegram.me/share/url?text={{ .Title }}&url=https://pensamientos.patojad.com.ar/{{ .RelPermalink }}" target="_blank" type="button" class="btn btn-primary btn-lg text-white" style="background-color:#54a9eb;">
+              <i class="fa fa-telegram" aria-hidden="true"></i>
+            </a>
+          </center>
+          <br />
+        </div>
+
+        <div class="col-md-12 bg-dark" style="padding:25px; border-radius:25px;">
+          <div id="disqus_thread"></div>
+          <script>
+            (function() { // DON'T EDIT BELOW THIS LINE
+              var d = document, s = d.createElement('script');
+              s.src = 'https://https-patojad-gitlab-io-blog.disqus.com/embed.js';
+              s.setAttribute('data-timestamp', +new Date());
+              (d.head || d.body).appendChild(s);
+            })();
+          </script>
+        </div>
+
+      </div>
+    </div>
+  </main>
+{{ end }}
