@@ -110,6 +110,38 @@
                 <br />
               </div>
 
+              <div class="col-md-12 bg-dark text-white" style="padding:25px; border-radius:25px;">
+                <div class="col-12">
+              		<h2 class="color"> Autor </h2>
+                </div>
+
+                {{ $pages := .Site.Pages.ByPublishDate.Reverse }}
+                {{ range .Params.authors }}
+                  {{ range where (where $pages "Type" "authors") ".Params.name" . }}
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-3">
+                          <img
+                            src="{{ .Params.photo }}"
+                            class="img-fluid"
+                            alt="{{ .Params.name }}"
+                            style="margin: 15px; border-radius: 50%;"/>
+                        </div>
+                        <div class="col-md-9">
+                          <h2>{{ .Params.name }}</h2>
+                          <h4>{{ .Params.descriptionp }}</h4>
+                          <br/>
+                          <p> {{ .Content }} </p>
+                        </div>
+                      </div>
+                    </div>
+                  {{ end }}
+                {{ end }}
+
+              </div>
+
+              <br />&nbsp;<br />
+
               <div class="col-md-12 bg-dark" style="padding:25px; border-radius:25px;">
                 <div id="disqus_thread"></div>
                 <script>
