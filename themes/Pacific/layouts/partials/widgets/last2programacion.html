@@ -1,0 +1,30 @@
+<div class="col-md-6">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>Programación</h1>
+        <br />
+      </div>
+
+      {{ range first 2 (where .Data.Pages "Type" "in" (slice "programacion")).ByDate.Reverse }}
+        <div class="col-md-12">
+          <figure class="featured-thumbnail thumbnail text-center">
+            <a href="{{ .RelPermalink }}" title="{{ .Title }}">
+              <img src="{{ .Params.img }}" alt="{{ .Title }}" class="img-fluid" />
+            </a>
+          </figure>
+
+          <h5>
+            <a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a>
+          </h5>
+
+          <p class="excerpt">{{ .Params.description }}</p>
+
+          <a href="{{ .RelPermalink }}" class="btn btn-primary btn-normal" title="{{ .Title }}">
+            Seguir leyendo
+          </a>
+        </div>
+      {{end}}
+    </div>
+  </div>
+</div>
