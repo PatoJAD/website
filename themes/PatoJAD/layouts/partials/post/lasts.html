@@ -30,30 +30,30 @@
 
           {{ range first 2 (after 1 (where .Data.Pages "Type" "in" (slice "juegos" "redesyseguridad" "comunidad" "linux" "programacion" "noticias" "estilo" "aplicaciones")).ByDate.Reverse) }}
 
-          <div class="col-md-6">
-            <h5>
-              <a href="{{ .RelPermalink }}" title="{{ .Title }}" class="{{ .Params.type }}">{{ .Title }}</a>
-            </h5>
+            <div class="col-md-6">
+              <h5>
+                <a href="{{ .RelPermalink }}" title="{{ .Title }}" class="{{ .Params.type }}">{{ .Title }}</a>
+              </h5>
 
-            <p class="excerpt">{{ .Params.description }}</p>
+              <p class="excerpt">{{ .Params.description }}</p>
 
-            <a href="{{ .RelPermalink }}" class="btn btn-primary btn-normal c-{{ .Params.type }} text-white" title="{{ .Title }}">
-              Seguir leyendo
-            </a>
-          </div>
-
-          <div class="col-md-6">
-            <figure class="featured-thumbnail thumbnail text-center">
-              <a href="{{ .RelPermalink }}" title="{{ .Title }}">
-                <img src="{{ .Params.img }}" alt="{{ .Title }}" class="img-fluid" />
+              <a href="{{ .RelPermalink }}" class="btn btn-primary btn-normal c-{{ .Params.type }} text-white" title="{{ .Title }}">
+                Seguir leyendo
               </a>
-            </figure>
-          </div>
+            </div>
 
-          <div class="col-md-12">
-            <br/>
-            <br/>
-          </div>
+            <div class="col-md-6">
+              <figure class="featured-thumbnail thumbnail text-center">
+                <a href="{{ .RelPermalink }}" title="{{ .Title }}">
+                  <img src="{{ .Params.img }}" alt="{{ .Title }}" class="img-fluid" />
+                </a>
+              </figure>
+            </div>
+
+            <div class="col-md-12">
+              <br/>
+              <br/>
+            </div>
 
           {{ end }}
 
