@@ -9,111 +9,118 @@
     }
   </style>
 
-  <div class="container-fluid">
-    <div class="row">
+  <div class="col-md-9">
+    <div class="container-fluid">
+      <div class="row">
 
-      <div class="col-md-6 newstop2">
-        {{ range first 1 .Data.Pages.ByDate.Reverse }}
-          <div class="col-md-12 text-center">
-            <figure class="featured-thumbnail thumbnail text-center">
-              <a href="{{ .RelPermalink }}" title="{{ .Title }}">
-                <img src="{{ .Params.img }}" alt="{{ .Title }}" class="img-fluid" />
-              </a>
-            </figure>
-
-            <h5>
-              <a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a>
-            </h5>
-
-            <p class="excerpt">{{ .Params.description }}</p>
-
-            <a href="{{ .RelPermalink }}" class="btn btn-primary btn-normal c-{{ .Params.type }} text-white" title="{{ .Title }}">
-              Seguir leyendo
-            </a>
-          </div>
-        {{ end }}
-      </div>
-
-
-      <div class="col-md-6 newstop">
-
-        <div class="container-fluid">
-          <div class="row">
-
-            {{ range first 2 (after 1 .Data.Pages.ByDate.Reverse) }}
-
-              <div class="col-md-6">
-                <figure class="featured-thumbnail thumbnail text-center">
-                  <a href="{{ .RelPermalink }}" title="{{ .Title }}">
-                    <img src="{{ .Params.img }}" alt="{{ .Title }}" class="img-fluid" />
-                  </a>
-                </figure>
-              </div>
-
-              <div class="col-md-6">
-                <h5>
-                  <a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a>
-                </h5>
-
-                <p class="excerpt">{{ .Params.description }}</p>
-
-                <a href="{{ .RelPermalink }}" class="btn btn-primary btn-normal c-{{ .Params.type }} text-white" title="{{ .Title }}">
-                  Seguir leyendo
+        <div class="col-md-6 newstop2">
+          {{ range first 1 .Data.Pages.ByDate.Reverse }}
+            <div class="col-md-12 text-center">
+              <figure class="featured-thumbnail thumbnail text-center">
+                <a href="{{ .RelPermalink }}" title="{{ .Title }}">
+                  <img src="{{ .Params.img }}" alt="{{ .Title }}" class="img-fluid" />
                 </a>
-              </div>
+              </figure>
 
-              <div class="col-md-12">
-                <br/>
-                <br/>
-              </div>
+              <h5>
+                <a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a>
+              </h5>
 
-            {{ end }}
+              <p class="excerpt">{{ .Params.description }}</p>
 
-          </div>
+              <a href="{{ .RelPermalink }}" class="btn btn-primary btn-normal c-{{ .Params.type }} text-white" title="{{ .Title }}">
+                Seguir leyendo
+              </a>
+            </div>
+          {{ end }}
         </div>
 
-      </div>
 
-      <div class="col-md-12">
-        <br />
-        <!-- Publicidad -->
-        <center>
-          <div id="45757-1">
-            <script src="//ads.themoneytizer.com/s/gen.js?type=1"></script>
-            <script src="//ads.themoneytizer.com/s/requestform.js?siteId=45757&formatId=1"></script>
+        <div class="col-md-6 newstop">
+
+          <div class="container-fluid">
+            <div class="row">
+
+              {{ range first 2 (after 1 .Data.Pages.ByDate.Reverse) }}
+
+                <div class="col-md-6">
+                  <figure class="featured-thumbnail thumbnail text-center">
+                    <a href="{{ .RelPermalink }}" title="{{ .Title }}">
+                      <img src="{{ .Params.img }}" alt="{{ .Title }}" class="img-fluid" />
+                    </a>
+                  </figure>
+                </div>
+
+                <div class="col-md-6">
+                  <h5>
+                    <a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a>
+                  </h5>
+
+                  <p class="excerpt">{{ .Params.description }}</p>
+
+                  <a href="{{ .RelPermalink }}" class="btn btn-primary btn-normal c-{{ .Params.type }} text-white" title="{{ .Title }}">
+                    Seguir leyendo
+                  </a>
+                </div>
+
+                <div class="col-md-12">
+                  <br/>
+                  <br/>
+                </div>
+
+              {{ end }}
+
+            </div>
           </div>
-        </center>
-        <!-- Publicidad END -->
-        <br />
-      </div>
 
-      <div class="col-md-12">
-        <div class="container">
-          <div class="row">
-            {{ $paginator := .Paginate .Data.Pages.ByDate.Reverse }}
-            {{ range $paginator.Pages }}
-
-              {{ .Render "card" }}
-
-            {{ end }}
-          </div>
         </div>
 
-        <br />
-        <!-- Publicidad -->
-        <center>
-          <div id="45757-28">
-            <script src="//ads.themoneytizer.com/s/gen.js?type=28"></script>
-            <script src="//ads.themoneytizer.com/s/requestform.js?siteId=45757&formatId=28"></script>
+        <div class="col-md-12">
+          <br />
+          <!-- Publicidad -->
+          <center>
+            <div id="45757-1">
+              <script src="//ads.themoneytizer.com/s/gen.js?type=1"></script>
+              <script src="//ads.themoneytizer.com/s/requestform.js?siteId=45757&formatId=1"></script>
+            </div>
+          </center>
+          <!-- Publicidad END -->
+          <br />
+        </div>
+
+        <div class="col-md-12">
+          <div class="container">
+            <div class="row">
+              {{ $paginator := .Paginate .Data.Pages.ByDate.Reverse }}
+              {{ range $paginator.Pages }}
+
+                {{ .Render "card" }}
+
+              {{ end }}
+            </div>
           </div>
-        </center>
-        <!-- Publicidad END -->
-        <br />
 
-        {{ partial "pagination.html" $paginator }}
+          <br />
+          <!-- Publicidad -->
+          <center>
+            <div id="45757-28">
+              <script src="//ads.themoneytizer.com/s/gen.js?type=28"></script>
+              <script src="//ads.themoneytizer.com/s/requestform.js?siteId=45757&formatId=28"></script>
+            </div>
+          </center>
+          <!-- Publicidad END -->
+          <br />
+
+          {{ partial "pagination.html" $paginator }}
+        </div>
+
+
       </div>
-
-
     </div>
   </div>
+  <div class="col-md-3">
+    {{- partial "widgets/lateralbar.html" . -}}
+  </div>
+
+
 {{ end }}
