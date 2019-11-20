@@ -1,28 +1,34 @@
 <div class="container-fluid">
   <div class="row">
 
-    <div class="col-md-12 newstop2" style="border-bottom: 3px var(--redesyseguridad) solid;">
-  		<h2 style="margin-bottom: 0rem;"><span style="background: var(--redesyseguridad); padding: 0px 15px;color: #FFFFFF;">Redes y Seguridad</span></h2>
+    <div class="col-md-12 newstop2" style="border-bottom: 3px var(--page-redesyseguridad) solid;">
+  		<h2 style="margin-bottom: 0rem;"><span style="background: var(--page-redesyseguridad); padding: 0px 15px;color: #FFFFFF;">Redes y Seguridad</span></h2>
     </div>
     <div class="col-md-12">
       <br>
     </div>
-    <div class="col-md-12">
-      {{ range first 3 (where .Data.Pages "Type" "in" (slice "redesyseguridad")).ByDate.Reverse }}
-        <a href="{{ .RelPermalink }}">
-          <div style=" width: 100%;	background: url({{ .Params.img }}) no-repeat center top; background-size: cover;" class="full-col-6">
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <div class="transparent info">
-              <h3 class="{{ .Params.type }}">{{ .Title }}</h3>
-              <p class="minitext">{{ .Params.description }}</p>
-            </div>
-          </div>
+    {{ range first 2 (where .Data.Pages "Type" "in" (slice "redesyseguridad")).ByDate.Reverse }}
+      <div class="col-md-12 text-center">
+        <figure class="featured-thumbnail thumbnail text-center">
+          <a href="{{ .RelPermalink }}" title="{{ .Title }}">
+            <img src="{{ .Params.img }}" alt="{{ .Title }}" class="img-fluid" />
+          </a>
+        </figure>
+
+        <h5>
+          <a href="{{ .RelPermalink }}" title="{{ .Title }}" class="{{ .Params.type }}">{{ .Title }}</a>
+        </h5>
+
+        <p class="excerpt">{{ .Params.description }}</p>
+
+        <a href="{{ .RelPermalink }}" class="btn btn-primary btn-normal c-{{ .Params.type }} text-white" title="{{ .Title }}">
+          Seguir leyendo
         </a>
-        {{ end }}
-    </div>
+      </div>
+      <div class="col-md-12">
+        <br/>
+        <br/>
+      </div>
+    {{ end }}
   </div>
 </div>

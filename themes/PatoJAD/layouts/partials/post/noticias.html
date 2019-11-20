@@ -1,22 +1,28 @@
 <div class="container-fluid">
   <div class="row">
 
-    <div class="col-md-12 newstop2" style="border-bottom: 3px var(--noticias) solid;">
-  		<h2 style="margin-bottom: 0rem;"><span style="background: var(--noticias); padding: 0px 15px;color: #FFFFFF;">Noticias</span></h2>
+    <div class="col-md-12 newstop2" style="border-bottom: 3px var(--page-noticias) solid;">
+  		<h2 style="margin-bottom: 0rem;"><span style="background: var(--page-noticias); padding: 0px 15px;color: #FFFFFF;">Noticias</span></h2>
     </div>
     <div class="col-md-12">
       <br>
     </div>
     {{ range first 3 (where .Data.Pages "Type" "in" (slice "noticias" )).ByDate.Reverse }}
       <div class="col-md-4">
-        <a href="{{ .RelPermalink }}">
-          <div class="card">
-            <img src="{{ .Params.img }}" class="card-img-top"/>
-            <div class="card-body">
-              <h3 class="card-title {{ .Params.type }}">{{ .Title }}</h3>
-              <p class="minitext">{{ .Params.description }}</p>
-            </div>
-          </div>
+        <figure class="featured-thumbnail thumbnail text-center">
+          <a href="{{ .RelPermalink }}" title="{{ .Title }}">
+            <img src="{{ .Params.img }}" alt="{{ .Title }}" class="img-fluid" />
+          </a>
+        </figure>
+
+        <h5>
+          <a href="{{ .RelPermalink }}" title="{{ .Title }}" class="{{ .Params.type }}">{{ .Title }}</a>
+        </h5>
+
+        <p class="excerpt">{{ .Params.description }}</p>
+
+        <a href="{{ .RelPermalink }}" class="btn btn-primary btn-normal c-{{ .Params.type }} text-white" title="{{ .Title }}">
+          Seguir leyendo
         </a>
       </div>
     {{ end }}
