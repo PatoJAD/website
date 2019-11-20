@@ -1,0 +1,155 @@
+{{ define "main" }}
+  <style media="screen">
+    :root{
+      --pagecolor: var(--page-{{ .Params.type }});
+    }
+    .{{ .Params.type }}{
+      background: var(--page-{{ .Params.type }}) !important;
+      border: 1px solid var(--page-{{ .Params.type }}) !important;
+    }
+  </style>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-12">
+        <!-- Publicidad -->
+        <center>
+          <div id="45757-1">
+            <script src="//ads.themoneytizer.com/s/gen.js?type=1"></script>
+            <script src="//ads.themoneytizer.com/s/requestform.js?siteId=45757&formatId=1"></script>
+          </div>
+        </center>
+        <br />
+        <!-- Publicidad FIN-->
+      </div>
+
+      <div class="col-md-12 transparent" style="padding: 40px;">
+        {{ .Content }}
+      </div>
+
+      <div class="col-md-12">
+        <!-- Publicidad -->
+        <br />
+        <center>
+          <div id="45757-28">
+            <script src="//ads.themoneytizer.com/s/gen.js?type=28"></script>
+            <script src="//ads.themoneytizer.com/s/requestform.js?siteId=45757&formatId=28"></script>
+          </div>
+        </center>
+        <br />
+        <!-- Publicidad FIN -->
+      </div>
+
+      <div class="col-md-12">
+        <div class="col-md-12 newstop2" style="border-bottom: 3px var(--pagecolor) solid;">
+      		<h2 style="margin-bottom: 0rem;"><span style="background: var(--pagecolor); padding: 0px 15px; color: #FFFFFF;">Compartir</span></h2>
+        </div>
+        <br />
+        <center>
+          <a href="https://compartelibre.patojad.com.ar/?url=https://patojad.com.ar{{ .RelPermalink }}&text={{ .Title }}" target="_blank" type="button" class="btn btn-primary btn-lg text-white" style="background-color:#2b90d9;">
+            <i class="fa fa-mastodon" aria-hidden="true"></i>
+          </a>
+
+          <a href="https://compartelibre.patojad.com.ar/?url=https://patojad.com.ar{{ .RelPermalink }}&text={{ .Title }}" target="_blank" type="button" class="btn btn-primary btn-lg text-white" style="background-color:#222222;">
+            <i class="fa fa-diaspora" aria-hidden="true"></i>
+          </a>
+
+          <a href="https://compartelibre.patojad.com.ar/?url=https://patojad.com.ar{{ .RelPermalink }}&text={{ .Title }}" target="_blank" type="button" class="btn btn-primary btn-lg text-white" style="background-color:#a22430;">
+            <i class="fa fa-gnu-social" aria-hidden="true" style="font: normal normal normal 20px/1 ForkAwesome;"></i>
+          </a>
+
+          <a href="https://compartelibre.patojad.com.ar/?url=https://patojad.com.ar{{ .RelPermalink }}&text={{ .Title }}" target="_blank" type="button" class="btn btn-primary btn-lg text-white" style="background-color:#43488a;">
+            <i class="fa fa-hubzilla" aria-hidden="true" style="font: normal normal normal 20px/1 ForkAwesome;"></i>
+          </a>
+
+          <a href="http://www.digg.com/submit?url=https://patojad.com.ar/{{ .RelPermalink }}" target="_blank" type="button" class="btn btn-primary btn-lg text-white" style="background-color:#0277bd;">
+            <i class="fa fa-digg" aria-hidden="true"></i>
+          </a>
+
+          <a href="http://vkontakte.ru/share.php?url=https://patojad.com.ar/{{ .RelPermalink }}" target="_blank" type="button" class="btn btn-primary btn-lg text-white" style="background-color:#4680c2;">
+            <i class="fa fa-vk" aria-hidden="true"></i>
+          </a>
+
+          <a href="https://twitter.com/share?url=https://patojad.com.ar/{{ .RelPermalink }}&text={{ .Title }}&hashtags=PatoJAD" target="_blank" type="button" class="btn btn-primary btn-lg text-white" style="background-color:#1DA1F2;">
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+          </a>
+
+          <a href="http://www.stumbleupon.com/submit?url=https://patojad.com.ar/{{ .RelPermalink }}&title={{ .Title }}" target="_blank" type="button" class="btn btn-primary btn-lg text-white" style="background-color: #EB4823;">
+            <i class="fa fa-stumbleupon" aria-hidden="true"></i>
+          </a>
+
+          <a href="http://www.facebook.com/sharer.php?u=https://patojad.com.ar/{{ .RelPermalink }}" target="_blank" type="button" class="btn btn-primary btn-lg text-white" style="background-color:#3C5A99;">
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+          </a>
+
+          <a href="http://reddit.com/submit?url=https://patojad.com.ar/{{ .RelPermalink }}&title={{ .Title }}" target="_blank" type="button" class="btn btn-primary btn-lg text-white" style="background-color:#ff4301;">
+            <i class="fa fa-reddit-alien" aria-hidden="true"></i>
+          </a>
+
+          <a href="https://telegram.me/share/url?text={{ .Title }}&url=https://patojad.com.ar/{{ .RelPermalink }}" target="_blank" type="button" class="btn btn-primary btn-lg text-white" style="background-color:#54a9eb;">
+            <i class="fa fa-telegram" aria-hidden="true"></i>
+          </a>
+        </center>
+      </div>
+
+      <div class="col-md-12">
+        <br />
+        <br />
+      </div>
+
+      <div class="col-md-12">
+        <div class="col-md-12 newstop2" style="border-bottom: 3px var(--pagecolor) solid;">
+      		<h2 style="margin-bottom: 0rem;"><span style="background: var(--pagecolor); padding: 0px 15px; color: #FFFFFF;">Autor</span></h2>
+        </div>
+
+        {{ $pages := .Site.Pages.ByPublishDate.Reverse }}
+        {{ range .Params.authors }}
+          {{ range where (where $pages "Type" "authors") ".Params.name" . }}
+            <div class="container transparent">
+              <div class="row">
+                <div class="col-md-3">
+                  <img
+                    src="{{ .Params.photo }}"
+                    class="img-fluid"
+                    alt="{{ .Params.name }}"
+                    style="margin: 15px; border-radius: 50%;"/>
+                </div>
+                <div class="col-md-9">
+                  <h2>{{ .Params.name }}</h2>
+                  <h4>{{ .Params.descriptionp }}</h4>
+                  <br/>
+                  <p> {{ .Content }} </p>
+                </div>
+              </div>
+            </div>
+          {{ end }}
+        {{ end }}
+
+      </div>
+
+      <div class="col-md-12">
+        <br />
+        <br />
+      </div>
+
+      <div class="col-md-12">
+        <div class="col-md-12 newstop2" style="border-bottom: 3px var(--pagecolor) solid;">
+      		<h2 style="margin-bottom: 0rem;"><span style="background: var(--pagecolor); padding: 0px 15px; color: #FFFFFF;">Comentarios</span></h2>
+        </div>
+        <div class="transparent" style="padding: 25px;">
+          <div id="disqus_thread"></div>
+          <script>
+            (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://https-patojad-gitlab-io-blog.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+        </div>
+      </div>
+
+    </div>
+  </div>
+{{ end }}
