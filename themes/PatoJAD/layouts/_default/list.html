@@ -14,25 +14,23 @@
 
       <div class="col-md-6 newstop2">
         {{ range first 1 .Data.Pages.ByDate.Reverse }}
-          <a href="{{ .RelPermalink }}">
-            <div style="height: 100%; width: 100%;	background: url({{ .Params.img }}) no-repeat center top; background-size: cover;">
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <div class="transparent info">
-                <h3 class="{{ .Params.type }}-h">{{ .Title }}</h3>
-                <p class="minitext">{{ .Params.description }}</p>
-              </div>
-            </div>
-          </a>
+          <div class="col-md-12 text-center">
+            <figure class="featured-thumbnail thumbnail text-center">
+              <a href="{{ .RelPermalink }}" title="{{ .Title }}">
+                <img src="{{ .Params.img }}" alt="{{ .Title }}" class="img-fluid" />
+              </a>
+            </figure>
+
+            <h5>
+              <a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a>
+            </h5>
+
+            <p class="excerpt">{{ .Params.description }}</p>
+
+            <a href="{{ .RelPermalink }}" class="btn btn-primary btn-normal c-{{ .Params.type }} text-white" title="{{ .Title }}">
+              Seguir leyendo
+            </a>
+          </div>
         {{ end }}
       </div>
 
@@ -42,19 +40,31 @@
         <div class="container-fluid">
           <div class="row">
 
-            {{ range first 4 (after 1 .Data.Pages.ByDate.Reverse) }}
+            {{ range first 2 (after 1 .Data.Pages.ByDate.Reverse) }}
 
-              <div class="col-md-6 newstop">
-                <a href="{{ .RelPermalink }}">
-                  <div style="height: 100%; width: 100%;	background: url({{ .Params.img }}) no-repeat center top; background-size: cover;">
-                    <br />
-                    <br />
-                    <div class="transparent info">
-                      <h3 class="{{ .Params.type }}-h">{{ .Title }}</h3>
-                      <p class="minitext">{{ .Params.description }}</p>
-                    </div>
-                  </div>
+              <div class="col-md-6">
+                <figure class="featured-thumbnail thumbnail text-center">
+                  <a href="{{ .RelPermalink }}" title="{{ .Title }}">
+                    <img src="{{ .Params.img }}" alt="{{ .Title }}" class="img-fluid" />
+                  </a>
+                </figure>
+              </div>
+
+              <div class="col-md-6">
+                <h5>
+                  <a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a>
+                </h5>
+
+                <p class="excerpt">{{ .Params.description }}</p>
+
+                <a href="{{ .RelPermalink }}" class="btn btn-primary btn-normal c-{{ .Params.type }} text-white" title="{{ .Title }}">
+                  Seguir leyendo
                 </a>
+              </div>
+
+              <div class="col-md-12">
+                <br/>
+                <br/>
               </div>
 
             {{ end }}
@@ -78,12 +88,16 @@
       </div>
 
       <div class="col-md-12">
-        {{ $paginator := .Paginate .Data.Pages.ByDate.Reverse }}
-        {{ range $paginator.Pages }}
+        <div class="container">
+          <div class="row">
+            {{ $paginator := .Paginate .Data.Pages.ByDate.Reverse }}
+            {{ range $paginator.Pages }}
 
-          {{ .Render "card" }}
+              {{ .Render "card" }}
 
-        {{ end }}
+            {{ end }}
+          </div>
+        </div>
 
         <br />
         <!-- Publicidad -->
