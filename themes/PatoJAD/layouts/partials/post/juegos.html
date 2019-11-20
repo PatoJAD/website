@@ -1,43 +1,35 @@
 <div class="container-fluid">
   <div class="row">
 
-    <div class="col-md-12 newstop2" style="border-bottom: 3px var(--juegos) solid;">
-  		<h2 style="margin-bottom: 0rem;"><span style="background: var(--juegos); padding: 0px 15px;color: #FFFFFF;">Juegos</span></h2>
+    <div class="col-md-12 newstop2" style="border-bottom: 3px var(--page-juegos) solid;">
+  		<h2 style="margin-bottom: 0rem;"><span style="background: var(--page-juegos); padding: 0px 15px;color: #FFFFFF;">Juegos</span></h2>
     </div>
     <div class="col-md-12">
       <br>
     </div>
     <div class="col-md-12">
-      {{ range first 1 (where .Data.Pages "Type" "in" (slice "juegos")).ByDate.Reverse }}
-        <a href="{{ .RelPermalink }}">
-          <div style=" width: 100%;	background: url({{ .Params.img }}) no-repeat center top; background-size: cover;">
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <div class="transparent info">
-              <h3 class="{{ .Params.type }}">{{ .Title }}</h3>
-              <p class="minitext">{{ .Params.description }}</p>
-            </div>
-          </div>
-        </a>
-      {{ end }}
+      {{ range first 2 (where .Data.Pages "Type" "in" (slice "juegos")).ByDate.Reverse }}
+        <div class="col-md-12">
+          <figure class="featured-thumbnail thumbnail text-center">
+            <a href="{{ .RelPermalink }}" title="{{ .Title }}">
+              <img src="{{ .Params.img }}" alt="{{ .Title }}" class="img-fluid" />
+            </a>
+          </figure>
 
-      {{ range first 4 (after 1 (where .Data.Pages "Type" "in" (slice "juegos")).ByDate.Reverse) }}
-        <a href="{{ .RelPermalink }}">
-          <div class="container-fluid" style="margin-top: 10px; margin-bottom: 10px;">
-            <div class="row">
-              <div class="col-md-4">
-                <img src="{{ .Params.img }}" class="img-fluid" />
-              </div>
-              <div class="col-md-8">
-                <h5 class="{{ .Params.type }}">{{ .Title }}</h5>
-                <p class="minitext">{{ .Params.description }}</p>
-              </div>
-            </div>
-          </div>
-        </a>
+          <h5>
+            <a href="{{ .RelPermalink }}" title="{{ .Title }}" class="{{ .Params.type }}">{{ .Title }}</a>
+          </h5>
+
+          <p class="excerpt">{{ .Params.description }}</p>
+
+          <a href="{{ .RelPermalink }}" class="btn btn-primary btn-normal c-{{ .Params.type }} text-white" title="{{ .Title }}">
+            Seguir leyendo
+          </a>
+        </div>
+        <div class="col-md-12">
+          <br/>
+          <br/>
+        </div>
       {{ end }}
     </div>
   </div>
