@@ -5,7 +5,7 @@ description: 'En este seminario explicaremos qué es Android, sus característic
 type: 'noticias'
 tags: ["Seminario","EducacionIT","Andoid","Online","Gratis"]
 category: ["Noticias"]
-img: 'http://www.ticarte.com/sites/su/styles/max/public/users/7/teaser/android-mobile.jpg?itok=iY0rlLab'
+img: 'https://i.postimg.cc/Xv9yr0Qz/tablet-1442900-1280.jpg'
 authors: ["PatoJAD"]
 ---
 
