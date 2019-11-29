@@ -3,7 +3,7 @@ title: 'Análisis forense en Sistemas de Control Industrial'
 date: '2019-11-28'
 description: 'En esta guía se recogen las técnicas requeridas para llevar a cabo un análisis forense en los entornos industriales, planteando las diferentes fases del análisis, siempre teniendo en cuenta sus características especiales.'
 type: 'redesyseguridad'
-tags: ["Analisis","Forense","Guia", "incibe-cert"]
+tags: ["Analisis","Forense","Guia", "incibe-cert","Seguridad"]
 category: ["redesyseguridad"]
 img: 'https://i.postimg.cc/Nf0TpSjK/audit-4189560-1280.jpg'
 authors: ["PatoJAD"]
