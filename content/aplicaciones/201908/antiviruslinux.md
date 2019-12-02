@@ -1,5 +1,5 @@
 ---
-title: '¿Antivirus en Linux?.'
+title: '¿Antivirus en Linux?'
 date: '2019-01-07'
 description: 'Es realmente un Antivirus en GNU/Linux, o solo es problema de los sistemas basados en MS-DOS'
 type: 'aplicaciones'
