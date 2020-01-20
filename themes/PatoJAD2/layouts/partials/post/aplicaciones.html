@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-md-12 newstop2" style="border-bottom: 3px var(--page-aplicaciones) solid;">
+  		<h2 style="margin-bottom: 0rem;"><span style="background: var(--page-aplicaciones); padding: 0px 15px; color: #FFFFFF;">Aplicaciones</span></h2>
+    </div>
+    <div class="col-md-12">
+      <br>
+    </div>
+    <div class="col-md-12">
+      <div class="container-fluid">
+        <div class="row">
+
+          {{ range first 4 (where .Data.Pages "Type" "in" (slice "aplicaciones")).ByDate.Reverse }}
+            <div class="col-md-6">
+              <figure class="featured-thumbnail thumbnail text-center">
+                <a href="{{ .RelPermalink }}" title="{{ .Title }}">
+                  <img src="{{ .Params.img }}" alt="{{ .Title }}" class="img-fluid" />
+                </a>
+              </figure>
+            </div>
+            <div class="col-md-6">
+              <h5>
+                <a href="{{ .RelPermalink }}" title="{{ .Title }}" class="{{ .Params.type }}">{{ .Title }}</a>
+              </h5>
+
+              <p class="excerpt">{{ .Params.description }}</p>
+
+              <a href="{{ .RelPermalink }}" class="btn btn-primary btn-normal c-{{ .Params.type }} text-white" title="{{ .Title }}">
+                Seguir leyendo
+              </a>
+            </div>
+            <div class="col-md-12">
+              <br/>
+              <br/>
+            </div>
+          {{ end }}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
