@@ -1,45 +1,26 @@
 {{ define "main" }}
   <div class="col-md-9">
     {{- partial "post/lasts.html" . -}}
-    <br/>
-    <br/>
-    {{- partial "post/noticias.html" . -}}
-    <br/>
-    <br/>
-    {{- partial "post/linux.html" . -}}
-    <br/>
-    <br/>
+
+    <br />
+    <br />
+
+    {{ $paginator := .Paginate .Data.Pages.ByDate.Reverse }}
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-6">
-          {{- partial "post/juegos.html" . -}}
-        </div>
-        <div class="col-md-6">
-          {{- partial "post/aplicaciones.html" . -}}
-        </div>
+        {{ range $paginator.Pages }}
+
+          {{ .Render "card" }}
+
+        {{ end }}
       </div>
     </div>
-    <br/>
-    <br/>
-    {{- partial "post/estilo.html" . -}}
-    <br/>
-    <br/>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-6">
-          {{- partial "post/programacion.html" . -}}
-        </div>
-        <div class="col-md-6">
-          {{- partial "post/redesyseguridad.html" . -}}
-        </div>
-      </div>
-    </div>
-    <br/>
-    <br/>
-    {{- partial "post/comunidad.html" . -}}
-    <br/>
-    <br/>
+
+    {{ partial "pagination.html" $paginator }}
+    <br />
+
   </div>
+
   <div class="col-md-3">
     {{- partial "widgets/lateralbar.html" . -}}
   </div>
