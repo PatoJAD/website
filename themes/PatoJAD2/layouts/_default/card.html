@@ -1,17 +1,18 @@
-<div class="col-md-6" style="margin-top: 15px;">
-  <figure class="featured-thumbnail thumbnail text-center">
-    <a href="{{ .RelPermalink }}" title="{{ .Title }}">
-      <img src="{{ .Params.img }}" alt="{{ .Title }}" class="img-fluid" />
-    </a>
-  </figure>
-
-  <h5>
-    <a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a>
-  </h5>
-
-  <p class="excerpt">{{ .Params.description }}</p>
-
-  <a href="{{ .RelPermalink }}" class="btn btn-primary btn-normal" title="{{ .Title }}">
-    Seguir leyendo
+<div class="col-md-6">
+  <a href="{{ .RelPermalink }}" title="{{ .Title }}">
+    <div class="card" style="margin-top: 15px;">
+      <img src="{{ .Params.img }}" class="card-img-top" alt="{{ .Title }}">
+      <div class="card-body">
+        <br />
+        <h5 class="card-title">{{ .Title }}</h5>
+        <br />
+        <p class="card-text">{{ .Params.description }}</p>
+        <p class="card-text text-center">
+          <small class="text-muted text-center">
+            <i class="fa fa-calendar" aria-hidden="true"></i> {{ partial "date.html" .Date }}
+          </small>
+        </p>
+      </div>
+    </div>
   </a>
 </div>
