@@ -1,66 +1,45 @@
-<div class="container-fluid">
-  <div class="row">
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleCaptions" data-slide-to="0"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
+  </ol>
 
-    <div class="col-md-6 newstop2">
-      {{ range first 1 (where .Data.Pages "Type" "in" (slice "juegos" "redesyseguridad" "comunidad" "linux" "programacion" "noticias" "estilo" "aplicaciones")).ByDate.Reverse }}
-        <div class="col-md-12 text-center">
-          <figure class="featured-thumbnail thumbnail text-center">
-            <a href="{{ .RelPermalink }}" title="{{ .Title }}">
-              <img src="{{ .Params.img }}" alt="{{ .Title }}" class="img-fluid" />
-            </a>
-          </figure>
+  <div class="carousel-inner">
 
-          <h5>
-            <a href="{{ .RelPermalink }}" title="{{ .Title }}" class="{{ .Params.type }}">{{ .Title }}</a>
-          </h5>
-
-          <p class="excerpt">{{ .Params.description }}</p>
-
-          <a href="{{ .RelPermalink }}" class="btn btn-primary btn-normal c-{{ .Params.type }} text-white" title="{{ .Title }}">
-            Seguir leyendo
-          </a>
-        </div>
-      {{ end }}
-    </div>
-
-    <div class="col-md-6 newstop">
-
-      <div class="container-fluid">
-        <div class="row">
-
-          {{ range first 2 (after 1 (where .Data.Pages "Type" "in" (slice "juegos" "redesyseguridad" "comunidad" "linux" "programacion" "noticias" "estilo" "aplicaciones")).ByDate.Reverse) }}
-
-            <div class="col-md-6">
-              <h5>
-                <a href="{{ .RelPermalink }}" title="{{ .Title }}" class="{{ .Params.type }}">{{ .Title }}</a>
-              </h5>
-
-              <p class="excerpt">{{ .Params.description }}</p>
-
-              <a href="{{ .RelPermalink }}" class="btn btn-primary btn-normal c-{{ .Params.type }} text-white" title="{{ .Title }}">
-                Seguir leyendo
-              </a>
-            </div>
-
-            <div class="col-md-6">
-              <figure class="featured-thumbnail thumbnail text-center">
-                <a href="{{ .RelPermalink }}" title="{{ .Title }}">
-                  <img src="{{ .Params.img }}" alt="{{ .Title }}" class="img-fluid" />
-                </a>
-              </figure>
-            </div>
-
-            <div class="col-md-12">
-              <br/>
-              <br/>
-            </div>
-
-          {{ end }}
-
-        </div>
+    {{ range first 1 (where .Data.Pages "Type" "in" (slice "juegos" "redesyseguridad" "comunidad" "linux" "programacion" "noticias" "estilo" "aplicaciones")).ByDate.Reverse }}
+    <div class="carousel-item active">
+      <a href="{{ .RelPermalink }}" title="{{ .Title }}">
+        <img src="{{ .Params.img }}" class="d-block w-100 imgcarru" alt="{{ .Title }}" />
+      </a>
+      <div class="carousel-caption d-none d-md-block transparent" style="padding:10px; border-radius: 15px;">
+        <h5>{{ .Title }}</h5>
+        <p>{{ .Params.description }}</p>
       </div>
-
     </div>
-
+    {{ end }}
+    {{ range first 4 (after 1 (where .Data.Pages "Type" "in" (slice "juegos" "redesyseguridad" "comunidad" "linux" "programacion" "noticias" "estilo" "aplicaciones")).ByDate.Reverse) }}
+    <div class="carousel-item">
+      <a href="{{ .RelPermalink }}" title="{{ .Title }}">
+        <img src="{{ .Params.img }}" class="d-block w-100 imgcarru" alt="{{ .Title }}" />
+      </a>
+      <div class="carousel-caption d-none d-md-block transparent" style="padding:10px; border-radius: 15px;">
+        <h5>{{ .Title }}</h5>
+        <p>{{ .Params.description }}</p>
+      </div>
+    </div>
+    {{ end }}
   </div>
+
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
