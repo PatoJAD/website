@@ -1,9 +1,11 @@
-image: alpine:latest
+image: cibuilds/hugo
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
 
 pages:
-  stage: deploy
   script:
-  - echo 'Nothing to do...'
+  - hugo
   artifacts:
     paths:
     - public
