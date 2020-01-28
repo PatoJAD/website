@@ -3,7 +3,7 @@ title: "Linux, Un feliz Accidente"
 date: "2019-12-06"
 description: "Quien diría que nuestro amado GNU/Linux nace de la mano de un terrible accidente que todo programador odiaría..."
 type: "linux"
-tags: ["Historia","Linux","Linus", "Torvalds"]
+tags: ["historia","linux","linus", "torvalds"]
 category: ["Linux"]
 img: "https://diarioti.com/wp-content/uploads/2012/12/32304a_torvalds-aalto-4601.jpg"
 authors: ["PatoJAD"]
