@@ -23,7 +23,7 @@ La dirección IP es como la direccion de la casa de una persona (o como el numer
 
 {{< br >}}
 
-Para poder ver la ip de nuestra PC podemos hacerlo de la siguiente forma. Abrimos la terminal y ejecutamos el siguiente comando
+Para poder ver la ip de nuestra PC podemos hacerlo de la siguiente forma. Abrimos la terminal y ejecutamos el siguiente comando:
 
 {{< br >}}
 
@@ -70,6 +70,70 @@ dando como repuesta algo similar a lo siguiente:
 
 {{< br >}}
 {{< img src="https://i.postimg.cc/wxWT9yFW/Deepin-Screenshot-20200129092416.png" >}}
+{{< br >}}
+
+Muchas distribuciones no traen instalado ifconfig por defecto (Gracias a Riky por remarcarlo) en ese caso tenemos dos opciones, instalarlo o usar ip la cua les su remplazo. Para instalarlo basta con instalar el paquete net-tools:
+
+{{< br >}}
+{{< br >}}
+
+### Ubuntu, Debian y Derivados
+
+{{< br >}}
+
+    sudo apt install net-tools
+
+{{< br >}}
+{{< br >}}
+
+### Arch y Derivados
+
+{{< br >}}
+
+    sudo pacman -S net-tools
+
+{{< br >}}
+{{< br >}}
+
+## Gentoo y Derivados
+
+{{< br >}}
+
+    sudo emerge -s net-tools
+
+{{< br >}}
+
+y es el mismo paquete para todas las distribuciones, en caso de no tenerlo podemos ir a la segunda opcion (la mas recomendable) que es usar ip de la siguiente forma:
+
+{{< br >}}
+
+    ip address
+
+{{< br >}}
+
+dando como repuesta algo similar a lo siguiente:
+
+{{< br >}}
+
+    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+        inet 127.0.0.1/8 scope host lo
+           valid_lft forever preferred_lft forever
+        inet6 ::1/128 scope host
+           valid_lft forever preferred_lft forever
+    2: enp0s31f6: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN group default qlen 1000
+        link/ether d4:81:d7:5d:11:ad brd ff:ff:ff:ff:ff:ff
+    3: wlp1s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default qlen 1000
+        link/ether 34:f3:9a:d2:90:15 brd ff:ff:ff:ff:ff:ff
+    5: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+        link/ether 0a:74:02:05:d6:66 brd ff:ff:ff:ff:ff:ff
+        inet 172.20.10.4/28 brd 172.20.10.15 scope global noprefixroute dynamic eth0
+           valid_lft 80320sec preferred_lft 80320sec
+        inet6 fe80::e106:f57f:60b7:7236/64 scope link noprefixroute
+           valid_lft forever preferred_lft forever
+
+{{< br >}}
+{{< img src="https://i.postimg.cc/bJrYnqw0/Deepin-Screenshot-20200129100142.png" >}}
 {{< br >}}
 
 En mi caso me encuentro conectado por Ethernet tengo la direccion IPv4 172.20.10.4 y la IPv6 fe80::e106:f57f:60b7:7236. En este caso la IP es privada por lo cual puedo tener otros dispositivos con la IP 172.20.10.X que se encuentren dentro de mi red. Sin embargo, nuestra ip publica es otra es decir que para internet esta IP no es validad dado que solo me identifica dentro de mi red local.
