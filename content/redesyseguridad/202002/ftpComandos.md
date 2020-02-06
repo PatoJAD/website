@@ -9,7 +9,7 @@ img: 'https://www.redeszone.net/app/uploads-redeszone.net/2019/10/protocolo-ftp.
 authors: ["PatoJAD"]
 ---
 
-yta hablamos anteriormente de {{< textlink text="como instalar nuestro servidor FTP" url="/redesyseguridad/2020/02/servidor-ftp-qué-es-instalando-nuestro-propio-servidor/" >}}. Hoy veremos cómo trabajar con un servidor tan solo con comandos FTP. Puede que te preguntes de qué vale conocer los comandos de un servidor FTP si hoy día cualquier herramienta de gestión gráfica nos puede hacer todo el trabajo de forma fácil y sencilla. Sin embargo siempre es util conocerlo para poder trabajar lo mas bajo nivel que podamos.
+ya hablamos anteriormente de {{< textlink text="como instalar nuestro servidor FTP" url="/redesyseguridad/2020/02/servidor-ftp-qué-es-instalando-nuestro-propio-servidor/" >}}. Hoy veremos cómo trabajar con un servidor tan solo con comandos FTP. Puede que te preguntes de qué vale conocer los comandos de un servidor FTP si hoy día cualquier herramienta de gestión gráfica nos puede hacer todo el trabajo de forma fácil y sencilla. Sin embargo siempre es util conocerlo para poder trabajar lo mas bajo nivel que podamos.
 
 {{< br >}}
 {{< br >}}
