@@ -5,7 +5,7 @@ description: 'Seguimos viendo un poco mas sobre redes, hoy nos toca seguir nadan
 type: 'redesyseguridad'
 tags: ["ftp","red","internet"]
 category: ["redesyseguridad"]
-img: 'https://www.redeszone.net/app/uploads-redeszone.net/2019/10/protocolo-ftp.jpg'
+img: 'https://blog.desdelinux.net/wp-content/uploads/2014/10/ftp-ls-600x191.png'
 authors: ["PatoJAD"]
 ---
 
