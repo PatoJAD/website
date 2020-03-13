@@ -34,7 +34,10 @@ Después de instalar, actualiza los repositorios de tu distribucion (recomiendo 
 
 Recorda que este repositorio se crea en base a la comunidad y como tal todos podemos colaborar con el mismo, no te quedes afuera y hace que tus apps preferidas esten siempre y bien actualizadas.
 
+¿Queres pedir alguna app? ¿Queres colaborar compilando y subiendo? ¿Queres subir tu app? No lo dudes te sabes donde podes encontrarnos
+
 {{< br >}}
+{{< link text="Participa" url="https://t.me/PatoJADCommunity" >}}
 {{< br >}}
 
 ## LISTA DE APPS
