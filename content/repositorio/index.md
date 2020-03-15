@@ -46,8 +46,8 @@ Recorda que este repositorio se crea en base a la comunidad y como tal todos pod
 
 | Nombre                                | Version             |
 |---------------------------------------|:-------------------:|
-| Conky Manager v2 &nbsp; &nbsp; &nbsp; | &nbsp; 3.9.3 &nbsp; |
 | CAVA                                  | 0.6.1               |
+| Conky Manager v2 &nbsp; &nbsp; &nbsp; | &nbsp; 3.9.3 &nbsp; |
 | Uniform + Icons                       | 2.9                 |
 | Uniform + Icons Extra                 | 2.9                 |
 | Uniform + Icons Extra Folders         | 2.9                 |
