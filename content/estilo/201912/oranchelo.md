@@ -3,7 +3,7 @@ title: "Oranchelo"
 date: "2019-12-09"
 description: "Cambia la forma en que miras tu escritorio. Obtenga un tema de iconos cuidadosamente diseñado, brillante y limpio para Gnome Desktop."
 type: "estilo"
-tags: ["icons","GTK","KDE","QT"]
+tags: ["icons","gtk","kde","qt"]
 category: ["Estilo"]
 img: "https://www.kdeblog.com/wp-content/uploads/2017/08/Oranchelo-Icon-Theme_crop.jpg"
 authors: ["PatoJAD"]
@@ -25,6 +25,8 @@ Oranchelo es un tema de iconos de diseño plano para XFCE4 basado en Super Flat 
 
 {{< br >}}
 {{< br >}}
+
+En nuestro {{< textlink text="repositorio" url="/repositorio/" >}} podes encontrar la ultima version para todos los deribados de debian, esto fue agregado tiempo despues de la publicacion por lo cual no se modifica la explicacion.
 
 ### Ubuntu o derivados
 
