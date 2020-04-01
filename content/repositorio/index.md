@@ -56,6 +56,7 @@ Recorda que este repositorio se crea en base a la comunidad y como tal todos pod
 | Uniform + Icons Extra                 | 2.9                  |
 | Uniform + Icons Extra Folders         | 2.9                  |
 | Uniform + Icons Extra Symbols         | 2.9                  |
+| VirtualBox                            | 6.0                  |
 | Whatsapp                              | 0.6.1                |
 | Youtube DLG                           | 0.4.1                |
 
