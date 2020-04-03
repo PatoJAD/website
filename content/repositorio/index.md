@@ -43,21 +43,5 @@ Recorda que este repositorio se crea en base a la comunidad y como tal todos pod
 ## LISTA DE APPS
 
 {{< br >}}
-
-| Nombre                                | Version              |
-|---------------------------------------|:--------------------:|
-| CAVA                                  | 0.6.1                |
-| Conky Manager v2 &nbsp; &nbsp; &nbsp; | &nbsp; 3.9.3 &nbsp;  |
-| Discord                               | &nbsp; 0.0.10 &nbsp; |
-| Komorebi                              | 2.1                  |
-| Lvtommy repository                    | 1.0.0                |
-| Ministick                             | 1.4.1                |
-| Uniform + Icons                       | 2.9                  |
-| Uniform + Icons Extra                 | 2.9                  |
-| Uniform + Icons Extra Folders         | 2.9                  |
-| Uniform + Icons Extra Symbols         | 2.9                  |
-| VirtualBox                            | 6.0                  |
-| Whatsapp                              | 0.6.1                |
-| Youtube DLG                           | 0.4.1                |
-
+{{< repotable >}}
 {{< br >}}
