@@ -124,3 +124,5 @@ Si nos fijamos lo que he hecho es meter dentro del tag `<script>` el mismo tag e
 Para llegar a esta solución fue necesario hacer bastante pruebas, las cuales las cuales se realizan en entornos virtuales sin hacer ruido, Cuando se ve que funciona en el entorno virtual se pude verificar que realmente funcionaba en el real, así que es prudente notificar a los administradores de la vulnerabilidad y que la misma sea corregida.
 
 Con esta lección espero que hayamos podido comprobar la importancia de Javascript en el mundo de la seguridad informática y cual es su papel en el mundo del "hacking".
+
+Fuente: CusrsoHacker
