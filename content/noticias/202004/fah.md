@@ -89,6 +89,24 @@ Y ya con esto termina automaticamente la instalacion!
 {{< br >}}
 {{< br >}}
 
+## ¿Usas Otro sistema?
+
+{{< br >}}
+
+No importa, ayudar no depende del sistema que uses y hoy no es tema importante (mas alla de que prediquemos el uso de Linux) {{< textlink text="desde aqui podes ver como instalarlo en tu sistema" url="https://foldingathome.org/start-folding/" >}} Y podes unirte con el mismo codigo de grupo porque todos estamos juntos para esto!
+
+Codigo de Grupo:
+{{< br >}}
+
+    260504
+
+{{< br >}}
+
+Te estamos esperando para colaborar con el mundo! 
+
+{{< br >}}
+{{< br >}}
+
 ## Consumo despues de configurar
 
 {{< br >}}
