@@ -3,7 +3,7 @@ title: 'Actualiza GNU/Linux sin comandos con DistroUpdate'
 date: '2020-04-14 11:22:00'
 description: ' Los usuarios novatos prefieren usar herramientas gráficas que no todas las distribuciones tienen'
 type: 'aplicaciones'
-tags: ["popcorn","series","peliculas"]
+tags: ["mintupdate","distroupdate","update"]
 category: ["Aplicaciones"]
 img: 'https://instatecno.com/wp-content/uploads/2020/04/DistroUpdate-750x400.jpg'
 authors: ["Juanro"]
