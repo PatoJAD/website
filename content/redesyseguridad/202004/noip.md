@@ -9,9 +9,9 @@ img: 'https://www.redeszone.net/app/uploads/2018/10/Logo-No-IP.jpg'
 authors: ["PatoJAD"]
 ---
 
-No-IP ofrece servicios de DNS, correo electrónico, monitoreo de red y certificados SSL. El producto principal de No-IP son los servicios dinámicos de DNS ("DDNS"). Los servicios DNS dinámicos básicos que usan un dominio propiedad de No-IP son de uso gratuito siempre que la cuenta permanezca activa.
+No-IP ofrece servicios de DNS, correo electrónico, monitoreo de red y certificados SSL. El producto principal de No-IP son los **servicios dinámicos de DNS** ("DDNS"). Los servicios DNS dinámicos básicos que usan un dominio propiedad de No-IP son de uso **gratuito siempre que la cuenta permanezca activa**.
 
-Las direcciones IP dinámicas son comunes en las cuentas de banda ancha de cable residencial o DSL. El servicio gratuito permite a los usuarios configurar entre uno y tres nombres de host en un nombre de dominio proporcionado por No-IP. El nombre del host se resolverá en la dirección IP actual de la computadora de ese usuario.
+Las direcciones **{{< textlink url="/redesyseguridad/2020/01/direcciones-ips-nuestra-huella-en-la-red/" text="IP" >}} dinámicas** son comunes en las cuentas de banda ancha de **cable residencial** o DSL. El servicio gratuito permite a los usuarios configurar entre **uno y tres nombres de host** en un nombre de dominio proporcionado por No-IP. El nombre del host se resolverá en la dirección IP actual de la computadora de ese usuario.
 
 {{< br >}}
 {{< br >}}
@@ -20,7 +20,7 @@ Las direcciones IP dinámicas son comunes en las cuentas de banda ancha de cable
 
 {{< br >}}
 
-Un nombre de host DNS dinámico está vinculado a la dirección IP dinámica del usuario. Cada vez que cambie la IP, un cliente DNS dinámico enviará una actualización a No-IP con la dirección IP actual y luego No-IP propagará el cambio de DNS a Internet en cuestión de segundos.
+Un nombre de host **DNS dinámico** está vinculado a la dirección {{< textlink url="/redesyseguridad/2020/02/qué-hay-detrás-de-una-ip/" text="IP dinámica" >}} del usuario. Cada vez que **cambie la IP**, un cliente DNS dinámico enviará una actualización a No-IP con la dirección IP actual y luego No-IP propagará el cambio de DNS a Internet en cuestión de segundos.
 
 Para facilitar las actualizaciones de direcciones IP, No-IP tiene un protocolo abierto que permite a los desarrolladores de software y fabricantes de hardware comunicarse a través de HTTP para notificarles sobre un cambio de dirección IP.
 
@@ -41,7 +41,7 @@ Una vez que haya abierto la ventana de su Terminal, inicie sesión como usuario 
 
 {{< br >}}
 
-antes de instalarlo debemos asegurarnos de instalar algunas dependecias (la instalacion se realiza mediante make install de un precompilado) por lo cual de momento no puedo generar el deb.
+antes de instalarlo debemos asegurarnos de instalar algunas **dependecias** (la instalacion se realiza mediante make install de un precompilado) por lo cual de momento no puedo generar el deb.
 
 {{< br >}}
 
