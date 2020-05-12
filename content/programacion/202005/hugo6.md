@@ -1,7 +1,7 @@
 ---
 title: "Hugo CMS - Taxonomias y Metadata"
 date: "2020-05-12 10:01:00"
-description: "Hoy trabajamos "
+description: "Hoy trabajamos un poco con las taxonomias y la metadata del sitio"
 type: "programacion"
 tags: ["hugo","cms","taxonomias","metadata"]
 category: ["Programacion"]
