@@ -1,7 +1,7 @@
 ---
 title: 'PatoJAD TV'
 date: '2020-05-13 08:53:00'
-  description: '¿Queres ver la tele desde cualquier lado? Hicimos algo para que puedas llevar la tele a donde vayas'
+description: '¿Queres ver la tele desde cualquier lado? Hicimos algo para que puedas llevar la tele a donde vayas'
 type: 'aplicaciones'
 tags: ["iptv","series","peliculas","tv","online"]
 category: ["Aplicaciones"]
