@@ -9,7 +9,7 @@ img: 'https://i.postimg.cc/zvm74cc2/Deepin-Screenshot-Seleccionar-rea-2020051308
 authors: ["PatoJAD"]
 ---
 
-Hoy venimos a hablar de un proyecto que puede ser algo útil durante esta cuarentena, si bien el proyecto el proyecto llegó tarde nos alegra poder mostrar su **BETA para todos los usuarios interesados**, actualmente seguimos buscando formas de mejorarlo y para esto aceptamos criticas de todos.
+Hoy venimos a hablar de un proyecto que puede ser algo útil durante esta cuarentena, si bien el proyecto llegó tarde nos alegra poder mostrar su **BETA para todos los usuarios interesados**, actualmente seguimos buscando formas de mejorarlo y para esto aceptamos criticas de todos.
 
 {{< br >}}
 {{< br >}}
@@ -43,10 +43,10 @@ Es posible que los canales aportados por externos se vean mejor o peor dependien
 
 {{< br >}}
 
-Tenemos planeado **incorporar soporte a más plataformas de streemen**, adicional a esto creemos que estaría bueno poder sumar contenido on demand, sin embargo necesitamos la **colaboración de la comunidad** para poder sumar todo esto y es ahí donde entras vos, proba nuestro IPTV, Disfrutalo, Recomendalo y decinos eso que para vos te hace falta, o eso que queres ver, o simplemente colabora con el proyecto!
+Tenemos planeado **incorporar soporte a más plataformas de streaming**, adicional a esto creemos que estaría bueno poder sumar contenido on demand, sin embargo necesitamos la **colaboración de la comunidad** para poder sumar todo esto y es ahí donde entras vos, proba nuestro IPTV, Disfrutalo, Recomendalo y decinos eso que para vos te hace falta, o eso que queres ver, o simplemente colabora con el proyecto!
 
 {{< br >}}
 {{< link text="ir a PatoJAD TV" url="https://tv.patojad.com.ar/" >}}
 {{< br >}}
 
-Recorda **apoyarnos en nuestras redes** para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar a lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con **pequeños gestos**, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento
+Recorda **apoyarnos en nuestras redes** para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con **pequeños gestos**, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento
