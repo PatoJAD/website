@@ -15,8 +15,9 @@ Como podemos ven {{< textlink text="en la página de protondb" url="https://www.
 
 Por lo cual queremos compartir con ustedes lo que un usuario de reddit nos trae para que podamos instalar este hermoso juego y jugarlo casi sin problemas.
 
+{{< br >}}
 
-    Pasé bastante tiempo para que funcione con Wine / Proton, así que pensé en compartir mi experiencia aquí. Esperemos que sea útil para otros.
+> Pasé bastante tiempo para que funcione con Wine / Proton, así que pensé en compartir mi experiencia aquí. Esperemos que sea útil para otros.
 
 {{< br >}}
 
