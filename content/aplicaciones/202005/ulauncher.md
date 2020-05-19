@@ -1,6 +1,6 @@
 ---
 title: 'Ulauncher'
-date: '2020-05-19 08:53:00'
+date: '2020-05-19 14:16:00'
 description: 'Esta hermosa aplicación permite aumentar tu productividad de una forma increible y ademas es muy cómoda.'
 type: 'aplicaciones'
 tags: ["ulauncher","launcher","krunner","cerebro","apps"]
