@@ -1,6 +1,6 @@
 ---
 title: "Cómo instalar paquetes DEB usando dpkg"
-date: "2020-05-20 09:52:00"
+date: "2020-05-20 06:40:00"
 description: "Ya te explicamos cómo crear tu propio deb con dpkg, pero nos falto explicar como instalarlo, ya no tenes mas dudas asi se instala un deb con dpkg."
 type: "linux"
 tags: ["deb","linux","dpkg","debian","ubuntu"]
