@@ -56,5 +56,5 @@ Nuestro objetivo es explorar las posibilidades de simulación dentro del context
 Al recolectar sustancias del medio ambiente y procesarlas con un metabolismo simulado, puede aumentar la calificación de aptitud de su especie, creando resistencia contra la extinción. Los caminos evolutivos menos exitosos desaparecerán, y solo uno puede progresar a través de cada paso transformador crucial hacia la cohesión celular, la conquista terrestre, la sensibilidad, los asentamientos y los viajes espaciales. ¿Prosperarás?
 
 {{< br >}}
-{{< link ur="https://github.com/Revolutionary-Games/Thrive/releases" text="Descargar Juego" >}}
+{{< link url="https://github.com/Revolutionary-Games/Thrive/releases" text="Descargar Juego" >}}
 {{< br >}}
