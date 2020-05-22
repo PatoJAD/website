@@ -5,7 +5,7 @@ description: 'Hoy gracias Humberto Blanqueto Melche traemos otro hermoso launche
 type: 'aplicaciones'
 tags: ["ulauncher","launcher","krunner","cerebro","apps"]
 category: ["Aplicaciones"]
-img: 'https://d2.alternativeto.net/dist/s/cerebroapp_412593_full.png'
+img: 'https://d2.alternativeto.net/dist/s/cerebroapp_412593_full.png?format=jpg&width=1600&height=1600&mode=min&upscale=false'
 authors: ["PatoJAD"]
 ---
 
