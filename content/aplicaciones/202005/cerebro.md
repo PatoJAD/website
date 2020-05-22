@@ -5,7 +5,7 @@ description: 'Hoy gracias Humberto Blanqueto Melche traemos otro hermoso launche
 type: 'aplicaciones'
 tags: ["ulauncher","launcher","krunner","cerebro","apps"]
 category: ["Aplicaciones"]
-img: 'https://ayudalinux.com/wp-content/uploads/2017/10/ulauncher-2.jpg'
+img: 'https://d2.alternativeto.net/dist/s/cerebroapp_412593_full.png'
 authors: ["PatoJAD"]
 ---
 
