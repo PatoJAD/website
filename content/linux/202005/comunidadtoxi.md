@@ -5,7 +5,7 @@ description: "Nos tomamos a modo de broma lo que pasó en una comunidad para pod
 type: "linux"
 tags: ["comunidad","linux","toxica","pedro","latin"]
 category: ["Linux"]
-img: "https://www.almuerzodenegocios.com/wp-content/themes/sahifa/timthumb.php?src=/wp-content/uploads/2015/04/toxicoicono.jpg&h=330&w=660&a=c"
+img: "https://www.diariodecuyo.com.ar/export/sites/diariodecuyo/img/2019/11/19/toxicos.jpg_2063720366.jpg"
 authors: ["PatoJAD"]
 ---
 
