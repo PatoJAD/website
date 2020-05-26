@@ -5,14 +5,14 @@ description: "Nos tomamos a modo de broma lo que pasó en una comunidad para pod
 type: "linux"
 tags: ["comunidad","linux","toxica","pedro","latin"]
 category: ["Linux"]
-img: "https://hipertextual.com/archivo/wp-content/uploads/2014/07/mitos-sobre-linux-portada.jpg"
+img: "https://www.almuerzodenegocios.com/wp-content/themes/sahifa/timthumb.php?src=/wp-content/uploads/2015/04/toxicoicono.jpg&h=330&w=660&a=c"
 authors: ["PatoJAD"]
 ---
 
 Las comunidades pueden ser **muy tóxicas**, por esto decidimos comentar algunos sucesos en esta publicación. Creemos que nuestra comunidad es tan amistosa que tiene un espacio hasta para nuestros heaters.
 
 {{< br >}}
-{{< tourube code="wo2isE4xstc" >}}
+{{< youtube code="wo2isE4xstc" >}}
 {{< br >}}
 
 Tomando más en serio el problema creo que es **importante no quedarse callado** ante estos casos de injusticia, tomarlos, reclamarlos y generar un lugar seguro para usuarios nuevo o usuarios que no tengan muchas ganas de andar perdiendo el tiempo en peleas sin sentido. Es increíble ver cómo las **comunidades se desmoronan** la perder el norte y así se puede desmoronar el futuro de linux por las comunidades pésimas que existen.
