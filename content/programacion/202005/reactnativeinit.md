@@ -60,7 +60,7 @@ ya armamos el entorno, y entendemos que esta perfecto asi que vamos a la segunda
 
 {{< br >}}
 
-    create-react-native-app my-app
+    create-react-native-app my-app --use-npm
     cd my-app
     npm start
 
