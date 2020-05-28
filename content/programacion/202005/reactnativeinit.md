@@ -22,6 +22,7 @@ Una vez instalado podemos seguir con la instalación de react-native, en este ca
 {{< br >}}
 
     sudo npm install -g react-native-cli
+    sudo npm install -g create-react-native-app
 
 {{< br >}}
 
@@ -59,7 +60,7 @@ ya armamos el entorno, y entendemos que esta perfecto asi que vamos a la segunda
 
 {{< br >}}
 
-    npx create-react-app my-app
+    create-react-native-app my-app
     cd my-app
     npm start
 
