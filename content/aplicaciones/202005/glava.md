@@ -13,15 +13,15 @@ authors: ["PatoJAD"]
 {{< img src="https://camo.githubusercontent.com/a4d7fd8c67e2e061f508c492fbe1f12187196bb9/68747470733a2f2f7468756d62732e6766796361742e636f6d2f44656669616e74496e666f726d616c496e6469616e7370696e796c6f6163682d73697a655f726573747269637465642e676966" >}}
 {{< br >}}
 
-GLava es un visualizador de espectro de audio OpenGL altamente configurable y de uso general para X11. El desarrollo es activo y se alienta la presentación de informes sobre problemas.
+GLava es un visualizador de espectro de audio OpenGL **altamente configurable** y de uso general para X11. **El desarrollo es activo** y se alienta la presentación de informes sobre problemas.
+
+Un visualizador de audio funciona extrayendo información de forma de onda y / o frecuencia del audio y alimenta esta información a través de algunas reglas de visualización, que producen lo que ve en la pantalla. Las imágenes generalmente **se generan y se representan en tiempo real** y de manera sincronizada con la música a medida que se reproduce.
 
 {{< br >}}
-<div style="width: 100%; height: 0px; position: relative; padding-bottom: 56.250%;"><iframe src="https://streamable.com/e/dgpj8" frameborder="0" width="100%" height="100%" allowfullscreen style="width: 100%; height: 100%; position: absolute;"></iframe></div>
+{{< iframe url="https://streamable.com/e/dgpj8" >}}
 {{< br >}}
 
-Un visualizador de audio funciona extrayendo información de forma de onda y / o frecuencia del audio y alimenta esta información a través de algunas reglas de visualización, que producen lo que ve en la pantalla. Las imágenes generalmente se generan y se representan en tiempo real y de manera sincronizada con la música a medida que se reproduce.
-
-GLava hace que un visualizador de audio en tiempo real aparezca como si estuviera incrustado en el fondo de su escritorio o en una ventana. Cuando se muestra como fondo, se mostrará en la parte superior de su fondo de pantalla, dando la apariencia de un fondo de pantalla animado y en vivo.
+GLava hace que un visualizador de audio en tiempo real aparezca como si estuviera incrustado en el fondo de su escritorio o en una ventana. Cuando se muestra como fondo, se mostrará en la parte superior de su fondo de pantalla, dando la apariencia de un fondo de pantalla **animado y en vivo**.
 
 {{< br >}}
 {{< br >}}
@@ -30,7 +30,7 @@ GLava hace que un visualizador de audio en tiempo real aparezca como si estuvier
 
 {{< br >}}
 
-GLava ofrece 5 módulos diferentes. Si queres probar los otros visualizadores, ejecutalos con el indicador `-m` o edita el archivo `~/.config/glava/rc.glsl.`
+GLava ofrece **5 módulos diferentes**. Si queres probar los otros visualizadores, ejecutalos con el indicador `-m` o edita el archivo `~/.config/glava/rc.glsl`.
 
 Si te qieres cambiar a algo diferente, podes probar el visualizador radial. Comparte similitudes con las barras, excepto que las barras se dibujan alrededor de un círculo.
 
@@ -60,7 +60,7 @@ Se puede probar de esa forma...
 
 {{< br >}}
 
-La instalación, nuevamente gracias a la comunidad, es más simple y no requiere andar compilando nada, basta con tener instalado nuestro repositorio. y podrás simplemente instalarlo de la siguiente manera:
+La instalación, nuevamente **gracias a la comunidad**, es más simple y no requiere andar compilando nada, basta con tener instalado nuestro repositorio. y podrás simplemente instalarlo de la siguiente manera:
 
 {{< br >}}
 
