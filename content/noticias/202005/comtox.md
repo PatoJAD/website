@@ -5,9 +5,11 @@ description: 'Motivado por el post anterior intente forzar un caso de comunidade
 type: 'noticias'
 tags: ["comunidades","toxicas","gnu","linux","mas"]
 category: ["Noticias"]
-img: 'https://k60.kn3.net/taringa/0/B/B/E/9/7/De_la_cabeza/FAB.png'
+img: 'https://live.mrf.io/statics/i/ps/www.ecestaticos.com/imagestatic/clipping/c45/53c/c4553c3c9a3495b1d01c3026868ffdc7/las-dudas-ortograficas-mas-frecuentes-de-los-espanoles-resueltas-por-la-rae.jpg?mtime=1579565836'
 authors: ["PatoJAD"]
 ---
+
+{{< br >}}
 
 Como vimos en el caso anteior de {{< textlink url="/linux/2020/05/comunidades-toxicas/" text="Comunidades Toxicas" >}} me parecio interesante generar otra ocasión similar pero termino llevandome una grata sorpresa de la respuesta general de la comunidad
 
