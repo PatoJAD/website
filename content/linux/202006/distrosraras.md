@@ -1,6 +1,6 @@
 ---
 title: "Distros Raras"
-date: "2020-06-5 08:25:00"
+date: "2020-06-05 08:25:00"
 description: "Caminemos por la parte oscura del mundo linuxnauta y veamos que se genera en esos antros."
 type: "linux"
 tags: ["distros","linux","raras"]
