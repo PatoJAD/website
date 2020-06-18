@@ -1,7 +1,7 @@
 ---
 title: "Como configurar Proton con Protontricks"
 date: "2020-06-18 08:04:00"
-description: "¿Sabías que podés jugar al CS 1.6 desde tu navegador? Hoy vamos a ver este hermoso proyecto de cs-online.club que da un paso mas al CS 1.6"
+description: "Protontricks, las proteinas que llevan a Proton al siguiente nivel y mejoran su compatibilidad"
 type: "juegos"
 tags: ["proton", "tricks", "protontricks", "steam", "valve", "juegos"]
 category: ["Juegos"]
