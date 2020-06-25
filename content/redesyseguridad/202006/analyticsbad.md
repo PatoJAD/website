@@ -1,5 +1,5 @@
 ---
-title: '¿Compras Online? Estas en Riezgo'
+title: '¿Compras Online? Estas en Riesgo'
 date: '2020-06-24 12:17:00'
 description: 'Los hackers aprovechan el uso de Google Analytics en sitios de comercio electrónico para robar las tarjetas de crédito.'
 type: 'redesyseguridad'
