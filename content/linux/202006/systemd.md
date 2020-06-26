@@ -5,7 +5,7 @@ description: "Si SystemD es una solución yo prefiero el problema, realmente Sys
 type: "linux"
 tags: ["systemd", "non", "solucion", "problemas", "distro", "sin", "linux"]
 category: ["Linux"]
-img: "https://www.laguiadelvaron.com/wp-content/uploads/2020/04/australianos-se-disfrazan-para-sacar-basura-www.laguiadelvaron-12.jpg"
+img: "https://linuxforallsite.files.wordpress.com/2017/09/tux_system.jpg"
 authors: ["PatoJAD"]
 ---
 
