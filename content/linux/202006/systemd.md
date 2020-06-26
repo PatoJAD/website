@@ -147,6 +147,8 @@ Este último no es una distro en si, o al menos eso aclara en su sitio, pero par
 Existen alternativas y mucho se nota en el rendimiento… Pero cada cual debe buscar su propia opinión y formar su opinión. Ahora te toca contarnos tu punto de vista y que distro recomendarias vos...
 
 {{< br >}}
+{{< link url="https://nosystemd.org/" text="Mas info" >}}
+{{< br >}}
 
 ---
 
