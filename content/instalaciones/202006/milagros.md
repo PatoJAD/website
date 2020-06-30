@@ -1,6 +1,6 @@
 ---
 title: "Instalcion MilagrOS"
-date: "2019-01-28"
+date: "2020-06-30 08:30:00.00"
 description: "Distro ligera basada en MX Linux con un alto potencial"
 type: "instalacion"
 tags: ["mx","xfce","instalacion", "mineros", "milagros"]
