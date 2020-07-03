@@ -1,7 +1,7 @@
 ---
 title: "¿Por qué usar la línea de comandos?"
 date: "2020-07-03 09:41:00"
-description: "¿Te has dado cuenta alguna vez que, en las películas, cuando el "súper hacker" se sienta en el ordenador y nunca toca un ratón?"
+description: "¿Te has dado cuenta alguna vez que, en las películas, cuando el 'súper hacker' se sienta en el ordenador y nunca toca un ratón?"
 type: "linux"
 tags: ["comandos", "lineas", "terminal", "cmd", "consola", "terminal", "linux"]
 category: ["Linux"]
