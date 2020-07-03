@@ -19,7 +19,7 @@ La instalación es muy básica (aún asi mas adelante haré un paso a paso para 
 {{< br >}}
 {{< br >}}
 
-{{< link url="http://www.mediafire.com/file/ccz6k727wwznaue/Uniform_Pato_LatinLinux.tar.gz/file" text="Descarga" >}}
+{{< link url="https://www.mediafire.com/file/ccz6k727wwznaue/Uniform_Pato_LatinLinux.tar.gz/file" text="Descarga" >}}
 
 {{< br >}}
 {{< br >}}

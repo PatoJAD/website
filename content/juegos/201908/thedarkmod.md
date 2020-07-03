@@ -17,4 +17,4 @@ authors: ["PatoJAD"]
 >
 >{{< citaname name="wikipedia" >}}
 
-{{< img src="http://www.thedarkmod.com/wp-content/themes/thedarkmod/images/tdm_title.png" >}}
+{{< img src="https://www.thedarkmod.com/wp-content/themes/thedarkmod/images/tdm_title.png" >}}

@@ -5,7 +5,7 @@ description: "Un juego Libre bajo la licencia GNU/GPL v3. Lanzado inicialmente c
 type: "juegos"
 tags: ["Steam","AirStyle","Themes"]
 category: ["Juegos"]
-img: "http://www.thedarkmod.com/wp-content/gallery/general-interest/menu1.jpg"
+img: "https://www.thedarkmod.com/wp-content/gallery/general-interest/menu1.jpg"
 authors: ["PatoJAD"]
 ---
 The Dark Mod es un autónomo videojuego de género Sigilo inspirado en la seria Thief y originalmente lanzado como un Mod para Doom 3 en 2009. Con la versión 2.0, que salió en el octubre de 2013, Dark Mod llegó a ser un videojuego independiente de Doom 3.
@@ -22,17 +22,17 @@ El jugador es un ladrón que tiene que ir tirando en un mundo hostil y siniestro
 
 ## Imagenes
 
-{{< img src="http://www.thedarkmod.com/wp-content/gallery/general-interest/menu1.jpg">}}
+{{< img src="https://www.thedarkmod.com/wp-content/gallery/general-interest/menu1.jpg">}}
 {{< br >}}
-{{< img src="http://www.thedarkmod.com/wp-content/gallery/environments/darkmod_2018-06-09_16-04-21.jpg">}}
+{{< img src="https://www.thedarkmod.com/wp-content/gallery/environments/darkmod_2018-06-09_16-04-21.jpg">}}
 {{< br >}}
-{{< img src="http://www.thedarkmod.com/wp-content/gallery/environments/lockdown_6.jpg">}}
+{{< img src="https://www.thedarkmod.com/wp-content/gallery/environments/lockdown_6.jpg">}}
 {{< br >}}
 {{< publicidad >}}
 {{< br >}}
-{{< img src="http://www.thedarkmod.com/wp-content/gallery/environments/thedarkmod-2018-05-26-00-07-00.jpg">}}
+{{< img src="https://www.thedarkmod.com/wp-content/gallery/environments/thedarkmod-2018-05-26-00-07-00.jpg">}}
 {{< br >}}
-{{< img src="http://www.thedarkmod.com/wp-content/gallery/environments/gatehouse02.jpg">}}
+{{< img src="https://www.thedarkmod.com/wp-content/gallery/environments/gatehouse02.jpg">}}
 
 {{< br >}}
 
@@ -51,4 +51,4 @@ El jugador es un ladrón que tiene que ir tirando en un mundo hostil y siniestro
 
 {{< br >}}
 
-{{< link text="Descargar" url="http://www.thedarkmod.com/downloads/" >}}
+{{< link text="Descargar" url="https://www.thedarkmod.com/downloads/" >}}

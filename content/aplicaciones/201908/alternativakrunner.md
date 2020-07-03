@@ -9,7 +9,7 @@ img:  'https://cdn.slant.co/a7f6a944-60e4-4974-a2aa-da2e93f0294b/-/format/jpeg/-
 authors: ["PatoJAD"]
 ---
 
-{{< img src="http://www.kdeblog.com/wp-content/uploads/2010/05/krunner-main-image.jpg" >}}
+{{< img src="https://www.kdeblog.com/wp-content/uploads/2010/05/krunner-main-image.jpg" >}}
 
 De KDE podemos destacar muchas cosas, hoy vamos a hablar de KRunner una aplicación que fue pensada 100% para la comodidad del usuario. Para quien no lo conozca, en KDE nosotros podemos tocar ctrl + space y nos abre un input que nos permite buscar aplicaciones, ejecutar un comando de la terminal etc… Si bien no suena como algo útil, es realmente muy útil y nos optimiza mucho el tiempo de uso de nuestro equipo.
 Me paso después de mucho tiempo de usarlo que otras distros me resultaban vuelteras y molestas dado que no contenían dicha funcionalidad, y el instalarlo en distribuciones no KDE me llevaban a instalar muchas dependencias.

@@ -28,7 +28,7 @@ Escriba el nombre de una aplicación sin preocuparse por la ortografía. Ulaunch
 
 {{< br >}}
 
-Ulauncher proporciona 4 temas integrados. Pero si necesita algo diferente, siempre puede crear un {{< textlink url="https://gist.github.com/gornostal/02a232e6e560da7946c053555ced6cce" text="tema de color personalizado" >}}. Los documentos que necesitaras para esto están {{< textlink url="http://docs.ulauncher.io/en/latest/themes/themes.html" text="aquí" >}}
+Ulauncher proporciona 4 temas integrados. Pero si necesita algo diferente, siempre puede crear un {{< textlink url="https://gist.github.com/gornostal/02a232e6e560da7946c053555ced6cce" text="tema de color personalizado" >}}. Los documentos que necesitaras para esto están {{< textlink url="https://docs.ulauncher.io/en/latest/themes/themes.html" text="aquí" >}}
 
 {{< br >}}
 {{< br >}}

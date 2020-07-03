@@ -4,12 +4,12 @@ date: '2018-12-11'
 type: 'page'
 tags: ["Gracias","Agradecimientos","informacion"]
 category: ["Pages"]
-img:  'http://cdn.atomix.vg/wp-content/uploads/2014/09/ceratigraciastotales.png'
+img:  'https://cdn.atomix.vg/wp-content/uploads/2014/09/ceratigraciastotales.png'
 authors: ["PatoJAD"]
 ---
 
 {{< br >}}
-{{< img src="http://cdn.atomix.vg/wp-content/uploads/2014/09/ceratigraciastotales.png">}}
+{{< img src="https://cdn.atomix.vg/wp-content/uploads/2014/09/ceratigraciastotales.png">}}
 {{< br >}}
 
 Con este proyecto recibí el apoyo de muchas personas y no quiero dejar de mencionarlas porque gracias a ellas, esto es posible. Seguramente me olvide de alguien al escribir esto, lo importante es que se, quiénes están ayudándome y por más que no estén mencionados aquí, les agradezco a todos y cada uno.

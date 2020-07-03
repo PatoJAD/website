@@ -66,7 +66,7 @@ Clavando los _garfios_ en el teclado para escribir esta entrada y Uds. leyendo f
 
 Hombre o Mujer que lee estas líneas, has de saber que existe en la web, un lugar donde se alojan sonidos compuestos por Anónimos. Gente tan creíble y de todos los días como Vos y como Yo.
 
-El sitio web en cuestión se hace llamar _[musicforprogramming](http://musicforprogramming.net/)_.
+El sitio web en cuestión se hace llamar _[musicforprogramming](https://musicforprogramming.net/)_.
 
 {{< img src="https://i.postimg.cc/fyRSfK8k/00-program-music.png" >}}
 
@@ -74,7 +74,7 @@ Con un _Estilo Editor de Código Fuente Moderno_, el diseño de la página ya da
 <br>
 Aunque ya se sabe que sobre gustos no hay ni habrá nada escrito, comparto sobre la existencia de este sitial, ya que a los sets de Música aquí alojados los escucho cada vez que llevo a cabo una tarea rutinaria en la _cacharra_.
 
-Dicen los Pibes de _[musicforprogramming](http://musicforprogramming.net/)_ acerca de su gestión:
+Dicen los Pibes de _[musicforprogramming](https://musicforprogramming.net/)_ acerca de su gestión:
 
 {{< img src="https://i.postimg.cc/2ySTLnv7/about-musicforprogrammers.png" >}}
 
