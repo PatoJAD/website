@@ -44,7 +44,7 @@ Se puede utilizar simplemente con la línea de comandos, o terminal, o shell. Re
 
 {{< br >}}
 
-LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify
+    LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify
 
 {{< br >}}
 
