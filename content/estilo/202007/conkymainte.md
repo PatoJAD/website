@@ -23,7 +23,7 @@ En esta oportunidad vamos a hablar de un Conky en especial aprovechemos el viern
 Mainte es un conky que muestra una información útil de nuestro equipo y lo hace de una forma muy estética. Este conky fue pensado para un caso muy específico, sin embargo, gracias a todo el desarrollo hoy se puede utilizar para todos los equipos y todas las distros así que sin más preámbulos vamos a ir a como instalar esta distro.
 
 {{< br >}}
-{{< img sec="https://camo.githubusercontent.com/d679002e85fe798a3b6787abc59d87ac0bc742c1/68747470733a2f2f692e6962622e636f2f52486371464c782f53637265656e73686f742d32303139313230322d3232333131382e706e67" >}}
+{{< img src="https://camo.githubusercontent.com/d679002e85fe798a3b6787abc59d87ac0bc742c1/68747470733a2f2f692e6962622e636f2f52486371464c782f53637265656e73686f742d32303139313230322d3232333131382e706e67" >}}
 {{< br >}}
 {{< br >}}
 
@@ -50,13 +50,13 @@ Una vez descargado debemos extraer toda la carpeta y copiarla en /home/$USER/.co
 Una vez realizado esto basta con iniciar el conky manager y activar los dos conky de Mainte para poder verlo de la siguiente forma
 
 {{< br >}}
-{{< img sec="https://i.ibb.co/pKD0qLw/Screenshot-20200710-130504.png" >}}
+{{< img src="https://i.ibb.co/pKD0qLw/Screenshot-20200710-130504.png" >}}
 {{< br >}}
 
 Y poder mostrar un ViernesDeEscritorio así…
 
 {{< br >}}
-{{< img sec="https://i.ibb.co/w6VJh6Q/Screenshot-20200710-130523.png" >}}
+{{< img src="https://i.ibb.co/w6VJh6Q/Screenshot-20200710-130523.png" >}}
 {{< br >}}
 
 ---
