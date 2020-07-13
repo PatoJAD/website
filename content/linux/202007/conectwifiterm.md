@@ -78,11 +78,11 @@ Con esto pasos ya nos hemos conectado a una red wifi utilizando la terminal, deb
 
 {{< br >}}
 
-*<InterfazWifi>*: El nombre de la tarjeta de red
+*InterfazWifi*: El nombre de la tarjeta de red
 
-*<WifiSSID>*: El SSID de la red inalámbrica a la que deseamos conectarnos
+*WifiSSID*: El SSID de la red inalámbrica a la que deseamos conectarnos
 
-*<ContraseñaWifi>*: La contraseña de acceso a la red inalámbrica en cuestión.
+*ContraseñaWifi*: La contraseña de acceso a la red inalámbrica en cuestión.
 
 {{< br >}}
 
