@@ -5,7 +5,7 @@ description: 'Nuevamente decido hablarle a Zatiel una persona muy influyente den
 type: 'noticias'
 tags: ["linux", "zatiel", "problema", "respuesta"]
 category: ["Noticias"]
-img: 'https://img.youtube.com/vi/i3cmsvrOI2w/maxresdefault.jpg'
+img: 'https://instintobinario.com/wp-content/uploads/2014/10/2310_0-713x360.png'
 authors: ["PatoJAD"]
 ---
 
