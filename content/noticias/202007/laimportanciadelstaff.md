@@ -1,5 +1,5 @@
 ---
-title: 'La importancia del Staff '
+title: 'La importancia del Staff'
 date: '2020-07-21 08:58:00'
 description: 'La importancia de un staff en una comunidad es muy elevada y mas cuando de toxicidad hablamos...'
 type: 'noticias'
@@ -22,7 +22,9 @@ ya anteriormente hablamos sobre comunidades, toxicidad, y muchas cosas junto a v
 
 A decir verdad el staff de una comunidad es realmente importante, porque siempre, aunque sea inconsciente, los miembros toman una admiración y/o respeto por estos que los lleva a adoptar su comportamiento como correcto.
 
+{{< br >}}
 {{< img src="https://yorcyrivera.files.wordpress.com/2018/11/concurso_cas05_2018.jpg">}}
+{{< br >}}
 
 Esta pequeña construcción social hace que si nuestro staff está compuesto por gente tóxica el grupo tiende a ser tóxico en sí mismo… Y no hablo de todo el grupo, sino de los más influenciables pero esto termina marcando a un grupo en sí (pues siempre lo malo resalta más)
 
@@ -38,7 +40,9 @@ Esta pregunta es difícil que se la haga el staff, dado que la gente tóxica no 
 {{< br >}}
 
 * **Staff Amplio y con carácter**: El staff está siempre para colaborar por el bien del grupo, por lo cual un staff amplio que no sea sumiso ante el creador del grupo es importante para **corregir errores del mismo staff** (es fácil advertir a un usuario, pero no tan fácil advertir a un admin o un creador)
+
 * **Ideas diferentes, mismo objetivo**: El hecho de que los miembros del staff tengan un objetivo claro y piensen diferente contribuye a evitar la exclusividad de los grupos. Por ejemplo: Todo el que me conoce sabe que yo **amo KDE** y *repudio GNOME* sin embargo en mi staff hay gente que **ama GNOME** por lo cual evitamos que *GNOME* sea  mala palabra en el grupo. (Este ejemplo es absurdo, pero es perfectamente escalable)
+
 * **Sin piramides, todo una llanura**: Si hay algo de lo que estoy orgulloso es que en mi grupo el usuario nuevo y el owner (o sea yo) tenemos el mismo peso de la palabra y el mismo derecho en todo. Cualquier miembro tiene el grupo y sus herramientas a disposición para lo que necesite y eso hace que la voz de todos los miembros valga. Ya varias veces fueron usuarios los que acomodaron cosas sobre el canal de YTbe o el mismo blog.
 
 {{< br >}}
