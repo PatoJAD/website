@@ -11,7 +11,9 @@ authors: ["PatoJAD"]
 
 Muchos me preguntaron sobre mi terminal en videos anteriores, en esta oportunidad quiero explicar como llegar a tener una terminal como la que uso yo, y específicamente, porque tener una terminal así.
 
+{{< br >}}
 {{< img src="https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/performance.gif" >}}
+{{< br >}}
 
 Dentro de mi profesión como developer es importante la velocidad y simplicidad de tareas cotidianas y una de esas es el uso de la terminal, la terminal la uso todo el dia y para prácticamente todo, por lo cual requiero una terminal que pueda personalizar para que se acomode y obviamente me simplifique todo lo que pueda…
 
@@ -103,8 +105,11 @@ Para instalarlos voy a indicar el paso a paso, no es obligatorio seguirlo así d
 {{< br >}}
 
 {{< link text="MesloLGS NF Regular" url="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf" >}}
+{{< br >}}
 {{< link text="MesloLGS NF Bold" url="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf" >}}
+{{< br >}}
 {{< link text="MesloLGS NF Italic" url="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf" >}}
+{{< br >}}
 {{< link text="MesloLGS NF Bold Italic" url="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf" >}}
 
 {{< br >}}
@@ -151,11 +156,11 @@ En el caso de que no nos guste como quedo o queramos cambiarlo siempre se puede 
 
 {{< br >}}
 
-    p10k
+    p10k configure
 
 {{< br >}}
 
-que permitirá reconfigurar el theme...
+Que permitirá reconfigurar el theme nuevamente para dejarlo a nuestro gusto... No te olvides de comentarnos que te parece y dejarnos la foto de tu terminal recien configurada! Te esperamos en Telegram
 
 {{< br >}}
 
