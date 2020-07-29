@@ -5,7 +5,7 @@ description: 'En plena era digital los bancos no se adaptan y las fintech nacen 
 type: 'noticias'
 tags: ["fintech", "tecnologia", "bancos", "economia", "digital", "ventajas"]
 category: ["Noticias"]
-img: 'https://www.3gb.com.mx/wp-content/uploads/2015/10/Toxic.jpg'
+img: 'https://www.roadshow.com.ar/wp-content/uploads/ECOSISTEMA-DE-FINTECH.jpg'
 authors: ["PatoJAD"]
 ---
 
