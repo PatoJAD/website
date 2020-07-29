@@ -1,6 +1,6 @@
 ---
 title: 'Fintech ¿El terror de los Bancos?'
-date: '2020-07-21 08:58:00'
+date: '2020-07-29 10:08:00'
 description: 'En plena era digital los bancos no se adaptan y las fintech nacen en busca de un lugar que están obteniendo...'
 type: 'noticias'
 tags: ["fintech", "tecnologia", "bancos", "economia", "digital", "ventajas"]
