@@ -29,6 +29,8 @@ Según algunos autores, las Fintech aportan su valor habiendo propuesto 4 soluci
 * Incrementan, mediante Big Data, la información sobre clientes, empresas y tendencias.
 
 {{< br >}}
+{{< img src="https://cdn2.hubspot.net/hubfs/2604929/iStock-974158260.jpg" >}}
+{{< br >}}
 
 Esto sumado al actual contexto mundial favoreció el crecimiento abismal de este modelo de negocio economico digital. Generando así un temor en los bancos, dado que estas fintech podrían mejorar al punto de desplazarlos (no hablamos de los principales bancos que dominan el mundo).
 
@@ -50,7 +52,9 @@ Si bien las fintech parecen un sueño dorado de felicidad y amor tienen un siste
 
 Los bancos recibieron como golpe bajo el covid y demoraron muchísimo en actuar. Esto es algo realmente malo para ellos porque si bien no *pierden* usuarios están dejando que las fintechs crezcan de una forma abismal y esto puede volverse negativo en poco tiempo.
 
-Por eso mismo 3 grandes bancos se unieron para crear una fintech que permita a los bancos posicionarse a nivel de competir con estas nuevas formas de llevar las finanzas un poco más amoldadas a la era digital.
+{{< img src="https://www.grou.com.mx/hs-fs/hubfs/Blog_Enero_19/Infografia_31_enero_grou.jpg?width=2084&name=Infografia_31_enero_grou.jpg">}}
+
+Por eso mismo 3 grandes bancos, en Argentina, se unieron para crear una fintech que permita a los bancos posicionarse a nivel de competir con estas nuevas formas de llevar las finanzas un poco más amoldadas a la era digital. Si bien esta iniciativa intentara unir muchos bancos y volverlo una iniciativa internacional hoy estamos un pocos alejados de ver a los bancos amoldarse a la era digital.
 
 {{< br >}}
 {{< br >}}
