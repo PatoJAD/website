@@ -11,9 +11,17 @@ authors: ["PatoJAD"]
 
 En esta nueva entrada presentamos una comparación que nos ayuda a comprender las diferencias entre los Sistemas Operativos Libres y propietarios. Para esto vamos a usar una comparación que hizo Sergio, un gran colega que apoya el Software Libre. Al principio pensé en modificar un poco el texto pero no quiero perder su esencia, por ende quiero aclarar que lo que viene a continuación es literalmente lo que Segio publicó en Escuela libre!.
 
+{{< br >}}
+{{< br >}}
+
 # ¿Que tipo de comida es tu Sistema Operativo?​
 
+{{< br >}}
+{{< br >}}
+
 ### Windows = Comida Rápida
+
+{{< br >}}
 
 * Es fácil de conseguir.
 * Sirve para saciar el apetito, pero tiene carencias nutricionales.
@@ -27,10 +35,12 @@ En esta nueva entrada presentamos una comparación que nos ayuda a comprender la
 * Siempre se quejarán de la comida de otros restaurantes y dirán que la suya es mejor, pero ellos hacen las mismas hamburguesas de siempre.
 * Los dueños de los restaurantes de comida rápida dicen ser filántropos, pero jamás regalarán su producto a menos que tengan un beneficio comercial en tal acción.
 
-
+{{< br >}}
+{{< br >}}
 
 ### Mac = Comida Gourmet
 
+{{< br >}}
 
 * Es cara.
 * La presentación es casi más importante que el producto en si.
@@ -43,10 +53,12 @@ En esta nueva entrada presentamos una comparación que nos ayuda a comprender la
 * Para ellos, la comida que se hace en otros lados es de mala calidad, aunque no la hayan probado nunca o alguna vez usen sus recetas en sus propios platos.
 * El Gourmet se acercará como una persona sencilla, cercana y espontánea, pero apenas empiece a hablar de sus cosas, te darás cuenta que está en un nivel que no te puedes permitir. Sencillamente lo hace porque es bueno para la imagen de su negocio.
 
-
+{{< br >}}
+{{< br >}}
 
 ### GNU/Linux = Comida Casera
 
+{{< br >}}
 
 * Siempre estuvo ahí, no se inventó por negocio, sino por necesidad y por placer.
 * Se ajusta a todos los bolsillos, puede ser barata, cara o incluso gratuita.
