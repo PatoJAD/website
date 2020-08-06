@@ -1,6 +1,6 @@
 ---
 title: "¿Que Sistema Operativo es mejor?"
-date: "2020-08-04 08:43:00"
+date: "2020-08-06 12:03:00"
 description: "Esta pregunta es muy recurrente y quiero dejar mi opinion sobre esto y creo que es una buena idea dejar espacio para que los demas opinen"
 type: "linux"
 tags: ["sistemas", "operativos", "herramientas", "mejor", "windows", "macos", "linux", "libre", "reactos", "haiku"]
