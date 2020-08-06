@@ -1,9 +1,9 @@
 ---
 title: "Paralelismo entre sistemas operativos y comidas"
 date: "2019-01-03"
-description: "SO a la carta"
+description: "Sistemas Operativos a la carta"
 type: "linux"
-tags: ["Libertad","Comparacion","Comida"]
+tags: ["libertad", "comparacion", "comida", "linux", "windows", "macos"]
 category: ["Linux"]
 img:  "https://i.postimg.cc/qvgbM1qQ/mastiquin.jpg"
 authors: ["PatoJAD"]
