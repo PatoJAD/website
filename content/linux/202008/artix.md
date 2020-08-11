@@ -1,7 +1,7 @@
 ---
 title: "Artix Linux"
 date: "2020-08-11 09:01:00"
-description: "Ya la presentamos antes a esta hermosa distribución, hoy vamos a hablar de mi opinion personal"
+description: "Una hermosa distribución basada en Arch Linux sin SystemD y Altamente ligera"
 type: "linux"
 tags: ["systemd", "linux", "artix", "gnu", "free", "openrc", "s6", "runit", "arch", "manjaro"]
 category: ["Linux"]
@@ -40,7 +40,7 @@ En esta oportunidad quiero hablar de una distribución de GNU/Linux que muy prob
 {{< img src="https://i.ytimg.com/vi/lz8hsZjjNZY/maxresdefault.jpg">}}
 {{< br >}}
 
-Como remarca desde su web y así la identifica totalmente, **Artix Linux** es una distro basada en Arch, por tanto sabemos que es rolling release, **libre de systemd* y que reemplaza a este con **Openrc**, **s6** o **runit**. Artix es la continuación de los icónicos ManjaroOpenRC y ArchOpenRC tomando una camino más firme con desarrollo continuo.
+Como remarca desde su web y así la identifica totalmente, **Artix Linux** es una distro basada en Arch, por tanto sabemos que es rolling release, **libre de systemd** y que reemplaza a este con **Openrc**, **s6** o **runit**. Artix es la continuación de los icónicos ManjaroOpenRC y ArchOpenRC tomando una camino más firme con desarrollo continuo.
 
 {{< br >}}
 {{< br >}}
