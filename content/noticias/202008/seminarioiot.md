@@ -1,6 +1,6 @@
 ---
 title: 'Seminario de IoT GRATIS!'
-date: '2020-08-03 09:25:00'
+date: '2020-08-12 09:13:00'
 description: '¿Sabiás que el Internet of Things conecta en red distintos elementos físicos que usamos cotidianamente para mejorar su eficiencia y facilitar su uso?'
 type: 'noticias'
 tags: ["iot", "seminario", "internet", "educacionit", "cosas", "free", "gratis"]
