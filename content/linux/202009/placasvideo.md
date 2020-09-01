@@ -1,6 +1,6 @@
 ---
 title: "Mejorar el Rendimiento de tu placa de Video"
-date: "2020-09-1 09:42:00"
+date: "2020-09-01 09:42:00"
 description: "Vamos a ver como mejorar el rendimiento de tu placa de video en este caso con ejemplo de una Intel UHD"
 type: "linux"
 tags: ["placa", "linux", "video", "vulkan", "opengl", "intel"]
