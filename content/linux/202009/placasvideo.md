@@ -3,7 +3,7 @@ title: "Mejorar el Rendimiento de tu placa de Video"
 date: "2020-09-01 09:42:00"
 description: "Vamos a ver como mejorar el rendimiento de tu placa de video en este caso con ejemplo de una Intel UHD"
 type: "linux"
-tags: ["placa", "linux", "video", "vulkan", "opengl", "intel"]
+tags: ["placa", "linux", "video", "vulkan", "opengl", "intel", "amd", "gpu"]
 category: ["Linux"]
 img: "https://i0.wp.com/qepd.news/wp-content/uploads/2020/01/asrock-mother.jpg?fit=600%2C300&ssl=1"
 authors: ["PatoJAD"]
