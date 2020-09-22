@@ -16,6 +16,17 @@ Ya hablamos de man y podes verlo {{< textlink url="/linux/2019/01/man-tu-manual-
 {{< br >}}
 {{< br >}}
 
+## Video
+
+{{< br >}}
+
+En esta oportunidad un video acompaña un poco esta guia/tutorial para poder simplificarla un poco.
+
+{{< br >}}
+{{< youtube code="nLNnuyBsxAg" >}}
+{{< br >}}
+{{< br >}}
+
 ## Iniciemos
 
 {{< br >}}
