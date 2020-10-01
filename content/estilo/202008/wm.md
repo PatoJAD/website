@@ -5,7 +5,7 @@ description: "Hoy hablamos de los Windows Manager y en esta oportunidad mostramo
 type: "estilo"
 tags: ["mate", "gnome", "kde", "wm", "awesome", "windows", "manager"]
 category: ["Estilo"]
-img: "https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/big.webp"
+img: "https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/gnawesome.webp"
 authors: ["PatoJAD"]
 ---
 
