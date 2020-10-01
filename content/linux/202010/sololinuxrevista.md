@@ -43,7 +43,7 @@ No te olvides de descargar este PDF y coleccionarlos, Leelo y disfruta de todo l
 
 {{< br >}}
 
-{{< link url="" text="Descargar la revista" >}}
+{{< link url="https://www.sololinux.es/revista/REVISTA_SOLOLINUX_N20_SEPTIEMBRE_2020.pdf" text="Descargar la revista" >}}
 {{< br >}}
 {{< br >}}
 
