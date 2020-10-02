@@ -1,6 +1,6 @@
 ---
 title: "Blockpost"
-date: "2020-10-02 08:14:00"
+date: "2020-10-02 08:11:00"
 description: "El juego es un rico cóctel que consta de las soluciones de juego más populares y funcionales"
 type: "juegos"
 tags: ["shooter", "blockpost", "minecraft", "steam", "free", "gratis", "linux", "windows", "proton", "valve"]
