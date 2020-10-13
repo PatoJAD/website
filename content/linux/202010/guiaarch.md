@@ -14,6 +14,8 @@ authors: ["PatoJAD"]
 Siempre hablamos de esta distribución tan maravillosa y en esta oportunidad vamos a aprovechar que un usuario nos dejó una guía tan específica y tan perfecta que vamos a proceder con la instalación de Arch linux. Con esta guía solo basta seguir paso a paso.
 
 {{< br >}}
+#### Atención esta guia solo sirve para instalarlo sobre Disco Duro y no sobre SSD
+{{< br >}}
 {{< br >}}
 
 ## Preparando el equipo
@@ -646,7 +648,7 @@ Deberías cambiar en ambos casos a sddm por el gestor de sesiones que hayas inst
 
 {{< br >}}
 
-El contenido de esta publicación no es mio, simplemente acomode y junte las 2 guías para llegar a esta publicación. Quiero agradecer a **Im rare =)** por permitirme usar sus guías.
+El contenido de esta publicación no es mio, simplemente acomode y junte las 2 guías para llegar a esta publicación. Quiero agradecer a **Im Rere =)** por permitirme usar sus guías.
 
 {{< br >}}
 {{< br >}}
