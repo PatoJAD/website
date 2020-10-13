@@ -26,7 +26,7 @@ Una vez que hayamos booteado nuestro prendive con Arch linux vamos a poner nuest
 
 {{< br >}}
 
-    loadkeys es
+    loadkeys la-latin1
 
 {{< br >}}
 
