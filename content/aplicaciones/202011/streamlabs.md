@@ -1,5 +1,5 @@
 ---
-title: 'SteamLabs en Linux'
+title: 'StreamLabs en Linux'
 date: '2020-11-10 09:44:00'
 description: '¿Quien dijo que no se puede ser Stremer en Linux? Hoy vamos a ver como'
 type: 'aplicaciones'
@@ -210,7 +210,7 @@ Esto nos genera el archivo tar.gz el cual podemos instalar simplemente con pacma
 
 {{< br >}}
 ```bash
-pacman -U SteamLabs.tar.gz
+pacman -U StreamLabs.tar.gz
 ```
 {{< br >}}
 
