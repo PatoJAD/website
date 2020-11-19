@@ -4,6 +4,7 @@ date: "2020-11-19 08:19:00"
 description: "Es un elegante juego multijugador gratuito sobre bucear, voltear y deslizarse hacia el caos de las películas de acción."
 tags: ["shooter", "double", "action", "steam", "free", "gratis", "linux", "windows", "boogaloo", "valve"]
 category: ["Juegos"]
+type: "juegos"
 img: "https://cdn.cloudflare.steamstatic.com/steam/apps/317360/header.jpg"
 authors: ["PatoJAD"]
 ---
