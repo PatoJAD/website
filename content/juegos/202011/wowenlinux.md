@@ -1,5 +1,5 @@
 ---
-title: "¿Como juegar al WoW en Linux?"
+title: "¿Como jugar al WoW en Linux?"
 date: "2020-11-30 11:29:00"
 description: "Es un elegante juego multijugador gratuito sobre bucear, voltear y deslizarse hacia el caos de las películas de acción."
 tags: ["wow", "word", "warcraft", "mmorpg", "linux", "gratis", "linux", "wine", "legion"]
