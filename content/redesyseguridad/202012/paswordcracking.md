@@ -5,7 +5,7 @@ description: '¿Que es el cibercrimen?¿Como funciona? Todo lo que tenes que sab
 tags: ["seguridad", "pasword", "cracking", "wifi", "contraseña", "hackeo", "informatica", "kali", "black", "arch", "reados"]
 type: 'redesyseguridad'
 category: ["redesyseguridad"]
-img: 'https://newsbook.es/wp-content/uploads/2020/03/phishing-1068x580.jpg'
+img: 'https://alpinesecurity.com/wp-content/uploads/2017/12/offline-password-cracking.jpg'
 authors: ["PatoJAD"]
 ---
 
