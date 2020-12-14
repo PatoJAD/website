@@ -13,7 +13,7 @@ authors: ["PatoJAD"]
 {{< img src="https://i.postimg.cc/dt3tnvFZ/image.png" >}}
 {{< br >}}
 
-El día de la fecha podemos encontrar a partir de las 9 AM hs de Argentina al servicio más monopólico de la internet con una caída parcial que está afectando múltiples servicios. Si, estamos hablando de nada más ni nada menos que el mismísimo google que el dia de la fecha al parecer comenzó con una caída parcial internacional donde se reportan caídas de múltiples servicios ofrecidos por el mismo
+El día de hoy pudimos encontrar (a partir de las 9 AM de Argentina) al servicio más monopólico de la internet con una caída parcial que está afectando múltiples servicios. Si, estamos hablando de nada más ni nada menos que el mismísimo google que al parecer comenzó con una caída parcial internacional donde se reportan caídas de múltiples servicios ofrecidos por esta empresa.
 
 {{< br >}}
 {{< img src="https://i.postimg.cc/prpbQWj2/image.png" >}}
@@ -52,6 +52,16 @@ De momento Google Desconoce la causa por lo cual nos brinda su sitio oficial par
 {{< br >}}
 {{< br >}}
 
+## Alternativa
+
+{{< br >}}
+
+Es importante recalcar que no se depende exclusivamente de Google, existen otros servicios similares que hacen que Google deje de ser indispensable, a continuación dejo el enlace de disroot el servicio que desde mi punto de vista es el mejor y digno de compartir con amigos.
+
+{{< br >}}
+{{< link url="https://disroot.org/" text="Disroot" >}}
+{{< br >}}
+{{< br >}}
 ---
 
 {{< br >}}
