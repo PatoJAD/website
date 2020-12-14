@@ -39,6 +39,19 @@ Así mismo este error **se ve reflejado en todos los sitios o servicios que se p
 {{< br >}}
 {{< br >}}
 
+## ¿Alguna informacion oficial?
+
+{{< br >}}
+{{< img src="https://i.postimg.cc/tCgCD6Pz/image.png" >}}
+{{< br >}}
+
+De momento Google Desconoce la causa por lo cual nos brinda su sitio oficial para conocer el status de sus servidores
+
+{{< br >}}
+{{< link url="https://www.google.com/appsstatus#hl=es&v=status" text="Revisar status">}}
+{{< br >}}
+{{< br >}}
+
 ---
 
 {{< br >}}
