@@ -1,3 +1,16 @@
 {{ define "main" }}
   {{- partial "posts/lasts.html" . -}}
+
+  <div class="content-fluid">
+    <div class="row">
+      {{ $paginator := .Paginate .Site.RegularPages.ByDate.Reverse }}
+      {{ range $paginator.Pages }}
+
+      {{ .Render "card" }}
+
+      {{ end }}
+    </div>
+  </div>
+  {{ partial "pagination.html" $paginator }}
+
 {{ end }}

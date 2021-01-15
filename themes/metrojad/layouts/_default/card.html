@@ -1,0 +1,42 @@
+
+
+<div class="cell-md-4">
+
+  <div class="card">
+    <div class="card-header">
+      {{ $pages := .Site.Pages.ByPublishDate.Reverse }}
+      {{ range .Params.authors }}
+        {{ range where (where $pages "Type" "authors") ".Params.name" . }}
+          <div class="avatar">
+              <img src="{{ .Params.img }}" />
+          </div>
+          <div class="name">{{ .Params.name }}</div>
+        {{ end }}
+      {{ end }}
+      <div class="date">{{ $formattedDate := .Date.Format "Friday, March 3, 2006" }}
+
+      {{ $monthNumber := .Date.Month }}
+      {{ $dayNumber := .Date.Weekday }}
+
+      {{ if eq site.Language.Lang "es" }}
+        {{ $monthNumber = index site.Data.meses (printf "%d" .Date.Month) }}
+        {{ $dayNumber = index site.Data.dias (printf "%d" .Date.Weekday) }}
+        {{ $formattedDate = delimit (slice $dayNumber (printf "%d" .Date.Day) "de" $monthNumber "de" (printf "%d" .Date.Year)) " "}}
+      {{ end }}
+
+      {{ $formattedDate }}</div>
+    </div>
+    <div class="card-content p-2">
+        <span>{{ .Params.description }}</span>
+    </div>
+    <div class="card-content">
+        <img src="{{ .Params.img }}" style="width: 100%">
+    </div>
+    <div class="card-footer">
+        <button class="flat-button mif-enter mif-2x"></button>
+        <button class="flat-button mif-comment mif-2x"></button>
+        <button class="flat-button mif-share mif-2x"></button>
+    </div>
+  </div>
+
+</div>
