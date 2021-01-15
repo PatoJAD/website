@@ -14,7 +14,7 @@ Los criptominers actuales cada vez son más sofisticados. En este caso los inves
 Claramente con este método nos quita una de las formas más importantes de detectar el minado de criptomonedas no consentido. Por más que nos esté consumiendo todo el CPU como suelen hacer no nos vamos a enterar por los monitores de sistema.
 
 {{< br >}}
-{{< publicidad >}}
+ 
 {{< br >}}
 
 Skidmap es un ejemplo de la alta complejidad de los criptominers actuales, el malware no solo carga modulos del kernel para mantener sus operaciones ocultas y enmascara lo que hace mostrando estadísticas de red y CPU falsas, sino que puede ser usado por los atacantes para ganar acceso total al sistema afectado.

@@ -28,7 +28,7 @@ En este factor tenemos un único ganador. Telegram X gano supuesto debido a su v
 
 {{< br >}}
 
-{{< publicidad >}}
+ 
 
 {{< br >}}
 

@@ -42,7 +42,7 @@ Este planteo es el que se postula con el fin de ver que es lo que piensa la comu
 
 {{< br >}}
 
-{{< publicidad >}}
+ 
 
 {{< br >}}
 

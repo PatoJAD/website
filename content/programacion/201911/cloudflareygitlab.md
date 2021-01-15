@@ -36,7 +36,7 @@ Y esto nos generara las respectivas claves que utilizaremos para asegurar la con
 En donde se encuentran los cuadros blancos verán su respectivo certificado y clave los cuales debemos guardar para utilizarlos en GitLab
 
 {{< br >}}
-{{< publicidad >}}
+ 
 {{< br >}}
 
 ## Agregar Dominio a Gitlab

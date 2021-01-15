@@ -15,7 +15,7 @@ Muchos hablamos de software Libre y de su comunidad de desarrolladores y los cri
 
 Antes que nada, tenemos que entender que esta cultura de “refunfuñar“ por el software que estamos utilizando viene heredado del uso de Software Privativo donde, si algo no nos gusta, solo debemos aceptarlo y seguir adelante con esa molestia.
 
-{{< publicidad >}}
+ 
 
 Sin embargo, en el software libre somos críticos y actores del software que utilizamos. No necesariamente tenemos que ser programadores para poder tomar iniciativas para mejorar eso que nos genera alguna molestia. Todos los proyectos, y reitero, TODOS los proyectos tienen la posibilidad de reportar un error, un issus o contactarte con los desarrolladores para hacerles saber sobre eso que nos molesta.
 Y este, queridos linuxnautas, es nuestra responsabilidad, ser actores del software libre y motivar el cambio y la evolución del software que utilizamos día a día. Contribuyendo con reportes, y participación activa en votaciones y demás.

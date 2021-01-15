@@ -20,7 +20,7 @@ Security Directory Server, versión 6.4.0.
 El equipo X-Force Ethical Hacking de IBM ha descubierto cinco vulnerabilidades, tres con criticidades altas y dos con criticidades medias, de las cuales no indagaremos a profundo en este momento. De las cuales un atacante remoto podría revelar información sensible, modificar archivos, robo de credenciales u obtener información del sistema. Por lo cual es altamente recomendable para todos los usuarios actualizar a las nuevas versiones donde estos inconvenientes se encuentran suplidos.
 
 {{< br >}}
-{{< publicidad >}}
+ 
 {{< br >}}
 
 ## Solución:

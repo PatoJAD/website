@@ -27,7 +27,7 @@ La instalación de Void Linux, me hace recordar a la mejor distribución que exi
 
 {{< br >}}
 
-{{< publicidad >}}
+ 
 
 {{< br >}}
 

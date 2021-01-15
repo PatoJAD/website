@@ -21,7 +21,7 @@ Nuevamente nos hacemos eco de EducacionIT quien nos trae un nuevo Seminario Onli
 En el Seminario explicaremos qué es el Marketing Online, sus características, herramientas más utilizadas y su alcance en el ámbito empresarial hoy en día. Se abordarán conceptos claves para comprender los aspectos fundamentales del Marketing Online: Community Manager, Marketing Viral, Social Marketing, Mobile Marketing, SEO, SEM, SMO, Redes Sociales, Google Ads y Analytics, AdSense, Reputación Online, Geolocalización, Apis, Plan de Marketing, Email Marketing, y muchas más.
 
 {{< br >}}
-{{< publicidadvideo >}}
+ 
 {{< br >}}
 
 ## Tópicos a Cubrir
@@ -48,7 +48,7 @@ En el Seminario explicaremos qué es el Marketing Online, sus características, 
 * Geomarketing
 
 {{< br >}}
-{{< publicidad >}}
+ 
 {{< br >}}
 
 ## Próximos Inicios

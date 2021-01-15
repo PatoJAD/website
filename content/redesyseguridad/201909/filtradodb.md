@@ -17,7 +17,7 @@ Según las informaciones, un servidor Elasticsearch mal configurado ha provocado
 
 Entre los datos que se han podido obtener se encuentran nombre completo, número de cédula, género, fecha y lugar de nacimiento, correo electrónico, número de teléfono del domicilio y del móvil, estado civil, fecha de matrimonio, nivel de educación y parentescos. Así mismo también se han podido obtener datos con información bancaria como puede ser el estado de la cuenta, balance actual en la cuenta etc., así como datos relacionados con el ámbito laboral de los ciudadanos.
 
-{{< publicidad >}}
+ 
 
 ## Cómo se descubrió la exposición y qué deben hacer los usuarios
 

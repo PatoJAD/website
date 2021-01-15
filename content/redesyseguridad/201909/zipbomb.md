@@ -19,7 +19,7 @@ Este tipo de archivo es capaz de colapsar el ordenador por un colapso de buffer 
 
 {{< br >}}
 
-{{< publicidad >}}
+ 
 
 {{< br >}}
 

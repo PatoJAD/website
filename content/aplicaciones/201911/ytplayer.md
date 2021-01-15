@@ -18,7 +18,7 @@ YTPlayer es una WebApp creada con el fin de poder simplificar la reproducción d
 ## ¿Que ofrece?
 
 {{< br >}}
-{{< publicidad >}}
+ 
 {{< br >}}
 
 * Crea Listas en la aplicación.

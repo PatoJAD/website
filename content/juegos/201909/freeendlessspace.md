@@ -19,7 +19,7 @@ El juego podemos jugarlo en español (Su interfaze y sus subtitulos) aunque los 
 {{<br>}}
 
 {{< img src="https://steamcdn-a.akamaihd.net/steam/apps/392110/ss_92993a0d6df637d2bf516d78c98d124a752f3870.600x338.jpg?t=1567783068" >}}
-{{< publicidad >}}
+ 
 {{<br>}}
 
 ## Requerimientos
@@ -50,6 +50,6 @@ El juego podemos jugarlo en español (Su interfaze y sus subtitulos) aunque los 
 * Tarjeta de sonido: DX11 compatible
 * Notas adicionales: Recommended Resolution: 1920 x 1080
 
-{{< publicidadvideo >}}
+ 
 
 {{< link url="https://www.humblebundle.com/store/endless-space-collection-free-game?linkID=&mcID=102:5d789b1627c89c5ddd2823a2:ot:56cfa14f733462ca894cced9:1&utm_source=Humble+Bundle+Newsletter&utm_medium=email&utm_campaign=2019_09_12_endlessspace_collection_storefront&utm_content=Banner" text="Obtener FREE" >}}

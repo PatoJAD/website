@@ -27,7 +27,7 @@ authors: ["PatoJAD"]
 Pages está disponible de forma gratuita para todos los usuarios de GitLab.com, así como para instancias autogestionadas (GitLab Core, Starter, Premium y Ultimate). Es decir que esta en sus productos a nivel que si ustedes tienen instala una instancia de GitLab pueden utilizar su propio GitLab Pages.
 
 {{< br >}}
-{{< publicidad >}}
+ 
 {{< br >}}
 
 ## Sitios Estaticos
@@ -47,7 +47,7 @@ Para implementar su sitio, GitLab utilizará su herramienta integrada llamada Gi
 También se puede usar de GitLab dominio predeterminado para los sitios web GitLab Pages , name.gitlab.ioo en su propio dominio (patojad.com.ar). En ese caso, necesitará acceso de administrador al registrador de su dominio (o panel de control) para configurarlo con Pages.
 
 {{< br >}}
-{{< publicidadvideo >}}
+ 
 {{< br >}}
 
 ## ¿Porque Elegi GitLab?

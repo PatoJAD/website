@@ -26,7 +26,7 @@ Esto mismo podemos verlo en el descubrimiento realizado en noviembre del año pa
 El cómo funciona y demás no viene al caso dado que este virus ya tiene una forma de ser detectado con análisis que a la fecha tienen la mayoría de los antivirus.
 
 {{< br >}}
-{{< publicidad >}}
+ 
 {{< br >}}
 
 La idea al escribir esto es empezar a entender que a medida que GNU/Linux aumenta en uso cotidiano también aumentan las malas intenciones de otros Usuarios con un poco mas de conocimiento generando así una mayor cantidad de virus para el pobre Pingüinito!.

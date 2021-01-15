@@ -28,7 +28,7 @@ CloudFlare es un sistema gratuito que actúa como un proxy (intermediario) entre
 * **Nuevas Estadísticas del Sitio:** Con CloudFlare se podrá tener herramientas para evaluar el tráfico que existe de visitantes hacia el sitio y además contará con estadísticas para "crawlers de herramientas de búsqueda" y de amenazas.
 
 {{< br >}}
-{{< publicidad >}}
+ 
 {{< br >}}
 
 ## Desventajas
@@ -40,7 +40,7 @@ CloudFlare es un sistema gratuito que actúa como un proxy (intermediario) entre
 * CloudFlare guarda contenido estático del sitio. Esto reduce la carga en el servidor y significa que si se hace un cambio de un archivo estático existente como una imagen, puede existir un retraso pequeño mientras aparece el cambio. **Mientras se hace una actualización se puede configurar CloudFlare en Modo de Desarrollo para que el cambio aparezca inmediatamente.**
 
 {{< br >}}
-{{< publicidadvideo >}}
+ 
 {{< br >}}
 
 ## PatoJAD y CloudFlare

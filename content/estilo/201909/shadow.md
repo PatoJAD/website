@@ -20,7 +20,7 @@ authors: ["PatoJAD"]
 Como ellos afirman son iconos cuidadosamente diseñado y pensados para generar un sutil pero notable cambio a nuestro escritorio. Sin embargo, si bien fueron diseñados para Gnome todos aquellos que utilizamos KDE tenemos la oportunidad de probarlos con un hermoso acabado final.
 
 {{< br >}}
-{{< publicidad >}}
+ 
 {{< br >}}
 
 ## Nueva solicitud de icono

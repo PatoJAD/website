@@ -38,7 +38,7 @@ De esta forma se presenta ante todos nosotros su página en itch.io (perdón por
 
 En mi vida hubiera pensado en jugar este juego, no me gustan las novelas visuales y menos las cosas cursis. Pero tras ver una serie de 3 videos (que sin ningún tipo de autorización pienso compartir) el juego demostró estar a otro nivel y mereció unas amplias horas de juegos.
 
-{{< publicidad >}}
+ 
 
 {{< img src="https://ddlc.moe/images/screen2.png" >}}
 

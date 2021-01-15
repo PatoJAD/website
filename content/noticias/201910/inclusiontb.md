@@ -19,7 +19,7 @@ Estos días me encontré con un proyecto de un compañero de añares y me sentí
 > {{< citaname name="Tomas Basile" >}}
 
 {{< br >}}
-{{< publicidad >}}
+ 
 {{< br >}}
 
 Como acá nos describe nuestro compañero el proyecto se basa en una App (Mobile) que transforme imágenes en dibujos aislados para poder mejorar el aprendizaje de niños que sufren autismo.

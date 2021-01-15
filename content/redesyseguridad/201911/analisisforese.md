@@ -16,7 +16,7 @@ La gente de incibe-cert nos facilita en este caso una perfecta guia sobre analis
 Se proporcionan unos conocimientos básicos que sirvan de punto de partida para despertar la curiosidad y el interés, ofreciendo unas nociones básicas de cómo abordar ciertos problemas. El principal objetivo de concienciar sobre determinadas técnicas de análisis forense que, tradicionalmente, se han aplicado en entornos corporativos y que se están empezando a aplicar en el ámbito de los sistemas de control.
 
 {{< br >}}
-{{< publicidad >}}
+ 
 {{< br >}}
 
 ## El documento se divide en:

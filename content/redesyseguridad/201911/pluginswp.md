@@ -45,7 +45,7 @@ Los expertos en ciberseguridad detectaron múltiples indicios de actividad de es
 * www.vestathemes.com
 
 {{< br >}}
-{{< publicidad >}}
+ 
 {{< br >}}
 
 Después de que los administradores de sitios web descargan cualquiera de los plugins o temas infectados, pasan sólo unos cuantos segundos para que su sitio de WordPress sea completamente comprometido. La descarga de estos componentes agrega al sitio objetivo un backdoor identificado como ‘100010010’, lo que garantiza que los hackers tienen una forma de acceder a la instalación.

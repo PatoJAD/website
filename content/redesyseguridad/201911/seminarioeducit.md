@@ -47,7 +47,7 @@ En este seminario explicaremos cómo está conformado el mundo de la seguridad i
 * **Costo:** GRATIS
 
 {{< br >}}
-{{< publicidad >}}
+ 
 {{< br >}}
 
 ## Durante el seminario aprenderás a
@@ -69,7 +69,7 @@ En este seminario explicaremos cómo está conformado el mundo de la seguridad i
 Este seminario está orientado a todas aquellas personas que deseen conocer más acerca de la industria de la seguridad informática y cómo insertarse laboralmente.
 
 {{< br >}}
-{{< publicidadvideo >}}
+ 
 {{< br >}}
 
 ## Conocimientos previos necesarios

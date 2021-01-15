@@ -19,7 +19,7 @@ La realidad es que la propuesta es el anillo al dedo de nuestro amigo TUX, La in
 
 {{< br >}}
 
-{{< publicidad >}}
+ 
 
 {{< br >}}
 

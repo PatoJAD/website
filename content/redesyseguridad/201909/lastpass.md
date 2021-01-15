@@ -18,7 +18,7 @@ authors: ["PatoJAD"]
 El error se basaba en la ejecución de código JavaScript malicioso, algo que puede ser potencialmente explotable y representar una importante amenaza para los usuarios. Según las fuentes consultadas LastPass podría filtrar las últimas contraseñas y credenciales utilizadas por el usuario. Lo cual representa una vulnerabilidad grabe en cara al usuario. Todas nuestras pass podrían ser filtradas y expuestas con facilidad, sin embargo, tenemos una solución para esto.
 
 {{< br >}}
-{{< publicidad >}}
+ 
 {{< br >}}
 
 ## La importancia de Actualizar

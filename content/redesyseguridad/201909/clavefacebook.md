@@ -29,6 +29,6 @@ Una clave criptográfica (en este caso la que se utiliza para firmar aplicacione
 
 {{< img src="https://wwwhatsnew.com/wp-content/uploads/2019/03/Facebook-1905890_1280-.jpg" >}}
 
-{{< publicidad >}}
+ 
 
 Como podemos ver ya se encuentra solucionado el problema en sí, sin embargo, nos deja la duda de si es posible que se filtren otras claves y obtengamos aplicaciones falsas con su firma. Si te ingresa saber más sobre esto te dejamos el articulo detallado con la información técnica en detalle de lo ocurrido en el siguiente {{< textlink text="Link" url="https://www.androidpolice.com/2019/08/29/cryptographic-key-used-to-sign-one-of-facebooks-android-apps-compromised/" >}}

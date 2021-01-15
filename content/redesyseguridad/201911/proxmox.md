@@ -23,7 +23,7 @@ Proxmox, a diferencia de otros, incluye una consola Web y herramienta de líneas
 
 {{< br >}}
 
-{{< publicidad >}}
+ 
 
 ## Historia
 

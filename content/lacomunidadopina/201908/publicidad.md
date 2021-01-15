@@ -65,7 +65,7 @@ El debate en la comunidad se debió a un usuario realizando una consulta debido 
 ---
 {{< br >}}
 
-{{< publicidad >}}
+ 
 
 {{< br >}}
 

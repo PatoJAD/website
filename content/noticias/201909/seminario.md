@@ -18,7 +18,7 @@ authors: ["PatoJAD"]
 El link de acceso será enviado a los inscritos 30 minutos antes del inicio del seminario.
 
 {{< br >}}
-{{< publicidad >}}
+ 
 {{< br >}}
 
 ## Contenido

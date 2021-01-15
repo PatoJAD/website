@@ -31,7 +31,7 @@ Es necesario educar, incentivar y motivar a cada individuo a desarrollar activid
 Esta es una de las partes más importantes en sí del proyecto, ya que sin bases teóricas no podremos avanzar a una práctica.
 
 {{< br >}}
-{{< publicidadvideo >}}
+ 
 {{< br >}}
 
 ## II PARTE: EDUCACIÓN Y ENSEÑANZA
@@ -98,7 +98,7 @@ Para este punto proponemos hacer un podcast donde estaremos hablando sobre el te
 * **OpenMindSpeech**. Una aplicación para Linux (KDE y Gnome) de reconocimiento de voz.
 
 {{< br >}}
-{{< publicidad >}}
+ 
 {{< br >}}
 
 ## III PARTE: DESARROLLO

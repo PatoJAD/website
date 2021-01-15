@@ -30,7 +30,7 @@ Se enseñará a trabajar correctamente datos históricos, a generar estrategias 
 Al final de este seminario,obtendrás un gran conocimiento del mercado cripto y podrás realizar transacciones de manera cómoda.
 
 {{< br >}}
-{{< publicidad >}}
+ 
 {{< br >}}
 
 ## Objetivos
@@ -55,7 +55,7 @@ Al final de este seminario,obtendrás un gran conocimiento del mercado cripto y 
 * Resultados y seguimiento de estrategias
 
 {{< br >}}
-{{< publicidadvideo >}}
+ 
 {{< br >}}
 
 ## Qué obtienes

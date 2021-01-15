@@ -25,7 +25,7 @@ Si bien muchos preferimos el software libre hay que remarcar que la decisión qu
 
 {{< br >}}
 
-{{< publicidad >}}
+ 
 
 {{< br >}}
 

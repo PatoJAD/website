@@ -20,7 +20,7 @@ El próximo miercoles 13 de Noviembre de 19:00 a 21:00 hs la gente de EducacionI
 > {{< citaname name="EducacionIT" >}}
 
 {{< br >}}
-{{< publicidad >}}
+ 
 {{< br >}}
 
 ## Temarios
