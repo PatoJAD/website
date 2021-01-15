@@ -1,0 +1,25 @@
+{{ define "main" }}
+  {{- partial "posts/lasts.html" . -}}
+  <style media="screen">
+    :root{
+      --pagecolor: var(--page-{{ .Params.type }});
+    }
+    .{{ .Params.type }}{
+      background: var(--page-{{ .Params.type }}) !important;
+      border: 1px solid var(--page-{{ .Params.type }}) !important;
+    }
+  </style>
+
+  <div class="content-fluid">
+    <div class="row">
+      {{ $paginator := .Paginate .Data.Pages.ByDate.Reverse }}
+      {{ range $paginator.Pages }}
+
+      {{ .Render "card" }}
+
+      {{ end }}
+    </div>
+  </div>
+  {{ partial "pagination.html" $paginator }}
+
+{{ end }}
