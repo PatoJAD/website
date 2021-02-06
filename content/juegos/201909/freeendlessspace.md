@@ -16,11 +16,11 @@ El juego traemos hoy es para Steam y si bien, no se encuentra disponible para Li
 
 El juego podemos jugarlo en español (Su interfaze y sus subtitulos) aunque los audios solo se encuentran en inglés. En Stem se pueden conseguir 115 logros con este juego
 
-{{<br>}}
+
 
 {{< img src="https://steamcdn-a.akamaihd.net/steam/apps/392110/ss_92993a0d6df637d2bf516d78c98d124a752f3870.600x338.jpg?t=1567783068" >}}
  
-{{<br>}}
+
 
 ## Requerimientos
 

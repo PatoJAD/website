@@ -23,13 +23,13 @@ Muchos conocemos ya a "Switched to Linux" por lo cual vamos a proceder a ver el 
 >aunque ambos son buenos word siempre esta un paso adelante
 
 
-{{<br>}}
+
 
 >No es así No siempre Ultimamente da la opción de interfaz Ribbon pero no predefinida. Quizá si WPS Office, pero no LibreOffice. Prefiero LibreOffice Writer y concuerdo con las ventajas expuestas por el autor del canal Switch to Linux. Por otra parte, el que si puede llegar a tener más funcionalidades etc. es Ms. Excel respecto de LibreOffice Calc.
 >
 >{{<citaname name="Roberto Ronconi 🐃🐧">}}
 
-{{<br>}}
+
 
 >No creo que LibreOffice busque parecerse, han tenido muchas iniciativas en otras direcciones pero sería necio no considerar las necesidades de los usuarios. Si solo quisieran parecer M$O hace rato tendrían la interface resuelta. Sería igual. En lugar de eso nos han ofrecido toda una paleta de opciones con posibilidad de personalización.
 >
@@ -41,13 +41,13 @@ Cada caso es diferente, sin embargo, estoy seguro que en la mayoría de las orga
 >
 >{{<citaname name="Julian David Montoya Restrepo">}}
 
-{{<br>}}
+
 
 >Hace mucho que puedes hacer documentos profesionales (tesis de grado, monográficas, artículos científicos, incluso hay editoriales que aceptan documentos elaborados en writter... Yo no le veo ninguna limitación cubre la mayor parte de las necesidades que una suite ofimática puede ofrecer. ¿Que la mayor parte de la configuración las tengas que hacer manualmente? 😱... Ooh bueno eso es cuestión de dominarlo y poner el granito de arena... 👌)
 >
 >{{<citaname name="drkgzz drkgzz">}}
 
-{{<br>}}
+
 
 >La única diferencia grande y que puede ser algo molesta, que he visto de writer respecto a Word, es el manejo de encabezado y pie de página. En Word lo veo mucho más cómodo de utilizar, en lo demás solo es necesario un pequeño proceso de adaptación. Además Libreoffice tiene una ventaja bastante grande respecto Office y que me ha pasado varias veces, es en la instalación.
 >
