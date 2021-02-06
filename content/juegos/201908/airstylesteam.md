@@ -13,11 +13,11 @@ Muchas personas jugamos en GNU/Linux, no es irreal ni algo imposible. Y tambien 
 
 En esta oportunidad subí personalmente la versión que mejor me funcionó y con la cual no tuve ningún problema. Sabiendo que todo funciona bien les dejo el link para que lo descarguen y luego lo instalen en unos simples pasos:
 
-{{< br >}}
+
 
 {{< link url="https://www.mediafire.com/file/2z2bnn223yy2vv6/Air-for-Steam-LatinLinux.zip/file" text="Desacargar" >}}
 
-{{< br >}}
+
 
 Una vez descargado nos dirigimos a .steam/skins y pegamos la carpeta descomprimida.
 

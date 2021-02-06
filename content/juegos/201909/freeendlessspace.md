@@ -10,7 +10,7 @@ authors: ["PatoJAD"]
 ---
 {{< img src="https://steamcdn-a.akamaihd.net/steam/apps/392110/ss_5e59d20c1b6e0313e6f2d8dff89e720769a122f6.600x338.jpg?t=1567783068" >}}
 
-{{< br >}}
+
 
 El juego traemos hoy es para Steam y si bien, no se encuentra disponible para Linux se puede probar con proton.  Es un juego de Estrategia que viene de la mano de la empresa SEGA. En Steam cuenta con críticas muy variadas por lo cual podemos decir que la comunidad no llego aun a calificarlo como bueno o malo. Lo cual lo deja enteramente a tu criterio.
 
@@ -24,7 +24,7 @@ El juego podemos jugarlo en español (Su interfaze y sus subtitulos) aunque los 
 
 ## Requerimientos
 
-{{< br >}}
+
 
 ### Minimos:
 

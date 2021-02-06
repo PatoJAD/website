@@ -11,16 +11,16 @@ authors: ["PatoJAD"]
 
 ## Descripción
 
-{{< br >}}
+
 
 En este seminario te introduciremos en el mundo de Linux, contándote todas las posibilidades que ofrece este sistema operativo a nivel profesional y laboral. Veremos cuáles son las etapas que deben atravesarse para obtener los conocimientos necesarios para realizar la configuración, instalación y mantenimiento de servidores Linux, como así también cuáles son las soluciones más utilizadas junto con las tecnologías que manejan las empresas en la actualidad.
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Tópicos a Cubrir
 
-{{< br >}}
+
 
 * ¡Linux importa!
   * Por su historia
@@ -38,29 +38,29 @@ En este seminario te introduciremos en el mundo de Linux, contándote todas las 
 * Roles de un Experto en Linux
 * LPI la carrera hacia la certificación
 
-{{< br >}}
+
 {{< img src="https://www.educacionit.com/images/seminarios2/seminario-de-linux.jpg" >}}
-{{< br >}}
+
 
 ## Modalidad
 
-{{< br >}}
+
 
 * Martes 26 NOV 2019
 * Seminario Gnu/Linux Presencial
 * Horario: 19:00 a 21:00 hs
 * Costo: GRATIS
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## A quien va dirigido
 
-{{< br >}}
+
 
 El seminario esta orientado a todos aquellos que no poseen conocimientos en Linux, y estén interesados en convertirse en expertos en este sistema operativo.
 
-{{< br >}}
-{{< br >}}
+
+
 
 {{< link url="https://www.educacionit.com/seminario-de-linux" text="Inscribirme" >}}

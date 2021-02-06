@@ -11,23 +11,23 @@ authors: ["PatoJAD"]
 
 En este video vamos a ver como agregar un buscador a nuestro sitio web con Hugo CMS algo realmente util para que nuestros usuarios busquen con facilidad
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Video
 
-{{< br >}}
+
 {{< youtube code="-IGOrQpXVM8" >}}
-{{< br >}}
-{{< br >}}
+
+
 
 ## Info Util
 
-{{< br >}}
+
 
 Voy a dejar a mano los *codigos* que usamos a lo largo del video por si no se llegan a ver bien en el mismo por la velocidad.  
 
-{{< br >}}
+
 
 *Imports en footer*
 
@@ -35,7 +35,7 @@ Voy a dejar a mano los *codigos* que usamos a lo largo del video por si no se ll
     </script>
     <script src="/js/search.js"></script>
 
-{{< br >}}
+
 
 *search.html* (En este caso el aside y demas son por estilos del theme)
 
@@ -64,7 +64,7 @@ Voy a dejar a mano los *codigos* que usamos a lo largo del video por si no se ll
       </form>
     </aside>
 
-{{< br >}}
+
 
 
 *search.js*
@@ -177,7 +177,7 @@ Voy a dejar a mano los *codigos* que usamos a lo largo del video por si no se ll
 
 
 
-{{< br >}}
+
 
 
 *index.json*
@@ -189,7 +189,7 @@ Voy a dejar a mano los *codigos* que usamos a lo largo del video por si no se ll
     {{- $.Scratch.Get "index" | jsonify -}}
 
 
-{{< br >}}
+
 
 
 *config.toml*
@@ -199,12 +199,12 @@ Voy a dejar a mano los *codigos* que usamos a lo largo del video por si no se ll
       section = ["HTML"]
       home = ["JSON","HTML","RSS"]
 
-{{< br >}}
+
 
 
 
 ---
 
-{{< br >}}
+
 
 Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

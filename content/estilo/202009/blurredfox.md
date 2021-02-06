@@ -9,36 +9,36 @@ img: "https://i.postimg.cc/WzGcnTHK/image.png"
 authors: ["PatoJAD"]
 ---
 
-{{< br >}}
+
 
 En esta oportunidad quiero compartir un theme para nuestro firefox que nos permitirá darle un mejor estilo para lucirlo en nuestros viernes de escritorios.
 
-{{< br >}}
+
 {{< img src="https://i.postimg.cc/NF7ZXbyv/image.png" >}}
-{{< br >}}
-{{< br >}}
+
+
 
 ## Requisitos
 
-{{< br >}}
+
 
 * El último Firefox
 * Compositor con soporte para desenfoque *(opcional)*
 
-{{< br >}}
+
 
 *En caso de que el compositor no soporte blur, nosotros veremos el theme totalmente transparente, en este caso podemos elegir colores...*
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Notas
 
-{{< br >}}
+
 
 En este caso el desarrollador nos deja unas notas recomendando el uso de awesome y “the glorius dotfiles” para unificar todo esto...
 
-{{< br >}}
+
 
 * 100% trabajando en linux.
 * No probado en macOS.
@@ -46,12 +46,12 @@ En este caso el desarrollador nos deja unas notas recomendando el uso de awesome
 * No, la barra de título vertical no está incluida.
 * Cambie a Linux, luego use AwesomeWM para lograr esta gloria.
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Notas antes de ejecutar el script:
 
-{{< br >}}
+
 
 * Si tiene varias compilaciones de Firefox, el script aún se ejecutará sin problemas. Solo asegúrate de pasar tu compilación de Firefox de destino.
 * Si usted o su compilación de Firefox tienen un perfil múltiple, el script devolverá un error. ¡Asegúrate de tener solo uno!
@@ -61,18 +61,18 @@ En este caso el desarrollador nos deja unas notas recomendando el uso de awesome
 * El script moverá un archivo llamado user.js que contiene todas las preferencias necesarias para que funcione blurfox. Se hará una copia de seguridad del existente.
 * Si el script de instalación no funciona, no dude en enviar un issue o Pull request al git del proyecto.
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Instalacion
 
-{{< br >}}
+
 
 En esta oportunidad voy a hablar solo de la instalación en GNU/Linux sin embargo puedes encontrar la instalación en otros sistemas operativos en su propio git.
 
 Ejecute el siguiente script. Si está utilizando una compilación diferente como nightly, beta, etc., asegúrese de reemplazar el 'estable' con la compilación de Firefox que está usando. Si se deja vacío, se establecerá de forma predeterminada en estable.
 
-{{< br >}}
+
 
     # Available parameters:
     # stable - Firefox Stable Build
@@ -89,25 +89,25 @@ Ejecute el siguiente script. Si está utilizando una compilación diferente como
     # Nightly build's profile
     curl -fsSL https://raw.githubusercontent.com/manilarome/blurredfox/script/install.sh | bash -s -- nightly
 
-{{< br >}}
+
 
 Después del mensaje de confirmación de que el tema se instaló correctamente, abra Firefox. Cambie el esquema de colores en:
 
-{{< br >}}
+
 
 **Open Menu > Customize > Change colorscheme**
 
-{{< br >}}
+
 
 En caso de que esto no funcione no te des por vencido puedes intentarlo manualmente col guia realizada por el propio desarrollador y esto lo puedes ver en su git.
 
-{{< br >}}
+
 {{< link text="Repositorio y Guia" url="https://github.com/manilarome/blurredfox" >}}
-{{< br >}}
-{{< br >}}
+
+
 
 ---
 
-{{< br >}}
+
 
 Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

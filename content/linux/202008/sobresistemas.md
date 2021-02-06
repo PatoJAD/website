@@ -9,7 +9,7 @@ img: "https://sites.google.com/site/zeusprueba2/_/rsrc/1476305846774/sistemas-op
 authors: ["PatoJAD"]
 ---
 
-{{< br >}}
+
 
 Yo con anterioridad hable de los sistemas operativos republicano un paralelismo que había realizado un gran amigo mio. Sin embargo hoy quiero expandir un poco más mi pensamiento sobre este tema y sobre mi postura sobre los sistemas operativos.
 
@@ -17,73 +17,73 @@ Antes de empezar quiero recalcar que soy un ser humano como todos, y a medida qu
 
 Teniendo en cuenta todo esto recomiendo leer de antemano la publicación de los paralelismos entre Sistemas operativos y comidas (donde solo hablo de GNU/Linux, Windows y MacOS) para poder estar un poco en sintonía de apologías que pueda llegar a utilizar.
 
-{{< br >}}
+
 {{< link url="/linux/2019/01/paralelismo-entre-sistemas-operativos-y-comidas/" text="Paralelismo entre sistemas operativos y comidas" >}}
-{{< br >}}
-{{< br >}}
+
+
 
 ## ¿Que Sistema Operativo es Mejor?
 
-{{< br >}}
+
 {{< img src="https://i.blogs.es/aece81/ssoo2/1366_2000.jpg" >}}
-{{< br >}}
+
 
 Tal vez en algún momento hubiera entrado en debate por estos temas, sin embargo si uno se toma el tiempo de pensarlo es una estupidez. Podemos definir, al igual que la comida, que una sea técnicamente mejor que otra. Pero no se trata de eso, la comida gourmet existe porque a mucha gente le gusta y se desvive. Tampoco falta esas personas que quieren comer en locales de comida rápida todo el tiempo, porque les gusta su sabor. Y están aquellos que prefieren el buen **guiso de la abuela que nadie supera**...
 
-{{< br >}}
+
 {{< img src="https://media.todojujuy.com/adjuntos/227/imagenes/001/031/0001031523.jpg" >}}
-{{< br >}}
+
 
 También estamos otros, aquellos que superamos el fanatismo y las banderas, aquellos que amamos comer la comida de nuestra abuela mientras hablamos de la vida, que alguna noche podemos ir a un local de comida rápida a reir con amigos y porque no darse el lujo de una comida gourmet cuando es posible…
 
 Volviendo al sistema operativo (y que no se note el hambre) Algunos entendemos que cada sistema tiene sus altos y bajos y aprendemos a coexistir con todos sin sacar chispas… Claramente podemos tener nuestro preferido y como tal podemos usarlo mas o defenderlo más. Pero el dia hoy cabe entender que todos los sistemas tiene una ventaja y una falencia ante los otros…
 
-{{< br >}}
+
 
 ## ¿Me estas diciendo que no odias a Windows y a MacOS?
 
-{{< br >}}
-{{< br >}}
+
+
 
 Claramente eso dije… Me di cuenta que mi amor es a la tecnología, y si bien no tengo mucho interez en Windows y no me gustan muchas cosas tampoco quiero dejarlo fuera como si no fuese nada, Por ahi algun dia tenga que usarlo para jugar un juego y seria hipocrita tirarle mierda, O quien dice si algun dia veo la necesidad de comprar un dispositivo de Apple para poder compilar apps para sus iPhone. O porque no algun dia este blog cuente sobre *“Como … En Windows”* o *“Como … en MacOS”*
 
 El conocimiento es conocimiento en sí y queremos abarcar la tecnología, Los sistemas operativos son simples **herramientas** y si bien podemos tener nuestra preferida (la navaja suiza linuxera) no implica que debemos ignorar todas las demás porque en algún momento pueden servir…
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## ¿Y los que solo usamos software libre?
 
-{{< br >}}
+
 {{< img src="https://i.blogs.es/dddd8d/react/450_1000.png" >}}
-{{< br >}}
+
 
 Para vos que solamente usas software libre también va este discurso, por que no solo son esos 3 sistemas (que son los más populares) Existen otros sistemas que son libre y que deberías tener en cuenta en algún momento (BDS, ReactOS, Haiku, etc.)
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Ser y dejar ser
 
-{{< br >}}
+
 {{< img src="https://i2.wp.com/www.reefviews.com/wp-content/uploads/2017/03/libertad-ser-humano.jpg" >}}
-{{< br >}}
+
 
 Claramente esto no implica que todos debamos tener todos los sistemas operativos instalados, pero sí implica tener tolerancia, y esta publicación empuja a eso, tolerancia… En nuestra comunidad de Telegram apoyamos a todos los usuarios sin importar si usan Windows, Mac, ReactOS o lo que sea, siempre intentamos ayudar y aprender. Lo mismo implica para esos que dicen **“Si usas ubuntu no te ayudo”** (claramente eso va apuntado a mi que cuando me dicen que usan ubuntu y tienen bugs les recomiendo pasar a debian) Porque estamos acá por amor a la tecnología y debemos respetar y colaborar con todos
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Tu turno!
 
-{{< br >}}
+
 
 Claramente esta publicación puede sonar polémica ante muchas personas y no quiero ser de los que solo exponen su idea, Comentanos, decinos qué pensas ya que todos tienen su lugar en nuestra comunidad
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

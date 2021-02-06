@@ -9,16 +9,16 @@ img: 'https://hardzone.es/app/uploads-hardzone.es/2020/10/AMD-RX-6000-1.jpg'
 authors: ["PatoJAD"]
 ---
 
-{{< br >}}
+
 
 En esta oportunidad vamos a seguir la presentación junto a SDFX y vamos a ver todas las novedades.
 
-{{< br >}}
+
 {{< youtube code="_i_iQOdvC70" >}}
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

@@ -13,22 +13,22 @@ Muchas personas me piden que compile algunas cosas para probar o utilizar versio
 
 Esto nos ofrece un conjunto de aplicaciones adicionales mantenidas en un repositorio donde todos podemos colaborar de forma activa (compilando y subiendo contenido) o pasiva (recomendando software o informando de actualizaciones)
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## INSTALACIÓN
 
-{{< br >}}
+
 
 Hemos creado un paquete «.deb», que al instalarlo configurará automáticamente el enlace en el sources.list y las llaves de acceso en el sistema para simplificar todo el proceso de instalacion. podes descargarlo desde aqui.
 
-{{< br >}}
+
 {{< link text="Descargar" url="https://www.mediafire.com/file/41dqd4fnexnvim3/patojad-repository_0.0.1-amd64.deb/file" >}}
-{{< br >}}
+
 
 ## INFO EXTRA
 
-{{< br >}}
+
 
 Después de instalar, actualiza los repositorios de tu distribucion (recomiendo personalmente usar `sudo apt update` o `sudo apt-get update`). O puedes, tambien, usar Synaptic para actualizar. Entonces podrás descargar e instalar cualquier paquete de nuestro repositorio.
 
@@ -36,12 +36,12 @@ Recorda que este repositorio se crea en base a la comunidad y como tal todos pod
 
 ¿Queres pedir alguna app? ¿Queres colaborar compilando y subiendo? ¿Queres subir tu app? No lo dudes te sabes donde podes encontrarnos
 
-{{< br >}}
+
 {{< link text="Participa" url="https://t.me/PatoJADCommunity" >}}
-{{< br >}}
+
 
 ## LISTA DE APPS
 
-{{< br >}}
+
 {{< repotable >}}
-{{< br >}}
+

@@ -13,32 +13,32 @@ Actualizar GNU/Linux para usuarios que conocen el sistema es muy fácil y sencil
 
 Lo de crear está entre comillas debido a que **DistroUpdater es un fork de mintUpdate,** la herramienta de actualización de Linux Mint que en mi opinión es una de las mas atractivas visualmente y fácil de usar, la cual he adaptado para **poder utilizarla en cualquier distribución basada en Debian o Ubuntu sin limitaciones.**
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Instalar DistroUpdate
 
-{{< br >}}
+
 
 DistroUpdate está disponible en {{< textlink text="Github" url="https://github.com/juanro49/distroupdate" >}} y para instalarlo hay que realizar los siguientes pasos:
 
 Añadir el {{< textlink text="repositorio de PatoJAD" url="/repositorio/" >}} al sistema:
 
-{{< br >}}
+
 
     echo 'deb https://gitlab.com/patojad/repository/raw/patojad/debs/ patojad main' | sudo tee /etc/apt/sources.list.d/patojad.list
     wget -qO - https://gitlab.com/LynxOS/repository/raw/lynxos/LynxPub.gpg | apt-key add -
     sudo apt update
 
-{{< br >}}
+
 
 **Instalar DistroUpdate** desde el nuevo repositorio
 
-{{< br >}}
+
 
     sudo apt install distroupdate
 
-{{< br >}}
+
 
 Una vez instalado, solo tendremos que **iniciarlo y él solo nos notificará cuando hay actualizaciones y las mostrará para instalarlas.** Al igual que mintUpdate, permite ver el registro de cambios del paquete a actualizar o ver el historial de actualizaciones entre otras muchas opciones.
 
@@ -46,6 +46,6 @@ Algo que de momento **no está disponible es la sección de gestión del kernel*
 
 Sin duda, con esta herramienta **se hace mas sencilla la adaptación a cualquier distro basada en Debian o Ubuntu para usuarios mas novatos**, a los cuales les suele asustar utilizar el terminal y prefieren una aplicación gráfica que les haga mas sencillo el proceso.
 
-{{< br >}}
+
 
 {{< textlink text="Fuente" url="https://instatecno.com/actualiza-gnu-linux-sin-comandos-distroupdate/" >}}

@@ -11,17 +11,17 @@ authors: ["PatoJAD"]
 
 La gente de incibe-cert nos facilita en este caso una perfecta guia sobre analisis forense que vale la pena tener en cuenta. Es de una simple lectura y su contenido es muy amplio y explisito.
 
-{{< br >}}
+
 
 Se proporcionan unos conocimientos básicos que sirvan de punto de partida para despertar la curiosidad y el interés, ofreciendo unas nociones básicas de cómo abordar ciertos problemas. El principal objetivo de concienciar sobre determinadas técnicas de análisis forense que, tradicionalmente, se han aplicado en entornos corporativos y que se están empezando a aplicar en el ámbito de los sistemas de control.
 
-{{< br >}}
+
  
-{{< br >}}
+
 
 ## El documento se divide en:
 
-{{< br >}}
+
 
 * Introducción al mundo del análisis forense y a los últimos incidentes detectados a nivel industrial.
 * Descripción del modelado de ataques en SCI.
@@ -30,6 +30,6 @@ Se proporcionan unos conocimientos básicos que sirvan de punto de partida para 
 * Caso práctico de análisis forense.
 * Conclusiones.
 
-{{< br >}}
+
 
 {{< link url="https://www.incibe-cert.es/sites/default/files/contenidos/guias/doc/incibe_guia_analisis_forense_sci.pdf" text="Descargar Guia" >}}

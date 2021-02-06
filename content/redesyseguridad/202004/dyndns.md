@@ -15,16 +15,16 @@ El problema es el **cambio de la dirección IP** (dinámicamente) de su línea d
 
 Así se presenta DynDNS un competidor de **{{< textlink url="/redesyseguridad/2020/04/como-instalar-no-ip-en-linux/" text="NO-IP" >}} del cual hablamos hace unos dias**
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## ¿Cómo utiliza el servicio gratuito DynDNS?
 
-{{< br >}}
+
 
 Puede usar el servicio DDNS de diferentes maneras:
 
-{{< br >}}
+
 
 * Con un **enrutador** que admita las actualizaciones dinámicas (proveedor DynDNS [definido por el usuario])
 * Sin software adicional con actualización manual desde el menú de la cuenta
@@ -32,31 +32,31 @@ Puede usar el servicio DDNS de diferentes maneras:
 * Con su **Updater-Tool** [para Windows, Linux, MAC y otros sistemas operativos (Java)] *DE PAGO*
 * Realice un escaneo de puertos para examinar qué puertos están bloqueados o liberados
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Actualización en tiempo real
 
-{{< br >}}
+
 
 Vea en su cuenta DynDNS (DDCLIENT) si su dirección IP se actualizó y cuándo, en tiempo real.
 
-{{< br >}}
+
 {{< img src="https://dyndnss.net/eng/up.gif" >}}
-{{< br >}}
-{{< br >}}
+
+
 
 ## ¿Cuánto cuesta el servicio de DNS dinámico?
 
-{{< br >}}
+
 
 El servicio DynDNS (DDNS) es de hasta 3 dominios Dyn completamente gratis (cuenta gratuita). Los usuarios Premium pueden crear por 9,90 $ únicos hasta 100 urls y reenvío de dominios.
 
-{{< br >}}
-{{< br >}}
+
+
 
 # Mi consejo
 
-{{< br >}}
+
 
 Si alguien busca mi consejo, lo encuentra... Personalmente este sistema es util y uno de los mejores... solo si tu router permite la asociacion directa. Siendo asi solo basta a ir a las opciones avanzadas, elegir en DDNS el servidor DynDNS y cologar usuario y contraseña y solo se ira actualizando a medida que el modem cambie la ip.

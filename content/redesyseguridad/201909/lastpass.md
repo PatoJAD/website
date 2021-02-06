@@ -11,15 +11,15 @@ authors: ["PatoJAD"]
 
 >Las contraseñas representan una barrera fundamental para proteger nuestras cuentas y registros. Tener claves fuertes y complejas puede evitar la entrada de intrusos. Ahora bien, hacer uso de gestores de contraseñas son herramientas interesantes para administrar las claves y también para generarlas. Hoy nos hacemos eco de una vulnerabilidad que afecta a LastPass y que pone en riesgo las contraseñas de los usuarios.
 
-{{< br >}}
+
 {{< img src="https://sophosnews.files.wordpress.com/2016/07/lp-1200.png?w=780&h=408&crop=1" >}}
-{{< br >}}
+
 
 El error se basaba en la ejecución de código JavaScript malicioso, algo que puede ser potencialmente explotable y representar una importante amenaza para los usuarios. Según las fuentes consultadas LastPass podría filtrar las últimas contraseñas y credenciales utilizadas por el usuario. Lo cual representa una vulnerabilidad grabe en cara al usuario. Todas nuestras pass podrían ser filtradas y expuestas con facilidad, sin embargo, tenemos una solución para esto.
 
-{{< br >}}
+
  
-{{< br >}}
+
 
 ## La importancia de Actualizar
 

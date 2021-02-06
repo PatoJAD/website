@@ -9,24 +9,24 @@ img: 'https://cdn.educacionit.com/images/seminarios2/seminario-de-iot.jpg'
 authors: ["PatoJAD"]
 ---
 
-{{< br >}}
+
 
 ¿Sabiás que el Internet of Things conecta en red distintos elementos físicos que usamos cotidianamente en nuestra casa, o en el trabajo, para mejorar su eficiencia y facilitar su uso? ¿Y que actualmente existen más de 25.000 millones de objetos con esta tecnología, que se multiplican año a año?
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Descripción
 
-{{< br >}}
+
 
 Durante este seminario se veran los fundamentos del Internet of Things, sus alcances y su potencial. Repasaran los distintos ámbitos en donde se aplica, o podría aplicarse, para incrementar la eficiencia de una organización, su productividad, la coordinación con negocios y proyectos.
 
-{{< br >}}
+
 
 ## De que se trata
 
-{{< br >}}
+
 
 * Introducción a IoT y Fabricaciones Digitales.
 * Microprocesadores
@@ -39,38 +39,38 @@ Durante este seminario se veran los fundamentos del Internet of Things, sus alca
 * ¿En qué área especializarme?
 * Aplicación en ámbitos reales
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Próximos Inicios
 
-{{< br >}}
+
 
 * **Viernes 14 AGO 2020**
 * Seminario de IoT Online
 * **Horario:** 19:00 a 21:00 hs
 * **Costo:** *GRATIS*
 
-{{< br >}}
+
 
 * **Viernes 11 SEP 2020**
 * Seminario de IoT Online
 * **Horario:** 19:00 a 21:00 hs
 * **Costo:** *GRATIS*
 
-{{< br >}}
+
 
 * **Jueves 26 NOV 2020**
 * Seminario de IoT Online
 * **Horario:** 19:00 a 21:00 hs
 * **Costo:** *GRATIS*
 
-{{< br >}}
+
 {{< link text="Inscribirme GRATIS" url="https://www.educacionit.com/seminario-de-iot" >}}
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

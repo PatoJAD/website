@@ -14,14 +14,14 @@ Los colaboradores de Godot están encantados y encantados de lanzar nuestra últ
 
 Godot 3.2 es una mejora importante con respecto a nuestra instalación 3.1 anterior, que ofrece docenas de características principales y cientos de correcciones de errores y mejoras para brindar a nuestros desarrolladores de juegos un conjunto de características cada vez mejor con un fuerte enfoque en la usabilidad.
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## LANZAMIENTO PEQUEÑO CRECIDO GRANDE
 
-{{< br >}}
+
 {{< img src="https://user-images.githubusercontent.com/6093119/55293018-88de3b00-53f1-11e9-99b3-cf63f1ae0094.gif" >}}
-{{< br >}}
+
 
 Inicialmente, se planeó que Godot 3.2 tuviera un ciclo de lanzamiento corto (de 4 a 6 meses), con pocas características nuevas y en su mayoría soluciones para algunos de los problemas principales de nuestro lanzamiento principal anterior, Godot 3.1 (marzo de 2019). Y, de hecho, poco después de lanzar 3.1 y haber escrito un puñado de nuevas características destinadas a 3.2, nuestro desarrollador principal, Juan Linietsky, pasó a desarrollar el próximo procesador Vulkan para Godot 4.0 en una rama separada .
 
@@ -35,25 +35,25 @@ De hecho, el lanzamiento de hoy marca el segundo aniversario de Godot 3.0, que s
 
 ¡Esperamos que todos disfruten la versión 3.2 tanto como nosotros disfrutamos al desarrollarla!
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## COMPATIBILIDAD
 
-{{< br >}}
+
 {{< img src="https://user-images.githubusercontent.com/6964556/59157685-7ebb7580-8ae1-11e9-95c0-2b2179985fa8.gif" >}}
-{{< br >}}
+
 
 Casi todas las áreas del motor han visto algún grado de mejora, y alentamos a los usuarios a mover sus proyectos activos a Godot 3.2 si pueden. Hicimos todo lo posible para preservar la compatibilidad entre los proyectos 3.1 y 3.2, pero todavía se han realizado una baja cantidad de cambios de compatibilidad y podría requerir un trabajo de portabilidad ligero para grandes proyectos.
 
 Para los usuarios que elijan permanecer en la rama 3.1, seguiremos manteniéndolo con correcciones de errores relevantes y cambios específicos de la plataforma en los próximos meses (especialmente con una versión de mantenimiento 3.1.3). Sin embargo, el foco principal de la actualización estará en la rama 3.2.
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## NUEVAS CARACTERÍSTICAS
 
-{{< br >}}
+
 
 Ahora a las cosas buenas: ¿qué hay de nuevo en Godot 3.2?
 

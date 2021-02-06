@@ -9,22 +9,22 @@ img: "https://www.agenciaekiba.com/wp-content/uploads/2017/03/img_opiniones_900x
 authors: ["PatoJAD"]
 ---
 
-{{< br >}}
+
 
 El otro dia hable sobre el uso de sistemas **privativos** en universidades públicas y como esto podía ser limitantes para los estudiantes. Y el punto de vista no va pura y exclusivamente por el caso sino también a nivel general (no conocemos las realidades de todos los estudiantes).
 
-{{< br >}}
+
 {{< textlink url="/noticias/2020/06/universidades-públicas-privativas/" text="Ver Publicacion" >}}
-{{< br >}}
-{{< br >}}
+
+
 
 ## La gente Opina
 
-{{< br >}}
+
 
 Como siempre nos gusta nuestra comunidad siempre da su opinión y nos gusta mostrar que todas las criticas son bien recibidas, todas las opiniones deben ser escuchadas y cada uno debe formar su propia idea, es al menos lo que intentamos nosotros…
 
-{{< br >}}
+
 
 > Muy interesante. Tanto yo como mi pareja, estamos cursando en la Universidad Nacional del comahue (UNCO). Hace un tiempo largo se trabajo para migrar todo el sistema a software libre. Hoy en dia es un hecho.
 >
@@ -39,11 +39,11 @@ Por otro lado, un conocido de chile, trabajo para migrar a software libre las in
 >
 > {{< citaname name="Cristian B." >}}
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 > El estado no se puede imponer, sino nos acusarian de ser rusia, cuba, venezuela lo dejan para otras ocasiones, el estado debe imponer el SL en la administración y obligar a los docentes a capacitarse en SL, por premios y castigos o por puntos, pero cuando tuvimos la oportunidad los docentes y los referentes hacían que los chicos arranquen con win las net, uno de ellos me respondió, si les dejo usar linux yo de que vivo??? lo bueno es que reconocía la supremacía de linux y sus comunidades en robustez de equipo
 >
@@ -51,11 +51,11 @@ Por otro lado, un conocido de chile, trabajo para migrar a software libre las in
 >
 > {{< citaname name="Silvia" >}}
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 > Quiero ver las pavadas que les van a decir. Vamo arriba @PatoJAD
 >
@@ -69,11 +69,11 @@ Por otro lado, un conocido de chile, trabajo para migrar a software libre las in
 >
 > {{< citaname name="Jose" >}}
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 > Dicen gobierno publico informática publica 😏😏😏 y estoy de acuerdo con ello 👍👍👍
 >
@@ -83,22 +83,22 @@ Por otro lado, un conocido de chile, trabajo para migrar a software libre las in
 >
 > {{< citaname name="Miguel R 🙋‍♂🇲🇽👨‍✈" >}}
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 > Y hay profes de ciencia de la computaccion que son unos cabrones hijos de puta, einsinan malo para que los otros piensen que son genios.
 Son unos pendejos que solo hacen pendejadas.
 >
 > {{< citaname name="🇧🇷 Alessandro Ebersol 🇧🇷" >}}
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 > ¿ Muchos ?.
 Si de una institucion se saca uno solo, ¡ Bingo !.
@@ -114,11 +114,11 @@ Docentes que titularizan por acomodo: T O D O S.
 >
 > {{< citaname name="⊲ Tano ⊳" >}}
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 > Totalmente. Yo me encuentro constantemente en contacto con mi secundario del que me recibi. Desde hace 7 años sigo aportando a donore servicios del que fuera. Asesoramiento electricidad carpinteria lo que se les ocurra y jamas escuche semejante injusticia
 >
@@ -132,31 +132,31 @@ Docentes que titularizan por acomodo: T O D O S.
 >
 > {{< citaname name="Luis" >}}
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 > No me sorprende, me acuerdo un tiempo que hacia practicas en una escuela, recomendaba libreoffice para reducir gastos y lo que me dijieron es que se veia muy obsoleto....
 >
 > {{< citaname name="Drindie" >}}
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 > está muy mal.. precisamente anoche una cliente me pidió instalarle urgentemente "Photoshop" a la laptop de su hijo, porque mañana tenía que entregar una tarea que les dejó el inútil del profesor de su hijo.. se lo instalé y le cobré $$$.. el muchacho ni si quiera sabía usarlo.. dijo que iba a ver tutoriales en Youtube.. increible!!!
 >
 > {{< citaname name="alexey nemovff" >}}
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 > No me sorprende, me fui de una consultora que decia "si no es software pago no sirve" y querian obligarme a usar Windows porque dicen que es el mejor, me quedo con linux que lo que preciso lo tengo.
 >
@@ -164,21 +164,21 @@ Docentes que titularizan por acomodo: T O D O S.
 >
 > {{< citaname name="Samuel Vasilovski" >}}
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 > Sabes cuál es el problema la gente solo cree que Windows existe cuando dices qué hay otros so aparte de Mac se sorprenden y dicen enserio no savia por que la gente no le interesa la verdad solo usan lo que tienen a la mano no buscan ni nada pero hay otros que si otros solo ven el interés no deja dinero no lo aprendo pues no me sirve para vivir pero hay otros que son curiosos y les intriga todo y les importa aprender otros simplemente dicen es una clase más de mierda tengo que tomarla y pasarla que más da igual eso no me va a servir pero tengo que pasar si o si
 >
 > {{< citaname name="Marcelo Collado" >}}
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 Como podemos ver dentro de nuestra comunidad existen muchas experiencias y opiniones, y eso es lo que nos vuelve una hermosa comunidad y hermosos debates que terminan en conocer un poco más sobre la vida de algún miembro…
 

@@ -11,35 +11,35 @@ authors: ["PatoJAD"]
 
 ## Historia
 
-{{< br >}}
+
 
 Originalmente Kim escribió esta sencilla aplicación que usa la API de Mastodon para obtener gatitos.
 
 A partir de ese código creado por Kim, Victorhck ha hecho una pequeña modificación para mostrar capturas de pantalla de GNU/Linux mostrando su mejor composición de fondo de escritorio, iconos, temas, etc...
 Recopila las capturas de pantalla que se comparten en Mastodon con la etiqueta #unixporn (Tal como podemos ver en el inicio de Mediastodon)
 
-{{< br >}}
+
 {{< img src="https://i.postimg.cc/C58pMRzb/unixporn.png" >}}
-{{< br >}}
+
 
 ## Mi parte del trabajo
 
-{{< br >}}
+
 
 Así tal cual dejo el código Victorhck me result muy interesante y lo probé con muchos hashtags. En ese momento me di cuenta que se podría dar un paso más. Gracias a que la gente comparte y suele usar hashtags para todo esto se hizo fácil realizar búsquedas por estos hashs.
 
 De esta forma podemos usar mastdom como un banco de imágenes compartidas por cada una de las personas. De esta forma podemos visualizar, por ejemplo:
 
-{{< br >}}
+
 
  * {{< textlink text="Wallpaper" url="https://mediastodon.patojad.com.ar/?search=wallpaper" >}}
  * {{< textlink text="KDE" url="https://mediastodon.patojad.com.ar/?search=kde" >}}
  * {{< textlink text="Meme" url="https://mediastodon.patojad.com.ar/?search=meme" >}}
 
-{{< br >}}
+
 
 Y asi podes buscar lo que quieras sin ningun tipo de restriccion en:
 
-{{< br >}}
+
 
 {{< link url="https://mediastodon.patojad.com.ar/" text="Mediastodon" >}}

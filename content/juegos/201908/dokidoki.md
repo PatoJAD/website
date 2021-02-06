@@ -11,7 +11,7 @@ authors: ["PatoJAD"]
 
 >## ¡Hola, Monika aquí!
 >
->{{< br >}}
+>
 >
 >¡Bienvenido al Club de Literatura! Siempre ha sido un sueño para mí hacer algo especial con las cosas que amo. ¡Ahora que eres miembro del club, puedes ayudarme a hacer realidad ese sueño en este lindo juego!
 >
@@ -26,15 +26,15 @@ authors: ["PatoJAD"]
 >
 >{{< citaname name="Team Salvato" >}}
 
-{{< br >}}
+
 
 De esta forma se presenta ante todos nosotros su página en itch.io (perdón por no traducirlo manualmente y utilizar algo automático, pero no disponía del tiempo) junto a un video creado por nada más ni nada menos que la gente de Team Salvato. Cuyo video podemos verlo aquí
 
-{{< br >}}
+
 
 {{< youtube code="kB1663FTpzU" >}}
 
-{{< br >}}
+
 
 En mi vida hubiera pensado en jugar este juego, no me gustan las novelas visuales y menos las cosas cursis. Pero tras ver una serie de 3 videos (que sin ningún tipo de autorización pienso compartir) el juego demostró estar a otro nivel y mereció unas amplias horas de juegos.
 
@@ -51,19 +51,19 @@ En mi vida hubiera pensado en jugar este juego, no me gustan las novelas visuale
 El juego va tomando dinámica a medida que vamos eligiendo y vamos viendo cómo va tomando un giro inesperado. Si te cuesta comenzar con este juego por alguna especie de prejuicio te recomiendo ver estos 3 videos, aunque solo con el primero y la mitad del 2 alcanza para que nos pique el bicho de la curiosidad.
 
 
-{{< br >}}
+
 
 {{< youtube code="8WllK9PYJ9w" >}}
 
-{{< br >}}
+
 
 {{< youtube code="4zMAG06dLJU" >}}
 
-{{< br >}}
+
 
 {{< youtube code="EDEBtGg2VaA" >}}
 
-{{< br >}}
+
 
 {{< link text="Steam" url="https://store.steampowered.com/app/698780/Doki_Doki_Literature_Club/" >}}
 

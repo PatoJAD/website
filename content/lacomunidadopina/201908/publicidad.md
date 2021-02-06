@@ -11,15 +11,15 @@ authors: ["PatoJAD"]
 
 Esta es la primera publicación (Aunque debo recalcar que en el pasado muchas debieron estar acá) que inaugura esta sección. Como un sitio comunitario nos vamos adaptando a la comunidad y creemos que nuestros debates (en este caso en nuestro grupo de {{< textlink text="Telegram" url="https://t.me/comunidadsoftwarelibre" >}}) pueden colaborar con los lectores que no pertenezcan a este grupo.
 
-{{< br >}}
+
 
 ## Bloqueador de publicidad
 
-{{< br >}}
+
 
 El debate en la comunidad se debió a un usuario realizando una consulta debido a que en este mismo blog apareció contenido para adultos (publicidad que ya removí e incluso realicé un reclamo).
 
-{{< br >}}
+
 
 
 >Pato, me salió publicidad para adultos en tu página jajaja  
@@ -63,15 +63,15 @@ El debate en la comunidad se debió a un usuario realizando una consulta debido 
 >{{< citaname name="José Luis G." >}}
 
 ---
-{{< br >}}
+
 
  
 
-{{< br >}}
+
 
 Hasta este momento el debate fluia con una única ideología: “mantener las publicidades al margen de nuestra vida” Sin embargo hace tiempo que personalmente le di un uso diferete a los bloqueadores, y quise compartir mi punto de vista con el grupo.
 
-{{< br >}}
+
 
 >En algunos casos las Webs se sustentan con publicidad (ej mi blog) yo procuro que la publicidad no impida disfrutar del sitio, pero espero con esa publicidad conseguir un mejor host y un dominio que me permita ofrecer más cosas que solo un blog para los usuarios
 >

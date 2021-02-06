@@ -11,20 +11,20 @@ authors: ["PatoJAD"]
 
 Visto la reciente novedad podemos ver que KNOME, nombre que recive este proyecto es una de las mas grandes... BROMAS que nos pueden hacer estas dos hermosas comunidades.
 
-{{< br >}}
+
 {{< img src="https://i.postimg.cc/85fTDmgm/Deepin-Screenshot-Seleccionar-rea-20200401075931.png" >}}
-{{< br >}}
+
 
 ##  Anuncios
 
-{{< br >}}
+
 
 >En asociación con nuestros amigos de KDE estamos encantados de embarcarnos en este nuevo esfuerzo. La configurabilidad y el uso de recursos de GNOME emparejados con la simplicidad y el enfoque de KDE - todo enrollado en un solo paquete. Presentamos KNOME, construido usando QTK3 y Kutter.
 >
 >{{< citaname name="GNOME" >}}
 
-{{< br >}}
-{{< br >}}
+
+
 
 >GNOME y KDE profundizan su compromiso de trabajar juntos y revelar KNOME, un nuevo escritorio que trae a los usuarios lo mejor de ambos mundos:
 >
@@ -36,24 +36,24 @@ Visto la reciente novedad podemos ver que KNOME, nombre que recive este proyecto
 >
 >{{< citaname name="KDE" >}}
 
-{{< br >}}
+
 {{< img src="https://i.postimg.cc/fTfDwbpp/Deepin-Screenshot-Seleccionar-rea-20200401080349.png" >}}
-{{< br >}}
+
 
 ## La Web
 
-{{< br >}}
+
 
 En la web se la pasan diciendo pavadas que para quienes no prestan atencion pasan desapersividas, mas si el manejo del ingles no es bueno. Pero tambien se dedican a hacer chistes para que entendamos que esto es irreal.
 
-{{< br >}}
+
 {{< img src="https://knome.org/assets/img/ram.svg" >}}
-{{< br >}}
+
 
 (Aunque algunos creemos que GNOME si cree que mas es mejor...) y para colmo no se olvidan de su bien amigos Windows, ¿porque no? tambien lo tienen presente...
 
-{{< br >}}
+
 {{< img src="https://i.postimg.cc/PqBBbG01/Deepin-Screenshot-Seleccionar-rea-20200401080817.png" >}}
-{{< br >}}
+
 
 Por ultimo no te olvides de pasar por https://knome.org/ para divertirte intentandolo descargar!!!

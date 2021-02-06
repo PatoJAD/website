@@ -12,7 +12,7 @@ The Dark Mod es un autónomo videojuego de género Sigilo inspirado en la seria 
 
 ## Concepto
 
-{{< br >}}
+
 
 El mundo del Dark Mod es oscuro y anacrónico de forma que tiene elementos medievales al igual que elementos de la era victoriana. Aunque el Dark Mod fue inspirado en la seria Thief del Looking Glass Studios, no tiene ni materiales ni nombres de ella a causa del Copyright.
 
@@ -23,23 +23,23 @@ El jugador es un ladrón que tiene que ir tirando en un mundo hostil y siniestro
 ## Imagenes
 
 {{< img src="https://www.thedarkmod.com/wp-content/gallery/general-interest/menu1.jpg">}}
-{{< br >}}
+
 {{< img src="https://www.thedarkmod.com/wp-content/gallery/environments/darkmod_2018-06-09_16-04-21.jpg">}}
-{{< br >}}
+
 {{< img src="https://www.thedarkmod.com/wp-content/gallery/environments/lockdown_6.jpg">}}
-{{< br >}}
+
  
-{{< br >}}
+
 {{< img src="https://www.thedarkmod.com/wp-content/gallery/environments/thedarkmod-2018-05-26-00-07-00.jpg">}}
-{{< br >}}
+
 {{< img src="https://www.thedarkmod.com/wp-content/gallery/environments/gatehouse02.jpg">}}
 
-{{< br >}}
+
 
 {{< youtube code="brJqHnXmpgE" >}}
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Requerimientos PC
 
@@ -49,6 +49,6 @@ El jugador es un ladrón que tiene que ir tirando en un mundo hostil y siniestro
 * Gráficos: Tarjeta gráfica con 128 MB
 * Disco Duro: 6 GB de espacio libre sin comprimir
 
-{{< br >}}
+
 
 {{< link text="Descargar" url="https://www.thedarkmod.com/downloads/" >}}

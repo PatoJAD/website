@@ -11,22 +11,22 @@ authors: ["PatoJAD"]
 
 Nuevamente nos hacemos eco de EducacionIT quien nos trae un nuevo Seminario Online Gratuito. En esta ocasión puede que no sea del todo relacionado al tema del blog, pero si es importante para todos aquellos que tienen sus propios proyectos (como este blog) y necesitamos alguna forma de mejorar nuestro alcance dado que todo lo hacemos a pulmón.
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Descripción
 
-{{< br >}}
+
 
 En el Seminario explicaremos qué es el Marketing Online, sus características, herramientas más utilizadas y su alcance en el ámbito empresarial hoy en día. Se abordarán conceptos claves para comprender los aspectos fundamentales del Marketing Online: Community Manager, Marketing Viral, Social Marketing, Mobile Marketing, SEO, SEM, SMO, Redes Sociales, Google Ads y Analytics, AdSense, Reputación Online, Geolocalización, Apis, Plan de Marketing, Email Marketing, y muchas más.
 
-{{< br >}}
+
  
-{{< br >}}
+
 
 ## Tópicos a Cubrir
 
-{{< br >}}
+
 
 * Marketing Offline y su evolución hacia el Marketing Online
 * Definiendo una campaña de Marketing Online
@@ -47,29 +47,29 @@ En el Seminario explicaremos qué es el Marketing Online, sus características, 
 * Mobile Marketing
 * Geomarketing
 
-{{< br >}}
+
  
-{{< br >}}
+
 
 ## Próximos Inicios
 
-{{< br >}}
+
 
 * Martes 03 DIC 2019
 * **Modalidad:** Online
 * **Horario:** 19:00 a 21:00 hs
 * **Costo:** GRATIS
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## A quien va dirigido
 
-{{< br >}}
+
 
 El seminario está orientado a profesionales web, desarrolladores de estrategias de comunicacion online y todos aquellos interesados en marketing digital que deseen ampliar sus conocimientos acerca de las nuevas herramientas que ofrece el Marketing en el nuevo contexto de Internet.
 
-{{< br >}}
-{{< br >}}
+
+
 
 {{< link url="https://www.educacionit.com/seminario-de-marketing-online" text="Ingresar al Curso" >}}

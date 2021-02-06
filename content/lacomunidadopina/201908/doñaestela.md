@@ -11,19 +11,19 @@ authors: ["PatoJAD"]
 
 ## Caso de Estudio
 
-{{< br >}}
+
 
 Estos días pusimos un caso hipotético para que los linuxnautas nos comenten que le recomendarían. Esta práctica nos da un paneo general sobre qué es lo que la comunidad recomienda, y que distribuciones de Linux se adecuan, según la comunidad, a la necesidad planteada:
 
-{{< br >}}
+
 
 ## Doña Estela
 
-{{< br >}}
+
 
 {{< img src="http://domusrealtor.com/wp-content/uploads/2017/02/Anciana.png" >}}
 
-{{< br >}}
+
 
 >Hoy traigo una incógnita, que distro le recomendarían a Doña Estela y porque:
 >
@@ -31,20 +31,20 @@ Estos días pusimos un caso hipotético para que los linuxnautas nos comenten qu
 >
 >{{< citaname name="PatoJAD" >}}
 
-{{< br >}}
+
 
 Este planteo es el que se postula con el fin de ver que es lo que piensa la comunidad sobre dicho tema. Puede que el estereotipo sea exagerado, pero apela a la creatividad de los linuxnautas.
 
 
-{{< br >}}
+
 
 # Respuestas
 
-{{< br >}}
+
 
  
 
-{{< br >}}
+
 
 >mint + minetest (minecraft opensource)
 >
@@ -112,14 +112,14 @@ Este planteo es el que se postula con el fin de ver que es lo que piensa la comu
 >
 >{{< citaname name="Miguel Ángel Laray" >}}
 
-{{< br >}}
+
 
 
 >Segun tu punto de vista no es viable un linux para una persona mayor? aunque el update sea visualmente (mint, deepin, ubuntu, y el 90% de als distros)
 >
 >{{< citaname name="PatoJAD" >}}
 
-{{< br >}}
+
 
 >Habrá excepciones, pero el ejemplo concreto... tiene nietos que conocerán los juegos y querrán instalarse de todo, (los amigos lo tienen, etc...), la impresora se instala una vez, cierto, pero le vas a dejar Fedora 30, toda la vida¿? y lo más importante, en la escuela me han encargado esto y lo necesito en el PC, toma la contraseña root, busca info y apañatelas...
 >
@@ -127,13 +127,13 @@ Este planteo es el que se postula con el fin de ver que es lo que piensa la comu
 >
 >{{< citaname name="Miguel Ángel Laray" >}}
 
-{{< br >}}
+
 
 >Windows tambien necesita asistenciA tecnica, o le dejas la misma version de windows de por vida?
 >
 >{{< citaname name="radikal" >}}
 
-{{< br >}}
+
 
 >Efectivamente, nadie dijo lo contrario... xD
 >

@@ -11,8 +11,8 @@ authors: ["PatoJAD"]
 
 # La clave Criptográfica de Facebook Filtrada
 
-{{< br >}}
-{{< br >}}
+
+
 
 Una clave criptográfica (en este caso la que se utiliza para firmar aplicaciones) es como una credencial que nos permite confiar en una app. Esta clave es única por empresa y con eso podemos saber que si la clave coincide claramente esa aplicación corresponde a esa empresa. Sin embargo, en este caso corremos con algo en contra…
 

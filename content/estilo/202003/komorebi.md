@@ -17,12 +17,12 @@ Este gestor de wallpapers nos permite añadir a nuestro fondo las estadísticas 
 
 Su panel es muy sencillo de usar y los efectos de los fondos simplemente son geniales.
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Cómo instalar komorebi
 
-{{< br >}}
+
 
 La instalacion es muy sencilla, para instalarlo en cualquier distribucion (realizando la compilacion a mano) es muy sencilla.
 
@@ -30,41 +30,41 @@ Primero instalamos las dependecias del proyecto (eso varia dependiendo de la bas
 
 Despues de esto debemos correr los siguientes comandos los cuales ire explicando su funcionamiento. El primer comando nos permite clonar el proyecto de Git (su version en Master) y nos pociciona en la carpeta para poder seguir:
 
-{{< br >}}
+
 
     git clone https://github.com/iabem97/komorebi.git
     cd komorebi
 
-{{< br >}}
+
 
 Creamos la carpeta build dentro del proyecto y nos pocicionamos dentro, esto nos sirve para poder compilar sin ensuciar el codigo fuente.
 
-{{< br >}}
+
 
     mkdir build && cd build
 
-{{< br >}}
+
 
 Este comando ejecuta la compilacion y la instalacion del proyecto, esto recordemos que no varia entre distribuciones:
 
-{{< br >}}
+
 
     cmake .. && sudo make install && ./komorebi
 
-{{< br >}}
-{{< br >}}
+
+
 
 ### Mas simple
 
-{{< br >}}
+
 
 Para todos los usuarios de distribuciones basadas en debian pueden realizar la instalacion de nuestro {{< textlink url="/repositorio/" text="repositorio" >}} y ahi encontrar la ultima version de Komorebi a un solo comando.
 
-{{< br >}}
+
 
     sudo apt install komerebi
 
-{{< br >}}
-{{< br >}}
+
+
 
 Los fondos por defecto que trae komorebi ya lo hace excelente, sus funcionalidades de rotación, bajo consumo de memoria y la posibilidad de visualizar información del sistema sin el uso de otras herramientas lo vuelven una excelente herramienta para quienes no quiere sobrecargar su sistema.

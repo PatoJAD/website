@@ -35,7 +35,7 @@ Dentro de esta gran radio se encuentra nuestro héroe llamado John, el contiene 
 
 Un proyecto tan grande como este tiene que ser reconocido por todos los que usamos software libre y predicamos sobre el mismo, para todos nosotros tenemos un compromiso todos los jueves de 8 a 10 (hs de venezuela).
 
-{{< br >}}
-{{< br >}}
+
+
 
 ¿Qué piensas de este gran proyecto?, ¿Cómo colaborarías Vos con la tarea de difundirlo ?.

@@ -15,13 +15,13 @@ Este encuentro será una oportunidad única para escuchar y conversar con un pro
 
 El Linux Professional Institute (LPI) es una de las organizaciones más grandes del mundo sin ánimo de lucro que otorga certificaciones profesionales de Linux a administradores de sistema, así como, programadores. Con sede en Canadá, cuenta con miembros activos en todo el mundo.
 
-{{< br >}}
+
  
-{{< br >}}
+
 
 ## Temarios
 
-{{< br >}}
+
 
 * El estado actual de las tecnologías : Blockchain, IA, IoT, SmartCity, etc
 * El core de las denominadas «nuevas tecnologías»
@@ -36,30 +36,30 @@ El Linux Professional Institute (LPI) es una de las organizaciones más grandes 
 * Exámenes Linux y Open Sources disponibles en LPI
 * EducacionIT Centro oficial de Entrenamiento y Certificación LPI
 
-{{< br >}}
+
  
-{{< br >}}
+
 
 ## Modalidad
 
-{{< br >}}
+
 
 * Presencial
 * Lavalle 648, Piso 8, CABA
 
-{{< br >}}
+
 
 ## Información
 
-{{< br >}}
+
 
 * Lunes 21 de octubre
 * 19 a 21 hs.
 
-{{< br >}}
+
 
 ## Fromulario
 
-{{< br >}}
+
 
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScCEIL0l6sUQfmfE5ruJcmWgJh_sEOqokb7NYCVfpK9Evqmjg/viewform?embedded=true" width="100%" height="520" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>

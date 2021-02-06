@@ -17,9 +17,9 @@ authors: ["PatoJAD"]
 
 El link de acceso será enviado a los inscritos 30 minutos antes del inicio del seminario.
 
-{{< br >}}
+
  
-{{< br >}}
+
 
 ## Contenido
 
@@ -31,13 +31,13 @@ El link de acceso será enviado a los inscritos 30 minutos antes del inicio del 
 * Roles de un administrador
 * LPI: la carrera hacia la certificación
 
-{{< br >}}
+
 
 ## Modalidad
 * Online
 * Facebook Live & YouTube
 
-{{< br >}}
+
 
 ## Información
 * Miércoles 2 de octubre

@@ -13,37 +13,37 @@ Waifu una aplicación de streaming para ver anime online P2P (basada en torrent)
 
 Todavia estamos en fase beta, por lo que si encuentras algún fallo no dudes en contactar con nosotros en Twitter o en nuestra página de Facebook.
 
-{{< br >}}
+
 {{< img src="http://www.waifu.ca/static/media/img3.png" >}}
-{{< br >}}
+
 
 ## ¡Pruébalo por ti mismo!
 
-{{< br >}}
+
 
 Usando tecnología de peerflix, popcorntime, nodewebkit... Te permite ver tus animes preferidos en HD y con subtitulos.
 
-{{< br >}}
+
 {{< img src="http://www.waifu.ca/static/media/img2.png" >}}
-{{< br >}}
+
 
 ¡iYa no hay escusas para no ver tus series favoritas! :D
 Waifu es una aplicación que nos permitirá ver un montón de animes en streaming tanto clásicos como recientes casi todas las series animes se ven con subtítulos en varios idiomas tan sólo tendremos que activar la opción de subtitulado y elegir el idioma que queramos además podemos cambiar el tamaño de las letras de sus tutelados Es una exelente herramienta de reproducción de anime la aplicación ofrece una calidad de 720p.
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Instalacion
 
-{{< br >}}
+
 
 Aca es donde entra nuestra hermosa comunidad que te da una instalacion facil, segura y rapida... si tenes nuestro {{< textlink url="/repositorio/" text="repositorio" >}} instalado (si no lo tenes no se que esperas) podes ir directamente a la terminal (siempre despues de un update) y instalarlo de la siguiente manera
 
-{{< br >}}
+
 
     sudo apt install waifu
 
-{{< br >}}
-{{< br >}}
+
+
 
 Te esperamos en nuestro gurpo para contarnos que te parece!!!

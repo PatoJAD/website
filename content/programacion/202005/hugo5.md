@@ -11,23 +11,23 @@ authors: ["PatoJAD"]
 
 A estas alturas, es importante ya poner nuestro sitio online para poder ir viendo el resultado final (seguramente tengamos que ir solucionando algunos problemas que ya verá cada uno).
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Video
 
-{{< br >}}
+
 {{< youtube code="Sy4KmAQsNZk" >}}
-{{< br >}}
-{{< br >}}
+
+
 
 ## Info Util
 
-{{< br >}}
+
 
 Como vemos en el video necesitamos crear un archivo llamado .gitlab-ci.yml y dentro de este vamos a poner el siguiente codigo
 
-{{< br >}}
+
 
     image: cibuilds/hugo
 
@@ -43,6 +43,6 @@ Como vemos en el video necesitamos crear un archivo llamado .gitlab-ci.yml y den
       only:
         - master
 
-{{< br >}}
+
 
 Recuerda que puede demorar entre 30 minutos y 2 hs en aparecer desde tu primer deploy, cualquier duda o consulta estamos en el grupo de Telegram disponible para todos ustedes!!! No te olvides de suscribirte al canal y desactivar el adblock de PatoJAD, es una pequeña forma completamente gratuita de apoyar el contenido que generamos.

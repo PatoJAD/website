@@ -9,24 +9,24 @@ img: "https://ayudalinux.com/wp-content/uploads/2018/07/cat-texto-2.png"
 authors: ["PatoJAD"]
 ---
 
-{{< br >}}
+
 
 La disposición del sistema de archivos en tu sistema Linux es casi como el que encontramos en otros sistemas tipo Unix. El diseño está especificado en un estándar publicado llamado **Linux Filesystem Hierarchy Standard** (Jerarquía Estándar del sistema de archivos de Linux). No todas las distribuciones Linux cumplen exactamente el estándar, pero la mayoría se acercan bastante.
 
 A continuación, vamos a dar un paseo por el sistema de archivos para darnos cuenta qué hace que nuestro sistema Linux funcione. Esto nos dará la oportunidad de practicar nuestras habilidades de navegación. Una de las cosas que descubriremos es que muchos de los archivos interesantes están en texto plano legible. A medida que vayamos avanzando en nuestra visita guiada, prueba lo siguiente:
 
-{{< br >}}
+
 
 * cd en un directorio dado
 * Lista los contenidos del directorio con ls -l
 * Si ves un archivo interesante, determina su contenido con file
 * Si parece que pudiera ser texto, trata de verlo con less
 
-{{< br >}}
+
 
 A medida que avancemos, no tengas miedo de echar un vistazo. Los usuarios normales tienen terminantemente prohibido **desordenar** cosas. *¡Es trabajo para los administradores de sistema!* Si un comando protesta sobre algo, pasa a otra cosa. Pasa algo de tiempo echando un vistazo. El sistema es nuestro para explorarlo. Recuerda, en Linux, ¡no hay secretos!
 
-{{< br >}}
+
 
 * **/** : El directorio raíz. Donde comienza todo.
 * **/bin** : Contiene binarios (programas) que tienen que estar presentes para que el sistema arranque y funcione.
@@ -59,21 +59,21 @@ Archivos interesantes: Como todo en /etc es interesante, os dejo algunos de mis 
 * **/var** : Con la excepción de /tmp y /home, los directorios que hemos visto hasta ahora permanecen relativamente estáticos, o sea, su contenido no cambia. El árbol del directorio /var es donde los datos, que es probable que cambien, son almacenados. Diferentes bases de datos, colas de impresión, correos de usuarios, etc. se encuentran aquí.
 * **/var/log** : Contiene archivos de registro (log files) de varias actividades del sistema. Son muy importantes y deberían ser monitorizados de vez en cuando. El más útil es /var/log/messages. Ten en cuenta que, por razones de seguridad, en algunos sistemas, tienes que ser superusuario para ver los archivos de registro.
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Enlaces Simbólicos
 
-{{< br >}}
+
 
 A medida que inspeccionamos, es probable que veamos un listado de directorios con una entrada como esta:
 
-{{< br >}}
+
 
     lrwxrwxrwx 1 root root 11 2007-08-11 07:34
     libc.so.6 -> libc-2.6.so
 
-{{< br >}}
+
 
 ¿Ves como la primera letra del listado es “l” y la entrada parece tener dos nombres de archivo? Esto es un tipo especial de archivo llamado enlace simbólico (también conocido como enlace blando o sym-link.) En la mayoría de los sistemas tipo Unix es posible tener un archivo referenciado por múltiples nombres. Aunque el sentido de esto no parezca obvio, es realmente una característica muy útil.
 
@@ -81,29 +81,29 @@ Imagina este escenario: Un programa requiere el uso de  algún tipo de  recurso 
 
 Aquí es donde los enlaces simbólicos nos salvan el día.  Digamos que instalamos la versión 2.6 de “foo”, que tiene el nombre de archivo “foo-2.6” y entonces creamos un enlace simbólico llamado simplemente “foo” que apunta a “foo-2.6”. Esto significa que cuando un programa abre el archivo "foo", en realidad  está abriendo el archivo "foo-2.6". Ahora todo el mundo está contento. Los programas que utilizan “foo” pueden encontrarlo y nosotros aún podemos ver qué versión está instalada en realidad.  Cuando llegue la hora de actualizar a “foo-2.7”, sólo añadiremos el archivo a nuestro sistema, borraremos el enlace simbólico “foo” y crearemos uno nuevo que apunte a la nueva versión. No sólo soluciona el problema del cambio de versión,  también nos permite guardar ambas versiones en nuestra máquina. Imagina que “foo-2.7” tiene un bug (¡Condenados programadores!) y necesitamos recuperar la versión antigua. De nuevo, sólo borramos el enlace simbólico que apunta a la nueva versión y creamos un nuevo enlace simbólico apuntando a la versión antigua.
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Enlaces duros
 
-{{< br >}}
+
 
 Como estamos en el tema de los enlaces, tenemos que mencionar que hay un segundo tipo de enlace llamado enlace duro. Los enlaces duros también permiten a los archivos tener múltiples nombres, pero lo hacen de una forma distinta. Hablaremos más sobre las diferencias entre enlaces simbólicos y duros más adelante.
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Resumiendo
 
-{{< br >}}
+
 
 Terminada nuestra visita guiada, hemos aprendido un montón acerca de nuestro sistema. Hemos visto varios archivos y directorios y sus contenidos. Una cosa que deberías haber sacado de esto es lo abierto que es el sistema. En Linux hay muchos archivos importantes que están en texto plano y legible. Al contrario que muchos sistemas propietarios, Linux hace que todo pueda ser examinado y estudiado.
 
-{{< br >}}
-{{< br >}}
+
+
 
 ---
 
-{{< br >}}
+
 
 Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

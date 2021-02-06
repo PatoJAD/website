@@ -11,12 +11,12 @@ authors: ["PatoJAD"]
 
 Dando vueltas por Reddit encontramos un usuario que escribió sobre este tema que es de mucho interés para todos nosotros, normalmente siempre hablamos de Microsoft pero Google es muy agresivo con su invasión a privacidad y su monopolio.
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Lo que nos cuenta Yogthos
 
-{{< br >}}
+
 
 Google tiene un monopolio innegable en la búsqueda de internet y un casi monopolio en el software de navegación web a través de Chrome y sus forks (navegadores derivados). E incluso los navegadores alternativos no derivados de Chromium, como Firefox de Mozilla, hacen referencia al servicio de Navegación segura de Google para decidir la confiabilidad de las descargas. O incluso ofrecen su buscador como opción para búsquedas integradas.
 
@@ -24,27 +24,27 @@ Detener la propagación del malware es un objetivo digno de un gran agradecimien
 
 Si un desarrollador de software intenta lanzar una nueva versión de su software en línea, es probable que reciba esta advertencia en su Google Search Console:
 
-{{< br >}}
+
 {{< img src="https://miro.medium.com/max/716/1*E6wn_ALLvQ0e8ecBvNHRMA.png" >}}
-{{< br >}}
+
 
 Por definición y sin excepciones, todo el software es desconocido cuando se lanza por primera vez. No importa que haya tenido su dominio durante catorce años sin haber alojado nada malicioso:
 
-{{< br >}}
+
 {{< img src="https://miro.medium.com/max/292/1*rnS-W4PreMl592nkDUkhuw.png" >}}
-{{< br >}}
+
 
 No importa si ninguno de los setenta y dos analizadores de virus marcan contenido malicioso en su ejecutable:
 
-{{< br >}}
+
 {{< img src="https://miro.medium.com/max/645/1*P0hj5bYQXD_DR3xQj51Rtw.png" >}}
-{{< br >}}
+
 
 No importa si solicita una revisión de Google que vuelve clara:
 
-{{< br >}}
+
 {{< img src="https://miro.medium.com/max/375/1*-4WN5wrHYt2VvKM32h6KLg.png">}}
-{{< br >}}
+
 
 Las advertencias simplemente regresan, a menudo en el mismo archivo que ya ha revisado. Esto no es solo una advertencia aterradora que se ignora fácilmente: los navegadores web advertirán a los usuarios que su software puede ser malicioso. Y se desprende de la advertencia de Google que considera que su sitio está comprometido, lo que puede conducir a penalizaciones en los resultados de búsqueda, incluida la exclusión de la lista.
 
@@ -54,19 +54,19 @@ Este proceso es totalmente opaco: ¿cuántas descargas se necesitan antes de que
 
 Supongamos que desea obtener un certificado de firma de código para ver si eso ayuda:
 
-{{< br >}}
+
 {{< img src="https://miro.medium.com/max/933/1*fYd1TFryBmlhjn3lqRNVKA.png" >}}
-{{< br >}}
+
 
 Qué trato para un pequeño desarrollador de software libre. Además, debe tener un negocio registrado que sea verificado por Better Business Bureau para recibir su certificado EV. Si desea un certificado regular, puede hacerlo adjuntando su nombre legal público a su software y enviando una copia de su licencia de conducir. Y eso no quiere decir nada de los riesgos que toma estos días en línea al publicar su nombre legal.
 
 E incluso si hace todo esto y comienza a firmar sus ejecutables, todavía no puedo encontrar ninguna garantía de si Google comenzará a tratar estos ejecutables como seguros o no. En mi propio caso, esto efectivamente me ha impedido lanzar binarios compilados de mi propio software en el futuro. Si la firma de código es un requisito para distribuir software gratuito, entonces necesitamos una alternativa de estilo Let's Encrypt para la firma de código: ayer. De lo contrario, Google necesita un cambio de política sobre cómo maneja las nuevas versiones de software de desarrolladores de software gratuitos y de código abierto.
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Lo que opino
 
-{{< br >}}
+
 
 Existe una realidad, todos los que hacemos software libre o colaboramos con el mismo debemos sofocarnos con estas clases de cosas. El dinero que utilizamos para poder llevar este software ante ustedes sale lamentablemente de nuestros bolsillos. Y claramente cuando un proyecto ya es grande de las donaciones de la comunidad. Sin embargo, necesitamos que esto cambie, así fue cuando salió Let's Encrypt y tiene que seguir así.

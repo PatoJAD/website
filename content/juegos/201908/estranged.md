@@ -53,6 +53,6 @@ El segundo juego es la continuación del primero (Es ideal jugarlo para entender
 
 {{< link url="https://store.steampowered.com/app/261820/Estranged_Act_I/" text="Estranged: Act I" >}}
 
-{{< br >}}
+
 
 {{< link url="https://store.steampowered.com/app/582890/Estranged_Act_II/" text="Estranged: Act II" >}}

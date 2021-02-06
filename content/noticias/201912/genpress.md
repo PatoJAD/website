@@ -13,38 +13,38 @@ authors: ["PatoJAD"]
 >
 > {{< citaname name="davidmeirlevy" >}}
 
-{{< br >}}
+
 
 El proyecto se divide en microservicios, y tanto el panel de administración como la interfaz del blog están usando Vue.js (administrador escrito con Vue y blog-front con Nuxt, para SSR).
 
 No está 100% listo, pero está disponible y puede ser útil en este momento para uso básico, tiene un entorno de desarrollo y scripts de producción, usando pm2. La próxima semana con docker y compose, y pronto también helm chart.
 
-{{< br >}}
+
 {{< link text="Demo" url=" https://greenpress.herokuapp.com/" >}}
-{{< br >}}
+
 
 >Estaría más que feliz de obtener cualquier tipo de ayuda, contribuciones de código, errores, sugerencias, o incluso que lo usarán para ustedes mismos. Realmente funciona y es gratis.
 >
 > {{< citaname name="davidmeirlevy" >}}
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## ¿Es el futuro?
 
-{{< br >}}
+
 
 Claramente los que somos desarrolladores y alguna vez utilizamos PHP sabemos que es un lenguaje que fue (y aun es) útil, peor no es para nada bueno. Con esto no quiero decir que JS sea bueno, pero podemos decir objetivamente que es levemente “menos peor”.
 PHP tiene popularidad solo porque corre en cualquier lado, y se encuentra funcionando en gran parte de la internet. Pero esto no quiere decir que sea bueno, simplemente es más utilizado.
 
 Este proyecto procura poder ofrecer una solución a WP un tanto más renovada tecnológicamente. Dando así mejores posibilidades de desarrollo y crecimiento a nuestro emprendimiento (por ejemplo, un blog) Y puede, con ayuda de la comunidad, ser uno de los grandes proyectos que inicie el cambio en Internet.
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Caracteristicas
 
-{{< br >}}
+
 
 * Gestión de configuración.
 * La configuración debe tener opciones como:
@@ -62,9 +62,9 @@ Este proyecto procura poder ofrecer una solución a WP un tanto más renovada te
   * Selector de categoría de usuario para elementos de menús.
   * Mejora UX, también compatible para uso móvil.
 
-{{< br >}}
-{{< br >}}
+
+
 
 {{< link text="Proyecto" url="https://github.com/greenpress" >}}
 
-{{< br >}}
+

@@ -9,52 +9,52 @@ img: "https://i.postimg.cc/Kz0rYX84/Screenshot-20200715-084652.png"
 authors: ["PatoJAD"]
 ---
 
-{{< br >}}
+
 
 El comando ls es _probablemente el más usado_, y por una buena razón. Con él, podemos ver los contenidos de un directorio y determinar varios atributos importantes de los archivos y directorios. Como hemos visto, podemos usar simplemente ls para ver una lista de los archivos y subdirectorios contenidos en el directorio de trabajo actual:
 
-{{< br >}}
+
 
     ls
 
-{{< br >}}
+
 
 obteniendo una salida
 
-{{< br >}}
+
 
     Desktop Documents Music Pictures Public Templates Videos
 
-{{< br >}}
+
 
 Además del directorio de trabajo actual, podemos especificar el directorio a listar, de esta forma:
 
-{{< br >}}
+
 
     ls /usr
 
-{{< br >}}
+
 
 obteniendo una salida
 
-{{< br >}}
+
 
     bin  games    kerberos    libexec    sbin    src
     etc  include  lib         local      share   tmp
 
-{{< br >}}
+
 
 O incluso especificar múltiples directorios. En este ejemplo listaremos el directorio home del usuario (simbolizado por el carácter “~”) y el directorio /usr:
 
-{{< br >}}
+
 
     ls ~ /usr
 
-{{< br >}}
+
 
 obteniendo una salida
 
-{{< br >}}
+
 
     /home/pato:
     Desktop Documents Music Pictures Public Templates Videos
@@ -63,19 +63,19 @@ obteniendo una salida
     bin games   kerberos  libexec  sbin  src
     etc include lib       local    share tmp
 
-{{< br >}}
+
 
 También podemos cambiar el formato de la salida para que nos muestre más detalles:
 
-{{< br >}}
+
 
     ls -l
 
-{{< br >}}
+
 
 con una salida
 
-{{< br >}}
+
 
     total 56
     drwxrwxr-x 2 me me 4096 2007-10-26 17:20 Desktop
@@ -86,52 +86,52 @@ con una salida
     drwxrwxr-x 2 me me 4096 2007-10-26 17:20 Templates
     drwxrwxr-x 2 me me 4096 2007-10-26 17:20 Videos
 
-{{< br >}}
+
 
 Añadiendo “-l” al comando, cambiamos la salida al formato largo.
 
-{{< br >}}
+
 {{< img src="https://i.postimg.cc/Kz0rYX84/Screenshot-20200715-084652.png" >}}
-{{< br >}}
-{{< br >}}
+
+
 
 ## Opciones y argumentos
 
-{{< br >}}
+
 
 Esto nos ofrece un aspecto muy importante sobre cómo funcionan la mayoría de los comandos. A los comandos, a menudo, le siguen una o más opciones que modifican su comportamiento, y adicionalmente, uno o más argumentos, los elementos sobre los que el comando actúa. Así que la mayoría de los comandos se muestran así:
 
-{{< br >}}
+
 
     comando -opciones argumentos
 
-{{< br >}}
+
 
 La mayoría de los comandos usan opciones que consisten en un sólo carácter precedido por un guión, por ejemplo, “-l”, pero muchos comandos, incluidos los del Proyecto GNU, también soportan opciones largas, consistentes en una palabra precedida por dos guiones. Además, muchos comandos permiten múltiples opciones cortas enlazadas. En este ejemplo, al comando ls se le han dado dos opciones, la opción “l” para mostrar la salida en formato largo, y la opción “t” para ordenar el resultado por la fecha de modificación de los archivos.
 
-{{< br >}}
+
 
     ls -lt
 
-{{< br >}}
+
 
 Añadiremos la opción larga “--reverse” para invertir el orden de la lista:
 
-{{< br >}}
+
 
     ls -lt --reverse
 
-{{< br >}}
+
 
 Fíjate que las opciones de los comandos, como los nombres de archivo en Linux, distinguen entre mayúsculas y minúsculas.
 
-{{< br >}}
+
 {{< img src="https://i.postimg.cc/4NqPtTb9/Screenshot-20200715-084749.png" >}}
-{{< br >}}
+
 
 El comando ls tiene un gran número de posibles opciones. Las más comunes están listadas a continuación.
 
-{{< br >}}
+
 
 * **-a --all** Lista todos los archivos, incluso aquellos cuyo nombre empieza con un punto, que normalmente no se listan (es decir, ocultos).
 * **-A --almost-all** Como la opción -a anterior, salvo que no lista . (el directorio actual) y .. (el directorio padre).
@@ -143,16 +143,16 @@ El comando ls tiene un gran número de posibles opciones. Las más comunes está
 * **-S** Ordena los resultados por tamaño.
 * **-t** Ordena por la fecha de modificación.
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Un vistazo más profundo al formato largo
 
-{{< br >}}
+
 
 Como vimos antes, la opción “-l” hace que ls muestre sus resultados en formato largo. Este formato contiene gran cantidad de información útil. Aquí está el directorio Examples de un sistema Ubuntu:
 
-{{< br >}}
+
 
     -rw-r--r-- 1 root root 3576296 2007-04-03 11:05 Experience patojad.ogg
     -rw-r--r-- 1 root root 1186219 2007-04-03 11:05 patojad-leaflet.png
@@ -166,11 +166,11 @@ Como vimos antes, la opción “-l” hace que ls muestre sus resultados en form
     -rw-r--r-- 1 root root  453764 2007-04-03 11:05 oo-welcome.odt
     -rw-r--r-- 1 root root  358374 2007-04-03 11:05 patojad Sax.ogg
 
-{{< br >}}
+
 
 Veamos los diferentes campos de uno de los archivos y examinemos su significado:
 
-{{< br >}}
+
 
 * **-rw-r--r--** Permisos de acceso al archivo. El primer carácter indica el tipo de archivo. Entre los diferentes tipos, un guión al principio significa un archivo normal, mientras que una “d” indica un directorio. Los siguientes tres caracteres son los permisos de acceso para el propietario del archivo, los tres siguientes los de los miembros del grupo del archivo, y lo tres últimos los del resto de usuarios. El significado completo de esto lo trataremos en el Capítulo 9 – Permisos.
 * **1** Número de enlaces fuertes del archivo. Veremos el tema de los enlaces más adelante.
@@ -180,10 +180,10 @@ Veamos los diferentes campos de uno de los archivos y examinemos su significado:
 * **2007-04-03 11:05** Fecha y hora de la última modificación del archivo.
 * **oo-cd-cover.odf** Nombre del archivo.
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

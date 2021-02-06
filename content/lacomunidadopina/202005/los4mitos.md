@@ -11,16 +11,16 @@ authors: ["PatoJAD"]
 
 Como bien saben hace unos dias hice el post {{< textlink text="4 Mitos Falsos de Linux" url="/linux/2020/05/4-mitos-falsos-de-linux/" >}} esperando aclarar un poco lo que se piensa o lo que se debate sobre linux. Sin embargo esto desató muchas voces postulando sus ideas y como todos sabemos que nadie tiene la verdad absoluta, decidí tomarme el permiso de publicar sus ideas, como siempre digo, cualquiera puede usar este post para plasmar una idea porque lo importante es que no se pierda en una conversación.
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## La consigna
 
-{{< br >}}
+
 
 Para organizar un poco las ideas postule una consiga, la cual era básicamente de lo que hablaba la publicación antes mencionada la cual se podía leer asi:
 
-{{< br >}}
+
 
 >PREGUNTA!!!
 >
@@ -33,12 +33,12 @@ Para organizar un poco las ideas postule una consiga, la cual era básicamente d
 >
 > {{< citaname name="PatoJAD" >}}
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Las Opiniones
 
-{{< br >}}
+
 
 > « “si es mejor un iPhone que un Android", o una Mac en lugar de una PC, o el Software Libre en lugar del privativo" »
 >
@@ -58,11 +58,11 @@ Para organizar un poco las ideas postule una consiga, la cual era básicamente d
 >
 > {{< citaname name="Inukaze Maquiavelo" >}}
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 > todas son falsas XD
 >
@@ -78,27 +78,27 @@ Para organizar un poco las ideas postule una consiga, la cual era básicamente d
 >
 > {{< citaname name="🅜🅔🅡🅘🅞🅓🅐🅢🅤" >}}
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 > Las cuatro frases son TIPICAS respuestas de gente desinformada sobre el tema
 >
 > {{< citaname name="Delfi" >}}
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 > listo: estaba escribiendo pero me quedo con esta idea, jaja
 
 "esta idea" Hace referencia a lo que dijo Delfi
 
-{{< br >}}
+
 
 > Es difícil de usar: depende la distro. Hay muchísimas que no lo son, así que generalizar así no es correcto
 > No va a funcionar en mi pc: es más probable que puedas hacer funcionar linux que cualquier otro SO
@@ -108,11 +108,11 @@ Para organizar un poco las ideas postule una consiga, la cual era básicamente d
 
 Pancram o el Tio como le digo yo, es quien se tiene la posta sobre linuxitos y la lista increibles de juegos que ofrece!
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 > Fácil de usar tebgo soporte de @PatoJAD XD si funciona en mi pc y si puedo jugar
 >
@@ -120,11 +120,11 @@ Pancram o el Tio como le digo yo, es quien se tiene la posta sobre linuxitos y l
 
 Gracias Pipe, pero te aviso que tu soporte es de mala calidad XD
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 > la que me encanta es la de "Difícil Usar" esa me mata te comento que mi pequeña de 7 años ya va 1 año con linux (deepin) y es un haz, hasta creo que me gana jaja
 >
@@ -132,11 +132,11 @@ Gracias Pipe, pero te aviso que tu soporte es de mala calidad XD
 >
 > {{< citaname name="Alvaric" >}}
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 > es dificil de usar hasta que te acostumbras a una terminal
 > si funciona hasta en un tetris , linux no es para juegos sino para desarollo , linux tiene soporte pero para desarollo
@@ -144,11 +144,11 @@ Gracias Pipe, pero te aviso que tu soporte es de mala calidad XD
 >
 > {{< citaname name="ARN SARS" >}}
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 > ES DIFÍCIL DE USAR: Depende de la distro, pero usando Mint es un paseo.
 > NO VA A FUNCIONAR EN MI PC: Funcionan más las distros de Linux en la mayoria de los pcs que Windows.
@@ -157,11 +157,11 @@ Gracias Pipe, pero te aviso que tu soporte es de mala calidad XD
 >
 > {{< citaname name="jolnix" >}}
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 > Que en su mayoria todas son mas que falacias
 >
@@ -174,11 +174,11 @@ Gracias Pipe, pero te aviso que tu soporte es de mala calidad XD
 >No tiene soporte: Aqui si les puedo darle la razon en algunos sectores de linux pero esto no es culpa de linux si no mas de la empresa
 > {{< citaname name="Drindie" >}}
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 > 1. depende de la persona
 > 2. en tiempos modernos funciona bien en casi cualquier maquina
@@ -190,31 +190,31 @@ Gracias Pipe, pero te aviso que tu soporte es de mala calidad XD
 
 Perdon no queria gritarte :(
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 > Pensamientos de gente con miedo, gente que no se atreve a probar cosas nuevas, gente que no quiere un cambio o quiere quedarse cómodamente donde esta y gente inútil que no busca soluciones o hacer las cosas de otra forma
 >
 > {{< citaname name="Miguel R" >}}
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 > En mi caso estoy atado a Windows. Actualmente tengo mint y me encantaría probarme con debian, pero office no se lleva a 100% ni con libreoffice ni OpenOffice. También uso Autocad y Solidworks. Estos últimos no hay alternativas que se acerquen... Cada día que pasa me voy alejando más de Linux.
 >
 > {{< citaname name="Alejandro" >}}
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 > ¿Es difícil de usar?
 > Actualmente no.
@@ -227,11 +227,11 @@ Perdon no queria gritarte :(
 >
 > {{< citaname name="𝓐𝓵𝓮𝔁𝓲𝓼 𝓔𝓼𝓬𝓸𝓫𝓪𝓻" >}}
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 > Gracias a @PatoJAD  le he contestado con una entrada en mi blog (https://is.gd/NuK0Ys) por si quieren leerlo detenidamente luego.
 >
@@ -262,16 +262,16 @@ Pero todas las preguntas se pueden resumir en un GRAN "DEPENDE" 🥺🤪
 >
 > {{< citaname name="" >}}
 
-{{< br >}}
+
 
 Les paso el chivo a limpio pueden verlo bien en {{< textlink url="https://is.gd/NuK0Ys" text="su blog" >}} y este termino como una publicacion dentro de otra publicacion...
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Tu Turno
 
-{{< br >}}
+
 
 Y ahora te toca a vos... ¿Vos que opinas? Sumate a nuestro grupo de telegram y seguinos en las redes sociales para formar parte de estas opiniones públicas, incluso si tenes ganas escribi tu propio artículo y nosotros lo publicamos!!
 

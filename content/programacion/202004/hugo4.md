@@ -11,17 +11,17 @@ authors: ["PatoJAD"]
 
 Es lógico querer poner la fecha de nuestro sitio en nuestro idioma, incluso querer hacerlo multi idioma. Para esto nuestro amigo {{< textlink text="Tehuel" url="https://tehuel.blog/" >}} nos facilita una "hack" para poder hacerlo!
 
-{{< br >}}
+
 {{< youtube code="NfGVnzbcZ-g" >}}
-{{< br >}}
+
 
 ## Codigo
 
-{{< br >}}
+
 
 A continuación, como prometo en el video, dejo los fragmentos de código que utilizo, recuerden que estos pueden modificarlos a su gusto. En particular el crédito de todo esto como dije antes es de Tehuel
 
-{{< br >}}
+
 
 data/dias.yml
 
@@ -33,7 +33,7 @@ data/dias.yml
     5: "Viernes"
     6: "Sábado"
 
-{{< br >}}
+
 
 data/meses.yml
 
@@ -50,7 +50,7 @@ data/meses.yml
     11: "Noviembre"
     12: "Diciembre"
 
-{{< br >}}
+
 
 data/mesesc.yml
 
@@ -67,7 +67,7 @@ data/mesesc.yml
     11: "Nov"
     12: "Dic"
 
-{{< br >}}
+
 
 themes/nuestrotheme/layouts/partials/date.html
 
@@ -84,7 +84,7 @@ themes/nuestrotheme/layouts/partials/date.html
 
     {{ return $formattedDate }}
 
-{{< br >}}
+
 
 Código del card que hardcodea el mes abreviado en español
 
@@ -93,9 +93,9 @@ Código del card que hardcodea el mes abreviado en español
     {{ $monthNumber = index site.Data.mesesc (printf "%d" .Date.Month) }}
     <p>{{ $monthNumber }}</p>
 
-{{< br >}}
+
 
 Cualquier duda o consulta los estamos esperando en nuestro grupo de Telegram para charlar y escuchar sus opiniones!
 
-{{< br >}}
+
 {{< link url="https://t.me/PatoJADCommunity" text="Unete" >}}

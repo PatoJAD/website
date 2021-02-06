@@ -9,46 +9,46 @@ img: "https://i.postimg.cc/T3WhnLzd/Whats-App-Image-2019-05-05-at-17-40-54.jpg"
 authors: ["PatoJAD"]
 ---
 
-{{< br >}}
+
 
 Este Juego no se encuentra disponible para nuestro sistema operativo ni piensa migrar, sin embargo, esto no nos limita para poder jugarlo, hoy les traigo una guía simple de cómo hacerlo funcionar en nuestro Linux sin inconveniente.
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Instalar WineHQ
 
-{{< br >}}
+
 
 Lo primero que debemos hacer es instalar WineHQ en nuestra distribución, para esto debemos agregar las librerías y ejecutar la instalación.
 
-{{< br >}}
-{{< br >}}
+
+
 
 ### Debian
 
-{{< br >}}
+
 
 Habilitamos los 32 bits
 
-{{< br >}}
+
 
     sudo dpkg --add-architecture i386
 
-{{< br >}}
+
 
 Descargamos e instalamos a Key
 
-{{< br >}}
+
 
     wget -nc https://dl.winehq.org/wine-builds/winehq.key
     sudo apt-key add winehq.key
 
-{{< br >}}
+
 
 Agregamos el repositorio dependiendo de nuestra versión
 
-{{< br >}}
+
 
 | Version |	Agregar a /etc/apt/sources.list: |
 |---|---|
@@ -56,19 +56,19 @@ Agregamos el repositorio dependiendo de nuestra versión
 | Debian 9 (Stretch) |	deb https://dl.winehq.org/wine-builds/debian/ stretch main |
 | Debian 10 (currently Testing) (Buster) |	deb https://dl.winehq.org/wine-builds/debian/ buster main |
 
-{{< br >}}
+
 
 Actualizamos el Sistema
 
-{{< br >}}
+
 
     sudo apt update
 
-{{< br >}}
+
 
 Instalamos uno de los paquetes
 
-{{< br >}}
+
 
 | version | comando |
 |---|---|
@@ -76,27 +76,27 @@ Instalamos uno de los paquetes
 | Development branch | sudo apt install --install-recommends winehq-devel |
 | Staging branch | sudo apt install --install-recommends winehq-staging |
 
-{{< br >}}
-{{< br >}}
+
+
 
 ### Fedora
 
-{{< br >}}
+
 
 Agregamos los repositories
 
-{{< br >}}
+
 
 | version | comando |
 |---|---|
 | Fedora 29 | dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/29/winehq.repo |
 | Fedora 30 | dnf config-manager --add-repo https://dl.winehq.org/wine-builds/fedora/30/winehq.repo|
 
-{{< br >}}
+
 
 E instalamos la version que deseamos
 
-{{< br >}}
+
 
 | version | comando |
 |---|---|
@@ -104,29 +104,29 @@ E instalamos la version que deseamos
 | Development branch |	dnf install winehq-devel |
 | Staging branch	| dnf install winehq-staging |
 
-{{< br >}}
+
 
 Para otras distribuciones o BDS o MacOS revisar en su {{< textlink text="sitio oficial" url="https://wiki.winehq.org/Download" >}}
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Volviendo Al MU
 
-{{< br >}}
+
 
 Una vez instalado nos descargamos el instalador del juego, en mi caso lo testee con {{< textlink text="LynxMu" url="http://lynxmu.tk/" >}} (Mas adelante hablare del mismo) El cual contiene un instalado. ¡El instalador lo ejecutamos con wine y usamos la metodología Windows Siguiente, siguiente, siguiente y Acepto!
 
-{{< br >}}
+
 {{< img src="https://i.postimg.cc/vHT4HSX6/Whats-App-Image-2019-05-02-at-20-06-07.jpg" >}}
-{{< br >}}
+
 
 El único problema que encontré es que no inicia el Launcher, pero podemos jugar ingresando en:
 
-{{< br >}}
+
 
     home/.wine/driver_c/programfiles(86)/LynxGames/MuOnline/
 
-{{< br >}}
+
 
 Y ejecutando el main.exe (Dentro de nuestro file manager podemos presionar ctrl+h para ver los archivos y carpetas ocultos por ejemplo .wine)

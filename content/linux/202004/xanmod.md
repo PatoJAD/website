@@ -15,23 +15,23 @@ La versión en tiempo real **se recomienda para aplicaciones críticas de tiempo
 
 Admite todas las versiones recientes de 64 bits de **Debian** y sistemas basados ​​en **Ubuntu**.
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Mi opinion
 
-{{< br >}}
+
 
 Ofrecen al **posibilidad** de mantener actualizado tu kernel a la ultima version. Como ellos dicen esto **no es recomendable en ambientes que requieran estabilidad**, sin embargo yo lo vengo usando asi y no me dio ningun problema, siempre me mantengo actualizado y sin **errores criticos**
 
 Anteriormente hable de {{< textlink text="liquorix" url="/linux/2020/01/liquorix-que-es-como-lo-instalo/" >}} un kernel que estaba destinado a los videojuegos. Sin embargo en mi tiempo de prueba me dio mucho mejor rendimiento Xanmod e incluso **menos consumo de bateria**.
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Principales características
 
-{{< br >}}
+
 
 * Núcleo preventivo completo sin tick a 500Hz con programador de núcleo de CPU sintonizado.
 * RCU Boost para un mejor rendimiento de multitarea y menor latencia de tiempo de cuadros DRI.
@@ -44,66 +44,66 @@ Anteriormente hable de {{< textlink text="liquorix" url="/linux/2020/01/liquorix
 * Paquete de kernel genérico para compatibilidad con la mayoría de las distribuciones basadas en Debian y Ubuntu. Construido sobre el último GCC 9.3 y Binutils 2.34.
 * Licencia GPLv2. Se puede construir para cualquier distribución o propósito.
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Instalacion
 
-{{< br >}}
+
 
 Nuevamente la instalacion se facilita con {{< textlink text="nuestro repositorio instalado" url="/repositorio/" >}}, dado que en el se encuentra el repositorio de lvtommy repository y lo podemos instalar asi:
 
-{{< br >}}
+
 
     sudo apt install lvtommy-kernel-repository
 
-{{< br >}}
+
 
 Luego basta con actualizar e instalar el kernel de la siguiente forma:
 
-{{< br >}}
+
 
     sudo apt update
     sudo apt install lvtommy-linux-kernel
 
-{{< br >}}
+
 
 Y nos instalara el mas actualizado y asi lo mantendra ante nuevas actualizaciones. En caso de querer una version en especifico basta con instalarla de la siguiente manera:
 
-{{< br >}}
+
 
     sudo apt install linux-image-x.x.x-xanmodx && sudo apt install linux-headers-x.x.x-xanmodx
 
-{{< br >}}
+
 
 Donde las *x* se cambian por la version del kernel que quieras
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Adicionales
 
-{{< br >}}
+
 
 En el repositorio tambien nos mantiene actualizados los microcode lo cual es util para el rendimiento y la seguridad, y asi podes instalarlos (si aun no los tienes) dependiendo tu modelo:
 
-{{< br >}}
+
 
 Intel
 
     sudo apt install intel-microcode iucode-tool
 
-{{< br >}}
+
 
 AMD
 
     sudo apt install amd64-microcode
 
-{{< br >}}
+
 
 Tambien es posible descargar su wallpaper oficial desde el siguiente {{< textlink text="link" url="https://dl.xanmod.org/artwork/" >}}
 
-{{< br >}}
-{{< br >}}
+
+
 
 ¿Lo usas?¿Lo probaste?¿Tenes dudas? Te esperamos en nuestro grupo de Telegram para debatir y hacer amistades nuevas!

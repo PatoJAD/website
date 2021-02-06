@@ -45,12 +45,12 @@ Grid 2 Es Competición Como Nunca.
 * AMD Radeon HD2600 or higher, HD3650 or higher, HD4550 or higher, HD5000 Series, HD6000 Series, HD7000 Series.
 * NVIDIA GeForce 8600 or higher, 9500 or higher, GTX220 or higher, GTX400 Series, GTX500 Series, GTX600 Series: AMD Fusion A8 or higher.
 
-{{< br >}}
-{{< br >}}
+
+
 
 Si bien solo es nativo para windows nos conviene tener en nuestra biblioteca el juego para poder jugarlo con protón o desde otro Sistema libre como ReactOS. También podemos aventurarnos a instalarlo en wine, pero no podemos perdernos esta oportunidad de tener GRID 2 con sus DLC
 
-{{< br >}}
-{{< br >}}
+
+
 
 {{< link url="https://www.humblebundle.com/store/grid2-spa-bathurst" text="Pedir Key" >}}

@@ -11,19 +11,19 @@ authors: ["PatoJAD"]
 
 Nuestros compañeros de INCIBE-CERT nos ofrecen un manual con un gran contenido y nosotros deseamos acercártelo para que puedas disfrutarlo.
 
-{{< br >}}
+
 
 ## Cifrado seguro de correo electrónico con PGP
 
-{{< br >}}
+
 {{< img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.shortpixel.ai%2Fclient%2Fq_glossy%2Cret_img%2Cw_660%2Fhttps%3A%2F%2Fbontekoe.technology%2Fwp-content%2Fuploads%2F2019%2F05%2F101535064_gettyimages-638879324.jpg&f=1&nofb=1" >}}
-{{< br >}}
+
 
 El estándar OpenPGP tiene como principales objetivos la comprobación de la integridad y autenticidad de los correos electrónicos, así como el cifrado del contenido del correo.
 
-{{< br >}}
+
 
 A lo largo de esta guía se describen los procesos de firma y verificación de correos, cifrado y descifrado tanto de correos como de ficheros adjuntos, tanto para el cliente Outlook como para Thunderbird. A modo de ejemplo y para ilustrar esta guía, se lleva a cabo un proceso detallado utilizando los certificados que proporciona INCIBE-CERT.
 
-{{< br >}}
+
 {{< link text="Descarga" url="https://www.incibe-cert.es/sites/default/files/contenidos/guias/doc/incibe_cert_guia_para_el_uso_de_pgp_en_clientes_de_correo_electronico.pdf" >}}

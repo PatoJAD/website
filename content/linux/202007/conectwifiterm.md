@@ -9,74 +9,74 @@ img: "https://www.profesionalreview.com/wp-content/uploads/2017/08/C%C3%B3mo-con
 authors: ["PatoJAD"]
 ---
 
-{{< br >}}
+
 
 Seguimos trabajando para que no le tengas miedo a la hermosa terminal que tenemos, por eso en esta oportunidad vamos a ver como se puede conectar al wifi utilizando la terminal. Esto es importante porque muchas veces queremos instalar una distro core o net y no tenemos un cable de red a mano, ahora no va a ser problema, porque la terminal nos va a permitir conectarnos al wifi sin más…
 
 El procedimiento para conectarte a una red Wifi usando la terminal, que vamos a ver a continuación, puede ser aplicado tanto para redes con seguridad **WEP** como **WPA**, es independiente de la distro en la que estemos en ese momento y funciona con cualquier tarjeta de red (siempre y cuando el sistema la reconozca, es decir que si es privativa debemos instalar los drivers).
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Breve presentación.
 
-{{< br >}}
+
 
 Es importante destacar que las herramientas para este procedimiento se encuentran instaladas por defecto en la mayoría de las distros actuales (pero nunca está de mas chequear que se encuentren correctamente instaladas), y suelen utilizarse de la siguiente manera:
 
-{{< br >}}
+
 
 * **iwconfig**: Nos permite ver y configurar los parámetros de una interfaz de red inalámbrica.
 * **ifconfig**: Nos permite encender el dispositivo inalámbrico.
 * **iwlist**: Se obtiene información detallada de las redes inalámbricas disponibles.
 * **nmcli**: Nos permite controlar NetworkManager y reportar el estado de la red, brindándonos la posibilidad de crear, mostrar, editar, eliminar, activar y desactivar las conexiones de red.
 
-{{< br >}}
+
 
 Para conocer a detalle la sintaxis y el uso de cada uno de estos comandos podemos ejecutar el comando acompañado del argumento de ayuda, o bien {{< textlink url="/linux/2019/01/man-tu-manual-para-linux/" text="utilizar man como ya vimos antes en el blog" >}}.
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Conectandonos
 
-{{< br >}}
+
 
 Lo primero que debemos hacer para conectarnos a cualquier red Wifi usando el terminal es identificar el nombre de la tarjeta de red de nuestro equipo, el cual seguramente no conozcamos, con el siguiente comando:
 
-{{< br >}}
+
 
     iwconfig
 
-{{< br >}}
+
 
 Una vez tengamos el nombre de la tarjeta de red, debemos proceder a encenderla (puede que ya se encuentre encendida pero nunca esta de mas asegurarse) para ellos ejecutemos el siguiente comando:
 
-{{< br >}}
+
 
     ifconfig <InterfazWifi> up
 
-{{< br >}}
+
 
 Seguidamente debemos analizar las redes inalámbricas disponible y conocer el SSID de la misma, lo que se puede hacer de manera sencilla con iwlist para ello debemos ejecutar:
 
-{{< br >}}
+
 
     sudo iwlist <InterfazWifi> scanning
 
-{{< br >}}
+
 
 Teniendo los datos de la tarjeta y de la red inalámbrica a la que deseamos conectarnos, simplemente debemos ejecutar a nmcli con los parámetros correspondientes (que obtuvimos anteriormente):
 
-{{< br >}}
+
 
     nmcli d wifi connect <WifiSSID> password <ContraseñaWifi> iface <InterfazWifi>
 
-{{< br >}}
+
 
 Con esto pasos ya nos hemos conectado a una red wifi utilizando la terminal, debemos tener en cuenta que en los comandos anteriormente mencionados debemos cambiar los siguientes datos por los que correspondan:
 
-{{< br >}}
+
 
 *InterfazWifi*: El nombre de la tarjeta de red
 
@@ -84,26 +84,26 @@ Con esto pasos ya nos hemos conectado a una red wifi utilizando la terminal, deb
 
 *ContraseñaWifi*: La contraseña de acceso a la red inalámbrica en cuestión.
 
-{{< br >}}
+
 
 En caso de que nos deseemos conectar a una red wifi que ya se encuentra en nuestro historial basta con que ejecutemos desde la terminal el siguiente comando:
 
-{{< br >}}
+
 
     nmcli c up <NombreDadaALaRedAlmacenada>
 
-{{< br >}}
+
 
 Realizado todos los pasos anteriores deberíamos poder acceder de manera adecuada a la red inalámbrica que hayamos elegido.
 
-{{< br >}}
+
 
 *Fuente: profesionalreview*
 
-{{< br >}}
+
 
 ---
 
-{{< br >}}
+
 
 Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

@@ -17,21 +17,21 @@ Así nos presenta genbeta en su publicación a esta bomba zip. Básicamente es u
 
 Este tipo de archivo es capaz de colapsar el ordenador por un colapso de buffer y existen hace bastante tiempo, sin embargo, ninguno es capaz de hacerlo como el creado por David Fifield que pasa de 42 MB a 4.5PB. Pero no solo esto, él va mas allá y decide hacerlo no recursivo lo cual permite que la “explosión” de datos se realice en una descompresión y no en una recursión.
 
-{{< br >}}
+
 
  
 
-{{< br >}}
+
 
 ## Estructura de un archivo ZIP
 
 Un archivo zip es, básicamente, un archivo central que referencia a los otros archivos
 
-{{< br >}}
+
 
 {{< img src="https://www.bamsoftware.com/hacks/zipbomb/normal.svg" >}}
 
-{{< br >}}
+
 
 El directorio central está al final del archivo zip. Es una lista de encabezados que contiene metadatos para un solo archivo, como su nombre de archivo y suma de verificación CRC-32, y un puntero hacia atrás a un encabezado de archivo local. Un encabezado de directorio central tiene 46 bytes de longitud, más la longitud del nombre del archivo.
 
@@ -39,17 +39,17 @@ Un archivo consta de un encabezado de archivo local seguido de datos. El encabez
 
 Esta descripción del formato zip omite muchos detalles que no son necesarios para comprender la bomba zip. Más adelante explicaremos a fundo el funcionamiento y como crear tu propia bomba zip.
 
-{{< br >}}
-{{< br >}}
+
+
 
 ## Descarga
 
 Aquí ofrecemos la descarga de 3 archivos que David dejo en su blog que son 3 bombas zip donde podemos ver su peso comprimido y su peso luego de la “explosión” o descompresión. De antemano no recomiendo utilizarlos para otra cosa que no sean fines científicos y obviamente sobre entornos controlados.
 
-{{< br >}}
+
 {{< link text="42 kB	→	5.5 GB" url="https://www.bamsoftware.com/hacks/zipbomb/zbsm.zip" >}}
-{{< br >}}
+
 {{< link text="10 MB	→	281 TB" url="https://www.bamsoftware.com/hacks/zipbomb/zblg.zip" >}}
-{{< br >}}
+
 {{< link text="46 MB	→	4.5 PB (Zip64, less compatible)" url="https://www.bamsoftware.com/hacks/zipbomb/zbxl.zip" >}}
-{{< br >}}
+
