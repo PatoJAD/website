@@ -1,0 +1,36 @@
+{{ define "main" }}
+  {{- partial "posts/lasts.html" . -}}
+  <style media="screen">
+    :root{
+      --pagecolor: var(--page-{{ .Params.type }});
+    }
+    .{{ .Params.type }}{
+      background: var(--page-{{ .Params.type }}) !important;
+      border: 1px solid var(--page-{{ .Params.type }}) !important;
+    }
+  </style>
+
+  <div class="content-fluid">
+    <div class="row">
+      {{ $paginator := .Paginate .Data.Pages.ByDate.Reverse }}
+      {{ range $paginator.Pages }}
+
+      <div class="cell-md-6">
+        <a href="{{ .RelPermalink }}">        
+          <div class="skill-box">
+            <div class="header bg-pjad fg-white">
+              <img src="{{ .Params.photo }}" class="avatar">
+              <div class="title">{{ .Params.name }}</div>
+              <div class="subtitle">{{ .Params.descriptionp }}</div>
+              <div class="more"> {{ .Content }}</div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      {{ end }}
+    </div>
+  </div>
+  {{ partial "pagination.html" $paginator }}
+
+{{ end }}
