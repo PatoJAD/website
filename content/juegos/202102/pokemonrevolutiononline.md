@@ -1,6 +1,6 @@
 ---
 title: "Pokemon Revolution Online"
-date: "2021-02-13 08:00:00.00"
+date: "2021-02-17 08:00:00.00"
 description: "Todos algunas vez jugamos al pokemon de GBA, ya sea el Amarillo, El Rojo Fuejo, el Zafari o cualquier otro."
 type: "juegos"
 tags: ["pokemon","mmorpg","pro","revolution","online","free","mmo","pvp","pve"]
