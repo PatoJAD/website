@@ -40,16 +40,17 @@ La instalación es muy simple porque viene en los repositorios de la mayoría de
 
 
 
-    sudo apt install zsh
-
+``` bash
+sudo apt install zsh
+```
 
 
 Si queremos definir este shell como shell por defecto (de esta forma al abrir la terminal iniciará este shell y no bash que suele ser el shell por defecto de la mayoría de las distros) ejecutamos el siguiente comando:
 
 
-
-    chsh -s `which zsh`
-
+``` bash
+chsh -s `which zsh`
+```
 
 
 Sin embargo por sí solo puede ser un poco engorroso de configurar y puede llevarnos demasiado tiempo, pero como vivimos en el mundo del Software Libre y de la gente que no se queda quieta, podemos encontrar unas **vitaminas**.
@@ -66,17 +67,17 @@ Sin embargo por sí solo puede ser un poco engorroso de configurar y puede lleva
 Es un framework desarrollado por la comunidad para gestionar la configuración de ZSH. El cual viene a simplificar la tarea personalizar y añadir plugins y configurarlo a gusto, esto puede llegar a ser realmente muy útil y por supuesto simple de instalar, para iniciar debemos instalar sus dependencias:
 
 
-
-    sudo apt install git-core curl
-
+``` bash
+sudo apt install git-core curl
+```
 
 
 y a continuación instalamos directamente desde su git.
 
 
-
-    sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
+``` bash
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
 
 
 De esta forma se instalará este “aditivo” que permitirá configurarlo a nuestro gusto!
@@ -117,33 +118,33 @@ Para instalarlos voy a indicar el paso a paso, no es obligatorio seguirlo así d
 Luego desde la terminal descargamos el theme de PowerLevel10k desde su repositorio oficial:
 
 
-
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
+``` bash
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+```
 
 
 Por último queda modificar el archivo de configuracion para que inicie este theme, para hacerlo en este caso lo explicare con nano pero pueden usar el editor que quieran:
 
 
-
-    nano ~/.zshrc
-
+``` bash
+nano ~/.zshrc
+```
 
 
 ahi buscamos la linea que tenga lo siguiente
 
 
-
-    ZSH_THEME="..."
-
+```
+ZSH_THEME="..."
+```
 
 
 Donde los puntos suspensivos *(...)* son cualquier texto. y lo remplazamos por la siguiente linea
 
 
-
-    ZSH_THEME="powerlevel10k/powerlevel10k"
-
+```
+ZSH_THEME="powerlevel10k/powerlevel10k"
+```
 
 
 Ahora reiniciamos la terminal y nos abrira una configuracion paso a paso donde vamos a ir eligiendo entre ejemplos como se vera la terminal, las primeras preguntas son si vemos los iconos y luego nos mostrará opciones (casi siempre del 1 al 4) donde iremos estableciendo la visualización…
@@ -155,9 +156,9 @@ Ahora reiniciamos la terminal y nos abrira una configuracion paso a paso donde v
 En el caso de que no nos guste como quedo o queramos cambiarlo siempre se puede ejecutar el comando:
 
 
-
-    p10k configure
-
+``` bash
+p10k configure
+``` 
 
 
 Que permitirá reconfigurar el theme nuevamente para dejarlo a nuestro gusto... No te olvides de comentarnos que te parece y dejarnos la foto de tu terminal recien configurada! Te esperamos en Telegram
