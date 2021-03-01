@@ -1,3 +1,12 @@
+window.onload = function(){
+  var contenedor = document.getElementById('contenedor_carga')
+  contenedor.style.visibility = 'hidden'
+  chargeLocal();
+}
+
+function chargeLocal() {
+  console.log("Se Cargo");
+};
 
 function changeTheme(){
   console.log(document.getElementById("theme").checked);
