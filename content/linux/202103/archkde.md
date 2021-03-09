@@ -1,5 +1,5 @@
 ---
-title: "¿KDE?¿Arch?¿Problemas?"
+title: "¿KDE? ¿Arch? ¿Problemas?"
 date: "2021-03-09 09:21:00"
 description: "Problemas con aplicaciones como Kmail, Falkon, Konqueror, entre otras. Te contamos que esta pasando en Arch estos dias..."
 type: "linux"
