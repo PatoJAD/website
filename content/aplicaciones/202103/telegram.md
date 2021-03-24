@@ -53,4 +53,4 @@ Para subirlo debemos utilizar el siguiente comando, la primera vez, para poder s
 
 {{< img src="https://wwwhatsnew.com/wp-content/uploads/2020/12/captura11-1-730x420.jpg" >}}
 
-Llegamos a la inclusion de las salas de voz y los chat de voz privados
+Llegamos a la inclusion de las salas de voz y los chat de voz privados.
