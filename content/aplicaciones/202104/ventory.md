@@ -1,9 +1,9 @@
 ---
-title: 'Ventory Armando un USB MultiBoot'
+title: 'Ventoy Armando un USB MultiBoot'
 date: '2021-04-05 11:46:00'
 description: 'Vamos a crear, en esta oportunidad, un USB multiboot donde podemos dejar todas las ISOs que necesitamos tener a mano'
 type: 'aplicaciones'
-tags: ["usb", "web", "ventory", "boot", "multiboot", "booteable", "iso" , "windows"]
+tags: ["usb", "web", "ventoy", "boot", "multiboot", "booteable", "iso" , "windows"]
 category: ["Aplicaciones"]
 img: 'https://windows-cdn.softpedia.com/screenshots/Ventoy_1.png'
 authors: ["PatoJAD"]
@@ -13,7 +13,7 @@ Ventoy es una **herramienta** muy útil que convierte una unidad flash USB en un
 
 {{< img src="https://pclosmag.com/html/Issues/202008/images/page07/VentoyBootMenu.png" >}}
 
-Ventory soporta múltiples distribuciones de Linux pero asi mismo tambien funciona con Windows y Otros sistemas operativos dado que ejecuta directamente desde la ISO. Esto se vuelve algo muy cómodo porque sólo será descargar el sistema que queramos y pasarlo al Pendrive.
+Ventoy soporta múltiples distribuciones de Linux pero asi mismo tambien funciona con Windows y Otros sistemas operativos dado que ejecuta directamente desde la ISO. Esto se vuelve algo muy cómodo porque sólo será descargar el sistema que queramos y pasarlo al Pendrive.
 
 ## Características
 
