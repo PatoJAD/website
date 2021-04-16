@@ -5,7 +5,7 @@ description: 'Vamos a crear, en esta oportunidad, un USB multiboot donde podemos
 type: 'aplicaciones'
 tags: ["wine", "windows", "apps", "exe", "instalar", "arch", "ubuntu", "debian", "fedora", "apt", "pacman", "dnf", "yay"]
 category: ["Aplicaciones"]
-img: 'https://windows-cdn.softpedia.com/screenshots/Ventoy_1.png'
+img: 'https://linuxhint.com/wp-content/uploads/2020/06/1-12.jpg'
 authors: ["PatoJAD"]
 ---
 
