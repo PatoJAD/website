@@ -4,27 +4,36 @@
 
   <div class="card">
     <div class="card-header">
-      {{ $pages := .Site.Pages.ByPublishDate.Reverse }}
-      {{ range .Params.authors }}
-        {{ range where (where $pages "Type" "authors") ".Params.name" . }}
-          <div class="avatar">
-              <img src="{{ .Params.img }}" />
+      <div class="row">
+        <div class="col-10">
+          {{ $pages := .Site.Pages.ByPublishDate.Reverse }}
+          {{ range .Params.authors }}
+            {{ range where (where $pages "Type" "authors") ".Params.name" . }}
+              <div class="avatar">
+                  <img src="{{ .Params.img }}" />
+              </div>
+              <div class="name">{{ .Params.name }}</div>
+            {{ end }}
+          {{ end }}
+          <div class="date">
+            {{ $formattedDate := .Date.Format "Friday, March 3, 2006" }}
+
+            {{ $monthNumber := .Date.Month }}
+            {{ $dayNumber := .Date.Weekday }}
+
+            {{ if eq site.Language.Lang "es" }}
+              {{ $monthNumber = index site.Data.meses (printf "%d" .Date.Month) }}
+              {{ $dayNumber = index site.Data.dias (printf "%d" .Date.Weekday) }}
+              {{ $formattedDate = delimit (slice $dayNumber (printf "%d" .Date.Day) "de" $monthNumber "de" (printf "%d" .Date.Year)) " "}}
+            {{ end }}
+
+            {{ $formattedDate }}
           </div>
-          <div class="name">{{ .Params.name }}</div>
-        {{ end }}
-      {{ end }}
-      <div class="date">{{ $formattedDate := .Date.Format "Friday, March 3, 2006" }}
-
-      {{ $monthNumber := .Date.Month }}
-      {{ $dayNumber := .Date.Weekday }}
-
-      {{ if eq site.Language.Lang "es" }}
-        {{ $monthNumber = index site.Data.meses (printf "%d" .Date.Month) }}
-        {{ $dayNumber = index site.Data.dias (printf "%d" .Date.Weekday) }}
-        {{ $formattedDate = delimit (slice $dayNumber (printf "%d" .Date.Day) "de" $monthNumber "de" (printf "%d" .Date.Year)) " "}}
-      {{ end }}
-
-      {{ $formattedDate }}</div>
+        </div>
+        <div class="col-2">
+          {{- partial "format/icons.html" .Params.type -}}
+        </div>
+      </div>
     </div>
     <div class="card-content p-2">
         <h5 class="text-center">{{ .Title }}</h5>
