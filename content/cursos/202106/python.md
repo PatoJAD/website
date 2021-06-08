@@ -36,4 +36,4 @@ Aprende a programar con el lenguaje de programacion Python. Es un lenguaje muy v
 
 Tanto Python como los editores mostrados y usados en el curso son Open Source, se pueden descargar y usar libremente. Los videos son totalmente practicos e iremos poco a poco avanzando con las estructuras basicas. Al final podras ver videos de aplicaciones de ejemplos. Si como estudiante estas adaptado a otros editores o navegadores, no hay ningun problema en usarlo.
 
-{{< link url="https://www.udemy.com/course/programacion-con-python/" text="Inscribite YA!">}}
+{{< link url="https://www.udemy.com/course/programacion-con-python/?ranMID=39197&ranEAID=sIt9MIeGnaM&ranSiteID=sIt9MIeGnaM-xwCCTs1kQ8raTuXvF_v3rA&utm_source=aff-campaign&utm_medium=PatoJAD&LSNPUBID=sIt9MIeGnaM&couponCode=JOSECODETECH" text="Inscribite YA!">}}
