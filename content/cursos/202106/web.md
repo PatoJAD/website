@@ -95,4 +95,8 @@ Los temas que veremos en este curso son:
     * Aplicación Reloj Digital con HTML, CSS y JavaScript
     * Aplicación Presupuesto (Ingresos-Egresos) en HTML, CSS y JavaScript
 
+## Tiempo para Reclamar
+
+{{< countdown anio="2021" mes="06" dia="17" hora="0" minuto="0" >}}
+
 {{< link url="https://www.udemy.com/course/universidad-desarrollo-web-moderno-html-css-javascript-html5-css3/?ranMID=39197&ranEAID=sIt9MIeGnaM&ranSiteID=sIt9MIeGnaM-yB9f7ZnRLrP8438x45K6vg&LSNPUBID=sIt9MIeGnaM&utm_source=aff-campaign&utm_medium=udemyads&couponCode=GM_ONCE" text="Inscribite al Curso" >}}
