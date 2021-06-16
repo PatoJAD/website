@@ -9,6 +9,8 @@ img: "https://cdn-thumbs.comidoc.net/750/2867812_4227_12.jpg"
 authors: ["PatoJAD"]
 ---
 
+Antes que nada debemos todos agradercer a **Federico J. Przemyslanski** que nos informo de esta gran oportunidad!!!
+
 > De Cero a Experto en **Python**: **POO**, Web con **Django**, **Flask**, **Jinja**, **SQL Alchemy**, **Postgresql**, **PyCharm**!
 
 ## Requisitos
