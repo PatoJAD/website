@@ -47,4 +47,4 @@ Desarrollo del curso:
 
 {{< countdown anio="2021" mes="06" dia="29" hora="7" minuto="0" >}}
 
-{{< link scr="https://www.udemy.com/course/seguridad-informatica-desde-cero/?couponCode=22863C150BE36960066C" text="Inscribite Gratis Ahora!" >}}
+{{< link url="https://www.udemy.com/course/seguridad-informatica-desde-cero/?couponCode=22863C150BE36960066C" text="Inscribite Gratis Ahora!" >}}
