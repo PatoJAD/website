@@ -5,7 +5,7 @@ description: 'Hoy hablamos de un gran asistente Open Source en Python'
 type: 'aplicaciones'
 tags: ["python", "arch", "debian", "ubuntu", "open", "assistant", "asistente", "virtual", "siri", "google", "cortana"]
 category: ["Aplicaciones"]
-img: 'https://github.com/bazukas/obs-linuxbrowser/raw/master/img/obs-linuxbrowser.png'
+img: 'https://medevel.com/content/images/2019/08/openassistant-org--2019-08-11_7_32.jpg'
 authors: ["PatoJAD"]
 ---
 
