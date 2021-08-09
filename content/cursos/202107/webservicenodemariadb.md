@@ -33,7 +33,7 @@ Este curso es pequeño y es completamente gratis. Se dicta mediante Youtube y di
 * {{< textlink text="Instalacion de NodeJS NPM y MariaDB" url="/programacion/2021/07/webservice-nodejs-y-mariadb-1-instalacion-de-nodejs-npm-y-mariadb/" >}} (Disponible desde 29/07)
 * {{< textlink text="Creando Base de Datos e iniciando Proyecto" url="/programacion/2021/08/webservice-nodejs-y-mariadb-2-creando-base-de-datos-e-iniciando-proyecto/" >}} (Disponible desde 02/08)
 * {{< textlink text="Conector MariaDB en NodeJS" url="/programacion/2021/08/webservice-nodejs-y-mariadb-3-conector-mariadb-en-nodejs/" >}} (Disponible desde 05/08)
-* {{< textlink text="Levantando API con Express" url="" >}} (Disponible desde 09/08)
+* {{< textlink text="Levantando API con Express" url="/programacion/2021/08/webservice-nodejs-y-mariadb-4-levantando-api-con-express/" >}} (Disponible desde 09/08)
 * {{< textlink text="Accediendo a Nuestra DB mediante la API" url="" >}} (Disponible desde 12/08)
 * {{< textlink text="ABM en nuestra DB vía API" url="" >}} (Disponible desde 16/08)
 
