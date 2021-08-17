@@ -9,6 +9,12 @@ img: "https://i.postimg.cc/05YVPH9G/curso-6.png"
 authors: ["PatoJAD"]
 ---
 
+Como última instancia vamos a terminar el ABM de nuestro webservice para poder controlar completamente la base de datos desde la API. Recordemos que esto es completamente extensible y que incluso puedo agregar querys con joins y demás.
+
+{{< youtube code="KMeGAYhoYi4" >}}
+
+Así mismo, como siempre, dejo a continuación el código utilizado en el video, no con el fin de ser copiado (aunque esto es posible) Sino más bien como referencia para que construyan su propio código
+
 ```javascript
 router.route('/user/add').post(async(req,res)=>{
   result = await DBConnector.queryWithParams(
@@ -31,3 +37,15 @@ router.route('/user/update').post(async(req,res)=>{
   res.json(result);
 });
 ```
+
+Si te necesitas que te demos una mano o tienes alguna duda, podes encontrarnos en la comunidad de Telegram donde con mucha alegría te vamos a estar ayudando.
+
+{{< link text="Grupo de Telegram" url="https://t.me/PatoJADCommunity" >}}
+
+Si te sirvio no te olvides de apoyar. Compartir, una suscripción o un like no cuestan nada pero valen mucho...
+
+---
+
+Si sentís que el curso te sirvió y, queres apoyar aún más que con tu subscribirse al canal de youtube y en las redes sociales o simplemente quieres certificar puedes encontrarlo en Udemy. Lamentablemente no me permite ponerle menos precio, pero si te interesa el certificado no te olvides de seguirnos que vamos a estar ofreciendo gratis para que todos los que lo deseen puedan certificar.
+
+{{< link text="Curso en Udemy" url="https://www.udemy.com/course/patojad-webservice-nodejs-y-mariadb/?referralCode=817BCD02D2C08DEC01DE" >}}

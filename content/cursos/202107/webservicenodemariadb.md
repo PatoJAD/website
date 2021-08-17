@@ -40,3 +40,9 @@ Este curso es pequeño y es completamente gratis. Se dicta mediante Youtube y di
 ## Apoyo
 
 Me gustaría saber que cuento con tu apoyo para crear más y nuevos cursos, en caso de ser así me gustaría que puedas suscribirte al canal. Comentar los videos y obviamente sabes que estamos para acompañarte durante el curso en nuestro grupo de Telegram y obviamente en los mismos comentarios...
+
+---
+
+Si sentís que el curso te sirvió y, queres apoyar aún más que con tu subscribirse al canal de youtube y en las redes sociales o simplemente quieres certificar puedes encontrarlo en Udemy. Lamentablemente no me permite ponerle menos precio, pero si te interesa el certificado no te olvides de seguirnos que vamos a estar ofreciendo gratis para que todos los que lo deseen puedan certificar.
+
+{{< link text="Curso en Udemy" url="https://www.udemy.com/course/patojad-webservice-nodejs-y-mariadb/?referralCode=817BCD02D2C08DEC01DE" >}}
