@@ -35,11 +35,18 @@ Este curso es pequeño y es completamente gratis. Se dicta mediante Youtube y di
 * {{< textlink text="Conector MariaDB en NodeJS" url="/programacion/2021/08/webservice-nodejs-y-mariadb-3-conector-mariadb-en-nodejs/" >}} (Disponible desde 05/08)
 * {{< textlink text="Levantando API con Express" url="/programacion/2021/08/webservice-nodejs-y-mariadb-4-levantando-api-con-express/" >}} (Disponible desde 09/08)
 * {{< textlink text="Accediendo a Nuestra DB mediante la API" url="/programacion/2021/08/webservice-nodejs-y-mariadb-5-accediendo-a-nuestra-db-mediante-la-api/" >}} (Disponible desde 12/08)
-* {{< textlink text="ABM en nuestra DB vía API" url="" >}} (Disponible desde 16/08)
+* {{< textlink text="Instalacion de Postman en Linux" url="/aplicaciones/2021/08/instalacion-de-postam-en-linux/" >}}
+* {{< textlink text="ABM en nuestra DB vía API" url="/programacion/2021/08/webservice-nodejs-y-mariadb-6-abm-en-nuestra-db-vía-api/" >}} (Disponible desde 16/08)
 
 ## Apoyo
 
 Me gustaría saber que cuento con tu apoyo para crear más y nuevos cursos, en caso de ser así me gustaría que puedas suscribirte al canal. Comentar los videos y obviamente sabes que estamos para acompañarte durante el curso en nuestro grupo de Telegram y obviamente en los mismos comentarios...
+
+## Certificado
+
+Replicamos el curso en Udemy para que puedan ser certificados, en caso de necesitarlo te dejamos el link. Entendemos que no todos tienen la posibilidad de pagar el curso o no tienen el deseo, por lo cual vamos a estar poniéndolo gratis en ciertas ocasiones para que todos puedan certificar sin necesidad de pagar.
+
+{{< link url="https://www.udemy.com/course/patojad-webservice-nodejs-y-mariadb/?referralCode=817BCD02D2C08DEC01DE" text="Curso en Udemy" >}}
 
 ---
 
