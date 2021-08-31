@@ -34,7 +34,7 @@ Un resumen de lo que paso en este mes de agosto de una forma breve y rápida que
 ## Aplicaciones
 
 * **LibreOffice** llegó con su versión 7.2 con un HUD propio y algo sobre la interpolaridad que puedes leer en muchos portales de noticias.
-* **Thunderbrid** 19 llegó con soporte para los M11 y entre sus tantas novedades nos avisa que si el email dice noreply no tenemos que contestar.
+* **Thunderbrid** 19 llegó con soporte para los M1 y entre sus tantas novedades nos avisa que si el email dice noreply no tenemos que contestar.
 * Nueva versión de **Polychromatic**, la 0.7 se independiza del daemon de OpenRazer, noticia que solo importa si usas periféricos de **Rayzen**.
 * **Latte Dock** el mejor dock que existe en linux lanzó la versión 0.10 donde mejora la integración con KDE, si es que esto era posible y además suma soporte para Gnome y XFCE.
 * **CrossOver** lanza la versión 21 donde lo único interesante parece ser que actualizaron Wine y el soporte para el mando de play 5 pero esto solo es válido en Mac
