@@ -1,5 +1,5 @@
 ---
-title: 'Instalacion de Postam en Linux'
+title: 'Instalacion de Postman en Linux'
 date: '2021-08-25 13:17:00'
 description: 'Vamos a ver como realizar la instalación de postman indiferentemente de la distribución que tengamos'
 type: 'aplicaciones'
