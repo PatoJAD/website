@@ -10,7 +10,10 @@
           {{ range .Params.authors }}
             {{ range where (where $pages "Type" "authors") ".Params.name" . }}
               <div class="avatar">
-                  <img src="{{ .Params.img }}" />
+                  <img
+                    src="{{ .Params.img }}"
+                    alt="{{ .Params.name }}"
+                    title="{{ .Params.name }}" />
               </div>
               <div class="name">{{ .Params.name }}</div>
             {{ end }}
@@ -40,7 +43,10 @@
         <p class="text-just">{{ .Params.description }}</p>
     </div>
     <div class="card-content">
-        <img src="{{ .Params.img }}" style="width: 100%">
+        <img
+          src="{{ .Params.img }}"
+          style="width: 100%" alt="{{ .Title }}"
+          title="{{ .Title }}" />
     </div>
     <div class="card-footer align-bottom">
         <a href="{{ .RelPermalink }}" class="flat-button mif-enter mif-2x {{.Params.type}}-ico"></a>

@@ -49,7 +49,20 @@ const displayResults = (results) => {
     // console.warn(results);
     searchResultsList.innerHTML = "";
     results.forEach((el, i) => {
-        var template = document.createRange().createContextualFragment(`<li><a href="${el.item.permalink}"><img class="avatar" src="${el.item.imagen}" /><span class="label">${el.item.title}</span></a></li>`);
+        var template = document.createRange().createContextualFragment(`
+          <li>
+            <a href="${el.item.permalink}">
+              <img
+                class="avatar"
+                src="${el.item.imagen}"
+                alt="${el.item.title}"
+                title="${el.item.title}" />
+              <span class="label">
+                ${el.item.title}
+              </span>
+            </a>
+          </li>
+        `);
         searchResultsList.appendChild(template);
     });
 };
