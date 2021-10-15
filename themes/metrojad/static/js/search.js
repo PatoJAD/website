@@ -51,7 +51,7 @@ const displayResults = (results) => {
     results.forEach((el, i) => {
         var template = document.createRange().createContextualFragment(`
           <li>
-            <a href="${el.item.permalink}">
+            <a href="${el.item.permalink}" title="${el.item.title}" >
               <img
                 class="avatar"
                 src="${el.item.imagen}"
