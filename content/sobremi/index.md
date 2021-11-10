@@ -5,7 +5,7 @@ description: "La comunidad tras PatoJAD algo mas que un blog, una familia"
 type: "page"
 tags: ["Sobre mi","comunidad","informacion"]
 category: ["Pages"]
-img: "https://data.whicdn.com/images/113748982/large.jpg"
+img: "https://i.postimg.cc/YCxrtdZh/image.png"
 authors: ["PatoJAD"]
 ---
 

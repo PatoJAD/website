@@ -1,0 +1,158 @@
+{{ define "main" }}
+
+  {{ .Scratch.Set "title" .Title }}
+  {{ .Scratch.Set "description" .Params.description }}
+  {{- partial "generic/postbreadcrumb.html" . -}}
+
+  <section class="blog-section pt-130">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-8 col-lg-7">
+          <div class="left-side-wrapper mb-60">
+            <div class="single-blog blog-style-2 mb-60 wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+              <div class="blog-img blog-img-2">
+                <img src="{{ .Params.img }}" alt="{{ .Title }}" title="{{ .Title }}">
+              </div>
+              <div class="blog-content">
+                <h1 class="text-center">{{ .Title }}</h1>
+                {{ .Content }}
+              </div>
+            </div>
+
+            <div class="comment-form-wrapper ms-0">
+            <h2 class="mb-40">Leave a comment</h2>
+            <form action="#" class="comment-form">
+            <div class="row">
+            <div class="col-md-6 col-lg-12 col-xl-6">
+            <input type="text" name="name" id="name" placeholder="Name" required="">
+            </div>
+            <div class="col-md-6 col-lg-12 col-xl-6">
+            <input type="email" name="email" id="email" placeholder="Email" required="">
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-12">
+            <textarea name="message" id="message" placeholder="Type Comment" rows="5"></textarea>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-12">
+            <div class="button text-center">
+            <button type="submit" class="theme-btn">Submit Now</button>
+            </div>
+            </div>
+            </div>
+            </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-5">
+          <div class="sidebar-wrapper mb-60">
+            <div class="sidebar-box search-form-box mb-30">
+              <form action="#" class="search-form">
+                <input type="text" placeholder="Search...">
+                <button type="submit"><i class="lni lni-search-alt"></i></button>
+              </form>
+            </div>
+            <div class="sidebar-box recent-blog-box mb-30">
+            <h4>Recent Blog</h4>
+            <div class="recent-blog-items">
+            <div class="recent-blog mb-30">
+            <div class="recent-blog-img">
+            <img src="assets/img/blog/recent-blog-1.png" alt="">
+            </div>
+            <div class="recent-blog-content">
+            <h5><a href="blog-single.html">Sed utper spiciunde iste natus erro.</a></h5>
+            <span class="date">22 Julay, 2020</span>
+            </div>
+            </div>
+            <div class="recent-blog mb-30">
+            <div class="recent-blog-img">
+            <img src="assets/img/blog/recent-blog-2.png" alt="">
+            </div>
+            <div class="recent-blog-content">
+            <h5><a href="blog-single.html">Sed utper spiciunde iste natus erro.</a></h5>
+            <span class="date">22 Julay, 2020</span>
+            </div>
+            </div>
+            <div class="recent-blog">
+            <div class="recent-blog-img">
+            <img src="assets/img/blog/recent-blog-3.png" alt="">
+            </div>
+            <div class="recent-blog-content">
+            <h5><a href="blog-single.html">Sed utper spiciunde iste natus erro.</a></h5>
+            <span class="date">22 Julay, 2020</span>
+            </div>
+            </div>
+            </div>
+            </div>
+            <div class="sidebar-box catagories-box mb-30">
+            <h4>Catagories</h4>
+            <ul>
+            <li>
+            <a href="javascript:void(0)">
+            <span>Web Design</span>
+            <span class="ms-2">(20)</span>
+            </a>
+            </li>
+            <li>
+            <a href="javascript:void(0)">
+            <span>Branding</span>
+            <span class="ms-2">(09)</span>
+            </a>
+            </li>
+            <li>
+            <a href="javascript:void(0)">
+            <span>Web Development</span>
+            <span class="ms-2">(23)</span>
+            </a>
+            </li>
+            <li>
+            <a href="javascript:void(0)">
+            <span>Graphic Design</span>
+            <span class="ms-2">(124)</span>
+            </a>
+            </li>
+            <li>
+            <a href="javascript:void(0)">
+            <span>Marketing</span>
+            <span class="ms-2">(05)</span>
+            </a>
+            </li>
+            <li>
+            <a href="javascript:void(0)">
+            <span>Wireframing</span>
+            <span class="ms-2">(02)</span>
+            </a>
+            </li>
+            </ul>
+            </div>
+            <div class="sidebar-box tags-box mb-30">
+            <h4>Popular Tags</h4>
+            <ul>
+            <li><a href="javascript:void(0)">Web Design</a></li>
+            <li><a href="javascript:void(0)">Wireframing</a></li>
+            <li><a href="javascript:void(0)">Graphic Design</a></li>
+            <li><a href="javascript:void(0)">Branding</a></li>
+            <li><a href="javascript:void(0)">Analysis</a></li>
+            <li><a href="javascript:void(0)">Web Development</a></li>
+            </ul>
+            </div>
+            <div class="sidebar-box mb-30">
+            <h4>Follow On</h4>
+            <div class="footer-social-links">
+            <ul class="d-flex justify-content-start">
+            <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
+            <li><a href="javascript:void(0)"><i class="lni lni-twitter-filled"></i></a></li>
+            <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
+            <li><a href="javascript:void(0)"><i class="lni lni-instagram-filled"></i></a></li>
+            </ul>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{{ end }}
