@@ -12,8 +12,10 @@
   <section class="blog-section pt-130">
     <div class="container">
       <div class="row">
+
         <div class="col-xl-8 col-lg-7">
           <div class="left-side-wrapper mb-60">
+
             <div class="single-blog blog-style-2 mb-60 wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
               <div class="blog-img blog-img-2">
                 <img src="{{ .Params.img }}" alt="{{ .Title }}" title="{{ .Title }}">
@@ -25,47 +27,23 @@
             </div>
 
             <div class="comment-form-wrapper ms-0">
-            <h2 class="mb-40">Leave a comment</h2>
-            <form action="#" class="comment-form">
-            <div class="row">
-            <div class="col-md-6 col-lg-12 col-xl-6">
-            <input type="text" name="name" id="name" placeholder="Name" required="">
+            <h4 class="mb-40">Comentarios</h4>
+            <div id="disqus_thread"></div>
+            <script>
+              (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = 'https://https-patojad-gitlab-io-blog.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+              })();
+            </script>
             </div>
-            <div class="col-md-6 col-lg-12 col-xl-6">
-            <input type="email" name="email" id="email" placeholder="Email" required="">
-            </div>
-            </div>
-            <div class="row">
-            <div class="col-12">
-            <textarea name="message" id="message" placeholder="Type Comment" rows="5"></textarea>
-            </div>
-            </div>
-            <div class="row">
-            <div class="col-12">
-            <div class="button text-center">
-            <button type="submit" class="theme-btn">Submit Now</button>
-            </div>
-            </div>
-            </div>
-            </form>
-            </div>
+
           </div>
         </div>
-        <div class="col-xl-4 col-lg-5">
-          <div class="sidebar-wrapper mb-60">
-            <div class="sidebar-box search-form-box mb-30">
-              <form action="#" class="search-form">
-                <input type="text" placeholder="Search...">
-                <button type="submit"><i class="lni lni-search-alt"></i></button>
-              </form>
-            </div>
-            {{- partial "widgets/posts.html" . -}}
 
-            {{- partial "widgets/categorys.html" . -}}
+        {{- partial "widgets/lateralbar.html" . -}}
 
-            {{- partial "widgets/socialfollows.html" . -}}
-          </div>
-        </div>
       </div>
     </div>
   </section>
