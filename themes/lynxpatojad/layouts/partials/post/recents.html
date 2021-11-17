@@ -4,7 +4,7 @@
       <div class="col-xl-6 col-lg-6">
         <div class="section-title mb-60">
           <h2 class="wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
-            Ultimas Publicaciones
+            Publicaciones
           </h2>
         </div>
       </div>
@@ -17,25 +17,22 @@
       </div>
     </div>
     <div class="row">
-      {{ range first 3 .Site.RegularPages.ByDate.Reverse }}
-      <div class="col-xl-4 col-lg-4 col-md-6">
-        <div class="single-blog mb-40 wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
-          <div class="blog-img">
-            <a href="{{ .RelPermalink }}" title="{{ .Title }}">
-              <img src="{{ .Params.img }}" alt="{{ .Title }}" title="{{ .Title }}" style="height: 380px;"/>
-            </a>
-            <span class="date-meta">{{ partial "format/date.html" .Date }}</span>
-          </div>
-          <div class="blog-content">
-            <h4><a href="blog-single.html">{{ .Title }}</a></h4>
-            <p>{{ .Params.description }}</p>
-            <a href="{{ .RelPermalink }}" title="{{ .Title }}" class="read-more-btn">
-              Leer Más <i class="fa fa-arrow-right" aria-hidden="true"></i>
-            </a>
+      <div class="col-xl-8 col-lg-7">
+        <div class="left-side-wrapper">
+          <div class="row">
+            {{ $paginator := .Paginate .Site.RegularPages.ByDate.Reverse }}
+            {{ range $paginator.Pages }}
+
+              {{ .Render "card" }}
+
+            {{ end }}
           </div>
         </div>
+        {{ partial "pagination.html" $paginator }}
       </div>
-      {{ end }}
+
+      {{- partial "widgets/lateralbar.html" . -}}
+
     </div>
   </div>
 </section>
