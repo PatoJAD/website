@@ -1,7 +1,7 @@
 ---
 title: "Instalacion de Huayra Linux"
 date: "2021-11-19 08:53:00.00"
-description: "Hoy hablamos de Manjaro Webdad y su escritorio JADE el cual plantea una interesante forma de ver el escritorio de linux"
+description: "Huayra linux la distribucion creada en argentina orientada a la educacion"
 type: "instalacion"
 tags: ["debian", "linux", "instalacion", "huayra", "huayra 5", "huayra linux", "argentina", "como instalar"]
 category: ["instalacion"]
