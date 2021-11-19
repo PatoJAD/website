@@ -5,7 +5,7 @@ description: "Hoy hablamos de Manjaro Webdad y su escritorio JADE el cual plante
 type: "instalacion"
 tags: ["debian", "linux", "instalacion", "huayra", "huayra 5", "huayra linux", "argentina", "como instalar"]
 category: ["instalacion"]
-img:  "https://raw.githubusercontent.com/codesardine/Jadesktop/master/jade1.jpg"
+img:  "https://i.postimg.cc/gcXfFDQp/huayra.webp"
 authors: ["PatoJAD"]
 ---
 
