@@ -29,6 +29,35 @@
               </div>
             </div>
 
+            {{ $pages := .Site.Pages.ByPublishDate.Reverse }}
+            {{ range .Params.authors }}
+              {{ range where (where $pages "Type" "authors") ".Params.name" . }}
+
+                <div class="comment-form-wrapper ms-0 row team-section" style="margin-bottom: 50px;">
+                  <h4 class="mb-40">Autor</h4>
+                  <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="single-team text-center mb-40 wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                      <div class="team-img">
+                        <img
+                          src="{{ .Params.photo }}"
+                          alt="{{ .Params.name }}"
+                          title="{{ .Params.name }}" />
+                      </div>
+                      <div class="team-info">
+                        <h4>{{ .Params.name }}</h4>
+                        <span>{{ .Params.descriptionp }}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-8 col-lg-8 col-md-6">
+                    {{ .Content }}
+                  </div>
+
+                </div>
+              {{ end }}
+            {{ end }}
+
+
             <div class="comment-form-wrapper ms-0">
               <h4 class="mb-40">Comentarios</h4>
               <div id="disqus_thread"></div>
