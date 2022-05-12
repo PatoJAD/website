@@ -5,7 +5,7 @@ description: "Hoy hablamos sobre la gente de sistemas y las distros que tiene qu
 type: "linux"
 tags: ["distro", "linux", "dos", "ubuntu", "debian", "rhel", "redhat", "opinion"]
 category: ["Linux"]
-img: "https://i9.ytimg.com/vi_webp/tEWDS29KvBM/mqdefault.webp?v=62715232&sqp=CICjxZMG&rs=AOn4CLBqOeEK7N0tYhA8ZDeGUCtUTLp8Eg"
+img: "https://i.postimg.cc/wv7NcXCS/Captura-de-Pantalla-2022-05-03-a-la-s-13-02-07.png"
 authors: ["PatoJAD"]
 ---
 
