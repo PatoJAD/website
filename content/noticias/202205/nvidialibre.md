@@ -31,6 +31,6 @@ Te dejo un pequeño video sobre mi análisis del caso y un poco resumida la hist
 
 {{< youtube code="FZA1VfMaP94" >}}
 
-{{< info text="Gracias por estar acá, si no es molestia te pido un ultimo favor mas, podrias unirte a la comunidad de telegram o apoyarme suscribiendote a youtube o a Odysee, es completamente gratis y vale muchisimo." >}}
+{{< info text="Gracias por estar acá, si no es molestia te pido un ultimo favor mas, podrias unirte a la comunidad de telegram o apoyarme suscribiendote a youtube o a Odysee, es completamente gratis y vale muchisimo." >}} 
 
 ¿Puede entonces volverse ahora la mejor opción para linux las NVIDIA? esto lo vamos a ir viendo en no mucho tiempo.
