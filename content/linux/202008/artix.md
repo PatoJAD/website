@@ -75,7 +75,7 @@ La instalación se realiza mediante gestor gráfico (si es que descargaste la is
 Como la mayoría de las distros las instalaciones son una conjugación de siguientes y completar datos y ya podemos disfrutar de la distro. Te recomiendo descargarla y probarla, y si aceptas otro consejo recomiendo MATE como escritorio.
 
 
-{{< link url="https://artixlinux.org/download.php" text="Descargar Antix" >}}
+{{< link url="https://artixlinux.org/download.php" text="Descargar Artix" >}}
 
 
 ---
