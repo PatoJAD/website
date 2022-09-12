@@ -31,4 +31,4 @@ Lo que les quiero pedir desde mi postura es apoyar este proyecto para que ellos 
 {{< link text="Darle MG" url="https://www.facebook.com/BelatrixSoftware/photos/pb.114123765313263.-2207520000.1570285184./2601548283237453/?type=3&theater">}}
 
 
-Por nuestra parte comprometimos a {{< textlink text="Lynx Software Design" url="https://lynxsoftwaredesign.tk">}} a proporcionarle la cuenta de Google Play para subirlo
+Por nuestra parte comprometimos a {{< textlink text="Vasak Group" url="https://vasak.net.ar">}} a proporcionarle la cuenta de Google Play para subirlo
