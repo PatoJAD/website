@@ -1,20 +1,29 @@
-image: registry.gitlab.com/pages/hugo:latest
-
 variables:
+  SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
+  GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
   GIT_SUBMODULE_STRATEGY: recursive
 
-test:
+sonarcloud-check:
+  image:
+    name: sonarsource/sonar-scanner-cli:latest
+    entrypoint: [""]
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
   script:
-  - hugo
-  except:
-  - master
+    - sonar-scanner -Dsonar.organization=patojad -Dsonar.projectKey=patojadblog -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io
+  only:
+    - merge_requests
+    - master
 
-pages:
+gitlab-pages:
+  image: registry.gitlab.com/pages/hugo:latest
+  stage: deploy
   script:
-  - hugo version
-  - hugo
+    - hugo
   artifacts:
     paths:
-    - public
+      - public
   only:
-  - master
+    - master
