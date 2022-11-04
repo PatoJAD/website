@@ -62,4 +62,4 @@ El Linux Professional Institute (LPI) es una de las organizaciones más grandes 
 
 
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScCEIL0l6sUQfmfE5ruJcmWgJh_sEOqokb7NYCVfpK9Evqmjg/viewform?embedded=true" width="100%" height="520" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScCEIL0l6sUQfmfE5ruJcmWgJh_sEOqokb7NYCVfpK9Evqmjg/viewform?embedded=true" width="100%" height="520" marginheight="0" marginwidth="0">Cargando…</iframe>

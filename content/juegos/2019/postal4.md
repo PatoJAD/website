@@ -63,5 +63,5 @@ De lo que me gustaría hablar es del hecho de que Running With Scissors ha sido 
 
 
 <center>
-  <iframe src="https://store.steampowered.com/widget/707030/?t=POSTAL%204%3A%20No%20Regerts%20es%20un%20juego%20de%20disparos%20en%20primera%20persona%20c%C3%B3mico%2C%20sat%C3%ADrico%20y%20escandaloso%2C%20y%20la%20esperada%20secuela%20de%20lo%20que%20se%20ha%20apodado%20con%20cari%C3%B1o%20como%20%22The%20Worst%20Game%20Ever%20%E2%84%A2%22%2C%20POSTAL%202.%20(No%20se%20sabe%20que%20exista%20un%20tercer%20juego)." frameborder="0" width="646" height="190"></iframe>
+  <iframe src="https://store.steampowered.com/widget/707030/?t=POSTAL%204%3A%20No%20Regerts%20es%20un%20juego%20de%20disparos%20en%20primera%20persona%20c%C3%B3mico%2C%20sat%C3%ADrico%20y%20escandaloso%2C%20y%20la%20esperada%20secuela%20de%20lo%20que%20se%20ha%20apodado%20con%20cari%C3%B1o%20como%20%22The%20Worst%20Game%20Ever%20%E2%84%A2%22%2C%20POSTAL%202.%20(No%20se%20sabe%20que%20exista%20un%20tercer%20juego)." width="646" height="190"></iframe>
 </center>

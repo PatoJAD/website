@@ -180,7 +180,7 @@ Se maneja básicamente siguiendo un esquema de repetición clasificando y separa
 El **Proyecto “ACCESSIBLE BINARY”** es a nuestra consideración algo a realizar paso a paso, no hay ahora mismo una meta en tiempo, lo que vamos a estar calculando una vez podamos asignar personas interesadas a cada módulo, de la siguiente forma; en un inicio los interesados en formar parte aplican al siguiente formulario
 
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe8TqrszNCk6hcOYkuSbpd9pTikxgW28LiCv4GomzvHqSp_rw/viewform?embedded=true" width="100%" height="520" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe8TqrszNCk6hcOYkuSbpd9pTikxgW28LiCv4GomzvHqSp_rw/viewform?embedded=true" width="100%" height="520" marginheight="0" marginwidth="0">Cargando…</iframe>
 
 
 y una vez evaluado el perfil, hecho una previa entrevista se asigna esa persona a un módulo específico, ya sea del área de investigación, enseñanza o desarrollo. Una vez hecho esto se podrá definir un tiempo con metas y actividades.
