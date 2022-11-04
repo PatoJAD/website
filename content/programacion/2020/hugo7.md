@@ -50,7 +50,7 @@ Voy a dejar a mano los *codigos* que usamos a lo largo del video por si no se ll
               placeholder='Busqueda'>
             <div class="input-group-append">
               <button class="btn" type="button">
-                <i class="fa fa-search" aria-hidden="true"></i>
+                <em class="fa fa-search" aria-hidden="true"></em>
               </button>
             </div>
           </div>

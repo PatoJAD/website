@@ -14,7 +14,7 @@ function updateTheme(){
     root.style.setProperty('--a-color-2', "#6A7C92");
     root.style.setProperty('--text-color', "rgba(240, 240, 240, 0.55)");
     root.style.setProperty('--text-title', "#999");
-    themeButton.innerHTML = '<i class="fa fa-sun fa-2x" aria-hidden="true"></i>';
+    themeButton.innerHTML = '<em class="fa fa-sun fa-2x" aria-hidden="true"></em>';
   } else {
     root.style.setProperty('--bg-site-g' , '#FFF');
     root.style.setProperty('--bg-site', "#3763EB");
@@ -23,7 +23,7 @@ function updateTheme(){
     root.style.setProperty('--a-color-2', "#6A7C92");
     root.style.setProperty('--text-color', "rgba(106, 124, 146, 0.55)");
     root.style.setProperty('--text-title', "#051441");
-    themeButton.innerHTML = '<i class="fa fa-moon fa-2x" aria-hidden="true"></i>';
+    themeButton.innerHTML = '<em class="fa fa-moon fa-2x" aria-hidden="true"></em>';
   }
 }
 
