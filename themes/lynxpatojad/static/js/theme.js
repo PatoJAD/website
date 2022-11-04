@@ -1,7 +1,7 @@
 window.onscroll = function() {
-    var header_navbar = document.querySelector(".navbar-area");
-    var sticky = header_navbar.offsetTop;
-    if (window.pageYOffset > sticky) {
+    const header_navbar = document.querySelector(".navbar-area");
+    const sticky = header_navbar.offsetTop;
+    if (window.scrollY > sticky) {
         header_navbar.classList.add("sticky");
     } else {
         header_navbar.classList.remove("sticky");
@@ -38,10 +38,10 @@ tns({
     }
 });
 
-var wow = new WOW();
+const wow = new WOW();
 wow.init();
 
-var cu = new counterUp({
+const cu = new counterUp({
     start: 0,
     duration: 2000,
     intvalues: true,
