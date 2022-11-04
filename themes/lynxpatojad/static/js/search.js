@@ -46,10 +46,9 @@ const showResultsAlert = () => {
 };
 
 const displayResults = (results) => {
-    // console.warn(results);
     searchResultsList.innerHTML = "";
     results.forEach((el, i) => {
-        var template = document.createRange().createContextualFragment(`
+        const template = document.createRange().createContextualFragment(`
           <div class="col-6">
             <a href="${el.item.permalink}" title="${el.item.title}" >
               <div class="row g-0">
@@ -77,21 +76,18 @@ const displayResults = (results) => {
 };
 
 const executeSearch = (searchQuery) => {
-    // console.log("executeSearch", searchQuery);
     if (!searchQuery) {
         return;
     }
-    var fuseResult = fuse.search(searchQuery);
+    const fuseResult = fuse.search(searchQuery);
     showResultsBox();
 
     if(fuseResult.length > 0){
-        // console.log("display results");
         displayResults(fuseResult);
         showResultsBox();
         showResultsList();
         hideResultsAlert();
     }else{
-        // console.log("display no results");
         showResultsBox();
         hideResultsList();
         showResultsAlert();
@@ -99,14 +95,13 @@ const executeSearch = (searchQuery) => {
 };
 
 const initializeSearch = () => {
-    var request = new XMLHttpRequest();
+    const request = new XMLHttpRequest();
 
     request.open('GET', searchDataURL, true);
     request.onload = function() {
       if (this.status >= 200 && this.status < 400) {
         searchIndex = JSON.parse(this.response);
         fuse = new Fuse(searchIndex, fuseOptions);
-        // console.log("search initialized");
       }
     };
     request.send();
@@ -119,7 +114,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     document.querySelector('#search-input').addEventListener("input", function(event){
         let value = event.target.value;
         if (!value) {
-            // console.log("closes search results list");
             hideResultsBox();
         } else {
             executeSearch(value);
