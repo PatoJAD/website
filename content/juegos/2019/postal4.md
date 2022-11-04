@@ -54,14 +54,4 @@ Para aquellos que no lo saben, Running With Scissors es el desarrollador detrás
 
 De lo que me gustaría hablar es del hecho de que Running With Scissors ha sido siempre un desarrollador increíble, y un desarrollador increíble para la comunidad Linux. El primer juego Postal salió en 1997, también fue lanzado para Linux (en 2001), todavía es compatible hoy, Y fue de código abierto en 2016. Postal 2 salió en 2003, fue lanzado para Linux en 2005, todavía es compatible, es seguía recibiendo actualizaciones e incluso tenía un paquete de expansión lanzado en 2015. Postal 3 de la que no hablamos. Luego llegamos a Postal Redux, una nueva versión del primer juego Postal; Fue lanzado en 2016, tanto para Windows como para Linux, y nuevamente, todavía es compatible y todavía recibe actualizaciones. La existencia de Postal Redux no ha negado en absoluto el lanzamiento original o el soporte del lanzamiento original, como lo hacen muchos remakes/remasters. Además de todo esto, Running With Scissors tiene una larga historia de estar muy cerca de la comunidad en torno a sus juegos. Por ejemplo, en 2005, hubo un mod de horror de supervivencia lanzado para Postal 2 con el nombre de Eternal Damnation. Menos de un año después, los desarrolladores incluyeron como parte del lanzamiento oficial como parte del "Postal Fudge Pack", una compilación de todos los juegos y expansiones de Postal lanzados hasta ese momento. El punto es que, a pesar de lo objetable que pueda ser la calidad y el contenido de sus juegos, son desarrolladores increíbles que merecen reconocimiento y amor por parte de la comunidad de Linux, y quiero llamar la atención de cualquiera que los haya pasado por alto; e imploro a todos ustedes que compren Postal 4, y denles el apoyo que realmente merecen.
 
-
-
-
-{{< textlink text="Hilo original" url="https://www.reddit.com/r/linux_gaming/comments/efs1p1/postal_4_will_eventually_be_coming_to_linux/" >}}
-
-
-
-
-<center>
-  <iframe src="https://store.steampowered.com/widget/707030/?t=POSTAL%204%3A%20No%20Regerts%20es%20un%20juego%20de%20disparos%20en%20primera%20persona%20c%C3%B3mico%2C%20sat%C3%ADrico%20y%20escandaloso%2C%20y%20la%20esperada%20secuela%20de%20lo%20que%20se%20ha%20apodado%20con%20cari%C3%B1o%20como%20%22The%20Worst%20Game%20Ever%20%E2%84%A2%22%2C%20POSTAL%202.%20(No%20se%20sabe%20que%20exista%20un%20tercer%20juego)." width="646" height="190"></iframe>
-</center>
+{{< link text="Hilo original" url="https://www.reddit.com/r/linux_gaming/comments/efs1p1/postal_4_will_eventually_be_coming_to_linux/" >}}

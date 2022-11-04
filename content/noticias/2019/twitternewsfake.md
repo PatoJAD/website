@@ -21,8 +21,8 @@ Dado los intentos deliberados de engañar y confundir a las personas mediante co
 
 
 
-<center><blockquote class="twitter-tweet" data-lang="es"><p lang="en" dir="ltr">We’re always updating our rules based on how online behaviors change. We&#39;re working on a new policy to address synthetic and manipulated media on Twitter – but first we want to hear from you.</p>&mdash; Twitter Safety (@TwitterSafety) <a href="https://twitter.com/TwitterSafety/status/1186403736995807232?ref_src=twsrc%5Etfw">21 de octubre de 2019</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></center>
+<div class="text-center"><blockquote class="twitter-tweet" data-lang="es"><p lang="en" dir="ltr">We’re always updating our rules based on how online behaviors change. We&#39;re working on a new policy to address synthetic and manipulated media on Twitter – but first we want to hear from you.</p>&mdash; Twitter Safety (@TwitterSafety) <a href="https://twitter.com/TwitterSafety/status/1186403736995807232?ref_src=twsrc%5Etfw">21 de octubre de 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
 
 
 

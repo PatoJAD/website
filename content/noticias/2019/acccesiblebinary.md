@@ -188,5 +188,5 @@ y una vez evaluado el perfil, hecho una previa entrevista se asigna esa persona 
 * Una vez desarrollado cada módulo se irá testeando, y haciendo mediciones en cada punto. El primer sistema operativo donde se solicitaría hacer pruebas en una etapa avanzada es sobre GNU/Linux
 * Iremos hasta donde nos lleve este proyecto es algo bastante grande y muy ambicioso, gracias por formar parte.
 
-<center>**“ACCESSIBLE BINARY” TEAM** 
-La accesibilidad universal es el FUTURO</center>
+<div class="text-center">**“ACCESSIBLE BINARY” TEAM** 
+La accesibilidad universal es el FUTURO</div>

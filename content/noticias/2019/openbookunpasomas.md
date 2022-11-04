@@ -19,10 +19,10 @@ Mucho recibí desde la creación del {{< textlink link="https://patojad.com.ar/n
 
 Ya liberaron para los BETA la aplicación, si recibiste tu link ya podés ingresar en la nueva red social libre centralizada. Una nueva experiencia que promete cuidar tu privacidad intentando ganar todo el público que Facebook defraudó con sus alevosos movimientos de datos.
 
-<center>
+<div class="text-center">
   <a href="https://play.google.com/store/apps/details?id=social.openbook.app" target="_blank" rel="external">
     {{< img src="https://localixo.com/wp-content/uploads/getapp-btn-playstore-eS-300x88.png" >}}
   </a>
-</center>
+</div>
 
 Espera tu Link de aprobación y contanos que te parece esta nueva app. Esperamos juntos muchas mas noticias

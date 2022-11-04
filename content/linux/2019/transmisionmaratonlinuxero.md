@@ -11,7 +11,7 @@ authors: ["PatoJAD"]
 
 Queremos acompañar al maratón y te damos la posibilidad de escucharlo directamente! No te pierdas ni un minuto de este gran evento!
 
-<center><video class="maratonvideo" controls="" autoplay="" name="media"><source src="https://emision.maratonlinuxero.org:8443/audio-sd.mp3" type="audio/mpeg"></video></center>
+<div class="text-center"><video class="maratonvideo" controls="" autoplay="" name="media"><source src="https://emision.maratonlinuxero.org:8443/audio-sd.mp3" type="audio/mpeg"></video></div>
 
 
 > Quieres saber TODOS los detalles de nuestra emisión de @maratonlinuxero #FLISOL2019 que vamos a tener en vivo en poco más de 8 horas??? Te esperamos #SoftwareLibre #sorteos #CompartiendoLibertad

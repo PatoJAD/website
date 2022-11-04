@@ -57,7 +57,7 @@ Leonid Volkov, jefe de gabinete del candidato presidencial Alexei Navalny, criti
 
 
 
-<center>
+<div class="text-center">
 <blockquote class="twitter-tweet" data-lang="es"><p lang="ru" dir="ltr">Ого.<br>Обыск в офисе nginx, одной из самых или даже самой успешной на мировом рынке чисто российских ИТ-компаний: мол, 15 лет Игорь Сысоев разрабатывал nginx в рабочее время, будучи сотрудником Рамблера!<br>Сроки давности? Не слышали!<br>Ну и вообще полный бред. <a href="https://t.co/D8HSOd8G8S">pic.twitter.com/D8HSOd8G8S</a></p>&mdash; Leonid Volkov (@leonidvolkov) <a href="https://twitter.com/leonidvolkov/status/1205094298095673344?ref_src=twsrc%5Etfw">12 de diciembre de 2019</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</center>
+</div>

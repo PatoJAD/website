@@ -16,7 +16,7 @@ authors: ["PatoJAD"]
 Telegram X fue el proyecto ganador de un concurso que invitaba a crear una nueva aplicación Telegram usando su nueva librería experimental. Si bien en su presentación recibió otro nombre, tras la victoria en el concurso los desarrolladores fueron contratados y se pusieron al frente del proyecto Telegram X que es la versión BETA/Experimental del cliente oficial.
 
 {{< img src="https://androidayuda.com/app/uploads-androidayuda.com/2018/01/telegram-x-muestra-de-chats-768x545.png" >}}
-<center>Izquierda: modo burbujas. Derecha: modo plano.</center>
+<div class="text-center">Izquierda: modo burbujas. Derecha: modo plano.</div>
 
 ## Velocidad
 
