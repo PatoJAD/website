@@ -2,6 +2,7 @@ variables:
   SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
   GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
   GIT_SUBMODULE_STRATEGY: recursive
+  HUGO_ENV: production
 
 sonarcloud-check:
   image:
@@ -18,13 +19,21 @@ sonarcloud-check:
     - merge_requests
     - master
 
-gitlab-pages:
-  image: registry.gitlab.com/pages/hugo:latest
-  stage: deploy
+test:
+  image: registry.gitlab.com/pages/hugo/hugo_extended:latest
   script:
+    - hugo
+  only:
+    - merge_requests
+    - master
+
+pages:
+  image: registry.gitlab.com/pages/hugo/hugo_extended:latest
+  script:
+    - hugo version
     - hugo
   artifacts:
     paths:
       - public
-  only:
-    - master
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
