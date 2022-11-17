@@ -71,7 +71,7 @@ Otra forma en que el shell puede ayudarte es mediante un mecanismo llamado compl
 
 
 
-    [LynxOS@PatoJAD ~]$ ls
+    [VasakOS@PatoJAD ~]$ ls
     Desktop   ls-output.txt Pictures Templates Videos
     Documents Music         Public
 
@@ -81,7 +81,7 @@ Prueba escribiendo lo siguiente pero no pulses la tecla Enter:
 
 
 
-    [LynxOS@PatoJAD ~]$ ls l
+    [VasakOS@PatoJAD ~]$ ls l
 
 
 
@@ -89,7 +89,7 @@ Ahora pulsa la tecla tabulador:
 
 
 
-    [LynxOS@PatoJAD ~]$ ls ls-output.txt
+    [VasakOS@PatoJAD ~]$ ls ls-output.txt
 
 
 
@@ -97,7 +97,7 @@ Ahora pulsa la tecla tabulador:
 
 
 
-    [LynxOS@PatoJAD ~]$ ls D
+    [VasakOS@PatoJAD ~]$ ls D
 
 
 
@@ -105,7 +105,7 @@ Pulsa tab:
 
 
 
-    [LynxOS@PatoJAD ~]$ ls D
+    [VasakOS@PatoJAD ~]$ ls D
 
 
 
@@ -113,7 +113,7 @@ No completa, sólo da un pitido. Esto ocurre porque “D” coincide con más de
 
 
 
-    [LynxOS@PatoJAD ~]$ ls Do
+    [VasakOS@PatoJAD ~]$ ls Do
 
 
 
@@ -121,7 +121,7 @@ Y pulsamos tab:
 
 
 
-    [LynxOS@PatoJAD ~]$ ls Documents
+    [VasakOS@PatoJAD ~]$ ls Documents
 
 
 
