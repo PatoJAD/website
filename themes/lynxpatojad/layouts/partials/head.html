@@ -1,20 +1,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    http-equiv="Content-Type"
-    content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="robots" content="index, follow" />
   <meta
     content="{{ range .Params.tags }} {{.}}, {{ end }} linux, juegos, software, libre, tecnologia, blog, noticias, actualidad, programacion, hacking, seguridad"
-    name="keywords" />
+    name="keywords"
+  />
   <meta name="author" content="PatoJAD" />
   <meta
     name="description"
     content="{{ .Params.description }} . PatoJAD es un Blog sobre GNU/Linux y software libre en general creado por un linuxnauta y mantenido en si por la propia comunidad que colabora dia a dia de diversas formas"
-    property="og:description" />
-  <meta content="@PatoJADOficial" name="twitter:site"/>
-  <meta content="@PatoJADOficial" name="twitter:creator"/>
+    property="og:description"
+  />
+  <meta content="@PatoJADOficial" name="twitter:site" />
+  <meta content="@PatoJADOficial" name="twitter:creator" />
   <meta property="og:url" content="https://patojad.com.ar{{ .RelPermalink }}" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="{{ .Title }}" />
@@ -25,41 +25,51 @@
   <!-- Google Search Meta -->
   <meta
     name="google-site-verification"
-    content="AB62lAN6bYFzpeZoN7yIodQqshuK3E4R7qQYEsq8T4Y" />
+    content="AB62lAN6bYFzpeZoN7yIodQqshuK3E4R7qQYEsq8T4Y"
+  />
 
   <!-- Bing Meta Data -->
   <meta name="msvalidate.01" content="8A4FD3C15526528D48C910421066EC92" />
 
   <!-- RSS -->
-  {{ range .AlternativeOutputFormats -}}
-      {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
-  {{ end -}}
+  {{ range .AlternativeOutputFormats -}} {{ printf `
+  <link rel="%s" type="%s" href="%s" title="%s" />
+  ` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }} {{ end -}}
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href='{{ "img/icon.jpg" | absURL }}' />
 
   <!-- CANONICAL LINK -->
-  <link rel="canonical" href="https://patojad.com.ar{{ .RelPermalink }}"/>
+  <link rel="canonical" href="https://patojad.com.ar{{ .RelPermalink }}" />
 
-  <link href="https://fonts.googleapis.com/css?family=Poppins:700" rel="stylesheet" />
   <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    href="https://fonts.googleapis.com/css?family=Poppins:700"
     rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-    crossorigin="anonymous" />
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+    crossorigin="anonymous"
+  />
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css"
     integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY="
-    crossorigin="anonymous" />
+    crossorigin="anonymous"
+  />
   <link rel="stylesheet" href="/css/animate.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css"
+  />
   <link href="/css/vars.css" rel="stylesheet" />
   <link href="/css/theme.css" rel="stylesheet" />
   <link href="/css/style.css" rel="stylesheet" />
   <link href="/css/post.css" rel="stylesheet" />
 
   <title>
-    {{ $isHomePage := eq .Title .Site.Title }}{{ .Title }} {{ if eq $isHomePage false }}| {{ .Site.Title }}{{ end }}
+    {{ $isHomePage := eq .Title .Site.Title }}{{ .Title }} {{ if eq $isHomePage
+    false }}| {{ .Site.Title }}{{ end }}
   </title>
 </head>
