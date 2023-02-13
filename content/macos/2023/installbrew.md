@@ -35,4 +35,4 @@ El comando utilizado en el video es el siguiente
 
 ---
 
-{{< link text="Discutir en el Foro" url="https://community.vasak.net.ar/topic/11/como-instalar-brew-en-gnu-linux" >}}
+{{< link text="Discutir en el Foro" url="https://community.vasak.net.ar/topic/12/como-instalar-brew-en-macos" >}}
