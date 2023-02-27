@@ -3,7 +3,17 @@ title: "Webservice NodeJS y MariaDB 4 - Levantando API con Express"
 date: "2021-08-09 10:00:00"
 description: "Levantando API con Express en NodeJS"
 type: "programacion"
-tags: ["nodejs","instalacion","mariadb","npm","webservice", "curso", "express", "api"]
+tags:
+  [
+    "nodejs",
+    "instalacion",
+    "mariadb",
+    "npm",
+    "webservice",
+    "curso",
+    "express",
+    "api",
+  ]
 category: ["Programacion"]
 img: "https://i.postimg.cc/DwZ6QvL5/curso-4.png"
 authors: ["PatoJAD"]
@@ -17,9 +27,9 @@ Dejo a continuación el código utilizado en el video, recuerden que la explicac
 
 ```javascript
 // Importro requerimientos
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
+const express = require("express");
+const cors = require("cors");
+const bodyParser = require("body-parser");
 
 // Inicializo las apps
 const app = express();
@@ -34,11 +44,11 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Seteo Ruta principal
-app.use('/', router);
+app.use("/", router);
 
 // Configuro Rutas
-router.route('/').get((req,res)=>{
-  res.json("Nuesta API esta Funcionando")
+router.route("/").get((req, res) => {
+  res.json("Nuesta API esta Funcionando");
 });
 
 // Inicio la APP

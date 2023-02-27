@@ -3,7 +3,18 @@ title: "¿El mejor sistema para programar?"
 date: "2022-02-11 11:56:00"
 description: "Muchas veces me preguntaron si era necesario usar Linux para programar, o si este es el mejor sistema para hacerlo. Vamos a verlo..."
 type: "programacion"
-tags: ["macos","windows","sistema","operativo","programadores", "programar", "dev", "so", "mejor disro de linux para programar"]
+tags:
+  [
+    "macos",
+    "windows",
+    "sistema",
+    "operativo",
+    "programadores",
+    "programar",
+    "dev",
+    "so",
+    "mejor disro de linux para programar",
+  ]
 category: ["Programacion"]
 img: "https://i.postimg.cc/5xx0mVXw/linux-dev.png"
 authors: ["PatoJAD"]

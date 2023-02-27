@@ -3,7 +3,17 @@ title: "Webservice NodeJS y MariaDB 2 - Creando Base de Datos e iniciando Proyec
 date: "2021-08-02 10:00:00"
 description: "Creando Base de Datos e iniciando Proyecto"
 type: "programacion"
-tags: ["nodejs","instalacion","mariadb","npm","webservice", "curso", "sql", "mysql"]
+tags:
+  [
+    "nodejs",
+    "instalacion",
+    "mariadb",
+    "npm",
+    "webservice",
+    "curso",
+    "sql",
+    "mysql",
+  ]
 category: ["Programacion"]
 img: "https://i.postimg.cc/Nfbbr995/curso-2.png"
 authors: ["PatoJAD"]
