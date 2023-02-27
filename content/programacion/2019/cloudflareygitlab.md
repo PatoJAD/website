@@ -3,9 +3,9 @@ title: "Configurar GitLab Pages con CloudFlare"
 date: "2019-11-06"
 description: "Muchas personas preguntan como hice el blog, aqui una parte mas de como configurar CloudFlare para el dominio del GitLab Pages."
 type: "programacion"
-tags: ["GitLab","CloudFlare","Pages","Dominio"]
+tags: ["GitLab", "CloudFlare", "Pages", "Dominio"]
 category: ["Programacion"]
-img:  "https://i.ytimg.com/vi/TWqh9MtT4Bg/maxresdefault.jpg"
+img: "https://i.ytimg.com/vi/TWqh9MtT4Bg/maxresdefault.jpg"
 authors: ["PatoJAD"]
 ---
 
@@ -13,47 +13,29 @@ Hoy vamos a ver cómo realizar la configuración entre Cloudflare y Gitlab. Ante
 
 Una vez habilitado el dominio en Cloudflare procedemos a crear los certificados para poder generar los registros correctamente.
 
-
-
 ## Certificado
-
 
 {{< img src="https://i.postimg.cc/59C3kM1T/cert.png" >}}
 
-
 Nos dirigimos a SSL/TLS ahí dentro vamos a Origin Server Y podemos crear el Certificado. Para esto debemos elegir los dominios a los cuales apelara ese Certificado y el tiempo de duración de los mismos.
-
 
 {{< img src="https://i.postimg.cc/yNxhmMvf/cert1.png" >}}
 
-
 Y esto nos generara las respectivas claves que utilizaremos para asegurar la conexión. Esto es lo que nos certifica la seguridad del servidor al que se envían.
-
 
 {{< img src="https://i.postimg.cc/zfQC0xQq/cert2.png" >}}
 
-
 En donde se encuentran los cuadros blancos verán su respectivo certificado y clave los cuales debemos guardar para utilizarlos en GitLab
-
-
- 
-
 
 ## Agregar Dominio a Gitlab
 
-
-
 Dentro de nuestro proyecto en gitlab, (entendiendo que ya se encuentran configurados los CI para habilitar la sección Paginas) Nos dirigimos a configuración y a la sección de páginas.
-
 
 {{< img src="https://i.postimg.cc/WzLMPhjK/glab.png" >}}
 
-
 Ahí seleccionamos nuevo Dominio y completamos los campos como vemos a continuación. Es importante recalcar que el dominio va sin http ni https y que no gestionamos los certificados automáticamente (Ya que lo hacemos por cloudflare manualmente)
 
-
 {{< img src="https://i.postimg.cc/Gmcx28Yn/glab1.png" >}}
-
 
 Como requiere todos los certificados no olvidemos poner el del servidor de cloudflare el cual les dejo a continuación
 
@@ -82,38 +64,26 @@ Como requiere todos los certificados no olvidemos poner el del servidor de cloud
     0iykLhH1trywrKRMVw67F44IE8Y=
     -----END CERTIFICATE-----
 
-
 {{< img src="https://i.postimg.cc/3NX2rYxw/glab3.png" >}}
-
 
 Una vez finalizado esto vamos a ver lo siguiente lo cual nos da el registro txt que debemos agregar a nuestro cloudflare para completar con éxito la redirección.
 
-
-
 ## DNS
 
-
 {{< img src="https://i.postimg.cc/28dxrF1x/dns.png" >}}
-
 
 Por ultimo debemos configurar los DNS para concretar la redirección. Esto debemos hacerlo desde Clodflare en la sección DNS
 
 Y debemos completar primero la IP hacían donde va mirar nuestro dominio, en este caso estoy configurando https://patojad.com.ar/ lo cual seria mi dominio principal por lo cual el name del registro seria @ haciendo referencia a root. En caso de querer configurar un subdominio (por ejemplo https://compartelibre.patojad.com.ar) debemos poner solo el subdominio ej compartelibre.
 
-
 {{< img src="https://i.postimg.cc/rF29BYwm/dns1.png" >}}
-
 
 Una vez agregada la IP debemos agregar el registro TXT que nos dio gitlab.
 
-
 {{< img src="https://i.postimg.cc/dV4mTsmk/dns2.png" >}}
-
 
 Una vez agregado solo debemos volver a gitlab y verificarlo, si realizamos todo correctamente vamos a ver la siguiente pantalla. (ATENCION es posible que desde que agregue los registros pasen minutos hasta que la verificación se concluya.)
 
-
 {{< img src="https://i.postimg.cc/ZRyrgrkp/glab4.png" >}}
-
 
 Cuando concluimos con esto en pocas horas la redirección será exitosa.

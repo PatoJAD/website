@@ -3,9 +3,9 @@ title: "Instalar Django"
 date: "2018-12-19"
 description: "Un exelente framework de Python"
 type: "programacion"
-tags: ["Python","Django","framework","instalar"]
+tags: ["Python", "Django", "framework", "instalar"]
 category: ["Programacion"]
-img:  "https://i.postimg.cc/GpQLQ3PX/django-python.png"
+img: "https://i.postimg.cc/GpQLQ3PX/django-python.png"
 authors: ["PatoJAD"]
 ---
 
