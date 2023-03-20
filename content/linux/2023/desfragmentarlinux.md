@@ -3,7 +3,18 @@ title: "Como Desfragmentar nuestro GNU/Linux"
 date: "2023-01-25 08:47:00.00"
 description: "Si bien muchas personas creen que no es necesario desfragmentar en linux hoy vamos a ver como realizar este útil proceso."
 type: "linux"
-tags: ["ext4", "desfragmentar", "disco", "ubuntu", "debian", "arch", "mx linux", "antix", "artix"]
+tags:
+  [
+    "ext4",
+    "desfragmentar",
+    "disco",
+    "ubuntu",
+    "debian",
+    "arch",
+    "mx linux",
+    "antix",
+    "artix",
+  ]
 category: ["Linux"]
 img: "https://www.solvetic.com/uploads/tutorials/monthly_01_2018/e59d1d31ab38713f3530b2648845ca7d.png"
 authors: ["PatoJAD"]

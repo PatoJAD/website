@@ -3,7 +3,20 @@ title: "Como instalar brew en GNU/Linux"
 date: "2023-01-31 08:47:00.00"
 description: "Hoy vamos a ver como instalar brew (o brewhome) el gestor de paquetes para devs en nuestra distro."
 type: "linux"
-tags: ["brew", "brewhome", "gestor", "ubuntu", "debian", "arch", "mx linux", "antix", "artix","paquetes","universal"]
+tags:
+  [
+    "brew",
+    "brewhome",
+    "gestor",
+    "ubuntu",
+    "debian",
+    "arch",
+    "mx linux",
+    "antix",
+    "artix",
+    "paquetes",
+    "universal",
+  ]
 category: ["Linux"]
 img: "https://www.dz-techs.com/wp-content/uploads/2019/02/homebrew-linux-windows-featured.jpg"
 authors: ["PatoJAD"]
