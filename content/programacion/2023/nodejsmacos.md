@@ -28,7 +28,7 @@ authors: ['PatoJAD']
 
 Hoy vamos a ver como realizar la instalación de **NodeJS** de una forma muy simple y rápida utilizando _homebrew._ De esta forma simple y rápida podemos obtener **cualquier** versión de NodeJS y NPM.
 
-Para poder realizar esto vamos a necesitar instalar previamente **Homebrew**, pero no te preocupes, si no lo tenes te dejo a continuación un artículo donde te explico como instalarlo en tu distribución de GNU/Linux.
+Para poder realizar esto vamos a necesitar instalar previamente **Homebrew**, pero no te preocupes, si no lo tenes te dejo a continuación un artículo donde te explico como instalarlo en MacOS.
 
 {{< link url="/macos/2023/02/como-instalar-brew-en-macos/" text="Instalar Homebrew en MacOS" >}}
 
@@ -44,4 +44,4 @@ El comando utilizado para esta ocasión es el que dejaré a continuación. En ca
 brew install node
 ```
 
-{{< link url="https://community.vasak.net.ar/topic/13/install-nodejs-en-linux-con-homebrew" text="Responder en el foro" >}}
+{{< link url="https://community.vasak.net.ar/topic/50/install-nodejs-en-macos-con-homebrew" text="Responder en el foro" >}}
