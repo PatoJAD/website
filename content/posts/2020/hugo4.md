@@ -1,12 +1,12 @@
 ---
-title: "Hugo CMS - Date en español"
-date: "2020-04-15 09:15:00"
-description: "Hoy vamos a ver como traducir nuestro Date para darle mas personalidad a nuestro sitio"
-type: "programacion"
-tags: ["hugo", "cms", "cards", "range", "gougo", "tutorial", "curso"]
-category: ["Programacion"]
-img: "https://i.postimg.cc/BndqqSQt/hugo4.png"
-authors: ["PatoJAD"]
+title: 'Hugo CMS - Date en español'
+date: '2020-04-15 09:15:00'
+description: 'Vamos a ver como traducir nuestro Date para darle mas personalidad a nuestro sitio'
+type: 'programacion'
+tags: ['hugo', 'cms', 'cards', 'range', 'gougo', 'tutorial', 'curso']
+category: ['Programacion']
+img: 'https://i.postimg.cc/BndqqSQt/hugo4.png'
+authors: ['PatoJAD']
 ---
 
 Es lógico querer poner la fecha de nuestro sitio en nuestro idioma, incluso querer hacerlo multi idioma. Para esto nuestro amigo {{< textlink text="Tehuel" url="https://tehuel.blog/" >}} nos facilita una "hack" para poder hacerlo!
@@ -20,47 +20,47 @@ A continuación, como prometo en el video, dejo los fragmentos de código que ut
 data/dias.yml
 
 ```yml
-0: "Domingo"
-1: "Lunes"
-2: "Martes"
-3: "Miércoles"
-4: "Jueves"
-5: "Viernes"
-6: "Sábado"
+0: 'Domingo'
+1: 'Lunes'
+2: 'Martes'
+3: 'Miércoles'
+4: 'Jueves'
+5: 'Viernes'
+6: 'Sábado'
 ```
 
 data/meses.yml
 
 ```yml
-1: "Enero"
-2: "Febrero"
-3: "Marzo"
-4: "Abril"
-5: "Mayo"
-6: "Junio"
-7: "Julio"
-8: "Agosto"
-9: "Septiembre"
-10: "Octubre"
-11: "Noviembre"
-12: "Diciembre"
+1: 'Enero'
+2: 'Febrero'
+3: 'Marzo'
+4: 'Abril'
+5: 'Mayo'
+6: 'Junio'
+7: 'Julio'
+8: 'Agosto'
+9: 'Septiembre'
+10: 'Octubre'
+11: 'Noviembre'
+12: 'Diciembre'
 ```
 
 data/mesesc.yml
 
 ```yml
-1: "Ene"
-2: "Feb"
-3: "Mar"
-4: "Abr"
-5: "May"
-6: "Jun"
-7: "Jul"
-8: "Ago"
-9: "Sep"
-10: "Oct"
-11: "Nov"
-12: "Dic"
+1: 'Ene'
+2: 'Feb'
+3: 'Mar'
+4: 'Abr'
+5: 'May'
+6: 'Jun'
+7: 'Jul'
+8: 'Ago'
+9: 'Sep'
+10: 'Oct'
+11: 'Nov'
+12: 'Dic'
 ```
 
 themes/nuestrotheme/layouts/partials/date.html

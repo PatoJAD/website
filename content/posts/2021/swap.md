@@ -1,12 +1,12 @@
 ---
-title: "¿Que es la SWAP?"
-date: "2021-04-12 10:31:00.00"
-description: "Hoy vamos a hablar sobre la memoria SWAP aprovechando un articulo compartido en FB"
-type: "linux"
-tags: ["swap","hibernacion","memoria","facebook"]
-category: ["Linux"]
-img: "https://i.postimg.cc/3rVMMR6S/image.png"
-authors: ["PatoJAD"]
+title: '¿Que es la SWAP?'
+date: '2021-04-12 10:31:00.00'
+description: 'Vamos a hablar sobre la memoria SWAP aprovechando un articulo compartido en FB'
+type: 'linux'
+tags: ['swap', 'hibernacion', 'memoria', 'facebook']
+category: ['Linux']
+img: 'https://i.postimg.cc/3rVMMR6S/image.png'
+authors: ['PatoJAD']
 ---
 
 {{< img src="https://i.postimg.cc/fRZDFyS4/image.png" >}}
@@ -29,11 +29,11 @@ free -h
 
 La verdad este punto es muy debatido y a estas alturas ya sabemos que nadie tiene la verdad absoluta. Sin embargo cada uno puede contribuir desde su experiencia. Yo en lo personal discrepo levemente con lo que compartieron en la imagen. Si bien en panel general esta bien yo lo pondria de la siguiente forma:
 
-| Memoria | SWAP |
-|:---:|:---:|
-| Mem =< 3 | Mem x 2  |
-| 3 < Mem <= 8 | Mem |
-| 8 < Mem | Mem / 2 |
+|   Memoria    |  SWAP   |
+| :----------: | :-----: |
+|   Mem =< 3   | Mem x 2 |
+| 3 < Mem <= 8 |   Mem   |
+|   8 < Mem    | Mem / 2 |
 
 Como podemos ver los valores son, en panel general, muy similares pero con leve modificación en los rangos. Sin embargo existen personas que no utilizan swap. Por ejemplo muchos avalan que con un SSD no es necesario tener SWAP
 

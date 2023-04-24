@@ -1,7 +1,7 @@
 ---
 title: 'Como instalar MongoDB en GNU/Linux'
 date: '2023-04-19 13:45:00.00'
-description: 'Hoy vamos a ver como instalar mongo (o MongoDB) en nuestra distro de GNU/Linux preferida.'
+description: 'Vamos a ver como instalar mongo (o MongoDB) en nuestra distro de GNU/Linux preferida.'
 type: 'linux'
 tags:
     [
@@ -28,7 +28,7 @@ img: 'https://webimages.mongodb.com/_com_assets/cms/kuzt9r42or1fxvlq2-Meta_Gener
 authors: ['PatoJAD']
 ---
 
-Hoy vamos a ver como realizar la instalacion de **MongoDB** en nuestra distribucion de GNU/Linux preferida.
+Vamos a ver como realizar la instalacion de **MongoDB** en nuestra distribucion de GNU/Linux preferida.
 
 ## Video
 

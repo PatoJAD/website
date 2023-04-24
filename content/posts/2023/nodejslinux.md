@@ -1,33 +1,33 @@
 ---
-title: "Install NodeJS en Linux con Homebrew"
-date: "2023-02-27 11:56:00"
-description: "Vamos a ver una forma simple de instalar NodeJS (con NPM) en cuaqluier GNU/Linux sin importar tu gestor de paquetes usando Homebrew"
-type: "programacion"
+title: 'Install NodeJS en Linux con Homebrew'
+date: '2023-02-27 11:56:00'
+description: 'Vamos a ver una forma simple de instalar NodeJS (con NPM) en cuaqluier GNU/Linux sin importar tu gestor de paquetes usando Homebrew'
+type: 'programacion'
 tags:
-  [
-    "linux",
-    "nodejs",
-    "node",
-    "npm",
-    "brew",
-    "hombrew",
-    "install",
-    "instalar",
-    "debian",
-    "arch",
-    "ubuntu",
-    "deepin",
-    "artix",
-    "manjaro",
-    "setup",
-    "entorno",
-  ]
-category: ["Programacion"]
-img: "https://i9.ytimg.com/vi_webp/wtGZngSiwn4/mqdefault.webp?v=63d07f2a&sqp=CJyN858G&rs=AOn4CLB2_2mtqIC0VnEx4HIXIy8rkxmAoA"
-authors: ["PatoJAD"]
+    [
+        'linux',
+        'nodejs',
+        'node',
+        'npm',
+        'brew',
+        'hombrew',
+        'install',
+        'instalar',
+        'debian',
+        'arch',
+        'ubuntu',
+        'deepin',
+        'artix',
+        'manjaro',
+        'setup',
+        'entorno',
+    ]
+category: ['Programacion']
+img: 'https://i9.ytimg.com/vi_webp/wtGZngSiwn4/mqdefault.webp?v=63d07f2a&sqp=CJyN858G&rs=AOn4CLB2_2mtqIC0VnEx4HIXIy8rkxmAoA'
+authors: ['PatoJAD']
 ---
 
-Hoy vamos a ver como realizar la instalación de **NodeJS** de una forma muy simple y rápida utilizando _homebrew._ De esta forma simple y rápida podemos obtener **cualquier** versión de NodeJS y NPM sin importar nuestra versión de linux, nuestro gestor de paquetes o la versión que estén disponible en los repositorios.
+Vamos a ver como realizar la instalación de **NodeJS** de una forma muy simple y rápida utilizando _homebrew._ De esta forma simple y rápida podemos obtener **cualquier** versión de NodeJS y NPM sin importar nuestra versión de linux, nuestro gestor de paquetes o la versión que estén disponible en los repositorios.
 
 Para poder realizar esto vamos a necesitar instalar previamente Homebrew, pero no te preocupes, si no lo tenes te dejo a continuación un artículo donde te explico como instalarlo en tu distribución de GNU/Linux.
 

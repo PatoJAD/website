@@ -22,7 +22,7 @@ img: 'https://i.postimg.cc/G3YY822C/win10vscode.png'
 authors: ['PatoJAD']
 ---
 
-Hoy vamos a ver como realizar la instalación de **Visual Studio Code** de una forma muy simple y rápida utilizando _winget_.
+Vamos a ver como realizar la instalación de **Visual Studio Code** de una forma muy simple y rápida utilizando _winget_.
 
 ## Instalandolo
 

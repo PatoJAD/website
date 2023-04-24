@@ -1,23 +1,35 @@
 ---
-title: "Agregar Repositorio de SteamOS a Arch"
-date: "2022-09-13 11:48:00.00"
-description: "Hoy vamos a agregar los repositorios de SteamOS Holo a nuestra distro favorita de Arch Linux"
-type: "linux"
-tags: ["steamos", "arch", "holo", "jupiter", "repositorio", "holoiso", "manjaro", "endeavour", "artix", "arcolinux", "archcraft"]
-category: ["Linux"]
-img: "https://i.postimg.cc/L5qmGySj/steamenarch.png"
-authors: ["PatoJAD"]
+title: 'Agregar Repositorio de SteamOS a Arch'
+date: '2022-09-13 11:48:00.00'
+description: 'Vamos a agregar los repositorios de SteamOS Holo a nuestra distro favorita de Arch Linux'
+type: 'linux'
+tags:
+    [
+        'steamos',
+        'arch',
+        'holo',
+        'jupiter',
+        'repositorio',
+        'holoiso',
+        'manjaro',
+        'endeavour',
+        'artix',
+        'arcolinux',
+        'archcraft',
+    ]
+category: ['Linux']
+img: 'https://i.postimg.cc/L5qmGySj/steamenarch.png'
+authors: ['PatoJAD']
 ---
 
-Hoy vamos a agregar los repositorios de SteamOS (Holo y jupiter) a nuestra distribución de Arch Linux favorita. Esto puede sernos útil para poder acceder a sus apps, configuraciones y personalizaciones.
+Vamos a agregar los repositorios de SteamOS (Holo y jupiter) a nuestra distribución de Arch Linux favorita. Esto puede sernos útil para poder acceder a sus apps, configuraciones y personalizaciones.
 
-* {{< textlink text="Repositorio Jupiter" url="https://steamdeck-packages.steamos.cloud/archlinux-mirror/jupiter/os/x86_64/" >}}
-* {{< textlink text="Repositorio Holo" url="https://steamdeck-packages.steamos.cloud/archlinux-mirror/holo/os/x86_64/" >}}
-* {{< textlink text="Todos los Repositorios" url="https://steamdeck-packages.steamos.cloud/archlinux-mirror/" >}}
-* {{< textlink text="Ultimas ISO" url="https://steamdeck-packages.steamos.cloud/archlinux-mirror/iso/latest/" >}}
+-   {{< textlink text="Repositorio Jupiter" url="https://steamdeck-packages.steamos.cloud/archlinux-mirror/jupiter/os/x86_64/" >}}
+-   {{< textlink text="Repositorio Holo" url="https://steamdeck-packages.steamos.cloud/archlinux-mirror/holo/os/x86_64/" >}}
+-   {{< textlink text="Todos los Repositorios" url="https://steamdeck-packages.steamos.cloud/archlinux-mirror/" >}}
+-   {{< textlink text="Ultimas ISO" url="https://steamdeck-packages.steamos.cloud/archlinux-mirror/iso/latest/" >}}
 
 Antes que nada te dejo el link donde vas a poder ver los repositorios posibles y los paquetes que tiene cada uno de estos.
-
 
 ## Video
 

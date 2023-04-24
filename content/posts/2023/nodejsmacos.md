@@ -26,7 +26,7 @@ img: 'https://i.postimg.cc/hPmrtX3z/image.png'
 authors: ['PatoJAD']
 ---
 
-Hoy vamos a ver como realizar la instalación de **NodeJS** de una forma muy simple y rápida utilizando _homebrew._ De esta forma simple y rápida podemos obtener **cualquier** versión de NodeJS y NPM.
+Vamos a ver como realizar la instalación de **NodeJS** de una forma muy simple y rápida utilizando _homebrew._ De esta forma simple y rápida podemos obtener **cualquier** versión de NodeJS y NPM.
 
 Para poder realizar esto vamos a necesitar instalar previamente **Homebrew**, pero no te preocupes, si no lo tenes te dejo a continuación un artículo donde te explico como instalarlo en MacOS.
 

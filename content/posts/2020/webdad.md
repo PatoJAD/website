@@ -1,19 +1,29 @@
 ---
-title: "Manjaro WebDad"
-date: "2021-02-26 08:53:00.00"
-description: "Hoy hablamos de Manjaro Webdad y su escritorio JADE el cual plantea una interesante forma de ver el escritorio de linux"
-type: "instalacion"
-tags: ["manjaro","web","webdad", "jade", "Jadesktop", "remix", "review", "instalacion"]
-category: ["instalacion"]
-img:  "https://raw.githubusercontent.com/codesardine/Jadesktop/master/jade1.jpg"
-authors: ["PatoJAD"]
+title: 'Manjaro WebDad'
+date: '2021-02-26 08:53:00.00'
+description: 'Hoy hablamos de Manjaro Webdad y su escritorio JADE el cual plantea una interesante forma de ver el escritorio de linux'
+type: 'instalacion'
+tags:
+    [
+        'manjaro',
+        'web',
+        'webdad',
+        'jade',
+        'Jadesktop',
+        'remix',
+        'review',
+        'instalacion',
+    ]
+category: ['instalacion']
+img: 'https://raw.githubusercontent.com/codesardine/Jadesktop/master/jade1.jpg'
+authors: ['PatoJAD']
 ---
 
 Hace ya un tiempo di mi opinión sobre {{< textlink url="/instalaciones/2020/11/ubuntu-web-remix/" text="Ubuntu web" >}}, y en los recientes días, con el aumento del uso de ChromeOS parece ser que esta distro es una excelente idea. Sin embargo, por otro camino diferente existe un joven que desarrolló un escritorio que lo podríamos definir como “Lo que Ubuntu Web no pudo” dado que es aún más embebible con esta idea.
 
 ## Manjaro WebDad
 
-Hoy vamos a hablar de este sabor de manjaro que viene con el escritorio JADE. En particular no voy a extenderme con las novedades de su escritorio, dado que ya mucho lo hicieron en youtube. Pero si quiero plantar lo que puede llegar a significar este tipo de cambio y perspectiva.
+Vamos a hablar de este sabor de manjaro que viene con el escritorio JADE. En particular no voy a extenderme con las novedades de su escritorio, dado que ya mucho lo hicieron en youtube. Pero si quiero plantar lo que puede llegar a significar este tipo de cambio y perspectiva.
 
 {{< youtube code="jGdmbYL3JB4" >}}
 

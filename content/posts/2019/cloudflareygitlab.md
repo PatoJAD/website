@@ -1,15 +1,15 @@
 ---
-title: "Configurar GitLab Pages con CloudFlare"
-date: "2019-11-06"
-description: "Muchas personas preguntan como hice el blog, aqui una parte mas de como configurar CloudFlare para el dominio del GitLab Pages."
-type: "programacion"
-tags: ["GitLab", "CloudFlare", "Pages", "Dominio"]
-category: ["Programacion"]
-img: "https://i.ytimg.com/vi/TWqh9MtT4Bg/maxresdefault.jpg"
-authors: ["PatoJAD"]
+title: 'Configurar GitLab Pages con CloudFlare'
+date: '2019-11-06'
+description: 'Muchas personas preguntan como hice el blog, aqui una parte mas de como configurar CloudFlare para el dominio del GitLab Pages.'
+type: 'programacion'
+tags: ['GitLab', 'CloudFlare', 'Pages', 'Dominio']
+category: ['Programacion']
+img: 'https://i.ytimg.com/vi/TWqh9MtT4Bg/maxresdefault.jpg'
+authors: ['PatoJAD']
 ---
 
-Hoy vamos a ver cómo realizar la configuración entre Cloudflare y Gitlab. Antes que nada, recomiendo leer {{< textlink url="https://patojad.com.ar/programacion/2019/10/gitlab-pages/" text="porque elegimos Gitlab" >}} y Porque elegimos {{< textlink text="Cloudflare" url="https://patojad.com.ar/programacion/2019/10/cloudflare-que-es-ventajas-y-desventajas/">}}. Una vez visto esto vamos a explicar cómo hacer para que nuestro dominio alojado el CloudFlare previamente realizado aquí.
+Vamos a ver cómo realizar la configuración entre Cloudflare y Gitlab. Antes que nada, recomiendo leer {{< textlink url="https://patojad.com.ar/programacion/2019/10/gitlab-pages/" text="porque elegimos Gitlab" >}} y Porque elegimos {{< textlink text="Cloudflare" url="https://patojad.com.ar/programacion/2019/10/cloudflare-que-es-ventajas-y-desventajas/">}}. Una vez visto esto vamos a explicar cómo hacer para que nuestro dominio alojado el CloudFlare previamente realizado aquí.
 
 Una vez habilitado el dominio en Cloudflare procedemos a crear los certificados para poder generar los registros correctamente.
 
