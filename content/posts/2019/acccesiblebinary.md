@@ -3,8 +3,23 @@ title: 'El Proyecto “ACCESSIBLE BINARY”'
 date: '2019-10-16'
 description: 'El proyecto “ACCESSIBLE BINARY” es bastante ambicioso y complejo para ejecutarlo todo de una vez. En este proyecto puede entrar cualquier persona que desee colaborar, no supone inversión monetaria, sólo la inversión más valiosa que puedes dar y son las horas/hombre.'
 type: 'noticias'
-tags: ['Tomas Basile', 'La Console', 'Hackaton']
-category: ['Noticias']
+tags:
+    [
+        'la console',
+        'accesibilidad',
+        'proyecto',
+        'accesible binary',
+        'linux',
+        'software libre',
+        'software',
+        'accesibilidad universal',
+        'accesibilidad web',
+        'integración',
+        'convivencia',
+        'usabilidad',
+        'diseño universal',
+    ]
+category: ['Noticias', 'Linux', 'Accesibilidad']
 img: 'https://i2.wp.com/plenaidentidad.com/wp-content/uploads/2009/09/Accesibilidad-plena-identidad.gif?resize=416%2C410'
 authors: ['elhada3d']
 ---

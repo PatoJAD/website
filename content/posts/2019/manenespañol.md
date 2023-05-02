@@ -45,7 +45,3 @@ Ya seleccionado correctamente, solo nos queda aplicar los cambios, para esto en 
 Y ahora efectivamente podemos comprobar que man se encuentra traducido al español. Puede que algunas paginas se encuentren en ingles dado que no tienen traducción. Aun así podemos asegurarnos de que la mayoría se encuentran en español.
 
 {{< img src="https://i.postimg.cc/0y5NWS4m/consejo-patojad.png" >}}
-
----
-
-Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

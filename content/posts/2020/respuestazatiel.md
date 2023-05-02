@@ -35,7 +35,3 @@ Como dije antes es recurrente en este blog hablar de inits, tal vez a estas altu
 -   https://patojad.com.ar/linux/2019/04/systemd-al-volante-mata/
 -   https://patojad.com.ar/comunidad/2019/01/lo-que-la-gente-opina-sobre-los-inits/
 -   https://patojad.com.ar/linux/2019/01/lo-que-la-gente-opina-sobre-los-inits/
-
----
-
-Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

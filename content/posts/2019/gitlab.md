@@ -1,12 +1,23 @@
 ---
-title: "GitLab Pages"
-date: "2019-10-09"
-description: "Muchas personas preguntan como hice el blog, hoy vemos que es GitLab Pages."
-type: "programacion"
-tags: ["GitLab", "CloudFlare", "Pages", "Dominio"]
-category: ["Programacion"]
-img: "https://i.ytimg.com/vi/TWqh9MtT4Bg/maxresdefault.jpg"
-authors: ["PatoJAD"]
+title: 'GitLab Pages'
+date: '2019-10-09'
+description: 'Muchas personas preguntan como hice el blog, hoy vemos que es GitLab Pages.'
+type: 'programacion'
+tags:
+    [
+        'gitlab',
+        'pages',
+        'dominio',
+        'desarrollo',
+        'programacion',
+        'linux',
+        'gnu/linux',
+        'web',
+        'estatica',
+    ]
+category: ['Programacion']
+img: 'https://i.ytimg.com/vi/TWqh9MtT4Bg/maxresdefault.jpg'
+authors: ['PatoJAD']
 ---
 
 > GitLab Pages es una característica que le permite publicar sitios web estáticos directamente desde un repositorio en GitLab.
@@ -15,10 +26,10 @@ authors: ["PatoJAD"]
 
 ## Características
 
-- Use cualquier generador de sitio web estático o HTML sin formato
-- Cree sitios web para sus proyectos, grupos o cuenta de usuario
-- Aloje en GitLab.com de forma gratuita, o en su propia instancia de GitLab
-- Conecte sus dominios personalizados y certificados TLS
+-   Use cualquier generador de sitio web estático o HTML sin formato
+-   Cree sitios web para sus proyectos, grupos o cuenta de usuario
+-   Aloje en GitLab.com de forma gratuita, o en su propia instancia de GitLab
+-   Conecte sus dominios personalizados y certificados TLS
 
 Pages está disponible de forma gratuita para todos los usuarios de GitLab.com, así como para instancias autogestionadas (GitLab Core, Starter, Premium y Ultimate). Es decir que esta en sus productos a nivel que si ustedes tienen instala una instancia de GitLab pueden utilizar su propio GitLab Pages.
 

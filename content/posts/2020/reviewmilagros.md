@@ -19,7 +19,3 @@ Recuerden que esto es meramente mi opinión y siempre trato de que sea construct
 {{< youtube id="FOTre6B8LUw" >}}
 
 Desde ya quiero agradecer a LPI del {{< textlink text="Proyecto TicTac" url="https://proyectotictac.com/" >}} por incluir los {{< textlink text="repos de la comunidad" url="/repositorio/" >}}! Y por siempre dar una mano!
-
----
-
-Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

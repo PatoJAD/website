@@ -3,10 +3,19 @@ title: 'Alternativa a Krunner'
 date: '2019-03-21'
 description: 'Si bien KDE realizo un gran trabajo con Krunner muchos programadores realizaron un esfuerzo increible para que puedas tener tu altenativa en escritorios no KDE'
 type: 'aplicaciones'
-tags: ["Krunner","KDE","Ulauncher","dmenu"]
-category: ["Aplicaciones"]
-img:  'https://cdn.slant.co/a7f6a944-60e4-4974-a2aa-da2e93f0294b/-/format/jpeg/-/progressive/yes/-/preview/480x480/'
-authors: ["PatoJAD"]
+tags:
+    [
+        'kruner',
+        'kde',
+        'alternativas',
+        'dmenu',
+        'ulauncher',
+        'aplicaciones',
+        'linux',
+    ]
+category: ['Aplicaciones', 'Linux']
+img: 'https://www.dz-techs.com/wp-content/uploads/2018/01/pe-krunner-DzTechs.jpg'
+authors: ['PatoJAD']
 ---
 
 {{< img src="https://www.kdeblog.com/wp-content/uploads/2010/05/krunner-main-image.jpg" >}}
@@ -18,7 +27,7 @@ Me paso después de mucho tiempo de usarlo que otras distros me resultaban vuelt
 
 Durante mucho tiempo iniciamos una búsqueda de las mejores opciones y traemos dos, que se adaptan a todos los tipos de uso. Ambos se probaron en diferentes circunstancias (junto a otras alternativas) para llegar a la información que les traemos hoy.
 
-### Ulauncher
+## Ulauncher
 
 {{< img src="https://i.postimg.cc/FRxvXvkD/photo-2019-03-21-09-36-11.jpg" >}}
 
@@ -32,7 +41,7 @@ Para instalarlo debemos descargar el instalador correspondiente de su {{< textli
 
 Es recomendable entrar a la configuración y seleccionar la opción para que inicie con el sistema operativo para ahorrarnos un paso.
 
-### Dmenu
+## Dmenu
 
 Otra de las pruebas se realizó en un equipo más modesto de recursos, donde el costo de mantener ulauncher se notaba. En este punto decidimos probar dmenu una aplicación que cumple exactamente la misma función, pero “sin tanta chicha”. Dmenu nos permite obtener esta misma función, pero no cuenta con themes ni mucha interfaz con iconos, simplemente se ejecuta se busca y se ejecuta
 

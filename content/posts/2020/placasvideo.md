@@ -62,7 +62,3 @@ Bueno ahora debemos definir cuándo usar OpenGL y cuándo usar Vulcan… Lamenta
 {{< youtube id="P_I8an8jXuM" >}}
 
 Más allá de todo lo que pasa por detrás **en general** vulkan va a bajar 2 o 3 fps pero esto no es lo importante, lo importante o la elección de usar vulkan es la estabilidad, si nosotros notamos que durante situaciones específicas (Una TeamFight o la aglomeración de personajes/npc) nos reduce los FPS drásticamente lo mejor es migrar a Vulkan que tiende a controlar más esto evitando las bajas de FPS y mejorando la performance bajo alta presión.
-
----
-
-Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

@@ -90,7 +90,3 @@ Mandanos esas fotos de tu linux tan hermoso!
 No te olvides de mandarnos tu respuestas para saber qué opina la comunidad y poder enriquecer un poco más todo esto!
 
 Fuente: http://lomalodelinux.blogspot.com/
-
----
-
-Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

@@ -29,7 +29,3 @@ Como dicho tema se volvió extenso para escribir tomé la decisión de plasmarlo
 ## ¿Conclusión?
 
 Desde mi perspectiva creo que el problema radica en que esos datos existan, no solo en el hecho de que vayan a juntarse para obtener información más precisa de nosotros, el problema siempre parte desde el punto de que la información existe, y ellos la guardan y como tal, cada vez que obtienen un poco mas de informacion nos hacen un poco mas vulnerables.
-
----
-
-Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

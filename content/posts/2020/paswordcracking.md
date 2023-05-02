@@ -90,7 +90,3 @@ Un ataque híbrido es una combinación de un ataque de fuerza bruta y un ataque 
 Un ataque de diccionario híbrido también resulta en un aumento exponencial de los cálculos y el tiempo en función de la cantidad de caracteres que se concatenan con cada entrada de diccionario.
 
 También cabe destacar, que su principal diferencia con el ataque de diccionario basado en reglas es que este otro, en lugar de agregar, mediante fuerza bruta, una cadena con todas sus combinaciones posibles, usa reglas para transformar cada entrada del Diccionario o concatenarla con prefijos y sufijos, lo que termina traduciéndose como menos tiempo de ejecución.
-
----
-
-Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

@@ -34,7 +34,3 @@ El primer torneo de SuperTuxKart organizado por la Comunidad Latina de Tecnolog�
 Se puede elegir entre un jugador, con ventana completa, dos, tres y cuatro jugadores con pantalla partida. Hay dos opciones de juego: carrera simple y Gran Premio. En el primer caso, se elige un circuito de los múltiples disponibles y gana el que complete antes el número de vueltas. En el segundo, se hace un recorrido por 4 circuitos y gana el que más puntos sume.
 
 A lo largo del recorrido se encuentran nitros y cajas sorpresa, que incluyen desde elementos de ayuda hasta trampas.
-
----
-
-Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

@@ -3,7 +3,20 @@ title: 'Libre Office y MSOffice'
 date: '2019-03-14'
 description: 'El pinguino y el calefon: Un debate ensamblado en una gran comunidad linuxnauta'
 type: 'aplicaciones'
-tags: ['Libre Office', 'MS Office']
+tags:
+    [
+        'libreoffice',
+        'office',
+        'msoffice',
+        'linux',
+        'gnu/linux',
+        'aplicaciones',
+        'software',
+        'software libre',
+        'libre',
+        'open source',
+        'open source software',
+    ]
 category: ['Aplicaciones']
 img: 'https://i.postimg.cc/FFBY9K5d/librevsms-patojad.jpg'
 authors: ['PatoJAD']

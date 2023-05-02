@@ -3,8 +3,27 @@ title: 'Doki Doki Literature Club'
 date: '2019-08-22'
 description: 'Una novela visual que rompe la expectativas de todos nosotros.'
 type: 'juegos'
-tags: ['itch', 'Doki', 'Juego']
-category: ['Juegos']
+tags:
+    [
+        'itch',
+        'doki',
+        'juego',
+        'visual',
+        'novela',
+        'club',
+        'literatura',
+        'steam',
+        'linux',
+        'windows',
+        'macos',
+        'team',
+        'salvato',
+        'sayori',
+        'natsuki',
+        'yuri',
+        'monika',
+    ]
+category: ['Juegos', 'Windows', 'Linux', 'MacOS']
 img: 'https://steamcdn-a.akamaihd.net/steam/apps/698780/header.jpg?t=1509687157'
 authors: ['PatoJAD']
 ---

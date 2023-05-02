@@ -55,7 +55,3 @@ P.D .: Puede arrastrar cualquiera de las aplicaciones a la base para acceder rá
 Lamentablemente esta distro parece estar descontinuada ya que la versión 2.0.0 fue subida el 17.5.17 con la versión de Ubuntu 17.04. Sin embargo tenemos la ISO colgada sobre la cual pesan muchas actualizaciones pero se puede usar. Aunque en julio, en su twitter anunció la continuación de la distro y que la misma está preparando su versión 3.0.0 basada en Ubuntu 20.04
 
 <blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">The new Minecraft OS will be called Minecraft OS 3.0.0!</p>&mdash; Minecraft OS (@Minecraft__OS) <a href="https://twitter.com/Minecraft__OS/status/1256699168053133312?ref_src=twsrc%5Etfw">May 2, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
----
-
-Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

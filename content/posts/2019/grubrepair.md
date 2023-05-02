@@ -3,8 +3,20 @@ title: 'Repara tu GRUB con Boot-Repair'
 date: '2018-12-20'
 description: 'Una app que repara tu GRUB'
 type: 'linux'
-tags: ['GRUB', 'Repair']
-category: ['Linux']
+tags:
+    [
+        'grub',
+        'repair',
+        'boot',
+        'linux',
+        'gnu/linux',
+        'ubuntu',
+        'debian',
+        'mint',
+        'elementary',
+        'linuxmint',
+    ]
+category: ['Linux', 'Aplicaciones']
 img: 'https://i.postimg.cc/nzF9q5J8/Ubuntu-Grub-Console.png'
 authors: ['PatoJAD']
 ---
@@ -17,9 +29,11 @@ Boot-Repair es una sencilla herramienta que se utiliza para reparar los problema
 
 Para instalar Boot-Repair añadimos el repositorio mediante PPA y luego actualizamos el sistema.
 
-    sudo add-apt-repository ppa:yannubuntu/boot-repair
-    sudo apt-get update
-    sudo apt-get install boot-repair
+```zsh
+sudo add-apt-repository ppa:yannubuntu/boot-repair
+sudo apt-get update
+sudo apt-get install boot-repair
+```
 
 El funcionamiento básico de Boot-Repair es muy sencillo. Al abrirlo, veremos una ventana con dos opciones y simplemente haremos click en reparación recomendada. El programa se pondrá a funcionar y, en la mayoria de los casos, solucionará los problemas de nuestro GRUB.
 

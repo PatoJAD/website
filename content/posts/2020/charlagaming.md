@@ -37,7 +37,3 @@ También te recomiendo como calentamiento para este dia donde vamos a escuchar a
 -   {{< textlink url="https://www.youtube.com/watch?v=i3cmsvrOI2w" text="¿No se puede o no se hace? La actualidad de Linux" >}}
 
 Y si te gusta jugar no te podes perder el {{< textlink url="/juegos/2020/07/el-primer-torneo-de-supertuxkart/" text="primer torneo de Super Mario Kart" >}} que cada día procura más convertirse en el inicio de grandes cosas...
-
----
-
-Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

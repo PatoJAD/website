@@ -3,7 +3,18 @@ title: 'Estranged I y II Free'
 date: '2019-03-19'
 description: '¡Con su acceso anticipado ya podemos conseguir tanto Estranged Act I y Act II completamente GRATIS!'
 type: 'juegos'
-tags: ['MOD', 'Steam', 'Free']
+tags:
+    [
+        'mod',
+        'steam',
+        'free',
+        'gratis',
+        'linux',
+        'windows',
+        'macos',
+        'estranged',
+        'Departure',
+    ]
 category: ['Juegos']
 img: 'https://steamcdn-a.akamaihd.net/steam/apps/582890/header.jpg?t=1552600294'
 authors: ['PatoJAD']
@@ -15,13 +26,13 @@ En esta oportunidad tenemos este impecable juego que viene con la novedad de su 
 
 {{< img src="https://steamcdn-a.akamaihd.net/steam/apps/582890/ss_be3dc947a7dfc521ad4cccdffdc92b37d62c8a0f.600x338.jpg?t=1552600294" >}}
 
-### Sobre el juego
+## Sobre el juego
 
 Estranged cuenta la historia de un pescador solitario, cuyo barco queda varado en una isla misteriosa durante una violenta tormenta.
 
 Explora los ricos ambientes y conoce a los curiosos habitantes de la isla mientras buscas un camino de regreso a tierra firme. Planta cara al riesgo y a la intriga en esta peligrosa aventura, donde pronto te darás cuenta de que no todo es tan normal como parece.
 
-Características:
+### Características:
 
 -   Insólita jugabilidad e historia - El juego cuenta con alrededor de una hora de aventuras impulsadas por una historia. Incluye un elenco completamente original, con un guión cuidadosamente elaborado para traer el mundo de Estranged a la vida.
 
@@ -31,7 +42,7 @@ Características:
 
 {{< img src="https://steamcdn-a.akamaihd.net/steam/apps/582890/ss_43e3996ffa64c8d7b818bcb990f1d73c7c567b2b.600x338.jpg?t=1552600294" >}}
 
-### Requisitos
+## Requisitos
 
 -   SO: Ubuntu 16.04 LTS and above, fully updated
 -   Procesador: Quad-core Intel or AMD, 2.5 GHz
@@ -51,6 +62,6 @@ Características:
 
 El segundo juego es la continuación del primero (Es ideal jugarlo para entender el mundo en el que estamos) y un juego muy recomendable. El progreso del juego está muy bien logrado y la hambientalizacion es digna de dedicarle nuestros mejores auriculares y una habitación obscura para la completa inmersión en este título.
 
-{{< link url="https://store.steampowered.com/app/261820/Estranged_Act_I/" text="Estranged: Act I" >}}
+{{< steamgame code="261820" >}}
 
-{{< link url="https://store.steampowered.com/app/582890/Estranged_Act_II/" text="Estranged: Act II" >}}
+{{< steamgame code="582890" >}}

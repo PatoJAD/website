@@ -40,7 +40,3 @@ De esta forma la jueza que llevaba esta disputa decidió con sus fundamentos que
 > Sin embargo, la jueza **no impedirá que Apple cancele la cuenta de desarrollador de Epic Games** el próximo 28 de agosto, tal y como habían anunciado, lo cual haría que Fortnite no pueda actualizarse hasta que sus creadores cumplan con toda la normativa de la App Store.
 
 Si bien la jueza apoya la idea de Microsoft y de Epic Games sabe que tiene que mantenerse inmutable ante su preferencia y decide permitir que Apple penalize a Epic por el fraude realizado.
-
----
-
-Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

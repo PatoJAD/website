@@ -143,7 +143,3 @@ pacman -U StreamLabs.tar.gz
 ```
 
 Recuerda que el nombre debes poner el que corresponda el mio es simbólico. Cualquier problema o duda estamos en la comunidad para apoyarte!
-
----
-
-Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

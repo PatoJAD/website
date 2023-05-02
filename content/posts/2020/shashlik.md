@@ -68,7 +68,3 @@ Si dependemos o utilizamos algunas apps no muy complejas es altamente recomendab
 Dejo un video de un juego que corre sin problemas para que vean que realmente está pulido aunque no tenga updates hace más de 3 años
 
 {{< youtube id="9SC6c_ih_Ac">}}
-
----
-
-Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

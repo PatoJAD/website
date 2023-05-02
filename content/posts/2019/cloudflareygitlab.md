@@ -3,8 +3,42 @@ title: 'Configurar GitLab Pages con CloudFlare'
 date: '2019-11-06'
 description: 'Muchas personas preguntan como hice el blog, aqui una parte mas de como configurar CloudFlare para el dominio del GitLab Pages.'
 type: 'programacion'
-tags: ['GitLab', 'CloudFlare', 'Pages', 'Dominio']
-category: ['Programacion']
+tags:
+    [
+        'gitlab',
+        'cloudflare',
+        'pages',
+        'dominio',
+        'dns',
+        'certificado',
+        'ssl',
+        'https',
+        'http',
+        'configurar',
+        'configuracion',
+        'patojad',
+        'patojad.com.ar',
+        'patojad.com',
+        'glpages',
+        'gitlabpages',
+        'gitlab pages',
+        'gitlab pages cloudflare',
+        'gitlab pages dominio',
+        'gitlab pages dns',
+        'gitlab pages certificado',
+        'gitlab pages ssl',
+        'gitlab pages https',
+        'gitlab pages http',
+        'gitlab pages configurar',
+        'gitlab pages configuracion',
+        'gitlab pages patojad',
+        'gitlab pages patojad.com.ar',
+        'gitlab pages patojad.com',
+        'gitlab pages glpages',
+        'gitlab pages gitlabpages',
+        'gitlab pages gitlab pages',
+    ]
+category: ['Programacion', 'Redes']
 img: 'https://i.ytimg.com/vi/TWqh9MtT4Bg/maxresdefault.jpg'
 authors: ['PatoJAD']
 ---

@@ -40,7 +40,3 @@ Sin embargo si es posible portear juegos y hacerlo suele dar buenos resultados s
 ## Tu opinión
 
 Me gustaría conocer tu opinión y/o consejo en este tema para eso tenes los comentarios al final de la publicación… No te vayas sin contarnos qué pensas….
-
----
-
-Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

@@ -34,7 +34,3 @@ Yo soy partidario de muchas cosas que presentan su antagónico en el video de nu
 Puede que mis ideas sean un tanto “extremistas” en algun punto (mas hablando de la última) pero no siento que sea correcto hacer las cosas mal para que sea problema del otro…
 
 **¡No te olvides de comentarnos qué te parece a vos!**
-
----
-
-Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

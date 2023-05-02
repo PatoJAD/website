@@ -26,7 +26,3 @@ Para arrancar tenemos que instalar (como explica el video) las configuraciones d
 Una vez instalado vamos a abrir la configuración y nos dirigimos a la parte de gestión de ventana y de ahí a la sección de guiones de KWin.
 
 Ahí vamos a Obtener nuevos guiones y buscamos “tilling” y vamos a instalarlo (Para ver la opción precisa verifiquen en el video) y luego podemos activarlo.
-
----
-
-Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

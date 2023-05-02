@@ -38,7 +38,3 @@ El único comando que nos importa o mejor dicho que le da relevancia al tutorial
 El install=no puede omitirse si queremos que aparte de generar el deb se instale el programa en nuestra distro, sin embargo recomiendo evitarlo e instalarlo desde el deb que generamos para probar que funcione correctamente.
 
 No te olvides de comentarnos qué te parece y preguntarnos tus dudas en nuestro canal de Telegram.
-
----
-
-Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

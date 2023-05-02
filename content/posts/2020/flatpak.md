@@ -64,7 +64,3 @@ Ya estoy escribiendo en tercera persona, asi que imaginate cuanto me llevo armar
 En lo personal suelo evitar el uso de flatpak, es más suelo desinstalarlo, sin embargo creo que es una herramienta muy útil para aquellos que tienen problemas con alguna aplicación que requiere. En lo personal recomendaría su uso responsable y obviamente que lo eviten de ser posible…
 
 **¿Y vos...? ¿Qué pensas? No te olvides de dejarnos en los comentarios tu opinión sobre flatpack, los pros y contra de esta paquetería…**
-
----
-
-Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

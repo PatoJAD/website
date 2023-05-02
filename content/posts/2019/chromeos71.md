@@ -3,10 +3,22 @@ title: 'Chrome OS 71 llegó'
 date: '2018-12-19'
 description: 'ChromeOS nos presento su version 71'
 type: 'noticias'
-tags: ["ChromeOS"]
-category: ["Noticias"]
+tags:
+    [
+        'chromeos',
+        'chrome',
+        'chromebook',
+        'chromeos71',
+        'linux',
+        'android',
+        'bettertogether',
+        'linuxapps',
+        'linuxappschromeos',
+        'linuxappschromeos71',
+    ]
+category: ['Noticias']
 img: 'https://3.bp.blogspot.com/-oXe60kHRfxs/XDTaZWs1fXI/AAAAAAAAelc/My3LKt4kEyA8eBxzDHDR2QdWFVb7rjASACLcBGAs/s1600/ChromeOS-71_patojad.jpg'
-authors: ["PatoJAD"]
+authors: ['PatoJAD']
 ---
 
 Siguiendo una actualización del tema de Google Material y un completo rediseño del lanzador de aplicaciones pensado para tabletas y dispositivos táctiles, Chrome OS 71 ha llegado el día de hoy. Una de las mejoras más importantes de esta actualización es mejorar la experiencia de tener una Chromebook y un dispositivo con Android.

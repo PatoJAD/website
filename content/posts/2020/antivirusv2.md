@@ -42,7 +42,3 @@ Más allá de los errores técnicos que pueda llegar a cometer que estimo que se
 {{< img src="https://www.infosol.com.mx/wordpress/wp-content/uploads/disculpas-publicas-efectivas-1.jpg" >}}
 
 Siento que es preciso pedir perdón a **Pedro Crespo** de una forma pública porque, más allá de que yo piense una cosa, no fue la mejor forma de afrontarlo y decirlo, puedo entender que se haya enojado con los videos anteriores o incluso se haya sentido mal, así que si lo estas leyendo, ¡Disculpa por los modos! todos estamos en constante aprendizaje y este es uno más...
-
----
-
-Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

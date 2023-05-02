@@ -103,7 +103,3 @@ Mostrando las alias de la siguiente forma
     alias ls='ls –color=tty'
 
 Hay un pequeño problema con la definición de alias en la línea de comandos. Se esfuman cuando la sesión de shell se cierra. Más adelante, veremos cómo añadir nuestros alias a archivos que establecen el entorno cada vez que iniciamos sesión, pero por ahora, disfruta del hecho de que hemos dado nuestro primer paso, aunque sea pequeño, ¡en el mundo de la programación en shell!
-
----
-
-Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

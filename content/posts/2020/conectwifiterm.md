@@ -67,7 +67,3 @@ En caso de que nos deseemos conectar a una red wifi que ya se encuentra en nuest
 Realizado todos los pasos anteriores deberíamos poder acceder de manera adecuada a la red inalámbrica que hayamos elegido.
 
 _Fuente: profesionalreview_
-
----
-
-Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

@@ -71,7 +71,3 @@ Ya hablamos de cómo lo hacen y que hacen, pero en todo esto nos olvidamos de ha
 -   **Secuestro extorsivo de la información:** Cuantas veces salieron publicadas fotos íntimas de personas que previamente fueron extorsionadas, y muchas tantas no nos enteramos. El secuestro extorsivo de la información suele ser muy rentable para aquellos que inician.
 -   **Venta de Software y contenido ilegal:** Suele venderse licencias piratas, películas, o cualquier tipo de contenido ilegalmente.
 -   **Venta de información confidencial:** Esto es común entre empresas o gente que manipula información sensible.
-
----
-
-Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

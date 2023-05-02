@@ -37,7 +37,3 @@ Vamos a dejar un poco de información importante para los usuarios de MilagrOS, 
 Quería recordar y agradecer, porque MilagrOS cuenta con el repositorio de la Comunidad PreInstalado, basta con activarlo para que se encuentre en funcionamiento… Muchas gracias por ese pequeño gran detalle!
 
 {{< link url="https://proyectotictac.org.ve/distros/MilagrOS/" text="Descargar MilagrOS" >}}
-
----
-
-Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

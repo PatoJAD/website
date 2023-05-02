@@ -56,7 +56,3 @@ El comando wich busca todas las rutas listadas en la variable PATH para un coman
 Muchas veces necesitamos saber dónde están los binarios y esta solución no solo es práctica sino que es muy fácil de usar.
 
 {{< img src="https://i.ibb.co/hC19jv5/Screenshot-20200701-092711.png" >}}
-
----
-
-Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento
