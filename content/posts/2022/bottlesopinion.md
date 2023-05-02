@@ -13,8 +13,13 @@ tags:
         'bottles wine',
         'opinion',
         'analisis',
+        'analisis de software',
+        'analisis de programas',
+        'analisis de aplicaciones',
+        'analisis de apps',
+        'botellas',
     ]
-category: ['Linux']
+category: ['Linux', 'Apliaciones']
 img: 'https://i.postimg.cc/VLFDwX0q/winebottles.png'
 authors: ['PatoJAD']
 ---

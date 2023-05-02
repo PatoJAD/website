@@ -16,7 +16,7 @@ tags:
         'native',
         'app',
     ]
-category: ['Aplicaciones']
+category: ['Aplicaciones', 'Linux']
 img: 'https://techcommunity.microsoft.com/t5/image/serverpage/image-id/417219i33500C50BFFDBA9C/image-size/large?v=v2&px=999'
 authors: ['PatoJAD']
 ---

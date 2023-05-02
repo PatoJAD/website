@@ -2,11 +2,47 @@
 title: 'Email Profesional GRATIS - Saliente'
 date: '2022-10-20 11:05:00'
 description: 'Vamos a aprender a configurar nuestro correo saliente profesional 100% free en CloudFlare con un dominio propio.'
-tags: ["email", "dominio", "propio", "free", "gratis", "profesional", "cloudflare", "configurar", "dns", "mx", "registro", "saliente", "enviar"]
+tags:
+    [
+        'email',
+        'dominio',
+        'propio',
+        'free',
+        'gratis',
+        'profesional',
+        'cloudflare',
+        'configurar',
+        'dns',
+        'mx',
+        'registro',
+        'saliente',
+        'enviar',
+        'correo',
+        'outgoing',
+        'smtp',
+        'gmail',
+        'outlook',
+        'hotmail',
+        'yahoo',
+        'protonmail',
+        'tutanota',
+        'fastmail',
+        'zoho',
+        'mail',
+        'mailgun',
+        'sendgrid',
+        'sendinblue',
+        'mailjet',
+        'postmark',
+        'pepipost',
+        'elasticemail',
+        'mailchimp',
+        'mailgun',
+    ]
 type: 'redesyseguridad'
-category: ["redesyseguridad"]
+category: ['Redes']
 img: 'https://www.cloudflare.com/static/d78b38d36bc84f3ca7aa24265e14f381/cloudflare_email_routing.png'
-authors: ["PatoJAD"]
+authors: ['PatoJAD']
 ---
 
 ## Usar email para salida de correos
@@ -25,12 +61,12 @@ Luego vamos a completar los campos con los datos de nuestra cuenta de Gmail (en 
 
 {{< img src="https://i.postimg.cc/q7zk49kv/image.png" >}}
 
-Donde: 
+Donde:
 
-* **Servidor SMTP:** smtp.gmail.com
-* **Nombre de Usuario:** El nombre de usuario de Gmail ( si tu correo es user@gmail.com, user es tu nombre de usuario).
-* **Contraseña:** Contraseña de GMAIL.
-* **Puerto:** 465.
+-   **Servidor SMTP:** smtp.gmail.com
+-   **Nombre de Usuario:** El nombre de usuario de Gmail ( si tu correo es user@gmail.com, user es tu nombre de usuario).
+-   **Contraseña:** Contraseña de GMAIL.
+-   **Puerto:** 465.
 
 {{< warning text="ATENCIÓN: En el caso de que tengas el doble factor activado, la contraseña deberá ser una nueva creada para este fin, lo cual veremos cómo hacerlo a continuación." >}}
 

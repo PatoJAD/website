@@ -15,6 +15,8 @@ tags:
         'chaoticaur',
         'guia',
         'tutorial',
+        'instalacion',
+        'pacaur',
     ]
 category: ['Linux']
 img: 'https://i.postimg.cc/6qZncTqL/chaoticaur.png'

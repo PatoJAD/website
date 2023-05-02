@@ -14,6 +14,8 @@ tags:
         'manjaro',
         'endeavour',
         'instalacion',
+        'pacman',
+        'pacaur',
     ]
 category: ['Aplicaciones']
 img: 'https://i.postimg.cc/FmTBQKnf/Sin-nombre.png'
@@ -41,36 +43,36 @@ Claramente siempre genero un pequeño video para poder ser un poco más gráfico
 
 Para la instalación de yay:
 
-```bash
+```zsh
 sudo pacman -Sy yay
 ```
 
 Para la instalación de paru:
 
-```bash
+```zsh
 sudo pacman -Sy paru
 ```
 
 En caso de que vayamos a instalar los 2 podemos hacerlo de una sola vez usando:
 
-```bash
+```zsh
 sudo pacman -Sy yay paru
 ```
 
 Para desinstalar yay:
 
-```bash
+```zsh
 sudo pacman -Rs yay
 ```
 
 Para desinstalar paru:
 
-```bash
+```zsh
 sudo pacman -Rs paru
 ```
 
 Para desinstalar ambos:
 
-```bash
+```zsh
 sudo pacman -Rs yay paru
 ```

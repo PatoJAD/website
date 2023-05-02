@@ -4,8 +4,29 @@ date: '2022-05-03 13:18:00.00'
 description: 'Hoy hablamos sobre la gente de sistemas y las distros que tiene que conocer'
 type: 'linux'
 tags:
-    ['distro', 'linux', 'dos', 'ubuntu', 'debian', 'rhel', 'redhat', 'opinion']
-category: ['Linux']
+    [
+        'distro',
+        'linux',
+        'dos',
+        'ubuntu',
+        'debian',
+        'rhel',
+        'redhat',
+        'opinion',
+        'sistemas',
+        'sysadmin',
+        'sysops',
+        'devops',
+        'dev',
+        'programacion',
+        'programador',
+        'programadora',
+        'programadores',
+        'programadoras',
+        'programar',
+        'programas',
+    ]
+category: ['Linux', 'Programacion', 'Redes', 'Seguridad']
 img: 'https://i.postimg.cc/wv7NcXCS/Captura-de-Pantalla-2022-05-03-a-la-s-13-02-07.png'
 authors: ['PatoJAD']
 ---

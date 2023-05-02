@@ -17,8 +17,17 @@ tags:
         'nvidia open source',
         'drivers libres',
         'controladores libres',
+        'nvidia drivers libres',
+        'nvidia controladores libres',
+        'nvidia open source drivers',
+        'nvidia open source controladores',
+        'nvidia open source drivers libres',
+        'nvidia open source controladores libres',
+        'nvidia open source drivers libres windows',
+        'nvidia open source controladores libres windows',
+        'nvidia open source drivers libres windows 10',
     ]
-category: ['Noticias']
+category: ['Noticias', 'Hardware']
 img: 'https://i.postimg.cc/Dzc4KjhV/Sin-nombre.png'
 authors: ['PatoJAD']
 ---

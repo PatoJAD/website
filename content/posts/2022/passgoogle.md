@@ -2,13 +2,29 @@
 title: 'Crear contraseña para apps en Google'
 date: '2022-07-14 10:41:00'
 description: 'Google nos permite crear contraseñas que saltean el doble factor y hoy vamos a ver el paso a paso de este proceso.'
-tags: ["google", "contraseña", "pass", "password", "gmail", "email", "apps", "aplicaciones", "externas", "doble", "factor", "auth"]
-category: ["Aplicaciones"]
+tags:
+    [
+        'google',
+        'contraseña',
+        'pass',
+        'password',
+        'gmail',
+        'email',
+        'apps',
+        'aplicaciones',
+        'externas',
+        'doble',
+        'factor',
+        'auth',
+        'seguridad',
+        'seguro',
+    ]
+category: ['Aplicaciones', 'Seguridad']
 img: 'https://lh3.googleusercontent.com/BjyYdIBoXHZ7hB0rTS9lPkPTqk1lw-KaCj90wsZ6hES1SG5zR2TBmkKpeni5kXRkxRTbQtfPPLQyYlAtPBx4Vswb5wp71iO0QoO1VPk'
-authors: ["PatoJAD"]
+authors: ['PatoJAD']
 ---
 
-**Google** intenta mantener *"nuestra cuenta segura"* (esto puede ser polemico para algunos pero vamo a evitar) con el doble factor de auth. Sin embargo esto puede ser un poco tedioso a la hora de linkear diversas apps. Por eso mismo nos ofrece una herramienta que nos permite generar contraseñas que no requieren el 2 factor de auth para simplificar estas tareas.
+**Google** intenta mantener _"nuestra cuenta segura"_ (esto puede ser polemico para algunos pero vamo a evitar) con el doble factor de auth. Sin embargo esto puede ser un poco tedioso a la hora de linkear diversas apps. Por eso mismo nos ofrece una herramienta que nos permite generar contraseñas que no requieren el 2 factor de auth para simplificar estas tareas.
 
 Lo primero que debemos hacer es ir al sitio de cuentas de google en la parte de seguridad, al cual podemos acceder desde el siguiente link
 
@@ -18,7 +34,7 @@ Una vez ahí vamos a dirigirnos a la parte de **Iniciar sesión en Google**. y e
 
 {{< img src="https://i.postimg.cc/hvGs5bL6/image.png" >}}
 
-Luego de eso nos pedirá la contraseña de la cuenta (la real, la que usamos siempre) para validar nuestra identidad.  Y finalmente nos va a permitir elegir para uqe aplicación y/o dispositivo queremos activarla (se puede crear nuevos) y nos devolverá una contraseña que no requiere el 2 factor
+Luego de eso nos pedirá la contraseña de la cuenta (la real, la que usamos siempre) para validar nuestra identidad. Y finalmente nos va a permitir elegir para uqe aplicación y/o dispositivo queremos activarla (se puede crear nuevos) y nos devolverá una contraseña que no requiere el 2 factor
 
 {{< img src="https://i.postimg.cc/Z5jr1yRh/image.png" >}}
 

@@ -19,6 +19,9 @@ tags:
         'instalacion',
         'duda',
         'video',
+        'youtube',
+        'odysee',
+        'patojad',
     ]
 category: ['Noticias']
 img: 'https://i.postimg.cc/7LZrf5KL/video.png'
