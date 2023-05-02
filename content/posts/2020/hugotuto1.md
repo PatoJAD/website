@@ -1,19 +1,19 @@
 ---
-title: "Hugo CMS - Instalación y Creación del Proyecto"
-date: "2020-03-30 13:04:00"
-description: "Hugo es un CMS estatico muy practico y poderoso. Si bien cuenta con alguna limitacion es altametne recomendable"
-type: "programacion"
-tags: ["hugo", "cms", "instlacion", "pryecto"]
-category: ["Programacion"]
-img: "https://university.tenten.co/uploads/default/original/1X/9522addc8fc8819adee955f85d0dbf9f83d66443.png"
-authors: ["PatoJAD"]
+title: 'Hugo CMS - Instalación y Creación del Proyecto'
+date: '2020-03-30 13:04:00'
+description: 'Hugo es un CMS estatico muy practico y poderoso. Si bien cuenta con alguna limitacion es altametne recomendable'
+type: 'programacion'
+tags: ['hugo', 'cms', 'instlacion', 'pryecto']
+category: ['Programacion']
+img: 'https://university.tenten.co/uploads/default/original/1X/9522addc8fc8819adee955f85d0dbf9f83d66443.png'
+authors: ['PatoJAD']
 ---
 
 Hugo es un generador de sitios web estáticos escrito en Go, y es software libre. Los generadores de sitios web estáticos, aunque tienen limitaciones, son muy interesantes por generar sitios muy rápidos y seguros.
 
 ## Instalacion
 
-{{< youtube code="ezeWY2RLUXY" >}}
+{{< youtube id="ezeWY2RLUXY" >}}
 
 Como se explica en el video es posible utilizar la verion de hugo que se encuentra en los repositorios de la distribucion que tenemos instalada. Sin embargo, no suele estar la version mas actual en el repositorio, y esto puede darnos problemas a la hora de pronerlo en produccion. Asi que tambien podemos instalarlo con Brew.
 

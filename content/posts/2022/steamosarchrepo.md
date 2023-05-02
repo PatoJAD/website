@@ -33,7 +33,7 @@ Antes que nada te dejo el link donde vas a poder ver los repositorios posibles y
 
 ## Video
 
-{{< youtube code="dY6ISmFUlTY" >}}
+{{< youtube id="dY6ISmFUlTY" >}}
 
 ## Comandos
 

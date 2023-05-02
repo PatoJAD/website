@@ -3,10 +3,10 @@ title: 'PrimeOS: Android en tu PC'
 date: '2018-12-26'
 description: 'PrimeOS un android para tu PC'
 type: 'noticias'
-tags: ["PrimeOS","PC","Android"]
-category: ["noticias"]
+tags: ['PrimeOS', 'PC', 'Android']
+category: ['noticias']
 img: https://i.postimg.cc/cL1qyB0x/prime-Os-Artwork2-X.png'
-authors: ["PatoJAD"]
+authors: ['PatoJAD']
 ---
 
 Hace tiempo pasaron proyectos como RemixOS o Phoenix OS pero perdieron el enfoque callendo en el olvido y terminando por desaparecer. Sin embargo Android en una PC es una buena salida para todos aquellos que tenemos algún equipo antiguo en el cual nos sirve para estudiar o realizar búsquedas y demás.
@@ -23,6 +23,6 @@ Mi único Problema, por el cual instalé en ese equipo MX Linux tras la prueba, 
 
 Si bien la instalación es muy simple y la puede hacer un Usuario novato o un Usuario avanzado sin problemas, les recomiendo ver este hermoso tutorial que realizó nuestro amigo Cumpi un gran Linuxnauta que lleva mucho tiempo colaborando con comunidades y enseñando desde su canal.
 
-{{< youtube code="3yoQSKFojt0" >}}
+{{< youtube id="3yoQSKFojt0" >}}
 
 También les dejo el {{< textlink url="https://www.primeos.in/download" text="link" >}} de descarga de la beta.

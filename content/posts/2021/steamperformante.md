@@ -1,12 +1,12 @@
 ---
-title: "Reducir consumo de Steam"
-date: "2021-03-11 09:50:00.00"
-description: "Todos algunas vez jugamos al pokemon de GBA, ya sea el Amarillo, El Rojo Fuejo, el Zafari o cualquier otro."
-type: "juegos"
-tags: ["steam","valve","client","consumo","performance","mejorar"]
-category: ["Juegos"]
-img:  "https://arc-anglerfish-arc2-prod-infobae.s3.amazonaws.com/public/767U3KQXVFG27ORY34QLGRUV6Y.jpg"
-authors: ["PatoJAD"]
+title: 'Reducir consumo de Steam'
+date: '2021-03-11 09:50:00.00'
+description: 'Todos algunas vez jugamos al pokemon de GBA, ya sea el Amarillo, El Rojo Fuejo, el Zafari o cualquier otro.'
+type: 'juegos'
+tags: ['steam', 'valve', 'client', 'consumo', 'performance', 'mejorar']
+category: ['Juegos']
+img: 'https://arc-anglerfish-arc2-prod-infobae.s3.amazonaws.com/public/767U3KQXVFG27ORY34QLGRUV6Y.jpg'
+authors: ['PatoJAD']
 ---
 
 Steam es una de las plataformas de videojuegos más grandes del mundo. Y los usuarios de linux contamos con esta plataforma nativa desde hace muchos años. En esta oportunidad vamos a intentar sacarle un poco más de provecho reduciendo el consumo de la plataforma para poder obtener un mejor resultado a la hora de jugar en nuestros equipos. Es posible jugar en equipos de pocos recursos y lo mejor es tratar de optimizar el consumo de todo el sistema en general.
@@ -17,7 +17,7 @@ Steam es una de las plataformas de videojuegos más grandes del mundo. Y los usu
 
 Claramente una mejor explicación requiere de un video que hable por sí solo. En esta oportunidad les dejo la explicación de como funciona esto que vamos a hacer el día de hoy.
 
-{{< youtube code="jZJwsmZ2t0g" >}}
+{{< youtube id="jZJwsmZ2t0g" >}}
 
 ## Terminal
 

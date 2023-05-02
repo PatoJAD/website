@@ -3,10 +3,22 @@ title: 'Libre ¿Es gratis?'
 date: '2021-09-09 08:10:00'
 description: 'En estos días recordé un viejo debate que creí que estaba erradicado. Y por esto mismo propuse realizar una encuesta en el canal de telegram y la distribui por diversos grupos...'
 type: 'noticias'
-tags: ["youtube", "video", "free", "freedom", "libertad", "gratis", "2021", "pago", "software", "debian"]
-category: ["Noticias"]
+tags:
+    [
+        'youtube',
+        'video',
+        'free',
+        'freedom',
+        'libertad',
+        'gratis',
+        '2021',
+        'pago',
+        'software',
+        'debian',
+    ]
+category: ['Noticias']
 img: 'https://i.postimg.cc/Kv8ZPy1s/libregratis.png'
-authors: ["PatoJAD"]
+authors: ['PatoJAD']
 ---
 
 En estos días recordé un viejo debate que creí que estaba erradicado. Y por esto mismo propuse realizar una encuesta en el canal de telegram y la distribui por diversos grupos...
@@ -21,7 +33,7 @@ Viendo los resultados de la encuesta, comprendí que muchos realmente no compren
 
 Lamentablemente la gente entiende por software libre “Software Gratis” y en base a eso se niega a colaborar, y no solo hablamos de dinero, se niega a colaborar con su tiempo. Por eso mismo realicé este video, por ahi un tanto largo a lo que estoy acostumbrado, pero permite entender un poco el detrás de una app y porqué no, invitarnos a una reflexión.
 
-{{< youtube code="y8jAcqDZYu4" >}}
+{{< youtube id="y8jAcqDZYu4" >}}
 
 Durante todo el video hago algunas referencia a material de terceros, o anuncio múltiples veces que no es algo que yo saco de la galera, por eso mismo dejo a continuación material al que referencio explícitamente o implícitamente.
 

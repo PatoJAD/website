@@ -1,12 +1,22 @@
 ---
-title: "Activar Multilib Artix"
-date: "2021-03-24 17:03:00"
-description: "En esta oportunidad volvemos con un tutorial orientado a Artix Linux o mejor dicho a Arch en general."
-type: "linux"
-tags: ["artix", "arch", "video", "multilib", "pacman", "wine", "steam", "paqueteria"]
-category: ["Linux"]
-img: "https://ubunlog.com/wp-content/uploads/2019/12/flatpak-cover.png"
-authors: ["PatoJAD"]
+title: 'Activar Multilib Artix'
+date: '2021-03-24 17:03:00'
+description: 'En esta oportunidad volvemos con un tutorial orientado a Artix Linux o mejor dicho a Arch en general.'
+type: 'linux'
+tags:
+    [
+        'artix',
+        'arch',
+        'video',
+        'multilib',
+        'pacman',
+        'wine',
+        'steam',
+        'paqueteria',
+    ]
+category: ['Linux']
+img: 'https://ubunlog.com/wp-content/uploads/2019/12/flatpak-cover.png'
+authors: ['PatoJAD']
 ---
 
 En esta oportunidad volvemos con un tutorial orientado a Artix Linux o mejor dicho a Arch en general. Si bien puede que los usuarios más habituales esto lo tengan incorporado. Puede que los usuarios nuevos no lo sepan o ignoren esto por lo cual quería dejar un video conciso.
@@ -15,7 +25,7 @@ En esta oportunidad volvemos con un tutorial orientado a Artix Linux o mejor dic
 
 Como estoy intentando actualizarse con los videos estoy intentando ser conciso y dar la información sin divagar mucho.
 
-{{< youtube code="OusBLacPkPA" >}}
+{{< youtube id="OusBLacPkPA" >}}
 
 ## Adicional
 

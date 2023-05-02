@@ -1,27 +1,27 @@
 ---
-title: "Webservice NodeJS y MariaDB 2 - Creando Base de Datos e iniciando Proyecto"
-date: "2021-08-02 10:00:00"
-description: "Creando Base de Datos e iniciando Proyecto"
-type: "programacion"
+title: 'Webservice NodeJS y MariaDB 2 - Creando Base de Datos e iniciando Proyecto'
+date: '2021-08-02 10:00:00'
+description: 'Creando Base de Datos e iniciando Proyecto'
+type: 'programacion'
 tags:
-  [
-    "nodejs",
-    "instalacion",
-    "mariadb",
-    "npm",
-    "webservice",
-    "curso",
-    "sql",
-    "mysql",
-  ]
-category: ["Programacion"]
-img: "https://i.postimg.cc/Nfbbr995/curso-2.png"
-authors: ["PatoJAD"]
+    [
+        'nodejs',
+        'instalacion',
+        'mariadb',
+        'npm',
+        'webservice',
+        'curso',
+        'sql',
+        'mysql',
+    ]
+category: ['Programacion']
+img: 'https://i.postimg.cc/Nfbbr995/curso-2.png'
+authors: ['PatoJAD']
 ---
 
 Sabiendo que ya tenemos instalado lo necesario vamos a preparar nuestro entorno creando la base de datos y subiendo los datos que necesitamos:
 
-{{< youtube code="BllyitZzO0g">}}
+{{< youtube id="BllyitZzO0g">}}
 
 Dejo a continuación el script que utilizamos:
 

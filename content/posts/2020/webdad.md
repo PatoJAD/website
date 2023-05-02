@@ -25,7 +25,7 @@ Hace ya un tiempo di mi opinión sobre {{< textlink url="/instalaciones/2020/11/
 
 Vamos a hablar de este sabor de manjaro que viene con el escritorio JADE. En particular no voy a extenderme con las novedades de su escritorio, dado que ya mucho lo hicieron en youtube. Pero si quiero plantar lo que puede llegar a significar este tipo de cambio y perspectiva.
 
-{{< youtube code="jGdmbYL3JB4" >}}
+{{< youtube id="jGdmbYL3JB4" >}}
 
 Como prometí en el video voy a dejar algunos datos sobre la distro que pueden llegar a ser muy interesantes.
 

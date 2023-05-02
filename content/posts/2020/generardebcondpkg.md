@@ -1,19 +1,19 @@
 ---
-title: "¿Como crear un deb con dpkg?"
-date: "2020-04-02 10:14:00"
-description: "En este caso vamos a usar DPKG para crear un instalador .deb para nuestro sistema o nuestros repositorios"
-type: "programacion"
-tags: ["dpkg", "deb", "debian", "crear", "generar"]
-category: ["Programacion"]
-img: "https://vfac.fr/images/e/8/2/b/b/e82bbef495c9dc36327d78ceef224abae2ab2f7f-debianubuntupackage.png"
-authors: ["PatoJAD"]
+title: '¿Como crear un deb con dpkg?'
+date: '2020-04-02 10:14:00'
+description: 'En este caso vamos a usar DPKG para crear un instalador .deb para nuestro sistema o nuestros repositorios'
+type: 'programacion'
+tags: ['dpkg', 'deb', 'debian', 'crear', 'generar']
+category: ['Programacion']
+img: 'https://vfac.fr/images/e/8/2/b/b/e82bbef495c9dc36327d78ceef224abae2ab2f7f-debianubuntupackage.png'
+authors: ['PatoJAD']
 ---
 
 Existen muchas formas de crear un instalable .deb para nuestros sistemas. En este caso vamos a ver uno de los metodos, probablemente el mas simple de todos y uno de los mas utiles por su practicidad.
 
 ## ¿Como funciona?
 
-{{< youtube code="mHqRbo1A5MM" >}}
+{{< youtube id="mHqRbo1A5MM" >}}
 
 Como se puede apreciar en el video lo que debemos hacer es organizar las carpetas de nuestro programa como si estuvieramso en el directorio raiz (en el caso practico en la carpeta deb tomamos como si fuera raiz para posicionar todos los archivos en la pocicion que deben quedar post intalacion)
 

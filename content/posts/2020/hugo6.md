@@ -1,19 +1,19 @@
 ---
-title: "Hugo CMS - Taxonomias y Metadata"
-date: "2020-05-12 10:01:00"
-description: "Hoy trabajamos un poco con las taxonomias y la metadata del sitio"
-type: "programacion"
-tags: ["hugo", "cms", "taxonomias", "metadata"]
-category: ["Programacion"]
-img: "https://i.postimg.cc/vHQFB39W/gohugoio-card-1.png"
-authors: ["PatoJAD"]
+title: 'Hugo CMS - Taxonomias y Metadata'
+date: '2020-05-12 10:01:00'
+description: 'Hoy trabajamos un poco con las taxonomias y la metadata del sitio'
+type: 'programacion'
+tags: ['hugo', 'cms', 'taxonomias', 'metadata']
+category: ['Programacion']
+img: 'https://i.postimg.cc/vHQFB39W/gohugoio-card-1.png'
+authors: ['PatoJAD']
 ---
 
 Vamos a ir revisando un poco las taxonomias y vamos a ir complementando la metadata con las taxonomias. Es algo simple pero ayuda mucho.
 
 ## Video
 
-{{< youtube code="lZ63cdVJk2c" >}}
+{{< youtube id="lZ63cdVJk2c" >}}
 
 ## Info Util
 

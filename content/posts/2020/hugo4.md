@@ -11,7 +11,7 @@ authors: ['PatoJAD']
 
 Es lógico querer poner la fecha de nuestro sitio en nuestro idioma, incluso querer hacerlo multi idioma. Para esto nuestro amigo {{< textlink text="Tehuel" url="https://tehuel.blog/" >}} nos facilita una "hack" para poder hacerlo!
 
-{{< youtube code="NfGVnzbcZ-g" >}}
+{{< youtube id="NfGVnzbcZ-g" >}}
 
 ## Codigo
 

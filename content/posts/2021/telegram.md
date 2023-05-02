@@ -3,10 +3,10 @@ title: '¿Como crear una instancia de Telegram para mi comunidad?'
 date: '2021-03-18 10:23:00'
 description: 'Hablemos la nueva versión de Telegram Web de la Comunidad y como instalarlo en tu sitio'
 type: 'aplicaciones'
-tags: ["telegram", "web", "online", "sitio", "mi", "tu", "instalar" , "gratis"]
-category: ["Aplicaciones"]
+tags: ['telegram', 'web', 'online', 'sitio', 'mi', 'tu', 'instalar', 'gratis']
+category: ['Aplicaciones']
 img: 'https://i.postimg.cc/TYsyTXLM/image.png'
-authors: ["PatoJAD"]
+authors: ['PatoJAD']
 ---
 
 Ya hablamos con anterioridad sobre nuestra instancia de Telegram para todos los usuarios. Y como mencionamos en aquella oportunidad es muy simple para todos aquellos que quieran levantar una instancia. Por eso mismo, hoy, vamos a ver el paso a paso de cómo debemos realizar nuestra propia instancia a partir de la instancia.
@@ -17,7 +17,7 @@ Ya hablamos con anterioridad sobre nuestra instancia de Telegram para todos los 
 
 Lo más cómodo para esto es armar un video donde puedan ver paso a paso como realizarlo por eso mismo les dejo el video de como poder hacerlo. Y abajo los comandos que probablemente necesiten.
 
-{{< youtube code="UFaWdrHbT54" >}}
+{{< youtube id="UFaWdrHbT54" >}}
 
 ## Clonar Proyecto
 

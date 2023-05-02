@@ -36,7 +36,7 @@ Para poder realizar esto vamos a necesitar instalar previamente **Homebrew**, pe
 
 Ya teniendo homebrew instalado correctamente podemos proceder a instalarlo, para que puedas seguirlo paso a paso dejo el video a continuación:
 
-{{< youtube code="PJojM__8bBI" >}}
+{{< youtube id="PJojM__8bBI" >}}
 
 El comando utilizado para esta ocasión es el que dejaré a continuación. En caso de querer pegar en la terminal de linux se suele hacer con `ctrl`+`shift`+`v` sino podes utilizar el mouse con `click derecho` -> `pegar` dependiendo de tu terminal:
 

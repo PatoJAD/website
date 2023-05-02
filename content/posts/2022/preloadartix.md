@@ -3,15 +3,27 @@ title: 'Instalar Preload en Arch'
 date: '2022-02-03 09:22:00'
 description: 'Preload es una aplicación que nos permite precargar aplicaciones en la memoria RAM para aumentar la fluidez del sistema operativo aumentando a su vez el consumo de RAM durante el inicio.'
 type: 'aplicaciones'
-tags: ["pacman", "yay", "aur", "manjaro", "artix", "arch", "preload", "endeavour", "systemd", "openrc"]
-category: ["Aplicaciones"]
+tags:
+    [
+        'pacman',
+        'yay',
+        'aur',
+        'manjaro',
+        'artix',
+        'arch',
+        'preload',
+        'endeavour',
+        'systemd',
+        'openrc',
+    ]
+category: ['Aplicaciones']
 img: 'https://i.postimg.cc/ZK9QxCk7/preload.png'
-authors: ["PatoJAD"]
+authors: ['PatoJAD']
 ---
 
 Preload es una aplicación que toma estadísticas de nuestro uso de aplicaciones y precarga en memoria todas aquellas que más usamos al prender el equipo. Gracias a esto podemos ver una fluidez más amplia al abrir estas aplicaciones. Y a costa de esta fluidez nuestro sistema inicia con más memoria RAM ocupada. Muchos se debaten si esta técnica es útil o no y por eso te dejo primero un video con mi postura sobre esto.
 
-{{< youtube code="HVCqSfdTdUs" >}}
+{{< youtube id="HVCqSfdTdUs" >}}
 
 Dejando aclarada mi postura de más está decir que cualquier postura con fundamentos es válida y si preferís no ocupar RAM te recomiendo que no instales **Preload** aunque vas a perderte la fluidez adicional que esto nos da.
 
@@ -19,7 +31,7 @@ Dejando aclarada mi postura de más está decir que cualquier postura con fundam
 
 En el siguiente video vemos como se realiza la instalación de preload (con yay en mi caso pero podes usar tu gestor favorito) y cómo habilitarlo en cualquier base **Arch** con **SystemD** y también en **Artix** con **OpenRC** (En esta oportunidad no use **Runit** pero con una búsqueda simple podes adaptarlo)
 
-{{< youtube code="6NoYA9Rtp2s" >}}
+{{< youtube id="6NoYA9Rtp2s" >}}
 
 ## Código
 

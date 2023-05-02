@@ -3,15 +3,24 @@ title: 'Crea tus QR Personalizados y Gratis'
 date: '2021-09-16 10:03:00'
 description: 'Herramienta gratuita para crear códigos QR totalmente personalizados y muy fácil de usar creada por Lynx (LSD).'
 type: 'aplicaciones'
-tags: ["qr", "generator", "personalizado", "lynx", "generador", "codigo", "gratis"]
-category: ["Aplicaciones"]
+tags:
+    [
+        'qr',
+        'generator',
+        'personalizado',
+        'lynx',
+        'generador',
+        'codigo',
+        'gratis',
+    ]
+category: ['Aplicaciones']
 img: 'https://i.postimg.cc/Mp0B2RhY/image.png'
-authors: ["PatoJAD"]
+authors: ['PatoJAD']
 ---
 
 En esta oportunidad vamos a hablar de una pequeña app o aplicativo web desarrollado por Lynx, un proyecto que quiero dar forma desde hace mucho pero es realmente complejo. Este pequeño aplicativo nos permite realizar códigos QR personalizados completamente gratis.
 
-{{< youtube code="2lC-j860R4g" >}}
+{{< youtube id="2lC-j860R4g" >}}
 
 Si te interesa utilizarlo te dejo la URL del QR Generator creado por Lynx.
 

@@ -3,10 +3,24 @@ title: 'NVIDIA Libera sus drivers ¿Una amistad con el Software Libre?'
 date: '2022-05-12 08:10:00'
 description: 'En base a la gran amenaza realizada por los hackers que robaron la información de NVIDIA ya tenemos Drivers Libres'
 type: 'noticias'
-tags: ["nvidia", "drivers", "driver", "controladores", "libre", "libres", "open source", "china", "windows", "nvidia open source", "drivers libres", "controladores libres"]
-category: ["Noticias"]
+tags:
+    [
+        'nvidia',
+        'drivers',
+        'driver',
+        'controladores',
+        'libre',
+        'libres',
+        'open source',
+        'china',
+        'windows',
+        'nvidia open source',
+        'drivers libres',
+        'controladores libres',
+    ]
+category: ['Noticias']
 img: 'https://i.postimg.cc/Dzc4KjhV/Sin-nombre.png'
-authors: ["PatoJAD"]
+authors: ['PatoJAD']
 ---
 
 Al inicio del año, los primeros días de marzo de este año mientras yo me adaptaba a mi recién nacido hijo, por otra parte del mundo unos hackers se decidieron por hackear nvidia.
@@ -29,8 +43,8 @@ También podemos ver su anuncio oficial (realizado el 11 de mayo) Donde nos dan 
 
 Te dejo un pequeño video sobre mi análisis del caso y un poco resumida la historia, también sumando un poco del contexto actual que promete poner varias cartas a favor de GNU/Linux
 
-{{< youtube code="FZA1VfMaP94" >}}
+{{< youtube id="FZA1VfMaP94" >}}
 
-{{< info text="Gracias por estar acá, si no es molestia te pido un ultimo favor mas, podrias unirte a la comunidad de telegram o apoyarme suscribiendote a youtube o a Odysee, es completamente gratis y vale muchisimo." >}} 
+{{< info text="Gracias por estar acá, si no es molestia te pido un ultimo favor mas, podrias unirte a la comunidad de telegram o apoyarme suscribiendote a youtube o a Odysee, es completamente gratis y vale muchisimo." >}}
 
 ¿Puede entonces volverse ahora la mejor opción para linux las NVIDIA? esto lo vamos a ir viendo en no mucho tiempo.

@@ -1,17 +1,17 @@
 ---
-title: "Webservice NodeJS y MariaDB 1 - Instalacion de NodeJS NPM y MariaDB"
-date: "2021-07-29 09:50:00"
-description: "Instalacion de NodeJS NPM y MariaDB"
-type: "programacion"
-tags: ["nodejs", "instalacion", "mariadb", "npm", "webservice", "curso"]
-category: ["Programacion"]
-img: "https://i.postimg.cc/xdNP76sz/curso-1.png"
-authors: ["PatoJAD"]
+title: 'Webservice NodeJS y MariaDB 1 - Instalacion de NodeJS NPM y MariaDB'
+date: '2021-07-29 09:50:00'
+description: 'Instalacion de NodeJS NPM y MariaDB'
+type: 'programacion'
+tags: ['nodejs', 'instalacion', 'mariadb', 'npm', 'webservice', 'curso']
+category: ['Programacion']
+img: 'https://i.postimg.cc/xdNP76sz/curso-1.png'
+authors: ['PatoJAD']
 ---
 
 En esta primera etapa del curso vamos a instalar las dependencias necesarias para poder realizar el curso. En mi caso estoy usando una distribución basada en arch, pero en caso de que dispongan de otra distribucion voy a dejar la documentación de como instalar las dependencias
 
-{{< youtube code="qWyRs1Zlevk" >}}
+{{< youtube id="qWyRs1Zlevk" >}}
 
 ### Ubuntu
 

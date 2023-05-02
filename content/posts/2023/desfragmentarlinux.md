@@ -1,28 +1,28 @@
 ---
-title: "Como Desfragmentar nuestro GNU/Linux"
-date: "2023-01-25 08:47:00.00"
-description: "Si bien muchas personas creen que no es necesario desfragmentar en linux hoy vamos a ver como realizar este útil proceso."
-type: "linux"
+title: 'Como Desfragmentar nuestro GNU/Linux'
+date: '2023-01-25 08:47:00.00'
+description: 'Si bien muchas personas creen que no es necesario desfragmentar en linux hoy vamos a ver como realizar este útil proceso.'
+type: 'linux'
 tags:
-  [
-    "ext4",
-    "desfragmentar",
-    "disco",
-    "ubuntu",
-    "debian",
-    "arch",
-    "mx linux",
-    "antix",
-    "artix",
-  ]
-category: ["Linux"]
-img: "https://www.solvetic.com/uploads/tutorials/monthly_01_2018/e59d1d31ab38713f3530b2648845ca7d.png"
-authors: ["PatoJAD"]
+    [
+        'ext4',
+        'desfragmentar',
+        'disco',
+        'ubuntu',
+        'debian',
+        'arch',
+        'mx linux',
+        'antix',
+        'artix',
+    ]
+category: ['Linux']
+img: 'https://www.solvetic.com/uploads/tutorials/monthly_01_2018/e59d1d31ab38713f3530b2648845ca7d.png'
+authors: ['PatoJAD']
 ---
 
 A lo largo y ancho de mi experiencia en múltiples ámbitos escuche que en **GNU/Linux** no es necesario desfragmentar. La realidad es que si bien los índices de fragmentación son más bajos que en **Windows** es realmente importante desfragmentar nuestro disco, más cuando interactuamos mucho (descargar, borrar, editar, subir) diferentes archivos y aún más si estos son pesados.
 
-{{< youtube code="YE4HwerZuOA" >}}
+{{< youtube id="YE4HwerZuOA" >}}
 
 ## e2fsprogs
 

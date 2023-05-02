@@ -1,44 +1,34 @@
 ---
-title: "Doki Doki Literature Club"
-date: "2019-08-22"
-description: "Una novela visual que rompe la expectativas de todos nosotros."
-type: "juegos"
-tags: ["itch","Doki","Juego"]
-category: ["Juegos"]
-img: "https://steamcdn-a.akamaihd.net/steam/apps/698780/header.jpg?t=1509687157"
-authors: ["PatoJAD"]
+title: 'Doki Doki Literature Club'
+date: '2019-08-22'
+description: 'Una novela visual que rompe la expectativas de todos nosotros.'
+type: 'juegos'
+tags: ['itch', 'Doki', 'Juego']
+category: ['Juegos']
+img: 'https://steamcdn-a.akamaihd.net/steam/apps/698780/header.jpg?t=1509687157'
+authors: ['PatoJAD']
 ---
 
->## ¡Hola, Monika aquí!
+> ## ¡Hola, Monika aquí!
 >
+> ¡Bienvenido al Club de Literatura! Siempre ha sido un sueño para mí hacer algo especial con las cosas que amo. ¡Ahora que eres miembro del club, puedes ayudarme a hacer realidad ese sueño en este lindo juego!
 >
+> Todos los días están llenos de chit-chat y actividades divertidas con todos mis adorables y únicos miembros del club:
 >
->¡Bienvenido al Club de Literatura! Siempre ha sido un sueño para mí hacer algo especial con las cosas que amo. ¡Ahora que eres miembro del club, puedes ayudarme a hacer realidad ese sueño en este lindo juego!
+> -   Sayori, el joven rayo de sol que valora más la felicidad;
+> -   Natsuki, la chica engañosamente linda que tiene un golpe contundente;
+> -   Yuri, el tímido y misterioso que encuentra consuelo en el mundo de los libros;
+> -   ... Y, por supuesto, ¡Monika, la líder del club! ¡Ese soy yo!
 >
->Todos los días están llenos de chit-chat y actividades divertidas con todos mis adorables y únicos miembros del club:
+> Estoy muy emocionado de que hagas amigos con todos y ayudes al Literature Club a convertirse en un lugar más íntimo para todos mis miembros. Pero ya puedo decir que eres una novia, ¿prometes pasar la mayor parte del tiempo conmigo? ♥
 >
-> * Sayori, el joven rayo de sol que valora más la felicidad;
->* Natsuki, la chica engañosamente linda que tiene un golpe contundente;
->* Yuri, el tímido y misterioso que encuentra consuelo en el mundo de los libros;
->* ... Y, por supuesto, ¡Monika, la líder del club! ¡Ese soy yo!
->
->Estoy muy emocionado de que hagas amigos con todos y ayudes al Literature Club a convertirse en un lugar más íntimo para todos mis miembros. Pero ya puedo decir que eres una novia, ¿prometes pasar la mayor parte del tiempo conmigo? ♥
->
->{{< citaname name="Team Salvato" >}}
-
-
+> {{< citaname name="Team Salvato" >}}
 
 De esta forma se presenta ante todos nosotros su página en itch.io (perdón por no traducirlo manualmente y utilizar algo automático, pero no disponía del tiempo) junto a un video creado por nada más ni nada menos que la gente de Team Salvato. Cuyo video podemos verlo aquí
 
-
-
-{{< youtube code="kB1663FTpzU" >}}
-
-
+{{< youtube id="kB1663FTpzU" >}}
 
 En mi vida hubiera pensado en jugar este juego, no me gustan las novelas visuales y menos las cosas cursis. Pero tras ver una serie de 3 videos (que sin ningún tipo de autorización pienso compartir) el juego demostró estar a otro nivel y mereció unas amplias horas de juegos.
-
- 
 
 {{< img src="https://ddlc.moe/images/screen2.png" >}}
 
@@ -50,20 +40,11 @@ En mi vida hubiera pensado en jugar este juego, no me gustan las novelas visuale
 
 El juego va tomando dinámica a medida que vamos eligiendo y vamos viendo cómo va tomando un giro inesperado. Si te cuesta comenzar con este juego por alguna especie de prejuicio te recomiendo ver estos 3 videos, aunque solo con el primero y la mitad del 2 alcanza para que nos pique el bicho de la curiosidad.
 
+{{< youtube id="8WllK9PYJ9w" >}}
 
+{{< youtube id="4zMAG06dLJU" >}}
 
-
-{{< youtube code="8WllK9PYJ9w" >}}
-
-
-
-{{< youtube code="4zMAG06dLJU" >}}
-
-
-
-{{< youtube code="EDEBtGg2VaA" >}}
-
-
+{{< youtube id="EDEBtGg2VaA" >}}
 
 {{< link text="Steam" url="https://store.steampowered.com/app/698780/Doki_Doki_Literature_Club/" >}}
 

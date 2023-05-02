@@ -3,15 +3,15 @@ title: 'Dia internacional de la Mujer - La lucha continua'
 date: '2021-03-08 12:10:00'
 description: 'Hoy es el día internacional de la mujer, y por eso creemos que es nuestra responsabilidad hablar del tema como corresponde...'
 type: 'noticias'
-tags: ["mujer", "dia", "internacional", "igualdad", "8m", "lucha"]
-category: ["Noticias"]
+tags: ['mujer', 'dia', 'internacional', 'igualdad', '8m', 'lucha']
+category: ['Noticias']
 img: 'https://i0.wp.com/diariodemujeres.com/wp-content/uploads/2017/03/dia-de-la-mujer_047.jpg?fit=956%2C932&ssl=1'
-authors: ["PatoJAD"]
+authors: ['PatoJAD']
 ---
 
 Hoy es el día internacional de la mujer, y por eso creemos que es nuestra responsabilidad hablar del tema como corresponde, puede que esto se “aleje” un poco de la temática del blog, pero es importante hablar de estos temas siempre.
 
-{{< youtube code="WXHezQ4khdg" >}}
+{{< youtube id="WXHezQ4khdg" >}}
 
 El Día Internacional de la Mujer, también conocido como Día Internacional de la Mujer Trabajadora, conmemora la lucha de la mujer por su participación dentro de la sociedad, en pie de emancipación de la mujer y en su desarrollo íntegro como persona. Se conmemora el 8 de marzo.​ Fue institucionalizado por las Naciones Unidas en 1975 con el nombre de Día Internacional de la Mujer.
 
@@ -21,10 +21,9 @@ El Día Internacional de la Mujer, también conocido como Día Internacional de 
 
 A lo largo de la humanidad siempre las peleas fueron en busca de la igualdad. Es un instinto en algunos seres intentar marcar superioridad. Pero hoy todos sabemos que eso no existe, no importa raza, **género**, color, creencia, ni nada… Somos todos iguales y todos debemos ser tratados con igualdad.
 
-{{< youtube code="Iobgyyi1tvE" >}}
+{{< youtube id="Iobgyyi1tvE" >}}
 
 Este dia, mas que nunca, todos juntos debemos pelear por la igualdad, una lucha que solo se pierde si dejamos de pelear.
-
 
 ## Historia
 

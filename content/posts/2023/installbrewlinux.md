@@ -26,7 +26,7 @@ Muchas veces tenemos que instalar dependencias o paquetes y en nuestros reposito
 
 ## Video
 
-{{< youtube code="yExijeK0X3U" >}}
+{{< youtube id="yExijeK0X3U" >}}
 
 ## Comandos
 

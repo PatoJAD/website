@@ -24,7 +24,7 @@ hoy vamos a ver como instalar **git** en **Windows** utilizando _winget_ el gest
 
 ## video
 
-{{< youtube code="LKnMeKqkjfk" >}}
+{{< youtube id="LKnMeKqkjfk" >}}
 
 ## Comando
 

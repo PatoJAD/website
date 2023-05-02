@@ -29,7 +29,7 @@ authors: ['PatoJAD']
 
 ## Video
 
-{{< youtube code="5lMSYgKbZUc" >}}
+{{< youtube id="5lMSYgKbZUc" >}}
 
 ## Comandos
 

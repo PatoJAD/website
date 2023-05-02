@@ -1,19 +1,19 @@
 ---
-title: "Hugo CMS - Partials y BaseOf"
-date: "2020-04-02 10:01:00"
-description: "Ya teniendo nuestro sitio instalado podemos comenzar a modelar un theme para poder acomodarlo a nuestras necesidades"
-type: "programacion"
-tags: ["hugo", "cms", "partials", "baseof", "gougo", "tutorial", "curso"]
-category: ["Programacion"]
-img: "https://i9.ytimg.com/vi/mdjb-e6u8pk/mqdefault.jpg?time=1585832703647&sqp=CPzFl_QF&rs=AOn4CLA0SOo9x7g-KzbCyXGAoLLvL6_qhg"
-authors: ["PatoJAD"]
+title: 'Hugo CMS - Partials y BaseOf'
+date: '2020-04-02 10:01:00'
+description: 'Ya teniendo nuestro sitio instalado podemos comenzar a modelar un theme para poder acomodarlo a nuestras necesidades'
+type: 'programacion'
+tags: ['hugo', 'cms', 'partials', 'baseof', 'gougo', 'tutorial', 'curso']
+category: ['Programacion']
+img: 'https://i9.ytimg.com/vi/mdjb-e6u8pk/mqdefault.jpg?time=1585832703647&sqp=CPzFl_QF&rs=AOn4CLA0SOo9x7g-KzbCyXGAoLLvL6_qhg'
+authors: ['PatoJAD']
 ---
 
 Ya vimos la {{< textlink text="instalacion" url="/programacion/2020/03/hugo-cms-instalación-y-creación-del-proyecto/" >}} de este CMS y ya podemos tener nuestro proyecto creado. Sin embargo, esto es solo el primer paso; a partir de ahora debemos iniciar a modelar nuestro proyecto y para tal vamos a empezar a conocer un poco su estructura.
 
 ## Partials y BaseOf
 
-{{< youtube code="mdjb-e6u8pk" >}}
+{{< youtube id="mdjb-e6u8pk" >}}
 
 En este video podemos ver un poco el funcionamiento de partials y una explicacion de como se crean. Para poder optimizar el tiempo voy a dejar aqui una breve explicacion con codigo de como se llama a un partial.
 

@@ -31,7 +31,7 @@ authors: ['PatoJAD']
 
 Desde que arme el video de de la review de **Huayra** y su instalación (el cual pueden ver acá abajo) muchos comentarios me llegaban con **problemas de instalación**, y el último fue la semana pasada de la mano de un miembro de la comunidad llamado **Nicolas Ojeda** (al que le mando un fuerte saludo) con el cual indagando un rato (como otras veces en la comunidad) llegamos a la clara solución y la idea es dejar documentada esta solución para personas que tengan el mismo error con esta, o cualquier otra, distribución.
 
-{{< youtube code="t-Mx2ZaPTP4" >}}
+{{< youtube id="t-Mx2ZaPTP4" >}}
 
 ## El error
 

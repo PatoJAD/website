@@ -28,7 +28,7 @@ Vamos a ver como realizar la instalación de **Visual Studio Code** de una forma
 
 Para que puedas seguirlo paso a paso dejo el video a continuación:
 
-{{< youtube code="LjYbsXcXilA" >}}
+{{< youtube id="LjYbsXcXilA" >}}
 
 El comando utilizado para esta ocasión es el que dejaré a continuación. En caso de querer pegar en la terminal de windows se suele hacer con `ctrl`+`v` sino podes utilizar el mouse con `click derecho` -> `pegar` dependiendo de tu terminal:
 

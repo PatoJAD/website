@@ -15,13 +15,13 @@ Vamos a hablar de un gran proyecto que está naciendo como la unión de muchas c
 
 Les dejo un video en el que vamos a estar hablando sobre este tema, lo que la comunidad significa para nosotros y obviamente como puedes unirte a nuestra comunidad… Y como podes unir a tu comunidad… Así mismo también tenes toda la información de cómo se puede ayudar con esto.
 
-{{< youtube code="xnp4jLxUAKA" >}}
+{{< youtube id="xnp4jLxUAKA" >}}
 
 {{< link url="https://llg.patojad.com.ar/#/" text="Ver Sitio de LLG" >}}
 
 Si queres un poco más de información, o este video no satisface tus necesidades porque es de un "youtuber" de poca monta, te dejo aca un video de verdad de un YOUTUBER con todas la letras que te invita a unirte a esta Legión
 
-{{< youtube code="Jxi2SwwO5sk" >}}
+{{< youtube id="Jxi2SwwO5sk" >}}
 
 ## Te facilito las Redes
 

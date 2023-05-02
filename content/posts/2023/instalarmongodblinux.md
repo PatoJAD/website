@@ -34,7 +34,7 @@ Vamos a ver como realizar la instalacion de **MongoDB** en nuestra distribucion 
 
 En el video sigo los pasos para la instalacion en cualquier distribucion base Arch linux que es la que utilizo yo, sin embargo en la parte de abajo dejare la forma de realizarlo en distintas distribuciones
 
-{{< youtube code="tQk0Q8rBkHY" >}}
+{{< youtube id="tQk0Q8rBkHY" >}}
 
 ## Comando para Arch Linux
 
