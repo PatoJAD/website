@@ -3,8 +3,21 @@ title: 'Poner las paginas de man en español'
 date: '2019-01-15'
 description: 'Hoy veamos como traducir tu manual para linux'
 type: 'linux'
-tags: ['manual', 'man', 'español', 'terminal', 'consola', 'shell', 'traducir']
-category: ['Linux']
+tags:
+    [
+        'manual',
+        'man',
+        'español',
+        'terminal',
+        'consola',
+        'shell',
+        'traducir',
+        'linux',
+        'uso',
+        'zsh',
+        'bash',
+    ]
+category: ['Linux', 'Aplicaciones']
 img: 'https://i.postimg.cc/KzCKCYTb/aplicar-la-configuracion-regional-patojad.png'
 authors: ['PatoJAD']
 ---
@@ -21,14 +34,18 @@ En esta oportunidad un video acompaña un poco esta guia/tutorial para poder sim
 
 Lo primero que debemos hacer es instalar las páginas de man en Español. Esto se encuentra en dos paquetes, una las páginas básicas y el otro contiene todas las extras que eventualmente necesitaremos. Lo podemos hacer de la siguiente forma:
 
-    sudo apt update
-    sudo apt install manpages-es manpages-es-extra
+```zsh
+sudo apt update
+sudo apt install manpages-es manpages-es-extra
+```
 
 Los paquetes son los mismos para cualquier distribución por lo cual solo debemos modificar el comando de instalación por el de nuestra distribución.
 
 Una vez finalizada la instalación puede ser que man no se encuentra aún en Español, en ese caso debemos configurar el sistema correctamente para que tome el idioma Español para man. Para esto debemos ejecutar el siguiente comando que nos permite realizar la configuración regional del sistema.
 
-    sudo dpkg-reconfigure locales
+```zsh
+sudo dpkg-reconfigure locales
+```
 
 Al ejecutarlo vamos a pasar por unos simples pasos guiados en nuestra terminal. Iniciando por un aviso en el cual se nos informa dónde vamos a ingresar.
 

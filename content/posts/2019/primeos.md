@@ -3,8 +3,22 @@ title: 'PrimeOS: Android en tu PC'
 date: '2018-12-26'
 description: 'PrimeOS un android para tu PC'
 type: 'noticias'
-tags: ['PrimeOS', 'PC', 'Android']
-category: ['noticias']
+tags:
+    [
+        'primeos',
+        'pc',
+        'android',
+        'noticias',
+        'prime',
+        'os',
+        'remix',
+        'remixos',
+        'phoenix',
+        'phoenixos',
+        'androidx86',
+        'android-x86',
+    ]
+category: ['Noticias', 'Android']
 img: https://i.postimg.cc/cL1qyB0x/prime-Os-Artwork2-X.png'
 authors: ['PatoJAD']
 ---
@@ -25,4 +39,4 @@ Si bien la instalación es muy simple y la puede hacer un Usuario novato o un Us
 
 {{< youtube id="3yoQSKFojt0" >}}
 
-También les dejo el {{< textlink url="https://www.primeos.in/download" text="link" >}} de descarga de la beta.
+También les dejo el {{< textlink url="https://www.primeos.in/download" text="link" >}} de descarga.

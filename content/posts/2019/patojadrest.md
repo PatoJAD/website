@@ -1,12 +1,23 @@
 ---
 title: 'PatoJAD Rest Client'
 date: '2019-04-10'
-description: 'El pinguino y el calefon: Un debate ensamblado en una gran comunidad linuxnauta'
+description: '¿Cuantas veces tenemos que testear una API? Y muchas veces lo hacemos desde equipos que no tienen los suficientes requisitos como para derrochar en una app solo para identificar un campo de respuesta.'
 type: 'aplicaciones'
-tags: ["REST","client"]
-category: ["Aplicaciones"]
-img:  'https://i.postimg.cc/pT9dRgtH/rest.png'
-authors: ["PatoJAD"]
+tags:
+    [
+        'rest',
+        'client',
+        'api',
+        'web',
+        'aplicaciones',
+        'programacion',
+        'patojad',
+        'patojad.com.ar',
+        'patojadrest',
+    ]
+category: ['Aplicaciones', 'Programacion']
+img: 'https://i.postimg.cc/pT9dRgtH/rest.png'
+authors: ['PatoJAD']
 ---
 
 ¿Cuantas veces tenemos que testear una API? Y muchas veces lo hacemos desde equipos que no tienen los suficientes requisitos como para derrochar en una app solo para identificar un campo de respuesta.

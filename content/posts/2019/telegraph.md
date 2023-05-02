@@ -3,10 +3,20 @@ title: 'Telegra.ph'
 date: '2019-03-29'
 description: 'Plataforma Publicación Textos'
 type: 'aplicaciones'
-tags: ["Mensajería","Aplicaciones"]
-category: ["Aplicaciones"]
+tags:
+    [
+        'mensajería',
+        'aplicaciones',
+        'telegra.ph',
+        'publicación',
+        'textos',
+        'telegra',
+        'telegraph',
+        'markdown',
+    ]
+category: ['Aplicaciones']
 img: 'https://i.postimg.cc/6qGCQRHC/remington10.png'
-authors: ["tanomarcelo"]
+authors: ['tanomarcelo']
 ---
 
 La época de una leyenda viva (a fecha de hoy) cuando hubo que mecanografiar entuertos tuvo nombre y apellido: _Remington_, _Olivetti_, _Olympia_, _Hermes_, _Imperial_, y supongo que algunas mas habrían. <br>
@@ -29,7 +39,7 @@ Qué lo parió.
 Como siempre ha sucedido, el tiempo continuó su obra maestra y oootra vez, nos encuentra ante una <font size="3"><em>actualización tecnológica</em></font> que, entre otros diretes, amontona entre sus quehaceres a una aplicación cuyo nombre _coqueto_ de protocólo tecnológico la cita como: <font size="3"><em>microplataforma de publicación</em></font>, que permite crear publicaciones con texto e imágenes usando el navegador.<br>
 Fue lanzada por _Telegram_ y se llama:
 
-# <font size="6" color="red">T</font>elegra.ph
+# Telegra.ph
 
 Cuando se accede a [Telegra.ph](https://telegra.ph) se puede ver una especie de plantilla con campos que permite el ingreso de texto:
 
@@ -48,8 +58,8 @@ Tendríamos también la posibilidad de imprimirle una edición de texto muy senc
 Si pulsamos _Enter_ cuando estamos escribiendo, se tendrá el mismo efecto que al hacerlo en un procesador de texto &#187; provoca un salto de línea y retorno de carro.<br>
 Y nos aparecerán dos íconos:
 
-* Una máquina fotográfica.
-* Dos paréntesis angulares (de cierre y de apertura).
+-   Una máquina fotográfica.
+-   Dos paréntesis angulares (de cierre y de apertura).
 
 {{< img src="https://i.postimg.cc/7PG2y3JL/04-telegraph.png" >}}
 
@@ -64,8 +74,8 @@ Una vez terminada la edición, damos un clic en _Publish_ y nos aparecerá la ob
 La _url_ incluye el _Título_ y la fecha al momento de la edición.<br>
 En la edición del post se pueden incluir texto e imágenes (como ya vimos), videos de YouTube o Vimeo y links de:
 
-* Twitter.
-* Archivos, GIF's y fotos de canales de Telegram.
+-   Twitter.
+-   Archivos, GIF's y fotos de canales de Telegram.
 
 Esta plataforma usa el editor estilo <font size="3" color="green"><em>WYSIWYG (lo que ves es lo que obtienes)</em></font>, implementado también por procesadores de texto como <font size="3" color="teal"><em>LibreOffice</em></font>.
 
@@ -76,6 +86,5 @@ Para llevar a cabo este proceso, tenemos que escrbir <font size="3" color="red" 
 
 No se tiene noticia que esta aplicación haya dado paso a un nuevo Manuel de Cervantes Saavedra, pero si que de la _Olivetti_ a <font size="5" color="red"><em>T</em></font><font size="4" color="olive">elegraph</font> hay un salto cualitativo de la san ostia.
 
-Por si te querés pegar una vuelta, [aqui](https://t.me/comunidadsoftwarelibre) nos juntamos todos los dias.<br>
+Por si te querés pegar una vuelta, [aqui](https://t.me/PatoJADCommunity) nos juntamos todos los dias.<br>
 Como para no perder el vicio de escribirnos.
-

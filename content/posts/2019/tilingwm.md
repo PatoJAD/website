@@ -3,13 +3,24 @@ title: 'Mi experiencia con los Tiling Window Managers'
 date: '2019-02-19'
 description: 'Comparativa Manejadores de Ventanas'
 type: 'linux'
-tags: ["i3-wm","Bspwm","Awesome","qtile","GNU/Linux"]
-category: ["Linux"]
+tags:
+    [
+        'i3-wm',
+        'bspwm',
+        'awesome',
+        'qtile',
+        'tiling',
+        'xmonad',
+        'dwm',
+        'linux',
+        'manejadores de ventanas',
+        'tiling window manager',
+        'window manager',
+    ]
+category: ['Linux', 'Aplicaciones']
 img: 'https://i.postimg.cc/Z5N7xMhn/wm-00.jpg'
-authors: ["Castro Quintana"]
+authors: ['Castro Quintana']
 ---
-
-# Mi opinión sobre algunos Tiling Window Managers
 
 Este post quizá sea un poco largo, pero quiero contarles mi experiencia y opiniones con algunos Tiling Window Manager, espero que le sirva a alguien que desee probarlos para decidirse, o si nunca han probado un _Tiling Window Manager_, para que se animen a instalarlos. Al ser Window Managers son mucho menos intrusivos que los Entornos de Escritorios y se pueden instalar y desinstalar sin problemas.
 
@@ -17,17 +28,16 @@ Un _Tiling Window Manager_ se diferencía de un Gestor de Ventanas normal en que
 
 Hasta ahorita, he instalado en mi sistema y probado cuatro de estos WM:
 
-+ **i3wm.**
-+ **bspwm.**
-+ **awesome.**
-+ y **Qtile.**
+-   **i3wm.**
+-   **bspwm.**
+-   **awesome.**
+-   y **Qtile.**
 
 ## i3
 
 Quizá [i3wm](https://i3wm.org/) sea el _Tiling Window Manager_ más famoso y el más amigable para los principiantes. Fue el primero que usé ya que instalé _Manjaro i3_. **i3** se configura mediante un archivo de texto, su documentación es muy buena y amplia (aunque en Inglés) y permite crear "layouts" tan complejas como se desee, algunas configuraciones rayando en lo ridículo.
 
 {{< img src="https://i.postimg.cc/rmfQp65n/i3.png" >}}
-
 
 Su manera de acomodar las ventanas es dinámica, es decir, tú tienes que indicarle a **i3** la orientación en que se dividirá el nodo, si vertical u horizontal (por defecto, se abren horizontal), algo que a mi casi no me gustó, ya que nunca le indicaba donde abrir la siguiente ventana y tenía 4 o 5 ventanas abiertas en horizontal, lo que las volvía imposibles de leer e inútiles. Viene con un panel llamado _i3bar_, que rápidamente cambié por **polybar** y opciones interesantes, como configurar "modos" con atajos de teclado especiales (similar a _VIM_).
 
@@ -67,6 +77,6 @@ Si bien su documentación es amplia, su comunidad es algo pequeña y es un Windo
 
 Hay otros que nunca he usado pero se un poco por lo que he visto. Espero probarlos pronto.
 
-- [Xmonad](https://xmonad.org/): Está configurado en _Haskell_ (otro lenguaje poco usado), su manera de mostrar las ventanas por defecto me gusta bastante, al mostrar una principal y las demás en cascada al lado (esta configuración se conoce como _MonadTall_ o _Master-Slave_) y es posible crear las propias en _Haskell_. Al igual que _bspwm_, no posee panel pero la mayoría suele usar _xmobar_ y es el utilizado en la documentación oficial para ejemplos.
+-   [Xmonad](https://xmonad.org/): Está configurado en _Haskell_ (otro lenguaje poco usado), su manera de mostrar las ventanas por defecto me gusta bastante, al mostrar una principal y las demás en cascada al lado (esta configuración se conoce como _MonadTall_ o _Master-Slave_) y es posible crear las propias en _Haskell_. Al igual que _bspwm_, no posee panel pero la mayoría suele usar _xmobar_ y es el utilizado en la documentación oficial para ejemplos.
 
-- [Dwm](https://dwm.suckless.org/): Un producto del proyecto _suckless_, y como tal, carece de archivo de configuración, para cualquier modificación hay que editar el archivo _config.h_ encontrado en su código fuente y recopilar esto cada vez que se desee hacer una modificación. Carece de varias opciones (algunas que esperarías tener) debido a que quieren mantenerlo libre de sobrecargas innecesarias (bloated). Como _Awesome_, viene con varias "layouts" predefinidas, un panel configurable y hay muchos parches que añaden funcionalidades extra.
+-   [Dwm](https://dwm.suckless.org/): Un producto del proyecto _suckless_, y como tal, carece de archivo de configuración, para cualquier modificación hay que editar el archivo _config.h_ encontrado en su código fuente y recopilar esto cada vez que se desee hacer una modificación. Carece de varias opciones (algunas que esperarías tener) debido a que quieren mantenerlo libre de sobrecargas innecesarias (bloated). Como _Awesome_, viene con varias "layouts" predefinidas, un panel configurable y hay muchos parches que añaden funcionalidades extra.
