@@ -3,56 +3,48 @@ title: 'StreamLabels en Arch Linux'
 date: '2020-12-09 08:44:00'
 description: 'Porque tener que hacer todo a mano si es mas facil contribuir con la comunidad'
 type: 'aplicaciones'
-tags: ["obs", "archalien", "arch", "debian", "ubuntu", "stream", "streamlabs" , "streamlabels", "twitch", "youtube", "linuxbrowser"]
-category: ["Aplicaciones"]
+tags:
+    [
+        'obs',
+        'archalien',
+        'arch',
+        'debian',
+        'ubuntu',
+        'stream',
+        'streamlabs',
+        'streamlabels',
+        'twitch',
+        'youtube',
+        'linuxbrowser',
+    ]
+category: ['Aplicaciones']
 img: 'https://i.postimg.cc/QCbqwwJv/image.png'
-authors: ["PatoJAD"]
+authors: ['PatoJAD']
 ---
-
-
 
 Hace un tiempo hablamos de {{< textlink text="StreamLabs" url="/aplicaciones/2020/11/streamlabs-en-linux/" >}} y de como este nos puede servir para realizar streamings en GNU/Linux. También hablamos de su herramienta Stream Labels la cual tiene como disponible un .deb para que lo utilicemos en linux. Lamentablemente los .deb solo funcionan en distribuciones basadas en Debian/Ubuntu y eso no suele ser compatible con todos los que intentamos realizar Streaming dado que los que jugamos sabemos que el mejor rendimiento está en Arch Linux.
 
-
-
-
 ## Una explicación no basta
-
 
 {{< img src="https://i.postimg.cc/W4mRQDLy/image.png" >}}
 
-
 Si bien en aquel {{< textlink text="artículo" url="/aplicaciones/2020/11/streamlabs-en-linux/" >}} explique cómo debería realizarse la conversión para utilizarlo en Arch no creo que todo el mundo tenga que ponerse a ver estas cosas. Por lo cual decidí subirlo a AUR para que todo aquel que desee utilizarlo pueda hacerlo sin ningún problema. por lo cual, a partir de hoy si queremos utilizarlo basta con un solo comando para utilizarlo.
-
-
 
 ```Shell
 yay -S streamlabels
 ```
 
-
-
-
 ## ¿Cómo funciona AUR?¿Es difícil subir mi paquete?
-
 
 {{< img src="https://i.postimg.cc/tCpSktNL/image.png" >}}
 
-
 Realmente es muy sencillo, aunque vale aclarar que puede costar identificar bien en un inicio como hacerlo correctamente. Por lo cual a modo de muestra en esta oportunidad voy a dejar como está construido este repositorio de Stream Labels para que logren imaginarse como es. Todo el proceso del registro en AUR y demás confío en que pueden…
-
-
-
 
 ## PKGBUILD
 
-
-
 Esta es la magia de AUR, con este archivo basta para subir un repo que esté disponible para todo el mundo. En este archivo vamos a encontrar, las sumas md5 de todos los archivos utilizados, el nombre del paquete, la versión, la descarga, el proceso de instalación, dependencias, descripción, etc…
 
-
 {{< img src="https://i.postimg.cc/QCbqwwJv/image.png" >}}
-
 
 ```Shell
 # Maintainer: Joaquin (Pato) Decima <https://patojad.com.ar/>
@@ -77,10 +69,7 @@ package() {
 }
 ```
 
-
 Como podemos ver este archivo usa 2 source, una que lo descarga desde la url y otro que se encuentra el en mismo repositorio, en este caso es un pjadalien.py que es nada más ni nada menos que archalien con una modificación para poder funcionar correctamente con el .deb que estamos utilizando.
-
-
 
 ```python
 from __future__ import print_function
@@ -363,26 +352,10 @@ if __name__ == '__main__':
 # vim:ai:et:sw=4:ts=4:sts=4:tw=78:fenc=utf-8
 ```
 
-
-
-
 ## .SRCINFO
 
-
-
 Este es un archivo que si lo olvidamos solo trae problemas por lo cual yo tengo como regla personal siempre antes de hacer un commit a un repositorio AUR ejecutar este pequeño comando que se encarga nada más ni nada menos de actualizar este archivo el cual es necesario para que el commit sea aceptado.
-
-
 
 ```Shell
 makepkg --printsrcinfo > .SRCINFO
 ```
-
-
-
-
----
-
-
-
-Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

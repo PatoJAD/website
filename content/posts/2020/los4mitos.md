@@ -1,44 +1,32 @@
 ---
-title: "La gente Opina sobre los mitos"
-date: "2020-05-08 08:47:00"
-description: "El otro dia me di el tupe de desmentir algunos mitos, sin embargo la gente quiere dar su opinion y nosotros queremos darle su lugar"
-type: "comunidad"
-tags: ["comunidad","mitos","opiniones"]
-category: ["Comunidad"]
-img: "https://blog.universaldeidiomas.com/wp-content/uploads/2016/06/Expresar_opiniones_y_dar_consejos_en_francs-300x153@2x.jpg"
-authors: ["PatoJAD"]
+title: 'La gente Opina sobre los mitos'
+date: '2020-05-08 08:47:00'
+description: 'El otro dia me di el tupe de desmentir algunos mitos, sin embargo la gente quiere dar su opinion y nosotros queremos darle su lugar'
+type: 'comunidad'
+tags: ['comunidad', 'mitos', 'opiniones']
+category: ['Comunidad']
+img: 'https://blog.universaldeidiomas.com/wp-content/uploads/2016/06/Expresar_opiniones_y_dar_consejos_en_francs-300x153@2x.jpg'
+authors: ['PatoJAD']
 ---
 
 Como bien saben hace unos dias hice el post {{< textlink text="4 Mitos Falsos de Linux" url="/linux/2020/05/4-mitos-falsos-de-linux/" >}} esperando aclarar un poco lo que se piensa o lo que se debate sobre linux. Sin embargo esto desató muchas voces postulando sus ideas y como todos sabemos que nadie tiene la verdad absoluta, decidí tomarme el permiso de publicar sus ideas, como siempre digo, cualquiera puede usar este post para plasmar una idea porque lo importante es que no se pierda en una conversación.
 
-
-
-
 ## La consigna
-
-
 
 Para organizar un poco las ideas postule una consiga, la cual era básicamente de lo que hablaba la publicación antes mencionada la cual se podía leer asi:
 
-
-
->PREGUNTA!!!
+> PREGUNTA!!!
 >
->¿Que Pensas de las siguientes afirmaciones sobre Linux?
+> ¿Que Pensas de las siguientes afirmaciones sobre Linux?
 >
->ES DIFÍCIL DE USAR
->NO VA A FUNCIONAR EN MI PC
->NO PUEDES PONER JUEGOS
->NO TIENE SOPORTE
+> ES DIFÍCIL DE USAR
+> NO VA A FUNCIONAR EN MI PC
+> NO PUEDES PONER JUEGOS
+> NO TIENE SOPORTE
 >
 > {{< citaname name="PatoJAD" >}}
 
-
-
-
 ## Las Opiniones
-
-
 
 > « “si es mejor un iPhone que un Android", o una Mac en lugar de una PC, o el Software Libre en lugar del privativo" »
 >
@@ -58,15 +46,11 @@ Para organizar un poco las ideas postule una consiga, la cual era básicamente d
 >
 > {{< citaname name="Inukaze Maquiavelo" >}}
 
-
-
 ---
-
-
 
 > todas son falsas XD
 >
-> DIFICIL DE USAR  ? tal vez hace una o 2 decadas pero hoy en dia todo esta tan inundado de GUI que linux ha dejado ser un sistema exclusivamente para ingenieros y expertos de informatica
+> DIFICIL DE USAR ? tal vez hace una o 2 decadas pero hoy en dia todo esta tan inundado de GUI que linux ha dejado ser un sistema exclusivamente para ingenieros y expertos de informatica
 >
 > NO VA A FUNCIONAR EN MI PC? tal vez pero solo en excasos casos ya que hoy en dia en raro que que linux no reconozca algun hardware , ya tendria que ser un hardware mas raro que un perro cuadrado, es mas esto lo escribo desde un pc que fue diseñado para win2
 >
@@ -78,27 +62,17 @@ Para organizar un poco las ideas postule una consiga, la cual era básicamente d
 >
 > {{< citaname name="🅜🅔🅡🅘🅞🅓🅐🅢🅤" >}}
 
-
-
 ---
-
-
 
 > Las cuatro frases son TIPICAS respuestas de gente desinformada sobre el tema
 >
 > {{< citaname name="Delfi" >}}
 
-
-
 ---
-
-
 
 > listo: estaba escribiendo pero me quedo con esta idea, jaja
 
 "esta idea" Hace referencia a lo que dijo Delfi
-
-
 
 > Es difícil de usar: depende la distro. Hay muchísimas que no lo son, así que generalizar así no es correcto
 > No va a funcionar en mi pc: es más probable que puedas hacer funcionar linux que cualquier otro SO
@@ -108,11 +82,7 @@ Para organizar un poco las ideas postule una consiga, la cual era básicamente d
 
 Pancram o el Tio como le digo yo, es quien se tiene la posta sobre linuxitos y la lista increibles de juegos que ofrece!
 
-
-
 ---
-
-
 
 > Fácil de usar tebgo soporte de @PatoJAD XD si funciona en mi pc y si puedo jugar
 >
@@ -120,23 +90,15 @@ Pancram o el Tio como le digo yo, es quien se tiene la posta sobre linuxitos y l
 
 Gracias Pipe, pero te aviso que tu soporte es de mala calidad XD
 
-
-
 ---
-
-
 
 > la que me encanta es la de "Difícil Usar" esa me mata te comento que mi pequeña de 7 años ya va 1 año con linux (deepin) y es un haz, hasta creo que me gana jaja
 >
->el tema es el siguiente hasta hace unos años pongamosle 10, linux no era nada amigable y los otros SO nos daban por ese lao, y la gente nunca pensó en la potencia de linux como SO, seguridad y otras cosas, en juegos bueno, por fin se estan acordando que en linux existen tambien jugadores, y aunque el rendimiento de los juegos disponibles ya sea nativos o bajo wine o lutris ya es mejor no es excelente pero culpa de quien de los productores de juegos, y el tema de soporte yo considero que tenemos el soporte más grande que cualquier compañia quisiera tener, somo millones vs cientos (o menos) que puede poner los soft propietarios, y eso me parece que es a donde apunta Windows con su apertura al software libre
+> el tema es el siguiente hasta hace unos años pongamosle 10, linux no era nada amigable y los otros SO nos daban por ese lao, y la gente nunca pensó en la potencia de linux como SO, seguridad y otras cosas, en juegos bueno, por fin se estan acordando que en linux existen tambien jugadores, y aunque el rendimiento de los juegos disponibles ya sea nativos o bajo wine o lutris ya es mejor no es excelente pero culpa de quien de los productores de juegos, y el tema de soporte yo considero que tenemos el soporte más grande que cualquier compañia quisiera tener, somo millones vs cientos (o menos) que puede poner los soft propietarios, y eso me parece que es a donde apunta Windows con su apertura al software libre
 >
 > {{< citaname name="Alvaric" >}}
 
-
-
 ---
-
-
 
 > es dificil de usar hasta que te acostumbras a una terminal
 > si funciona hasta en un tetris , linux no es para juegos sino para desarollo , linux tiene soporte pero para desarollo
@@ -144,11 +106,7 @@ Gracias Pipe, pero te aviso que tu soporte es de mala calidad XD
 >
 > {{< citaname name="ARN SARS" >}}
 
-
-
 ---
-
-
 
 > ES DIFÍCIL DE USAR: Depende de la distro, pero usando Mint es un paseo.
 > NO VA A FUNCIONAR EN MI PC: Funcionan más las distros de Linux en la mayoria de los pcs que Windows.
@@ -157,11 +115,7 @@ Gracias Pipe, pero te aviso que tu soporte es de mala calidad XD
 >
 > {{< citaname name="jolnix" >}}
 
-
-
 ---
-
-
 
 > Que en su mayoria todas son mas que falacias
 >
@@ -171,50 +125,34 @@ Gracias Pipe, pero te aviso que tu soporte es de mala calidad XD
 >
 > No Puede poner juegos : Esto es que falso no por nada hice mi canal para demostrar que puedes jugar con linux y tiene una variedad de juegos
 >
->No tiene soporte: Aqui si les puedo darle la razon en algunos sectores de linux pero esto no es culpa de linux si no mas de la empresa
+> No tiene soporte: Aqui si les puedo darle la razon en algunos sectores de linux pero esto no es culpa de linux si no mas de la empresa
 > {{< citaname name="Drindie" >}}
 
-
-
 ---
-
-
 
 > 1. depende de la persona
 > 2. en tiempos modernos funciona bien en casi cualquier maquina
 > 3. no todos los juegos funciona, pero steam tiene una variedad muy amplia para compensar la falta de otros
 > 4. pueden contratar soporte con alguna empresas
-> 0. no pongas casi todo en mayúsculas, siento que me gritas
+> 5. no pongas casi todo en mayúsculas, siento que me gritas
 >
 > {{< citaname name="petrohs" >}}
 
 Perdon no queria gritarte :(
 
-
-
 ---
-
-
 
 > Pensamientos de gente con miedo, gente que no se atreve a probar cosas nuevas, gente que no quiere un cambio o quiere quedarse cómodamente donde esta y gente inútil que no busca soluciones o hacer las cosas de otra forma
 >
 > {{< citaname name="Miguel R" >}}
 
-
-
 ---
-
-
 
 > En mi caso estoy atado a Windows. Actualmente tengo mint y me encantaría probarme con debian, pero office no se lleva a 100% ni con libreoffice ni OpenOffice. También uso Autocad y Solidworks. Estos últimos no hay alternativas que se acerquen... Cada día que pasa me voy alejando más de Linux.
 >
 > {{< citaname name="Alejandro" >}}
 
-
-
 ---
-
-
 
 > ¿Es difícil de usar?
 > Actualmente no.
@@ -227,23 +165,19 @@ Perdon no queria gritarte :(
 >
 > {{< citaname name="𝓐𝓵𝓮𝔁𝓲𝓼 𝓔𝓼𝓬𝓸𝓫𝓪𝓻" >}}
 
-
-
 ---
 
-
-
-> Gracias a @PatoJAD  le he contestado con una entrada en mi blog (https://is.gd/NuK0Ys) por si quieren leerlo detenidamente luego.
+> Gracias a @PatoJAD le he contestado con una entrada en mi blog (https://is.gd/NuK0Ys) por si quieren leerlo detenidamente luego.
 >
 > ES DIFÍCIL DE USAR
 > Pues, depende,
 > Un usuario sin conocimientos compra un Pc con Güindogs en una gran superficie lo enchufa y listo todo le suena por poco que conozca. Opciones con GNU/Linux existen listas para usar pero la Oferta no es variada y además es poco atractiva para los no iniciados.
->    OPCION 1)
+> OPCION 1)
 > Ahora imagínense sin conocimiento ninguno que llagan a casa con una Bios UEFI con Güidogs 10 pre-instalado y tiene que 1º Descargar una ISO GNU/Linux 2º Quemarla en un DVD o USb Autoarrancable 3º Modificar la Bios UEFI para arrancar desde el soporte previamente quemado y quitar la seguridad del UEFI para que deje instalar S.O sin Firmar, 4º Seguir un asistente de instalación que habla de particiones y sistemas de arranque cosa que este persona del ejemplo no ha oído hablar en su vida 5º Suponiendo que lo haya conseguido después de horas de preguntar por Internet o con amigos 6º Reconocer los programas a los que durante años a estado acostumbrado por poco que sepa y buscar alternativas funcionales en GNU/Linux.
->    OPCION 2)
+> OPCION 2)
 > La opción más sencilla, El Mismo usuario sin conocimiento ninguno, le han hablado maravillas de GNU/Linux y/o algún amigo le ha convencido y compra un Pc con GNU/Linux preinstalado, seguiria teniendo los problemas del punto 6 de la opción anterior, pero siempre podra tirar de la comunidad o amigos, aunque si es verdad que hace ya años que los entornos graficos han cambiado mucho y la terminal ya casí no es necesaria.
-Conclusión TODO ES FACIL ó DIFICIL de usar dependiendo de donde partamos y el circulo del que estemos rodeados.
->     EJEMPLO:
+> Conclusión TODO ES FACIL ó DIFICIL de usar dependiendo de donde partamos y el circulo del que estemos rodeados.
+> EJEMPLO:
 > Mis padres con +65 años usan GNU/Linux hace +5 años por que yo (Su Hijo) se lo instalo y adecuo para que pareciera un Güindougs y estan encantados (Velocidad, comodidad y funcionalidades), pero sinceramente no los veo haciendo todos los pasos de la Opción 1 antes descrita.
 > NO VA A FUNCIONAR EN MI PC
 > Si, es verdad que la compatibilidad hoy en día es muy grande con mucho hardware/software pero los que venimos de años, conocemos las horas de sueño que hemos perdido haciendo funcionar un determinado dispositivo por incompatibilidades con el Sistema horas y horas en foros y canales mIrC.
@@ -255,23 +189,16 @@ Conclusión TODO ES FACIL ó DIFICIL de usar dependiendo de donde partamos y el 
 >
 > ==== CONCLUSIÓN ====
 > Como siempre digo todo depende del grado de implicación , ganas de aprender y sumergirse en este nuestro gran Sistema Operativo.
-Pero todas las preguntas se pueden resumir en un GRAN "DEPENDE" 🥺🤪
+> Pero todas las preguntas se pueden resumir en un GRAN "DEPENDE" 🥺🤪
 >
 > &======NOTA FINAL =====&
 > Si, queremos que esto cambie y mejore los usuarios que formamos las diferentes comunidades debemos de ser humildes y pensar que en algún momento todos empezamos y ayudar a los demás dando las mayores facilidades que podamos a los no iniciados.
 >
 > {{< citaname name="" >}}
 
-
-
 Les paso el chivo a limpio pueden verlo bien en {{< textlink url="https://is.gd/NuK0Ys" text="su blog" >}} y este termino como una publicacion dentro de otra publicacion...
 
-
-
-
 ## Tu Turno
-
-
 
 Y ahora te toca a vos... ¿Vos que opinas? Sumate a nuestro grupo de telegram y seguinos en las redes sociales para formar parte de estas opiniones públicas, incluso si tenes ganas escribi tu propio artículo y nosotros lo publicamos!!
 

@@ -1,42 +1,36 @@
 ---
-title: "La gente Opina: El mejor Sistema Operativo"
-date: "2020-08-10 09:18:00"
+title: 'La gente Opina: El mejor Sistema Operativo'
+date: '2020-08-10 09:18:00'
 description: "Anteriormente di mi opinion de 'cual es el mejro sistema operativo' y ahora es turno de la comunidad"
-type: "comunidad"
-tags: ["comunidad", "sistemas", "operativos", "opiniones", "mejor", "telegram", "facebook"]
-category: ["Comunidad"]
-img: "https://blog.universaldeidiomas.com/wp-content/uploads/2016/06/Opiniones_y_emociones_en_Portugues-300x225@2x.jpg"
-authors: ["PatoJAD"]
+type: 'comunidad'
+tags:
+    [
+        'comunidad',
+        'sistemas',
+        'operativos',
+        'opiniones',
+        'mejor',
+        'telegram',
+        'facebook',
+    ]
+category: ['Comunidad']
+img: 'https://blog.universaldeidiomas.com/wp-content/uploads/2016/06/Opiniones_y_emociones_en_Portugues-300x225@2x.jpg'
+authors: ['PatoJAD']
 ---
 
-
-
-Bienvenidos a todos nuevamente, otra vez el título taquillero… Los otros dias arme un articulo llamado {{< textlink text="¿Que Sistema Operativo es mejor?" url="/linux/2020/08/que-sistema-operativo-es-mejor/" >}} y como siempre generó la política. Siempre dije que el blog es más de la comunidad que mio y claramente hoy quiero hacer peso a mis palabras tal y como se debe.
-
-
-
+Bienvenidos a todos nuevamente, otra vez el título taquillero… Los otros dias arme un articulo llamado {{< textlink text="¿Que Sistema Operativo es mejor?" url="/posts/2020/08/que-sistema-operativo-es-mejor/" >}} y como siempre generó la política. Siempre dije que el blog es más de la comunidad que mio y claramente hoy quiero hacer peso a mis palabras tal y como se debe.
 
 ## Opinión en Telegram
 
-
-
 Siempre suelo tomar las opiniones en telegram, es más simple guardar los mensajes y las personas suelen fundamentar correctamente su opinion, aqui lo que la gente dijo en Telegram:
 
-
-
 ---
-
-
 
 > Linux por supuesto bueno depende, pues trabaje como 15 años mac y se porto excelente, trabaje otros 15 años windows y se me blanqueo el pelo ,se cayo y subro de ulcera gastrica, jaquecas, nervios y perdida de vista. Ahora ya con Linux todo es relax. Debi quedarme con Linux desde el comienzo de mi vida informatica y todo seria diferente.
 >
 > {{< citaname name="Orlando Arch Linux" >}}
 
-
-
 ---
-
-
 
 > Nnn para mi es mejor Gnu~linux!! Linux solo es complicado jajaja!, ahora otros sistemas la verdad Si no son libres no los uso!
 >
@@ -46,21 +40,13 @@ Siempre suelo tomar las opiniones en telegram, es más simple guardar los mensaj
 >
 > {{< citaname name="Riky Linux" >}}
 
-
-
 ---
-
-
 
 > no se si entendí bien la nota.. quizás no.. pero cuando un usuario final evalua un SO es obvio y entendible que lo haga solo desde la usabilidad y estética, sin evaluar realmente al SO, pero cuando personas informáticas se declaran gnosticas de la tecnologías como si estas fueran neutrales, ahi me hace ruido..
 >
 > {{< citaname name="Javier Obregón" >}}
 
-
-
 ---
-
-
 
 > La pregunta está mal formulada
 >
@@ -70,11 +56,7 @@ Siempre suelo tomar las opiniones en telegram, es más simple guardar los mensaj
 >
 > {{< citaname name="Petrus" >}}
 
-
-
 ---
-
-
 
 > Una vez, era Linux
 >
@@ -86,11 +68,7 @@ Siempre suelo tomar las opiniones en telegram, es más simple guardar los mensaj
 >
 > {{< citaname name="🇧🇷 Alessandro Ebersol 🇧🇷" >}}
 
-
-
 ---
-
-
 
 > Lo bueno es que se puede elegir, ninguno es el mejor, y todos tienen cosas malas :P
 >
@@ -98,40 +76,23 @@ Siempre suelo tomar las opiniones en telegram, es más simple guardar los mensaj
 >
 > {{< citaname name="Tehuel" >}}
 
-
-
 ---
-
-
 
 > el mejor siempre sera el que cumpla sus necesiddes , o en su defecto, el que lo haga sentir mas a gusto
 >
 > {{< citaname name="𝓜𝓮𝓻𝓲𝓸𝓭𝓪𝓼𝓾" >}}
 
-
-
 ---
-
-
 
 > ¿Cual es el mejor sistema operativo? Para hacer un análisis técnico, hay que definir criterios y parámetros. ¿Alguien lo hizo? No lo se. Creo que aún así, definir que es mejor porque procesa 5Hz más rápido uno que otro no tiene sentido. Definir modelos de provisión de aplicaciones, apertura de código, marketing, soporte, es quizás también subjetivo por motivos ideológicos. Ideológicos porque claramente hay tres filosofías (y quizás algunas más) que nos enmarcan en cada forma de distribuir, vender e incluso usar los SO. A pesar de que lo que podemos pensar, yo encuentro relacionados a éstos modelos a los modelos económicos imperantes en el mundo. En resumen. Técnicamente puede que haya uno mejor, pero va a seguir siendo algo subjetivo, al igual que los gustos y la comodidad al utilizarlo.
 >
 > {{< citaname name="elias gauna" >}}
 
-
-
 ---
-
-
-
 
 ## Opinión en Facebook
 
-
-
 Esta red social solo la uso para el blog, pero en este caso creí correcto poner (en formato imagen) lo que las personas opinan sobre este polémico tema.
-
-
 
 {{< img src="https://i.postimg.cc/VNLf90Th/Screenshot-20200806-131557.png" >}}
 
@@ -215,40 +176,20 @@ Esta red social solo la uso para el blog, pero en este caso creí correcto poner
 
 {{< img src="https://i.postimg.cc/Cx5rjF7N/Screenshot-20200808-163133.png" >}}
 
-
-
 ## El mismísimo Blog
-
-
 
 Muchos se percataron de que es posible comentar directamente en el blog, lo cual deja espacio a debates más centralizados y aquí van los comentarios realizados en el mismo!
 
-
-
 ---
 
-
-
 > ¿Te gustan las cadenas o la libertad? Desgraciadamente hay mucha gente que prefiere las cadenas para no tener que pensar y elegir por ellos mismos y no solo estoy hablando de tecnología.
-Otro tema es el de los formatos libres, el de los libres de verdad no el de los que así se han declarado untando a un comité con suculentos maletines, son la única garantía de poder seguir usando nuestros datos durante décadas, o incluso que nos sobrevivan.
-Imagínate si se hubiera perdido el Quijote a los 20 años de ser escrito por un problema de formatos, pues eso está pasando ahora con muchas obras.
+> Otro tema es el de los formatos libres, el de los libres de verdad no el de los que así se han declarado untando a un comité con suculentos maletines, son la única garantía de poder seguir usando nuestros datos durante décadas, o incluso que nos sobrevivan.
+> Imagínate si se hubiera perdido el Quijote a los 20 años de ser escrito por un problema de formatos, pues eso está pasando ahora con muchas obras.
 >
 > {{< citaname name="pillabichos" >}}
 
-
-
 ---
-
-
 
 > Hola Pato, coincido que no hay que limitarnos, todos los sistemas tienen sus pro y contras, los que amamos la tecnologia pensamos en forma global, ojala pueda probar muchos sistemas y tecnologias antes de no estar mas en este mundo.
 >
 > {{< citaname name="Julio Estudilla" >}}
-
-
-
----
-
-
-
-Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

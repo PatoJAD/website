@@ -19,7 +19,7 @@ tags:
         'instalar',
         'install',
     ]
-category: ['Aplicaciones']
+category: ['Aplicaciones', 'Linux']
 img: 'https://i.blogs.es/7af0a9/microsoft-edge-segundo-navegador-mas-usado-mundo/1366_2000.jpeg'
 authors: ['PatoJAD']
 ---

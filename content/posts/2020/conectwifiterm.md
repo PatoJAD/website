@@ -38,19 +38,27 @@ Para conocer a detalle la sintaxis y el uso de cada uno de estos comandos podemo
 
 Lo primero que debemos hacer para conectarnos a cualquier red Wifi usando el terminal es identificar el nombre de la tarjeta de red de nuestro equipo, el cual seguramente no conozcamos, con el siguiente comando:
 
-    iwconfig
+```zsh
+iwconfig
+```
 
 Una vez tengamos el nombre de la tarjeta de red, debemos proceder a encenderla (puede que ya se encuentre encendida pero nunca esta de mas asegurarse) para ellos ejecutemos el siguiente comando:
 
-    ifconfig <InterfazWifi> up
+```zsh
+ifconfig <InterfazWifi> up
+```
 
 Seguidamente debemos analizar las redes inalámbricas disponible y conocer el SSID de la misma, lo que se puede hacer de manera sencilla con iwlist para ello debemos ejecutar:
 
-    sudo iwlist <InterfazWifi> scanning
+```zsh
+sudo iwlist <InterfazWifi> scanning
+```
 
 Teniendo los datos de la tarjeta y de la red inalámbrica a la que deseamos conectarnos, simplemente debemos ejecutar a nmcli con los parámetros correspondientes (que obtuvimos anteriormente):
 
-    nmcli d wifi connect <WifiSSID> password <ContraseñaWifi> iface <InterfazWifi>
+```zsh
+nmcli d wifi connect <WifiSSID> password <ContraseñaWifi> iface <InterfazWifi>
+```
 
 Con esto pasos ya nos hemos conectado a una red wifi utilizando la terminal, debemos tener en cuenta que en los comandos anteriormente mencionados debemos cambiar los siguientes datos por los que correspondan:
 
@@ -62,7 +70,9 @@ _ContraseñaWifi_: La contraseña de acceso a la red inalámbrica en cuestión.
 
 En caso de que nos deseemos conectar a una red wifi que ya se encuentra en nuestro historial basta con que ejecutemos desde la terminal el siguiente comando:
 
-    nmcli c up <NombreDadaALaRedAlmacenada>
+```zsh
+nmcli c up <NombreDadaALaRedAlmacenada>
+```
 
 Realizado todos los pasos anteriores deberíamos poder acceder de manera adecuada a la red inalámbrica que hayamos elegido.
 

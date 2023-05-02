@@ -4,7 +4,7 @@ date: '2020-07-06 08:34:00'
 description: 'Zatiel se tomo su tiempo para remarcar que SystemD no es le problema, yo me tomo el mio para responder'
 type: 'noticias'
 tags: ['systemd', 'inits', 'linux', 'zatiel', 'problema', 'respuesta']
-category: ['Noticias']
+category: ['Noticias', 'Linux']
 img: 'https://img.youtube.com/vi/iq1hyPOA0rA/maxresdefault.jpg'
 authors: ['PatoJAD']
 ---

@@ -3,8 +3,19 @@ title: '4 Formas de buscar archivos'
 date: '2020-07-01 09:41:00'
 description: 'Vamos a estar viendo un poco como buscar en la terminal, algo muy útil y realmente rápido que recorrer directorios'
 type: 'linux'
-tags: ['find', 'locate', 'whereis', 'which', 'buscar', 'terminal', 'linux']
-category: ['Linux']
+tags:
+    [
+        'find',
+        'locate',
+        'whereis',
+        'which',
+        'buscar',
+        'terminal',
+        'linux',
+        'comando',
+        'macos',
+    ]
+category: ['Linux', 'Apliaciones', 'MacOS']
 img: 'https://i.ibb.co/9pc9JD9/Screenshot-20200701-092342.png'
 authors: ['PatoJAD']
 ---
@@ -17,7 +28,9 @@ En linux existen muchas formas de buscar archivos, directorios, binarios, códig
 
 Para buscar archivos en la línea de comando puedes usar el comando find, su sintaxis es la siguiente:
 
-    find ruta criterio acción
+```zsh
+find ruta criterio acción
+```
 
 Donde:
 
@@ -35,7 +48,9 @@ El comando locate es una **alternativa** al comando find. El comando find debe b
 
 Por otro lado, locate busca a través de una base de datos previamente creada para ese propósito (/var/lib/locatedb), haciéndolo más rápido. La base de datos es automáticamente creada y actualizada diariamente. Pero los cambios hechos después de haber sido actualizado no se tomarán en cuenta por locate, a menos que actualices la base datos manualmente usando el comando:
 
-    updatedb
+```zsh
+updatedb
+```
 
 {{< img src="https://i.ibb.co/yV0Bdh7/Screenshot-20200701-091923.png" >}}
 

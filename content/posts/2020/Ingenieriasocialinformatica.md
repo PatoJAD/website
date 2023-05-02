@@ -1,12 +1,12 @@
 ---
-title: "Ingenieria social informatica"
-date: "2020-02-17"
-description: "Muy pocos la calificarían como método de hacking, pero realmente es una técnia que da resultados por si sola y que puede apoyar a otras muchas para lograr un objetivo."
-type: "programacion"
-tags: ["ingenieria", "social", "informatica"]
-category: ["Programacion"]
-img: "https://www.topsale.pe/wp-content/uploads/2019/03/blog-post-ingeneria-social.png"
-authors: ["PatoJAD"]
+title: 'Ingenieria social informatica'
+date: '2020-02-17'
+description: 'Muy pocos la calificarían como método de hacking, pero realmente es una técnia que da resultados por si sola y que puede apoyar a otras muchas para lograr un objetivo.'
+type: 'programacion'
+tags: ['ingenieria', 'social', 'informatica']
+category: ['Programacion', 'Seguridad']
+img: 'https://www.topsale.pe/wp-content/uploads/2019/03/blog-post-ingeneria-social.png'
+authors: ['PatoJAD']
 ---
 
 En el mundo "hacking" no hay programa o métodología estándar para conseguir hacer una intrusión a cualquier tipo de sistema, existen un conjunto de técnicas, métodos y/o herramientas que bien utilizadas pueden dar con mayor o menor posibilidades el éxito en este tipo de busquedas. El uso de esta técnica está al alcance de cualquiera ya que no se necesitan conocimientos previos para poder llevarla a cabo. Ahora bien, si la está utilizando un usuario experto o con mucha practica podrá obtener información relevante para poder alcanzar sus objetivos con una mayor efectivadad.

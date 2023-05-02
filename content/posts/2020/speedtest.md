@@ -3,39 +3,25 @@ title: 'SpeedTest desde la terminal'
 date: '2020-09-24 09:12:00'
 description: 'Muchas veces realizamos pruebas de velocidad, hoy vamos a ver como hacerlo desde la terminal.'
 type: 'aplicaciones'
-tags: ["internet","velocidad","speed","test","cli","terminal","consola"]
-category: ["Aplicaciones"]
+tags: ['internet', 'velocidad', 'speed', 'test', 'cli', 'terminal', 'consola']
+category: ['Aplicaciones']
 img: 'https://geekytheory.com/wp-content/uploads/2014/09/medir-ancho-de-banda-terminal-linux-ubuntu-speedtest-cli.png'
-authors: ["PatoJAD"]
+authors: ['PatoJAD']
 ---
-
-
 
 Todos conocemos la famosísima página de SpeedTest, que usamos siempre para realizar las mediciones del servicio de internet. Es un sitio muy práctico que nos ayuda a entender si nuestra velocidad de internet es la correcta o si el proveedor de internet no está haciendo muy bien su laburo.
 
-
-
-
 ## Lo bueno puede mejorar
 
-
-
-En este mundo de *hackers* donde todos queremos usar la terminal para algo existe gente que lleva todo a la terminal de linux, como por ejemplo el Speed Test. Este hermoso invento nos permite realizar el famoso test sin siquiera abrir un navegador de internet o sin tener una interface grafica. Por lo cual esto es mucho más rápido y sencillo para todos los que estamos acostumbrados a usar la terminal.
+En este mundo de _hackers_ donde todos queremos usar la terminal para algo existe gente que lleva todo a la terminal de linux, como por ejemplo el Speed Test. Este hermoso invento nos permite realizar el famoso test sin siquiera abrir un navegador de internet o sin tener una interface grafica. Por lo cual esto es mucho más rápido y sencillo para todos los que estamos acostumbrados a usar la terminal.
 
 Esto nació en base a una consulta que realizaron ayer en nuestro hermoso grupo de telegram por lo cual quiero agradecer a **Mode One** y a **Pipe** por la idea de la publicación de hoy.
 
-
-
-
 ## SpeedTest-Cli
-
 
 {{< img src="https://i.postimg.cc/pd3Ym0k9/Captura-de-pantalla-2020-09-23-19-39-40.png" >}}
 
-
 Este hermoso cli de SpeedTest trae muchas funciones que podríamos describir pero que hoy no vienen al caso… Lo que si viene al caso es la hermosa funcionalidad que ya explique antes…
-
-
 
     Retrieving speedtest.net configuration...
     Testing from Cablevision Argentina (181.31.84.158)...
@@ -47,67 +33,37 @@ Este hermoso cli de SpeedTest trae muchas funciones que podríamos describir per
     Testing upload speed......................................................................................................
     Upload: 16.39 Mbit/s
 
-
-
 Como ven realice un SpeedTest con la terminal que demoró 23 segundos, está realizado por wifi a más de 4 metros del modem con 2 paredes de por medio. Y podemos observar que nos da todos los datos de interés, la latencia y los MEGAS de subida y bajada…
-
-
-
 
 ## Instalalo
 
-
-
 Esta hermosa funcionalidad está desarrollada en python y existen 2 forma de instalar, una que voy a omitir porque pueden encontrar el paso a paso por los desarrolladores con toda la documentación necesaria es la compilación a mano, esto lo dejo para el que quiera hacerlo al final de la publicación y la otra es mediante pip.
 
-
-
-Pip es un *gestor de contenidos* que administra librerías y paquetes python, por lo cual deben tener instalado alguna versión de python. En el caso de que no sepan si tiene alguna versión pueden instalar python-pip que es para python 2. Luego podemos avanzar con la instalación de SpeedTest de la siguiente manera:
-
-
+Pip es un _gestor de contenidos_ que administra librerías y paquetes python, por lo cual deben tener instalado alguna versión de python. En el caso de que no sepan si tiene alguna versión pueden instalar python-pip que es para python 2. Luego podemos avanzar con la instalación de SpeedTest de la siguiente manera:
 
     sudo pip3 install speedtest-cli
 
 Para Python 3
 
-
-
     sudo pip install speedtest-cli
 
 Para Python 2
 
-
-
 Después de eso ya podemos usar el comando cuando queramos para poder obtener una rápida medición de velocidad.
-
-
 
     speedtest-cli
 
-
-
 Se agradece a **geekytheory** por toda la información brindada para poder realizar esta publicación. Un blog realmente interesante que no pueden perderse.
-
-
-
 
 ## Instrucciones de uso
 
-
 {{< img src="https://i.postimg.cc/63RVnd1M/Captura-de-pantalla-2020-09-23-19-53-20.png" >}}
-
 
 Como hablamos el otro dia existen muchas herramientas para saber cómo usar un comando de terminal, les dejo la información en este caso especifico de como saberlo y cual es la información que nos da usando:
 
-
-
     speedtest-cli -h
 
-
-
 Obtenemos una salida como la que vamos a ver a continuación con toda la información de la aplicación.
-
-
 
     Command line interface for testing internet bandwidth using speedtest.net.
     -------------------------------------------------------------------------- https://github.com/sivel/speedtest-cli
@@ -139,17 +95,10 @@ Obtenemos una salida como la que vamos a ver a continuación con toda la informa
                             support systems with insufficient memory, use this option to avoid a MemoryError
       --version             Show the version number and exit
 
-
-
-
 Como comente voy a dejarles el git para quienes quieran compilarlo o modificar el código...
-
 
 {{< link url="https://github.com/sivel/speedtest-cli" text="Git del proyecto" >}}
 
-
 ---
-
-
 
 Recorda **apoyarnos** en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento

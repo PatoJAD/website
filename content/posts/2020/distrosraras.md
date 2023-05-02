@@ -3,7 +3,7 @@ title: 'Distros Raras'
 date: '2020-06-05 08:25:00'
 description: 'Caminemos por la parte oscura del mundo linuxnauta y veamos que se genera en esos antros.'
 type: 'linux'
-tags: ['distros', 'linux', 'raras']
+tags: ['distros', 'linux', 'raras', 'hannah', 'montana', 'suicide']
 category: ['Linux']
 img: 'https://www.linuxadictos.com/wp-content/uploads/tux-raro-.jpg'
 authors: ['PatoJAD']
@@ -35,7 +35,9 @@ Nunca conociste a una persona que no podías decirle nada porque se ofendia (a p
 
 Esta distro es perfecta para todos los que son habilidosos con la terminal, dado que si fallas un comando se ejecuta automáticamente el tan famoso
 
-    sudo rm -r /
+```zsh
+sudo rm -r /
+```
 
 Suicidando literalmente a nuestra distro… Diganme si no es hermoso, yo la reinstale 3 veces y despues me canse… Saben cual es el comando con el que mate la distro 3 veces? ls que lo ponía como sl y no tenía instalada sl XD
 

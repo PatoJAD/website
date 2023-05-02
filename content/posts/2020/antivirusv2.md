@@ -18,7 +18,7 @@ tags:
         'virus',
     ]
 type: 'redesyseguridad'
-category: ['redesyseguridad']
+category: ['Seguridad']
 img: 'https://www.softzone.es/app/uploads-softzone.es/2019/09/Elegir-antivirus.jpg'
 authors: ['PatoJAD']
 ---
