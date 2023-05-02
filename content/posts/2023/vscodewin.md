@@ -17,7 +17,7 @@ tags:
         'setup',
         'entorno',
     ]
-category: ['Windows']
+category: ['Windows', 'Aplicaiones']
 img: 'https://i.postimg.cc/G3YY822C/win10vscode.png'
 authors: ['PatoJAD']
 ---

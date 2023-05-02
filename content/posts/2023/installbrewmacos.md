@@ -18,7 +18,7 @@ tags:
         'manager',
         'universal',
     ]
-category: ['MacOS']
+category: ['MacOS', 'Aplicaciones']
 img: 'https://cdn.osxdaily.com/wp-content/uploads/2022/12/homebrew-ventura-macos.jpg'
 authors: ['PatoJAD']
 ---

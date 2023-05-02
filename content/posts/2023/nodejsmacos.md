@@ -21,7 +21,7 @@ tags:
         'setup',
         'entorno',
     ]
-category: ['Programacion', 'Linux']
+category: ['Programacion', 'MacOS', 'Aplicaciones']
 img: 'https://i.postimg.cc/hPmrtX3z/image.png'
 authors: ['PatoJAD']
 ---
