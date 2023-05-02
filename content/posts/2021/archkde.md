@@ -1,12 +1,30 @@
 ---
-title: "¿KDE? ¿Arch? ¿Problemas?"
-date: "2021-03-09 09:21:00"
-description: "Problemas con aplicaciones como Kmail, Falkon, Konqueror, entre otras. Te contamos que esta pasando en Arch estos dias..."
-type: "linux"
-tags: ["arch", "kde", "qt", "webengine", "chrome", "pyqt", "5.15.3-2", "network_service_instance_impl.cc"]
-category: ["Linux"]
-img: "https://i.postimg.cc/gjK49PGk/image.png"
-authors: ["PatoJAD"]
+title: '¿KDE? ¿Arch? ¿Problemas?'
+date: '2021-03-09 09:21:00'
+description: 'Problemas con aplicaciones como Kmail, Falkon, Konqueror, entre otras. Te contamos que esta pasando en Arch estos dias...'
+type: 'linux'
+tags:
+    [
+        'arch',
+        'kde',
+        'qt',
+        'webengine',
+        'chrome',
+        'pyqt',
+        '5.15.3-2',
+        'network_service_instance_impl.cc',
+        'network',
+        'service',
+        'crashed',
+        'restarting',
+        'error',
+        'bug',
+        'fix',
+        'solucion',
+    ]
+category: ['Linux']
+img: 'https://i.postimg.cc/gjK49PGk/image.png'
+authors: ['PatoJAD']
 ---
 
 Si usas KDE en Arch seguramente tras la última actualización en tu sistema (después del sábado 6 de marzo) cuando se actualizo el qt5-webengine seguramente comenzaste a experimentar problemas en tu KDE con aplicaciones como Kmail, Falkon, Konqueror, entre otras. Todas estas aplicaciones que utilizan en visualizador web de QT están simplemente no mostrando nada.

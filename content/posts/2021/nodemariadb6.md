@@ -13,6 +13,12 @@ tags:
         'curso',
         'express',
         'api',
+		'abm',
+		'insert',
+		'delete',
+		'update',
+		'query',
+		'querywithparams',
     ]
 category: ['Programacion']
 img: 'https://i.postimg.cc/05YVPH9G/curso-6.png'

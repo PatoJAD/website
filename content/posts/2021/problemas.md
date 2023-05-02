@@ -3,7 +3,19 @@ title: '¿Los Problemas de Linux? - Verdades de la Galera'
 date: '2021-06-23 10:21:00.00'
 description: 'No todos los que hablamos de linux la tenemos clara, pero muchos hablan por hablar...'
 type: 'linux'
-tags: ['reaccion', 'video', 'verdes', 'galera', 'windows', 'adobe']
+tags:
+    [
+        'reaccion',
+        'video',
+        'verdes',
+        'galera',
+        'windows',
+        'adobe',
+        'linux',
+        'problemas',
+        'verdades',
+        'verdades de la galera',
+    ]
 category: ['Linux']
 img: 'https://i.postimg.cc/5y2b3dK0/Sin-nombre.png'
 authors: ['PatoJAD']

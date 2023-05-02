@@ -13,6 +13,8 @@ tags:
         'curso',
         'express',
         'api',
+        'query',
+        'querywithparams',
     ]
 category: ['Programacion']
 img: 'https://i.postimg.cc/RZDRXkTm/curso-5.png'

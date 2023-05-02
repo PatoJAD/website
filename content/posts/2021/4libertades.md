@@ -13,8 +13,11 @@ tags:
         'source',
         'code',
         'free',
+        'fsf',
+        'gnu',
+        'linuxtuber',
     ]
-category: ['Linux']
+category: ['Noticias']
 img: 'https://i.blogs.es/df0d16/fsf-vs-opi/1366_2000.png'
 authors: ['PatoJAD']
 ---

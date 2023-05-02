@@ -3,7 +3,17 @@ title: 'Dia internacional de la Mujer - La lucha continua'
 date: '2021-03-08 12:10:00'
 description: 'Hoy es el día internacional de la mujer, y por eso creemos que es nuestra responsabilidad hablar del tema como corresponde...'
 type: 'noticias'
-tags: ['mujer', 'dia', 'internacional', 'igualdad', '8m', 'lucha']
+tags:
+    [
+        'mujer',
+        'dia',
+        'internacional',
+        'igualdad',
+        '8m',
+        'lucha',
+        'feminismo',
+        'feminista',
+    ]
 category: ['Noticias']
 img: 'https://i0.wp.com/diariodemujeres.com/wp-content/uploads/2017/03/dia-de-la-mujer_047.jpg?fit=956%2C932&ssl=1'
 authors: ['PatoJAD']

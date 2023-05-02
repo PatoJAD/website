@@ -27,7 +27,7 @@ En estos días recordé un viejo debate que creí que estaba erradicado. Y por e
 
 Viendo los resultados de la encuesta, comprendí que muchos realmente no comprenden realmente las 4 libertades del software libre, así que antes de ver el video de la descarga que hice en este momento por ahi seria bueno que veas el siguiente artículo y, porque no, ver el video...
 
-{{<link url="/linux/2021/03/las-4-libertades-del-software-libre/" text="Las 4 Libertades del Software Libre" >}}
+{{<link url="/post/2021/03/las-4-libertades-del-software-libre/" text="Las 4 Libertades del Software Libre" >}}
 
 ## Lo nuevo
 

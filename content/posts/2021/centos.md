@@ -3,8 +3,22 @@ title: 'CentOS: Una mala decisión'
 date: '2021-01-07 09:10:00'
 description: Red Hat decidió transformar CentOS Stream en su rama principal dando muerte al proyecto CentOS como se lo conocía.'
 type: 'noticias'
-tags: ['noticia', 'centos', 'redhat', 'rhel', 'rocky', 'linux', 'youtube']
-category: ['Noticias']
+tags:
+    [
+        'noticia',
+        'centos',
+        'redhat',
+        'rhel',
+        'rocky',
+        'linux',
+        'youtube',
+        'video',
+        'opinion',
+        'stream',
+        'sid',
+        'debian',
+    ]
+category: ['Noticias', 'Redes', 'Linux']
 img: 'https://rockylinux.org/img/cover.png'
 authors: ['PatoJAD']
 ---

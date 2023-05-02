@@ -1,12 +1,22 @@
 ---
-title: "Flatpack no siempre es un enemigo"
-date: "2021-02-22 10:12:00"
-description: "El hecho de que no prefiera usarlas no implica que sea un desertor de la misma, hoy pretendo explicar cuando, desde mi punto de vista, es ideal el uso de este tipo de paqueterias."
-type: "linux"
-tags: ["flatpack", "snap", "appimage", "rolling", "distro", "debian", "ubuntu", "paqueteria"]
-category: ["Linux"]
-img: "https://ubunlog.com/wp-content/uploads/2019/12/flatpak-cover.png"
-authors: ["PatoJAD"]
+title: 'Flatpack no siempre es un enemigo'
+date: '2021-02-22 10:12:00'
+description: 'El hecho de que no prefiera usarlas no implica que sea un desertor de la misma, hoy pretendo explicar cuando, desde mi punto de vista, es ideal el uso de este tipo de paqueterias.'
+type: 'linux'
+tags:
+    [
+        'flatpack',
+        'snap',
+        'appimage',
+        'rolling',
+        'distro',
+        'debian',
+        'ubuntu',
+        'paqueteria',
+    ]
+category: ['Linux']
+img: 'https://ubunlog.com/wp-content/uploads/2019/12/flatpak-cover.png'
+authors: ['PatoJAD']
 ---
 
 Si bien muchas veces explique porque el uso de flatpack y gestores similares que empaquetan todas las librerías necesarias generando apps al mejor estilo MS-DOS no son recomendables. El hecho de que no prefiera usarlas no implica que sea un desertor de la misma, hoy pretendo explicar cuando, **desde mi punto de vista,** es ideal el uso de este tipo de paqueterias.

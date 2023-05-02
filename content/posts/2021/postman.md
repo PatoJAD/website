@@ -3,10 +3,24 @@ title: 'Instalacion de Postman en Linux'
 date: '2021-08-25 13:17:00'
 description: 'Vamos a ver como realizar la instalación de postman indiferentemente de la distribución que tengamos'
 type: 'aplicaciones'
-tags: ["postman", "arch", "debian", "ubuntu", "fedora", "api", "test", "artix", "descargar", "download"]
-category: ["Aplicaciones"]
+tags:
+    [
+        'postman',
+        'arch',
+        'debian',
+        'ubuntu',
+        'fedora',
+        'api',
+        'test',
+        'artix',
+        'descargar',
+        'download',
+        'rest',
+        'restful',
+    ]
+category: ['Aplicaciones']
 img: 'https://i.postimg.cc/L5gh73HD/image.webp'
-authors: ["PatoJAD"]
+authors: ['PatoJAD']
 ---
 
 En este momento vamos a ver como se instala postman en nuestro GNU/Linux, en esta instalación vamos a ver la forma más genérica, si bien para cada distribución existe su propia alternativa, ya usar usando AUR en Arch o SNAP en cualquier distro existe una forma un tanto… más simple que es útil para usos portables de esta herramienta.

@@ -4,8 +4,19 @@ date: '2021-04-05 11:46:00'
 description: 'Vamos a crear, en esta oportunidad, un USB multiboot donde podemos dejar todas las ISOs que necesitamos tener a mano'
 type: 'aplicaciones'
 tags:
-    ['usb', 'web', 'ventoy', 'boot', 'multiboot', 'booteable', 'iso', 'windows']
-category: ['Aplicaciones']
+    [
+        'usb',
+        'web',
+        'ventoy',
+        'boot',
+        'multiboot',
+        'booteable',
+        'iso',
+        'windows',
+        'linux',
+        'macos',
+    ]
+category: ['Aplicaciones', 'Linux', 'Windows', 'MacOS']
 img: 'https://windows-cdn.softpedia.com/screenshots/Ventoy_1.png'
 authors: ['PatoJAD']
 ---

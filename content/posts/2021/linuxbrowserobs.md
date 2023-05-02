@@ -3,10 +3,22 @@ title: 'Linux Browser OBS'
 date: '2021-05-26 14:44:00'
 description: 'Vamos a ver como podemos instalar linuxbrowser en OBS'
 type: 'aplicaciones'
-tags: ["obs", "arch", "debian", "ubuntu", "stream", "browser", "twitch", "youtube", "linuxbrowser"]
-category: ["Aplicaciones"]
+tags:
+    [
+        'obs',
+        'arch',
+        'debian',
+        'ubuntu',
+        'stream',
+        'browser',
+        'twitch',
+        'youtube',
+        'linuxbrowser',
+        'linux',
+    ]
+category: ['Aplicaciones']
 img: 'https://github.com/bazukas/obs-linuxbrowser/raw/master/img/obs-linuxbrowser.png'
-authors: ["PatoJAD"]
+authors: ['PatoJAD']
 ---
 
 Lo primero obviamente es descargar la última versión disponible el cual lo podemos hacer desde el siguiente link
@@ -24,11 +36,12 @@ Después de tener la carpeta creada, procedemos a descomprimir ahi dentro lo que
 ```bash
 tar -zxvf linuxbrowser0.6.1-obs23.0.2-64bit.tgz -C $HOME/.config/obs-studio/plugins/
 ```
+
 {{< img src="https://github.com/bazukas/obs-linuxbrowser/raw/master/img/obs-linuxbrowser.png" >}}
 
 Este comando está asumiendo que vos estás en la carpeta donde lo descargaste. Por ultimo tenes que asegurarte de tener estas dependencias instaladas:
 
-* OBS-Studio (Mas que obvio)
-* libgconf
+-   OBS-Studio (Mas que obvio)
+-   libgconf
 
 Y ya podes abrir el OBS estudio y cuando agregues una nueva Fuente va a figurar Linux Browser donde podemos agregar sitios webs.

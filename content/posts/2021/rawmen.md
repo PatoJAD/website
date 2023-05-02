@@ -1,12 +1,22 @@
 ---
-title: "RAWMEN: un Shooter Culinario"
-date: "2021-06-14 09:53:00.00"
-description: "Un shooter un tanto mas.... delicioso.. a quien no le gusta el Rammen digo el RAWMEN"
-type: "juegos"
-tags: ["steam","proton","rawmen","ramen","shooter","comida","armas","multiplayer"]
-category: ["Juegos"]
-img:  "https://cdn.cloudflare.steamstatic.com/steam/apps/782940/header.jpg"
-authors: ["PatoJAD"]
+title: 'RAWMEN: un Shooter Culinario'
+date: '2021-06-14 09:53:00.00'
+description: 'Un shooter un tanto mas.... delicioso.. a quien no le gusta el Rammen digo el RAWMEN'
+type: 'juegos'
+tags:
+    [
+        'steam',
+        'proton',
+        'rawmen',
+        'ramen',
+        'shooter',
+        'comida',
+        'armas',
+        'multiplayer',
+    ]
+category: ['Juegos']
+img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/782940/header.jpg'
+authors: ['PatoJAD']
 ---
 
 **RAWMEN** es un juego **multijugador** de disparos que te obliga a enfrentarte de entre 2 a 8 de tus colegas más queridos... o a tus no tan colegas. ¡Demuestra tu soparioridad y siembra un bonito caos culinario!
@@ -21,7 +31,6 @@ Hace un tiempo llevo probando este nuevo juego el cual tiene una dinámica un ta
 
 El juego aun esta en BETA y podemos apreciar que va avanzando con el tiempo… Unite a la BETA y juguemos juntos.
 
-
 ## Festival de bofetadas multijugador
 
 ¡Participa en una partida rápida y lucha contra los sopas de todo el mundo, o invita a algunos amigos y diviértete juntos en un juego privado de tu elección!
@@ -30,14 +39,14 @@ El juego aun esta en BETA y podemos apreciar que va avanzando con el tiempo… U
 
 Aquí hay una muestra de lo que hay en el menú:
 
-* **Claim Chowder:** ¡Defiende la codiciada olla de sopa de los jugadores enemigos para ganar!
-* **Albóndiga:** Sumérjase en el reconfortante calor de la jugosa carne y avance hacia la meta; simplemente no te quedes inconsciente, *¡NECESITAMOS ESE JUGO DE CARNE!*
-* **Top RAWMEN:** usa tus bombas de rosquilla para lanzarte al aire y atravesar obstáculos, mientras recolectas la posesión más preciada: *¡los cubos de caldo dorado!*
-* ... ¡y mucho más!
+-   **Claim Chowder:** ¡Defiende la codiciada olla de sopa de los jugadores enemigos para ganar!
+-   **Albóndiga:** Sumérjase en el reconfortante calor de la jugosa carne y avance hacia la meta; simplemente no te quedes inconsciente, _¡NECESITAMOS ESE JUGO DE CARNE!_
+-   **Top RAWMEN:** usa tus bombas de rosquilla para lanzarte al aire y atravesar obstáculos, mientras recolectas la posesión más preciada: _¡los cubos de caldo dorado!_
+-   ... ¡y mucho más!
 
 ## Lucha contra la comida en su máxima expresión
 
-¿Pistolas de bratling, pasteles de crema, papas calientes, caballas de Smackeral? ¡¿Y ALBÓNDIGAS extremadamente grandes ?! ¡Sí, lo tenemos! Usa una gran cantidad de comida para rebanar a tus oponentes, o propulsarte a la grandeza y lograr lo impensable; *¡Una oportunidad de ser el Top __RAWMEN__! __¡PODRÍA SER FAMOSO!__*
+¿Pistolas de bratling, pasteles de crema, papas calientes, caballas de Smackeral? ¡¿Y ALBÓNDIGAS extremadamente grandes ?! ¡Sí, lo tenemos! Usa una gran cantidad de comida para rebanar a tus oponentes, o propulsarte a la grandeza y lograr lo impensable; _¡Una oportunidad de ser el Top **RAWMEN**! **¡PODRÍA SER FAMOSO!**_
 
 {{< img src="https://cdn.cloudflare.steamstatic.com/steam/apps/782940/extras/_sizzle_reel_Linked_Comp_3.gif">}}
 
@@ -53,12 +62,12 @@ Cuando se trata de moda, lo cubrimos con un baúl lleno de diferentes estilos cu
 
 ## Requisitos
 
-* **Procesador:** SSE2 instruction set support
-* **Memoria:** 8 GB de RAM
-* **Gráficos:** Graphics card with DX11 (shader model 3.0) capabilities.
-* **DirectX:** Versión 11
-* **Red:** Conexión de banda ancha a Internet
-* **Almacenamiento:** 4 GB de espacio disponible
-* **Tarjeta de sonido:** ¡Todo vale!
+-   **Procesador:** SSE2 instruction set support
+-   **Memoria:** 8 GB de RAM
+-   **Gráficos:** Graphics card with DX11 (shader model 3.0) capabilities.
+-   **DirectX:** Versión 11
+-   **Red:** Conexión de banda ancha a Internet
+-   **Almacenamiento:** 4 GB de espacio disponible
+-   **Tarjeta de sonido:** ¡Todo vale!
 
 {{< steamgame code="782940" >}}

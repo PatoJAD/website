@@ -1,12 +1,22 @@
 ---
-title: "¿Nativo o Proton? la opinión de Valve"
-date: "2021-11-18 10:23:00.00"
-description: "Muchas opiniones a favor o en contra del uso de proton se dieron a conocer por muchos iconos, blogs, linuxtubers, etc. Ahora le toca a Valve."
-type: "juegos"
-tags: ["valve","steam","proton","opinion","ceo","juegos","nativos"]
-category: ["Juegos"]
-img: "https://blog.desdelinux.net/wp-content/uploads/2018/12/steam-linux-proton.jpg"
-authors: ["PatoJAD"]
+title: '¿Nativo o Proton? la opinión de Valve'
+date: '2021-11-18 10:23:00.00'
+description: 'Muchas opiniones a favor o en contra del uso de proton se dieron a conocer por muchos iconos, blogs, linuxtubers, etc. Ahora le toca a Valve.'
+type: 'juegos'
+tags:
+    [
+        'valve',
+        'steam',
+        'proton',
+        'opinion',
+        'ceo',
+        'juegos',
+        'nativos',
+        'virtualizar',
+    ]
+category: ['Juegos', 'Linux']
+img: 'https://blog.desdelinux.net/wp-content/uploads/2018/12/steam-linux-proton.jpg'
+authors: ['PatoJAD']
 ---
 
 Muchas veces vemos a muchos linuxtubers, bloggers, vloggers o simplemente usuarios sobre si proton, el proyecto de valve, es bueno o es malo para el gaming en linux. Si bien ambas posturas tienen puntos perfectamente válidos, es una discusión que no tiende a terminar nunca.

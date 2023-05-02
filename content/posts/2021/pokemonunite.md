@@ -1,12 +1,24 @@
 ---
-title: "Ya esta Disponible Pokémon Unite"
-date: "2021-09-23 11:23:00.00"
-description: "Ya está disponible Pokémon unite para Android y iOS. Todos los que vimos este juego y nos gustan un poco los moba y Pokémon teníamos que jugarlo."
-type: "juegos"
-tags: ["pokemon","android","ios","moba","unite","free","gratis"]
-category: ["Juegos"]
-img: "https://i.blogs.es/7c1b87/1024_2000/450_1000.jpeg"
-authors: ["PatoJAD"]
+title: 'Ya esta Disponible Pokémon Unite'
+date: '2021-09-23 11:23:00.00'
+description: 'Ya está disponible Pokémon unite para Android y iOS. Todos los que vimos este juego y nos gustan un poco los moba y Pokémon teníamos que jugarlo.'
+type: 'juegos'
+tags:
+    [
+        'pokemon',
+        'android',
+        'ios',
+        'moba',
+        'unite',
+        'free',
+        'gratis',
+        'pokemonunite',
+        'pokemon unite',
+        'pokemon moba',
+    ]
+category: ['Juegos', 'Android', 'iOS']
+img: 'https://i.blogs.es/7c1b87/1024_2000/450_1000.jpeg'
+authors: ['PatoJAD']
 ---
 
 {{< img src="https://esports.eldesmarque.com/wp-content/uploads/2020/06/Pokemon-Unite-2.jpg" >}}
@@ -32,10 +44,10 @@ Aúna fuerzas y avasalla a tus rivales en el primer juego de combates por equipo
 
 {{< img src="https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2021/09/22/614af4e375a17.jpeg" >}}
 
-* **DERROCHA ESTILO EN COMBATE:** ¡Sé el centro de atención con tu holoatuendo! Gracias a una tecnología especial que emplea la energía Æos, los Entrenadores pueden vestir a sus Pokémon con toda clase de indumentarias holográficas. ¡Y el catálogo seguirá creciendo!
-* **MOVIMIENTOS UNITE:** ¡Desata el verdadero poder de tus Pokémon con los movimientos Unite! Aprovecha estos movimientos Pokémon nunca vistos, exclusivos de los Combates Unite, e inclina la balanza a tu favor cuando estés contra las cuerdas.
-* **SUBE DE RANGO:** ¿Quieres demostrar tu pericia? ¡Participa en los combates clasificatorios y acumula puntos para ascender en la clasificación mundial!
-* **LA COMUNICACIÓN ES ESENCIAL:** Incluso los Entrenadores más experimentados reconocen lo importante que es la comunicación para el éxito de su equipo. Utiliza el chat rápido, las alertas y (por primera vez en un título de Pokémon) el chat de voz para que tus compañeros y tú estéis siempre en la misma onda.
-* **JUEGO MULTIPLATAFORMA:** Participa en Combates Unite contra Entrenadores de todo el mundo en la consola Nintendo SwitchTM o en un dispositivo móvil compatible gracias a su función multiplataforma. Los jugadores podrán usar su cuenta del Club de Entrenadores Pokémon o su cuenta Nintendo tanto en su Nintendo Switch como en su dispositivo móvil para mantener su progreso sincronizado en ambos dispositivos.
+-   **DERROCHA ESTILO EN COMBATE:** ¡Sé el centro de atención con tu holoatuendo! Gracias a una tecnología especial que emplea la energía Æos, los Entrenadores pueden vestir a sus Pokémon con toda clase de indumentarias holográficas. ¡Y el catálogo seguirá creciendo!
+-   **MOVIMIENTOS UNITE:** ¡Desata el verdadero poder de tus Pokémon con los movimientos Unite! Aprovecha estos movimientos Pokémon nunca vistos, exclusivos de los Combates Unite, e inclina la balanza a tu favor cuando estés contra las cuerdas.
+-   **SUBE DE RANGO:** ¿Quieres demostrar tu pericia? ¡Participa en los combates clasificatorios y acumula puntos para ascender en la clasificación mundial!
+-   **LA COMUNICACIÓN ES ESENCIAL:** Incluso los Entrenadores más experimentados reconocen lo importante que es la comunicación para el éxito de su equipo. Utiliza el chat rápido, las alertas y (por primera vez en un título de Pokémon) el chat de voz para que tus compañeros y tú estéis siempre en la misma onda.
+-   **JUEGO MULTIPLATAFORMA:** Participa en Combates Unite contra Entrenadores de todo el mundo en la consola Nintendo SwitchTM o en un dispositivo móvil compatible gracias a su función multiplataforma. Los jugadores podrán usar su cuenta del Club de Entrenadores Pokémon o su cuenta Nintendo tanto en su Nintendo Switch como en su dispositivo móvil para mantener su progreso sincronizado en ambos dispositivos.
 
 {{< link url="https://unite.pokemon.com/es-mx/" text="Ver en la Web" >}}

@@ -3,8 +3,20 @@ title: 'Reducir consumo de Steam'
 date: '2021-03-11 09:50:00.00'
 description: 'Todos algunas vez jugamos al pokemon de GBA, ya sea el Amarillo, El Rojo Fuejo, el Zafari o cualquier otro.'
 type: 'juegos'
-tags: ['steam', 'valve', 'client', 'consumo', 'performance', 'mejorar']
-category: ['Juegos']
+tags:
+    [
+        'steam',
+        'valve',
+        'client',
+        'consumo',
+        'performance',
+        'mejorar',
+        'browser',
+        'no-browser',
+        'params',
+        'Parametros',
+    ]
+category: ['Juegos', 'Linux']
 img: 'https://arc-anglerfish-arc2-prod-infobae.s3.amazonaws.com/public/767U3KQXVFG27ORY34QLGRUV6Y.jpg'
 authors: ['PatoJAD']
 ---

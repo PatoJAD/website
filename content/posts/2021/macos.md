@@ -3,7 +3,26 @@ title: 'MacOS ¿El mejor sistema operativo?'
 date: '2021-11-04 09:15:00'
 description: 'Tuvimos la oportunidad de probar una MacBook Pro 16 y te contamos qué tan especial es el supuesto mejor sistema operativo del mundo.'
 type: 'noticias'
-tags: ['macos', 'windows', 'linux', 'video', 'bueno', 'malo', 'macbook']
+tags:
+    [
+        'macos',
+        'video',
+        'bueno',
+        'malo',
+        'macbook',
+        'pro',
+        '16',
+        'apple',
+        'sistema',
+        'operativo',
+        'mejor',
+        'peor',
+        'review',
+        'analisis',
+        'opinion',
+        'pros',
+        'contras',
+    ]
 category: ['Noticias']
 img: 'https://i.postimg.cc/3RBWD4bR/MACOS.png'
 authors: ['PatoJAD']

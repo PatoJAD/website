@@ -3,10 +3,21 @@ title: 'Stream Tools'
 date: '2021-05-31 09:10:00'
 description: 'Stream Tools herramientas simples y dinamicas para los Streamers'
 type: 'noticias'
-tags: ["streams", "tools", "cards", "free", "thirds"]
-category: ["Noticias"]
+tags:
+    [
+        'streams',
+        'tools',
+        'cards',
+        'free',
+        'thirds',
+        'streamers',
+        'obs',
+        'browser',
+        'linux',
+    ]
+category: ['Noticias', 'Aplicaciones']
 img: 'https://i.postimg.cc/WThR0szw/image.png'
-authors: ["PatoJAD"]
+authors: ['PatoJAD']
 ---
 
 En esta oportunidad vengo a contar en algo que trabajé hace mucho y esta funcional pero nunca lo comente. Claramente no es un gran aporte pero espero algún día terminar de expandirlo y ofrecer más opciones.
@@ -29,10 +40,10 @@ Estas herramientas se hicieron pensando en OBS por lo cual necesitamos tener OBS
 
 El uso está más detallado en la documentación que dejamos arriba, pero básicamente consiste en modificar los links de ejemplos manteniendo en cuenta los parámetros de la siguiente tabla:
 
-| Parámetro | Descripción | Formato | Ejemplo |
-|:----------|:-----------:|:--------|:-------:|
-| title | Es el título principal del third | **Tipo:** Texto **Tamaño máximo:** 9 | PatoJAD |
-| subtitle | Es el subtítulo del third | **Tipo:** Texto **Tamaño máximo:** 7 | UrT |
-| color | El color para la decoración | **Tipo:** hexadecimal | f0f313 |
+| Parámetro |           Descripción            | Formato                              | Ejemplo |
+| :-------- | :------------------------------: | :----------------------------------- | :-----: |
+| title     | Es el título principal del third | **Tipo:** Texto **Tamaño máximo:** 9 | PatoJAD |
+| subtitle  |    Es el subtítulo del third     | **Tipo:** Texto **Tamaño máximo:** 7 |   UrT   |
+| color     |   El color para la decoración    | **Tipo:** hexadecimal                | f0f313  |
 
 Seguramente en un futuro se agreguen más tipos de contenido, sin embargo por el momento solo tenemos disponibles los thirds genéricos que se ven en la documentación.

@@ -1,12 +1,22 @@
 ---
-title: "Rolling Release vs Point Release"
-date: "2021-03-02 09:12:00"
-description: "Esto suele ser una pregunta muy cotidiana en los grupos, ¿Qué es mejor? Siempre podemos ver a los usuarios defendiendo lo que ellos utilizan como si lo demás no diera resultado."
-type: "linux"
-tags: ["linux", "release", "point", "rolling", "fixed", "diferencia", "vs", "paqueteria"]
-category: ["Linux"]
-img: "https://i0.wp.com/itsfoss.com/wp-content/uploads/2020/09/rolling-vs-point-release-distribution.png?resize=800%2C350&ssl=1"
-authors: ["PatoJAD"]
+title: 'Rolling Release vs Point Release'
+date: '2021-03-02 09:12:00'
+description: 'Esto suele ser una pregunta muy cotidiana en los grupos, ¿Qué es mejor? Siempre podemos ver a los usuarios defendiendo lo que ellos utilizan como si lo demás no diera resultado.'
+type: 'linux'
+tags:
+    [
+        'linux',
+        'release',
+        'point',
+        'rolling',
+        'fixed',
+        'diferencia',
+        'vs',
+        'paqueteria',
+    ]
+category: ['Linux']
+img: 'https://itsfoss.com/content/images/wordpress/2020/09/rolling-vs-point-release-distribution.png'
+authors: ['PatoJAD']
 ---
 
 Esto suele ser una pregunta muy cotidiana en los grupos, **¿Qué es mejor?** Siempre podemos ver a los usuarios defendiendo lo que ellos utilizan como si lo demás no diera resultado. Hoy en particular, vengo a contar mi experiencia y cuando elijo RR o PR dependiendo las necesidades.
@@ -20,7 +30,6 @@ Dependiendo del uso podemos discriminar los que exigen la mayor performance en s
 {{< img src="https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/480/public/media/image/2020/03/olvidate-comprar-silla-gaming-llegan-camas-gaming-1882221.jpg?itok=lnWK14Ov">}}
 
 En cambio al resto de los usuarios, internautas, jugadores casuales, etc. Pueden tranquilamente suplir todas sus necesidades con una distribución Point Release.
-
 
 ## Según la máquina
 

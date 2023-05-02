@@ -3,10 +3,26 @@ title: 'Open Assistant un asistente Open Source'
 date: '2021-07-05 10:17:00'
 description: 'Hoy hablamos de un gran asistente Open Source en Python'
 type: 'aplicaciones'
-tags: ["python", "arch", "debian", "ubuntu", "open", "assistant", "asistente", "virtual", "siri", "google", "cortana"]
-category: ["Aplicaciones"]
+tags:
+    [
+        'python',
+        'arch',
+        'debian',
+        'ubuntu',
+        'open',
+        'assistant',
+        'asistente',
+        'virtual',
+        'siri',
+        'google',
+        'cortana',
+        'openassistant',
+        'openassistant.org',
+        'openassistant-org',
+    ]
+category: ['Aplicaciones', 'Linux', 'Windows', 'MacOS']
 img: 'https://medevel.com/content/images/2019/08/openassistant-org--2019-08-11_7_32.jpg'
-authors: ["PatoJAD"]
+authors: ['PatoJAD']
 ---
 
 Siempre se habla de los asistentes, muchos sistemas tienen su sistema y en linux, por alguna extraña razón no es altamente explotado. En cuanto a Windows podemos encontrar a Cortana, que por suerte ya no viene por defecto en Windows 11. Para Android, tenemos a Google Assistant que no va tan mal. Y los que tienen el dinero como para regocijarse en Apple tienen a Siri, un asistente que es de los más humanizados que existe. Y existen varios más, pero hoy vamos a hablar de uno que no escuche mucho nombrar...
@@ -17,7 +33,7 @@ Yo no soy un gran fanatico de los asistentes, no pude nunca sacarle el jugo que 
 
 ## OA
 
-**OA** o también conocido como Open Assistant es un asistente, que claramente corre en GNU/Linux, escrito en python, que tiene la particularidad de ser completamente extensible.  Esto nos permite tener un asistente con un lenguaje que casi cualquier persona pueda extender.
+**OA** o también conocido como Open Assistant es un asistente, que claramente corre en GNU/Linux, escrito en python, que tiene la particularidad de ser completamente extensible. Esto nos permite tener un asistente con un lenguaje que casi cualquier persona pueda extender.
 
 ### Instalar OA
 
@@ -47,7 +63,7 @@ pip install -r requirements.txt
 
 {{< info text="En caso de estar en Debian, Ubuntu o derivadas. Deben sustituir pip por pip3 para ejecutarlo con esta versión en especifico" >}}
 
-A continuación de esto,  ya podemos iniciar el proyecto, para esto lo podemos hacer de la siguiente manera:
+A continuación de esto, ya podemos iniciar el proyecto, para esto lo podemos hacer de la siguiente manera:
 
 ```bash
 python -m oa

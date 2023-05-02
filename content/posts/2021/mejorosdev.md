@@ -14,8 +14,14 @@ tags:
         'dev',
         'so',
         'mejor disro de linux para programar',
+        'mejor sistema para programar',
+        'mejor sistema operativo para programar',
+        'mejor sistema operativo para programadores',
+        'mejor sistema operativo para desarrolladores',
+        'mejor sistema operativo para desarrollar',
+        'linux',
     ]
-category: ['Programacion']
+category: ['Programacion', 'Linux', 'Windows', 'MacOS']
 img: 'https://i.postimg.cc/5xx0mVXw/linux-dev.png'
 authors: ['PatoJAD']
 ---

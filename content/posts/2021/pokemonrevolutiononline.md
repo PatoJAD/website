@@ -1,12 +1,23 @@
 ---
-title: "Pokemon Revolution Online"
-date: "2021-02-17 08:00:00.00"
-description: "Todos algunas vez jugamos al pokemon de GBA, ya sea el Amarillo, El Rojo Fuejo, el Zafari o cualquier otro."
-type: "juegos"
-tags: ["pokemon","mmorpg","pro","revolution","online","free","mmo","pvp","pve"]
-category: ["Juegos"]
-img:  "https://i.postimg.cc/KYD6JtQT/pokemon-patojad.jpg"
-authors: ["PatoJAD"]
+title: 'Pokemon Revolution Online'
+date: '2021-02-17 08:00:00.00'
+description: 'Todos algunas vez jugamos al pokemon de GBA, ya sea el Amarillo, El Rojo Fuejo, el Zafari o cualquier otro.'
+type: 'juegos'
+tags:
+    [
+        'pokemon',
+        'mmorpg',
+        'pro',
+        'revolution',
+        'online',
+        'free',
+        'mmo',
+        'pvp',
+        'pve',
+    ]
+category: ['Juegos']
+img: 'https://i.postimg.cc/KYD6JtQT/pokemon-patojad.jpg'
+authors: ['PatoJAD']
 ---
 
 Todos algunas vez jugamos al pokemon de GBA, ya sea el Amarillo, El Rojo Fuejo, el Zafari o cualquier otro. Sin embargo este juego es muy "solitario" Y muchas veces preferimos jugarlo online con amigos. En esta oportunidad vamos a conocer un servidor que nos permite jugar a este mítico juego (Claramente con modificaciones y actualizaciones constantes) con otras personas, y también con amigos.
@@ -16,7 +27,6 @@ Pokemon Revolution Online viene siendo un Free to Play que soporta prácticament
 {{< img src="https://i.postimg.cc/Cxs0Qyxd/maxresdefault-pokemon.jpg" >}}
 
 En este juego, puedes viajar por cuatro regiones (Kanto, Johto, Hoenn y Sinnoh) siendo Kanto la inicial en todo caso. tras pasar a otra región tus pokémons serán retirados y empezarás de nuevo hasta lograr vencer la liga pokémon y así hasta acabar con las 3 ligas, pudiendo atrapar por el camino un máximo de 721 pokémons. Hay muchos desafíos, curiosidades y lo más importante: jugadores.
-
 
 {{< link url="https://pokemonrevolution.net/" text="Web" >}}
 
@@ -45,6 +55,5 @@ El equipo encargado del contenido de PRO está siempre trabajando para crear e i
 ## Descargas
 
 Dejo a continuación el link de descarga por MediaFire (La versión de linux), también puedes ver todas las opciones en la página web. Y obviamente registrarte para comenzar tu Aventura Pokemon Online.
-
 
 {{< link url="https://www.mediafire.com/file/8lmzq2sz06trgq8/PROClient_linux.zip/file" text="Descarga por MediaFire" >}}

@@ -30,8 +30,8 @@ Ya con anterioridad me consultaron de como instalar Wine en Artix, esto me llev�
 
 Si venis por Artix o cualquier distro de Arch te recomiendo que veas de antemano las instalaciones y configuraciones de las que hago uso en el video y doy por sabido estas son
 
--   {{< textlink text="Multilib" url="/linux/2021/03/activar-multilib-artix/">}}
--   {{< textlink text="yay" url="/linux/2020/10/instalar-yay-en-artix-linux/">}}
+-   {{< textlink text="Multilib" url="/post/2021/03/activar-multilib-artix/">}}
+-   {{< textlink text="yay" url="/post/2020/10/instalar-yay-en-artix-linux/">}}
 
 ## Video
 
@@ -49,12 +49,16 @@ Lo primero que debemos hacer es instalar WineHQ en nuestra distribución, para e
 
 Habilitamos los 32 bits
 
-    sudo dpkg --add-architecture i386
+```zsh
+sudo dpkg --add-architecture i386
+```
 
 Descargamos e instalamos a Key
 
-    wget -nc https://dl.winehq.org/wine-builds/winehq.key
-    sudo apt-key add winehq.key
+```zsh
+wget -nc https://dl.winehq.org/wine-builds/winehq.key
+sudo apt-key add winehq.key
+```
 
 Agregamos el repositorio dependiendo de nuestra versión
 
@@ -66,7 +70,9 @@ Agregamos el repositorio dependiendo de nuestra versión
 
 Actualizamos el Sistema
 
-    sudo apt update
+```
+sudo apt update
+```
 
 Instalamos uno de los paquetes
 
@@ -99,4 +105,6 @@ Para otras distribuciones o BDS o MacOS revisar en su {{< textlink text="sitio o
 
 Si estás en una distro basada en arch lo que recomiendo es instalar wine-staging que es, personalmente la instalación que me dio un mejor rendimiento. En mi caso lo hice con yay pero puedes hacerlo directamente con pacman
 
-    yay -S wine-staging
+```zsh
+yay -S wine-staging
+```

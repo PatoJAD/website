@@ -3,7 +3,20 @@ title: 'Instalar el Zen Kernel'
 date: '2021-05-27 09:18:00.00'
 description: 'Vamos a cambiar el kernel para mejorar el rendimiento en videojuegos'
 type: 'linux'
-tags: ['artix', 'kernel', 'zen', 'arch', 'endeavour', 'manjaro']
+tags:
+    [
+        'artix',
+        'kernel',
+        'zen',
+        'arch',
+        'endeavour',
+        'manjaro',
+        'linux',
+        'liquorix',
+        'custom',
+        'gaming',
+        'gamer',
+    ]
 category: ['Linux']
 img: 'https://i.postimg.cc/gkd80yH4/image.png'
 authors: ['PatoJAD']
@@ -21,7 +34,7 @@ Zen es el kernel conocido como Liquorix compilado para Arch y este kernel presen
 
 -   **Zen Interactive Tuning:** ajusta el kernel para mejorar la capacidad de respuesta a costa del rendimiento y el uso de energía.
 
-```
+```bash
 --- Virtual Memory Subsystem ---------------------------
 
 Mem dirty before bg writeback..:  10 %  ->  20 %
@@ -60,16 +73,16 @@ ISO task max realtime use......:  70 %  ->  25 %
 
 Primero debemos instalar el kernel, esto lo podemos hacer con pacman o con yay de la siguiente manera:
 
-```
+```zsh
 yay -S linux-zen linux-zen-header
 ```
 
-```
+```zsh
 sudo pacman -S linux-zen linux-zen-header
 ```
 
 Si venís de distribuciones basadas en Debian ya intentaste reiniciar, pero como se demuestra en el video no funciona asi, por lo cual es necesario actualizar el GRUB.
 
-```
+```zsh
 sudo update-grub
 ```

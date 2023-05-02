@@ -1,15 +1,15 @@
 ---
-title: "Palword ¿Pokemon?¿Armas?¿RPG?"
-date: "2021-06-07 09:23:00.00"
-description: "Palword el nuevo RPG que mescla criaturas simil pokemon con armas y nos dan un nuevo rpg"
-type: "juegos"
-tags: ["steam","pokemon","juego","palward","rpg","mmo","armas","shooter"]
-category: ["Juegos"]
-img:  "https://cdn.akamai.steamstatic.com/steam/apps/1623730/header.jpg"
-authors: ["PatoJAD"]
+title: 'Palword ¿Pokemon?¿Armas?¿RPG?'
+date: '2021-06-07 09:23:00.00'
+description: 'Palword el nuevo RPG que mescla criaturas simil pokemon con armas y nos dan un nuevo rpg'
+type: 'juegos'
+tags: ['steam', 'pokemon', 'juego', 'palward', 'rpg', 'mmo', 'armas', 'shooter']
+category: ['Juegos']
+img: 'https://cdn.akamai.steamstatic.com/steam/apps/1623730/header.jpg'
+authors: ['PatoJAD']
 ---
 
-Palworld es un nuevo juego multijugador de supervivencia en un mundo abierto en el que puedes hacerte amigo y coleccionar criaturas misteriosas llamadas *Pal* en un vasto mundo. Haz que tus amigos luchen, construyan, cultiven y trabajen en fábricas.
+Palworld es un nuevo juego multijugador de supervivencia en un mundo abierto en el que puedes hacerte amigo y coleccionar criaturas misteriosas llamadas _Pal_ en un vasto mundo. Haz que tus amigos luchen, construyan, cultiven y trabajen en fábricas.
 
 {{< img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1623730/extras/20210605_PAL_Cut3_Life.gif" >}}
 
@@ -17,11 +17,11 @@ Lamentablemente no sabemos y tampoco creemos que este juego sea nativo para Linu
 
 ## ¿De qué trata este juego?
 
-**Palworld** es un juego sobre vivir una vida lenta con misteriosas criaturas *Pal* o lanzarse a batallas de vida o muerte con cazadores furtivos. Puedes hacer que tus amigos luchen, se reproduzcan, ayuden en la agricultura o trabajen en fábricas. ¡También puede venderlos o incluso sacrificarlos para comerlos! Sin embargo, eso está prohibido por ley.
+**Palworld** es un juego sobre vivir una vida lenta con misteriosas criaturas _Pal_ o lanzarse a batallas de vida o muerte con cazadores furtivos. Puedes hacer que tus amigos luchen, se reproduzcan, ayuden en la agricultura o trabajen en fábricas. ¡También puede venderlos o incluso sacrificarlos para comerlos! Sin embargo, eso está prohibido por ley.
 
 ## Supervivencia
 
-Este mundo está lleno de peligros como la escasez de alimentos, el clima severo y los cazadores furtivos ilegales. Debes estar preparado para hacer cualquier cosa si quieres sobrevivir. Incluso puede que **necesite consumir *Pals* a veces...**
+Este mundo está lleno de peligros como la escasez de alimentos, el clima severo y los cazadores furtivos ilegales. Debes estar preparado para hacer cualquier cosa si quieres sobrevivir. Incluso puede que **necesite consumir _Pals_ a veces...**
 
 {{< img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1623730/extras/20210605_PAL_Cut10_Survival.gif" >}}
 
@@ -73,10 +73,10 @@ Este juego es compatible con multijugador. Invita a tus amigos a emprender una a
 
 ## Requerimientos
 
-* **Procesador:** 2.0 GHz Dual Core or similar
-* **Memoria:** 8 GB de RAM
-* **Gráficos:** VRAM 2GB
-* **Red:** Conexión de banda ancha a Internet
-* **Almacenamiento:** 10 GB de espacio disponible
+-   **Procesador:** 2.0 GHz Dual Core or similar
+-   **Memoria:** 8 GB de RAM
+-   **Gráficos:** VRAM 2GB
+-   **Red:** Conexión de banda ancha a Internet
+-   **Almacenamiento:** 10 GB de espacio disponible
 
 {{< steamgame code="1623730" >}}

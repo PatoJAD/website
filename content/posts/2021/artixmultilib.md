@@ -13,6 +13,13 @@ tags:
         'wine',
         'steam',
         'paqueteria',
+        'linux',
+        '32bits',
+        '64bits',
+        '32',
+        '64',
+        'bits',
+        'multilibs',
     ]
 category: ['Linux']
 img: 'https://ubunlog.com/wp-content/uploads/2019/12/flatpak-cover.png'

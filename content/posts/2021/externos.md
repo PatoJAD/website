@@ -3,7 +3,18 @@ title: 'eXternOS una propuesta diferente'
 date: '2021-05-20 10:05:00.00'
 description: 'Un repaso de ExternOS una distro que busca ser diferente a lo que nos proponene las demas'
 type: 'linux'
-tags: ['extern', 'os', 'web', 'dad', 'ubuntu', 'debian']
+tags:
+    [
+        'extern',
+        'os',
+        'web',
+        'dad',
+        'ubuntu',
+        'debian',
+        'externos',
+        'nwjs',
+        'desktop',
+    ]
 category: ['Linux']
 img: 'https://externos.io/wp-content/uploads/2017/01/2nd-img-mod3.png'
 authors: ['PatoJAD']

@@ -1,12 +1,24 @@
 ---
-title: "Post Install Void Linux"
-date: "2021-12-14 09:45:00.00"
-description: "Void es una distro que está naciendo y llena de buenas críticas, y un gran usuario nos dejó su post install para todos nosotros."
-type: "linux"
-tags: ["void", "linux", "post", "install", "script", "git", "gitlab", "gnu", "ingresar", "entrar"]
-category: ["Linux"]
-img: "https://cdn.statically.io/img/websetnet.net/f=auto%2Cq=60/wp-content/uploads/2019/06/Void-Linux-Neofetch-2.png"
-authors: ["PatoJAD"]
+title: 'Post Install Void Linux'
+date: '2021-12-14 09:45:00.00'
+description: 'Void es una distro que está naciendo y llena de buenas críticas, y un gran usuario nos dejó su post install para todos nosotros.'
+type: 'linux'
+tags:
+    [
+        'void',
+        'linux',
+        'post',
+        'install',
+        'script',
+        'git',
+        'gitlab',
+        'gnu',
+        'ingresar',
+        'entrar',
+    ]
+category: ['Linux']
+img: 'https://cdn.statically.io/img/websetnet.net/f=auto%2Cq=60/wp-content/uploads/2019/06/Void-Linux-Neofetch-2.png'
+authors: ['PatoJAD']
 ---
 
 Es muy importante contribuir con la comunidad, siempre digo que cada cosa que arme uno debe ser dada a conocer, nadie sabe realmente cómo puede ayudar a otros usuarios y más en caso como vamos a verlo hoy.
@@ -45,7 +57,7 @@ Sin embargo quería saber porque a este usuario (Adolfo David Mauro) se le ocurr
 
 Imaginense ver esto, La necesidad del script es completamente auténtica, era solo una pequeña parte de un proyecto mucho mayor, donde llevar GNU/Linux no era el fin, era el medio para que muchos jóvenes pudieran estudiar. Y esta es la forma más auténtica de predicar el uso de GNU/Linux, llevándolo como solución a los problemas actuales.
 
->La verdad que le meto muchísima ficha al open source, es casi una cuestión de militancia jajaja, hay quienes comparten y quienes no... Yo creo que mezquinando info o desarrollos por miedo a que "nos lo roben" no vamos a ningún lado... uno hace esto por que le gusta, nadie dice que no lo puedas vender es un laburo, pero mezquinar conocimiento me parece un poco bajo, por eso aplaudo el laburo de los youtubers que difunden la cultura del open source y trato de colaborar de alguna forma....
+> La verdad que le meto muchísima ficha al open source, es casi una cuestión de militancia jajaja, hay quienes comparten y quienes no... Yo creo que mezquinando info o desarrollos por miedo a que "nos lo roben" no vamos a ningún lado... uno hace esto por que le gusta, nadie dice que no lo puedas vender es un laburo, pero mezquinar conocimiento me parece un poco bajo, por eso aplaudo el laburo de los youtubers que difunden la cultura del open source y trato de colaborar de alguna forma....
 >
 > Tanto tu canal como el de Nico, drivemeca... han aportado tanto que uno quiere devolver de alguna forma esa info....
 
@@ -53,25 +65,34 @@ Claramente Adolfo entendió todo, sabe que la idea de la libertad y el open sour
 
 ## Uso del script
 
-* Luego de instalar VOID. Iniciar con el usuario estándar (NO ROOT)
+-   Luego de instalar VOID. Iniciar con el usuario estándar (NO ROOT)
 
-* Instalar Git
+-   Instalar Git
+
 ```bash
 sudo xbps-install -Sy git
 ```
-* Clonar del repositorio el script
+
+-   Clonar del repositorio el script
+
 ```bash
 git clone https://gitlab.com/davidmauroweb/mad-void_mate.git
 ```
-* Entrar al subdirectorio
+
+-   Entrar al subdirectorio
+
 ```bash
 cd MAD-void_mate
 ```
-* Dar permisos de Ejecución a MadVM.sh
+
+-   Dar permisos de Ejecución a MadVM.sh
+
 ```bash
 chmod +x MadVM.sh
 ```
-* Ejecutar el Script
+
+-   Ejecutar el Script
+
 ```bash
 ./MadVM.sh
 ```

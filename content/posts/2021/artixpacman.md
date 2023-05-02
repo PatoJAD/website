@@ -15,6 +15,9 @@ tags:
         'manjaro',
         'arch',
         'endeavour',
+        'opinion',
+        'archlinux',
+        'linux',
     ]
 category: ['Linux']
 img: 'https://i.postimg.cc/MH1q52GV/pacmanparalelo.png'
