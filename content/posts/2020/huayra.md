@@ -2,7 +2,7 @@
 title: 'Instalacion de Huayra Linux'
 date: '2021-11-19 08:53:00.00'
 description: 'Huayra linux la distribucion creada en argentina orientada a la educacion'
-type: 'instalacion'
+type: 'post'
 tags:
     [
         'debian',
@@ -14,7 +14,7 @@ tags:
         'argentina',
         'como instalar',
     ]
-categories: ['instalacion']
+categories: ['Linux']
 img: 'https://i.postimg.cc/gcXfFDQp/huayra.webp'
 authors: ['PatoJAD']
 ---

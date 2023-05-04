@@ -2,7 +2,7 @@
 title: 'Manjaro WebDad'
 date: '2021-02-26 08:53:00.00'
 description: 'Hoy hablamos de Manjaro Webdad y su escritorio JADE el cual plantea una interesante forma de ver el escritorio de linux'
-type: 'instalacion'
+type: 'post'
 tags:
     [
         'manjaro',
@@ -14,7 +14,7 @@ tags:
         'review',
         'instalacion',
     ]
-categories: ['instalacion']
+categories: ['Linux']
 img: 'https://raw.githubusercontent.com/codesardine/Jadesktop/master/jade1.jpg'
 authors: ['PatoJAD']
 ---
