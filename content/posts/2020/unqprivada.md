@@ -2,9 +2,9 @@
 title: 'Universidades Públicas ¿Privativas?'
 date: '2020-06-19 10:40:00'
 description: '¿Es posible que las universidades exijan el uso de software privativo y de pago?¿Esta bien esto? No debería intentar incluir a todos por igual'
-type: 'noticias'
+type: 'post'
 tags: ['unq', 'universidades', 'publicas', 'privativas', 'critica']
-category: ['Noticias']
+categories: ['Noticias']
 img: 'https://comoabriruncandado.com/wp-content/uploads/2020/01/bolt-2352669_1280-1200x800.jpg'
 authors: ['PatoJAD']
 ---

@@ -18,7 +18,7 @@ tags:
         'rest',
         'restful',
     ]
-category: ['Aplicaciones']
+categories: ['Aplicaciones']
 img: 'https://i.postimg.cc/L5gh73HD/image.webp'
 authors: ['PatoJAD']
 ---

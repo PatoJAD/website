@@ -2,7 +2,7 @@
 title: 'Expansión con llaves'
 date: '2020-11-11 08:54:00'
 description: 'La terminal de linux tiene mucho para enseñarnos y vamos a hablar de la expansión llaves.'
-type: 'linux'
+type: 'post'
 tags:
     [
         'expansion',
@@ -15,7 +15,7 @@ tags:
         'comodines',
         'llaves',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i.postimg.cc/gJfMYbC7/Captura-de-pantalla-de-2020-11-11-08-49-23.png'
 authors: ['PatoJAD']
 ---

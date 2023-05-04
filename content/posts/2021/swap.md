@@ -2,7 +2,7 @@
 title: '¿Que es la SWAP?'
 date: '2021-04-12 10:31:00.00'
 description: 'Vamos a hablar sobre la memoria SWAP aprovechando un articulo compartido en FB'
-type: 'linux'
+type: 'post'
 tags:
     [
         'swap',
@@ -17,7 +17,7 @@ tags:
         'memoria ram',
         'memoria virtual',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i.postimg.cc/3rVMMR6S/image.png'
 authors: ['PatoJAD']
 ---

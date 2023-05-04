@@ -14,15 +14,15 @@ tags:
         'wine',
         'legion',
     ]
-category: ['Juegos']
-type: 'juegos'
+categories: ['Juegos']
+type: 'post'
 img: 'https://hardwareviews.com/wp-content/uploads/2020/07/word-of-warcraft-1620x800-1-1024x506.jpg'
 authors: ['PatoJAD']
 ---
 
 {{< img src="https://cadenaser00.epimg.net/ser/imagenes/2019/08/27/ser_madrid_sur/1566920041_790600_1566920146_noticia_normal.jpg" >}}
 
-Todos conocemos este gran juego o la gran mayoría, yo creo que junto al **Lineage 2** y el **{{< textlink url="/juegos/2019/05/como-instalar-mu-online-en-linux/" text="MU" >}}** son los _MMORPG_ que marcaron mi infancia, y hoy por hoy sigue siendo uno de los juegos que nos sorprenden y nos dan mucha emoción a cambio de horas de nuestra vida.
+Todos conocemos este gran juego o la gran mayoría, yo creo que junto al **Lineage 2** y el **{{< textlink url="/post/2019/05/como-instalar-mu-online-en-linux/" text="MU" >}}** son los _MMORPG_ que marcaron mi infancia, y hoy por hoy sigue siendo uno de los juegos que nos sorprenden y nos dan mucha emoción a cambio de horas de nuestra vida.
 
 ## ¿Hasta donde llego?
 

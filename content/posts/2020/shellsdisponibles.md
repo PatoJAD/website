@@ -2,7 +2,7 @@
 title: 'Shells disponibles'
 date: '2020-06-25 09:13:00'
 description: 'Hablemos del shell, una util herramienta a la que debemos perderle el miedo'
-type: 'linux'
+type: 'post'
 tags:
     [
         'shell',
@@ -15,12 +15,12 @@ tags:
         'tengo',
         'instalado',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://es.linux-console.net/common-images/randomly-display-ascii-art-on-linux-terminal/ASCII-Art.png'
 authors: ['PatoJAD']
 ---
 
-El otro día comenzamos a hablar de "{{< textlink text="el Shell de GNU/Linux" url="/linux/2020/06/el-shell-de-linux/" >}}" (No quiero entrar en debates pero tampoco quiero que se enojen por poner solo Linux) y comprendimos que no es tan malo como muchos creen, y ahora estoy acá para contarte un poco que existen **varios shells** y queremos que sepas cual es el que tienes instalado…
+El otro día comenzamos a hablar de "{{< textlink text="el Shell de GNU/Linux" url="/post/2020/06/el-shell-de-linux/" >}}" (No quiero entrar en debates pero tampoco quiero que se enojen por poner solo Linux) y comprendimos que no es tan malo como muchos creen, y ahora estoy acá para contarte un poco que existen **varios shells** y queremos que sepas cual es el que tienes instalado…
 
 # Shell Usuario, Usuario Shell...
 

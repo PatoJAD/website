@@ -2,9 +2,9 @@
 title: 'Crea Tu Propio Pack de Stickers en Telegram'
 date: '2020-06-06 14:04:00'
 description: 'En Telegram tenemos los stickers hace realmente mucho, y en esta oportunidad vamos a crear nuestro propio pack.'
-type: 'noticias'
+type: 'post'
 tags: ['telegram', 'sticker', 'stickers', 'crear', 'pack']
-category: ['Noticias']
+categories: ['Noticias']
 img: 'https://i.postimg.cc/B6WCCgjw/image.png'
 authors: ['PatoJAD']
 ---

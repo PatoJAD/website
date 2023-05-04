@@ -2,7 +2,7 @@
 title: 'Orchis un tema que deberías probar'
 date: '2020-10-14 09:00:00'
 description: 'Orchis es un theme para Gnome o derivados que nos da un estilo muy similar a DDE'
-type: 'estilo'
+type: 'post'
 tags:
     [
         'deepin',
@@ -16,7 +16,7 @@ tags:
         'redondeados',
         'theme',
     ]
-category: ['Estilo', 'Linux']
+categories: ['Estilo', 'Linux']
 img: 'https://cdn.pling.com/img/4/0/4/4/154af2067900edd86e4aee1f25bbdf603dcc.png'
 authors: ['PatoJAD']
 ---

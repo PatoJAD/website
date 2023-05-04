@@ -2,9 +2,9 @@
 title: 'SystemD ¿Solucion o Problema?'
 date: '2020-06-26 10:46:00'
 description: 'Si SystemD es una solución yo prefiero el problema, realmente SystemD no es de mi agrado y te cuento ¿por que?, Ahora es tu turno de contarme que pensas... '
-type: 'linux'
+type: 'post'
 tags: ['systemd', 'non', 'solucion', 'problemas', 'distro', 'sin', 'linux']
-category: ['Linux']
+categories: ['Linux']
 img: 'https://linuxforallsite.files.wordpress.com/2017/09/tux_system.jpg'
 authors: ['PatoJAD']
 ---

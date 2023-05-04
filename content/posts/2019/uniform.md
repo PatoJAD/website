@@ -2,7 +2,7 @@
 title: 'Uniform +'
 date: '2019-02-14'
 description: 'Icons Uniform + para darle un cambio de estilo a tu linux'
-type: 'estilo'
+type: 'post'
 tags:
     [
         'icons',
@@ -18,7 +18,7 @@ tags:
         'uniform +',
         'uniform',
     ]
-category: ['Estilo', 'Linux']
+categories: ['Estilo', 'Linux']
 img: 'https://i.postimg.cc/ncK4tMB6/implement-patojad.png'
 authors: ['PatoJAD']
 ---

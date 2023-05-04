@@ -2,7 +2,7 @@
 title: 'Spiral Knights'
 date: '2018-12-12'
 description: 'MMORPG Online'
-type: 'juegos'
+type: 'post'
 tags:
     [
         'spiral Knights',
@@ -15,7 +15,7 @@ tags:
         'macos',
         'windows',
     ]
-category: ['Juegos', 'Windows', 'Linux', 'MacOS']
+categories: ['Juegos', 'Windows', 'Linux', 'MacOS']
 img: 'https://wiki.spiralknights.com/es/images/b/bd/SpiralKnights_News_44-big.png'
 authors: ['PatoJAD']
 ---

@@ -2,9 +2,9 @@
 title: 'Vaciar la papelera de root'
 date: '2020-06-17 09:36:00'
 description: 'Vamos a eliminar esos archivos molestos que nos quedan y no podemos borrar desde el filemanager'
-type: 'linux'
+type: 'post'
 tags: ['trash', 'root', 'sudo', 'papelera', 'vaciar', 'linux', 'rm']
-category: ['Linux']
+categories: ['Linux']
 img: 'https://www.laguiadelvaron.com/wp-content/uploads/2020/04/australianos-se-disfrazan-para-sacar-basura-www.laguiadelvaron-12.jpg'
 authors: ['PatoJAD']
 ---

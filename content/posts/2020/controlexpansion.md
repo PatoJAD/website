@@ -2,7 +2,7 @@
 title: 'Control de Expansión'
 date: '2020-11-16 08:37:00'
 description: 'La terminal de linux tiene mucho para enseñarnos y vamos a hablar de como controlar la expansión.'
-type: 'linux'
+type: 'post'
 tags:
     [
         'expansion',
@@ -15,7 +15,7 @@ tags:
         'comodines',
         'control',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i.postimg.cc/mgZVDkP0/Captura-de-pantalla-de-2020-11-16-08-44-59.png'
 authors: ['PatoJAD']
 ---

@@ -2,9 +2,9 @@
 title: 'Direcciones IPs, Nuestra huella en la red'
 date: '2020-01-29 08:38:00'
 description: 'Introduccion al concepto de conectividad TCP/IP para poder empezar a trabajar con servidores. En esta ocacion la IP.'
-type: 'redesyseguridad'
+type: 'post'
 tags: ['ip', 'red', 'internet']
-category: ['Seguridad', 'Redes']
+categories: ['Seguridad', 'Redes']
 img: 'https://www.hostgator.mx/blog/wp-content/uploads/2019/08/que-es-una-direccion-ip-blog-hostgator.png'
 authors: ['PatoJAD']
 ---

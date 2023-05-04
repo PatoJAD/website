@@ -2,7 +2,7 @@
 title: 'VOIP vs WebRTC'
 date: '2019-11-14'
 description: 'Un pequeño resumen de estos protocolos que nos permitira tomar una decicion'
-type: 'programacion'
+type: 'post'
 tags:
     [
         'voip',
@@ -14,7 +14,7 @@ tags:
         'llamadas',
         'llamadas voip',
     ]
-category: ['Programacion', 'Redes']
+categories: ['Programacion', 'Redes']
 img: 'https://www.fonvirtual.com/blog/wp-content/uploads/2018.07.23_FON_EN_fonvirtual_WebRTC-vs-SIP-what-is-the-difference1_KS.jpg'
 authors: ['PatoJAD']
 ---

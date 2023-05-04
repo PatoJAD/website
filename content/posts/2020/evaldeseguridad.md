@@ -3,13 +3,13 @@ title: 'Evaluaciones de Seguridad'
 date: '2020-09-12 09:24:00'
 description: 'Avanzamos un poco en la seguridad Informatica y tocamos el tema de Evaluaciones'
 tags: ['seguridad', 'fede', 'federico', 'pacheco', 'evaluaciones', 'motivacion']
-type: 'redesyseguridad'
-category: ['redesyseguridad']
+type: 'post'
+categories: ['Seguridad']
 img: 'http://www.prakmatic.com/wp-content/uploads/seguridad-TI-empresa.jpg'
 authors: ['PatoJAD']
 ---
 
-**ATENCION: Antes de seguir te recomiendo que te pases por {{< textlink url="/redesyseguridad/2020/09/que-es-la-seguridad-informática/" text="la siguiente pulbicacion" >}} dado que damos esto por entendido**
+**ATENCION: Antes de seguir te recomiendo que te pases por {{< textlink url="/post/2020/09/que-es-la-seguridad-informática/" text="la siguiente pulbicacion" >}} dado que damos esto por entendido**
 
 Las evaluaciones de seguridad deben tener una periodicidad regular que permite mantener una correlación de la los datos en los cuales se puedan obtener resultados, por ejemplo aquellas personas que sacan fotos todos los meses a sus bebés para luego ver el crecimiento… De nada serviría tener una foto de un dia, la otra del otro dia y la otra dentro de 10 años. Para poder ver correctamente el crecimiento debemos mantener un periodo regular de imágenes.
 

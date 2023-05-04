@@ -2,9 +2,9 @@
 title: 'Folding @ Home'
 date: '2020-04-09 09:38:00'
 description: 'El Día de Internet Segura se celebra cada año el segundo martes del mes de febrero. Este año es el 11 de febrero cuando lo conmemoramos y queremos celebrarlo con vosotros.'
-type: 'noticias'
+type: 'post'
 tags: ['folding', 'at', 'home', 'covid', 'coronavirus']
-category: ['Noticias']
+categories: ['Noticias']
 img: 'https://overclock3d.net/gfx/articles/2020/03/03144125761l.jpg'
 authors: ['PatoJAD']
 ---

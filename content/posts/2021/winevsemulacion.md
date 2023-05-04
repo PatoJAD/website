@@ -2,7 +2,7 @@
 title: '¿Usar Wine o Emular?'
 date: '2022-04-04 11:53:00.00'
 description: '¿Puede llegar a ser mejor emular windows en una máquina virtual que utilizar wine para correr aplicaciones?'
-type: 'comunidad'
+type: 'post'
 tags:
     [
         'comunidad',
@@ -13,7 +13,7 @@ tags:
         'virtualbox',
         'qemu',
     ]
-category: ['Comunidad']
+categories: ['Comunidad']
 img: 'https://i.postimg.cc/90ycpDT1/winevsemu.png'
 authors: ['PatoJAD']
 ---

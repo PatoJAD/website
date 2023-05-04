@@ -2,9 +2,9 @@
 title: 'Tilling en kwin (Deepin)'
 date: '2020-06-08 08:45:00'
 description: 'Muchos conocemos esta “forma” de organizar el escritorio en grillas auto acomodables que nos permiten manejar de una forma más simple el escritorio'
-type: 'estilo'
+type: 'post'
 tags: ['tilling', 'kde', 'kwin', 'deepin', 'linux']
-category: ['Estilo', 'Linux']
+categories: ['Estilo', 'Linux']
 img: 'https://i.postimg.cc/3xpw07pD/image.png'
 authors: ['PatoJAD']
 ---

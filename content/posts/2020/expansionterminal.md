@@ -2,7 +2,7 @@
 title: 'Expansión'
 date: '2020-11-09 10:12:00'
 description: 'La terminal de linux tiene mucho para enseñarnos y vamos a hablar de la expansión.'
-type: 'linux'
+type: 'post'
 tags:
     [
         'expansion',
@@ -14,7 +14,7 @@ tags:
         'echo',
         'comodines',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i.postimg.cc/QMJHF4VH/Captura-de-pantalla-de-2020-11-09-09-57-43.png'
 authors: ['PatoJAD']
 ---

@@ -20,7 +20,7 @@ tags:
         'openassistant.org',
         'openassistant-org',
     ]
-category: ['Aplicaciones', 'Linux', 'Windows', 'MacOS']
+categories: ['Aplicaciones', 'Linux', 'Windows', 'MacOS']
 img: 'https://medevel.com/content/images/2019/08/openassistant-org--2019-08-11_7_32.jpg'
 authors: ['PatoJAD']
 ---

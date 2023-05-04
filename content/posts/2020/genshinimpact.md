@@ -2,7 +2,7 @@
 title: 'Genshin Impact en Linux'
 date: '2020-10-27 09:11:00'
 description: 'Diego Pardo un gran youtube nos trae toda la info de como jugar este magnifico juego en GNU/Linux'
-type: 'juegos'
+type: 'post'
 tags:
     [
         'mmorpg',
@@ -16,7 +16,7 @@ tags:
         'como',
         'jugar',
     ]
-category: ['Juegos']
+categories: ['Juegos']
 img: 'https://media.vandal.net/m/7-2020/2020732024941_1.jpg'
 authors: ['PatoJAD']
 ---

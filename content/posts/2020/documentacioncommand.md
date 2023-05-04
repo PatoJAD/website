@@ -2,7 +2,7 @@
 title: 'Obteniendo información de comandos'
 date: '2020-09-22 10:02:00'
 description: 'Los comandos que usamos a diario tienen mucha informacion y vamos a ver como encontrarla'
-type: 'linux'
+type: 'post'
 tags:
     [
         'help',
@@ -14,7 +14,7 @@ tags:
         'man',
         'whatis',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i.postimg.cc/zvjB480Z/image.png'
 authors: ['PatoJAD']
 ---
@@ -89,7 +89,7 @@ Donde “programa” es el nombre del comando que queremos ver. Las man pages va
 
 En la mayoría de los sistemas Linux, man usa less para mostrar la man page, así que todos los comandos de less que nos son familiares funcionan cuando está mostrado la página.
 
-**Si quieres saber más sobre man te dejo {{< textlink url="/linux/2019/01/man-tu-manual-para-linux/" text="esto" >}} para leer**
+**Si quieres saber más sobre man te dejo {{< textlink url="/post/2019/01/man-tu-manual-para-linux/" text="esto" >}} para leer**
 
 ## **apropos** – Muestra comandos apropiados
 

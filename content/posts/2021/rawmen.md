@@ -2,7 +2,7 @@
 title: 'RAWMEN: un Shooter Culinario'
 date: '2021-06-14 09:53:00.00'
 description: 'Un shooter un tanto mas.... delicioso.. a quien no le gusta el Rammen digo el RAWMEN'
-type: 'juegos'
+type: 'post'
 tags:
     [
         'steam',
@@ -14,7 +14,7 @@ tags:
         'armas',
         'multiplayer',
     ]
-category: ['Juegos']
+categories: ['Juegos']
 img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/782940/header.jpg'
 authors: ['PatoJAD']
 ---

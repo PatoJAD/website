@@ -2,7 +2,7 @@
 title: 'Rolling Release vs Point Release'
 date: '2021-03-02 09:12:00'
 description: 'Esto suele ser una pregunta muy cotidiana en los grupos, ¿Qué es mejor? Siempre podemos ver a los usuarios defendiendo lo que ellos utilizan como si lo demás no diera resultado.'
-type: 'linux'
+type: 'post'
 tags:
     [
         'linux',
@@ -14,7 +14,7 @@ tags:
         'vs',
         'paqueteria',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://itsfoss.com/content/images/wordpress/2020/09/rolling-vs-point-release-distribution.png'
 authors: ['PatoJAD']
 ---

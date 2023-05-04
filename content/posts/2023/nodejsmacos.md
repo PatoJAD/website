@@ -30,7 +30,7 @@ Vamos a ver como realizar la instalación de **NodeJS** de una forma muy simple 
 
 Para poder realizar esto vamos a necesitar instalar previamente **Homebrew**, pero no te preocupes, si no lo tenes te dejo a continuación un artículo donde te explico como instalarlo en MacOS.
 
-{{< link url="/macos/2023/02/como-instalar-brew-en-macos/" text="Instalar Homebrew en MacOS" >}}
+{{< link url="/post/2023/02/como-instalar-brew-en-macos/" text="Instalar Homebrew en MacOS" >}}
 
 ## Video
 

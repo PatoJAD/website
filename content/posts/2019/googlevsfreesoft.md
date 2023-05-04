@@ -2,7 +2,7 @@
 title: 'El monopolio de Google vs el Software Libre'
 date: '2019-12-30'
 description: 'Google tiene un monopolio innegable en la búsqueda de internet y un casi monopolio en el software de navegación web a través de Chrome y sus forks. O incluso ofrecen su buscador como opción para búsquedas integradas.'
-type: 'noticias'
+type: 'post'
 tags:
     [
         'google',
@@ -16,7 +16,7 @@ tags:
         'letsencrypt',
         'lets encrypt',
     ]
-category: ['Noticias']
+categories: ['Noticias']
 img: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.enriquedans.com%2Fwp-content%2Fuploads%2F2015%2F04%2FGoogle-Monopoly.jpg'
 authors: ['PatoJAD']
 ---

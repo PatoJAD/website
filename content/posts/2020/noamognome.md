@@ -2,9 +2,9 @@
 title: '¿Porque ya no amo Gnome?'
 date: '2020-07-31 12:02:00'
 description: 'Pretendo explicar mi rechazo a Gnome y explicar como nace todo esto y porque tengo el chiste facil'
-type: 'estilo'
+type: 'post'
 tags: ['mate', 'gnome', 'kde', 'amor', 'odio', 'recomendacion']
-category: ['Estilo']
+categories: ['Estilo']
 img: 'https://live.mrf.io/statics/i/ps/www.muylinux.com/wp-content/uploads/2017/05/GNOME-Shell.jpg?width=1200&enable=upscale'
 authors: ['PatoJAD']
 ---

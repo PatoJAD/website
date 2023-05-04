@@ -2,7 +2,7 @@
 title: 'Herramienta gratuita contra WannaRen'
 date: '2020-08-26 10:34:00'
 description: 'Bitdefender ha publicado una herramienta que permite a las víctimas del ransomware WannaRen restablecer el acceso a sus archivos cifrados.'
-type: 'redesyseguridad'
+type: 'post'
 tags:
     [
         'wannaren',
@@ -16,7 +16,7 @@ tags:
         'vulnerabilidad',
         'maleware',
     ]
-category: ['redesyseguridad']
+categories: ['Seguridad', 'Windows']
 img: 'https://pbs.twimg.com/media/EU6MR-xXgAE0H9q.jpg'
 authors: ['PatoJAD']
 ---

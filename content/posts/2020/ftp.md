@@ -2,9 +2,9 @@
 title: 'Servidor FTP qué es, instalando nuestro propio servidor'
 date: '2020-02-04 09:10:00'
 description: 'Seguimos viendo un poco mas sobre redes, hoy nos toca un protocolo de comunicacion conocido como FTP'
-type: 'redesyseguridad'
+type: 'post'
 tags: ['ftp', 'red', 'internet']
-category: ['redesyseguridad']
+categories: ['Redes', 'Linux', 'Aplicaciones']
 img: 'https://www.redeszone.net/app/uploads-redeszone.net/2019/10/protocolo-ftp.jpg'
 authors: ['PatoJAD']
 ---

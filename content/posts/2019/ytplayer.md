@@ -22,7 +22,7 @@ tags:
         'reproductor de yt online',
         'reproductor de youtube online',
     ]
-category: ['Aplicaciones']
+categories: ['Aplicaciones']
 img: 'https://i.postimg.cc/Yqq5CTcx/photo-2019-11-26-14-40-25.jpg'
 authors: ['PatoJAD']
 ---

@@ -29,7 +29,7 @@ Ya hablamos con anterioridad sobre {{< textlink url="/aplicaciones/2022/01/paru-
 Para poder realizar la instalación tenemos unos requisitos previos para que todo salga mas que bien, te dejo a continuación ambos links que explicaran como hacer esto (El primero no es obligatorio pero está bueno saber cual elegir antes de instalar alguno)
 
 -   {{< textlink url="/aplicaciones/2022/01/paru-vs-yay-cual-elegir/" text="Paru VS YAY ¿Cual elegir?" >}} (Opcional)
--   {{< textlink url="/linux/2022/01/instalar-chaotic-aur/" text="Instalar Chaotic AUR" >}} (Obligatorio)
+-   {{< textlink url="/post/2022/01/instalar-chaotic-aur/" text="Instalar Chaotic AUR" >}} (Obligatorio)
 
 ### Video
 

@@ -4,7 +4,7 @@ date: '2020-06-01 08:10:00'
 description: 'Te traemos un curso sobre Seguridad informática para que te inicies en este hermoso mundo.'
 type: 'cursos'
 tags: ['curso', 'seguridad', 'informatica', 'introduccion', 'hacking', 'estico']
-category: ['Cursos', 'Seguridad', 'Redes']
+categories: ['Cursos', 'Seguridad', 'Redes']
 img: 'https://intl-blog.imgix.net/wp-content/uploads/2019/07/costes-seguridad-informatica-portada.jpg?auto=format%2Cenhance%2Ccompress'
 authors: ['PatoJAD']
 ---
@@ -20,7 +20,7 @@ El contenido es netamente lectura, sin videos de por medios porque comprende muc
 -   {{< textlink url="/posts/2020/02/servidor-ftp-qué-es-instalando-nuestro-propio-servidor/" text="Servidor FTP qué es, instalando nuestro propio servidor" >}}
 -   {{< textlink url="/posts/2020/02/comandos-ftp/" text="Comandos FTP" >}}
 -   {{< textlink url="/posts/2020/02/ftp-problemas-de-conexion-port-y-pasv/" text="FTP problemas de conexion, PORT y PASV" >}}
--   {{< textlink url="/programacion/2020/02/ingenieria-social-informatica/" text="Ingenieria social informatica" >}}
+-   {{< textlink url="/post/2020/02/ingenieria-social-informatica/" text="Ingenieria social informatica" >}}
 -   {{< textlink url="/posts/2020/02/que-es-la-virtualizacion/" text="¿Qué es la Virtualización?" >}}
 -   {{< textlink url="/posts/2020/04/el-papel-de-javascript-en-la-seguridad/" text="El papel de Javascript en la seguridad" >}}
 -   {{< textlink url="/posts/2020/04/servidor-proxy.-oculta-tu-identidad/" text="Servidor proxy. Oculta tu identidad" >}}

@@ -2,7 +2,7 @@
 title: 'Mi terminal ZSH + PowerLevel10K'
 date: '2020-07-22 08:22:00'
 description: 'Ya muchos preguntaron por mi terminal en videos o publicaciones asi que despues de tanta demora decidi compartirla'
-type: 'estilo'
+type: 'post'
 tags:
     [
         'zsh',
@@ -15,7 +15,7 @@ tags:
         'pl10k',
         'linux',
     ]
-category: ['Estilo', 'Linux']
+categories: ['Estilo', 'Linux']
 img: 'https://i.postimg.cc/15KHksnn/Screenshot-20200722-081612.png'
 authors: ['PatoJAD']
 ---

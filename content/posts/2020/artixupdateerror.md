@@ -2,7 +2,7 @@
 title: 'Pacman conflicto de Archivos al Actualizar'
 date: '2020-11-03 08:40:00'
 description: 'En esta oportunidad vamos a ver como instalar yay en Artix linux'
-type: 'linux'
+type: 'post'
 tags:
     [
         'arch',
@@ -16,7 +16,7 @@ tags:
         'overwrite',
         'pacman',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://1.bp.blogspot.com/-Dx2aFhPt15E/XpdfoGIB49I/AAAAAAAAJeo/gPrQbF9IOjEPK8jAYiO-_JeuEM6OZvg8ACPcBGAsYHg/s1600/Error%2Bal%2Bconfirmar%2Bla%2Btransacci%25C3%25B3n.png'
 authors: ['PatoJAD']
 ---
@@ -25,7 +25,7 @@ Dentro de todas las distribuciones basadas en Arch Linux siempre existe la posib
 
 ## El caso de Artix Linux
 
-Artix es una distribución muy buena de la que {{< textlink text="ya hablamos antes" url="/linux/2020/08/artix-linux/" >}}, incluso en el canal de youtube le dedique un saga, un poco corta, a la cual el dia de hoy sumo un video mas. Los sabores oficiales de artix, al dia de la fecha, tienen este problema de actualizaciones acumuladas, el cual da el error:
+Artix es una distribución muy buena de la que {{< textlink text="ya hablamos antes" url="/post/2020/08/artix-linux/" >}}, incluso en el canal de youtube le dedique un saga, un poco corta, a la cual el dia de hoy sumo un video mas. Los sabores oficiales de artix, al dia de la fecha, tienen este problema de actualizaciones acumuladas, el cual da el error:
 
 ```bash
 error: no se pudo realizar la operación (archivos en conflicto)
@@ -44,7 +44,7 @@ Si te gusto no te olvides de apoyarme suscribiendote y dándole un “Me Gusta�
 
 ## Lo utilizado
 
-Si bien como se aclara en el video podemos usar {{< textlink text="comodines" url="/linux/2020/09/manipulando-archivos-y-directorios/" >}}. En este caso vamos a dejar el comando específico y cada uno lo modifica de la forma que crea conveniente. El patrón a seguir es el siguiente:
+Si bien como se aclara en el video podemos usar {{< textlink text="comodines" url="/post/2020/09/manipulando-archivos-y-directorios/" >}}. En este caso vamos a dejar el comando específico y cada uno lo modifica de la forma que crea conveniente. El patrón a seguir es el siguiente:
 
 ```bash
 error: no se pudo realizar la operación (archivos en conflicto)

@@ -2,14 +2,14 @@
 title: 'Cómo instalar paquetes DEB usando dpkg'
 date: '2020-05-20 06:40:00'
 description: 'Ya te explicamos cómo crear tu propio deb con dpkg, pero nos falto explicar como instalarlo, ya no tenes mas dudas asi se instala un deb con dpkg.'
-type: 'linux'
+type: 'post'
 tags: ['deb', 'linux', 'dpkg', 'debian', 'ubuntu']
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i.postimg.cc/50Zt795X/image.png'
 authors: ['PatoJAD']
 ---
 
-Anteriormente hablamos de {{< textlink text="cómo crear paquetes .deb" url="/programacion/2020/04/como-crear-un-deb-con-dpkg/" >}} en Debian, Ubuntu o derivadas utilizando el gestor de paquetes dpkg, sin embargo hoy llego el dia de dar un pequeño paso hacia atrás y ver como se instala utilizando el mismo gestor.
+Anteriormente hablamos de {{< textlink text="cómo crear paquetes .deb" url="/post/2020/04/como-crear-un-deb-con-dpkg/" >}} en Debian, Ubuntu o derivadas utilizando el gestor de paquetes dpkg, sin embargo hoy llego el dia de dar un pequeño paso hacia atrás y ver como se instala utilizando el mismo gestor.
 
 Antes de iniciar quiero agradecer a Julio por brindar la información y obviamente a la autora de todo esto que es nada más ni nada menos que Gabriela González.
 

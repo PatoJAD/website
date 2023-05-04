@@ -2,9 +2,9 @@
 title: 'El problema de linux, ¿Su comunidad?'
 date: '2020-02-12'
 description: 'La comunidad de Linux en general tiene un amplio espectro de usuarios y en algunos de ellos erradica un gran problema de este Sistema que tanto amamos'
-type: 'comunidad'
+type: 'post'
 tags: ['comunidad', 'problema', 'facebook']
-category: ['Comunidad']
+categories: ['Comunidad']
 img: 'https://i.blogs.es/70b230/linux-apesta/1366_2000.jpg'
 authors: ['PatoJAD']
 ---

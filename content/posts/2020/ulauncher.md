@@ -4,7 +4,7 @@ date: '2020-05-19 14:16:00'
 description: 'Esta hermosa aplicación permite aumentar tu productividad de una forma increible y ademas es muy cómoda.'
 type: 'aplicaciones'
 tags: ['ulauncher', 'launcher', 'krunner', 'cerebro', 'apps']
-category: ['Aplicaciones']
+categories: ['Aplicaciones']
 img: 'https://ayudalinux.com/wp-content/uploads/2017/10/ulauncher-2.jpg'
 authors: ['PatoJAD']
 ---

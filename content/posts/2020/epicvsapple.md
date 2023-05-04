@@ -2,7 +2,7 @@
 title: 'Epic vs Apple Mi opinion de la disputa'
 date: '2020-08-24 10:44:00'
 description: 'Voy a darme la posibilidad de opinar sobre este tema que esta siendo eco entre todos'
-type: 'noticias'
+type: 'post'
 tags:
     [
         'epic',
@@ -14,7 +14,7 @@ tags:
         'mac',
         'unreal',
     ]
-category: ['Noticias']
+categories: ['Noticias']
 img: 'https://cdn.earlygame.com/uploads/images/_1200x675_crop_center-center_none/epic-vs-apple-fortnite-legal-battle-explained.jpg'
 authors: ['PatoJAD']
 ---

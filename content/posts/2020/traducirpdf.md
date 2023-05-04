@@ -2,9 +2,9 @@
 title: 'Traducir documentos online'
 date: '2020-05-05 09:38:00'
 description: 'Muchas veces encontramos PDF en un idioma que no dominamos, ya sea texto o información. Aqui una de las mejores herramientas free para traducirlos!'
-type: 'noticias'
+type: 'post'
 tags: ['traducir', 'pdf', 'doc', 'translate', 'online']
-category: ['Noticias']
+categories: ['Noticias']
 img: 'https://k60.kn3.net/taringa/0/B/B/E/9/7/De_la_cabeza/FAB.png'
 authors: ['PatoJAD']
 ---

@@ -2,7 +2,7 @@
 title: 'Pantalla negra en Steam'
 date: '2021-09-01 10:30:00.00'
 description: 'Muchos usuarios de distros basadas en Arch o del mismo Arch nos encontramos con que Steam amaneció con la pantalla negra después de una actualización...'
-type: 'juegos'
+type: 'post'
 tags:
     [
         'steam',
@@ -15,7 +15,7 @@ tags:
         'error',
         'freetype2',
     ]
-category: ['Juegos']
+categories: ['Juegos']
 img: 'https://i.postimg.cc/c1vLbx8s/steamerror.webp'
 authors: ['PatoJAD']
 ---

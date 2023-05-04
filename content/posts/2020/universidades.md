@@ -2,16 +2,16 @@
 title: 'La gente Opina Universidades'
 date: '2020-06-22 09:01:00'
 description: 'Ya conte problemas sobre software privativo en la educacion publica, ahora es turno de la comunidad de opinar'
-type: 'comunidad'
+type: 'post'
 tags: ['comunidad', 'universidades', 'opiniones', 'privativas']
-category: ['Comunidad']
+categories: ['Comunidad']
 img: 'https://www.agenciaekiba.com/wp-content/uploads/2017/03/img_opiniones_900x600.jpg'
 authors: ['PatoJAD']
 ---
 
 El otro dia hable sobre el uso de sistemas **privativos** en universidades públicas y como esto podía ser limitantes para los estudiantes. Y el punto de vista no va pura y exclusivamente por el caso sino también a nivel general (no conocemos las realidades de todos los estudiantes).
 
-{{< textlink url="/noticias/2020/06/universidades-públicas-privativas/" text="Ver Publicacion" >}}
+{{< textlink url="/post/2020/06/universidades-públicas-privativas/" text="Ver Publicacion" >}}
 
 ## La gente Opina
 

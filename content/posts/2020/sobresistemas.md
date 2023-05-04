@@ -2,7 +2,7 @@
 title: '¿Que Sistema Operativo es mejor?'
 date: '2020-08-06 12:03:00'
 description: 'Esta pregunta es muy recurrente y quiero dejar mi opinion sobre esto y creo que es una buena idea dejar espacio para que los demas opinen'
-type: 'linux'
+type: 'post'
 tags:
     [
         'sistemas',
@@ -16,7 +16,7 @@ tags:
         'reactos',
         'haiku',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://sites.google.com/site/zeusprueba2/_/rsrc/1476305846774/sistemas-operativos/Captura.PNG'
 authors: ['PatoJAD']
 ---
@@ -27,7 +27,7 @@ Antes de empezar quiero recalcar que soy un ser humano como todos, y a medida qu
 
 Teniendo en cuenta todo esto recomiendo leer de antemano la publicación de los paralelismos entre Sistemas operativos y comidas (donde solo hablo de GNU/Linux, Windows y MacOS) para poder estar un poco en sintonía de apologías que pueda llegar a utilizar.
 
-{{< link url="/linux/2019/01/paralelismo-entre-sistemas-operativos-y-comidas/" text="Paralelismo entre sistemas operativos y comidas" >}}
+{{< link url="/post/2019/01/paralelismo-entre-sistemas-operativos-y-comidas/" text="Paralelismo entre sistemas operativos y comidas" >}}
 
 ## ¿Que Sistema Operativo es Mejor?
 

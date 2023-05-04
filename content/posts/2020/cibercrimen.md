@@ -12,8 +12,8 @@ tags:
         'hackeo',
         'informatica',
     ]
-type: 'redesyseguridad'
-category: ['redesyseguridad']
+type: 'post'
+categories: ['Seguridad']
 img: 'https://newsbook.es/wp-content/uploads/2020/03/phishing-1068x580.jpg'
 authors: ['PatoJAD']
 ---

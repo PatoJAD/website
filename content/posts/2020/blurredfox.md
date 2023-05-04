@@ -2,9 +2,9 @@
 title: 'Blurredfox un tema moderno para Firefox'
 date: '2020-09-04 09:33:00'
 description: 'Hoy hablamos de los Windows Manager y en esta oportunidad mostramos un poco Awesome aunque la idea es entender en general su uso'
-type: 'estilo'
+type: 'post'
 tags: ['firefox', 'blur', 'blurredfox', 'navegador', 'theme', 'css']
-category: ['Estilo']
+categories: ['Estilo']
 img: 'https://i.postimg.cc/WzGcnTHK/image.png'
 authors: ['PatoJAD']
 ---

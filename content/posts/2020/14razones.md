@@ -2,9 +2,9 @@
 title: '14 Razones para utilizar Linux en lugar de Windows'
 date: '2020-08-24 10:44:00'
 description: 'Hoy hablamos, o comentamos 14 Razones para utilizar Linux en lugar de Windows que daba un usuario en 2008'
-type: 'noticias'
+type: 'post'
 tags: ['razones', 'linux', '14', 'gratis', 'publicacion', '2008']
-category: ['Noticias']
+categories: ['Noticias']
 img: 'https://i.postimg.cc/5y7XfR8C/13-reasons-why-analisis-psicologia-1.png'
 authors: ['PatoJAD']
 ---

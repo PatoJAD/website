@@ -2,7 +2,7 @@
 title: 'TaskBarX Windows'
 date: '2020-10-05 11:29:00'
 description: 'Hoy hablamos de TaskBarX una app que permite editar los registros para mejorar la visualizacion de la Barra de Tareas.'
-type: 'estilo'
+type: 'post'
 tags:
     [
         'taskbarx',
@@ -16,7 +16,7 @@ tags:
         'iconos',
         'blur',
     ]
-category: ['Estilo', 'Windows']
+categories: ['Estilo', 'Windows']
 img: 'https://chrisandriessen.nl/images/rsz_hero3.png'
 authors: ['PatoJAD']
 ---

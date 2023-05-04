@@ -2,7 +2,7 @@
 title: 'Proyectos de Xcode infectados de malware'
 date: '2020-08-21 12:17:00'
 description: 'Los investigadores han detectado una campaña dirigida a los usuarios de Mac con la intención de robar las contraseñas, datos financieros y personales de los usuarios afectados.'
-type: 'redesyseguridad'
+type: 'post'
 tags:
     [
         'xcode',
@@ -17,7 +17,7 @@ tags:
         'vulnerabilidad',
         'maleware',
     ]
-category: ['Seguridad', 'MacOS']
+categories: ['Seguridad', 'MacOS']
 img: 'https://i2.wp.com/unaaldia.hispasec.com/wp-content/uploads/2020/08/mac-malware.jpg'
 authors: ['PatoJAD']
 ---

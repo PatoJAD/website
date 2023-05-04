@@ -2,9 +2,9 @@
 title: 'Preparandose para explorar el sistema'
 date: '2020-07-24 09:38:00'
 description: 'Vamos a ver lo ulti'
-type: 'linux'
+type: 'post'
 tags: ['comandos', 'ls', 'terminal', 'consola', 'linux', 'less', 'file']
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i.postimg.cc/v8ghvzrZ/Screenshot-20200724-092825.png'
 authors: ['PatoJAD']
 ---

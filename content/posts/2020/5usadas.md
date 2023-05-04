@@ -2,7 +2,7 @@
 title: '¿Las 5 Distros más usadas?'
 date: '2020-10-16 09:20:00'
 description: '¿Las 5 Distros más usadas? vamos a indagar un poco mas en estas imagenes de Facebook'
-type: 'linux'
+type: 'post'
 tags:
     [
         'facebook',
@@ -16,7 +16,7 @@ tags:
         'debian',
         'mint',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i.postimg.cc/XqRr0rnP/image.png'
 authors: ['PatoJAD']
 ---

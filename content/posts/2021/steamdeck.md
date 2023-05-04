@@ -2,7 +2,7 @@
 title: 'Steam Deck Analisis'
 date: '2021-07-27 10:30:00.00'
 description: 'Hoy voy a analizar y dar mi opinión sobre SteamDeck y lo que valve quiere hacer, tambien recordemos el fracaso de las Steam Machines'
-type: 'juegos'
+type: 'post'
 tags:
     [
         'steam',
@@ -111,7 +111,7 @@ tags:
         'steamdeck97',
         'steamdeck98',
     ]
-category: ['Juegos']
+categories: ['Juegos']
 img: 'https://i.postimg.cc/GtJxbPmK/steamdeck-1080x609.webp'
 authors: ['PatoJAD']
 ---

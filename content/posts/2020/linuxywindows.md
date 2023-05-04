@@ -2,7 +2,7 @@
 title: 'Linux vs Windows'
 date: '2020-10-20 09:16:00'
 description: '¿Las 5 Distros más usadas? vamos a indagar un poco mas en estas imagenes de Facebook'
-type: 'linux'
+type: 'post'
 tags:
     [
         'facebook',
@@ -13,7 +13,7 @@ tags:
         'distros',
         'opinion',
     ]
-category: ['Linux', 'Windows']
+categories: ['Linux', 'Windows']
 img: 'https://i.postimg.cc/6qX5z49W/image.png'
 authors: ['PatoJAD']
 ---

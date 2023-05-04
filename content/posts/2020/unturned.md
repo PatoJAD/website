@@ -2,7 +2,7 @@
 title: 'Unturned'
 date: '2020-08-19 10:16:00'
 description: 'Eres un superviviente en las ruinas de una sociedad infestada de zombis y debes cooperar con tus amigos para formar nuevas alianzas que te mantendrán con vida.'
-type: 'juegos'
+type: 'post'
 tags:
     [
         'unturned',
@@ -16,7 +16,7 @@ tags:
         'rol',
         'roleplay',
     ]
-category: ['Juegos']
+categories: ['Juegos']
 img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_e7bd3004478e0e4500521be44995488933f70435.600x338.jpg'
 authors: ['PatoJAD']
 ---

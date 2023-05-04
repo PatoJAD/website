@@ -2,7 +2,7 @@
 title: 'GameMode en Linux'
 date: '2020-08-05 09:17:00'
 description: 'Si sos de esas personas que les gusta jugar te presentamos GameMode, una herramienta que mejora tu experiencia en los videojuegos'
-type: 'juegos'
+type: 'post'
 tags:
     [
         'gamemode',
@@ -17,7 +17,7 @@ tags:
         'feral',
         'feralinteractive',
     ]
-category: ['Juegos']
+categories: ['Juegos']
 img: 'https://www.linuxadictos.com/wp-content/uploads/GameMode.jpg'
 authors: ['PatoJAD']
 ---

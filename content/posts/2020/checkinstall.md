@@ -2,7 +2,7 @@
 title: 'Crea tus .deb con Checkinstall'
 date: '2020-07-14 09:05:00'
 description: 'En esta oportunidad vamos a ver como generar un deb utilizando checkinstall en el proceso de compilación.'
-type: 'programacion'
+type: 'post'
 tags:
     [
         'deb',
@@ -15,7 +15,7 @@ tags:
         'compilar',
         'makefile',
     ]
-category: ['Programacion', 'linux']
+categories: ['Programacion', 'linux']
 img: 'https://www.elarraydejota.com/wp-content/uploads/2016/07/checkinstall_description.png'
 authors: ['PatoJAD']
 ---

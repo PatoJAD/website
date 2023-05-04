@@ -2,7 +2,7 @@
 title: 'Webservice NodeJS y MariaDB 3 - Conector MariaDB en NodeJS'
 date: '2021-08-05 10:00:00'
 description: 'Conector MariaDB en NodeJS'
-type: 'programacion'
+type: 'post'
 tags:
     [
         'nodejs',
@@ -17,7 +17,7 @@ tags:
 		'api',
 		'query',
     ]
-category: ['Programacion']
+categories: ['Programacion']
 img: 'https://i.postimg.cc/XJMg09hD/curso-3.png'
 authors: ['PatoJAD']
 ---

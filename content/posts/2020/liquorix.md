@@ -2,9 +2,9 @@
 title: 'Liquorix ¿Que es? ¿Como lo instalo?'
 date: '2020-01-28 08:28:00'
 description: 'Liquorix es un reemplazo de kernel de distribución creado con la mejor configuración y fuentes de kernel para cargas de trabajo de escritorio, multimedia y juegos.'
-type: 'linux'
+type: 'post'
 tags: ['kernel', 'linux', 'liquorix', 'debian', 'deepin', 'ubuntu']
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i.postimg.cc/pdrfNJpP/Deepin-Screenshot-20200128083827.png'
 authors: ['PatoJAD']
 ---

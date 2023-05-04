@@ -2,7 +2,7 @@
 title: 'Oranchelo'
 date: '2019-12-09'
 description: 'Cambia la forma en que miras tu escritorio. Obtenga un tema de iconos cuidadosamente diseñado, brillante y limpio para Gnome Desktop.'
-type: 'estilo'
+type: 'post'
 tags:
     [
         'icons',
@@ -16,7 +16,7 @@ tags:
         'icon-theme',
         'xfce',
     ]
-category: ['Estilo', 'Linux']
+categories: ['Estilo', 'Linux']
 img: 'https://www.kdeblog.com/wp-content/uploads/2017/08/Oranchelo-Icon-Theme_crop.jpg'
 authors: ['PatoJAD']
 ---

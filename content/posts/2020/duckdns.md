@@ -1,10 +1,10 @@
 ---
-title: '¿Que es DuckDNS?¿Como lo instalo?'
+title: '¿Que es DuckDNS? ¿Como lo instalo?'
 date: '2020-06-02 12:17:00'
 description: 'Existen muchas ddns y hoy vamos a ver un poco mas sobre DuckDNS un DDNS gratuito muy util en estos dias'
-type: 'redesyseguridad'
+type: 'post'
 tags: ['ip', 'dns', 'ddns', 'duck', 'dinamic']
-category: ['redesyseguridad']
+categories: ['Redes', 'Linux', 'Aplicaciones']
 img: 'https://www.redeszone.net/app/uploads-redeszone.net/2017/12/DDNS-Duck-DNS.png'
 authors: ['PatoJAD']
 ---

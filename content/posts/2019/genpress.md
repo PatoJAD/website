@@ -2,7 +2,7 @@
 title: 'Genpress: El Worpress en Node'
 date: '2019-12-18'
 description: '¿Te imaginas un wordpress que no sea PHP? GreenPrees Trabaja en generar un WP del siglo 21. ¿Te animas a probarlo?'
-type: 'noticias'
+type: 'post'
 tags:
     [
         'wordpress',
@@ -19,7 +19,7 @@ tags:
         'blogging',
         'genpress',
     ]
-category: ['Noticias', 'Aplicaciones']
+categories: ['Noticias', 'Aplicaciones']
 img: 'https://i.postimg.cc/BZKvC5ZV/greenpress.jpg'
 authors: ['PatoJAD']
 ---

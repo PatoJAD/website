@@ -24,7 +24,7 @@ img: 'https://i.postimg.cc/VLFDwX0q/winebottles.png'
 authors: ['PatoJAD']
 ---
 
-Tras lo charlado la semana anterior en {{< textlink url="https://patojad.com.ar/comunidad/2022/04/usar-wine-o-emular/" text="¿Usar Wine o Emular?" >}} se disparó una pregunta sobre si bottles era recomendable o perjudicaba el trabajo de wine. ¿Si es tan bueno algo malo debe tener? fue una de las dudas que planteaban por lo cual decidí charlar un poco de este tema.
+Tras lo charlado la semana anterior en {{< textlink url="https://patojad.com.ar/post/2022/04/usar-wine-o-emular/" text="¿Usar Wine o Emular?" >}} se disparó una pregunta sobre si bottles era recomendable o perjudicaba el trabajo de wine. ¿Si es tan bueno algo malo debe tener? fue una de las dudas que planteaban por lo cual decidí charlar un poco de este tema.
 
 ## Video
 

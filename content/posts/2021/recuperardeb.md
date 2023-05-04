@@ -2,7 +2,7 @@
 title: 'Obteniendo .deb de apps instaladas'
 date: '2021-04-23 10:31:00.00'
 description: 'Como recuperar un .deb de una app instalada'
-type: 'linux'
+type: 'post'
 tags:
     [
         'deb',
@@ -21,7 +21,7 @@ tags:
         'repack',
         'linux',
     ]
-category: ['Linux', 'Aplicaciones']
+categories: ['Linux', 'Aplicaciones']
 img: 'https://i.postimg.cc/SQBhsvNM/image.png'
 authors: ['PatoJAD']
 ---

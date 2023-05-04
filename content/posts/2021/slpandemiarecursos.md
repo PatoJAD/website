@@ -2,7 +2,7 @@
 title: 'Reflexión: SOFTWARE LIBRE, PANDEMIA y RECURSOS'
 date: '2021-12-15 09:34:00.00'
 description: '¿Cuánto hace que pensaste en cambiar tu pc o notebook por una más “potente”? Estamos entrando de lleno a una etapa donde la obsolescencia programada se debe llevar al máximo.'
-type: 'linux'
+type: 'post'
 tags:
     [
         'sl',
@@ -16,7 +16,7 @@ tags:
         'reflexion',
         'entrar',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://www.cinconoticias.com/wp-content/uploads/obsolescencia-programada.jpg'
 authors: ['David Mauro']
 ---

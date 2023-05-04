@@ -4,7 +4,7 @@ date: '2020-09-24 09:12:00'
 description: 'Muchas veces realizamos pruebas de velocidad, hoy vamos a ver como hacerlo desde la terminal.'
 type: 'aplicaciones'
 tags: ['internet', 'velocidad', 'speed', 'test', 'cli', 'terminal', 'consola']
-category: ['Aplicaciones']
+categories: ['Aplicaciones']
 img: 'https://geekytheory.com/wp-content/uploads/2014/09/medir-ancho-de-banda-terminal-linux-ubuntu-speedtest-cli.png'
 authors: ['PatoJAD']
 ---

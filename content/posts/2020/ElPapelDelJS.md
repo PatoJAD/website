@@ -2,9 +2,24 @@
 title: 'El papel de Javascript en la seguridad'
 date: '2020-04-07 09:08:00'
 description: 'Todos escuchamos alguna vez sobre este lenguaje, es hora de entender un poco mas su papel en la seguridad'
-type: 'redesyseguridad'
-tags: ['js', 'javascript', 'internet', 'seguridad', 'inyeccion']
-category: ['redesyseguridad']
+type: 'post'
+tags:
+    [
+        'js',
+        'javascript',
+        'internet',
+        'seguridad',
+        'inyeccion',
+        'xss',
+        'ataque',
+        'web',
+        'webapp',
+        'webappsec',
+        'webappsecurity',
+        'webappsecurity',
+        'webappsecurity',
+    ]
+categories: ['Seguridad', 'Programacion']
 img: 'https://i.ytimg.com/vi/PY_4QPg2niM/maxresdefault.jpg'
 authors: ['PatoJAD']
 ---

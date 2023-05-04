@@ -2,7 +2,7 @@
 title: '¿Como jugar Among Us en Linux?'
 date: '2020-09-02 08:40:00'
 description: 'Un juego de fiesta en línea y local de trabajo en equipo y traición para 4-10 jugadores ... ¡en el espacio!'
-type: 'juegos'
+type: 'post'
 tags:
     [
         'among us',
@@ -16,7 +16,7 @@ tags:
         'guia',
         'tutorial',
     ]
-category: ['Juegos', 'Linux', 'Windows']
+categories: ['Juegos', 'Linux', 'Windows']
 img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/945360/header.jpg'
 authors: ['PatoJAD']
 ---

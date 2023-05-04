@@ -2,14 +2,14 @@
 title: 'La gente Opina sobre los mitos'
 date: '2020-05-08 08:47:00'
 description: 'El otro dia me di el tupe de desmentir algunos mitos, sin embargo la gente quiere dar su opinion y nosotros queremos darle su lugar'
-type: 'comunidad'
+type: 'post'
 tags: ['comunidad', 'mitos', 'opiniones']
-category: ['Comunidad']
+categories: ['Comunidad']
 img: 'https://blog.universaldeidiomas.com/wp-content/uploads/2016/06/Expresar_opiniones_y_dar_consejos_en_francs-300x153@2x.jpg'
 authors: ['PatoJAD']
 ---
 
-Como bien saben hace unos dias hice el post {{< textlink text="4 Mitos Falsos de Linux" url="/linux/2020/05/4-mitos-falsos-de-linux/" >}} esperando aclarar un poco lo que se piensa o lo que se debate sobre linux. Sin embargo esto desató muchas voces postulando sus ideas y como todos sabemos que nadie tiene la verdad absoluta, decidí tomarme el permiso de publicar sus ideas, como siempre digo, cualquiera puede usar este post para plasmar una idea porque lo importante es que no se pierda en una conversación.
+Como bien saben hace unos dias hice el post {{< textlink text="4 Mitos Falsos de Linux" url="/post/2020/05/4-mitos-falsos-de-linux/" >}} esperando aclarar un poco lo que se piensa o lo que se debate sobre linux. Sin embargo esto desató muchas voces postulando sus ideas y como todos sabemos que nadie tiene la verdad absoluta, decidí tomarme el permiso de publicar sus ideas, como siempre digo, cualquiera puede usar este post para plasmar una idea porque lo importante es que no se pierda en una conversación.
 
 ## La consigna
 

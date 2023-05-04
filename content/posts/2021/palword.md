@@ -2,9 +2,9 @@
 title: 'Palword ¿Pokemon?¿Armas?¿RPG?'
 date: '2021-06-07 09:23:00.00'
 description: 'Palword el nuevo RPG que mescla criaturas simil pokemon con armas y nos dan un nuevo rpg'
-type: 'juegos'
+type: 'post'
 tags: ['steam', 'pokemon', 'juego', 'palward', 'rpg', 'mmo', 'armas', 'shooter']
-category: ['Juegos']
+categories: ['Juegos']
 img: 'https://cdn.akamai.steamstatic.com/steam/apps/1623730/header.jpg'
 authors: ['PatoJAD']
 ---

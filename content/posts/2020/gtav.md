@@ -2,9 +2,9 @@
 title: 'Instalar GTA V en Linux'
 date: '2020-05-18 08:27:00'
 description: 'Seguramente ya tenes el GTA V en tu cuenta de Epic. Ahora toca instalarlo en Linux y ponerse a disfrutar.'
-type: 'juegos'
+type: 'post'
 tags: ['steam', 'proton', 'gta', 'v']
-category: ['Juegos', 'Linux']
+categories: ['Juegos', 'Linux']
 img: 'https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fgrand-theft-auto-v%2Fhome%2FGTAV_EGS_Artwork_1920x1080_Hero-Carousel_V06-1920x1080-1503e4b1320d5652dd4f57466c8bcb79424b3fc0.jpg'
 authors: ['PatoJAD']
 ---

@@ -2,7 +2,7 @@
 title: 'Agregar Cache a GIT para evitar loguear constantemente'
 date: '2019-04-26'
 description: 'Es común que durante la programación requerimos usar GIT varias veces... Para eso vamos a ver como dejar en cache nuestro usuario por un tiempo'
-type: 'programacion'
+type: 'post'
 tags:
     [
         'git',
@@ -13,7 +13,7 @@ tags:
         'linux',
         'gnu/linux',
     ]
-category: ['Programacion']
+categories: ['Programacion']
 img: 'https://vabadus.es/images/cache/imagen_nodo/images/articulos/5c9deecdad597506371704.png'
 authors: ['PatoJAD']
 ---

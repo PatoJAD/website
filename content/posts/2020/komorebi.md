@@ -2,7 +2,7 @@
 title: 'Komorebi'
 date: '2020-03-20 09:07:00'
 description: 'Cambia la forma en que miras tu escritorio. Esta impecable aplicacion permite dar una vuelta de tuercas a tus wallpapers.'
-type: 'estilo'
+type: 'post'
 tags:
     [
         'wallpapers',
@@ -13,7 +13,7 @@ tags:
         'fondo',
         'desktop',
     ]
-category: ['Estilo', 'Linux', 'Aplicaciones']
+categories: ['Estilo', 'Linux', 'Aplicaciones']
 img: 'https://www.muylinux.com/wp-content/uploads/2018/07/Komorebi.jpg'
 authors: ['PatoJAD']
 ---

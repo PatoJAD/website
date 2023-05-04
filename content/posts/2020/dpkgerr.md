@@ -2,9 +2,9 @@
 title: 'Subproceso dpkg devolvió el código de salida de error'
 date: '2020-04-30 09:26:00'
 description: 'Solucion para el subproceso dpkg-deb --control devolvió el código de salida de error, y otros errores comunes'
-type: 'linux'
+type: 'post'
 tags: ['error', 'subproceso', 'error', 'codigo', 'dpkg', 'deb', 'control']
-category: ['Linux']
+categories: ['Linux']
 img: 'https://imgur.com/Qwlf1.png'
 authors: ['PatoJAD']
 ---

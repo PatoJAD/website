@@ -2,9 +2,9 @@
 title: 'Webservice NodeJS y MariaDB 1 - Instalacion de NodeJS NPM y MariaDB'
 date: '2021-07-29 09:50:00'
 description: 'Instalacion de NodeJS NPM y MariaDB'
-type: 'programacion'
+type: 'post'
 tags: ['nodejs', 'instalacion', 'mariadb', 'npm', 'webservice', 'curso']
-category: ['Programacion']
+categories: ['Programacion']
 img: 'https://i.postimg.cc/xdNP76sz/curso-1.png'
 authors: ['PatoJAD']
 ---

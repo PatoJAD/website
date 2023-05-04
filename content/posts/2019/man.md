@@ -2,7 +2,7 @@
 title: 'Man, tu Manual para Linux!'
 date: '2019-01-14'
 description: 'MAN tu manual para linux al alcance de la terminal'
-type: 'linux'
+type: 'post'
 tags:
     [
         'manual',
@@ -15,7 +15,7 @@ tags:
         'uso',
         'zsh',
     ]
-category: ['Linux', 'Aplicaciones']
+categories: ['Linux', 'Aplicaciones']
 img: 'https://i.postimg.cc/G2D38xB0/man-patojad.png'
 authors: ['PatoJAD']
 ---
@@ -78,4 +78,4 @@ En algunos sistemas están disponibles también las siguientes secciones:
 | n       | Tcl/Tk                                              |
 | x       | X Window System                                     |
 
-No te llevas bien con Inglés, no te preocupes {{< textlink url="/linux/2019/01/poner-las-paginas-de-man-en-español/" text="aquí" >}} podes ver como traducirlo al español!
+No te llevas bien con Inglés, no te preocupes {{< textlink url="/post/2019/01/poner-las-paginas-de-man-en-español/" text="aquí" >}} podes ver como traducirlo al español!

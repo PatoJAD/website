@@ -2,9 +2,9 @@
 title: 'Yo también use IPhone'
 date: '2020-01-21'
 description: 'Te cuento mi experiencia usando los dispositivos de Apple. En este caso un IPhone 5s'
-type: 'noticias'
+type: 'post'
 tags: ['iphone', 'macos', 'ios', 'movil', 'celular', 'apple', 'ipad', 'ipod']
-category: ['Noticias', 'MacOS', 'iOS']
+categories: ['Noticias', 'MacOS', 'iOS']
 img: 'https://icdn7.digitaltrends.com/image/iphone-5s-hands-on-home-angle-1200x0.jpg?ver=2'
 authors: ['PatoJAD']
 ---

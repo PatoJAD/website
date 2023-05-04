@@ -2,7 +2,7 @@
 title: 'Blockpost'
 date: '2020-10-02 08:11:00'
 description: 'El juego es un rico cóctel que consta de las soluciones de juego más populares y funcionales'
-type: 'juegos'
+type: 'post'
 tags:
     [
         'shooter',
@@ -19,7 +19,7 @@ tags:
         'juego',
         'jugar',
     ]
-category: ['Juegos', 'Windows', 'Linux']
+categories: ['Juegos', 'Windows', 'Linux']
 img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/706990/header.jpg'
 authors: ['PatoJAD']
 ---

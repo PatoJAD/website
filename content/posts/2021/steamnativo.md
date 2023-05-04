@@ -2,7 +2,7 @@
 title: '¿Nativo o Proton? la opinión de Valve'
 date: '2021-11-18 10:23:00.00'
 description: 'Muchas opiniones a favor o en contra del uso de proton se dieron a conocer por muchos iconos, blogs, linuxtubers, etc. Ahora le toca a Valve.'
-type: 'juegos'
+type: 'post'
 tags:
     [
         'valve',
@@ -14,7 +14,7 @@ tags:
         'nativos',
         'virtualizar',
     ]
-category: ['Juegos', 'Linux']
+categories: ['Juegos', 'Linux']
 img: 'https://blog.desdelinux.net/wp-content/uploads/2018/12/steam-linux-proton.jpg'
 authors: ['PatoJAD']
 ---

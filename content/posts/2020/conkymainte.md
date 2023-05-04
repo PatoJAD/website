@@ -2,9 +2,9 @@
 title: 'Mainte un Conky diferente'
 date: '2020-07-10 13:15:00'
 description: 'En esta oportunidad vamos a hablar de un Conky en especial Mainte lucir nuestros recursos'
-type: 'estilo'
+type: 'post'
 tags: ['conky', 'manager2', 'linux']
-category: ['Estilo']
+categories: ['Estilo']
 img: 'https://i.ibb.co/w6VJh6Q/Screenshot-20200710-130523.png'
 authors: ['PatoJAD']
 ---

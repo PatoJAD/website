@@ -2,9 +2,9 @@
 title: 'Lo malo de GNU/Linux 2006'
 date: '2020-07-28 09:47:00'
 description: 'En esta oportunidad revivimos una capsula del tiempo y vemos que andaba mal en linux en el 2006'
-type: 'linux'
+type: 'post'
 tags: ['malo', 'linux', '2006', 'error', 'capsula', 'tiempo']
-category: ['Linux']
+categories: ['Linux']
 img: 'https://www.muylinux.com/wp-content/uploads/2017/05/linux.png'
 authors: ['PatoJAD']
 ---

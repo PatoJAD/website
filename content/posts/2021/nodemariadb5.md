@@ -2,7 +2,7 @@
 title: 'Webservice NodeJS y MariaDB 5 - Accediendo a Nuestra DB mediante la API'
 date: '2021-08-12 10:00:00'
 description: 'Accediendo a Nuestra DB mediante la API'
-type: 'programacion'
+type: 'post'
 tags:
     [
         'nodejs',
@@ -16,7 +16,7 @@ tags:
         'query',
         'querywithparams',
     ]
-category: ['Programacion']
+categories: ['Programacion']
 img: 'https://i.postimg.cc/RZDRXkTm/curso-5.png'
 authors: ['PatoJAD']
 ---

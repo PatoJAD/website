@@ -2,9 +2,9 @@
 title: 'AMD nos presenta Zen 3'
 date: '2020-10-09 08:35:00'
 description: 'Hablemos de Zen 3 la nueva arquitectura de AMD que llega repleta de novedades'
-type: 'noticias'
+type: 'post'
 tags: ['amd', 'zen', '3', 'ryzen', 'epyc', 'threadripper', 'ccx', 'ipc']
-category: ['Noticias']
+categories: ['Noticias']
 img: 'https://hardzone.es/app/uploads-hardzone.es/2020/08/AMD-Zen-3_2-800x419.jpg'
 authors: ['PatoJAD']
 ---

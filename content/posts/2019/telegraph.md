@@ -14,7 +14,7 @@ tags:
         'telegraph',
         'markdown',
     ]
-category: ['Aplicaciones']
+categories: ['Aplicaciones']
 img: 'https://i.postimg.cc/6qGCQRHC/remington10.png'
 authors: ['tanomarcelo']
 ---

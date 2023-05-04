@@ -2,7 +2,7 @@
 title: 'VoidLinux por José'
 date: '2019-09-02'
 description: 'José nos trae todo lo que tenemos que saber sobre Void Linux'
-type: 'linux'
+type: 'post'
 tags:
     [
         'linux',
@@ -21,7 +21,7 @@ tags:
         'independiente',
         'independiente linux',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i.blogs.es/5d2c62/void_linux/1366_2000.jpg'
 authors: ['Jose Ma']
 ---
@@ -36,7 +36,7 @@ XBPS es capaz de manejar los mas de 6000 programas que están disponibles en los
 
 Void Linux es una distribución “rolling release”, que se distribuye en distintas .isos (32 y 64 bits) con una gran variedad de entornos de escritorio disponibles: hay imágenes .isos con: Cinnamon, LXQT, LXDE, MATE, XFCE y Enlightenment. También hay disponibles .isos sin entornos de escritorios disponibles, para quienes quieran armar un sistema a su medida.
 
-Otra de las mejores cualidades de Void Linux, es que utiliza Runit cómo su init, siendo una notable excepción al pésimo init de moda adoptado por la mayoría de las distribuciones hoy en día. Runit es un sistema mucho mas simple y mucho mas rápido que el tristemente famoso {{< textlink text="SystemD" url="https://patojad.com.ar/linux/nosystemd/" >}}. De hecho, cuando probé la distribución me sorprendió lo veloz que iba el sistema y la velocidad de inicio (arrancando varios servicios del sistema en paralelo) y apagado (en todos los casos, superior al init desarrollado por Red Hat). Ojalá otras distribuciones adoptaran este init, es excelente sin dudas.
+Otra de las mejores cualidades de Void Linux, es que utiliza Runit cómo su init, siendo una notable excepción al pésimo init de moda adoptado por la mayoría de las distribuciones hoy en día. Runit es un sistema mucho mas simple y mucho mas rápido que el tristemente famoso {{< textlink text="SystemD" url="https://patojad.com.ar/post/nosystemd/" >}}. De hecho, cuando probé la distribución me sorprendió lo veloz que iba el sistema y la velocidad de inicio (arrancando varios servicios del sistema en paralelo) y apagado (en todos los casos, superior al init desarrollado por Red Hat). Ojalá otras distribuciones adoptaran este init, es excelente sin dudas.
 
 {{< img src="https://i2.wp.com/itsfoss.com/wp-content/uploads/2019/04/Void-Linux-Neofetch.png?resize=800%2C562&ssl=1" >}}
 

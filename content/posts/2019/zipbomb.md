@@ -2,7 +2,7 @@
 title: 'La bomba zip'
 date: '2019-09-13'
 description: '¿Sabías que descomprimir un archivo de 42mb puede ser el final de tu maquina? No te pierdas todo lo que tienes que saber sobre la bomba zip'
-type: 'redesyseguridad'
+type: 'post'
 tags:
     [
         'bomba',
@@ -17,7 +17,7 @@ tags:
         'malicioso',
         'maliciosos',
     ]
-category: ['Seguridad', 'Programacion']
+categories: ['Seguridad', 'Programacion']
 img: 'https://media.metrolatam.com/2019/07/11/stephaniemelisht-4afdb0fb4aeb4a6bdb8b5526ef50ca74-600x400.jpg'
 authors: ['PatoJAD']
 ---

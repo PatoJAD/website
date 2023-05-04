@@ -2,9 +2,9 @@
 title: 'Distros Raras'
 date: '2020-06-05 08:25:00'
 description: 'Caminemos por la parte oscura del mundo linuxnauta y veamos que se genera en esos antros.'
-type: 'linux'
+type: 'post'
 tags: ['distros', 'linux', 'raras', 'hannah', 'montana', 'suicide']
-category: ['Linux']
+categories: ['Linux']
 img: 'https://www.linuxadictos.com/wp-content/uploads/tux-raro-.jpg'
 authors: ['PatoJAD']
 ---

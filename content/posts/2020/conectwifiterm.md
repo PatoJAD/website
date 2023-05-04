@@ -2,7 +2,7 @@
 title: 'Conectarse al WiFi desde la Terminal'
 date: '2020-07-13 09:41:00'
 description: 'Vamos a estar viendo un poco como conectarse al Wi-Fi desde la Terminal de nuestro Linux'
-type: 'linux'
+type: 'post'
 tags:
     [
         'iwconfig',
@@ -14,7 +14,7 @@ tags:
         'linux',
         'conectar',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://www.profesionalreview.com/wp-content/uploads/2017/08/C%C3%B3mo-conectarte-a-una-red-Wifi-usando-la-terminal.jpg'
 authors: ['PatoJAD']
 ---
@@ -32,7 +32,7 @@ Es importante destacar que las herramientas para este procedimiento se encuentra
 -   **iwlist**: Se obtiene información detallada de las redes inalámbricas disponibles.
 -   **nmcli**: Nos permite controlar NetworkManager y reportar el estado de la red, brindándonos la posibilidad de crear, mostrar, editar, eliminar, activar y desactivar las conexiones de red.
 
-Para conocer a detalle la sintaxis y el uso de cada uno de estos comandos podemos ejecutar el comando acompañado del argumento de ayuda, o bien {{< textlink url="/linux/2019/01/man-tu-manual-para-linux/" text="utilizar man como ya vimos antes en el blog" >}}.
+Para conocer a detalle la sintaxis y el uso de cada uno de estos comandos podemos ejecutar el comando acompañado del argumento de ayuda, o bien {{< textlink url="/post/2019/01/man-tu-manual-para-linux/" text="utilizar man como ya vimos antes en el blog" >}}.
 
 ## Conectandonos
 

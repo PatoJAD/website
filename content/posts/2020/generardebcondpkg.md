@@ -2,9 +2,9 @@
 title: '¿Como crear un deb con dpkg?'
 date: '2020-04-02 10:14:00'
 description: 'En este caso vamos a usar DPKG para crear un instalador .deb para nuestro sistema o nuestros repositorios'
-type: 'programacion'
+type: 'post'
 tags: ['dpkg', 'deb', 'debian', 'crear', 'generar']
-category: ['Programacion']
+categories: ['Programacion']
 img: 'https://vfac.fr/images/e/8/2/b/b/e82bbef495c9dc36327d78ceef224abae2ab2f7f-debianubuntupackage.png'
 authors: ['PatoJAD']
 ---

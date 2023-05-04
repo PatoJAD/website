@@ -2,7 +2,7 @@
 title: 'Redirección algunos usos'
 date: '2020-10-29 09:04:00'
 description: 'Redireccion en la terminal de GNU/Linux tiene muchos usos y hoy seguimos tocando este tema'
-type: 'linux'
+type: 'post'
 tags:
     [
         'redirección',
@@ -16,7 +16,7 @@ tags:
         'unix',
         'pipelines',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://www.ionos.es/digitalguide/fileadmin/DigitalGuide/Screenshots/ubuntu-bash.png'
 authors: ['PatoJAD']
 ---

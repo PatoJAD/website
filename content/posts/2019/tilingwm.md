@@ -2,7 +2,7 @@
 title: 'Mi experiencia con los Tiling Window Managers'
 date: '2019-02-19'
 description: 'Comparativa Manejadores de Ventanas'
-type: 'linux'
+type: 'post'
 tags:
     [
         'i3-wm',
@@ -17,7 +17,7 @@ tags:
         'tiling window manager',
         'window manager',
     ]
-category: ['Linux', 'Aplicaciones']
+categories: ['Linux', 'Aplicaciones']
 img: 'https://i.postimg.cc/Z5N7xMhn/wm-00.jpg'
 authors: ['Castro Quintana']
 ---

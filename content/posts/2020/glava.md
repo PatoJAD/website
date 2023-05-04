@@ -13,7 +13,7 @@ tags:
         'shaders',
         'audio-vizualizer',
     ]
-category: ['Aplicaciones', 'Linux']
+categories: ['Aplicaciones', 'Linux']
 img: 'https://i2.wp.com/www.linuxlinks.com/wp-content/uploads/2019/07/Music-visualization.png?resize=700%2C350&ssl=1'
 authors: ['PatoJAD']
 ---

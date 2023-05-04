@@ -16,8 +16,8 @@ tags:
         'contraseñas',
         'error',
     ]
-type: 'redesyseguridad'
-category: ['redesyseguridad']
+type: 'post'
+categories: ['Seguridad']
 img: 'https://concienciat.gva.es/wp-content/uploads/2020/03/1C-1536x864.jpg'
 authors: ['PatoJAD']
 ---

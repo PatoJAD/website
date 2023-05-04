@@ -2,7 +2,7 @@
 title: 'Mejorar el Rendimiento de tu CPU'
 date: '2020-09-17 08:50:00'
 description: 'Vamos a ver como mejorar el rendimiento de tu CPU con un ejemplo de Intel de AMD'
-type: 'linux'
+type: 'post'
 tags:
     [
         'amd',
@@ -14,7 +14,7 @@ tags:
         'microcode',
         'performance',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://hardzone.es/app/uploads-hardzone.es/2020/06/CPU.jpg'
 authors: ['PatoJAD']
 ---
@@ -31,7 +31,7 @@ Si usas Ubuntu o Debian suelen traer un kernel que se llama “generic” este k
 
 {{< img src="https://xanmod.org/index_files/xanmod_wallpaper.png" >}}
 
-En mi caso de Debian o Ubuntu voy a recomendar Xanmod que si bien hay un {{< textlink url="/linux/2020/09/mejorar-el-rendimiento-de-tu-placa-de-video/" text="tutorial de como instalarlo" >}} quiero aprovechar esta oportunidad para mejorar ese tutorial.
+En mi caso de Debian o Ubuntu voy a recomendar Xanmod que si bien hay un {{< textlink url="/post/2020/09/mejorar-el-rendimiento-de-tu-placa-de-video/" text="tutorial de como instalarlo" >}} quiero aprovechar esta oportunidad para mejorar ese tutorial.
 
     echo 'deb http://deb.xanmod.org releases main' | sudo tee /etc/apt/sources.list.d/xanmod-kernel.list && wget -qO - https://dl.xanmod.org/gpg.key | sudo apt-key add -
 

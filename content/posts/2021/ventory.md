@@ -16,7 +16,7 @@ tags:
         'linux',
         'macos',
     ]
-category: ['Aplicaciones', 'Linux', 'Windows', 'MacOS']
+categories: ['Aplicaciones', 'Linux', 'Windows', 'MacOS']
 img: 'https://windows-cdn.softpedia.com/screenshots/Ventoy_1.png'
 authors: ['PatoJAD']
 ---

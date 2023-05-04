@@ -2,7 +2,7 @@
 title: 'PrimeOS: Android en tu PC'
 date: '2018-12-26'
 description: 'PrimeOS un android para tu PC'
-type: 'noticias'
+type: 'post'
 tags:
     [
         'primeos',
@@ -18,7 +18,7 @@ tags:
         'androidx86',
         'android-x86',
     ]
-category: ['Noticias', 'Android']
+categories: ['Noticias', 'Android']
 img: https://i.postimg.cc/cL1qyB0x/prime-Os-Artwork2-X.png'
 authors: ['PatoJAD']
 ---

@@ -43,7 +43,7 @@ img: 'https://i.ytimg.com/vi/TWqh9MtT4Bg/maxresdefault.jpg'
 authors: ['PatoJAD']
 ---
 
-Vamos a ver cómo realizar la configuración entre Cloudflare y Gitlab. Antes que nada, recomiendo leer {{< textlink url="https://patojad.com.ar/programacion/2019/10/gitlab-pages/" text="porque elegimos Gitlab" >}} y Porque elegimos {{< textlink text="Cloudflare" url="https://patojad.com.ar/programacion/2019/10/cloudflare-que-es-ventajas-y-desventajas/">}}. Una vez visto esto vamos a explicar cómo hacer para que nuestro dominio alojado el CloudFlare previamente realizado aquí.
+Vamos a ver cómo realizar la configuración entre Cloudflare y Gitlab. Antes que nada, recomiendo leer {{< textlink url="/post/2019/10/gitlab-pages/" text="porque elegimos Gitlab" >}} y Porque elegimos {{< textlink text="Cloudflare" url="/post/2019/10/cloudflare-que-es-ventajas-y-desventajas/">}}. Una vez visto esto vamos a explicar cómo hacer para que nuestro dominio alojado el CloudFlare previamente realizado aquí.
 
 Una vez habilitado el dominio en Cloudflare procedemos a crear los certificados para poder generar los registros correctamente.
 

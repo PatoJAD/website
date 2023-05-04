@@ -2,9 +2,9 @@
 title: 'XanMod el Kernel que te recomendamos'
 date: '2020-04-17 08:05:00'
 description: '¿Sabes que es posible mejorar el rendimiento de tu distro con un kernel con buenas configuraciones e incluso más actualizado?'
-type: 'linux'
+type: 'post'
 tags: ['kernel', 'linux', 'actualziar', 'debian', 'ubuntu']
-category: ['Linux']
+categories: ['Linux']
 img: 'https://xanmod.org/index_files/xanmod_wallpaper.png'
 authors: ['PatoJAD']
 ---
@@ -19,7 +19,7 @@ Admite todas las versiones recientes de 64 bits de **Debian** y sistemas basados
 
 Ofrecen al **posibilidad** de mantener actualizado tu kernel a la ultima version. Como ellos dicen esto **no es recomendable en ambientes que requieran estabilidad**, sin embargo yo lo vengo usando asi y no me dio ningun problema, siempre me mantengo actualizado y sin **errores criticos**
 
-Anteriormente hable de {{< textlink text="liquorix" url="/linux/2020/01/liquorix-que-es-como-lo-instalo/" >}} un kernel que estaba destinado a los videojuegos. Sin embargo en mi tiempo de prueba me dio mucho mejor rendimiento Xanmod e incluso **menos consumo de bateria**.
+Anteriormente hable de {{< textlink text="liquorix" url="/post/2020/01/liquorix-que-es-como-lo-instalo/" >}} un kernel que estaba destinado a los videojuegos. Sin embargo en mi tiempo de prueba me dio mucho mejor rendimiento Xanmod e incluso **menos consumo de bateria**.
 
 ## Principales características
 

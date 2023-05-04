@@ -2,9 +2,9 @@
 title: 'Todos por una Internet Segura!'
 date: '2020-02-11'
 description: 'El Día de Internet Segura se celebra cada año el segundo martes del mes de febrero. Este año es el 11 de febrero cuando lo conmemoramos y queremos celebrarlo con vosotros.'
-type: 'noticias'
+type: 'post'
 tags: ['seguridad', 'internacional', 'internet']
-category: ['Noticias']
+categories: ['Noticias']
 img: 'https://www.eleconomista.com.mx/__export/1569419376781/sites/eleconomista/img/2019/09/25/legal_portada_5_250919.png_1348255499.png'
 authors: ['PatoJAD']
 ---

@@ -2,7 +2,7 @@
 title: 'Post Install Void Linux'
 date: '2021-12-14 09:45:00.00'
 description: 'Void es una distro que está naciendo y llena de buenas críticas, y un gran usuario nos dejó su post install para todos nosotros.'
-type: 'linux'
+type: 'post'
 tags:
     [
         'void',
@@ -16,7 +16,7 @@ tags:
         'ingresar',
         'entrar',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://cdn.statically.io/img/websetnet.net/f=auto%2Cq=60/wp-content/uploads/2019/06/Void-Linux-Neofetch-2.png'
 authors: ['PatoJAD']
 ---

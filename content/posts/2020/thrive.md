@@ -2,9 +2,9 @@
 title: 'Thrive el Spore Open Sorce'
 date: '2020-05-21 06:37:00'
 description: 'Desde los bajos pozos de marea de su planeta natal, ascenderá al dominio cósmico tu nueva especie.'
-type: 'juegos'
+type: 'post'
 tags: ['thrive', 'spore', 'open', 'source']
-category: ['Juegos', 'Linux', 'MacOS', 'Windows']
+categories: ['Juegos', 'Linux', 'MacOS', 'Windows']
 img: 'https://i0.wp.com/revolutionarygamesstudio.com/wp-content/uploads/Screenshot_7.png?fit=1080%2C573&ssl=1'
 authors: ['PatoJAD']
 ---

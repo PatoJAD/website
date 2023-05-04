@@ -4,7 +4,7 @@ date: '2020-06-30 08:30:00.00'
 description: 'Distro ligera basada en MX Linux con un alto potencial'
 type: 'instalacion'
 tags: ['mx', 'xfce', 'instalacion', 'mineros', 'milagros']
-category: ['instalacion']
+categories: ['instalacion']
 img: 'https://proyectotictac.files.wordpress.com/2020/04/pantallazo-terminal2-milagros-2.0.png'
 authors: ['PatoJAD']
 ---

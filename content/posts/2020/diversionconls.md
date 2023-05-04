@@ -2,9 +2,9 @@
 title: 'Más diversión con ls'
 date: '2020-07-15 09:17:00'
 description: 'Vamos a conocer un poco más este gran comando que es tan usado y tan útil... vamos a divertirnos con ls'
-type: 'linux'
+type: 'post'
 tags: ['comandos', 'ls', 'terminal', 'consola', 'linux']
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i.postimg.cc/Kz0rYX84/Screenshot-20200715-084652.png'
 authors: ['PatoJAD']
 ---

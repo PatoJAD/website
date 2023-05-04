@@ -2,7 +2,7 @@
 title: '4 Mitos Falsos de Linux'
 date: '2020-05-06 09:52:00'
 description: 'Existen mitos sobre linux que se utilizan para denigrar a este sistema, hoy desmentimos 4 de los más usados...'
-type: 'linux'
+type: 'post'
 tags:
     [
         'mitos',
@@ -14,7 +14,7 @@ tags:
         'realidad',
         'uso',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://hipertextual.com/archivo/wp-content/uploads/2014/07/mitos-sobre-linux-portada.jpg'
 authors: ['PatoJAD']
 ---
@@ -35,7 +35,7 @@ Bueno, esto es relativamente falso. Ha de ser real si **a mi hijo de 7 años le 
 
 Volviendo al tema, hoy por hoy una persona **puede utilizar una distribución de linux sin ningún problema**, no es necesario abrir la termina, ni saber informática ni mucho menos, los escritorios y las distribuciones (entendamos a esto como la comunidad) se esforzaron mucho para poder hacer esto posible y el mito de que linux es dificil de usar no tiene ningún fundamento.
 
-Esto podemos verlo en el experimento de {{< textlink utl="/comunidad/2019/08/la-comunidad-opina-los-linuxnautas-con-do%C3%B1a-estela/" text="Doña Estela" >}}
+Esto podemos verlo en el experimento de {{< textlink utl="/post/2019/08/la-comunidad-opina-los-linuxnautas-con-do%C3%B1a-estela/" text="Doña Estela" >}}
 
 ## NO VA A FUNCIONAR EN MI PC (**FALSO**)
 

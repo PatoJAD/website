@@ -2,7 +2,7 @@
 title: 'Artix Linux'
 date: '2020-08-11 09:01:00'
 description: 'Una hermosa distribución basada en Arch Linux sin SystemD y Altamente ligera'
-type: 'linux'
+type: 'post'
 tags:
     [
         'systemd',
@@ -16,7 +16,7 @@ tags:
         'arch',
         'manjaro',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i.ytimg.com/vi/1mT8AEJs4II/maxresdefault.jpg'
 authors: ['PatoJAD']
 ---

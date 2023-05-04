@@ -31,7 +31,7 @@ Antes de verlo recuerdo que estaría bueno ver el video de Zatiel si ya no lo vi
 
 Como dije antes es recurrente en este blog hablar de inits, tal vez a estas alturas muchos ya los tengan entendido (a su funcionalidad) pero otros no para lo cual estoy dejando abajo todo lo que nosotros ya hablamos anteriormente con el fin de obtener más información
 
--   https://patojad.com.ar/linux/2020/06/systemd-solucion-o-problema/
--   https://patojad.com.ar/linux/2019/04/systemd-al-volante-mata/
--   https://patojad.com.ar/comunidad/2019/01/lo-que-la-gente-opina-sobre-los-inits/
--   https://patojad.com.ar/linux/2019/01/lo-que-la-gente-opina-sobre-los-inits/
+-   https://patojad.com.ar/post/2020/06/systemd-solucion-o-problema/
+-   https://patojad.com.ar/post/2019/04/systemd-al-volante-mata/
+-   https://patojad.com.ar/post/2019/01/lo-que-la-gente-opina-sobre-los-inits/
+-   https://patojad.com.ar/post/2019/01/lo-que-la-gente-opina-sobre-los-inits/

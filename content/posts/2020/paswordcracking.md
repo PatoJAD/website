@@ -16,8 +16,8 @@ tags:
         'arch',
         'reados',
     ]
-type: 'redesyseguridad'
-category: ['redesyseguridad']
+type: 'post'
+categories: ['Seguridad', 'Redes']
 img: 'https://alpinesecurity.com/wp-content/uploads/2017/12/offline-password-cracking.jpg'
 authors: ['PatoJAD']
 ---

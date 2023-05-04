@@ -2,9 +2,9 @@
 title: 'PlasmApple'
 date: '2020-05-11 09:22:00'
 description: 'Este es un proyecto libre sin fines de Lucro, esta dedicado  para aquellos que les gusta GNU/linux y lo que es el entorno Mac'
-type: 'estilo'
+type: 'post'
 tags: ['plasmapple', 'gtk', 'kde', 'mac', 'ios', 'plasma', 'apple']
-category: ['Estilo']
+categories: ['Estilo']
 img: 'https://i.ytimg.com/vi/JX3bh0XgTSE/maxresdefault.jpg'
 authors: ['PatoJAD']
 ---

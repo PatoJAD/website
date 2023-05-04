@@ -16,7 +16,7 @@ tags:
         'linuxbrowser',
         'linux',
     ]
-category: ['Aplicaciones']
+categories: ['Aplicaciones']
 img: 'https://github.com/bazukas/obs-linuxbrowser/raw/master/img/obs-linuxbrowser.png'
 authors: ['PatoJAD']
 ---

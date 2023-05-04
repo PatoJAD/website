@@ -2,9 +2,9 @@
 title: 'Flatpak ¿Bueno o Malo?'
 date: '2020-09-07 11:14:00'
 description: 'Vamos a tratar de descrubrir si flatpak es bueno o es malo y como deberiamos usarlo'
-type: 'noticias'
+type: 'post'
 tags: ['flatpak', 'linux', 'ubuntu', 'bueno', 'malo']
-category: ['Noticias']
+categories: ['Noticias']
 img: 'https://tecnonucleous.com/content/images/2018/04/flatpaklogo.jpg'
 authors: ['PatoJAD']
 ---

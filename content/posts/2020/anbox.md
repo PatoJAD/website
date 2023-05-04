@@ -16,7 +16,7 @@ tags:
         'wine',
         'shashlik',
     ]
-category: ['Aplicaciones', 'Linux', 'Android']
+categories: ['Aplicaciones', 'Linux', 'Android']
 img: 'https://blog.desdelinux.net/wp-content/uploads/2019/04/anbox.jpg'
 authors: ['PatoJAD']
 ---

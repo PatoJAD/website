@@ -4,7 +4,7 @@ date: '2020-04-27 10:03:00'
 description: 'Delta Chat es como Telegram o Whatsapp pero sin el seguimiento o el control central. Delta Chat no necesita su número de teléfono.'
 type: 'aplicaciones'
 tags: ['chat', 'telegram', 'whatsapp', 'email']
-category: ['Aplicaciones']
+categories: ['Aplicaciones']
 img: 'https://delta.chat/assets/blog/desktop-screenshot.png'
 authors: ['PatoJAD']
 ---

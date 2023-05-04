@@ -15,8 +15,8 @@ tags:
         'boogaloo',
         'valve',
     ]
-category: ['Juegos']
-type: 'juegos'
+categories: ['Juegos']
+type: 'post'
 img: 'https://cdn.cloudflare.steamstatic.com/steam/apps/317360/header.jpg'
 authors: ['PatoJAD']
 ---

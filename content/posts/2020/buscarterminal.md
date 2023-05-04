@@ -2,7 +2,7 @@
 title: '4 Formas de buscar archivos'
 date: '2020-07-01 09:41:00'
 description: 'Vamos a estar viendo un poco como buscar en la terminal, algo muy útil y realmente rápido que recorrer directorios'
-type: 'linux'
+type: 'post'
 tags:
     [
         'find',
@@ -15,7 +15,7 @@ tags:
         'comando',
         'macos',
     ]
-category: ['Linux', 'Apliaciones', 'MacOS']
+categories: ['Linux', 'Aplicaciones', 'MacOS']
 img: 'https://i.ibb.co/9pc9JD9/Screenshot-20200701-092342.png'
 authors: ['PatoJAD']
 ---

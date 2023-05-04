@@ -15,7 +15,7 @@ tags:
         'patojad.com.ar',
         'patojadrest',
     ]
-category: ['Aplicaciones', 'Programacion']
+categories: ['Aplicaciones', 'Programacion']
 img: 'https://i.postimg.cc/pT9dRgtH/rest.png'
 authors: ['PatoJAD']
 ---

@@ -2,7 +2,7 @@
 title: 'Ya esta Disponible Pokémon Unite'
 date: '2021-09-23 11:23:00.00'
 description: 'Ya está disponible Pokémon unite para Android y iOS. Todos los que vimos este juego y nos gustan un poco los moba y Pokémon teníamos que jugarlo.'
-type: 'juegos'
+type: 'post'
 tags:
     [
         'pokemon',
@@ -16,7 +16,7 @@ tags:
         'pokemon unite',
         'pokemon moba',
     ]
-category: ['Juegos', 'Android', 'iOS']
+categories: ['Juegos', 'Android', 'iOS']
 img: 'https://i.blogs.es/7c1b87/1024_2000/450_1000.jpeg'
 authors: ['PatoJAD']
 ---

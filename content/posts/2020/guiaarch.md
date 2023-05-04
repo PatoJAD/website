@@ -2,7 +2,7 @@
 title: 'Guia para instalar Arch'
 date: '2020-10-13 10:46:00'
 description: 'La guia definitiva para realizar la instalacion de Arch linux paso a paso'
-type: 'linux'
+type: 'post'
 tags:
     [
         'arch',
@@ -29,7 +29,7 @@ tags:
         'sugar',
         'plasma',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i.blogs.es/12f357/wallpaper_arch_linux_by_bruoneightwo-da232j1/450_1000.png'
 authors: ['PatoJAD']
 ---

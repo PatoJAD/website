@@ -2,7 +2,7 @@
 title: 'GitLab Pages'
 date: '2019-10-09'
 description: 'Muchas personas preguntan como hice el blog, hoy vemos que es GitLab Pages.'
-type: 'programacion'
+type: 'post'
 tags:
     [
         'gitlab',
@@ -15,7 +15,7 @@ tags:
         'web',
         'estatica',
     ]
-category: ['Programacion']
+categories: ['Programacion']
 img: 'https://i.ytimg.com/vi/TWqh9MtT4Bg/maxresdefault.jpg'
 authors: ['PatoJAD']
 ---

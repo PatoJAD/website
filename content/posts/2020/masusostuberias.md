@@ -2,7 +2,7 @@
 title: 'Tuberias un poco mas a fondo'
 date: '2020-11-04 09:24:00'
 description: 'Seguimos mezclando y aprendiendo sobre shell y la terminal de linux '
-type: 'linux'
+type: 'post'
 tags:
     [
         'tuberias',
@@ -18,7 +18,7 @@ tags:
         'tail',
         'head',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://www.howtogeek.com/wp-content/uploads/2020/01/3-1.png'
 authors: ['PatoJAD']
 ---

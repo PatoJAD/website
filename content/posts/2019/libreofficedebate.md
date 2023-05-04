@@ -17,7 +17,7 @@ tags:
         'open source',
         'open source software',
     ]
-category: ['Aplicaciones']
+categories: ['Aplicaciones']
 img: 'https://i.postimg.cc/FFBY9K5d/librevsms-patojad.jpg'
 authors: ['PatoJAD']
 ---

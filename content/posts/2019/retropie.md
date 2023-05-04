@@ -2,7 +2,7 @@
 title: 'RetroPie'
 date: '2018-12-12'
 description: 'Arcade Games en tu GNU Linux de una forma muy simple'
-type: 'juegos'
+type: 'post'
 tags:
     [
         'retropie',
@@ -15,7 +15,7 @@ tags:
         'aplicaciones',
         'patojad',
     ]
-category: ['Juegos', 'Linux', 'Aplicaciones']
+categories: ['Juegos', 'Linux', 'Aplicaciones']
 img: 'https://i.postimg.cc/mksFBfCJ/maxresdefault.jpg'
 authors: ['PatoJAD']
 ---

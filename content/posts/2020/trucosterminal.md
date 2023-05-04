@@ -2,7 +2,7 @@
 title: 'Trucos para la terminal'
 date: '2020-12-10 10:50:00'
 description: 'Trucos para la terminal que facilitan el dia a dia'
-type: 'linux'
+type: 'post'
 tags:
     [
         'terminal',
@@ -14,7 +14,7 @@ tags:
         'teclas',
         'rapidas',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://www.islabit.com/wp-content/uploads/2019/06/Linux-16.png'
 authors: ['PatoJAD']
 ---

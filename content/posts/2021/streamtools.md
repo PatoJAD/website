@@ -2,7 +2,7 @@
 title: 'Stream Tools'
 date: '2021-05-31 09:10:00'
 description: 'Stream Tools herramientas simples y dinamicas para los Streamers'
-type: 'noticias'
+type: 'post'
 tags:
     [
         'streams',
@@ -15,7 +15,7 @@ tags:
         'browser',
         'linux',
     ]
-category: ['Noticias', 'Aplicaciones']
+categories: ['Noticias', 'Aplicaciones']
 img: 'https://i.postimg.cc/WThR0szw/image.png'
 authors: ['PatoJAD']
 ---

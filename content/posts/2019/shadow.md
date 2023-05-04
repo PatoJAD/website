@@ -2,7 +2,7 @@
 title: 'Shadow'
 date: '2019-09-24'
 description: 'Cambia la forma en que miras tu escritorio. Obtenga un tema de iconos cuidadosamente diseñado, brillante y limpio para Gnome Desktop.'
-type: 'estilo'
+type: 'post'
 tags:
     [
         'icons',
@@ -16,7 +16,7 @@ tags:
         'icon-theme',
         'xfce',
     ]
-category: ['Estilo', 'Linux']
+categories: ['Estilo', 'Linux']
 img: 'https://images.pling.com/img/00/00/32/82/41/1012532/8f4fbbbf887ab60874564a5ae6cf25cdd8c10d9cfd3b058a272eea0d5a124631f79c.png'
 authors: ['PatoJAD']
 ---

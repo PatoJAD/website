@@ -2,7 +2,7 @@
 title: 'Repara tu GRUB con Boot-Repair'
 date: '2018-12-20'
 description: 'Una app que repara tu GRUB'
-type: 'linux'
+type: 'post'
 tags:
     [
         'grub',
@@ -16,7 +16,7 @@ tags:
         'elementary',
         'linuxmint',
     ]
-category: ['Linux', 'Aplicaciones']
+categories: ['Linux', 'Aplicaciones']
 img: 'https://i.postimg.cc/nzF9q5J8/Ubuntu-Grub-Console.png'
 authors: ['PatoJAD']
 ---

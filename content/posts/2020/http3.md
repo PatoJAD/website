@@ -2,9 +2,9 @@
 title: 'HTTP/3 ¿Una internet mas rapida?'
 date: '2020-03-25 08:47:00'
 description: 'Un nuevo protocolo se acerca a nostros para definir una internet mas rapida...'
-type: 'redesyseguridad'
+type: 'post'
 tags: ['http', 'red', 'internet', 'protocolo', 'educacionit']
-category: ['Redes']
+categories: ['Redes']
 img: 'https://blog.educacionit.com/wp-content/uploads/2020/02/1366_2000-1-2.jpg'
 authors: ['PatoJAD']
 ---
@@ -21,7 +21,7 @@ Para entender todo esto, vamos a adentrarnos en **varios conceptos que pueden ll
 
 {{< img src="https://i.blogs.es/392246/los-protocolos-que-se-usan-en-internet/1366_2000.jpg" >}}
 
-Las comunicaciones de internet funcionan a través de protocolos. Por una parte tienes el Protocolo de Internet, Internet Protocol o IP en inglés del cual hablamos anteriormente, si queres saber mas podes ingresar a "{{< textlink text="¿Que hay detas de una IP?" url="/redesyseguridad/2020/02/qué-hay-detrás-de-una-ip/" >}}" o "{{< textlink text="Direcciones IP nuestra huella en la red" url="/redesyseguridad/2020/01/direcciones-ips-nuestra-huella-en-la-red/" >}}". Nadie puede navegar por la red sin una dirección IP, y cuando escribes patojad.com.ar, lo que hace tu navegador es traducir ese texto a una dirección IP para conectar con el servidor de la web (en nuestro caso GitLab Pages).
+Las comunicaciones de internet funcionan a través de protocolos. Por una parte tienes el Protocolo de Internet, Internet Protocol o IP en inglés del cual hablamos anteriormente, si queres saber mas podes ingresar a "{{< textlink text="¿Que hay detas de una IP?" url="/post/2020/02/qué-hay-detrás-de-una-ip/" >}}" o "{{< textlink text="Direcciones IP nuestra huella en la red" url="/post/2020/01/direcciones-ips-nuestra-huella-en-la-red/" >}}". Nadie puede navegar por la red sin una dirección IP, y cuando escribes patojad.com.ar, lo que hace tu navegador es traducir ese texto a una dirección IP para conectar con el servidor de la web (en nuestro caso GitLab Pages).
 
 Y otro igualmente importante es el **Protocolo de Transferencia de Hipertexto, Hypertext Transfer Protocol o HTTP en inglés. Es el protocolo que utilizan los navegadores para comunicarse con los servidores web,** y el que deben seguir el resto de software perteneciente a la arquitectura de la web, como los servidores, proxies y los mencionados navegadores.
 
@@ -71,7 +71,7 @@ Lo cual podeos resumirlo como que tendramos que esperar menos para que carguen n
 
 ¿Dónde está ya implementado el HTTP/3? Pues tras llevar haciendo pruebas desde mediados de 2019, tanto Firefox como Chrome han implementado ya el nuevo protocolo en las versiones estables del navegador. Chrome lo tiene desde la build 79 lanzada en diciembre, y Firefox desde su build 72 de enero de este 2020.
 
-También Cloudflare, del que ya hablemos hablado anteriormente en {{< textlink text="nuestra publicacion" url="/programacion/2019/10/cloudflare-que-es-ventajas-y-desventajas/" >}}, ha implementado la compatibilidad de este protocolo. Y esta empresa es muy importante, porque actúa como intermediaria entre el cliente y el servidor, y son muchas las empresas que han apostado por sus servicios a nivel mundial, tanto ques **si Cloudflare tose, a internet le sube la fiebre.** Una caída de este servicio hace que miles de webs dejen de funcionar, como este sitio por ejemplo, y por eso es importante que ya esté preparada.
+También Cloudflare, del que ya hablemos hablado anteriormente en {{< textlink text="nuestra publicacion" url="/post/2019/10/cloudflare-que-es-ventajas-y-desventajas/" >}}, ha implementado la compatibilidad de este protocolo. Y esta empresa es muy importante, porque actúa como intermediaria entre el cliente y el servidor, y son muchas las empresas que han apostado por sus servicios a nivel mundial, tanto ques **si Cloudflare tose, a internet le sube la fiebre.** Una caída de este servicio hace que miles de webs dejen de funcionar, como este sitio por ejemplo, y por eso es importante que ya esté preparada.
 
 En cualquier caso, lo que debes tener claro es que **el salto al HTTP/3 no va a ser algo que vayas a notar demasiado a nivel de usuario.** Las empresas de internet se están preparando para él, por lo que cuando sea lanzado oficialmente durante este año no habrá ningún tipo de apagón, simplemente poco a poco veremos cómo algunos servicios adaptados empezarán a cargar un poco más rápido.
 

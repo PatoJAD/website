@@ -1,10 +1,10 @@
 ---
-title: '¿Que es DynDNS?¿Como lo instalo?'
+title: '¿Que es DynDNS? ¿Como lo instalo?'
 date: '2020-04-28 09:17:00'
 description: 'Existen muchas ddns y hoy vamos a ver un poco mas sobre DynDNS un DDNS gratuito muy util en estos dias'
-type: 'redesyseguridad'
+type: 'post'
 tags: ['ip', 'dns', 'ddns', 'dyndns']
-category: ['redesyseguridad']
+categories: ['Redes', 'Linux', 'Aplicaciones', 'Windows', 'MacOS']
 img: 'https://pbs.twimg.com/media/BeYTgYSCEAAwYAv.jpg'
 authors: ['PatoJAD']
 ---
@@ -13,7 +13,7 @@ authors: ['PatoJAD']
 
 El problema es el **cambio de la dirección IP** (dinámicamente) de su línea de internet. Esto significa que es imposible lograr su red doméstica desde el exterior. Con nuestro servicio **DNS dinámico** (DDNS), le ofrecemos la posibilidad de operar sus aplicaciones estáticamente desde el exterior de forma móvil.
 
-Así se presenta DynDNS un competidor de **{{< textlink url="/redesyseguridad/2020/04/como-instalar-no-ip-en-linux/" text="NO-IP" >}} del cual hablamos hace unos dias**
+Así se presenta DynDNS un competidor de **{{< textlink url="/post/2020/04/como-instalar-no-ip-en-linux/" text="NO-IP" >}} del cual hablamos hace unos dias**
 
 ## ¿Cómo utiliza el servicio gratuito DynDNS?
 

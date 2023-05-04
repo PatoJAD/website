@@ -2,9 +2,9 @@
 title: '¿Porqué nos importa la Libertad?'
 date: '2019-01-15'
 description: 'Libertad, la importancia que tiene para todos nostros!.'
-type: 'linux'
+type: 'post'
 tags: ['libertad', 'software', 'libre', 'patojad', 'patojad.com.ar']
-category: ['Linux', 'Aplicaciones']
+categories: ['Linux', 'Aplicaciones']
 img: 'https://i.postimg.cc/F159VdLf/porque-patojad.jpg'
 authors: ['PatoJAD']
 ---

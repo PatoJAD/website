@@ -17,8 +17,8 @@ tags:
         'crespo',
         'virus',
     ]
-type: 'redesyseguridad'
-category: ['Seguridad']
+type: 'post'
+categories: ['Seguridad']
 img: 'https://www.softzone.es/app/uploads-softzone.es/2019/09/Elegir-antivirus.jpg'
 authors: ['PatoJAD']
 ---

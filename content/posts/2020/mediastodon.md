@@ -2,9 +2,9 @@
 title: 'Mediastodon'
 date: '2020-01-03'
 description: 'La mayoría conocemos Mastodon. Pero ¿sabías que también es un gran centro de imágenes? Aquí tienes la opción de usarlo como tal.'
-type: 'noticias'
+type: 'post'
 tags: ['mastodon', 'mediastodon', 'imagenes', 'media']
-category: ['Noticias']
+categories: ['Noticias']
 img: 'https://i.postimg.cc/3RmLSs3n/external-content-duckduckgo-com.jpg'
 authors: ['PatoJAD']
 ---

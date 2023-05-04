@@ -2,9 +2,9 @@
 title: 'Esta Navidad nos llegó el Kernel 4.20'
 date: '2018-12-24'
 description: 'Llego la Navidad y gnunoel nos trajo el nuevo kernel 4.20'
-type: 'linux'
+type: 'post'
 tags: ['navidad', 'kernel', 'linux', 'kernel420', '420', '4.20']
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i.postimg.cc/c4b70sNv/KERNEL2560x1600.jpg'
 authors: ['PatoJAD']
 ---

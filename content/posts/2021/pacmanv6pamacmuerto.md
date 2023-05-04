@@ -2,7 +2,7 @@
 title: 'LLegó pacman v6 y pamac quedó anonadado'
 date: '2021-06-02 09:10:00'
 description: 'Te contamos todas las novedades en de la nueva versión de pacman y que es lo que está pasando con la mítica GUI pamac'
-type: 'noticias'
+type: 'post'
 tags:
     [
         'arch',
@@ -16,7 +16,7 @@ tags:
         'pacman6',
         'pacmanv6pamacmuerto',
     ]
-category: ['Noticias', 'Linux']
+categories: ['Noticias', 'Linux']
 img: 'https://i.postimg.cc/DwNCYM02/image.png'
 authors: ['PatoJAD']
 ---

@@ -37,8 +37,8 @@ authors: ['PatoJAD']
 
 Ya hable con anterioridad sobre Cloudflare allá por el 2019. Y creo que quedó fuertemente asentado que lo recomiendo fuertemente más allá de sus contras. Dejo la información hablada con anterioridad sobre esto:
 
--   {{<textlink text="CloudFlare ¿Que es? Ventajas y Desventajas" url="/programacion/2019/10/cloudflare-que-es-ventajas-y-desventajas/" >}}
--   {{<textlink text="Configurar GitLab Pages con CloudFlare" url="/programacion/2019/11/configurar-gitlab-pages-con-cloudflare/" >}}
+-   {{<textlink text="CloudFlare ¿Que es? Ventajas y Desventajas" url="/post/2019/10/cloudflare-que-es-ventajas-y-desventajas/" >}}
+-   {{<textlink text="Configurar GitLab Pages con CloudFlare" url="/post/2019/11/configurar-gitlab-pages-con-cloudflare/" >}}
 
 Como siempre cloudflare avanza a pasos agigantados y gracias a esto nos ofrece nuevas funcionalidades y una de las más interesantes es la posibilidad de tener un email profesional _(@tudominio)_ completamente **GRATIS**. Y si bien de entrada esta opción parece que solo es para forwardear correos a uno ya existente (por ejemplo tu gmail) es muy interesante conocer la mejor forma de configurarlo para poder enviar correos con tu dominio “profesional” desde, en este caso, nuestro gmail.
 

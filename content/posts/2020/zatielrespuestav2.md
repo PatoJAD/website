@@ -2,9 +2,9 @@
 title: '¿No se puede o no se hace?'
 date: '2020-07-17 08:40:00'
 description: 'Nuevamente decido hablarle a Zatiel una persona muy influyente dentro de este mundo y esta bueno marcar diferencias'
-type: 'noticias'
+type: 'post'
 tags: ['linux', 'zatiel', 'problema', 'respuesta']
-category: ['Noticias']
+categories: ['Noticias']
 img: 'https://instintobinario.com/wp-content/uploads/2014/10/2310_0-713x360.png'
 authors: ['PatoJAD']
 ---
@@ -27,7 +27,7 @@ En esta oportunidad la idea es diferenciar como primordial que linux si es un si
 
 Yo soy partidario de muchas cosas que presentan su antagónico en el video de nuestro amigo, por lo cual puede que mi punto de vista sea obnubilado por esta posturas y las voy a detallar acá:
 
--   {{< textlink text="Se puede jugar en linux" url="/juegos/2020/07/se-puede-jugar-en-linux/" >}} y no requieres una master race.
+-   {{< textlink text="Se puede jugar en linux" url="/post/2020/07/se-puede-jugar-en-linux/" >}} y no requieres una master race.
 -   Los programas tienen que cumplir su funcionalidad y nada más
 -   No porque haya recursos significa que sea necesario consumirlos (apuntando a los malos hábitos de programación solo porque los equipos son más potentes, desaparovechandolos y bajando la performance que deberían tener)
 

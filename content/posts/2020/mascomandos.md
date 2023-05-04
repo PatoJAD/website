@@ -2,7 +2,7 @@
 title: 'Manipulando archivos y directorios'
 date: '2020-09-03 10:12:00'
 description: 'En esta oportunidad vamos a profundizar algunos comandos populares y algo sobre los comodines'
-type: 'linux'
+type: 'post'
 tags:
     [
         'terminal',
@@ -17,7 +17,7 @@ tags:
         'globbing',
         'mkdir',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://docs.microsoft.com/es-es/windows/terminal/images/overview.png'
 authors: ['PatoJAD']
 ---

@@ -14,7 +14,7 @@ tags:
         'review',
         'instalacion',
     ]
-category: ['instalacion']
+categories: ['instalacion']
 img: 'https://raw.githubusercontent.com/codesardine/Jadesktop/master/jade1.jpg'
 authors: ['PatoJAD']
 ---

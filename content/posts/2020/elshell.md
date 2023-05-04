@@ -2,9 +2,9 @@
 title: 'El Shell de Linux'
 date: '2020-06-23 08:56:00'
 description: 'Hablemos del shell, una util herramienta a la que debemos perderle el miedo'
-type: 'linux'
+type: 'post'
 tags: ['shell', 'linux', 'kernel', 'scripts']
-category: ['Linux']
+categories: ['Linux']
 img: 'https://www.axpe-blogs.com/wp-content/uploads/ShellShock.jpg'
 authors: ['PatoJAD']
 ---

@@ -2,9 +2,9 @@
 title: '¿Por qué usar la línea de comandos?'
 date: '2020-07-03 09:41:00'
 description: "¿Te has dado cuenta alguna vez que, en las películas, cuando el 'súper hacker' se sienta en el ordenador y nunca toca un ratón?"
-type: 'linux'
+type: 'post'
 tags: ['comandos', 'lineas', 'terminal', 'cmd', 'consola', 'terminal', 'linux']
-category: ['Linux']
+categories: ['Linux']
 img: 'https://1.bp.blogspot.com/-4j-BFYm5lhY/T7iSK7jPo0I/AAAAAAAAA6s/0no_CHRVfMQ/s1600/DebianCli.png'
 authors: ['PatoJAD']
 ---

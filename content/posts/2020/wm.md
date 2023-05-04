@@ -2,9 +2,9 @@
 title: 'Los WM, el caso de Awesome'
 date: '2020-08-20 09:33:00'
 description: 'Hoy hablamos de los Windows Manager y en esta oportunidad mostramos un poco Awesome aunque la idea es entender en general su uso'
-type: 'estilo'
+type: 'post'
 tags: ['mate', 'gnome', 'kde', 'wm', 'awesome', 'windows', 'manager']
-category: ['Estilo']
+categories: ['Estilo']
 img: 'https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/gnawesome.webp'
 authors: ['PatoJAD']
 ---

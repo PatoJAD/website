@@ -2,7 +2,7 @@
 title: 'Webservice NodeJS y MariaDB 6 - ABM en nuestra DB vía API'
 date: '2021-08-16 10:00:00'
 description: 'ABM en nuestra DB vía API'
-type: 'programacion'
+type: 'post'
 tags:
     [
         'nodejs',
@@ -20,7 +20,7 @@ tags:
 		'query',
 		'querywithparams',
     ]
-category: ['Programacion']
+categories: ['Programacion']
 img: 'https://i.postimg.cc/05YVPH9G/curso-6.png'
 authors: ['PatoJAD']
 ---

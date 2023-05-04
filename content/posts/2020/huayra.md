@@ -14,7 +14,7 @@ tags:
         'argentina',
         'como instalar',
     ]
-category: ['instalacion']
+categories: ['instalacion']
 img: 'https://i.postimg.cc/gcXfFDQp/huayra.webp'
 authors: ['PatoJAD']
 ---

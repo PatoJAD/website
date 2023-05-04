@@ -2,7 +2,7 @@
 title: 'Valve quiere desarrollar para Linux, ¿Y la comunidad?'
 date: '2019-08-05'
 description: 'Una opinion tras el revuelo reciente debido a la propuesta de valve a conformar parte de los desarrolladores del Kernel de Linux'
-type: 'noticias'
+type: 'post'
 tags:
     [
         'valve',
@@ -15,7 +15,7 @@ tags:
         'gtk',
         'kde',
     ]
-category: ['Noticias', 'Juegos', 'Linux']
+categories: ['Noticias', 'Juegos', 'Linux']
 img: 'https://www.madboxpc.com/wp-content/uploads/2012/10/ValveUbuntu.jpg'
 authors: ['PatoJAD']
 ---

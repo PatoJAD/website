@@ -15,7 +15,7 @@ tags:
         'free',
         'gratis',
     ]
-category: ['Aplicaciones']
+categories: ['Aplicaciones']
 img: 'https://planetawindows.com/wp-content/uploads/2016/09/V%C3%ADdeo-43-1200x675.jpg'
 authors: ['PatoJAD']
 ---

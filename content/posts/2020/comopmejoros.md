@@ -2,7 +2,7 @@
 title: 'La gente Opina: El mejor Sistema Operativo'
 date: '2020-08-10 09:18:00'
 description: "Anteriormente di mi opinion de 'cual es el mejro sistema operativo' y ahora es turno de la comunidad"
-type: 'comunidad'
+type: 'post'
 tags:
     [
         'comunidad',
@@ -13,7 +13,7 @@ tags:
         'telegram',
         'facebook',
     ]
-category: ['Comunidad']
+categories: ['Comunidad']
 img: 'https://blog.universaldeidiomas.com/wp-content/uploads/2016/06/Opiniones_y_emociones_en_Portugues-300x225@2x.jpg'
 authors: ['PatoJAD']
 ---

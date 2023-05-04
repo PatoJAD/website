@@ -16,7 +16,7 @@ tags:
         'instalar',
         'ubuntu',
     ]
-category: ['Aplicaciones', 'Linux']
+categories: ['Aplicaciones', 'Linux']
 img: 'https://es.linux-console.net/common-images/tilix-gtk3-tiling-terminal-emulator-for-linux/tilix-with-multiple-tabs.png'
 authors: ['PatoJAD']
 ---

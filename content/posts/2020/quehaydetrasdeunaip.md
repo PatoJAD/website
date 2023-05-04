@@ -11,7 +11,7 @@ authors: ['PatoJAD']
 
 Una dirección IP no es algo que se asigne de forma aleatoria sin respetar ningún principio. Conociendo la dirección IP de alguien tendremos a nuestra disposición una cantidad de datos que debemos conocer a la hora de saber ante qué situación nos encontramos. Por la misma razón es necesario comprender como se estructuran para poder crear nosotros entornos de prueba que represeten la realidad lo mas fiel posible.
 
-Ya avanzamos en la publicación anterior una {{< textlink text="introducción a lo que es una ip" url="/redesyseguridad/2020/01/direcciones-ips-nuestra-huella-en-la-red/" >}}. Hoy veremos mas a fondo las partes en las que se dividen. Cojamos por ejempo la siguiente dirección IP: 192.168.5.1, es una IP privada, (luego veremos porqué) internamente la IP, todas las direcciones IPs tiene una parte de red y otra parte de host, se represeta así:
+Ya avanzamos en la publicación anterior una {{< textlink text="introducción a lo que es una ip" url="/post/2020/01/direcciones-ips-nuestra-huella-en-la-red/" >}}. Hoy veremos mas a fondo las partes en las que se dividen. Cojamos por ejempo la siguiente dirección IP: 192.168.5.1, es una IP privada, (luego veremos porqué) internamente la IP, todas las direcciones IPs tiene una parte de red y otra parte de host, se represeta así:
 
 {{< img src="http://cursohacker.es/sites/default/files/styles/large/public/images/20130912140151.jpg?itok=1qFl8cpq" >}}
 

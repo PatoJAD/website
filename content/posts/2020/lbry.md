@@ -4,7 +4,7 @@ date: '2020-06-29 09:03:00'
 description: '¿Qué es exactamente LBRY? ¿Es un protocolo, una aplicación, un sitio web o una empresa? Es hora de recuperar el control de YouTube y Amazon.'
 type: 'aplicaciones'
 tags: ['android', 'apps', 'lbry', 'youtube', 'libre', 'criptomonedas']
-category: ['Aplicaciones']
+categories: ['Aplicaciones']
 img: 'https://spee.ch/f/2019-08-lbry-interface-poster.jpg'
 authors: ['PatoJAD']
 ---

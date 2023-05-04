@@ -2,7 +2,7 @@
 title: 'Música y Desarrollo 1'
 date: '2019-02-19'
 description: 'Música Desarrollo'
-type: 'linux'
+type: 'post'
 tags:
     [
         'musica',
@@ -15,7 +15,7 @@ tags:
         'programas',
         'aplicaciones',
     ]
-category: ['Linux', 'Aplicaciones', 'Programacion']
+categories: ['Linux', 'Aplicaciones', 'Programacion']
 img: 'https://i.postimg.cc/fyRSfK8k/00-program-music.png'
 authors: ['tanomarcelo']
 ---

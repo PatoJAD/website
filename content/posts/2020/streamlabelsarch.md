@@ -17,7 +17,7 @@ tags:
         'youtube',
         'linuxbrowser',
     ]
-category: ['Aplicaciones']
+categories: ['Aplicaciones']
 img: 'https://i.postimg.cc/QCbqwwJv/image.png'
 authors: ['PatoJAD']
 ---

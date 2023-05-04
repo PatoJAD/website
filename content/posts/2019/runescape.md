@@ -2,9 +2,9 @@
 title: 'RunScape'
 date: '2018-12-11'
 description: 'MMORPG Online'
-type: 'juegos'
+type: 'post'
 tags: ['runscape', 'mmorpg', 'online', 'juegos', 'mmo', 'gratis', 'free']
-category: ['Juegos', 'Windows', 'Linux', 'MacOS']
+categories: ['Juegos', 'Windows', 'Linux', 'MacOS']
 img: 'https://images.ctfassets.net/ra5kw4ubxdsf/79Kn7Pazptdwjvn0XXkjyY/458c5499b1dba630e25222be0f5c1d7b/RS3_Device_Laptop_1188x678.webp?q=75&w=1200'
 authors: ['PatoJAD']
 ---

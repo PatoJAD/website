@@ -2,7 +2,7 @@
 title: 'Linux Mobile recorriendo 2007'
 date: '2020-08-27 09:15:00'
 description: 'Linux en dispositivos moviles no es cosa de hoy, esto tiene mucho tiempo y queremos ver su estatus en 2007'
-type: 'linux'
+type: 'post'
 tags:
     [
         'mobile',
@@ -18,7 +18,7 @@ tags:
         'midinux',
         '2007',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://1.bp.blogspot.com/_8QGvi8H7T4U/S-82ig95jRI/AAAAAAAAAQU/HrKte7njkrk/s1600/mid.jpg'
 authors: ['PatoJAD']
 ---

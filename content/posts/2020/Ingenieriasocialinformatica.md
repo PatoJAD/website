@@ -2,9 +2,9 @@
 title: 'Ingenieria social informatica'
 date: '2020-02-17'
 description: 'Muy pocos la calificarían como método de hacking, pero realmente es una técnia que da resultados por si sola y que puede apoyar a otras muchas para lograr un objetivo.'
-type: 'programacion'
+type: 'post'
 tags: ['ingenieria', 'social', 'informatica']
-category: ['Programacion', 'Seguridad']
+categories: ['Programacion', 'Seguridad']
 img: 'https://www.topsale.pe/wp-content/uploads/2019/03/blog-post-ingeneria-social.png'
 authors: ['PatoJAD']
 ---

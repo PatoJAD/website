@@ -2,7 +2,7 @@
 title: 'Música y Desarrollo 2'
 date: '2019-03-25'
 description: 'Música Desarrollo'
-type: 'linux'
+type: 'post'
 tags:
     [
         'musica',
@@ -15,7 +15,7 @@ tags:
         'programas',
         'aplicaciones',
     ]
-category: ['Linux', 'Aplicaciones', 'Programacion']
+categories: ['Linux', 'Aplicaciones', 'Programacion']
 img: 'https://i.postimg.cc/xCG6TDX9/musicadesarrollo2-svg.png'
 authors: ['tanomarcelo']
 ---

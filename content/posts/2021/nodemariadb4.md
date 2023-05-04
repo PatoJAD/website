@@ -2,7 +2,7 @@
 title: 'Webservice NodeJS y MariaDB 4 - Levantando API con Express'
 date: '2021-08-09 10:00:00'
 description: 'Levantando API con Express en NodeJS'
-type: 'programacion'
+type: 'post'
 tags:
     [
         'nodejs',
@@ -14,7 +14,7 @@ tags:
         'express',
         'api',
     ]
-category: ['Programacion']
+categories: ['Programacion']
 img: 'https://i.postimg.cc/DwZ6QvL5/curso-4.png'
 authors: ['PatoJAD']
 ---

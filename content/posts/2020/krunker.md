@@ -2,7 +2,7 @@
 title: 'Krunker.io'
 date: '2020-10-21 08:02:00'
 description: 'Diviertete con este FPS al estilo PixelArt que puedes jugarlo desde el navegador'
-type: 'juegos'
+type: 'post'
 tags:
     [
         'shooter',
@@ -16,7 +16,7 @@ tags:
         'navegador',
         'browser',
     ]
-category: ['Juegos']
+categories: ['Juegos']
 img: 'https://images.crazygames.com/games/krunker-io/cover-1591336739727.png'
 authors: ['PatoJAD']
 ---

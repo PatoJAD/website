@@ -2,9 +2,9 @@
 title: 'Moviendose en la Terminal'
 date: '2020-07-08 09:17:00'
 description: 'Lo primero que necesitamos aprender es cómo navegar por el sistema de archivos en nuestro sistema GNU/Linux.'
-type: 'linux'
+type: 'post'
 tags: ['comandos', 'pwd', 'terminal', 'cd', 'ls', 'terminal', 'linux']
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i.postimg.cc/5ywwBtKH/Screenshot-20200708-090822.png'
 authors: ['PatoJAD']
 ---

@@ -2,7 +2,7 @@
 title: 'Comandos que no tenes que probar'
 date: '2020-09-28 09:02:00'
 description: 'Te dejamos 3 comandos que no deberias probar y nunca deberias caer en esto.'
-type: 'linux'
+type: 'post'
 tags:
     [
         'terminal',
@@ -16,7 +16,7 @@ tags:
         'dev',
         'null',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i.postimg.cc/xd5B1bRx/image.png'
 authors: ['PatoJAD']
 ---

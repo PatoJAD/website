@@ -12,8 +12,8 @@ tags:
         'analisis',
         'opinion',
     ]
-type: 'redesyseguridad'
-category: ['Seguridad']
+type: 'post'
+categories: ['Seguridad']
 img: 'https://www.milenio.com/uploads/media/2021/01/06/politicas-whatsapp-desatan-memes-redes.jpg'
 authors: ['PatoJAD']
 ---

@@ -2,7 +2,7 @@
 title: 'Pokemon Revolution Online'
 date: '2021-02-17 08:00:00.00'
 description: 'Todos algunas vez jugamos al pokemon de GBA, ya sea el Amarillo, El Rojo Fuejo, el Zafari o cualquier otro.'
-type: 'juegos'
+type: 'post'
 tags:
     [
         'pokemon',
@@ -15,7 +15,7 @@ tags:
         'pvp',
         'pve',
     ]
-category: ['Juegos']
+categories: ['Juegos']
 img: 'https://i.postimg.cc/KYD6JtQT/pokemon-patojad.jpg'
 authors: ['PatoJAD']
 ---

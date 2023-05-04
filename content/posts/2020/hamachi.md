@@ -21,7 +21,7 @@ tags:
         'deb',
         'rpm',
     ]
-category: ['Aplicaciones', 'Linux', 'Windows', 'MacOS']
+categories: ['Aplicaciones', 'Linux', 'Windows', 'MacOS']
 img: 'https://i.postimg.cc/2yhM8CmK/image.png'
 authors: ['PatoJAD']
 ---

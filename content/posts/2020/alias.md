@@ -2,7 +2,7 @@
 title: 'Creando tus propios comandos'
 date: '2020-10-07 09:46:00'
 description: 'Vamos a ver como crear nuestros proprios comandos en linux con alias'
-type: 'linux'
+type: 'post'
 tags:
     [
         'comando',
@@ -25,7 +25,7 @@ tags:
         'propios',
         'comandos',
     ]
-category: ['Linux', 'Apliaciones']
+categories: ['Linux', 'Aplicaciones']
 img: 'https://i.postimg.cc/NfkTZNGN/image.png'
 authors: ['PatoJAD']
 ---
