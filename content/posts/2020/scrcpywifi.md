@@ -15,7 +15,7 @@ tags:
         'integracion',
         'wifi',
     ]
-category: ['Aplicaciones']
+categories: ['Aplicaciones']
 img: 'https://i.postimg.cc/BZzC6LnL/Captura-de-pantalla-de-2020-11-13-08-49-00.png'
 authors: ['PatoJAD']
 ---

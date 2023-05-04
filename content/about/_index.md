@@ -4,7 +4,7 @@ date: '2018-12-18'
 description: La comunidad tras PatoJAD algo mas que un blog, una familia
 type: page
 tags: [Sobre mi, comunidad, informacion]
-category: [Pages]
+categories: [Pages]
 img: https://i.postimg.cc/YCxrtdZh/image.png
 authors: [PatoJAD]
 ---

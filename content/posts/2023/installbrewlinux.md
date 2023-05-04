@@ -17,7 +17,7 @@ tags:
         'paquetes',
         'universal',
     ]
-category: ['Linux', 'Aplicaciones']
+categories: ['Linux', 'Aplicaciones']
 img: 'https://www.dz-techs.com/wp-content/uploads/2019/02/homebrew-linux-windows-featured.jpg'
 authors: ['PatoJAD']
 ---

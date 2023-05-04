@@ -13,7 +13,7 @@ tags:
         'estandar',
         'consola',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i1.wp.com/www.somosbinarios.es/wp-content/uploads/2013/12/Linux-redireccion.png?w=800&ssl=1'
 authors: ['PatoJAD']
 ---

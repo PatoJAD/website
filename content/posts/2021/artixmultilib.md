@@ -21,7 +21,7 @@ tags:
         'bits',
         'multilibs',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://ubunlog.com/wp-content/uploads/2019/12/flatpak-cover.png'
 authors: ['PatoJAD']
 ---

@@ -15,7 +15,7 @@ tags:
         'accesos',
         'cambiar',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://www.linuxadictos.com/wp-content/uploads/permisos-linux.jpg'
 authors: ['PatoJAD']
 ---

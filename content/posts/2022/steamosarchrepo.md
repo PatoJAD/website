@@ -17,7 +17,7 @@ tags:
         'arcolinux',
         'archcraft',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i.postimg.cc/L5qmGySj/steamenarch.png'
 authors: ['PatoJAD']
 ---

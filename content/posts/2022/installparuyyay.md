@@ -17,7 +17,7 @@ tags:
         'pacman',
         'pacaur',
     ]
-category: ['Aplicaciones']
+categories: ['Aplicaciones']
 img: 'https://i.postimg.cc/FmTBQKnf/Sin-nombre.png'
 authors: ['PatoJAD']
 ---

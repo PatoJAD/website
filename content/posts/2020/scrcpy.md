@@ -14,7 +14,7 @@ tags:
         'windows',
         'integracion',
     ]
-category: ['Aplicaciones', 'Linux']
+categories: ['Aplicaciones', 'Linux']
 img: 'https://i.postimg.cc/BZzC6LnL/Captura-de-pantalla-de-2020-11-13-08-49-00.png'
 authors: ['PatoJAD']
 ---

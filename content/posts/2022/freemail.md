@@ -30,7 +30,7 @@ tags:
         'correo electronico profesional free',
     ]
 type: 'redesyseguridad'
-category: ['Redes']
+categories: ['Redes']
 img: 'https://www.cloudflare.com/static/d78b38d36bc84f3ca7aa24265e14f381/cloudflare_email_routing.png'
 authors: ['PatoJAD']
 ---

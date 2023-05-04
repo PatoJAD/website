@@ -17,7 +17,7 @@ tags:
         'deepinos',
         'linux',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i.ytimg.com/vi/xfGQAmSXPGI/maxresdefault.jpg'
 authors: ['PatoJAD']
 ---

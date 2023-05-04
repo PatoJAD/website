@@ -15,7 +15,7 @@ tags:
         'gnu',
         'gnu/linux',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://diarioti.com/wp-content/uploads/2012/12/32304a_torvalds-aalto-4601.jpg'
 authors: ['PatoJAD']
 ---

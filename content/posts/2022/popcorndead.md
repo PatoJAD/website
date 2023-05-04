@@ -4,7 +4,7 @@ date: '2022-01-05 12:01:00'
 description: 'Muchos usamos Popcorn alguna vez, y muchos podemos seguir instalandolo desde los repositorios oficiales de las distros.'
 type: 'noticias'
 tags: ["popcorn", "pop", "netflix", "bittorrent", "rip", "cierre", "caida", "cerro", "adios", "time", "popcorn time"]
-category: ["Noticias"]
+categories: ["Noticias"]
 img: 'https://i.postimg.cc/59Bw6R2C/image.png'
 authors: ["PatoJAD"]
 ---

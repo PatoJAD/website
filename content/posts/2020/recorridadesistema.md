@@ -4,7 +4,7 @@ date: '2020-08-28 09:15:00'
 description: 'Linux en dispositivos moviles no es cosa de hoy, esto tiene mucho tiempo y queremos ver su estatus en 2007'
 type: 'linux'
 tags: ['console', 'consola', 'terminal', 'cd', 'ls', 'less', 'file', 'system']
-category: ['Linux']
+categories: ['Linux']
 img: 'https://ayudalinux.com/wp-content/uploads/2018/07/cat-texto-2.png'
 authors: ['PatoJAD']
 ---

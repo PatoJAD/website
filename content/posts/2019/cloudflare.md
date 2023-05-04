@@ -13,7 +13,7 @@ tags:
         'ventajas',
         'desventajas',
     ]
-category: ['Programacion', 'Redes']
+categories: ['Programacion', 'Redes']
 img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ6yu86pJhP7gwueOzZdZdnMr4hWXmpi29w4KLeHjcYKurXniwn'
 authors: ['PatoJAD']
 ---

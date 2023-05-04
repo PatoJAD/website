@@ -22,7 +22,7 @@ tags:
         'fix',
         'solucion',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i.postimg.cc/gjK49PGk/image.png'
 authors: ['PatoJAD']
 ---

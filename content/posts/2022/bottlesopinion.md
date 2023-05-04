@@ -19,7 +19,7 @@ tags:
         'analisis de apps',
         'botellas',
     ]
-category: ['Linux', 'Apliaciones']
+categories: ['Linux', 'Aplicaciones']
 img: 'https://i.postimg.cc/VLFDwX0q/winebottles.png'
 authors: ['PatoJAD']
 ---

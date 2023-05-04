@@ -15,7 +15,7 @@ tags:
         'nwjs',
         'desktop',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://externos.io/wp-content/uploads/2017/01/2nd-img-mod3.png'
 authors: ['PatoJAD']
 ---

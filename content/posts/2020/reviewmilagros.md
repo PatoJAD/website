@@ -5,7 +5,7 @@ description: 'Ya la presentamos antes a esta hermosa distribución, hoy vamos a 
 type: 'linux'
 tags:
     ['review', 'linux', 'milagros', 'mineros', 'mx', 'mxlinux', 'lpi', 'tictac']
-category: ['Linux']
+categories: ['Linux']
 img: 'https://proyectotictac.files.wordpress.com/2020/04/pantallazo-menu-milagros-2.0.png'
 authors: ['PatoJAD']
 ---

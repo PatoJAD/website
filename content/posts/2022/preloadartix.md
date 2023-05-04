@@ -16,7 +16,7 @@ tags:
         'systemd',
         'openrc',
     ]
-category: ['Aplicaciones', 'Linux']
+categories: ['Aplicaciones', 'Linux']
 img: 'https://i.postimg.cc/ZK9QxCk7/preload.png'
 authors: ['PatoJAD']
 ---

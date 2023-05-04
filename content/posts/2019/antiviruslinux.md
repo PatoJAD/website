@@ -4,7 +4,7 @@ date: '2019-01-07'
 description: 'Es realmente un Antivirus en GNU/Linux, o solo es problema de los sistemas basados en MS-DOS'
 type: 'aplicaciones'
 tags: ['linux', 'antivirus', 'malware', 'virus', 'seguridad', 'aplicaciones']
-category: ['Aplicaciones', 'Linux']
+categories: ['Aplicaciones', 'Linux']
 img: 'https://i.postimg.cc/FHqVhh3P/virusyantivirus-xl.png'
 authors: ['PatoJAD']
 ---

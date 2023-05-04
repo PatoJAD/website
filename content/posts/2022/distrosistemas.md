@@ -26,7 +26,7 @@ tags:
         'programar',
         'programas',
     ]
-category: ['Linux', 'Programacion', 'Redes', 'Seguridad']
+categories: ['Linux', 'Programacion', 'Redes', 'Seguridad']
 img: 'https://i.postimg.cc/wv7NcXCS/Captura-de-Pantalla-2022-05-03-a-la-s-13-02-07.png'
 authors: ['PatoJAD']
 ---

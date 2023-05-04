@@ -4,7 +4,7 @@ date: '2020-04-29 08:27:00'
 description: 'Un nuevo RC de Proton trae novedades interesantes!!!'
 type: 'juegos'
 tags: ['steam', 'proton']
-category: ['Juegos']
+categories: ['Juegos']
 img: 'https://ubunlog.com/wp-content/uploads/2019/03/Valve-Proton.jpg'
 authors: ['PatoJAD']
 ---

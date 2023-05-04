@@ -15,7 +15,7 @@ tags:
         'antix',
         'artix',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://www.solvetic.com/uploads/tutorials/monthly_01_2018/e59d1d31ab38713f3530b2648845ca7d.png'
 authors: ['PatoJAD']
 ---

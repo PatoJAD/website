@@ -4,7 +4,7 @@ description: Gracias por formar parte de este proyecto y hacerlo posible
 date: '2018-12-11'
 type: page
 tags: [Gracias, Agradecimientos, informacion]
-category: [Pages]
+categories: [Pages]
 img: https://cdn.atomix.vg/wp-content/uploads/2014/09/ceratigraciastotales.png
 authors: [PatoJAD]
 ---

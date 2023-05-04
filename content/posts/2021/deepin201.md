@@ -18,7 +18,7 @@ tags:
         'opinion',
         'novedades',
     ]
-category: ['Noticias', 'Linux']
+categories: ['Noticias', 'Linux']
 img: 'https://i.postimg.cc/yxKhNZp0/image.png'
 authors: ['PatoJAD']
 ---

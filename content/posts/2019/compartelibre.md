@@ -17,7 +17,7 @@ tags:
         'compartelibre',
         'victhorhck',
     ]
-category: ['Noticias', 'Aplicaciones']
+categories: ['Noticias', 'Aplicaciones']
 img: 'https://patojad.com.ar/img/compartelibre.png'
 authors: ['PatoJAD']
 ---

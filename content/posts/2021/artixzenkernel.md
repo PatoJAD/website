@@ -17,7 +17,7 @@ tags:
         'gaming',
         'gamer',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i.postimg.cc/gkd80yH4/image.png'
 authors: ['PatoJAD']
 ---

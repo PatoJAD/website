@@ -15,7 +15,7 @@ tags:
         'setup',
         'entorno',
     ]
-category: ['Windows', 'Aplicaiones']
+categories: ['Windows', 'Aplicaciones']
 img: 'https://i.postimg.cc/cJ7nmsqW/gitwin.png'
 authors: ['PatoJAD']
 ---

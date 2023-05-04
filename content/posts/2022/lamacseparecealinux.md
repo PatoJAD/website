@@ -23,7 +23,7 @@ tags:
         'odysee',
         'patojad',
     ]
-category: ['Noticias']
+categories: ['Noticias']
 img: 'https://i.postimg.cc/7LZrf5KL/video.png'
 authors: ['PatoJAD']
 ---

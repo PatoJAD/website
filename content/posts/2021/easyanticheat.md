@@ -19,7 +19,7 @@ tags:
         'proton',
         'wine',
     ]
-category: ['Noticias']
+categories: ['Noticias']
 img: 'https://img-21.ccm2.net/Ld3-iIfPXljs4rBVXJI1AB_687w=/500x/e99f50ae47084905b3a908edb44ac527/ccm-faq/eac1.png'
 authors: ['PatoJAD']
 ---

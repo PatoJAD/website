@@ -23,7 +23,7 @@ tags:
         'yuri',
         'monika',
     ]
-category: ['Juegos', 'Windows', 'Linux', 'MacOS']
+categories: ['Juegos', 'Windows', 'Linux', 'MacOS']
 img: 'https://steamcdn-a.akamaihd.net/steam/apps/698780/header.jpg?t=1509687157'
 authors: ['PatoJAD']
 ---

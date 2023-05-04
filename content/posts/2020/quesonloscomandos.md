@@ -4,7 +4,7 @@ date: '2020-09-09 10:33:00'
 description: 'Vamos a comenzar a entender un poco mas sobre los comandos de linux'
 type: 'linux'
 tags: ['type', 'linux', 'which', 'comandos', 'terminal', 'consola']
-category: ['Linux']
+categories: ['Linux']
 img: 'https://elandroidefeliz.com/wp-content/uploads/2018/02/Listado-de-comandos-MS-DOS-definitivo-696x425.jpg'
 authors: ['PatoJAD']
 ---

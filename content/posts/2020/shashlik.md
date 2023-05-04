@@ -4,7 +4,7 @@ date: '2020-06-09 09:33:00'
 description: 'Una impecable app mucho más performante que un emulador que nos servirá mucho para tener nuestras apps de android “casi nativas” en nuestro linux.'
 type: 'aplicaciones'
 tags: ['android', 'apps', 'linux', 'shashlik', 'emulador']
-category: ['Aplicaciones', 'Linux', 'Android']
+categories: ['Aplicaciones', 'Linux', 'Android']
 img: 'https://www.howtoforge.com/images/how-to-install-and-run-android-apk-on-linux-with-shashlik/pic_4.jpg'
 authors: ['PatoJAD']
 ---

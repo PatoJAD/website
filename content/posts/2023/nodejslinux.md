@@ -22,7 +22,7 @@ tags:
         'setup',
         'entorno',
     ]
-category: ['Programacion', 'Linux', 'Aplicaciones']
+categories: ['Programacion', 'Linux', 'Aplicaciones']
 img: 'https://i9.ytimg.com/vi_webp/wtGZngSiwn4/mqdefault.webp?v=63d07f2a&sqp=CJyN858G&rs=AOn4CLB2_2mtqIC0VnEx4HIXIy8rkxmAoA'
 authors: ['PatoJAD']
 ---

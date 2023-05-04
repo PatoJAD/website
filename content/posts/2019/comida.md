@@ -15,7 +15,7 @@ tags:
         'propiedad',
         'software',
     ]
-category: ['Linux', 'Windows', 'MacOS']
+categories: ['Linux', 'Windows', 'MacOS']
 img: 'https://i.postimg.cc/qvgbM1qQ/mastiquin.jpg'
 authors: ['PatoJAD']
 ---

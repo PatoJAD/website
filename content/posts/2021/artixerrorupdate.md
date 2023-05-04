@@ -14,7 +14,7 @@ tags:
         'upgrade',
         'syu',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i.postimg.cc/3JHLQtNz/artix.png'
 authors: ['PatoJAD']
 ---

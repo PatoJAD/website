@@ -15,7 +15,7 @@ tags:
         'estranged',
         'Departure',
     ]
-category: ['Juegos']
+categories: ['Juegos']
 img: 'https://steamcdn-a.akamaihd.net/steam/apps/582890/header.jpg?t=1552600294'
 authors: ['PatoJAD']
 ---

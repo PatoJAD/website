@@ -4,7 +4,7 @@ date: '2022-03-22 10:41:00'
 description: 'Que pensarias si te dijera que hay una red social para los linuxeros y linuxnautas de todo el mundo. ¿Cuánto tardarías en ir a unirte?'
 type: 'noticias'
 tags: ["redlinuxclick", "linuxclick", "click", "red", "social", "facebook", "instagram", "mastodon", "twitter", "time", "popcorn time"]
-category: ["Noticias"]
+categories: ["Noticias"]
 img: 'https://i.postimg.cc/g0mrW8DJ/image.png'
 authors: ["PatoJAD"]
 ---

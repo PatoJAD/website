@@ -16,7 +16,7 @@ tags:
         'ingresar',
         'entrar',
     ]
-category: ['Linux', 'Windows']
+categories: ['Linux', 'Windows']
 img: 'https://blog.educacionit.com/wp-content/uploads/2019/01/1-01-5-750x410.jpg'
 authors: ['PatoJAD']
 ---

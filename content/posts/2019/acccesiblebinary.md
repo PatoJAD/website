@@ -19,7 +19,7 @@ tags:
         'usabilidad',
         'diseño universal',
     ]
-category: ['Noticias', 'Linux', 'Accesibilidad']
+categories: ['Noticias', 'Linux', 'Accesibilidad']
 img: 'https://i2.wp.com/plenaidentidad.com/wp-content/uploads/2009/09/Accesibilidad-plena-identidad.gif?resize=416%2C410'
 authors: ['elhada3d']
 ---

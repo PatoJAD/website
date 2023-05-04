@@ -17,7 +17,7 @@ tags:
         'linuxnauta',
         'conociendonos',
     ]
-category: ['Noticias']
+categories: ['Noticias']
 img: 'https://i.postimg.cc/59KWpDrB/Screenshot-20220816-083306.png'
 authors: ['PatoJAD']
 ---

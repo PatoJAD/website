@@ -19,7 +19,7 @@ tags:
         'archlinux',
         'linux',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i.postimg.cc/MH1q52GV/pacmanparalelo.png'
 authors: ['PatoJAD']
 ---

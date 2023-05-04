@@ -17,7 +17,7 @@ tags:
         'setup',
         'entorno',
     ]
-category: ['Programacion', 'Programacion', 'Aplicaciones']
+categories: ['Programacion', 'Programacion', 'Aplicaciones']
 img: 'https://i.postimg.cc/d14zdpJB/image.png'
 authors: ['PatoJAD']
 ---

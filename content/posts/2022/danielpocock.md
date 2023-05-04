@@ -20,7 +20,7 @@ tags:
         'blog',
         'wipo',
     ]
-category: ['Noticias']
+categories: ['Noticias']
 img: 'https://danielpocock.com/assets/commcon_talk.jpg'
 authors: ['PatoJAD']
 ---

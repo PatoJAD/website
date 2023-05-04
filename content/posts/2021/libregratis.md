@@ -16,7 +16,7 @@ tags:
         'software',
         'debian',
     ]
-category: ['Noticias']
+categories: ['Noticias']
 img: 'https://i.postimg.cc/Kv8ZPy1s/libregratis.png'
 authors: ['PatoJAD']
 ---

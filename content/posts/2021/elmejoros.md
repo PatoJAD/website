@@ -14,7 +14,7 @@ tags:
         'macos',
         'opinion',
     ]
-category: ['Linux', 'Windows', 'MacOS']
+categories: ['Linux', 'Windows', 'MacOS']
 img: 'https://i.postimg.cc/xCrc0nZ8/mejoros.png'
 authors: ['PatoJAD']
 ---

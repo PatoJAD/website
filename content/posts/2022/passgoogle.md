@@ -19,7 +19,7 @@ tags:
         'seguridad',
         'seguro',
     ]
-category: ['Aplicaciones', 'Seguridad']
+categories: ['Aplicaciones', 'Seguridad']
 img: 'https://lh3.googleusercontent.com/BjyYdIBoXHZ7hB0rTS9lPkPTqk1lw-KaCj90wsZ6hES1SG5zR2TBmkKpeni5kXRkxRTbQtfPPLQyYlAtPBx4Vswb5wp71iO0QoO1VPk'
 authors: ['PatoJAD']
 ---

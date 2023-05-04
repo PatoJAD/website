@@ -17,7 +17,7 @@ tags:
         'abuelita',
         'abuelos',
     ]
-category: ['Comunidad']
+categories: ['Comunidad']
 img: 'https://us.123rf.com/450wm/popaukropa/popaukropa1706/popaukropa170600115/80187178-hacker-ruso-abuela-y-computadora-port%C3%A1til-anciana-en-un-sill%C3%B3n-con-oso-abuela-de-rusia-en-botas-de-fieltr.jpg?ver=6'
 authors: ['PatoJAD']
 ---

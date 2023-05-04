@@ -14,7 +14,7 @@ tags:
         'windows 10',
         'windows 11',
     ]
-category: ['Noticias', 'Linux']
+categories: ['Noticias', 'Linux']
 img: 'https://i.postimg.cc/qqYnhnbZ/notas.png'
 authors: ['PatoJAD']
 ---

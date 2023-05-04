@@ -24,7 +24,7 @@ tags:
         'typescript vs javascript',
         'javascript vs typescript',
     ]
-category: ['Programacion']
+categories: ['Programacion']
 img: 'https://i.postimg.cc/4dwcTKQ5/tsvsjs.png'
 authors: ['PatoJAD']
 ---

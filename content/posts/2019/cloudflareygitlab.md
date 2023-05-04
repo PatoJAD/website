@@ -38,7 +38,7 @@ tags:
         'gitlab pages gitlabpages',
         'gitlab pages gitlab pages',
     ]
-category: ['Programacion', 'Redes']
+categories: ['Programacion', 'Redes']
 img: 'https://i.ytimg.com/vi/TWqh9MtT4Bg/maxresdefault.jpg'
 authors: ['PatoJAD']
 ---

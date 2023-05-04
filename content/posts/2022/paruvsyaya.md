@@ -16,7 +16,7 @@ tags:
         'pacman',
         'pacaur',
     ]
-category: ['Aplicaciones', 'Linux']
+categories: ['Aplicaciones', 'Linux']
 img: 'https://i.postimg.cc/wjMShSZM/Sin-nombre.png'
 authors: ['PatoJAD']
 ---

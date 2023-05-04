@@ -4,7 +4,7 @@ date: '2019-01-19'
 description: 'Ademas de Skype existen alternativas perfectamente funcionales'
 type: 'aplicaciones'
 tags: ['linux', 'mensajería', 'aplicaciones', 'alternativas', 'skype']
-category: ['Aplicaciones', 'Linux']
+categories: ['Aplicaciones', 'Linux']
 img: 'https://i.postimg.cc/Fz3HkgBd/sshot-510.jpg'
 authors: ['PatoJAD']
 ---

@@ -24,7 +24,7 @@ tags:
         'chroot',
         'no such file or directory',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i.postimg.cc/gjKRR12p/photo-2023-03-17-14-17-29.jpg'
 authors: ['PatoJAD']
 ---

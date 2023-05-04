@@ -17,7 +17,7 @@ tags:
         'mouse',
         'tecladp',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i.postimg.cc/nzVKqByt/reconoceusb.png'
 authors: ['PatoJAD']
 ---

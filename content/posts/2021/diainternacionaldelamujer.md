@@ -14,7 +14,7 @@ tags:
         'feminismo',
         'feminista',
     ]
-category: ['Noticias']
+categories: ['Noticias']
 img: 'https://i0.wp.com/diariodemujeres.com/wp-content/uploads/2017/03/dia-de-la-mujer_047.jpg?fit=956%2C932&ssl=1'
 authors: ['PatoJAD']
 ---

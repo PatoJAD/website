@@ -18,7 +18,7 @@ tags:
         'instalacion',
         'pacaur',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i.postimg.cc/6qZncTqL/chaoticaur.png'
 authors: ['PatoJAD']
 ---

@@ -4,7 +4,7 @@ date: '2020-06-18 08:04:00'
 description: 'Protontricks, las proteinas que llevan a Proton al siguiente nivel y mejoran su compatibilidad'
 type: 'juegos'
 tags: ['proton', 'tricks', 'protontricks', 'steam', 'valve', 'juegos']
-category: ['Juegos']
+categories: ['Juegos']
 img: 'https://1.bp.blogspot.com/-gSSHj_KzOIw/XXzw9CggoZI/AAAAAAAAdbM/I72Rp8sGBTINNYUqFtWt2CPh3ptLePJagCLcBGAsYHQ/s1600/Steam_banner.png'
 authors: ['PatoJAD']
 ---

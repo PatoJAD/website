@@ -13,7 +13,7 @@ tags:
         '30 años',
         '30 aniversario',
     ]
-category: ['Noticias']
+categories: ['Noticias']
 img: 'https://i.postimg.cc/8cLMwJFF/www-patojad.jpg'
 authors: ['PatoJAD']
 ---

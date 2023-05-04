@@ -15,7 +15,7 @@ tags:
         'linux',
         'gnu/linux',
     ]
-category: ['Aplicaciones', 'Linux']
+categories: ['Aplicaciones', 'Linux']
 img: 'https://repository-images.githubusercontent.com/184292185/4b4a0a80-6b75-11e9-98f6-416ab15aea29'
 authors: ['PatoJAD']
 ---

@@ -4,7 +4,7 @@ date: '2020-02-03 09:37:00'
 description: 'Vamos a ver un poco mas a fondo lo que es una IP y la informacion que esta directamente relacionada con ella.'
 type: 'redesyseguridad'
 tags: ['ip', 'red', 'internet']
-category: ['Redes']
+categories: ['Redes']
 img: 'https://www.comparahosting.io/wp-content/uploads/2017/10/ip-privada-publica.png'
 authors: ['PatoJAD']
 ---

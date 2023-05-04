@@ -15,7 +15,7 @@ tags:
         'apache',
         'linuxtuber',
     ]
-category: ['Linux']
+categories: ['Linux']
 img: 'https://i.postimg.cc/KjZ2bprk/Sin-nombre.png'
 authors: ['PatoJAD']
 ---
