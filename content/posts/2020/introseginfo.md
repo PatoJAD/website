@@ -1,5 +1,5 @@
 ---
-title: 'Introducción a la Seguridad Informática.'
+title: 'Intro a la Seguridad Informática'
 date: '2020-06-01 08:10:00'
 description: 'Te traemos un curso sobre Seguridad informática para que te inicies en este hermoso mundo.'
 type: 'cursos'
