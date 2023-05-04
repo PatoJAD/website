@@ -2,7 +2,7 @@
 title: 'Como instalar brew en MacOS'
 date: '2023-02-13 14:04:00.00'
 description: 'Vamos a ver como instalar brew (o homebrew) el gestor de paquetes para devs en MacOS.'
-type: 'macos'
+type: 'post'
 tags:
     [
         'brew',

@@ -2,7 +2,7 @@
 title: 'Instalar el Zen Kernel'
 date: '2021-05-27 09:18:00.00'
 description: 'Vamos a cambiar el kernel para mejorar el rendimiento en videojuegos'
-type: 'linux'
+type: 'post'
 tags:
     [
         'artix',

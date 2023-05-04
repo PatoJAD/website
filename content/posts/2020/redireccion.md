@@ -2,7 +2,7 @@
 title: 'Redirección: El secreto de la terminal'
 date: '2020-10-22 09:13:00'
 description: 'En esta lección vamos a desvelar la que podría ser la mejor característica de la línea de comandos'
-type: 'linux'
+type: 'post'
 tags:
     [
         'comando',

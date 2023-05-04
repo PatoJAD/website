@@ -2,7 +2,7 @@
 title: 'Install VS Code en Windows con Winget'
 date: '2023-04-04 10:06:00'
 description: 'Vamos a ver una forma simple de instalar Visual Studio Code en Windows 10 o 11 usando winget'
-type: 'windows'
+type: 'post'
 tags:
     [
         'windows',

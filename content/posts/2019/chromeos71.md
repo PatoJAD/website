@@ -2,7 +2,7 @@
 title: 'Chrome OS 71 llegó'
 date: '2018-12-19'
 description: 'ChromeOS nos presento su version 71'
-type: 'noticias'
+type: 'post'
 tags:
     [
         'chromeos',

@@ -2,7 +2,7 @@
 title: 'Paralelismo entre sistemas operativos y comidas'
 date: '2019-01-03'
 description: 'Sistemas Operativos a la carta'
-type: 'linux'
+type: 'post'
 tags:
     [
         'libertad',

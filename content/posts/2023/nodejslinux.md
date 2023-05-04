@@ -2,7 +2,7 @@
 title: 'Install NodeJS en Linux con Homebrew'
 date: '2023-02-27 11:56:00'
 description: 'Vamos a ver una forma simple de instalar NodeJS (con NPM) en cuaqluier GNU/Linux sin importar tu gestor de paquetes usando Homebrew'
-type: 'programacion'
+type: 'post'
 tags:
     [
         'linux',

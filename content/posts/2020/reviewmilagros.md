@@ -2,7 +2,7 @@
 title: 'Review MilagrOS'
 date: '2020-08-04 08:43:00'
 description: 'Ya la presentamos antes a esta hermosa distribución, hoy vamos a hablar de mi opinion personal'
-type: 'linux'
+type: 'post'
 tags:
     ['review', 'linux', 'milagros', 'mineros', 'mx', 'mxlinux', 'lpi', 'tictac']
 categories: ['Linux']

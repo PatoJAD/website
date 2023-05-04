@@ -2,7 +2,7 @@
 title: '¿Se puede jugar en linux?'
 date: '2020-07-09 11:33:00'
 description: 'Muchas veces me preguntaron si es posible jugar en linux, y siempre me lo vuelven a preguntar. Es momento de hablar un poco de este tema y ser 100% sincero.'
-type: 'juegos'
+type: 'post'
 tags: ['juegos', 'linux', 'puede']
 categories: ['Juegos', 'Linux']
 img: 'https://ubunlog.com/wp-content/uploads/2015/12/linux-juegos.jpg'

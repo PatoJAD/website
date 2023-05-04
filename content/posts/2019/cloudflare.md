@@ -2,7 +2,7 @@
 title: 'CloudFlare ¿Que es? Ventajas y Desventajas'
 date: '2019-10-04'
 description: 'Muchas personas preguntan como hice el blog, hoy veremos que es CloudFlare y sus ventajas y Desventajas.'
-type: 'programacion'
+type: 'post'
 tags:
     [
         'gitlab',

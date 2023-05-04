@@ -2,18 +2,29 @@
 title: 'Adiós PopCorn Time'
 date: '2022-01-05 12:01:00'
 description: 'Muchos usamos Popcorn alguna vez, y muchos podemos seguir instalandolo desde los repositorios oficiales de las distros.'
-type: 'noticias'
-tags: ["popcorn", "pop", "netflix", "bittorrent", "rip", "cierre", "caida", "cerro", "adios", "time", "popcorn time"]
-categories: ["Noticias"]
+type: 'post'
+tags:
+    [
+        'popcorn',
+        'pop',
+        'netflix',
+        'bittorrent',
+        'rip',
+        'cierre',
+        'caida',
+        'cerro',
+        'adios',
+        'time',
+        'popcorn time',
+    ]
+categories: ['Noticias']
 img: 'https://i.postimg.cc/59Bw6R2C/image.png'
-authors: ["PatoJAD"]
+authors: ['PatoJAD']
 ---
 
 > The Times They Are a-Changin'. Popcorn Time, en su día un gigante del streaming y las descargas, ha anunciado su cierre. El mensaje de la plataforma es claro: el interés en los últimos años en Popcorn Time ha ido cayendo hasta prácticamente desaparecer.
 
 Muchos usamos Popcorn alguna vez, y muchos podemos seguir instalandolo desde los repositorios oficiales de las distros. Sin embargo, si entramos en su sitio web podemos ver que ellos ya se están despidiendo y podemos verla con esta foto que también podemos ver en su web.
-
-
 
 {{< img src="https://i.postimg.cc/59Bw6R2C/image.png" >}}
 

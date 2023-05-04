@@ -2,7 +2,7 @@
 title: '¿Antivirus en Linux?'
 date: '2019-01-07'
 description: 'Es realmente un Antivirus en GNU/Linux, o solo es problema de los sistemas basados en MS-DOS'
-type: 'aplicaciones'
+type: 'post'
 tags: ['linux', 'antivirus', 'malware', 'virus', 'seguridad', 'aplicaciones']
 categories: ['Aplicaciones', 'Linux']
 img: 'https://i.postimg.cc/FHqVhh3P/virusyantivirus-xl.png'

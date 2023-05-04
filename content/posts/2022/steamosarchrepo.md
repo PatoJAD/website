@@ -2,7 +2,7 @@
 title: 'Agregar Repositorio de SteamOS a Arch'
 date: '2022-09-13 11:48:00.00'
 description: 'Vamos a agregar los repositorios de SteamOS Holo a nuestra distro favorita de Arch Linux'
-type: 'linux'
+type: 'post'
 tags:
     [
         'steamos',

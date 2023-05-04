@@ -2,7 +2,7 @@
 title: 'Como instalar brew en GNU/Linux'
 date: '2023-01-31 08:47:00.00'
 description: 'Vamos a ver como instalar brew (o brewhome) el gestor de paquetes para devs en nuestra distro.'
-type: 'linux'
+type: 'post'
 tags:
     [
         'brew',

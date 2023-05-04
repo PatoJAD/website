@@ -2,7 +2,7 @@
 title: 'Solucion al erro de Update de Artix'
 date: '2021-06-10 09:51:00.00'
 description: 'Artix presenta problemas para actualizar y te contamos como arreglarlo'
-type: 'linux'
+type: 'post'
 tags:
     [
         'youtube',

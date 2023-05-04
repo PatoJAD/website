@@ -2,7 +2,7 @@
 title: 'MacOS ¿Se parece mas a GNU/Linux o a Windows?'
 date: '2022-06-07 10:41:00'
 description: '¿En MacOS también se usa la terminal o las cosas se instalan como windows? Con esta “esencia” iniciaba la pregunta que nos llevó a hablar sobre varios temas.'
-type: 'noticias'
+type: 'post'
 tags:
     [
         'macos',

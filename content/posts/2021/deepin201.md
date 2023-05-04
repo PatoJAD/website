@@ -2,7 +2,7 @@
 title: 'Deepin 20.1 ¿Renace?'
 date: '2021-01-04 09:10:00'
 description: 'Deepin V20.1 está entre nosotros y este es el análisis preliminar de las novedades presentadas por la web de Deepin.'
-type: 'noticias'
+type: 'post'
 tags:
     [
         'noticia',

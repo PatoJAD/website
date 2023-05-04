@@ -2,7 +2,7 @@
 title: '¿Hasta donde llega la libertad?'
 date: '2021-10-19 08:25:00.00'
 description: 'Hoy hablamos del alcance de las licencias de software libre y como esto suele ignorarse en gran medida y se termina desinformando'
-type: 'linux'
+type: 'post'
 tags:
     [
         'youtube',

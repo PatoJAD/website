@@ -2,7 +2,7 @@
 title: 'Easy Anti-Cheat y lo que esto conlleva'
 date: '2021-09-28 09:33:00'
 description: 'En esta oportunidad vamos a realizar un pequeño analisis sobre la jugada de Epic sobre su Anti-Cheat y como esto se mueve en el mundo de linux'
-type: 'noticias'
+type: 'post'
 tags:
     [
         'youtube',

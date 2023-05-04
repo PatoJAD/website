@@ -1,9 +1,20 @@
 ---
-title: Contacto
+title: 'Contacto'
 date: '2018-12-11'
-type: page
-tags: [contacto, email, send, info]
-categories: [Pages]
+type: 'page'
+tags:
+    [
+        'contacto',
+        'email',
+        'send',
+        'info',
+        'informacion',
+        'contact',
+        'mail',
+        'correo',
+        'contactar',
+        'contactame',
+    ]
 img: https://diteso.com.ar/wp/wp-content/uploads/2020/05/06_CONTACTO_VIVUS.jpg
 authors: [PatoJAD]
 ---

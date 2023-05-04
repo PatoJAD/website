@@ -2,7 +2,7 @@
 title: 'Activar Descargas paralelas en Pacman'
 date: '2021-07-15 09:51:00.00'
 description: 'Pacman 6 trajo muchas cosas y entre esas las descargas multiples'
-type: 'linux'
+type: 'post'
 tags:
     [
         'youtube',

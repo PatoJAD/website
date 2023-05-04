@@ -2,7 +2,7 @@
 title: 'Como configurar Proton con Protontricks'
 date: '2020-06-18 08:04:00'
 description: 'Protontricks, las proteinas que llevan a Proton al siguiente nivel y mejoran su compatibilidad'
-type: 'juegos'
+type: 'post'
 tags: ['proton', 'tricks', 'protontricks', 'steam', 'valve', 'juegos']
 categories: ['Juegos']
 img: 'https://1.bp.blogspot.com/-gSSHj_KzOIw/XXzw9CggoZI/AAAAAAAAdbM/I72Rp8sGBTINNYUqFtWt2CPh3ptLePJagCLcBGAsYHQ/s1600/Steam_banner.png'

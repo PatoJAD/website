@@ -2,7 +2,7 @@
 title: 'Como Desfragmentar nuestro GNU/Linux'
 date: '2023-01-25 08:47:00.00'
 description: 'Si bien muchas personas creen que no es necesario desfragmentar en linux hoy vamos a ver como realizar este útil proceso.'
-type: 'linux'
+type: 'post'
 tags:
     [
         'ext4',

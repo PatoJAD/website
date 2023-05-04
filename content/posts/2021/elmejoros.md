@@ -2,7 +2,7 @@
 title: '¿El mejor sistema operativo?¿De que habla?'
 date: '2021-06-03 09:01:00.00'
 description: 'Vamos a comentar un video que claramente lo armo un usuario de... Windows...'
-type: 'linux'
+type: 'post'
 tags:
     [
         'reaccion',

@@ -2,7 +2,7 @@
 title: 'Scrcpy'
 date: '2020-11-13 09:32:00'
 description: 'Hoy usaremos nuestro movil desde '
-type: 'aplicaciones'
+type: 'post'
 tags:
     [
         'scrcpy',

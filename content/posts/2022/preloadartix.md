@@ -2,7 +2,7 @@
 title: 'Instalar Preload en Arch'
 date: '2022-02-03 09:22:00'
 description: 'Preload es una aplicación que nos permite precargar aplicaciones en la memoria RAM para aumentar la fluidez del sistema operativo aumentando a su vez el consumo de RAM durante el inicio.'
-type: 'aplicaciones'
+type: 'post'
 tags:
     [
         'pacman',

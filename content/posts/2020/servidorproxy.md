@@ -2,7 +2,7 @@
 title: 'Servidor proxy. Oculta tu identidad'
 date: '2020-04-21 08:48:00'
 description: 'Hoy hablemos un poco sobre las ventajas y desventajas de utilizar un servidor proxy. Te espramos para saber tu opinion'
-type: 'redesyseguridad'
+type: 'post'
 tags: ['proxy', 'servidod', 'identidad', 'privacidad', 'anonimato']
 categories: ['Redes']
 img: 'https://www.vozidea.com/wp-content/uploads/2020/01/servidor-proxy-tipos.png'

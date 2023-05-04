@@ -4,7 +4,6 @@ date: "2019-12-18"
 description: "Privacidad del Sitio Web"
 type: "page"
 tags: ["privacidad","comunidad","informacion","politicas"]
-categories: ["Pages"]
 img: "https://blog.mailrelay.com/wp-content/uploads/2016/03/pol%C3%ADtica-de-privacidad.png"
 authors: ["PatoJAD"]
 ---

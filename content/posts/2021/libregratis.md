@@ -2,7 +2,7 @@
 title: 'Libre ¿Es gratis?'
 date: '2021-09-09 08:10:00'
 description: 'En estos días recordé un viejo debate que creí que estaba erradicado. Y por esto mismo propuse realizar una encuesta en el canal de telegram y la distribui por diversos grupos...'
-type: 'noticias'
+type: 'post'
 tags:
     [
         'youtube',

@@ -2,7 +2,7 @@
 title: '¿Realmente Deepin arruinó todo?'
 date: '2021-01-06 10:50:00'
 description: '¿Por qué creo que Deepin arruinó todo? Una descripción de lo que la distro hace mal desde mi perspectiva'
-type: 'linux'
+type: 'post'
 tags:
     [
         'deepin',

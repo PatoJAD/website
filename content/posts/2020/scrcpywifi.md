@@ -2,7 +2,7 @@
 title: 'Controlar tu Celular por Wi-Fi'
 date: '2020-12-21 12:44:00'
 description: 'Hoy usaremos nuestro movil desde nuestra PC via Wi-Fi'
-type: 'aplicaciones'
+type: 'post'
 tags:
     [
         'scrcpy',

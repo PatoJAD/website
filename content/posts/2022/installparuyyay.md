@@ -2,7 +2,7 @@
 title: 'Instalar PARU y YAY'
 date: '2022-01-27 15:12:00'
 description: 'Vemos la forma más fácil y cómoda de instalar YAY y PARU los dos AURHelpers más populares en la actualidad en cualquier distribución basada en Arch. En este caso Artix.'
-type: 'aplicaciones'
+type: 'post'
 tags:
     [
         'paru',

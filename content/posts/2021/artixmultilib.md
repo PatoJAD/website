@@ -2,7 +2,7 @@
 title: 'Activar Multilib Artix'
 date: '2021-03-24 17:03:00'
 description: 'En esta oportunidad volvemos con un tutorial orientado a Artix Linux o mejor dicho a Arch en general.'
-type: 'linux'
+type: 'post'
 tags:
     [
         'artix',

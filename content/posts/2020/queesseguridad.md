@@ -3,7 +3,7 @@ title: '¿Que es la seguridad informática?'
 date: '2020-09-10 10:47:00'
 description: 'Hoy Fede nos trae una util y entretenida informacion sobre ¿que es la seguridad informática?'
 tags: ['seguridad', 'fede', 'federico', 'pacheco', 'introducción', 'principios']
-type: 'redesyseguridad'
+type: 'post'
 categories: ['Seguridad']
 img: 'https://i0.wp.com/apuntesjulio.com/wp-content/uploads/2018/04/Seguridad-Inform%C3%A1tica.jpg?fit=900%2C400&ssl=1'
 authors: ['PatoJAD']

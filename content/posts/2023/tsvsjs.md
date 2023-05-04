@@ -2,7 +2,7 @@
 title: '¿Que es TypeScript? ¿En que se parece a JavaScript?'
 date: '2023-03-17 09:40:00'
 description: 'Hoy hablamos TypeScript el lenguaje azúcar sintactico de JavaScript para saber cuando usarlo, sus diferencias y sus viertudes.'
-type: 'programacion'
+type: 'post'
 tags:
     [
         'typescript',

@@ -2,7 +2,7 @@
 title: 'NVIDIA Libera sus drivers ¿Una amistad con el Software Libre?'
 date: '2022-05-12 08:10:00'
 description: 'En base a la gran amenaza realizada por los hackers que robaron la información de NVIDIA ya tenemos Drivers Libres'
-type: 'noticias'
+type: 'post'
 tags:
     [
         'nvidia',

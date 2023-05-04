@@ -2,7 +2,7 @@
 title: 'USB no me funciona... SOLUCION'
 date: '2022-08-26 11:48:00.00'
 description: 'Hoy hablamos sobre la gente de sistemas y las distros que tiene que conocer'
-type: 'linux'
+type: 'post'
 tags:
     [
         'usb',

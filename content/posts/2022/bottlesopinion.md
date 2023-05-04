@@ -2,7 +2,7 @@
 title: 'Bottles ¿Lo mejor de wine?'
 date: '2022-04-12 08:47:00.00'
 description: 'Ya hablamos de wine vs emulación de windows y eso disparó la existencia de Bottles ¿es acaso lo mejor de Wine?'
-type: 'linux'
+type: 'post'
 tags:
     [
         'bottles',

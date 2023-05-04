@@ -2,7 +2,7 @@
 title: '¿La función que no esta en GNU/Linux?'
 date: '2021-11-28 08:15:00'
 description: 'En la semana vimos un artículo del gran blog Genbeta y nos pareció correcto hacer una reflexión sobre dicha publicación.'
-type: 'noticias'
+type: 'post'
 tags:
     [
         'macos',

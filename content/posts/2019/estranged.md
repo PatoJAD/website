@@ -2,7 +2,7 @@
 title: 'Estranged I y II Free'
 date: '2019-03-19'
 description: '¡Con su acceso anticipado ya podemos conseguir tanto Estranged Act I y Act II completamente GRATIS!'
-type: 'juegos'
+type: 'post'
 tags:
     [
         'mod',

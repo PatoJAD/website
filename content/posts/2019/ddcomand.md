@@ -2,7 +2,7 @@
 title: 'Como usar dd'
 date: '2019-03-08'
 description: 'Muchas nos preguntamos cuál es la mejor APP para armar nuestros USB booteables...'
-type: 'linux'
+type: 'post'
 tags:
     [
         'dd',

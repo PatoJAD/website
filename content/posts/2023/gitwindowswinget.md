@@ -2,7 +2,7 @@
 title: 'Install GIT en Windows con Winget'
 date: '2023-04-10 10:06:00'
 description: 'Vamos a ver una forma simple de instalar GIT en Windows 10 o 11 usando winget'
-type: 'windows'
+type: 'post'
 tags:
     [
         'windows',

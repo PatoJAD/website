@@ -2,7 +2,7 @@
 title: 'Instalar Chaotic AUR'
 date: '2022-01-12 09:45:00.00'
 description: 'Chaotic es un repositorio que busca traer los paquetes de AUR, o al menos los de mayor uso desde el punto de vista del creador, para administrarlos de forma simple con pacman.'
-type: 'linux'
+type: 'post'
 tags:
     [
         'arch',

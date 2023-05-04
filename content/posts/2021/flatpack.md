@@ -2,7 +2,7 @@
 title: 'Flatpack no siempre es un enemigo'
 date: '2021-02-22 10:12:00'
 description: 'El hecho de que no prefiera usarlas no implica que sea un desertor de la misma, hoy pretendo explicar cuando, desde mi punto de vista, es ideal el uso de este tipo de paqueterias.'
-type: 'linux'
+type: 'post'
 tags:
     [
         'flatpack',

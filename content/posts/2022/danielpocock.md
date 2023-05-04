@@ -2,7 +2,7 @@
 title: 'Daniel Pocock vs Debian'
 date: '2022-08-08 10:41:00'
 description: 'El dominio debian.community paso a la comunidad de Debian nuevamente y dejo de ser de Daniel Pocock'
-type: 'noticias'
+type: 'post'
 tags:
     [
         'debian',

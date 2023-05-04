@@ -2,7 +2,7 @@
 title: 'Paru VS YAY ¿Cual elegir?'
 date: '2022-01-03 09:22:00'
 description: 'Vamos a hablar de dos de los mas populares AUR helpers que existen. El mítico YAY y el disruptor Paru que llega para ser el unico.'
-type: 'aplicaciones'
+type: 'post'
 tags:
     [
         'paru',

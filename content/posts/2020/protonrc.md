@@ -2,7 +2,7 @@
 title: 'Proton 5.0-7 RC Testing'
 date: '2020-04-29 08:27:00'
 description: 'Un nuevo RC de Proton trae novedades interesantes!!!'
-type: 'juegos'
+type: 'post'
 tags: ['steam', 'proton']
 categories: ['Juegos']
 img: 'https://ubunlog.com/wp-content/uploads/2019/03/Valve-Proton.jpg'

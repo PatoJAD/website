@@ -2,7 +2,7 @@
 title: 'Cuatro potentes alternativas a MS Skype'
 date: '2019-01-19'
 description: 'Ademas de Skype existen alternativas perfectamente funcionales'
-type: 'aplicaciones'
+type: 'post'
 tags: ['linux', 'mensajería', 'aplicaciones', 'alternativas', 'skype']
 categories: ['Aplicaciones', 'Linux']
 img: 'https://i.postimg.cc/Fz3HkgBd/sshot-510.jpg'

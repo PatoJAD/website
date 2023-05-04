@@ -2,7 +2,7 @@
 title: 'Comparte Libre'
 date: '2019-04-04'
 description: 'Te traemos una facilidad para que tu blog pueda compartir en las redes sociales libres sin problemas'
-type: 'noticias'
+type: 'post'
 tags:
     [
         'comparte libre',

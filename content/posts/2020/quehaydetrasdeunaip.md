@@ -2,7 +2,7 @@
 title: '¿Qué hay detrás de una IP?'
 date: '2020-02-03 09:37:00'
 description: 'Vamos a ver un poco mas a fondo lo que es una IP y la informacion que esta directamente relacionada con ella.'
-type: 'redesyseguridad'
+type: 'post'
 tags: ['ip', 'red', 'internet']
 categories: ['Redes']
 img: 'https://www.comparahosting.io/wp-content/uploads/2017/10/ip-privada-publica.png'

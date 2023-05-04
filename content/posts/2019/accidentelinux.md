@@ -2,7 +2,7 @@
 title: 'Linux, Un feliz Accidente'
 date: '2019-12-06'
 description: 'Quien diría que nuestro amado GNU/Linux nace de la mano de un terrible accidente que todo programador odiaría...'
-type: 'linux'
+type: 'post'
 tags:
     [
         'historia',

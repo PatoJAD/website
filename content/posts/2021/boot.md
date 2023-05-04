@@ -2,7 +2,7 @@
 title: 'Como ingresar al BIOS si mi Linux enciende muy rápido'
 date: '2021-11-26 08:25:00.00'
 description: 'Es comun que el arranque de algunos equipos sean muy rapido que no nos permita entrar a la bios'
-type: 'linux'
+type: 'post'
 tags:
     [
         'bios',

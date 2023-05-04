@@ -2,7 +2,7 @@
 title: 'La comunidad Opina: Los linuxnautas con Doña Estela'
 date: '2019-08-27'
 description: 'Estos días pusimos un caso hipotético para que los linuxnautas nos comenten que le recomendarían.'
-type: 'comunidad'
+type: 'post'
 tags:
     [
         'comunidad',

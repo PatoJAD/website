@@ -2,7 +2,7 @@
 title: 'Alternativa a Krunner'
 date: '2019-03-21'
 description: 'Si bien KDE realizo un gran trabajo con Krunner muchos programadores realizaron un esfuerzo increible para que puedas tener tu altenativa en escritorios no KDE'
-type: 'aplicaciones'
+type: 'post'
 tags:
     [
         'kruner',

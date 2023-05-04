@@ -2,7 +2,7 @@
 title: 'Microsoft Teams WPA'
 date: '2022-11-10 13:22:00'
 description: 'Ya esta disponible la Aplicacion Web Progresiva de MS Teams para linux llena de novedades'
-type: 'aplicaciones'
+type: 'post'
 tags:
     [
         'teams',

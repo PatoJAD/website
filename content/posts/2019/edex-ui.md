@@ -2,7 +2,7 @@
 title: 'eDEX-UI'
 date: '2018-12-11'
 description: 'Una terminal futurista que dejará anonados a nuestros colegas'
-type: 'aplicaciones'
+type: 'post'
 tags:
     [
         'terminal',

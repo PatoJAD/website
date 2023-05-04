@@ -2,7 +2,7 @@
 title: 'Cambiando los permisos de un archivo'
 date: '2021-01-11 09:20:00'
 description: 'Para cambiar el modo (los permisos) de un archivo o un directorio, se utiliza el comando chmod.'
-type: 'linux'
+type: 'post'
 tags:
     [
         'octales',

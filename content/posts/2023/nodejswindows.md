@@ -2,7 +2,7 @@
 title: 'Install NodeJS en Windows con Winget'
 date: '2023-03-28 13:56:00'
 description: 'Vamos a ver una forma simple de instalar NodeJS (con NPM) en Windows 10 o 11 usando winget'
-type: 'programacion'
+type: 'post'
 tags:
     [
         'windows',

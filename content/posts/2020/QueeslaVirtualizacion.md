@@ -2,7 +2,7 @@
 title: 'Que es la Virtualizacion'
 date: '2020-02-18 08:21:00'
 description: 'Hoy nos toca un tema importante para muchos rubros y muy util para el dia a dia de los que somos inquietos y nos gustan probar cosas nuevas a menudo.'
-type: 'redesyseguridad'
+type: 'post'
 tags: ['virtualizacion', 'red', 'internet']
 categories: ['Redes']
 img: 'https://okhosting.com/resources/uploads/2013/07/virtualizacion-1024x768@2x.png'

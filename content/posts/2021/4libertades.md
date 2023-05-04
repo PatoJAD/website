@@ -2,7 +2,7 @@
 title: 'Las 4 Libertades del Software Libre'
 date: '2021-03-05 10:10:00.00'
 description: 'Hoy Hablamos de las 4 libertades del Software Libre y su diferencia con el OpenSource'
-type: 'linux'
+type: 'post'
 tags:
     [
         'libertad',

@@ -1,10 +1,20 @@
 ---
-title: Sobre PatoJAD
+title: 'Sobre PatoJAD'
 date: '2018-12-18'
-description: La comunidad tras PatoJAD algo mas que un blog, una familia
-type: page
-tags: [Sobre mi, comunidad, informacion]
-categories: [Pages]
+description: 'La comunidad tras PatoJAD algo mas que un blog, una familia.'
+type: 'page'
+tags:
+    [
+        'sobremi',
+        'comunidad',
+        'informacion',
+        'about',
+        'acerca',
+        'patojad',
+        'pato',
+        'jad',
+        'patojad',
+    ]
 img: https://i.postimg.cc/YCxrtdZh/image.png
 authors: [PatoJAD]
 ---

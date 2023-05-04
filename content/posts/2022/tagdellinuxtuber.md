@@ -2,7 +2,7 @@
 title: 'El Tag del Linuxtuber'
 date: '2022-08-16 14:45:00'
 description: 'Respondo el Tag del Linuxtuber para conocernos entre nosotros y claramente todos los creadores de contenido estan invitados'
-type: 'noticias'
+type: 'post'
 tags:
     [
         'linuxtuber',

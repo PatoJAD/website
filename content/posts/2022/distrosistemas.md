@@ -2,7 +2,7 @@
 title: '¿La mejor distro para la gente de sistemas?'
 date: '2022-05-03 13:18:00.00'
 description: 'Hoy hablamos sobre la gente de sistemas y las distros que tiene que conocer'
-type: 'linux'
+type: 'post'
 tags:
     [
         'distro',

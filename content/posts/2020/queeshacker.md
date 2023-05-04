@@ -13,7 +13,7 @@ tags:
         'hackers',
         'filosofía',
     ]
-type: 'redesyseguridad'
+type: 'post'
 categories: ['Seguridad']
 img: 'https://www.pandasecurity.com/spain/mediacenter/src/uploads/2016/03/pandasecurity-Who-are-the-most-famous-hackers-in-history.jpg'
 authors: ['PatoJAD']

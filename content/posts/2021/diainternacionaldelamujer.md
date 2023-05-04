@@ -2,7 +2,7 @@
 title: 'Dia internacional de la Mujer - La lucha continua'
 date: '2021-03-08 12:10:00'
 description: 'Hoy es el día internacional de la mujer, y por eso creemos que es nuestra responsabilidad hablar del tema como corresponde...'
-type: 'noticias'
+type: 'post'
 tags:
     [
         'mujer',

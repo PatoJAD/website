@@ -2,7 +2,7 @@
 title: 'Install NodeJS en MacOS con Homebrew'
 date: '2023-04-07 07:56:00'
 description: 'Vamos a ver una forma simple de instalar NodeJS (con NPM) en MacOS usando Homebrew'
-type: 'programacion'
+type: 'post'
 tags:
     [
         'macos',

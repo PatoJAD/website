@@ -2,7 +2,7 @@
 title: 'La Clave de Facebook fue Filtrada'
 date: '2019-09-05'
 description: 'Se filtra una clave criptográfica usada por Facebook para firmar sus aplicaciones'
-type: 'redesyseguridad'
+type: 'post'
 tags:
     [
         'facebook',
