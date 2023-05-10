@@ -37,7 +37,7 @@ tags:
         'argentina sistemas informaticos',
     ]
 categories: ['Programacion', 'Noticias']
-img: 'https://i.postimg.cc/d14zdpJB/image.png'
+img: 'https://ci4.googleusercontent.com/proxy/lw40TA8aWRrC1X-Um5XkDUltBS5elmANxeg5FMAmkQajJuq1R7_SKHmOt0LLAqg58F0EkEEuCek6lH7aMOz82HqXOz5VLVgDAP5KxWKATaA20fANiMVKtDOgn0suU2_dWEIoOwIfA7iXwtYS4zOkcDVl6HYcZXaONruIEouy4Eni_H9BsVwkZpfUEQYsKjomTm6dM0aY9Q=s0-d-e1-ft#https://47213.asset.dattanet.com/storage/picture/58d2b3bddad73a5478386058/6436f50e072b6f8ae9f65053/img/6436f3c0a6137cc7180ec4f0.png'
 authors: ['PatoJAD']
 ---
 
