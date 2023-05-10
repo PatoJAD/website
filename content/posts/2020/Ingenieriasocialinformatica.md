@@ -5,7 +5,7 @@ description: 'Muy pocos la calificarían como método de hacking, pero realmente
 type: 'post'
 tags: ['ingenieria', 'social', 'informatica']
 categories: ['Programacion', 'Seguridad']
-img: 'https://www.topsale.pe/wp-content/uploads/2019/03/blog-post-ingeneria-social.png'
+img: 'https://cio.com.mx/wp-content/uploads/2021/06/csm_socialengineering_grn_a5d92ecb20.jpg'
 authors: ['PatoJAD']
 ---
 
