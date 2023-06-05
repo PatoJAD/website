@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>endeavour on PatoJAD</title>
+    <link>https://patojad.com.ar/tags/endeavour/</link>
+    <description>Recent content in endeavour on PatoJAD</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es-AR</language>
+    <lastBuildDate>Tue, 13 Sep 2022 11:48:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://patojad.com.ar/tags/endeavour/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Agregar Repositorio de SteamOS a Arch</title>
+      <link>https://patojad.com.ar/post/2022/09/agregar-repositorio-de-steamos-a-arch/</link>
+      <pubDate>Tue, 13 Sep 2022 11:48:00 +0000</pubDate>
+      
+      <guid>https://patojad.com.ar/post/2022/09/agregar-repositorio-de-steamos-a-arch/</guid>
+      <description>&lt;p&gt;Vamos a agregar los repositorios de SteamOS (Holo y jupiter) a nuestra distribución de Arch Linux favorita. Esto puede sernos útil para poder acceder a sus apps, configuraciones y personalizaciones.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#39;https://steamdeck-packages.steamos.cloud/archlinux-mirror/jupiter/os/x86_64/&#39; title=&#39;Repositorio Jupiter&#39; &gt;Repositorio Jupiter&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#39;https://steamdeck-packages.steamos.cloud/archlinux-mirror/holo/os/x86_64/&#39; title=&#39;Repositorio Holo&#39; &gt;Repositorio Holo&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#39;https://steamdeck-packages.steamos.cloud/archlinux-mirror/&#39; title=&#39;Todos los Repositorios&#39; &gt;Todos los Repositorios&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#39;https://steamdeck-packages.steamos.cloud/archlinux-mirror/iso/latest/&#39; title=&#39;Ultimas ISO&#39; &gt;Ultimas ISO&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Antes que nada te dejo el link donde vas a poder ver los repositorios posibles y los paquetes que tiene cada uno de estos.&lt;/p&gt;
+&lt;h2 id=&#34;video&#34;&gt;Video&lt;/h2&gt;
+&lt;div class=&#34;ratio ratio-16x9 embed-video&#34;&gt;
+	&lt;iframe
+		src=&#39;https://www.youtube.com/embed/dY6ISmFUlTY?rel=0&#39;
+		title=&#34;Video de Youtube&#34;
+		allowfullscreen&gt;
+	&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;comandos&#34;&gt;Comandos&lt;/h2&gt;
+&lt;p&gt;Lo primero que vamos a hacer es abrir nuestro &lt;code&gt;pacman.conf&lt;/code&gt; para poder agregar los repositorios, esto lo hacemos desde la terminal y como administrador para poder guardar los cambios de la siguiente manera:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo nano /etc/pacman.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Luego agregamos las siguientes 2 líneas al final del archivo. En mi caso estaban comentadas pero tu debes agregarlas (se pega con ctrl+shift+v)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cfg&#34; data-lang=&#34;cfg&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;[jupiter]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;Server&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;https://steamdeck-packages.steamos.cloud/archlinux-mirror/$repo/os/$arch&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;SigLevel&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;Never&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;[holo]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;Server&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;https://steamdeck-packages.steamos.cloud/archlinux-mirror/$repo/os/$arch&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;SigLevel&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;Never&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Luego guardamos (ctrl+o y después enter) y cerramos, ya podemos actualizar para descargar la información de nuestros repositorios&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pacman -Syyu
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Y ya podemos instalar desde los repositorios de SteamOS&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Instalar Preload en Arch</title>
+      <link>https://patojad.com.ar/post/2022/02/instalar-preload-en-arch/</link>
+      <pubDate>Thu, 03 Feb 2022 09:22:00 +0000</pubDate>
+      
+      <guid>https://patojad.com.ar/post/2022/02/instalar-preload-en-arch/</guid>
+      <description>&lt;p&gt;Preload es una aplicación que toma estadísticas de nuestro uso de aplicaciones y precarga en memoria todas aquellas que más usamos al prender el equipo. Gracias a esto podemos ver una fluidez más amplia al abrir estas aplicaciones. Y a costa de esta fluidez nuestro sistema inicia con más memoria RAM ocupada. Muchos se debaten si esta técnica es útil o no y por eso te dejo primero un video con mi postura sobre esto.&lt;/p&gt;
+&lt;div class=&#34;ratio ratio-16x9 embed-video&#34;&gt;
+	&lt;iframe
+		src=&#39;https://www.youtube.com/embed/HVCqSfdTdUs?rel=0&#39;
+		title=&#34;Video de Youtube&#34;
+		allowfullscreen&gt;
+	&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Dejando aclarada mi postura de más está decir que cualquier postura con fundamentos es válida y si preferís no ocupar RAM te recomiendo que no instales &lt;strong&gt;Preload&lt;/strong&gt; aunque vas a perderte la fluidez adicional que esto nos da.&lt;/p&gt;
+&lt;h2 id=&#34;video&#34;&gt;Video&lt;/h2&gt;
+&lt;p&gt;En el siguiente video vemos como se realiza la instalación de preload (con yay en mi caso pero podes usar tu gestor favorito) y cómo habilitarlo en cualquier base &lt;strong&gt;Arch&lt;/strong&gt; con &lt;strong&gt;SystemD&lt;/strong&gt; y también en &lt;strong&gt;Artix&lt;/strong&gt; con &lt;strong&gt;OpenRC&lt;/strong&gt; (En esta oportunidad no use &lt;strong&gt;Runit&lt;/strong&gt; pero con una búsqueda simple podes adaptarlo)&lt;/p&gt;
+&lt;div class=&#34;ratio ratio-16x9 embed-video&#34;&gt;
+	&lt;iframe
+		src=&#39;https://www.youtube.com/embed/6NoYA9Rtp2s?rel=0&#39;
+		title=&#34;Video de Youtube&#34;
+		allowfullscreen&gt;
+	&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;código&#34;&gt;Código&lt;/h2&gt;
+&lt;p&gt;A continuación dejo los comandos utilizados para que sea más simple copiar y pegar…&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;yay -S preload
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;systemd&#34;&gt;SystemD&lt;/h3&gt;
+&lt;p&gt;En el caso de usar distros con SystemD se habilita de la siguiente manera. Recuerda que esto nos pedirá la contraseña&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;systemctl &lt;span class=&#34;nb&#34;&gt;enable&lt;/span&gt; preload
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;openrc&#34;&gt;OpenRC&lt;/h3&gt;
+&lt;p&gt;En el caso de estar en &lt;strong&gt;Artix&lt;/strong&gt; (con &lt;strong&gt;OpenRC&lt;/strong&gt;) debemos crear el archivo del demonio de la siguiente manera:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo nano /etc/init.d/preload
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Y dentro del archivo debemos poner lo siguiente:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cfg&#34; data-lang=&#34;cfg&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#!/sbin/openrc-run&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;command&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;/usr/bin/preload&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;command_args&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;$PRELOAD_OPTS&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;command_args_foreground&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;--foreground&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Esto lo guardamos y a continuación le damos permisos al archivo para poder iniciar el proceso.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo chmod &lt;span class=&#34;m&#34;&gt;777&lt;/span&gt; /etc/init.d/preload
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;alert alert-warning col-12&#34; style=&#34;position:relative;&#34;&gt;
+  &lt;div class=&#34;info-box-content container&#34;&gt;
+    &lt;div class=&#34;row&#34;&gt;
+      &lt;div class=&#34;col-2 text-center&#34;&gt;
+        &lt;span class=&#34;fa fa-warning fa-5x&#34;&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&#34;col-10&#34;&gt;
+        &lt;p class=&#34;no-margin&#34;&gt;OJO no es recomendable usar 777 para los permisos de este archivo, es una mala practica que hago personalmente para hacer pruebas, lo ideal es ponerle el mismo permiso que tienen el resto de los archivos en el folder /etc/init.d&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Y por último podemos inicializar el proceso de la siguiente manera:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo rc-service preload start
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Instalar PARU y YAY</title>
+      <link>https://patojad.com.ar/post/2022/01/instalar-paru-y-yay/</link>
+      <pubDate>Thu, 27 Jan 2022 15:12:00 +0000</pubDate>
+      
+      <guid>https://patojad.com.ar/post/2022/01/instalar-paru-y-yay/</guid>
+      <description>&lt;p&gt;Ya hablamos con anterioridad sobre &lt;a href=&#39;https://patojad.com.ar/aplicaciones/2022/01/paru-vs-yay-cual-elegir/&#39; title=&#39;PARU y YAY&#39; &gt;PARU y YAY&lt;/a&gt;
+. En esa oportunidad di mi opinión sobre cuál deberíamos elegir, aunque esto siempre es a gusto y placer de la persona que lo utilice. Por eso en esta oportunidad vamos a ver la manera más simple de instalar ambas aplicaciones.&lt;/p&gt;
+&lt;h3 id=&#34;requisitos-previos&#34;&gt;Requisitos previos&lt;/h3&gt;
+&lt;p&gt;Para poder realizar la instalación tenemos unos requisitos previos para que todo salga mas que bien, te dejo a continuación ambos links que explicaran como hacer esto (El primero no es obligatorio pero está bueno saber cual elegir antes de instalar alguno)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#39;https://patojad.com.ar/aplicaciones/2022/01/paru-vs-yay-cual-elegir/&#39; title=&#39;Paru VS YAY ¿Cual elegir?&#39; &gt;Paru VS YAY ¿Cual elegir?&lt;/a&gt;
+ (Opcional)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#39;https://patojad.com.ar/post/2022/01/instalar-chaotic-aur/&#39; title=&#39;Instalar Chaotic AUR&#39; &gt;Instalar Chaotic AUR&lt;/a&gt;
+ (Obligatorio)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;video&#34;&gt;Video&lt;/h3&gt;
+&lt;p&gt;Claramente siempre genero un pequeño video para poder ser un poco más gráfico, de todas formas en la parte inferior voy a dejar los comandos utilizados. Es muy importante tener los repositorios de chaotic para poder instalarlo de esta manera.&lt;/p&gt;
+&lt;div class=&#34;ratio ratio-16x9 embed-video&#34;&gt;
+	&lt;iframe
+		src=&#39;https://www.youtube.com/embed/DF8IAz5WoXg?rel=0&#39;
+		title=&#34;Video de Youtube&#34;
+		allowfullscreen&gt;
+	&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;alert alert-info col-12&#34; style=&#34;position:relative;&#34;&gt;
+  &lt;div class=&#34;info-box-content container&#34;&gt;
+    &lt;div class=&#34;row&#34;&gt;
+      &lt;div class=&#34;col-2 text-center&#34;&gt;
+        &lt;span class=&#34;fa fa-info fa-5x&#34;&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&#34;col-10&#34;&gt;
+        &lt;p class=&#34;no-margin&#34;&gt;Si el video te sirvió pegale una subscribirda al canal que es muchísimo apoyo y es totalmente gratuito.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&#34;comandos&#34;&gt;Comandos&lt;/h3&gt;
+&lt;p&gt;Para la instalación de yay:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pacman -Sy yay
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Para la instalación de paru:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pacman -Sy paru
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;En caso de que vayamos a instalar los 2 podemos hacerlo de una sola vez usando:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pacman -Sy yay paru
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Para desinstalar yay:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pacman -Rs yay
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Para desinstalar paru:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pacman -Rs paru
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Para desinstalar ambos:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pacman -Rs yay paru
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Instalar Chaotic AUR</title>
+      <link>https://patojad.com.ar/post/2022/01/instalar-chaotic-aur/</link>
+      <pubDate>Wed, 12 Jan 2022 09:45:00 +0000</pubDate>
+      
+      <guid>https://patojad.com.ar/post/2022/01/instalar-chaotic-aur/</guid>
+      <description>&lt;p&gt;Chaotic es un repositorio que busca traer los paquetes de AUR, o al menos los de mayor uso desde el punto de vista del creador, para administrarlos de forma simple con pacman. Sin tener que instalar los AUR ni configurarlos y mucho menos usar los AURHelpers. Estos son algunos de los detalles a tener en cuenta sobre Chaotic:&lt;/p&gt;
+&lt;div class=&#34;ratio ratio-16x9 embed-video&#34;&gt;
+	&lt;iframe
+		src=&#39;https://www.youtube.com/embed/vZr3rN4_ZDc?rel=0&#39;
+		title=&#34;Video de Youtube&#34;
+		allowfullscreen&gt;
+	&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;La mayoría de los paquetes disponibles en este repositorio se crean automáticamente a partir de su paquete fuente AUR respectivo. Sin embargo, hay algunas excepciones, consulte &lt;a href=&#34;https://github.com/chaotic-aur/packages&#34;&gt;https://github.com/chaotic-aur/packages&lt;/a&gt; para averiguar cuáles.&lt;/li&gt;
+&lt;li&gt;El clúster de construcción principal es un nodo en el centro de datos de UFSCars que está alojado en San Carlos, San Paulo, Brazil.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;comandos&#34;&gt;Comandos&lt;/h2&gt;
+&lt;p&gt;En el video muestro como se realiza y que podemos ver el resultado dentro de nuestros repositorios en &lt;strong&gt;pacman&lt;/strong&gt; por esto mismo voy a dejar a continuación los comandos.&lt;/p&gt;
+&lt;p&gt;Instalación o descarga de las Key del repositorio para chequear los paquetes:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pacman-key --lsign-key FBA220DFC880C036
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Instalación de los paquetes con pacman (En el video los instalo por separado, sin embargo el comando de abajo los instala a los dos juntos)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pacman -U &lt;span class=&#34;s1&#34;&gt;&amp;#39;https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst&amp;#39;&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Por último tenemos que agregar el repositorio en la configuración de pacman. Para esto debemos editarla con permisos de administrador, por ejemplo de la siguiente manera &lt;code&gt;sudo nano /etc/pacman.conf&lt;/code&gt; y agregamos lo siguiente en la sección de repositorios:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cfg&#34; data-lang=&#34;cfg&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;[chaotic-aur]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;Include&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;/etc/pacman.d/chaotic-mirrorlist&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;recomendaciones&#34;&gt;Recomendaciones&lt;/h3&gt;
+&lt;p&gt;Las siguientes recomendaciones son propias de los desarrolladores de &lt;strong&gt;ChaoticAUR&lt;/strong&gt; con alguna que otra modificación:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Si sos usuario de powerpill y queres usarlo para realizar todas las descargas desde todos los mirrors se recomienda realizar la actualización de la siguiente manera:
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pacman -Sy &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo powerpill -Su &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; paru -Su
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;Asegúrese de insertar todos los espejos en su pacman.conf o use caotic-mirrorlist con todos ellos activos si usa powerpill.&lt;/li&gt;
+&lt;li&gt;Si está utilizando otros repositorios de terceros, le recomendamos que coloque Chaotic-AUR antes que ellos en &lt;code&gt;/etc/pacman.conf&lt;/code&gt;. Dado que actualizamos la mayoría de los paquetes cada hora y seguimos los &lt;code&gt;PKGBUILD&lt;/code&gt; de &lt;strong&gt;AUR&lt;/strong&gt;, este repositorio es más adecuado como primera opción al descargar paquetes.&lt;/li&gt;
+&lt;li&gt;Si necesita omitir la actualización de un paquete para usar las creadas localmente (por ejemplo, con optimizaciones nativas), puede agregar &lt;code&gt;&#39;IgnorePkg = ...&#39;&lt;/code&gt; a la sección del repositorio en &lt;code&gt;/etc/pacman.conf&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Puede elegir el repositorio desde el que descargar un paquete de esta manera: &lt;code&gt;pacman -S chaotic-aur/dxvk-mingw-git&lt;/code&gt;. Algunos ayudantes de AUR también lo admiten, por ejemplo: &lt;code&gt;paru -S aur/firefox-hg&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;alert alert-warning col-12&#34; style=&#34;position:relative;&#34;&gt;
+  &lt;div class=&#34;info-box-content container&#34;&gt;
+    &lt;div class=&#34;row&#34;&gt;
+      &lt;div class=&#34;col-2 text-center&#34;&gt;
+        &lt;span class=&#34;fa fa-warning fa-5x&#34;&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&#34;col-10&#34;&gt;
+        &lt;p class=&#34;no-margin&#34;&gt;Debe tener habilitado el repositorio multilib.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Paru VS YAY ¿Cual elegir?</title>
+      <link>https://patojad.com.ar/post/2022/01/paru-vs-yay-cual-elegir/</link>
+      <pubDate>Mon, 03 Jan 2022 09:22:00 +0000</pubDate>
+      
+      <guid>https://patojad.com.ar/post/2022/01/paru-vs-yay-cual-elegir/</guid>
+      <description>&lt;p&gt;Es común que al utilizar cualquier distribución basada en Arch (Artix, endeavour, manjaro, etc) queramos usar los AUR dado que ahí disponemos de una cantidad de paquetes increíbles. Y a la hora de usarlo podemos elegir entre múltiples AUR Helpers. En esta oportunidad vamos a hablar de 2 de estos. El conocido YAY que lleva mucho tiempo con nosotros. Y el no tan nuevo PARU que llega con una propuesta interesante para los amantes de los AUR.&lt;/p&gt;
+&lt;h3 id=&#34;comparación&#34;&gt;Comparación&lt;/h3&gt;
+&lt;p&gt;YAY está escrito en GO un lenguaje de programación que tiene una fácil lectura y es extensible. Una gran ventaja es que su compilación es realmente rápida y muy simple. Toma como inspiración yaourt, apacman y pacmaur. Paru, en cambio, está escrito en Rust y toma como inspiración a YAY por lo cual es muy simple de migrar de uno a otro.&lt;/p&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+  &lt;img
+    src=&#39;https://i.postimg.cc/xTvdwb1M/image.png&#39;
+    class=&#34;img-fluid blog-content-img&#34;
+    alt=&#34;imagen de Post&#34;
+    title=&#34;imagen de Post&#34;/&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Si bien YAY es mucho más popular y tiene una comunidad mucho más grande, actualmente paru es, por no mucho, más activo. Lo cual supone ser una ventaja, sin embargo, para los usuarios finales esto no afecta en gran cantidad. Sin embargo una de las diferencias que note es que paru es, efectivamente, más rápido que YAY. Lo cual es útil si tenemos equipos de pocos recursos. Sin embargo, en lo personal creo que yay tiene una sintaxis más feliz que paru. Es más simple y rápido escribir yay, incluso para autocompletar. Sin embargo, paru puede volverse un poco tosco y molesto.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Codigo Fuente&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Revision de Archivos&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Diff&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;GIT&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Shells&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Paru&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;GO&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Si&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Si&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Si&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;bash, fish, zsh&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;YAY&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Rust&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Si&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Si&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Si&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;bash, fish, zsh&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;mi-opinión&#34;&gt;Mi Opinión&lt;/h3&gt;
+&lt;p&gt;Personalmente le veo mucho potencial a paru, pero no ofrece nada muy diferente a otros. Y siento la sintaxis un tanto incómoda, sin embargo, es recomendable para equipos que son bastantes lentos porque en esa circunstancia es muy provechoso el tiempo que optimiza y nos permite aprovechar mejor los recursos.&lt;/p&gt;
+&lt;p&gt;Yo me voy a quedar con yay, al menos de momento pero me gustaría saber tu opinion y analisis sobre estas dos apps&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Pantalla negra en Steam</title>
+      <link>https://patojad.com.ar/post/2021/09/pantalla-negra-en-steam/</link>
+      <pubDate>Wed, 01 Sep 2021 10:30:00 +0000</pubDate>
+      
+      <guid>https://patojad.com.ar/post/2021/09/pantalla-negra-en-steam/</guid>
+      <description>&lt;p&gt;Muchos usuarios de distros basadas en Arch o del mismo Arch nos encontramos con que Steam amaneció con la pantalla negra después de una actualización (la de &lt;code&gt;freetype2&lt;/code&gt; para ser mas especifico.). Si bien esto es molesto, corremos con la ventaja de que SteamOS v3 está basada en Arch y tiene pronta solución para estos errores.&lt;/p&gt;
+&lt;div class=&#34;ratio ratio-16x9 embed-video&#34;&gt;
+	&lt;iframe
+		src=&#39;https://www.youtube.com/embed/hM64cebdHSo?rel=0&#39;
+		title=&#34;Video de Youtube&#34;
+		allowfullscreen&gt;
+	&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;La solución de los errores se divide en dos caminos, en mi caso prefiero activar la BETA del cliente de Steam y obtener la solución directamente en el cliente de Steam desarrollada por valve. Otros prefieren simplemente revertir la actualización de este paquete, cosa que no recomiendo porque podría traer problemas futuros.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Activar Descargas paralelas en Pacman</title>
+      <link>https://patojad.com.ar/post/2021/07/activar-descargas-paralelas-en-pacman/</link>
+      <pubDate>Thu, 15 Jul 2021 09:51:00 +0000</pubDate>
+      
+      <guid>https://patojad.com.ar/post/2021/07/activar-descargas-paralelas-en-pacman/</guid>
+      <description>&lt;p&gt;Como mencionamos &lt;a href=&#39;https://patojad.com.ar/post/2021/06/lleg%c3%b3-pacman-v6-y-pamac-qued%c3%b3-anonadado/&#39; title=&#39;hace un tiempo llegó pacman 6&#39; &gt;hace un tiempo llegó pacman 6&lt;/a&gt;
+, y la primera impresión para algunos no fue buena porque pamac no estaba a la altura ni estaba preparado para esto. Sin embargo ya está todo solucionado y podemos comenzar a sacarle el mejor provecho a esto. En esta oportunidad vamos a hablar de una nueva opción que seguro queremos tener habilitada en nuestra distro…&lt;/p&gt;
+&lt;h2 id=&#34;descargas-en-paralelo&#34;&gt;Descargas en paralelo&lt;/h2&gt;
+&lt;p&gt;Claramente sabemos que son las descargas en paralelo y algunos no nos percatamos de que pacman no descargaba simultáneamente los paquetes pero hoy te damos el paso a paso para que habilites la descarga en paralelo en tu distro base arch preferida…&lt;/p&gt;
+&lt;h2 id=&#34;cómo-hacerlo&#34;&gt;Cómo hacerlo&lt;/h2&gt;
+&lt;p&gt;Te dejo un video donde explico como realizar esto y claramente más abajo vas a poder ver los comandos utilizados:&lt;/p&gt;
+&lt;div class=&#34;ratio ratio-16x9 embed-video&#34;&gt;
+	&lt;iframe
+		src=&#39;https://www.youtube.com/embed/xOeA9rx6HLA?rel=0&#39;
+		title=&#34;Video de Youtube&#34;
+		allowfullscreen&gt;
+	&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Primero abrimos, como administrador, el archivo de configuración:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo nano /etc/pacman.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Luego, como explica en el video, agregamos la siguiente linea:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;ParallelDownloads&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Donde 5 representa la cantidad de descargas en paralelo que queremos tener, este número lo podemos variar dependiendo nuestra velocidad de internet y necesidades.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Instalar el Zen Kernel</title>
+      <link>https://patojad.com.ar/post/2021/05/instalar-el-zen-kernel/</link>
+      <pubDate>Thu, 27 May 2021 09:18:00 +0000</pubDate>
+      
+      <guid>https://patojad.com.ar/post/2021/05/instalar-el-zen-kernel/</guid>
+      <description>&lt;p&gt;Dentro del mundo de &lt;strong&gt;GNU/Linux&lt;/strong&gt; existe muchísimo software libre incluso &lt;strong&gt;Linux&lt;/strong&gt; el kernel de este sistema, y al ser libre cualquiera puede compilarlo y configurarlo como quiera, incluso publicarlo. En esta oportunidad vamos a ver cómo instalar un kernel modificado por la comunidad para mejorar el rendimiento bajo demanda, es un kernel muy bueno para quienes les gusta jugar, entre otras cosas.&lt;/p&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+  &lt;img
+    src=&#39;https://i.postimg.cc/gkd80yH4/image.png&#39;
+    class=&#34;img-fluid blog-content-img&#34;
+    alt=&#34;imagen de Post&#34;
+    title=&#34;imagen de Post&#34;/&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;sobre-zen&#34;&gt;Sobre Zen&lt;/h2&gt;
+&lt;p&gt;Zen es el kernel conocido como Liquorix compilado para Arch y este kernel presenta muchísimas mejoras entre las que podemos ver:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Liquorix es un reemplazo del kernel de distribución creado con la mejor configuración y fuentes de kernel para cargas de trabajo de escritorio, multimedia y juegos.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Zen Interactive Tuning:&lt;/strong&gt; ajusta el kernel para mejorar la capacidad de respuesta a costa del rendimiento y el uso de energía.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;--- Virtual Memory Subsystem ---------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Mem dirty before &lt;span class=&#34;nb&#34;&gt;bg&lt;/span&gt; writeback..:  &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; %  -&amp;gt;  &lt;span class=&#34;m&#34;&gt;20&lt;/span&gt; %
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Mem dirty before sync writeback:  &lt;span class=&#34;m&#34;&gt;20&lt;/span&gt; %  -&amp;gt;  &lt;span class=&#34;m&#34;&gt;50&lt;/span&gt; %
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;--- Block Layer ----------------------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Default MQ scheduler......: mq-deadline -&amp;gt; bfq
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;--- CPU Scheduler &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;CFS&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; --------------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Scheduling latency.............:   &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt;    -&amp;gt;   &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;    ms
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Minimal granularity............:   0.75 -&amp;gt;   0.3  ms
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Wakeup granularity.............:   &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;    -&amp;gt;   0.5  ms
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;CPU migration cost.............:   0.5  -&amp;gt;   0.25 ms
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Bandwidth slice size...........:   &lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;    -&amp;gt;   &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;    ms
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;--- CPU Scheduler &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;MuQSS&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; ------------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Scheduling interval............:   &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt;    -&amp;gt;   &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt;    ms
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ISO task max realtime use......:  &lt;span class=&#34;m&#34;&gt;70&lt;/span&gt; %  -&amp;gt;  &lt;span class=&#34;m&#34;&gt;25&lt;/span&gt; %
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Programador de procesos MuQSS:&lt;/strong&gt; programador de procesos justo para juegos, multimedia y cargas en tiempo real.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Programación de alta resolución:&lt;/strong&gt; tiempos de espera de alta resolución y frecuencia de tick de 1000 Hz para una programación precisa de tareas con baja fluctuación.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RCU jerárquica basada en árboles no garantizada:&lt;/strong&gt; implementación de RCU para sistemas en tiempo real.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Prevención de kernel duro:&lt;/strong&gt; Prevención de kernel más agresiva antes de requerir parches en tiempo real. Garantiza un sistema receptivo en escenarios de cargas de trabajo mixtas de alta intensidad.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Budget Fair Queue:&lt;/strong&gt; programador de disco adecuado optimizado para el uso de escritorio, alto rendimiento / baja latencia.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Control de congestión TCP BBR2:&lt;/strong&gt; Control de congestión rápido, maximiza el rendimiento, garantizando velocidades más altas que Cubic.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reemplazo directo del núcleo de distribución:&lt;/strong&gt; configuración de estilo de distribución adecuada que admite la selección más amplia de hardware. Opciones de paravirtualización habilitadas para reducir la sobrecarga bajo virtualización.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Depuración mínima:&lt;/strong&gt; número mínimo de opciones de depuración habilitadas para aumentar el rendimiento del kernel.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;instalación&#34;&gt;Instalación&lt;/h2&gt;
+&lt;div class=&#34;ratio ratio-16x9 embed-video&#34;&gt;
+	&lt;iframe
+		src=&#39;https://www.youtube.com/embed/OLiOcArU5fM?rel=0&#39;
+		title=&#34;Video de Youtube&#34;
+		allowfullscreen&gt;
+	&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Primero debemos instalar el kernel, esto lo podemos hacer con pacman o con yay de la siguiente manera:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;yay -S linux-zen linux-zen-header
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pacman -S linux-zen linux-zen-header
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Si venís de distribuciones basadas en Debian ya intentaste reiniciar, pero como se demuestra en el video no funciona asi, por lo cual es necesario actualizar el GRUB.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo update-grub
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

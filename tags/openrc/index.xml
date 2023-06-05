@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>openrc on PatoJAD</title>
+    <link>https://patojad.com.ar/tags/openrc/</link>
+    <description>Recent content in openrc on PatoJAD</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es-AR</language>
+    <lastBuildDate>Thu, 03 Feb 2022 09:22:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://patojad.com.ar/tags/openrc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Instalar Preload en Arch</title>
+      <link>https://patojad.com.ar/post/2022/02/instalar-preload-en-arch/</link>
+      <pubDate>Thu, 03 Feb 2022 09:22:00 +0000</pubDate>
+      
+      <guid>https://patojad.com.ar/post/2022/02/instalar-preload-en-arch/</guid>
+      <description>&lt;p&gt;Preload es una aplicación que toma estadísticas de nuestro uso de aplicaciones y precarga en memoria todas aquellas que más usamos al prender el equipo. Gracias a esto podemos ver una fluidez más amplia al abrir estas aplicaciones. Y a costa de esta fluidez nuestro sistema inicia con más memoria RAM ocupada. Muchos se debaten si esta técnica es útil o no y por eso te dejo primero un video con mi postura sobre esto.&lt;/p&gt;
+&lt;div class=&#34;ratio ratio-16x9 embed-video&#34;&gt;
+	&lt;iframe
+		src=&#39;https://www.youtube.com/embed/HVCqSfdTdUs?rel=0&#39;
+		title=&#34;Video de Youtube&#34;
+		allowfullscreen&gt;
+	&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Dejando aclarada mi postura de más está decir que cualquier postura con fundamentos es válida y si preferís no ocupar RAM te recomiendo que no instales &lt;strong&gt;Preload&lt;/strong&gt; aunque vas a perderte la fluidez adicional que esto nos da.&lt;/p&gt;
+&lt;h2 id=&#34;video&#34;&gt;Video&lt;/h2&gt;
+&lt;p&gt;En el siguiente video vemos como se realiza la instalación de preload (con yay en mi caso pero podes usar tu gestor favorito) y cómo habilitarlo en cualquier base &lt;strong&gt;Arch&lt;/strong&gt; con &lt;strong&gt;SystemD&lt;/strong&gt; y también en &lt;strong&gt;Artix&lt;/strong&gt; con &lt;strong&gt;OpenRC&lt;/strong&gt; (En esta oportunidad no use &lt;strong&gt;Runit&lt;/strong&gt; pero con una búsqueda simple podes adaptarlo)&lt;/p&gt;
+&lt;div class=&#34;ratio ratio-16x9 embed-video&#34;&gt;
+	&lt;iframe
+		src=&#39;https://www.youtube.com/embed/6NoYA9Rtp2s?rel=0&#39;
+		title=&#34;Video de Youtube&#34;
+		allowfullscreen&gt;
+	&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;código&#34;&gt;Código&lt;/h2&gt;
+&lt;p&gt;A continuación dejo los comandos utilizados para que sea más simple copiar y pegar…&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;yay -S preload
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;systemd&#34;&gt;SystemD&lt;/h3&gt;
+&lt;p&gt;En el caso de usar distros con SystemD se habilita de la siguiente manera. Recuerda que esto nos pedirá la contraseña&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;systemctl &lt;span class=&#34;nb&#34;&gt;enable&lt;/span&gt; preload
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;openrc&#34;&gt;OpenRC&lt;/h3&gt;
+&lt;p&gt;En el caso de estar en &lt;strong&gt;Artix&lt;/strong&gt; (con &lt;strong&gt;OpenRC&lt;/strong&gt;) debemos crear el archivo del demonio de la siguiente manera:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo nano /etc/init.d/preload
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Y dentro del archivo debemos poner lo siguiente:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cfg&#34; data-lang=&#34;cfg&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#!/sbin/openrc-run&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;command&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;/usr/bin/preload&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;command_args&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;$PRELOAD_OPTS&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;na&#34;&gt;command_args_foreground&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;--foreground&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Esto lo guardamos y a continuación le damos permisos al archivo para poder iniciar el proceso.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo chmod &lt;span class=&#34;m&#34;&gt;777&lt;/span&gt; /etc/init.d/preload
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;alert alert-warning col-12&#34; style=&#34;position:relative;&#34;&gt;
+  &lt;div class=&#34;info-box-content container&#34;&gt;
+    &lt;div class=&#34;row&#34;&gt;
+      &lt;div class=&#34;col-2 text-center&#34;&gt;
+        &lt;span class=&#34;fa fa-warning fa-5x&#34;&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&#34;col-10&#34;&gt;
+        &lt;p class=&#34;no-margin&#34;&gt;OJO no es recomendable usar 777 para los permisos de este archivo, es una mala practica que hago personalmente para hacer pruebas, lo ideal es ponerle el mismo permiso que tienen el resto de los archivos en el folder /etc/init.d&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Y por último podemos inicializar el proceso de la siguiente manera:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo rc-service preload start
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Artix Linux</title>
+      <link>https://patojad.com.ar/post/2020/08/artix-linux/</link>
+      <pubDate>Tue, 11 Aug 2020 09:01:00 +0000</pubDate>
+      
+      <guid>https://patojad.com.ar/post/2020/08/artix-linux/</guid>
+      <description>&lt;p&gt;En esta oportunidad quiero hablar de una distribución de GNU/Linux que muy probablemente no conozcas, no es nueva pero son pocos los usuarios que me dijeron conocerla cuando la nombre, y creo que esta distro debería ser tan popular como otras o tal vez más. Por eso hoy vamos a hablar de &lt;strong&gt;Artix&lt;/strong&gt; y si dije bien no es &lt;em&gt;Antix&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;sobre-artix&#34;&gt;Sobre Artix&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Tipo de sistema operativo:&lt;/strong&gt; Linux&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Basado en:&lt;/strong&gt; Arch&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Origen:&lt;/strong&gt; Global&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Arquitectura:&lt;/strong&gt; x86_64&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Escritorios disponibles:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Cinnamon&lt;/li&gt;
+&lt;li&gt;LXDE&lt;/li&gt;
+&lt;li&gt;LXQt&lt;/li&gt;
+&lt;li&gt;MATE&lt;/li&gt;
+&lt;li&gt;KDE Plasma&lt;/li&gt;
+&lt;li&gt;Xfce&lt;/li&gt;
+&lt;li&gt;i3 (beta)&lt;/li&gt;
+&lt;li&gt;Gnome (beta)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Categoría:&lt;/strong&gt; Desktop, Live Medium&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Estado:&lt;/strong&gt; Activo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+  &lt;img
+    src=&#39;https://i.ytimg.com/vi/lz8hsZjjNZY/maxresdefault.jpg&#39;
+    class=&#34;img-fluid blog-content-img&#34;
+    alt=&#34;imagen de Post&#34;
+    title=&#34;imagen de Post&#34;/&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Como remarca desde su web y así la identifica totalmente, &lt;strong&gt;Artix Linux&lt;/strong&gt; es una distro basada en Arch, por tanto sabemos que es rolling release, &lt;strong&gt;libre de systemd&lt;/strong&gt; y que reemplaza a este con &lt;strong&gt;Openrc&lt;/strong&gt;, &lt;strong&gt;s6&lt;/strong&gt; o &lt;strong&gt;runit&lt;/strong&gt;. Artix es la continuación de los icónicos ManjaroOpenRC y ArchOpenRC tomando una camino más firme con desarrollo continuo.&lt;/p&gt;
+&lt;h2 id=&#34;va-dirigida&#34;&gt;Va dirigida…&lt;/h2&gt;
+&lt;p&gt;En muchos lugares lei que Artix va dirigida a usuarios con mucho expertis en el mundo de GNU/Linux. Sin embargo creo que esta a nivel de aquellos que usan manjaro dia a dia. con la leve diferencia que deben arreglárselas para instalar el &lt;strong&gt;pamac&lt;/strong&gt; o el gestor gráfico de preferencia.&lt;/p&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+  &lt;img
+    src=&#39;https://upload.wikimedia.org/wikipedia/commons/a/ab/Artix_Community_FF-Inkscape_2020-02.png&#39;
+    class=&#34;img-fluid blog-content-img&#34;
+    alt=&#34;imagen de Post&#34;
+    title=&#34;imagen de Post&#34;/&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Viene con una instalación mínima lo cual nos permite de alguna forma elegir a nosotros las apps a utilizar, esto nos permite tener el sistema limpio para no arrastrar actualizaciones de aplicaciones que nunca usamos.&lt;/p&gt;
+&lt;h2 id=&#34;instalación&#34;&gt;Instalación&lt;/h2&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+  &lt;img
+    src=&#39;https://i0.wp.com/entornosgnulinux.com/wp-content/uploads/2019/03/Calamarares.jpg&#39;
+    class=&#34;img-fluid blog-content-img&#34;
+    alt=&#34;imagen de Post&#34;
+    title=&#34;imagen de Post&#34;/&gt;
+&lt;/div&gt;
+
+&lt;p&gt;La instalación se realiza mediante gestor gráfico (si es que descargaste la iso con algun escritorio disponible) conocido como &lt;strong&gt;calamares&lt;/strong&gt; uno de los más populares que existen hoy en dia.&lt;/p&gt;
+&lt;div class=&#34;ratio ratio-16x9 embed-video&#34;&gt;
+	&lt;iframe
+		src=&#39;https://www.youtube.com/embed/MabkJ5JmWt0?rel=0&#39;
+		title=&#34;Video de Youtube&#34;
+		allowfullscreen&gt;
+	&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Como la mayoría de las distros las instalaciones son una conjugación de siguientes y completar datos y ya podemos disfrutar de la distro. Te recomiendo descargarla y probarla, y si aceptas otro consejo recomiendo MATE como escritorio.&lt;/p&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+  &lt;a
+    class=&#34;theme-btn&#34;
+    target=&#34;_blank&#34;
+    title=&#39;Descargar Artix&#39;
+    rel=&#34;noopener&#34;
+    href=&#39;https://artixlinux.org/download.php&#39;&gt;
+    Descargar Artix
+  &lt;/a&gt;
+&lt;/div&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>VoidLinux por José</title>
+      <link>https://patojad.com.ar/post/2019/09/voidlinux-por-jos%C3%A9/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://patojad.com.ar/post/2019/09/voidlinux-por-jos%C3%A9/</guid>
+      <description>&lt;p&gt;Hoy les hablaré un poco sobre una distribución muy subvalorada a mi parecer, una distribución Linux que mucha gente ni siquiera habrá nombrado mencionar y muchos menos la conocen siquiera. Hoy les voy a hablar sobra la magnífica &lt;a href=&#39;www.voidlinux.org&#39; title=&#39;Void Linux&#39; &gt;Void Linux&lt;/a&gt;
+.&lt;/p&gt;
+&lt;p&gt;Void Linux es una distribución de Linux absolutamente independiente, construida sobre Scratch – por lo que es un desarrollo totalmente original. Fue creada por el español Juan Romero Pardines y su primera versión fue lanzada en el año 2008. Utiliza un gestor de paquetes único también, denominado XBPS (X Binary Package System) el cual también fue diseñado e implementado desde cero. XBPS es un sistema de paquetes con licencia libre BSD con ciertas similitudes con pacman en su sintaxis y al igual que pacman es muy rápido.&lt;/p&gt;
+&lt;p&gt;XBPS es capaz de manejar los mas de 6000 programas que están disponibles en los repos de Void Linux y es capaz de compilar directamente desde las fuentes del propio software (XBPSSRC). La compilación la realiza sin ser root necesariamente.&lt;/p&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+  &lt;img
+    src=&#39;https://i.ytimg.com/vi/hCgOsJ2cRTs/maxresdefault.jpg&#39;
+    class=&#34;img-fluid blog-content-img&#34;
+    alt=&#34;imagen de Post&#34;
+    title=&#34;imagen de Post&#34;/&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Void Linux es una distribución “rolling release”, que se distribuye en distintas .isos (32 y 64 bits) con una gran variedad de entornos de escritorio disponibles: hay imágenes .isos con: Cinnamon, LXQT, LXDE, MATE, XFCE y Enlightenment. También hay disponibles .isos sin entornos de escritorios disponibles, para quienes quieran armar un sistema a su medida.&lt;/p&gt;
+&lt;p&gt;Otra de las mejores cualidades de Void Linux, es que utiliza Runit cómo su init, siendo una notable excepción al pésimo init de moda adoptado por la mayoría de las distribuciones hoy en día. Runit es un sistema mucho mas simple y mucho mas rápido que el tristemente famoso &lt;a href=&#39;https://patojad.com.ar/post/nosystemd/&#39; title=&#39;SystemD&#39; &gt;SystemD&lt;/a&gt;
+. De hecho, cuando probé la distribución me sorprendió lo veloz que iba el sistema y la velocidad de inicio (arrancando varios servicios del sistema en paralelo) y apagado (en todos los casos, superior al init desarrollado por Red Hat). Ojalá otras distribuciones adoptaran este init, es excelente sin dudas.&lt;/p&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+  &lt;img
+    src=&#39;https://i2.wp.com/itsfoss.com/wp-content/uploads/2019/04/Void-Linux-Neofetch.png?resize=800%2C562&amp;amp;ssl=1&#39;
+    class=&#34;img-fluid blog-content-img&#34;
+    alt=&#34;imagen de Post&#34;
+    title=&#34;imagen de Post&#34;/&gt;
+&lt;/div&gt;
+
+&lt;p&gt;La instalación de Void Linux, me hace recordar a la mejor distribución que existe en la faz de la Tierra (opinión personal, claro). A la venerable Slackware. Todo se realiza en la terminal, no existen los instaladores gráficos en Void (nada de Calamares, Ubiquity u otros). Simplemente, se abre la terminal y se escribe sudo void-installer (la contraseña es voidlinux) y se van siguiendo los pasos en el orden que aparecen en la pantalla. No es complicada de instalar, pero recomiendo hacerlo siguiendo los innumerables tutoriales que se encuentran en toda la web tanto en páginas web cómo en videos que existen en YouTube.&lt;/p&gt;
+&lt;p&gt;Void Linux fue la distribución pionera en la implementación de LibreSSL el cual es desarrollado por la gente de OpenBSD, sustituyendo a OpenSSL – es un fork del mismo, (recuerdan el desagradable episodio de inseguridad Heartbleed).&lt;/p&gt;
+&lt;p&gt;Si todo lo que les he comentado en el presente artículo, les ha gustado… Recomiendo que le den una oportunidad y descarguen una imagen Live de la distro y la prueben. También otra particularidad mas que presenta Void Linux, es que cuando vayan a descargar la distro se van a topar con 2 tipos de imágenes: están las imágenes comunes las que contienen la biblioteca estándar en GNU/Linux (Biblioteca GNU C) proporcionada por GLIBC (cómo lo hacen todas las distribuciones Linux) y están las imágenes con MUSL la cual es otra biblioteca C mas estándar por llamarlo de alguna manera a la que se vincularán muchos programas FOSS. MUSL es más liviano y rápido que GLIBC, pero puede ser incompatible con cierto software que no está escrito estrictamente para el estándar C. El GLIBC es más grande y generalmente más lento, pero permite y puede acomodar software que no está escrito correctamente en el estándar C debido a su implementación más indulgente.&lt;/p&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+  &lt;img
+    src=&#39;https://i0.wp.com/techpadi.com/wp-content/uploads/2018/12/b7u0z2j3rloz.png?fit=1366%2C768&#39;
+    class=&#34;img-fluid blog-content-img&#34;
+    alt=&#34;imagen de Post&#34;
+    title=&#34;imagen de Post&#34;/&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;text-center&#34;&gt;
+  &lt;a
+    class=&#34;theme-btn&#34;
+    target=&#34;_blank&#34;
+    title=&#39;Descargar&#39;
+    rel=&#34;noopener&#34;
+    href=&#39;www.voidlinux.org/download/&#39;&gt;
+    Descargar
+  &lt;/a&gt;
+&lt;/div&gt;
+
+&lt;center class=&#34;text-white&#34;&gt; Al final de la mencionada página, van a encontrar varios mirrors de descargas.&lt;/center&gt;
+&lt;p&gt;Muy bien, esto ha sido todo por el momento. Como ya se habrán dado cuenta, no es obviamente una distribución Linux para todo el mundo, pero quienes busquen un sistema rápido, sin hinchazón de programas, muy novedoso y fiable, quizás Void Linux es lo que han estado buscando. Se los recomiendo. Hasta la próxima colegas….&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
