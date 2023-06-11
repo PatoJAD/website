@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cache on PatoJAD</title>
+    <link>https://patojad.com.ar/tags/cache/</link>
+    <description>Recent content in cache on PatoJAD</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es-AR</language>
+    <lastBuildDate>Fri, 26 Apr 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://patojad.com.ar/tags/cache/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Agregar Cache a GIT para evitar loguear constantemente</title>
+      <link>https://patojad.com.ar/post/2019/04/agregar-cache-a-git-para-evitar-loguear-constantemente/</link>
+      <pubDate>Fri, 26 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://patojad.com.ar/post/2019/04/agregar-cache-a-git-para-evitar-loguear-constantemente/</guid>
+      <description>&lt;p&gt;Un repositorio git puede ser accedido utilizando distintos protocolos, de entre los cuales los más comunes son SSH y HTTPS.&lt;/p&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+  &lt;img
+    src=&#39;https://i.stack.imgur.com/5OBMZ.png&#39;
+    class=&#34;img-fluid blog-content-img&#34;
+    alt=&#34;imagen de Post&#34;
+    title=&#34;imagen de Post&#34;/&gt;
+&lt;/div&gt;
+
+&lt;p&gt;HTTPS tiene algunas ventajas sobre SSH: Es más fácil de utilizar, porque no necesita la generación de un par de claves pública/privada, y normalmente no tiene problemas en atravesar firewalls y proxies. El inconveniente es que es necesario introducir el usuario y contraseña cada vez que se accede al repositorio remoto con una operación pull o push.&lt;/p&gt;
+&lt;p&gt;Pero también es posible configurar git para que almacene estas credenciales y las utilice cuando sea necesario, sin solicitarlas cada vez.&lt;/p&gt;
+&lt;p&gt;En este artículo se explica cómo realizar esta configuración en un sistema GNU/linux.&lt;/p&gt;
+&lt;p&gt;La manera más sencilla de evitar que git solicite usuario y contraseña cada vez, es establecer un asistente de credenciales en la configuración de git (Algunos usuarios prefieren que se guarde por siempre pero no es muy seguro):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global credential.helper store
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Con esto, en el siguiente acceso que se realice al repositorio remoto, el usuario y contraseña introducidos quedan almacenados en un fichero &lt;code&gt;~/.git-credentials&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+  &lt;img
+    src=&#39;http://noticias.universia.es/net/images/ciencia-tecnologia/-/-a/-ap/-aplicaciones-gratuitas-gestionar-contrasenas.jpg&#39;
+    class=&#34;img-fluid blog-content-img&#34;
+    alt=&#34;imagen de Post&#34;
+    title=&#34;imagen de Post&#34;/&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Si nos preocupa que la contraseña quede guardada en el disco duro, podemos utilizar un asistente de credenciales “cache”. En este caso, la contraseña queda guardada en memoria, durante un tiempo limitado que se puede configurar (por defecto, 15 minutos). Por ejemplo, para utilizar este asistente, con una duración de una hora:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global credential.helper &lt;span class=&#34;s1&#34;&gt;&amp;#39;cache --timeout=3600&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Una vez transcurrida una hora(en este caso con los 3600s), el siguiente acceso que se realice al repositorio volverá a solicitar usuario y contraseña. Recuerda que puedes cambialo por la cantidad de tiempo (en segundos) que desees que permanezca&lt;/p&gt;
+&lt;p&gt;Fuente: OpenAlfa&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
