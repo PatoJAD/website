@@ -21,7 +21,7 @@ tags:
         'nwjs 0.50.0',
         'nwjs 0.50.0 wayland',
     ]
-categories: ['Programacion', 'Aplicaciones']
+categories: ['Programacion', 'Aplicaciones', 'Linux']
 img: 'https://i.postimg.cc/5tP2KRbf/nwjsw-ayland.webp'
 authors: ['PatoJAD']
 ---
