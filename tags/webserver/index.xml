@@ -6,10 +6,69 @@
     <description>Recent content in webserver on PatoJAD</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es-AR</language>
-    <lastBuildDate>Wed, 21 Jun 2023 11:34:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 07 Jul 2023 11:54:00 +0000</lastBuildDate>
     
 	<atom:link href="https://patojad.com.ar/tags/webserver/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Abrir puertos aapanel</title>
+      <link>https://patojad.com.ar/post/2023/07/abrir-puertos-aapanel/</link>
+      <pubDate>Fri, 07 Jul 2023 11:54:00 +0000</pubDate>
+      
+      <guid>https://patojad.com.ar/post/2023/07/abrir-puertos-aapanel/</guid>
+      <description>&lt;p&gt;Vamos a ver que puertos tenemos que tener habilitados para que aapanel funcione correctamente. Y como abrirlos en nuestro servidor utilizando &lt;code&gt;ufw&lt;/code&gt;. Recuerda que si instalaste tal como lo vimos en el video anterior de &lt;a href=&#39;&#39; title=&#39;instalar aapanel&#39; &gt;instalar aapanel&lt;/a&gt;
+ y no estas pudiendo ingresar a la url que dio el panel entonces es porque alguno de estos puertos no se encuentra abierto.&lt;/p&gt;
+&lt;h2 id=&#34;puertos&#34;&gt;Puertos&lt;/h2&gt;
+&lt;p&gt;Los puertos que tenemos que abrir son los siguientes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;20&lt;/strong&gt; - FTP&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;21&lt;/strong&gt; - FTP&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;80&lt;/strong&gt; - HTTP&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;443&lt;/strong&gt; - HTTPS&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;888&lt;/strong&gt; - aaPanel&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;3306&lt;/strong&gt; - MySQL // Si necesitas acceder desde fuera del servidor&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;8888&lt;/strong&gt; - phpMyAdmin&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;7800&lt;/strong&gt; - aaPanel&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;video&#34;&gt;Video&lt;/h2&gt;
+&lt;p&gt;Dejo a continuacion el video donde explico como abrir los puertos en el servidor utilizando &lt;code&gt;ufw&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;ratio ratio-16x9 embed-video&#34;&gt;
+	&lt;iframe
+		src=&#39;https://www.youtube.com/embed/841us_UDqJA?rel=0&#39;
+		title=&#34;Video de Youtube&#34;
+		allowfullscreen&gt;
+	&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;comandos&#34;&gt;Comandos&lt;/h2&gt;
+&lt;p&gt;A continuacion dejo los comandos utilizados en el video.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ufw allow &lt;span class=&#34;m&#34;&gt;20&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ufw allow &lt;span class=&#34;m&#34;&gt;21&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ufw allow &lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ufw allow &lt;span class=&#34;m&#34;&gt;443&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ufw allow &lt;span class=&#34;m&#34;&gt;888&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ufw allow &lt;span class=&#34;m&#34;&gt;3306&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;#ufw allow 8888 // En mi caso no&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ufw allow &lt;span class=&#34;m&#34;&gt;7800&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;hr&gt;
+&lt;p&gt;Fuente: &lt;a href=&#34;https://www.aapanel.com/&#34;&gt;https://www.aapanel.com/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Instalar aapanel</title>
