@@ -25,7 +25,7 @@ tags:
         'aapanel install centos',
     ]
 categories: ['Linux', 'Aplicaciones']
-img: 'https://i.postimg.cc/3wNP8qmY/aapanel.png'
+img: 'https://i.postimg.cc/XNRRTBwn/aapanel.webp'
 authors: ['PatoJAD']
 ---
 
