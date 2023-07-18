@@ -18,7 +18,7 @@ img: 'https://blog.universaldeidiomas.com/wp-content/uploads/2016/06/Opiniones_y
 authors: ['PatoJAD']
 ---
 
-Bienvenidos a todos nuevamente, otra vez el título taquillero… Los otros dias arme un articulo llamado {{< textlink text="¿Que Sistema Operativo es mejor?" url="/posts/2020/08/que-sistema-operativo-es-mejor/" >}} y como siempre generó la política. Siempre dije que el blog es más de la comunidad que mio y claramente hoy quiero hacer peso a mis palabras tal y como se debe.
+Bienvenidos a todos nuevamente, otra vez el título taquillero… Los otros dias arme un articulo llamado [¿Que Sistema Operativo es mejor?](/posts/2020/08/que-sistema-operativo-es-mejor/) y como siempre generó la política. Siempre dije que el blog es más de la comunidad que mio y claramente hoy quiero hacer peso a mis palabras tal y como se debe.
 
 ## Opinión en Telegram
 

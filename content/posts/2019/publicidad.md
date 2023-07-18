@@ -19,7 +19,7 @@ img: 'https://lh3.googleusercontent.com/f1enzVAwEm_TN21KYIrGqdpNcpKWtsHn6_3D0mEw
 authors: ['PatoJAD']
 ---
 
-Esta es la primera publicación (Aunque debo recalcar que en el pasado muchas debieron estar acá) que inaugura esta sección. Como un sitio comunitario nos vamos adaptando a la comunidad y creemos que nuestros debates (en este caso en nuestro grupo de {{< textlink text="Telegram" url="https://t.me/PatoJADCommunity" >}}) pueden colaborar con los lectores que no pertenezcan a este grupo.
+Esta es la primera publicación (Aunque debo recalcar que en el pasado muchas debieron estar acá) que inaugura esta sección. Como un sitio comunitario nos vamos adaptando a la comunidad y creemos que nuestros debates (en este caso en nuestro grupo de [Telegram](https://t.me/PatoJADCommunity)) pueden colaborar con los lectores que no pertenezcan a este grupo.
 
 ## Bloqueador de publicidad
 

@@ -22,14 +22,14 @@ img: 'https://i.postimg.cc/FmTBQKnf/Sin-nombre.png'
 authors: ['PatoJAD']
 ---
 
-Ya hablamos con anterioridad sobre {{< textlink url="/aplicaciones/2022/01/paru-vs-yay-cual-elegir/" text="PARU y YAY" >}}. En esa oportunidad di mi opinión sobre cuál deberíamos elegir, aunque esto siempre es a gusto y placer de la persona que lo utilice. Por eso en esta oportunidad vamos a ver la manera más simple de instalar ambas aplicaciones.
+Ya hablamos con anterioridad sobre [PARU y YAY](/aplicaciones/2022/01/paru-vs-yay-cual-elegir/). En esa oportunidad di mi opinión sobre cuál deberíamos elegir, aunque esto siempre es a gusto y placer de la persona que lo utilice. Por eso en esta oportunidad vamos a ver la manera más simple de instalar ambas aplicaciones.
 
 ### Requisitos previos
 
 Para poder realizar la instalación tenemos unos requisitos previos para que todo salga mas que bien, te dejo a continuación ambos links que explicaran como hacer esto (El primero no es obligatorio pero está bueno saber cual elegir antes de instalar alguno)
 
--   {{< textlink url="/aplicaciones/2022/01/paru-vs-yay-cual-elegir/" text="Paru VS YAY ¿Cual elegir?" >}} (Opcional)
--   {{< textlink url="/post/2022/01/instalar-chaotic-aur/" text="Instalar Chaotic AUR" >}} (Obligatorio)
+-   [Paru VS YAY ¿Cual elegir?](/aplicaciones/2022/01/paru-vs-yay-cual-elegir/) (Opcional)
+-   [Instalar Chaotic AUR](/post/2022/01/instalar-chaotic-aur/) (Obligatorio)
 
 ### Video
 

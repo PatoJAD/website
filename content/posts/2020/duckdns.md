@@ -9,7 +9,7 @@ img: 'https://www.redeszone.net/app/uploads-redeszone.net/2017/12/DDNS-Duck-DNS.
 authors: ['PatoJAD']
 ---
 
-Ya hablamos anteriormente sobre {{< textlink url="" text="dyndns" >}} y {{< textlink url="" text="noip" >}} y como se sabe no puede faltar ningun Pato en esta familia. Por lo cual te traemos DuckDNS otro DNS Gratuito pero mas cariñoso!!!
+Ya hablamos anteriormente sobre dyndns y noip y como se sabe no puede faltar ningun Pato en esta familia. Por lo cual te traemos DuckDNS otro DNS Gratuito pero mas cariñoso!!!
 
 ## ¿Cómo es esto gratis?
 

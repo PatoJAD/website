@@ -89,7 +89,7 @@ Donde “programa” es el nombre del comando que queremos ver. Las man pages va
 
 En la mayoría de los sistemas Linux, man usa less para mostrar la man page, así que todos los comandos de less que nos son familiares funcionan cuando está mostrado la página.
 
-**Si quieres saber más sobre man te dejo {{< textlink url="/post/2019/01/man-tu-manual-para-linux/" text="esto" >}} para leer**
+**Si quieres saber más sobre man te dejo [un articulo](/post/2019/01/man-tu-manual-para-linux/) para leer**
 
 ## **apropos** – Muestra comandos apropiados
 

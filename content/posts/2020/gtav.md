@@ -11,7 +11,7 @@ authors: ['PatoJAD']
 
 Como muchos saben estos dias se estuvo entregando el GTA V gratis en la Epic Store. Es un juego bastante bueno aunque debo admitir que cuando salió se esperaba mas de él, sin embargo logró conformar a la gente e incluso el anuncio de que este juego se estaba regalando fue suficiente como para tirar los sitios de Epic Games.
 
-Como podemos ven {{< textlink text="en la página de protondb" url="https://www.protondb.com/app/271590" >}} este juego funciona bien con Proton aunque con wine no tenemos la misma suerte, lamentablemente no suele funcionar a la primera e incluso si funciona no obtiene un buen rendimiento (Si lo hiciste funcionar en wine y con buen rendimiento enséñanos porque no lo logramos)
+Como podemos ven [en la página de protondb](https://www.protondb.com/app/271590) este juego funciona bien con Proton aunque con wine no tenemos la misma suerte, lamentablemente no suele funcionar a la primera e incluso si funciona no obtiene un buen rendimiento (Si lo hiciste funcionar en wine y con buen rendimiento enséñanos porque no lo logramos)
 
 Por lo cual queremos compartir con ustedes lo que un usuario de reddit nos trae para que podamos instalar este hermoso juego y jugarlo casi sin problemas.
 
@@ -21,7 +21,7 @@ Por lo cual queremos compartir con ustedes lo que un usuario de reddit nos trae 
 
 ## Crea una cuenta y reclama el GTA V gratis
 
-Si aun no tenes el juego, **todavía estás a tiempo**, quedan algunos días para reclamarlo tienes aun hasta el 21 de mayo, así que si no tienes cuenta puedes registrarte, activar la autenticación en 2 pasos y reclamar el juego en {{< textlink text="Epic Games" url="https://www.epicgames.com/" >}}.
+Si aun no tenes el juego, **todavía estás a tiempo**, quedan algunos días para reclamarlo tienes aun hasta el 21 de mayo, así que si no tienes cuenta puedes registrarte, activar la autenticación en 2 pasos y reclamar el juego en [Epic Games](https://www.epicgames.com/).
 
 ## Descargue e instale Epic Games Launcher
 

@@ -79,7 +79,7 @@ Actualmente cuenta con un cliente Web en su versión 1.1 y se encuentra en desar
 >
 > SE HA CONFIGURADO INICIOS DE SESION DESCONOCIDOS
 
-De esta forma Angel nos anunciaba las siguientes actualizaciones las cuales publicación original desde el {{< textlink url="https://redlinuxclick.ml/post/120_linux-regreso-despues-de-un-rato-de-inactividad-estaba-crando-la-aplicacion-mov.html" text="siguiente link" >}}.
+De esta forma Angel nos anunciaba las siguientes actualizaciones las cuales publicación original desde el [siguiente link](https://redlinuxclick.ml/post/120_linux-regreso-despues-de-un-rato-de-inactividad-estaba-crando-la-aplicacion-mov.html).
 
 Te invitamos a conocer esto y todas las opciones increíbles que contiene esta hermosa red social registrándote y conociéndola por tu propia cuenta.
 

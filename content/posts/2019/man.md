@@ -78,4 +78,4 @@ En algunos sistemas están disponibles también las siguientes secciones:
 | n       | Tcl/Tk                                              |
 | x       | X Window System                                     |
 
-No te llevas bien con Inglés, no te preocupes {{< textlink url="/post/2019/01/poner-las-paginas-de-man-en-español/" text="aquí" >}} podes ver como traducirlo al español!
+No te llevas bien con Inglés, no te preocupes [aquí](/post/2019/01/poner-las-paginas-de-man-en-español/) podes ver como traducirlo al español!

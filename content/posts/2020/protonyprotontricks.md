@@ -58,6 +58,6 @@ Ahora instalamos los componentes necesarios para hacer funcionar ese juego como 
 
 Listo, con eso sería todo en principio, aunque hay que tener en cuenta que como sucedía en Wine, cada juego puede llegar a necesitar algunas modificaciones o instalar ciertos elementos para que funcione correctamente.
 
-Para saber que componentes debes instalar busca el juego en {{< textlink text="ProtonDB" url="https://www.protondb.com/" >}} para ver las configuraciones de otros usuarios.
+Para saber que componentes debes instalar busca el juego en [ProtonDB](https://www.protondb.com/) para ver las configuraciones de otros usuarios.
 
 Fuente: Mis Juegos en Linux

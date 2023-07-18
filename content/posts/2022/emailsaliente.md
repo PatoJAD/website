@@ -47,7 +47,7 @@ authors: ['PatoJAD']
 
 ## Usar email para salida de correos
 
-Si bien {{< textlink url="/post/2022/09/email-profesional-gratis/" text="esto ya es muy profesional" >}}, también resultaría interesante poder responder utilizando el correo que creamos. En este caso voy a mostrar cómo agregarlo a **GMAIL** para poder utilizarlo como correo saliente.
+Si bien [esto ya es muy profesional](/post/2022/09/email-profesional-gratis/), también resultaría interesante poder responder utilizando el correo que creamos. En este caso voy a mostrar cómo agregarlo a **GMAIL** para poder utilizarlo como correo saliente.
 
 Para esto debemos ingresar en nuestra cuenta de Gmail e ir a las configuraciones de la misma para poder agregar una nueva cuenta de correo saliente. Esto lo hacemos desde **Ajustes** -> **Ver todos los Ajustes** -> **Cuentas e Importación** -> **Enviar como:** -> **Añadir otra dirección de correo electrónico**
 

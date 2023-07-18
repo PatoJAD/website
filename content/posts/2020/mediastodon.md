@@ -24,9 +24,9 @@ Así tal cual dejo el código Victorhck me result muy interesante y lo probé co
 
 De esta forma podemos usar mastdom como un banco de imágenes compartidas por cada una de las personas. De esta forma podemos visualizar, por ejemplo:
 
--   {{< textlink text="Wallpaper" url="https://mediastodon.patojad.com.ar/?search=wallpaper" >}}
--   {{< textlink text="KDE" url="https://mediastodon.patojad.com.ar/?search=kde" >}}
--   {{< textlink text="Meme" url="https://mediastodon.patojad.com.ar/?search=meme" >}}
+-   [Wallpaper](https://mediastodon.patojad.com.ar/?search=wallpaper)
+-   [KDE](https://mediastodon.patojad.com.ar/?search=kde)
+-   [Meme](https://mediastodon.patojad.com.ar/?search=meme)
 
 Y asi podes buscar lo que quieras sin ningun tipo de restriccion en:
 

@@ -33,27 +33,9 @@ Folding@home (FAH or F@h) es un proyecto informático distribuido para simular l
 
 Una de las mejores maneras de ayudar a Folding @ home es reclutando a sus amigos y familiares. Comience compartiendo nuestro proyecto con ellos. Entonces únete a un equipo o incluso comienza tu propio equipo. Cuantos más puntos gane su equipo, más nos acercaremos a encontrar curas.
 
-## Instalar
-
-La instalacion es algo simple si contamos con {{< textlink text="el repositorio de la comunidad" url="/repositorio/" >}} el cual es facil de instalar y utilizar. Una vez que tengamos todo el repositorio instalado y el sistema actualizado basta con ejecutar en la terminal la instalacion de la siguiente manera:
-
-    sudo apt install fahclient fahcontrol fahviewer
-
-Cuadno lo estemos instalando nos pedira un nombre de usuario en mi caso voy a usar: PatoJAD. Seguido de esto nos va a pedir el numero del equipo. Cree un equipo para que colaboremos todos juntos, el numero del equipo es:
-
-    260504
-
-Despues de esto nos va a pedir una PassKey la cual no es obligatoria pero podemos poner la contraseña que querramos.
-
-Ahora es de donde la magia comienza... Muchos creemos que esto nos va a relentizar la pc porque esta procesando constantemente. Sin embargo nos deja elegir cuanto queremos dedicarle con 3 modos: Ligth, Medium y Full. en caso de dedicar solo a eso la pc Elegiremos Full, En caso de que las PC Desktops conviene usar medium y las notebooks Ligt, Sin embaargo, siempre esta bueno usar Like para evitar que interfiera con nuestros juegos.
-
-Por ultimo nos pregunta si queremos que se inicie con la maquina. Lo cual recomiendo poner que si.
-
-Y ya con esto termina automaticamente la instalacion!
-
 ## ¿Usas Otro sistema?
 
-No importa, ayudar no depende del sistema que uses y hoy no es tema importante (mas alla de que prediquemos el uso de Linux) {{< textlink text="desde aqui podes ver como instalarlo en tu sistema" url="https://foldingathome.org/start-folding/" >}} Y podes unirte con el mismo codigo de grupo porque todos estamos juntos para esto!
+No importa, ayudar no depende del sistema que uses y hoy no es tema importante (mas alla de que prediquemos el uso de Linux) [desde aqui podes ver como instalarlo en tu sistema](https://foldingathome.org/start-folding/) Y podes unirte con el mismo codigo de grupo porque todos estamos juntos para esto!
 
 Codigo de Grupo:
 

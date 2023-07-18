@@ -134,4 +134,4 @@ Fuente: **"The Linux Command Line - Second Internet Edition"** de _William E. Sh
 
 ## Tambien Leer
 
--   {{< textlink text="¿Por qué usar la línea de comandos?" url="/posts/2020/07/por-qué-usar-la-línea-de-comandos/" >}}
+-   [¿Por qué usar la línea de comandos?](/posts/2020/07/por-qué-usar-la-línea-de-comandos/)

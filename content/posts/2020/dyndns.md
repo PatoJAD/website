@@ -13,7 +13,7 @@ authors: ['PatoJAD']
 
 El problema es el **cambio de la dirección IP** (dinámicamente) de su línea de internet. Esto significa que es imposible lograr su red doméstica desde el exterior. Con nuestro servicio **DNS dinámico** (DDNS), le ofrecemos la posibilidad de operar sus aplicaciones estáticamente desde el exterior de forma móvil.
 
-Así se presenta DynDNS un competidor de **{{< textlink url="/post/2020/04/como-instalar-no-ip-en-linux/" text="NO-IP" >}} del cual hablamos hace unos dias**
+Así se presenta DynDNS un competidor de **[NO-IP](/post/2020/04/como-instalar-no-ip-en-linux/) del cual hablamos hace unos dias**
 
 ## ¿Cómo utiliza el servicio gratuito DynDNS?
 

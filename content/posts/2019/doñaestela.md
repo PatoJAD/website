@@ -136,4 +136,4 @@ Este planteo es el que se postula con el fin de ver que es lo que piensa la comu
 
 ---
 
-¿Que pensas vos?¿Deja los comentarios que recomendarias vos a Doña Rosa? ¿Queres participar de nuestros debates? venite a nuestro canal de {{< textlink text="Telegram" url="https://t.me/PatoJADCommunity" >}}
+¿Que pensas vos?¿Deja los comentarios que recomendarias vos a Doña Rosa? ¿Queres participar de nuestros debates? venite a nuestro canal de [Telegram](https://t.me/PatoJADCommunity)

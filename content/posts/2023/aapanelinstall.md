@@ -72,7 +72,7 @@ aaPanel es un software que mejora la eficiencia de la gestión de servidores adm
 
 ---
 
-Mas información: https://www.aapanel.com/new/pricing.html
+[Mas información](https://www.aapanel.com/new/pricing.html)
 
 ## Instalacion
 
@@ -104,4 +104,4 @@ wget -O install.sh http://www.aapanel.com/script/install-ubuntu_6.0_en.sh && bas
 
 ---
 
-Fuente: https://www.aapanel.com/
+[Fuente](https://www.aapanel.com/)

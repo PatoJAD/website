@@ -37,7 +37,7 @@ Esta aplicación es la primera recomendación, tiene una interfaz muy intuitiva 
 
 {{< img src="https://i.postimg.cc/x8T20ZKY/photo-2019-03-21-09-36-17.jpg" >}}
 
-Para instalarlo debemos descargar el instalador correspondiente de su {{< textlink text="página" link="https://ulauncher.io/" >}} (deb, rpm o aur) y seguir con el proceso de instalación que recomiendan en la página.
+Para instalarlo debemos descargar el instalador correspondiente de su [página](https://ulauncher.io/) (deb, rpm o aur) y seguir con el proceso de instalación que recomiendan en la página.
 
 Es recomendable entrar a la configuración y seleccionar la opción para que inicie con el sistema operativo para ahorrarnos un paso.
 

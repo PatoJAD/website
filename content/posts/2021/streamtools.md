@@ -30,7 +30,7 @@ Esto consiste en unas herramientas un tanto predefinidas que son perfectamente c
 
 ## Requisitos Base
 
-Estas herramientas se hicieron pensando en OBS por lo cual necesitamos tener OBS instalado y el complemento conocido como **Browser** que nos permite mostrar una web. El mismo podemos ver su instalación desde la {{< textlink url="/aplicaciones/2021/05/linux-browser-obs/" text="siguiente publicación" >}}. Una vez que tengamos todo esto podemos generar nuestro link desde la web de StreamTolls.
+Estas herramientas se hicieron pensando en OBS por lo cual necesitamos tener OBS instalado y el complemento conocido como **Browser** que nos permite mostrar una web. El mismo podemos ver su instalación desde la [siguiente publicación](/aplicaciones/2021/05/linux-browser-obs/). Una vez que tengamos todo esto podemos generar nuestro link desde la web de StreamTolls.
 
 {{< img src="https://i.postimg.cc/BbyZ6Qq9/image.png" >}}
 

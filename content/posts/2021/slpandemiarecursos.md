@@ -25,7 +25,7 @@ authors: ['David Mauro']
 
 ## ¿Por qué ahora?
 
-La pandemia ha dejado trastabillando la economía mundial y la tecnología no puede quedar exenta. De todas formas el concepto de la {{< textlink url="https://es.wikipedia.org/wiki/Obsolescencia_programada" text="obsolescencia programada" >}} data de mucho antes, basta con acceder a Wikipedia para comprender el concepto.
+La pandemia ha dejado trastabillando la economía mundial y la tecnología no puede quedar exenta. De todas formas el concepto de la [obsolescencia programada](https://es.wikipedia.org/wiki/Obsolescencia_programada) data de mucho antes, basta con acceder a Wikipedia para comprender el concepto.
 
 ## Pero con la demanda en comunicaciones ¿es tan así?
 
@@ -54,7 +54,7 @@ Puede ser que en el sentido de uso domiciliario en ordenadores sea “impopular�
 
 ## ¿Qué seguridad tengo de que con Linux no pase eso?
 
-De hecho es sabido, como se menciona antes, que es un sistema de código abierto: todo el que desee puede acceder a la “receta”, para saber cómo funciona; de ahí que si se quiere hacer algo indebido, van a haber miles de programadores que van a estar advirtiendo esto. Ya pasó con una distribución llamada Deepin, muy criticada por la comunidad por {{< textlink url="https://www.muylinux.com/2018/04/13/acusan-deepin-spyware/" text="filtrar información de los usuarios" >}} supuestamente para “optimizar su experiencia”.
+De hecho es sabido, como se menciona antes, que es un sistema de código abierto: todo el que desee puede acceder a la “receta”, para saber cómo funciona; de ahí que si se quiere hacer algo indebido, van a haber miles de programadores que van a estar advirtiendo esto. Ya pasó con una distribución llamada Deepin, muy criticada por la comunidad por [filtrar información de los usuarios](https://www.muylinux.com/2018/04/13/acusan-deepin-spyware/) supuestamente para “optimizar su experiencia”.
 
 Sin embargo no pasa lo mismo con Windows, cualquier empresa que desee obtener información sobre conductas de los usuarios puede adquirir las bases de datos generadas por sistemas cerrados, porque por eso son cerrados _(seamos honestos, de los usuarios domiciliarios, ¿quien ha comprado licencia de uso de Windows?, el negocio va por otro lado… eejemmmm, Facebook….)_
 

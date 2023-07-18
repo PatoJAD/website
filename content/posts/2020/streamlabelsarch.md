@@ -22,13 +22,13 @@ img: 'https://i.postimg.cc/QCbqwwJv/image.png'
 authors: ['PatoJAD']
 ---
 
-Hace un tiempo hablamos de {{< textlink text="StreamLabs" url="/aplicaciones/2020/11/streamlabs-en-linux/" >}} y de como este nos puede servir para realizar streamings en GNU/Linux. También hablamos de su herramienta Stream Labels la cual tiene como disponible un .deb para que lo utilicemos en linux. Lamentablemente los .deb solo funcionan en distribuciones basadas en Debian/Ubuntu y eso no suele ser compatible con todos los que intentamos realizar Streaming dado que los que jugamos sabemos que el mejor rendimiento está en Arch Linux.
+Hace un tiempo hablamos de [StreamLabs](/aplicaciones/2020/11/streamlabs-en-linux/) y de como este nos puede servir para realizar streamings en GNU/Linux. También hablamos de su herramienta Stream Labels la cual tiene como disponible un .deb para que lo utilicemos en linux. Lamentablemente los .deb solo funcionan en distribuciones basadas en Debian/Ubuntu y eso no suele ser compatible con todos los que intentamos realizar Streaming dado que los que jugamos sabemos que el mejor rendimiento está en Arch Linux.
 
 ## Una explicación no basta
 
 {{< img src="https://i.postimg.cc/W4mRQDLy/image.png" >}}
 
-Si bien en aquel {{< textlink text="artículo" url="/aplicaciones/2020/11/streamlabs-en-linux/" >}} explique cómo debería realizarse la conversión para utilizarlo en Arch no creo que todo el mundo tenga que ponerse a ver estas cosas. Por lo cual decidí subirlo a AUR para que todo aquel que desee utilizarlo pueda hacerlo sin ningún problema. por lo cual, a partir de hoy si queremos utilizarlo basta con un solo comando para utilizarlo.
+Si bien en aquel [artículo](/aplicaciones/2020/11/streamlabs-en-linux/) explique cómo debería realizarse la conversión para utilizarlo en Arch no creo que todo el mundo tenga que ponerse a ver estas cosas. Por lo cual decidí subirlo a AUR para que todo aquel que desee utilizarlo pueda hacerlo sin ningún problema. por lo cual, a partir de hoy si queremos utilizarlo basta con un solo comando para utilizarlo.
 
 ```Shell
 yay -S streamlabels

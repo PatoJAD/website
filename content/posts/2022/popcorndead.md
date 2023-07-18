@@ -28,7 +28,7 @@ Muchos usamos Popcorn alguna vez, y muchos podemos seguir instalandolo desde los
 
 {{< img src="https://i.postimg.cc/59Bw6R2C/image.png" >}}
 
-O que podemos verlo directamente ingresando en su {{< textlink url="https://popcorn-time.tw/" text="web" >}}
+O que podemos verlo directamente ingresando en su [web](https://popcorn-time.tw/)
 
 ## ¿Adiós para siempre?
 

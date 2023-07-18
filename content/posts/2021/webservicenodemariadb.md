@@ -41,13 +41,13 @@ Este curso es pequeño y es completamente gratis. Se dicta mediante Youtube y di
 
 ## Clases
 
--   {{< textlink text="Instalacion de NodeJS NPM y MariaDB" url="/post/2021/07/webservice-nodejs-y-mariadb-1-instalacion-de-nodejs-npm-y-mariadb/" >}} (Disponible desde 29/07)
--   {{< textlink text="Creando Base de Datos e iniciando Proyecto" url="/post/2021/08/webservice-nodejs-y-mariadb-2-creando-base-de-datos-e-iniciando-proyecto/" >}} (Disponible desde 02/08)
--   {{< textlink text="Conector MariaDB en NodeJS" url="/post/2021/08/webservice-nodejs-y-mariadb-3-conector-mariadb-en-nodejs/" >}} (Disponible desde 05/08)
--   {{< textlink text="Levantando API con Express" url="/post/2021/08/webservice-nodejs-y-mariadb-4-levantando-api-con-express/" >}} (Disponible desde 09/08)
--   {{< textlink text="Accediendo a Nuestra DB mediante la API" url="/post/2021/08/webservice-nodejs-y-mariadb-5-accediendo-a-nuestra-db-mediante-la-api/" >}} (Disponible desde 12/08)
--   {{< textlink text="Instalacion de Postman en Linux" url="/aplicaciones/2021/08/instalacion-de-postam-en-linux/" >}}
--   {{< textlink text="ABM en nuestra DB vía API" url="/post/2021/08/webservice-nodejs-y-mariadb-6-abm-en-nuestra-db-vía-api/" >}} (Disponible desde 16/08)
+-   [Instalacion de NodeJS NPM y MariaDB](/post/2021/07/webservice-nodejs-y-mariadb-1-instalacion-de-nodejs-npm-y-mariadb/) (Disponible desde 29/07)
+-   [Creando Base de Datos e iniciando Proyecto](/post/2021/08/webservice-nodejs-y-mariadb-2-creando-base-de-datos-e-iniciando-proyecto/) (Disponible desde 02/08)
+-   [Conector MariaDB en NodeJS](/post/2021/08/webservice-nodejs-y-mariadb-3-conector-mariadb-en-nodejs/) (Disponible desde 05/08)
+-   [Levantando API con Express](/post/2021/08/webservice-nodejs-y-mariadb-4-levantando-api-con-express/) (Disponible desde 09/08)
+-   [Accediendo a Nuestra DB mediante la API](/post/2021/08/webservice-nodejs-y-mariadb-5-accediendo-a-nuestra-db-mediante-la-api/) (Disponible desde 12/08)
+-   [Instalacion de Postman en Linux](/aplicaciones/2021/08/instalacion-de-postam-en-linux/)
+-   [ABM en nuestra DB vía API](/post/2021/08/webservice-nodejs-y-mariadb-6-abm-en-nuestra-db-vía-api/) (Disponible desde 16/08)
 
 ## Apoyo
 
@@ -63,4 +63,4 @@ Replicamos el curso en Udemy para que puedan ser certificados, en caso de necesi
 
 Si sentís que el curso te sirvió y, queres apoyar aún más que con tu subscribirse al canal de youtube y en las redes sociales o simplemente quieres certificar puedes encontrarlo en Udemy. Lamentablemente no me permite ponerle menos precio, pero si te interesa el certificado no te olvides de seguirnos que vamos a estar ofreciendo gratis para que todos los que lo deseen puedan certificar.
 
-{{< link text="Curso en Udemy" url="https://www.udemy.com/course/patojad-webservice-nodejs-y-mariadb/?referralCode=817BCD02D2C08DEC01DE" >}}
+{{< link text="Curso en Udemy](https://www.udemy.com/course/patojad-webservice-nodejs-y-mariadb/?referralCode=817BCD02D2C08DEC01DE" >}}

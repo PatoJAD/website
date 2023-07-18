@@ -11,11 +11,11 @@ authors: ['PatoJAD']
 
 No-IP ofrece servicios de DNS, correo electrónico, monitoreo de red y certificados SSL. El producto principal de No-IP son los **servicios dinámicos de DNS** ("DDNS"). Los servicios DNS dinámicos básicos que usan un dominio propiedad de No-IP son de uso **gratuito siempre que la cuenta permanezca activa**.
 
-Las direcciones **{{< textlink url="/post/2020/01/direcciones-ips-nuestra-huella-en-la-red/" text="IP" >}} dinámicas** son comunes en las cuentas de banda ancha de **cable residencial** o DSL. El servicio gratuito permite a los usuarios configurar entre **uno y tres nombres de host** en un nombre de dominio proporcionado por No-IP. El nombre del host se resolverá en la dirección IP actual de la computadora de ese usuario.
+Las direcciones **[IP](/post/2020/01/direcciones-ips-nuestra-huella-en-la-red/) dinámicas** son comunes en las cuentas de banda ancha de **cable residencial** o DSL. El servicio gratuito permite a los usuarios configurar entre **uno y tres nombres de host** en un nombre de dominio proporcionado por No-IP. El nombre del host se resolverá en la dirección IP actual de la computadora de ese usuario.
 
 ## API DNS dinámica
 
-Un nombre de host **DNS dinámico** está vinculado a la dirección {{< textlink url="/post/2020/02/qué-hay-detrás-de-una-ip/" text="IP dinámica" >}} del usuario. Cada vez que **cambie la IP**, un cliente DNS dinámico enviará una actualización a No-IP con la dirección IP actual y luego No-IP propagará el cambio de DNS a Internet en cuestión de segundos.
+Un nombre de host **DNS dinámico** está vinculado a la dirección [IP dinámica](/post/2020/02/qué-hay-detrás-de-una-ip/) del usuario. Cada vez que **cambie la IP**, un cliente DNS dinámico enviará una actualización a No-IP con la dirección IP actual y luego No-IP propagará el cambio de DNS a Internet en cuestión de segundos.
 
 Para facilitar las actualizaciones de direcciones IP, No-IP tiene un protocolo abierto que permite a los desarrolladores de software y fabricantes de hardware comunicarse a través de HTTP para notificarles sobre un cambio de dirección IP.
 

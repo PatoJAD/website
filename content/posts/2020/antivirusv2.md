@@ -23,7 +23,7 @@ img: 'https://www.softzone.es/app/uploads-softzone.es/2019/09/Elegir-antivirus.j
 authors: ['PatoJAD']
 ---
 
-Con anterioridad hablamos ya sobre este {{< textlink text="tema en esta publicación" url="/aplicaciones/2019/01/antivirus-en-linux/" >}}, la cual te recomiendo leer de antemano para comprender un poco la rectificación que quiero realizar sobre dicho tema.
+Con anterioridad hablamos ya sobre este [tema en esta publicación](/posts/2019/01/antivirus-en-linux/), la cual te recomiendo leer de antemano para comprender un poco la rectificación que quiero realizar sobre dicho tema.
 
 Sin embargo, como ya veremos, esta publicación les faltaban marcar algunos detalles que desde mi punto son realmente importantes, por lo cual creo que es correcto que cuando una persona se equivoca intente enmendar su error y esta es una forma de hacerlo.
 

@@ -59,6 +59,6 @@ Y una vez enviado nos pedirá **el nombre Corto del Pack**, en nuestro caso vamo
 
 {{< img src="https://i.postimg.cc/B6VqjMMt/image.png" >}}
 
-Y ya nos genero una url para compartir el sticker con quienes queramos y poder empezarlo a utilizar… Te dejo el pack que cree por _si queres usarlo_ y espero que te sirva y no te olvides de enviarnos los packs que hagas a {{< textlink url="https://t.me/PatoJADCommunity" text="nuestro grupo de telegram" >}}
+Y ya nos genero una url para compartir el sticker con quienes queramos y poder empezarlo a utilizar… Te dejo el pack que cree por _si queres usarlo_ y espero que te sirva y no te olvides de enviarnos los packs que hagas a [nuestro grupo de telegram](https://t.me/PatoJADCommunity)
 
 {{< link text="Stickers PatoJAD" url="https://t.me/addstickers/PatoJAD" >}}

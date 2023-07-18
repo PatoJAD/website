@@ -19,7 +19,7 @@ img: 'https://i.postimg.cc/qqYnhnbZ/notas.png'
 authors: ['PatoJAD']
 ---
 
-El otro día leí un artículo de Genbeta que enuncia **_{{< textlink url="https://www.genbeta.com/windows/mi-funcion-favorita-windows-10-11-sigue-estar-linux-macos-asi-puedes-anadir-te-mejore-vida" text="“Mi función favorita de Windows 10 y 11 sigue sin estar en Linux y macOS”">}}_**. Como desarrollador me llamó mucho la atención. Yo estoy seguro de que existen muchas funciones que no están disponibles en GNU/Linux y me gustaría poder portearlas. Sin embargo, este artículo, solo demuestra un poco de desconocimiento o descontento con GNU/Linux y no una realidad.
+El otro día leí un artículo de Genbeta que enuncia **_[“Mi función favorita de Windows 10 y 11 sigue sin estar en Linux y macOS”](https://www.genbeta.com/windows/mi-funcion-favorita-windows-10-11-sigue-estar-linux-macos-asi-puedes-anadir-te-mejore-vida)_**. Como desarrollador me llamó mucho la atención. Yo estoy seguro de que existen muchas funciones que no están disponibles en GNU/Linux y me gustaría poder portearlas. Sin embargo, este artículo, solo demuestra un poco de desconocimiento o descontento con GNU/Linux y no una realidad.
 
 {{< img src="https://i.blogs.es/d6b8bd/portapapeles-windows-11/1366_2000.jpg" >}}
 

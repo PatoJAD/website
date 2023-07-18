@@ -79,4 +79,4 @@ Los permisos se especifican con los caracteres “r”, “w” y “x”. Aquí
 
 Algunos prefieren usar la notación octal, otros prefieren la simbólica. La notación simbólica ofrece la ventaja de permitirte establecer un atributo individual sin molestar a los otros.
 
-Échale un vistazo a la {{< textlink url="/post/2019/01/man-tu-manual-para-linux/" text="man page" >}} de chmod para más detalles y una lista de opciones. Una advertencia con respecto a la opción “--recursive”: actúa tanto en archivos como en directorios, así que no es tan útil como uno esperaría, rara vez queremos que archivos y directorios tengan los mismos permisos.
+Échale un vistazo a la [man page](/post/2019/01/man-tu-manual-para-linux/) de chmod para más detalles y una lista de opciones. Una advertencia con respecto a la opción “--recursive”: actúa tanto en archivos como en directorios, así que no es tan útil como uno esperaría, rara vez queremos que archivos y directorios tengan los mismos permisos.

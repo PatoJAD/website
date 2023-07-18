@@ -10,7 +10,7 @@ img: 'https://proyectotictac.files.wordpress.com/2020/04/pantallazo-menu-milagro
 authors: ['PatoJAD']
 ---
 
-Ya con anterioridad hablamos de esta {{< textlink text="hermosa distribucion y mostramos el paso a paso de su instalación" url="/instalaciones/2020/06/instalcion-milagros/" >}}. Hoy venimos a completar o a sumar un poco desde mi punto de vista persona comentando que pienso yo de esta distribución.
+Ya con anterioridad hablamos de esta [hermosa distribucion y mostramos el paso a paso de su instalación](/instalaciones/2020/06/instalcion-milagros/). Hoy venimos a completar o a sumar un poco desde mi punto de vista persona comentando que pienso yo de esta distribución.
 
 ## Review
 
@@ -18,4 +18,4 @@ Recuerden que esto es meramente mi opinión y siempre trato de que sea construct
 
 {{< youtube id="FOTre6B8LUw" >}}
 
-Desde ya quiero agradecer a LPI del {{< textlink text="Proyecto TicTac" url="https://proyectotictac.com/" >}} por incluir los {{< textlink text="repos de la comunidad" url="/repositorio/" >}}! Y por siempre dar una mano!
+Desde ya quiero agradecer a LPI del [Proyecto TicTac](https://proyectotictac.com/) por siempre dar una mano!

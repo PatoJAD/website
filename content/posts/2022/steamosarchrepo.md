@@ -24,10 +24,10 @@ authors: ['PatoJAD']
 
 Vamos a agregar los repositorios de SteamOS (Holo y jupiter) a nuestra distribución de Arch Linux favorita. Esto puede sernos útil para poder acceder a sus apps, configuraciones y personalizaciones.
 
--   {{< textlink text="Repositorio Jupiter" url="https://steamdeck-packages.steamos.cloud/archlinux-mirror/jupiter/os/x86_64/" >}}
--   {{< textlink text="Repositorio Holo" url="https://steamdeck-packages.steamos.cloud/archlinux-mirror/holo/os/x86_64/" >}}
--   {{< textlink text="Todos los Repositorios" url="https://steamdeck-packages.steamos.cloud/archlinux-mirror/" >}}
--   {{< textlink text="Ultimas ISO" url="https://steamdeck-packages.steamos.cloud/archlinux-mirror/iso/latest/" >}}
+-   [Repositorio Jupiter](https://steamdeck-packages.steamos.cloud/archlinux-mirror/jupiter/os/x86_64/)
+-   [Repositorio Holo](https://steamdeck-packages.steamos.cloud/archlinux-mirror/holo/os/x86_64/)
+-   [Todos los Repositorios](https://steamdeck-packages.steamos.cloud/archlinux-mirror/)
+-   [Ultimas ISO](https://steamdeck-packages.steamos.cloud/archlinux-mirror/iso/latest/)
 
 Antes que nada te dejo el link donde vas a poder ver los repositorios posibles y los paquetes que tiene cada uno de estos.
 

@@ -42,11 +42,11 @@ o en español
 
 > Después de 1 año, 9 meses y 28 días de desarrollo, el proyecto **Debian** se enorgullece en presentar su nueva versión estable 12 (nombre en clave "bookworm").
 
-"bookworm" será “soportado” durante los próximos 5 años gracias a la combinación trabajo del {{< textlink url="https://security-team.debian.org/" text="equipo de seguridad de Debian" >}} y al {{< textlink url="https://wiki.debian.org/LTS" text="equipo de Debian LTS" >}}.
+"bookworm" será “soportado” durante los próximos 5 años gracias a la combinación trabajo del [equipo de seguridad de Debian](https://security-team.debian.org/) y al [equipo de Debian LTS](https://wiki.debian.org/LTS).
 
 ## Resolución non-free
 
-De acuerdo con la resolución de paquetes no libres (del 2022 que generó polémica para aquellos que siguen un ideal no financiado más que la usabilidad) se decidió separar el {{< textlink text="firmware no libre" url="https://www.debian.org/vote/2022/vote_003" >}} del resto de paquetes no libres, con el fin de poder elegir el uso del firmware y no de librerías o software non free (Lo que parece un punto medio entre la lógica de tener una distro usable en cualquier equipo y el intento de usar software libre todo lo que sea posible)
+De acuerdo con la resolución de paquetes no libres (del 2022 que generó polémica para aquellos que siguen un ideal no financiado más que la usabilidad) se decidió separar el [firmware no libre](https://www.debian.org/vote/2022/vote_003) del resto de paquetes no libres, con el fin de poder elegir el uso del firmware y no de librerías o software non free (Lo que parece un punto medio entre la lógica de tener una distro usable en cualquier equipo y el intento de usar software libre todo lo que sea posible)
 
 ## Escritorios
 

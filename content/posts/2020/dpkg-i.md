@@ -9,7 +9,7 @@ img: 'https://i.postimg.cc/50Zt795X/image.png'
 authors: ['PatoJAD']
 ---
 
-Anteriormente hablamos de {{< textlink text="cómo crear paquetes .deb" url="/post/2020/04/como-crear-un-deb-con-dpkg/" >}} en Debian, Ubuntu o derivadas utilizando el gestor de paquetes dpkg, sin embargo hoy llego el dia de dar un pequeño paso hacia atrás y ver como se instala utilizando el mismo gestor.
+Anteriormente hablamos de [cómo crear paquetes .deb](/post/2020/04/como-crear-un-deb-con-dpkg/) en Debian, Ubuntu o derivadas utilizando el gestor de paquetes dpkg, sin embargo hoy llego el dia de dar un pequeño paso hacia atrás y ver como se instala utilizando el mismo gestor.
 
 Antes de iniciar quiero agradecer a Julio por brindar la información y obviamente a la autora de todo esto que es nada más ni nada menos que Gabriela González.
 
@@ -45,7 +45,7 @@ Si queremos **purgar** la isntalaición, es decir borrar todos los rastros del p
 
     dpkg -P paquete.deb
 
-Si quieren conocer más a fondo esta herramienta, pueden leer el manual de Debian sobre la {{< textlink text="manipulación de paquetes con dpkg" url="https://debian-handbook.info/browse/es-ES/stable/sect.manipulating-packages-with-dpkg.html" >}}.
+Si quieren conocer más a fondo esta herramienta, pueden leer el manual de Debian sobre la [manipulación de paquetes con dpkg](https://debian-handbook.info/browse/es-ES/stable/sect.manipulating-packages-with-dpkg.html).
 
 ---
 

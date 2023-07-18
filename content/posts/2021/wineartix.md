@@ -30,8 +30,8 @@ Ya con anterioridad me consultaron de como instalar Wine en Artix, esto me llev√
 
 Si venis por Artix o cualquier distro de Arch te recomiendo que veas de antemano las instalaciones y configuraciones de las que hago uso en el video y doy por sabido estas son
 
--   {{< textlink text="Multilib" url="/post/2021/03/activar-multilib-artix/">}}
--   {{< textlink text="yay" url="/post/2020/10/instalar-yay-en-artix-linux/">}}
+-   [Multilib](/post/2021/03/activar-multilib-artix/)
+-   [yay](/post/2020/10/instalar-yay-en-artix-linux/)
 
 ## Video
 
@@ -99,7 +99,7 @@ E instalamos la version que deseamos
 | Development branch | dnf install winehq-devel   |
 | Staging branch     | dnf install winehq-staging |
 
-Para otras distribuciones o BDS o MacOS revisar en su {{< textlink text="sitio oficial" url="https://wiki.winehq.org/Download" >}}
+Para otras distribuciones o BDS o MacOS revisar en su [sitio oficial](https://wiki.winehq.org/Download)
 
 ### Arch
 

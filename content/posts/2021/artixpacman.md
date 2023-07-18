@@ -24,7 +24,7 @@ img: 'https://i.postimg.cc/MH1q52GV/pacmanparalelo.png'
 authors: ['PatoJAD']
 ---
 
-Como mencionamos {{< textlink text="hace un tiempo llegó pacman 6" url="/post/2021/06/llegó-pacman-v6-y-pamac-quedó-anonadado/" >}}, y la primera impresión para algunos no fue buena porque pamac no estaba a la altura ni estaba preparado para esto. Sin embargo ya está todo solucionado y podemos comenzar a sacarle el mejor provecho a esto. En esta oportunidad vamos a hablar de una nueva opción que seguro queremos tener habilitada en nuestra distro…
+Como mencionamos [hace un tiempo llegó pacman 6](/post/2021/06/llegó-pacman-v6-y-pamac-quedó-anonadado/), y la primera impresión para algunos no fue buena porque pamac no estaba a la altura ni estaba preparado para esto. Sin embargo ya está todo solucionado y podemos comenzar a sacarle el mejor provecho a esto. En esta oportunidad vamos a hablar de una nueva opción que seguro queremos tener habilitada en nuestra distro…
 
 ## Descargas en paralelo
 

@@ -23,7 +23,7 @@ Como se puede observar en **el esquema el servidor proxy está en la fontera ent
 
 Cuando un PC de la red interna quiere visitar una página lo que hace en realidad es pedírsela al servidor proxy. Una vez hecha la petición el servidor proxy hará **dos comprobaciones**. La primera será **mirar si la web solicitada está en su lista de webs permitidas** (si se tiene configurado un proxy restrictivo) o **mirará que no esté en su lista de webs denegadas** (si ste tiene configurado en modo permisivo). En el caso de que la web no esté restringida el servidor proxy pasará a servirla al PC que la solicitó.
 
-Para poder servirla será el proxy quien se comunique con la web (ubicada en la red externa, internet), la analice y se la sirva al cliente. **Si la página contenía algun tipo de {{< textlink url="/post/2020/04/el-papel-de-javascript-en-la-seguridad/" text="código malicioso en javascript" >}} y el servidor proxy lo detecta lo eliminará** y protegerá al PC sirviéndole la página limpia de código malicioso.
+Para poder servirla será el proxy quien se comunique con la web (ubicada en la red externa, internet), la analice y se la sirva al cliente. **Si la página contenía algun tipo de [código malicioso en javascript](/post/2020/04/el-papel-de-javascript-en-la-seguridad/) y el servidor proxy lo detecta lo eliminará** y protegerá al PC sirviéndole la página limpia de código malicioso.
 
 ---
 
@@ -45,13 +45,13 @@ Con independencia de si esto está bien o está mal, un ciudadano que viva en un
 
 ---
 
-Un servidor proxy te evita **bloqueos por {{< textlink url="/post/2020/01/direcciones-ips-nuestra-huella-en-la-red/" text="IP" >}}**. Cuando nos vemos obligados a compartir una red (en hoteles, cibercafés, redes públicas...) estamos compartiendo nuestra IP pública con todos los usuarios de la red local en la que estamos conectados.
+Un servidor proxy te evita **bloqueos por [IP](/post/2020/01/direcciones-ips-nuestra-huella-en-la-red/)**. Cuando nos vemos obligados a compartir una red (en hoteles, cibercafés, redes públicas...) estamos compartiendo nuestra IP pública con todos los usuarios de la red local en la que estamos conectados.
 
 Recordemos, en una red local cada dispositivo tiene una IP privada que lo identifica dentro de la red, pero todos **comparten la misma IP pública**. Si un usuario realiza una acción que conlleve un baneo en un portal de la IP pública que compartes con dicho usuario si dispones de un servidor proxy ubicado fuera de la red podrás seguir accediendo ya que será tu servidor proxy **quien acceda al portal web por ti** con su IP pública.
 
 ---
 
-Un servidor proxy **OCULTA TU IDENTIDAD**. En internet tu {{< textlink text="identidad es tu IP" url="/post/2020/01/direcciones-ips-nuestra-huella-en-la-red/" >}}, en el momento que pones un servidor proxy por medio es su IP la que sale al mundo para darte las páginas que solicitas.
+Un servidor proxy **OCULTA TU IDENTIDAD**. En internet tu [identidad es tu IP](/post/2020/01/direcciones-ips-nuestra-huella-en-la-red/), en el momento que pones un servidor proxy por medio es su IP la que sale al mundo para darte las páginas que solicitas.
 
 Normalmente "no hay necesidad" de ocultar tu IP a las webs que visitas, pero en algunas ocasiones puede que no quieras dejar constancia de que has estado ahí. En este caso un servidor proxy es justo lo que necesitas. Quizá puedas preguntarte que aunque el servidor final desconozca tu IP el proxy **podría guardar una relacción entre tu IP y lo que has vistado**. Esto es cierto, el servidor proxy tiene la capacidad de almacenar que página web ha pedido cada IP.
 

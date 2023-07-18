@@ -25,4 +25,4 @@ Aquí está el registro de cambios **tentativo**. Nuevamente, esto puede **cambi
 
 Si bien esto es tentativo podemso ver que se destacan 2 juegos al soporte oficial (Lo cual habre a la puerta a a que se descubran mas juegos no oficialmente). Es interesante ver como esta progresando y como va mejorando el soporte lo cual nos mantiene a la espectativa de que Valve sigue apostando por linix!
 
-Mas informacion {{< textlink url="https://github.com/ValveSoftware/Proton/issues/3814" text="en su repositorio" >}}
+[Mas informacion](https://github.com/ValveSoftware/Proton/issues/3814)

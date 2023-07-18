@@ -39,4 +39,4 @@ Si bien la instalación es muy simple y la puede hacer un Usuario novato o un Us
 
 {{< youtube id="3yoQSKFojt0" >}}
 
-También les dejo el {{< textlink url="https://www.primeos.in/download" text="link" >}} de descarga.
+También les dejo el [link](https://www.primeos.in/download) de descarga.

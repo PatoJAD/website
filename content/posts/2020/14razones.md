@@ -79,4 +79,4 @@ Bueno esto depende del menú en específico que usemos y de la distro, pero es v
 
 El resumen es impecable, esta persona nos cuenta su punto de vista y nosotros podemos discrepar, pero la realidad al fin de cuenta es que siempre depende de que es lo que el usuario quiera y a que se adapte mejor.
 
-{{< textlink text="Fuente" url="http://principiante-linux.blogspot.com/2008/06/14-razones-para-utilizar-linux-en-lugar.html" >}}
+[Fuente](http://principiante-linux.blogspot.com/2008/06/14-razones-para-utilizar-linux-en-lugar.html)

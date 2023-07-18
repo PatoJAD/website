@@ -24,11 +24,11 @@ img: 'https://i.postimg.cc/VLFDwX0q/winebottles.png'
 authors: ['PatoJAD']
 ---
 
-Tras lo charlado la semana anterior en {{< textlink url="https://patojad.com.ar/post/2022/04/usar-wine-o-emular/" text="¿Usar Wine o Emular?" >}} se disparó una pregunta sobre si bottles era recomendable o perjudicaba el trabajo de wine. ¿Si es tan bueno algo malo debe tener? fue una de las dudas que planteaban por lo cual decidí charlar un poco de este tema.
+Tras lo charlado la semana anterior en [¿Usar Wine o Emular?](/post/2022/04/usar-wine-o-emular/) se disparó una pregunta sobre si bottles era recomendable o perjudicaba el trabajo de wine. ¿Si es tan bueno algo malo debe tener? fue una de las dudas que planteaban por lo cual decidí charlar un poco de este tema.
 
 ## Video
 
-En el video hablo sobre nuestro amigo Zatiel del cual **puedes ver su canal en la sección de sitios amigos** y te dejo el {{< textlink text="link al clip" url="https://clips.twitch.tv/IncredulousPiercingBubbleteaRickroll-CAbDyyKFPB6Ulww2?tt_content=url&tt_medium=clips_api" >}} donde realiza el reclamo por no estar accidentalmente en esta sección
+En el video hablo sobre nuestro amigo Zatiel del cual **puedes ver su canal en la sección de sitios amigos** y te dejo el [link al clip](https://clips.twitch.tv/IncredulousPiercingBubbleteaRickroll-CAbDyyKFPB6Ulww2?tt_content=url&tt_medium=clips_api) donde realiza el reclamo por no estar accidentalmente en esta sección
 
 {{< youtube id="nWNe8Dr0a8w" >}}
 

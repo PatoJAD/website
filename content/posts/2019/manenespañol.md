@@ -22,7 +22,7 @@ img: 'https://i.postimg.cc/KzCKCYTb/aplicar-la-configuracion-regional-patojad.pn
 authors: ['PatoJAD']
 ---
 
-Ya hablamos de man y podes verlo {{< textlink url="/post/2019/01/man-tu-manual-para-linux/" text="aquí" >}}. Sin embargo muchas personas no tienen dominio del Inglés o simplemente no quieren estar traduciendo todo constantemente. Para esas personas les traigo una forma de poner las páginas de man en Español, antes de iniciar con esto debo aclarar que solo estará en Español lo que tiene una traducción. Puede que algunas cosas no dispongan este idioma y lo veamos en Inglés. En dicho caso se puede colaborar con la traducción.
+Ya hablamos de man y podes verlo [aquí](/post/2019/01/man-tu-manual-para-linux/). Sin embargo muchas personas no tienen dominio del Inglés o simplemente no quieren estar traduciendo todo constantemente. Para esas personas les traigo una forma de poner las páginas de man en Español, antes de iniciar con esto debo aclarar que solo estará en Español lo que tiene una traducción. Puede que algunas cosas no dispongan este idioma y lo veamos en Inglés. En dicho caso se puede colaborar con la traducción.
 
 ## Video
 

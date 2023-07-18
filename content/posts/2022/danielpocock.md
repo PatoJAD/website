@@ -47,5 +47,5 @@ Si bien puede que el comportamiento de Daniel Pocock parezca atacante (y lo es) 
 
 Todo esto lo puedes leer directamente de debian.community donde está todo muy bien explicado. También recomiendo leer el descargo (más antiguo que lo reciente pasado con el dominio) que también muestra su postura.
 
--   {{< textlink text="Descargo de Daniel Pocock" url="https://danielpocock.com/debian-debconf-diversity-harassment-abuse-expulsion/" >}}
--   {{< textlink text="Debian" url="https://www.debian.org/legal/debian-community-site" >}}
+-   [Descargo de Daniel Pocock](https://danielpocock.com/debian-debconf-diversity-harassment-abuse-expulsion/)
+-   [Debian](https://www.debian.org/legal/debian-community-site)

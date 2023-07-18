@@ -9,7 +9,7 @@ img: 'https://blog.universaldeidiomas.com/wp-content/uploads/2016/06/Expresar_op
 authors: ['PatoJAD']
 ---
 
-Como bien saben hace unos dias hice el post {{< textlink text="4 Mitos Falsos de Linux" url="/post/2020/05/4-mitos-falsos-de-linux/" >}} esperando aclarar un poco lo que se piensa o lo que se debate sobre linux. Sin embargo esto desató muchas voces postulando sus ideas y como todos sabemos que nadie tiene la verdad absoluta, decidí tomarme el permiso de publicar sus ideas, como siempre digo, cualquiera puede usar este post para plasmar una idea porque lo importante es que no se pierda en una conversación.
+Como bien saben hace unos dias hice el post [4 Mitos Falsos de Linux](/post/2020/05/4-mitos-falsos-de-linux/) esperando aclarar un poco lo que se piensa o lo que se debate sobre linux. Sin embargo esto desató muchas voces postulando sus ideas y como todos sabemos que nadie tiene la verdad absoluta, decidí tomarme el permiso de publicar sus ideas, como siempre digo, cualquiera puede usar este post para plasmar una idea porque lo importante es que no se pierda en una conversación.
 
 ## La consigna
 
@@ -196,7 +196,7 @@ Perdon no queria gritarte :(
 >
 
 
-Les paso el chivo a limpio pueden verlo bien en {{< textlink url="https://is.gd/NuK0Ys" text="su blog" >}} y este termino como una publicacion dentro de otra publicacion...
+Les paso el chivo a limpio pueden verlo bien en [su blog](https://is.gd/NuK0Ys) y este termino como una publicacion dentro de otra publicacion...
 
 ## Tu Turno
 

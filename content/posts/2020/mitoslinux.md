@@ -35,7 +35,7 @@ Bueno, esto es relativamente falso. Ha de ser real si **a mi hijo de 7 años le 
 
 Volviendo al tema, hoy por hoy una persona **puede utilizar una distribución de linux sin ningún problema**, no es necesario abrir la termina, ni saber informática ni mucho menos, los escritorios y las distribuciones (entendamos a esto como la comunidad) se esforzaron mucho para poder hacer esto posible y el mito de que linux es dificil de usar no tiene ningún fundamento.
 
-Esto podemos verlo en el experimento de {{< textlink utl="/post/2019/08/la-comunidad-opina-los-linuxnautas-con-do%C3%B1a-estela/" text="Doña Estela" >}}
+Esto podemos verlo en el experimento de [Doña Estela](/post/2019/08/la-comunidad-opina-los-linuxnautas-con-do%C3%B1a-estela/)
 
 ## NO VA A FUNCIONAR EN MI PC (**FALSO**)
 

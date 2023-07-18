@@ -32,7 +32,7 @@ Es importante destacar que las herramientas para este procedimiento se encuentra
 -   **iwlist**: Se obtiene información detallada de las redes inalámbricas disponibles.
 -   **nmcli**: Nos permite controlar NetworkManager y reportar el estado de la red, brindándonos la posibilidad de crear, mostrar, editar, eliminar, activar y desactivar las conexiones de red.
 
-Para conocer a detalle la sintaxis y el uso de cada uno de estos comandos podemos ejecutar el comando acompañado del argumento de ayuda, o bien {{< textlink url="/post/2019/01/man-tu-manual-para-linux/" text="utilizar man como ya vimos antes en el blog" >}}.
+Para conocer a detalle la sintaxis y el uso de cada uno de estos comandos podemos ejecutar el comando acompañado del argumento de ayuda, o bien [utilizar man como ya vimos antes en el blog](/post/2019/01/man-tu-manual-para-linux/).
 
 ## Conectandonos
 

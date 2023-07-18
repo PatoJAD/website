@@ -13,11 +13,11 @@ En este día se promueve el uso responsable y seguro de las nuevas tecnologías,
 
 {{< youtube id="zCepL8Xeqmo" >}}
 
-Para ayudarnos en esta asignatura pendiente, tenemos a nuestra disposición el portal {{< textlink text="concienciat" url="https://concienciat.gva.es" >}}. El objetivo de la plataforma es mejorar las habilidades y conocimientos de la sociedad en materia de ciberseguridad, siempre desde un punto de vista práctico y con transferencia directa de los conocimientos adquiridos a la vida personal y laboral de cada individuo.
+Para ayudarnos en esta asignatura pendiente, tenemos a nuestra disposición el portal [concienciat](https://concienciat.gva.es). El objetivo de la plataforma es mejorar las habilidades y conocimientos de la sociedad en materia de ciberseguridad, siempre desde un punto de vista práctico y con transferencia directa de los conocimientos adquiridos a la vida personal y laboral de cada individuo.
 
 {{< youtube id="WeHtEOMl8Xc" >}}
 
-Nuestros compañeros de CSIRT-CV han preparado un "{{< textlink text="pdf interactivo" url="https://concienciat.gva.es/infografias/dia-de-internet-segura-pdf-interactivo/" >}}" para este día tan especial, donde os será muy fácil acceder a los diferentes contenidos que podéis encontrar en su web "concienciaT", y así mejorar tus hábitos en el uso de las tecnologías y podran sentirse cada vez más seguros.
+Nuestros compañeros de CSIRT-CV han preparado un "[pdf interactivo](https://concienciat.gva.es/infografias/dia-de-internet-segura-pdf-interactivo/)" para este día tan especial, donde os será muy fácil acceder a los diferentes contenidos que podéis encontrar en su web "concienciaT", y así mejorar tus hábitos en el uso de las tecnologías y podran sentirse cada vez más seguros.
 
 {{< img src="https://concienciat.gva.es/wp-content/uploads/2020/02/infog_dia_internet_segura_interactivo_cas.png" >}}
 

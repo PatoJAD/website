@@ -9,7 +9,7 @@ img: 'https://blog.desdelinux.net/wp-content/uploads/2014/10/ftp-ls-600x191.png'
 authors: ['PatoJAD']
 ---
 
-ya hablamos anteriormente de {{< textlink text="como instalar nuestro servidor FTP" url="/post/2020/02/servidor-ftp-qué-es-instalando-nuestro-propio-servidor/" >}}. Hoy veremos cómo trabajar con un servidor tan solo con comandos FTP. Puede que te preguntes de qué vale conocer los comandos de un servidor FTP si hoy día cualquier herramienta de gestión gráfica nos puede hacer todo el trabajo de forma fácil y sencilla. Sin embargo siempre es util conocerlo para poder trabajar lo mas bajo nivel que podamos.
+ya hablamos anteriormente de [como instalar nuestro servidor FTP](/post/2020/02/servidor-ftp-qué-es-instalando-nuestro-propio-servidor/). Hoy veremos cómo trabajar con un servidor tan solo con comandos FTP. Puede que te preguntes de qué vale conocer los comandos de un servidor FTP si hoy día cualquier herramienta de gestión gráfica nos puede hacer todo el trabajo de forma fácil y sencilla. Sin embargo siempre es util conocerlo para poder trabajar lo mas bajo nivel que podamos.
 
 ## ¿Por qué utilizar comandos FTP?
 
@@ -28,7 +28,7 @@ En estos servidores podrás logearte como "anonymous" y dejando la clave en blan
 
 Antes de empezar a trabajar los comandos que sirven para conectarse, descargar y subir archivos a un servidor FTP entre otras muchas acciones. Vamos a tener claros algunos conceptos. En primer lugar debes saber que los servidores FTP trabajan por defecto en el puerto 21. Esto es, cuando aprendamos hacer escáners en la red, si detectamos que una máquina tiene el puerto 21 abierto con mucha probabilidad se tratará de un servidor FTP. Y digo con mucha probabilidad puesto que el puerto 21 es el puerto por defecto, el puerto estándar, pero esto se puede cambiar y es una medida de seguridad que emplean muchos administradores de sistemas para esconder sus servidores FTP. No obstante también puede ser que estemos conectando a servidores falsos, (honeypots) que son servidores destinados a engañar a las personas que intentan ingresar sin permisos creyendose "hackers" o salidos de alguna serie y hacerles perder el tiempo intentando conectar a un servidor que en realidad está vacio y solo emula un servidor FTP.
 
-Antes que nada recomiendo utilizar siempre man para poder ver la especificacion para lo cual les dejo el {{< textlink text="link de la publicacion" url="/post/2019/01/man-tu-manual-para-linux/" >}}
+Antes que nada recomiendo utilizar siempre man para poder ver la especificacion para lo cual les dejo el [link de la publicacion](/post/2019/01/man-tu-manual-para-linux/)
 
     man ftp
 

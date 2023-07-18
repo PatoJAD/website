@@ -22,7 +22,7 @@ authors: ['PatoJAD']
 
 {{< img src="https://cadenaser00.epimg.net/ser/imagenes/2019/08/27/ser_madrid_sur/1566920041_790600_1566920146_noticia_normal.jpg" >}}
 
-Todos conocemos este gran juego o la gran mayoría, yo creo que junto al **Lineage 2** y el **{{< textlink url="/post/2019/05/como-instalar-mu-online-en-linux/" text="MU" >}}** son los _MMORPG_ que marcaron mi infancia, y hoy por hoy sigue siendo uno de los juegos que nos sorprenden y nos dan mucha emoción a cambio de horas de nuestra vida.
+Todos conocemos este gran juego o la gran mayoría, yo creo que junto al **Lineage 2** y el **[MU](/post/2019/05/como-instalar-mu-online-en-linux/)** son los _MMORPG_ que marcaron mi infancia, y hoy por hoy sigue siendo uno de los juegos que nos sorprenden y nos dan mucha emoción a cambio de horas de nuestra vida.
 
 ## ¿Hasta donde llego?
 
@@ -107,7 +107,7 @@ E instalamos la version que deseamos
 | Development branch | dnf install winehq-devel   |
 | Staging branch     | dnf install winehq-staging |
 
-Para otras distribuciones o BDS o MacOS revisar en su {{< textlink text="sitio oficial" url="https://wiki.winehq.org/Download" >}}
+Para otras distribuciones o BDS o MacOS revisar en su [sitio oficial](https://wiki.winehq.org/Download)
 
 ### Arch
 
@@ -119,7 +119,7 @@ Si estás en una distro basada en arch lo que recomiendo es instalar wine-stagin
 
 {{< img src="https://i.ytimg.com/vi/XwkaeAQcWRw/maxresdefault.jpg" >}}
 
-Volviendo al juego, en mi caso elegí un servidor especifico, conocido como {{< textlink url="https://www.wow-freakz.com/" text="Freakz" >}} que no es un paytowin y en el cual no hay colas largas para jugar. Una vez descargado lo descomprimimos en la carpeta que querramos en mi caso utilizo el directorio
+Volviendo al juego, en mi caso elegí un servidor especifico, conocido como [Freakz](https://www.wow-freakz.com/) que no es un paytowin y en el cual no hay colas largas para jugar. Una vez descargado lo descomprimimos en la carpeta que querramos en mi caso utilizo el directorio
 
     ~/Juegos/WoW
 

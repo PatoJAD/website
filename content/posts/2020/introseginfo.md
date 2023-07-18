@@ -15,15 +15,15 @@ El contenido es netamente lectura, sin videos de por medios porque comprende muc
 
 ## Las publicaciones
 
--   {{< textlink url="/posts/2020/01/direcciones-ips-nuestra-huella-en-la-red/" text="Direcciones IP: Nuestra Huella en la Red" >}}
--   {{< textlink url="/posts/2020/02/qué-hay-detrás-de-una-ip/" text="¿Qué hay detrás de una IP?" >}}
--   {{< textlink url="/posts/2020/02/servidor-ftp-qué-es-instalando-nuestro-propio-servidor/" text="Servidor FTP qué es, instalando nuestro propio servidor" >}}
--   {{< textlink url="/posts/2020/02/comandos-ftp/" text="Comandos FTP" >}}
--   {{< textlink url="/posts/2020/02/ftp-problemas-de-conexion-port-y-pasv/" text="FTP problemas de conexion, PORT y PASV" >}}
--   {{< textlink url="/post/2020/02/ingenieria-social-informatica/" text="Ingenieria social informatica" >}}
--   {{< textlink url="/posts/2020/02/que-es-la-virtualizacion/" text="¿Qué es la Virtualización?" >}}
--   {{< textlink url="/posts/2020/04/el-papel-de-javascript-en-la-seguridad/" text="El papel de Javascript en la seguridad" >}}
--   {{< textlink url="/posts/2020/04/servidor-proxy.-oculta-tu-identidad/" text="Servidor proxy. Oculta tu identidad" >}}
+-   [Direcciones IP: Nuestra Huella en la Red](/posts/2020/01/direcciones-ips-nuestra-huella-en-la-red/)
+-   [¿Qué hay detrás de una IP?](/posts/2020/02/qué-hay-detrás-de-una-ip/)
+-   [Servidor FTP qué es, instalando nuestro propio servidor](/posts/2020/02/servidor-ftp-qué-es-instalando-nuestro-propio-servidor/)
+-   [Comandos FTP](/posts/2020/02/comandos-ftp/)
+-   [FTP problemas de conexion, PORT y PASV](/posts/2020/02/ftp-problemas-de-conexion-port-y-pasv/)
+-   [Ingenieria social informatica](/post/2020/02/ingenieria-social-informatica/)
+-   [¿Qué es la Virtualización?](/posts/2020/02/que-es-la-virtualizacion/)
+-   [El papel de Javascript en la seguridad](/posts/2020/04/el-papel-de-javascript-en-la-seguridad/)
+-   [Servidor proxy. Oculta tu identidad](/posts/2020/04/servidor-proxy.-oculta-tu-identidad/)
 
 Con estas pocas lecturas alcanza para comenzar a entender los conceptos iniciales de la seguridad informática.
 
@@ -31,7 +31,7 @@ Con estas pocas lecturas alcanza para comenzar a entender los conceptos iniciale
 
 En este mundo es importante estar al día con los datos y las actualizaciones, por lo cual te dejamos un bonus que es realmente interesante para todos los usuarios centrados en la seguridad
 
--   {{< textlink url="/posts/2020/03/http/3-una-internet-mas-rapida/" text="HTTP/3 ¿Una internet mas rapida?" >}}
+-   [HTTP/3 ¿Una internet mas rapida?](/posts/2020/03/http/3-una-internet-mas-rapida/)
 
 ---
 

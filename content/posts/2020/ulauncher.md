@@ -19,11 +19,11 @@ Escriba el nombre de una aplicación sin preocuparse por la ortografía. Ulaunch
 
 ## Temas de colores personalizados
 
-Ulauncher proporciona 4 temas integrados. Pero si necesita algo diferente, siempre puede crear un {{< textlink url="https://gist.github.com/gornostal/02a232e6e560da7946c053555ced6cce" text="tema de color personalizado" >}}. Los documentos que necesitaras para esto están {{< textlink url="https://docs.ulauncher.io/en/latest/themes/themes.html" text="aquí" >}}
+Ulauncher proporciona 4 temas integrados. Pero si necesita algo diferente, siempre puede crear un [tema de color personalizado](https://gist.github.com/gornostal/02a232e6e560da7946c053555ced6cce). Los documentos que necesitaras para esto están [aquí](https://docs.ulauncher.io/en/latest/themes/themes.html)
 
 ## Atajos y extensiones
 
-Mejore su flujo de trabajo con accesos directos y {{< textlink url="https://ext.ulauncher.io/" text="extensiones personalizables" >}}. Cree un acceso directo para la búsqueda web o sus scripts o instale una extensión de terceros
+Mejore su flujo de trabajo con accesos directos y [extensiones personalizables](https://ext.ulauncher.io/). Cree un acceso directo para la búsqueda web o sus scripts o instale una extensión de terceros
 
 ## Navegador rápido de directorios
 

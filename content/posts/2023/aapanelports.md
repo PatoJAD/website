@@ -31,7 +31,7 @@ img: 'https://i.postimg.cc/XNRRTBwn/aapanel.webp'
 authors: ['PatoJAD']
 ---
 
-Vamos a ver que puertos tenemos que tener habilitados para que aapanel funcione correctamente. Y como abrirlos en nuestro servidor utilizando `ufw`. Recuerda que si instalaste tal como lo vimos en el video anterior de {{< textlink text="instalar aapanel" link="/post/2023/06/instalar-aapanel/" >}} y no estas pudiendo ingresar a la url que dio el panel entonces es porque alguno de estos puertos no se encuentra abierto.
+Vamos a ver que puertos tenemos que tener habilitados para que aapanel funcione correctamente. Y como abrirlos en nuestro servidor utilizando `ufw`. Recuerda que si instalaste tal como lo vimos en el video anterior de [instalar aapanel](/post/2023/06/instalar-aapanel/) y no estas pudiendo ingresar a la url que dio el panel entonces es porque alguno de estos puertos no se encuentra abierto.
 
 ## Puertos
 

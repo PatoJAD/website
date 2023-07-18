@@ -20,7 +20,7 @@ img: 'https://i.postimg.cc/BZzC6LnL/Captura-de-pantalla-de-2020-11-13-08-49-00.p
 authors: ['PatoJAD']
 ---
 
-Anteriormente hablamos de {{< textlink url="/posts/2020/11/scrcpy/" text="como utilizar nuestro celular con android desde nuestra PC" >}}, aunque en este tutorial solo hablamos de como usarlo cuando nuestro celular esta conectado via USB. Sin embargo este método puede no ser el más cómodo en todos los casos y por eso un miembro de la comunidad nos facilitó el método para poder usarlo de la misma forma pero vía Wi-Fi. Es importante recalcar que **tanto la PC como el dispositivo móvil tienen que estar en la misma red Wi-Fi.**
+Anteriormente hablamos de [como utilizar nuestro celular con android desde nuestra PC](/posts/2020/11/scrcpy/), aunque en este tutorial solo hablamos de como usarlo cuando nuestro celular esta conectado via USB. Sin embargo este método puede no ser el más cómodo en todos los casos y por eso un miembro de la comunidad nos facilitó el método para poder usarlo de la misma forma pero vía Wi-Fi. Es importante recalcar que **tanto la PC como el dispositivo móvil tienen que estar en la misma red Wi-Fi.**
 
 ## Usarlo por Wi-Fi
 
@@ -77,7 +77,7 @@ Has habilitado exitosamente la conexión a ADB a través de la red WiFi de tu An
 
 {{< img src="https://i.postimg.cc/7YTnTH5B/Captura-de-pantalla-de-2020-11-13-09-15-56.png" >}}
 
-Una vez que tenemos el dispositivo conectado correctamente (Sugiero mantener la ip estática para evitar tener que reconectar cuando nuestro dispositivo se reconecte a la red) También recuerden que es estrictamente necesario verificar la {{< textlink url="/aplicaciones/2020/11/scrcpy/" text="instalación que vimos en la publicación anterior">}}. Si todo lo anterior está OK vamos a poder usar el comando:
+Una vez que tenemos el dispositivo conectado correctamente (Sugiero mantener la ip estática para evitar tener que reconectar cuando nuestro dispositivo se reconecte a la red) También recuerden que es estrictamente necesario verificar la [instalación que vimos en la publicación anterior](/aplicaciones/2020/11/scrcpy/). Si todo lo anterior está OK vamos a poder usar el comando:
 
 ```bash
 scrcpy

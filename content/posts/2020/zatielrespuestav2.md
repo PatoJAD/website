@@ -27,7 +27,7 @@ En esta oportunidad la idea es diferenciar como primordial que linux si es un si
 
 Yo soy partidario de muchas cosas que presentan su antagónico en el video de nuestro amigo, por lo cual puede que mi punto de vista sea obnubilado por esta posturas y las voy a detallar acá:
 
--   {{< textlink text="Se puede jugar en linux" url="/post/2020/07/se-puede-jugar-en-linux/" >}} y no requieres una master race.
+-   [Se puede jugar en linux](/post/2020/07/se-puede-jugar-en-linux/) y no requieres una master race.
 -   Los programas tienen que cumplir su funcionalidad y nada más
 -   No porque haya recursos significa que sea necesario consumirlos (apuntando a los malos hábitos de programación solo porque los equipos son más potentes, desaparovechandolos y bajando la performance que deberían tener)
 
