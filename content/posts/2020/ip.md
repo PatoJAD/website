@@ -5,7 +5,7 @@ description: 'Introduccion al concepto de conectividad TCP/IP para poder empezar
 type: 'post'
 tags: ['ip', 'red', 'internet']
 categories: ['Seguridad', 'Redes']
-img: 'https://www.hostgator.mx/blog/wp-content/uploads/2019/08/que-es-una-direccion-ip-blog-hostgator.png'
+img: 'https://i.postimg.cc/jj5fk0m7/queesunaip.webp'
 authors: ['PatoJAD']
 ---
 

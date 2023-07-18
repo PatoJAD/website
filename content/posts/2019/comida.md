@@ -16,7 +16,7 @@ tags:
         'software',
     ]
 categories: ['Linux', 'Windows', 'MacOS']
-img: 'https://i.postimg.cc/qvgbM1qQ/mastiquin.jpg'
+img: 'https://i.postimg.cc/hvTQ8nvR/comidalinux.webp'
 authors: ['PatoJAD']
 ---
 

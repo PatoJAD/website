@@ -5,7 +5,7 @@ description: '¿Es posible que las universidades exijan el uso de software priva
 type: 'post'
 tags: ['unq', 'universidades', 'publicas', 'privativas', 'critica']
 categories: ['Noticias']
-img: 'https://comoabriruncandado.com/wp-content/uploads/2020/01/bolt-2352669_1280-1200x800.jpg'
+img: 'https://i.postimg.cc/Pq4wqFj4/unqprivada.webp'
 authors: ['PatoJAD']
 ---
 

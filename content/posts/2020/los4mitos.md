@@ -194,7 +194,7 @@ Perdon no queria gritarte :(
 > &======NOTA FINAL =====&
 > Si, queremos que esto cambie y mejore los usuarios que formamos las diferentes comunidades debemos de ser humildes y pensar que en algún momento todos empezamos y ayudar a los demás dando las mayores facilidades que podamos a los no iniciados.
 >
-> {{< citaname name="" >}}
+
 
 Les paso el chivo a limpio pueden verlo bien en {{< textlink url="https://is.gd/NuK0Ys" text="su blog" >}} y este termino como una publicacion dentro de otra publicacion...
 

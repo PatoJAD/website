@@ -5,7 +5,7 @@ description: 'Te cuento mi experiencia usando los dispositivos de Apple. En este
 type: 'post'
 tags: ['iphone', 'macos', 'ios', 'movil', 'celular', 'apple', 'ipad', 'ipod']
 categories: ['Noticias', 'MacOS', 'iOS']
-img: 'https://icdn7.digitaltrends.com/image/iphone-5s-hands-on-home-angle-1200x0.jpg?ver=2'
+img: 'https://i.postimg.cc/mgnJtRYL/iphone5s.webp'
 authors: ['PatoJAD']
 ---
 

@@ -5,7 +5,7 @@ description: 'En este caso vamos a usar DPKG para crear un instalador .deb para 
 type: 'post'
 tags: ['dpkg', 'deb', 'debian', 'crear', 'generar']
 categories: ['Programacion']
-img: 'https://vfac.fr/images/e/8/2/b/b/e82bbef495c9dc36327d78ceef224abae2ab2f7f-debianubuntupackage.png'
+img: 'https://i.postimg.cc/VNdxsv2L/dpkg.webp'
 authors: ['PatoJAD']
 ---
 

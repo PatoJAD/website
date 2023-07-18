@@ -39,7 +39,7 @@ tags:
         'gitlab pages gitlab pages',
     ]
 categories: ['Programacion', 'Redes']
-img: 'https://i.ytimg.com/vi/TWqh9MtT4Bg/maxresdefault.jpg'
+img: 'https://i.postimg.cc/fLMYjSZM/cloudflaregitlab.webp'
 authors: ['PatoJAD']
 ---
 

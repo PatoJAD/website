@@ -1,5 +1,6 @@
 ---
 title: 'Cursos'
+img: https://i.postimg.cc/G2jHcXWC/cursos.webp
 description: 'Cursos sobre tecnologia y programacion.'
 slug: cursos
 icon: 'courses'

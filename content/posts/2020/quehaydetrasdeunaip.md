@@ -5,7 +5,7 @@ description: 'Vamos a ver un poco mas a fondo lo que es una IP y la informacion 
 type: 'post'
 tags: ['ip', 'red', 'internet']
 categories: ['Redes']
-img: 'https://www.comparahosting.io/wp-content/uploads/2017/10/ip-privada-publica.png'
+img: 'https://i.postimg.cc/d1j5mKyT/ipprivada.webp'
 authors: ['PatoJAD']
 ---
 

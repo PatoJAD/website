@@ -5,7 +5,7 @@ description: 'Este es un proyecto libre sin fines de Lucro, esta dedicado  para 
 type: 'post'
 tags: ['plasmapple', 'gtk', 'kde', 'mac', 'ios', 'plasma', 'apple']
 categories: ['Estilo']
-img: 'https://i.ytimg.com/vi/JX3bh0XgTSE/maxresdefault.jpg'
+img: 'https://i.postimg.cc/RhHKPfP8/plasmapple.webp'
 authors: ['PatoJAD']
 ---
 

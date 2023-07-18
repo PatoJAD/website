@@ -5,7 +5,7 @@ description: 'El Día de Internet Segura se celebra cada año el segundo martes 
 type: 'post'
 tags: ['seguridad', 'internacional', 'internet']
 categories: ['Noticias']
-img: 'https://www.eleconomista.com.mx/__export/1569419376781/sites/eleconomista/img/2019/09/25/legal_portada_5_250919.png_1348255499.png'
+img: 'https://i.postimg.cc/zfKkk1gF/diadelaseguridad.webp'
 authors: ['PatoJAD']
 ---
 

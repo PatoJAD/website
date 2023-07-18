@@ -5,7 +5,7 @@ description: 'Muchas veces realizamos pruebas de velocidad, hoy vamos a ver como
 type: 'aplicaciones'
 tags: ['internet', 'velocidad', 'speed', 'test', 'cli', 'terminal', 'consola']
 categories: ['Aplicaciones']
-img: 'https://geekytheory.com/wp-content/uploads/2014/09/medir-ancho-de-banda-terminal-linux-ubuntu-speedtest-cli.png'
+img: https://i.postimg.cc/JhrhpNyY/speedtest.webp
 authors: ['PatoJAD']
 ---
 

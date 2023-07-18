@@ -23,7 +23,7 @@ tags:
         'entorno',
     ]
 categories: ['Programacion', 'Linux', 'Aplicaciones']
-img: 'https://i9.ytimg.com/vi_webp/wtGZngSiwn4/mqdefault.webp?v=63d07f2a&sqp=CJyN858G&rs=AOn4CLB2_2mtqIC0VnEx4HIXIy8rkxmAoA'
+img: https://i.postimg.cc/906MbsTy/nodelinux.webp
 authors: ['PatoJAD']
 ---
 

@@ -15,7 +15,7 @@ tags:
         'uso',
     ]
 categories: ['Linux']
-img: 'https://hipertextual.com/archivo/wp-content/uploads/2014/07/mitos-sobre-linux-portada.jpg'
+img: 'https://i.postimg.cc/VLXXnq00/mitoslinux.webp'
 authors: ['PatoJAD']
 ---
 

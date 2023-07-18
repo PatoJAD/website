@@ -1,5 +1,6 @@
 ---
 title: 'Noticias'
+img: https://i.postimg.cc/mrzYgWjG/novedades.webp
 description: 'Noticias y novedades sobre el mundo de la tecnologia.'
 slug: noticias
 icon: 'news'

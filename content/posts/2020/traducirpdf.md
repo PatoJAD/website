@@ -5,7 +5,7 @@ description: 'Muchas veces encontramos PDF en un idioma que no dominamos, ya sea
 type: 'post'
 tags: ['traducir', 'pdf', 'doc', 'translate', 'online']
 categories: ['Noticias']
-img: 'https://k60.kn3.net/taringa/0/B/B/E/9/7/De_la_cabeza/FAB.png'
+img: 'https://i.postimg.cc/FF0WN3CH/traducirpdf.webp'
 authors: ['PatoJAD']
 ---
 

@@ -5,7 +5,7 @@ description: 'Zatiel se tomo su tiempo para remarcar que SystemD no es le proble
 type: 'post'
 tags: ['systemd', 'inits', 'linux', 'zatiel', 'problema', 'respuesta']
 categories: ['Noticias', 'Linux']
-img: 'https://img.youtube.com/vi/iq1hyPOA0rA/maxresdefault.jpg'
+img: 'https://i.postimg.cc/GhvYNj2b/systemdproblem.png'
 authors: ['PatoJAD']
 ---
 

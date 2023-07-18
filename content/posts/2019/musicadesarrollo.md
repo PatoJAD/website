@@ -16,7 +16,7 @@ tags:
         'aplicaciones',
     ]
 categories: ['Linux', 'Aplicaciones', 'Programacion']
-img: 'https://i.postimg.cc/fyRSfK8k/00-program-music.png'
+img: 'https://i.postimg.cc/vZ1hcn8j/musicadesarrollo.webp'
 authors: ['tanomarcelo']
 ---
 

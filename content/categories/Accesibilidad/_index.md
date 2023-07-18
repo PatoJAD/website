@@ -1,5 +1,6 @@
 ---
 title: 'Accesibilidad'
+img: https://i.postimg.cc/hGLGrCPd/accesibilidad.webp
 description: 'Toda la informacion sobre Accesibilidad.'
 slug: accesibilidad
 icon: 'accesibility'

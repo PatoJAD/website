@@ -17,7 +17,7 @@ tags:
         'haiku',
     ]
 categories: ['Linux']
-img: 'https://sites.google.com/site/zeusprueba2/_/rsrc/1476305846774/sistemas-operativos/Captura.PNG'
+img: 'https://i.postimg.cc/2yLbT9N4/sistemasoperativo.webp'
 authors: ['PatoJAD']
 ---
 

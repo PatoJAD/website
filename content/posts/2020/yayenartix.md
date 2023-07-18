@@ -5,7 +5,7 @@ description: 'En esta oportunidad vamos a ver como instalar yay en Artix linux'
 type: 'post'
 tags: ['aur', 'aurman', 'yay', 'arch', 'artix', 'linux', 'instalar']
 categories: ['Linux']
-img: 'https://www.forosla.com/wp-content/uploads/2019/07/yayaur.jpg'
+img: https://i.postimg.cc/59T6fQGj/yay.webp
 authors: ['PatoJAD']
 ---
 

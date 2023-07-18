@@ -14,7 +14,7 @@ tags:
         'linux',
     ]
 categories: ['Aplicaciones', 'Linux']
-img: 'https://www.dz-techs.com/wp-content/uploads/2018/01/pe-krunner-DzTechs.jpg'
+img: 'https://i.postimg.cc/WbdgnvRq/krunerkde.webp'
 authors: ['PatoJAD']
 ---
 

@@ -19,13 +19,13 @@ tags:
         'android-x86',
     ]
 categories: ['Noticias', 'Android']
-img: https://i.postimg.cc/cL1qyB0x/prime-Os-Artwork2-X.png'
+img: https://i.postimg.cc/GtrgDmgD/primeos.webp
 authors: ['PatoJAD']
 ---
 
-Hace tiempo pasaron proyectos como RemixOS o Phoenix OS pero perdieron el enfoque callendo en el olvido y terminando por desaparecer. Sin embargo Android en una PC es una buena salida para todos aquellos que tenemos algún equipo antiguo en el cual nos sirve para estudiar o realizar búsquedas y demás.
+Hace tiempo pasaron proyectos como **RemixOS** o **Phoenix OS** pero perdieron el enfoque callendo en el olvido y terminando por desaparecer. Sin embargo Android en una PC es una buena salida para todos aquellos que tenemos algún equipo antiguo en el cual nos sirve para estudiar o realizar búsquedas y demás.
 
-Para esto llega PrimeOS desde su versión beta nos da una solución a mi criterio bastante optimizada y que si bien es una beta a la cual van a trabajar y actualizar constantemente es, a mi criterio, perfectamente funcional.
+Para esto llega **PrimeOS** desde su versión beta nos da una solución a mi criterio bastante optimizada y que si bien es una beta a la cual van a trabajar y actualizar constantemente es, a mi criterio, perfectamente funcional.
 
 {{< img src="https://i.postimg.cc/jjCGCqDB/laptop-2x.png" >}}
 

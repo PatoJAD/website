@@ -17,7 +17,7 @@ tags:
         'entrar',
     ]
 categories: ['Linux']
-img: 'https://cdn.statically.io/img/websetnet.net/f=auto%2Cq=60/wp-content/uploads/2019/06/Void-Linux-Neofetch-2.png'
+img: 'https://i.postimg.cc/vZLG8NjB/voidlinuxinstall.webp'
 authors: ['PatoJAD']
 ---
 

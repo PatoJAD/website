@@ -17,7 +17,7 @@ tags:
         'theme',
     ]
 categories: ['Estilo', 'Linux']
-img: 'https://cdn.pling.com/img/4/0/4/4/154af2067900edd86e4aee1f25bbdf603dcc.png'
+img: 'https://i.postimg.cc/BvHzWmSC/orchistheme.webp'
 authors: ['PatoJAD']
 ---
 

@@ -17,7 +17,7 @@ tags:
         'blur',
     ]
 categories: ['Estilo', 'Windows']
-img: 'https://chrisandriessen.nl/images/rsz_hero3.png'
+img: 'https://i.postimg.cc/XJNk2Lpq/taskbarx.webp'
 authors: ['PatoJAD']
 ---
 

@@ -15,7 +15,7 @@ tags:
         'contactar',
         'contactame',
     ]
-img: https://diteso.com.ar/wp/wp-content/uploads/2020/05/06_CONTACTO_VIVUS.jpg
+img: https://i.postimg.cc/R0YzwKwH/contacto.webp
 authors: [PatoJAD]
 ---
 
