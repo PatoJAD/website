@@ -37,7 +37,7 @@ Hasta ahorita, he instalado en mi sistema y probado cuatro de estos WM:
 
 Quizá [i3wm](https://i3wm.org/) sea el _Tiling Window Manager_ más famoso y el más amigable para los principiantes. Fue el primero que usé ya que instalé _Manjaro i3_. **i3** se configura mediante un archivo de texto, su documentación es muy buena y amplia (aunque en Inglés) y permite crear "layouts" tan complejas como se desee, algunas configuraciones rayando en lo ridículo.
 
-{{< img src="https://i.postimg.cc/rmfQp65n/i3.png" >}}
+![](https://i.postimg.cc/rmfQp65n/i3.png)
 
 Su manera de acomodar las ventanas es dinámica, es decir, tú tienes que indicarle a **i3** la orientación en que se dividirá el nodo, si vertical u horizontal (por defecto, se abren horizontal), algo que a mi casi no me gustó, ya que nunca le indicaba donde abrir la siguiente ventana y tenía 4 o 5 ventanas abiertas en horizontal, lo que las volvía imposibles de leer e inútiles. Viene con un panel llamado _i3bar_, que rápidamente cambié por **polybar** y opciones interesantes, como configurar "modos" con atajos de teclado especiales (similar a _VIM_).
 
@@ -49,13 +49,13 @@ Es un buen WM, muy bien documentado, aunque carece de "layouts" automáticas y p
 
 **Bspwm** se configura en 2 partes: un script de bash (`bspwmrc`) donde indicamos algunas reglas y configuraciones de ventanas, y la aplicación que deseemos usar para configurar atajos de teclado, aunque, como viene recomendado en la página de **Bspwm**, la mayoría usa [sxhkd](https://github.com/baskerville/sxhkd), pero podemos usar la que queramos, como _obkey_ o la herramienta de algún Entorno de Escritorio. Las ventanas se abren como "hojas de un arbol binario", es decir, al abrir una ventana, la última ventana abierta se divide en 2, ya sea vertical u horizontal, para ir formando una espiral, también se pueden preseleccionar donde queremos que se abra la nueva ventana, similar a _i3_, aunque en mi opinión, tiene un acomodo de ventanas manual más poderoso, al poder elegir la proporción en la que queremos se divida la ventana.
 
-{{< img src="https://i.postimg.cc/ZqCrL9Nc/bspwm.png" >}}
+![](https://i.postimg.cc/ZqCrL9Nc/bspwm.png)
 
 **Bspwm** no trae panel integrado, pero podemos usar _polybar_. Quizá el mayor problema con **Bspwm** sea su documentación, la cual es mala a morir, la única manera de figurarte que puedes hacer es leer el manual y comenzar a experimentar, o estudiar ya sea los ejemplos proporcionados en su página de GitHub o la configuración de alguien más, por otro lado tiene muchas opciones como "gaps", personalizar bordes, y es mucho más modular que _i3_, además está en constante desarrollo.
 
 ## Awesome
 
-{{< img src="https://i.postimg.cc/1z2D79cZ/awesome.png" >}}
+![](https://i.postimg.cc/1z2D79cZ/awesome.png)
 
 [Awesome](https://awesomewm.org/) es un WM desarrollado en _Lua_. Tiene mucha mejor integración con el ratón que los demás y es posible usarlo como un WM flotante, como _openbox_, incluso viene con bordes y botones de cerrar y minimizar, bandeja de notificaciones, temas, menú de ventanas abiertas y lanzador de aplicaciones.
 
@@ -67,7 +67,7 @@ Su configuración es en _Lua_, y este el mayor problema de **Awesome**. En mi op
 
 ## Qtile
 
-{{< img src="https://i.postimg.cc/hvbxGVFS/qtile.png" >}}
+![](https://i.postimg.cc/hvbxGVFS/qtile.png)
 
 La verdad que usé este Gestor de Ventanas solo porque [DistroTube](https://www.youtube.com/channel/UCVls1GmFKf6WlTraIb_IaJg) habla maravillas de él. [Qtile](http://www.qtile.org/) está escrito y configurado en _python_, un lenguaje que tampoco manejo, pero que es súper fácil de interpretar y puedes empezar a modificar y a entender como funcionan las cosas simplemente estudiando el código (a diferencia de _Lua_ que es mucho más caótico).
 

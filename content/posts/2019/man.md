@@ -30,7 +30,7 @@ Llevando esta analogía a GNU/Linux podríamos decir que cada producto es una ap
 
 Bueno, como dije si existe y se llama "man" pero... ¿Qué es man?, simplemente es una herramienta de los sistemas Unix que cumple la función de manual, donde se encuentra documentado todo acerca de comandos, archivos, llamadas a sistema, etc. Por lo cual tenemos acceso a un manual completo sobre nuestro Sistema Operativo que nos puede ayudar a solucionar mucho antes de hacer una pregunta.
 
-{{< img src="https://i.postimg.cc/HW4HqxXt/manual-patojad.png" >}}
+![](https://i.postimg.cc/HW4HqxXt/manual-patojad.png)
 
 ## ¿Cómo se usa?
 

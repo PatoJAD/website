@@ -37,7 +37,7 @@ Hay una lista soberbia de programas dedicados a tal fin, con interface gráfica 
 
 _VLC Media PLayer_ es un verdadero animal reproductor a la hora de guapear diretes sonoros. Conozco poco prontuario, pero tampoco es mi única opinión, este _gigante_ libre como el viento y de código abierto tira fuego por el caño de escape sin necesidad de instalar códecs y reproduce un listado de formatos que de poco nada tiene, lleva licencia _GPLv2.1_, puede correr sobre _GNU/Linux_, _Windows_, _macOS_, Flia. _BSD_, _Solaris_, _Android_, ¡ Ostia !, falta instalarlo en un reloj a cuerda y estamos todos.
 
-{{< img src="https://i.postimg.cc/2ybgwjTr/vlc-void.png" >}}
+![](https://i.postimg.cc/2ybgwjTr/vlc-void.png)
 
 Este Pibe camina bien en serio.
 
@@ -56,13 +56,13 @@ No es que haya sido dura mi vida, me quedo con lo que funciona bien. Tampoco hay
 
 _mpd_ es el servidor de audio, que si bien no será _VLC Media Player_, tengo que admitir que se defiende como gato panza arriba. Soporta formatos tales como _Ogg Vorbix_, _FLAC_, _Opus_, _WavPack_, _MP2_, _MP3_, _MP4_, _AAC_, puede transmitir sonido via streamming usando el protocolo HTTP, o en otras palabras, se puede gestionar el servidor de sonido a través de la red. <br> _ncmpcpp_ es el cliente del servidor anterior. Esto quiere decir que una vez ejecutado el motor de audio _(mpd)_, con escribir el comando _ncmpcpp_ en la terminal, ya tendríamos el reproductor corriendo, con lo que se vería algo parecido a esto:
 
-{{< img src="https://i.postimg.cc/DZ8BLjyX/2019-02-14-20-17-14-1280x720.png">}}
+![](https://i.postimg.cc/DZ8BLjyX/2019-02-14-20-17-14-1280x720.png)
 
 ### 2. _moc_
 
 Es un clasicazo de esos que uno lleva clavado en el pecho. <br>Juntos atravesamos épocas y devenires. Le guardo un cariño de la ostia. <br>Es un fierrazo, incolgable y pesa menos que un saquito de te. Lo cito aqui con captureta incluída, ya que nobleza obliga.
 
-{{< img src="https://i.postimg.cc/yNWFbJ4q/2019-03-26-17-40-22-1280x720.png">}}
+![](https://i.postimg.cc/yNWFbJ4q/2019-03-26-17-40-22-1280x720.png)
 
 ### 3. _mpv_
 
@@ -73,7 +73,7 @@ Que no tenga una interface gráfica por defecto acorde a la ceremonia _VLC_ no s
 
 Desde que aprendí a manejarlo, mi vida sigue igual, a que negarlo, pero anda como los dioses de bien (que no es poco) y lo declaro fiel ladero del aqui escribiente.
 
-{{< img src="https://i.postimg.cc/YSqHKHbB/mpv-void.png">}}
+![](https://i.postimg.cc/YSqHKHbB/mpv-void.png)
 
 He mencionado cuatro excelentes reproductores multimedia, _Buenos Muchachos_ todos.<br>
 Una reseña breve de mi paso por este mundo escuchando cosas que canta el Querido Pingüino.

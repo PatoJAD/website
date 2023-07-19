@@ -27,7 +27,7 @@ Probablemente muchos juegos que recomiende sean **Steam** o al menos es el caso 
 
 ## El juego de Hoy
 
-{{< img src="https://cdn.cloudflare.steamstatic.com/steam/apps/304930/header.jpg" >}}
+![](https://cdn.cloudflare.steamstatic.com/steam/apps/304930/header.jpg)
 
 El juego de hoy es un juego que siempre me negué a probar, no me parecía interesante o parecía aburrido. Pero a modo de investigación lo descargue y lo probe… Debo admitir que el juego es realmente entretenido y es realmente interesante.
 
@@ -35,7 +35,7 @@ El juego de hoy es un juego que siempre me negué a probar, no me parecía inter
 
 Eres uno de los pocos que aún no se ha convertido en un zombi, y mantenerse así será todo un reto.
 
-{{< img src="https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_2754a9cdb632e6ed242799e073711fe6306a4245.600x338.jpg?t=1590451726" >}}
+![](https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_2754a9cdb632e6ed242799e073711fe6306a4245.600x338.jpg?t=1590451726" >}}
 
 -   Dispárale a todo y atrae la atención de todos, no importa si están vivos o muertos.
 -   Acércate con sigilo utilizando distracciones.
@@ -45,7 +45,7 @@ Eres uno de los pocos que aún no se ha convertido en un zombi, y mantenerse as�
 
 A parte de los zombis, el mundo natural también hace la vida difícil.
 
-{{< img src="https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_db70f87c3635d930580b1365101952a72a14bd4e.600x338.jpg?t=1590451726" >}}
+![](https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_db70f87c3635d930580b1365101952a72a14bd4e.600x338.jpg?t=1590451726" >}}
 
 -   Busca frutas y vegetales silvestres.
 -   Caza animales para conseguir pieles y carne. También puede que seas la presa en dadas ocasiones.
@@ -57,7 +57,7 @@ A parte de los zombis, el mundo natural también hace la vida difícil.
 
 Ya sean amigos o enemigos, hay mucha gente interesante en línea.
 
-{{< img src="https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_6daaf570bf9b57647e44349a7f36e1f74064ca82.116x65.jpg?t=1590451726" >}}
+![](https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_6daaf570bf9b57647e44349a7f36e1f74064ca82.116x65.jpg?t=1590451726" >}}
 
 -   Arresta a ladrones con esposas y véndales los ojos para subyugarlos con una estrategia no letal.
 -   Lucha usando todo tipo de arma que te encuentres en el camino. Espadas, ametralladoras, rifles, misiles, minas, todo es bueno.
@@ -69,7 +69,7 @@ Ya sean amigos o enemigos, hay mucha gente interesante en línea.
 
 Hay muchas cosas que hacer, aunque juegues desconectado o tu solo.
 
-{{< img src="https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_de07d47b7f81d0f53100398369ac49803d0570bf.116x65.jpg?t=1590451726" >}}
+![](https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_de07d47b7f81d0f53100398369ac49803d0570bf.116x65.jpg?t=1590451726" >}}
 
 -   Conoce, habla y comercia con los NPCs.
 -   Completa misiones para continuar con la historia y ayudar a los NPCs.
@@ -81,7 +81,7 @@ Hay muchas cosas que hacer, aunque juegues desconectado o tu solo.
 
 Construye un lugar donde tú y tu equipo se puedan relajar, esconderse y planear lo que quieren hacer ya sea en la tierra o en el agua (literalmente).
 
-{{< img src="https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_dab75d876be53346a0a5a1fc5e3ae1a4b54ea926.116x65.jpg?t=1590451726" >}}
+![](https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_dab75d876be53346a0a5a1fc5e3ae1a4b54ea926.116x65.jpg?t=1590451726" >}}
 
 -   Construye barricadas, muebles, trampas, maquinarias y mucho más.
 -   Bloquea las ventanas de edificios para sobrevivir la noche en ese lugar.
@@ -92,7 +92,7 @@ Construye un lugar donde tú y tu equipo se puedan relajar, esconderse y planear
 
 Viaja como quieras cuando llenes tu garaje de vehículos distintos.
 
-{{< img src="https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_e9b5d9c8b1afc2aabd3e33ac9407a09bd9bffccb.600x338.jpg?t=1590451726" >}}
+![](https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_e9b5d9c8b1afc2aabd3e33ac9407a09bd9bffccb.600x338.jpg?t=1590451726" >}}
 
 -   Hay vehículos de tierra incluyendo tanques, cuatrimotos y motos de nieve.
 -   Hay vehículos de aire, incluyendo helicópteros, hidroaviones y aviones de combate.
@@ -103,7 +103,7 @@ Viaja como quieras cuando llenes tu garaje de vehículos distintos.
 
 Con cinco comunidades oficialmente activas y una comunidad supervisada, hemos creado un mapa sandbox con localidades enormes y listas para ser descubiertas:
 
-{{< img src="https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_e3e31ca656cbe3b2d186e6644588bee9fe59f1df.600x338.jpg?t=1590451726" >}}
+![](https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_e3e31ca656cbe3b2d186e6644588bee9fe59f1df.600x338.jpg?t=1590451726" >}}
 
 -   Las islas del Príncipe Eduardo
 -   El territorio del Yukón
@@ -116,7 +116,7 @@ Con cinco comunidades oficialmente activas y una comunidad supervisada, hemos cr
 
 Unturned fue creado desde el principio con la idea de crear mods.
 
-{{< img src="https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_b1cf12ba306180da433dcf199f6f4a2fa74e48bd.600x338.jpg?t=1590451726" >}}
+![](https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_b1cf12ba306180da433dcf199f6f4a2fa74e48bd.600x338.jpg?t=1590451726" >}}
 
 -   Descarga contenido creado por otros jugadores, desde armas a vehículos y hasta niveles nuevos para explorar. Incluso tú puedes crear y subir lo que quieras.
 -   Crea tus propios mapas con el editor de mapas incluido. Todos nuestros mapas fueron creados con las mismas herramientas que tiene disponibles.
@@ -128,7 +128,7 @@ Unturned fue creado desde el principio con la idea de crear mods.
 
 Hay otras cosas que hacer que no supimos donde incluir. Esta es una breve lista de algunos ejemplos:
 
-{{< img src="https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_f634649eb2a50b49bc98f7cc27314b671c8cbff5.600x338.jpg?t=1590451726" >}}
+![](https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_f634649eb2a50b49bc98f7cc27314b671c8cbff5.600x338.jpg?t=1590451726" >}}
 
 -   La mayoría de los objetos se pueden destruir para crear caminos nuevos.
 -   Para una mejor inmersión, puedes llevar una radio de frecuencias en el juego para comunicarte con tus amigos en vez de usar programas externos para chat de voz.

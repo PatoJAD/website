@@ -49,16 +49,16 @@ sudo dpkg-reconfigure locales
 
 Al ejecutarlo vamos a pasar por unos simples pasos guiados en nuestra terminal. Iniciando por un aviso en el cual se nos informa dónde vamos a ingresar.
 
-{{< img src="https://i.postimg.cc/g0Tr60Nh/consejos-para-configurar-los-locales-patojad.png" >}}
+![](https://i.postimg.cc/g0Tr60Nh/consejos-para-configurar-los-locales-patojad.png)
 
 Seguido a esto vamos a tener que elegir la configuración regional que deseamos generar. Las imagenes fueron tomadas de un blog Español por lo cual van a elegir las correspondientes a España, sin embargo nosotros elegimos la que corresponda dependiendo de donde vivamos.
 
-{{< img src="https://i.postimg.cc/0jgQcBg2/seleccionar-configuracion-regional-2-patojad.png" >}}
+![](https://i.postimg.cc/0jgQcBg2/seleccionar-configuracion-regional-2-patojad.png)
 
 Ya seleccionado correctamente, solo nos queda aplicar los cambios, para esto en la próxima ventana debemos seleccionar efectivamente cual queremos aplicar a nuestro sistema.
 
-{{< img src="https://i.postimg.cc/KzCKCYTb/aplicar-la-configuracion-regional-patojad.png" >}}
+![](https://i.postimg.cc/KzCKCYTb/aplicar-la-configuracion-regional-patojad.png)
 
 Y ahora efectivamente podemos comprobar que man se encuentra traducido al español. Puede que algunas paginas se encuentren en ingles dado que no tienen traducción. Aun así podemos asegurarnos de que la mayoría se encuentran en español.
 
-{{< img src="https://i.postimg.cc/0y5NWS4m/consejo-patojad.png" >}}
+![](https://i.postimg.cc/0y5NWS4m/consejo-patojad.png)

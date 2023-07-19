@@ -32,7 +32,7 @@ Después de poseer algunas computadoras “interesantes” (una VIC-20 y una Sin
 
 > Por "inmediatamente", me refiero a "pasé la mayor parte de una semana instalándolo".
 
-{{< img src="https://i.pinimg.com/originals/51/7d/21/517d2182f230d4f686c85507b45c2d26.jpg" >}}
+![](https://i.pinimg.com/originals/51/7d/21/517d2182f230d4f686c85507b45c2d26.jpg)
 
 Minix era un sistema operativo bastante popular, y gratuito. Lo cual es un combo realmente irresistible para un estudiante universitario que no tiene mucho dinero (Aquí me siento muy identificado). Linus había pedido por adelantado Minix y tardo un mes en llegarle los 16 disquets que contenían el sistema, los parches y los manuales. (Imaginen por un momento 16 la dimensión de eso, en esa época, claramente a mí me llevaría tal vez más de una semana instalarlo y configurarlo correctamente. Es incluso más difícil que hoy en día compilar un Linux con LFS)
 
@@ -59,7 +59,7 @@ Vale aclarar (fuera de post) que esto hace que grandes proyectos no vean la luz,
 
 ## El Accidente (Oportuncrisis)
 
-{{< img src="https://k60.kn3.net/taringa/2/7/6/5/8/6/43/tinchocarajero/CE2.jpg" >}}
+![](https://k60.kn3.net/taringa/2/7/6/5/8/6/43/tinchocarajero/CE2.jpg)
 
 Entonces un triste dia, Linus **elimino accidentalmente su partición de Minix**. En ese momento si bien Linux estaba naciendo el seguía utilizando Minix como entorno de desarrollo. Linux, en ese momento solo “servía” para leer emails y noticias desde el emulador de terminal. Luego del error (Que describe en la cita que esta abajo) Fue un punto de quiebre para la decisión que debería tomar, o tomar toda una semana nuevamente reinstalando Minix o retomar Linux reconociendo que era suficientemente bueno como para poder remplazar Minix. Desde ese momento escribió los programas para compilar Linux. Y cada vez que extrañaba algo de Minix solo lo agregaba a Linux.
 

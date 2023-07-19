@@ -30,7 +30,7 @@ Pensar que la primera máquina de escribir fue montada sobre una _máquina de co
 Eso dice la [Wiki](https://es.wikipedia.org/wiki/M%C3%A1quina_de_escribir#Primer_%C3%A9xito_comercial,_Christopher_Sholes_y_Remington).<br>
 Yo le creo.
 
-{{< img src="https://i.postimg.cc/yxdshyqS/Maquina-de-escribir-antigua-con-carro.png">}}
+![](https://i.postimg.cc/yxdshyqS/Maquina-de-escribir-antigua-con-carro.png)
 
 Entre los embrollos que traen los misterios, se han encontrado vestigios de la existencia de usuarios ansiosos por la próxima actualización de <font size="3" color="teal"><em>LibreOffice</em></font>...
 
@@ -43,7 +43,7 @@ Fue lanzada por _Telegram_ y se llama:
 
 Cuando se accede a [Telegra.ph](https://telegra.ph) se puede ver una especie de plantilla con campos que permite el ingreso de texto:
 
-{{< img src="https://i.postimg.cc/DyPRfbR9/00-telegraph.png" >}}
+![](https://i.postimg.cc/DyPRfbR9/00-telegraph.png)
 
 Si se llenaran estos campos con los siguientes datos:
 
@@ -53,7 +53,7 @@ Si se llenaran estos campos con los siguientes datos:
 
 Tendríamos también la posibilidad de imprimirle una edición de texto muy sencillo, como por ejemplo <font size="3" color="black"><strong></strong>Negrita</font> o <font size="3" color="black"><em>Itálica</em></font>.
 
-{{< img src="https://i.postimg.cc/vTBx1n30/02-telegraph.png" >}}
+![](https://i.postimg.cc/vTBx1n30/02-telegraph.png)
 
 Si pulsamos _Enter_ cuando estamos escribiendo, se tendrá el mismo efecto que al hacerlo en un procesador de texto &#187; provoca un salto de línea y retorno de carro.<br>
 Y nos aparecerán dos íconos:
@@ -61,15 +61,15 @@ Y nos aparecerán dos íconos:
 -   Una máquina fotográfica.
 -   Dos paréntesis angulares (de cierre y de apertura).
 
-{{< img src="https://i.postimg.cc/7PG2y3JL/04-telegraph.png" >}}
+![](https://i.postimg.cc/7PG2y3JL/04-telegraph.png)
 
 Clicando sobre el ícono de la cámara se abre una ventana de _path_ que nos permitirá elegir la imágen a subir:
 
-{{< img src="https://i.postimg.cc/CKgZGXcB/03-telegraph.png" >}}
+![](https://i.postimg.cc/CKgZGXcB/03-telegraph.png)
 
 Una vez terminada la edición, damos un clic en _Publish_ y nos aparecerá la obra de arte terminada, con un dato que nos interesa recuperar: la dirección web (url) que habremos de pegar luego en -por ejemplo- _Telegram_.
 
-{{< img src="https://i.postimg.cc/6pY3Zq4S/06-telegraph.png" >}}
+![](https://i.postimg.cc/6pY3Zq4S/06-telegraph.png)
 
 La _url_ incluye el _Título_ y la fecha al momento de la edición.<br>
 En la edición del post se pueden incluir texto e imágenes (como ya vimos), videos de YouTube o Vimeo y links de:

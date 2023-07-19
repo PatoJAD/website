@@ -19,6 +19,6 @@ Para ayudarnos en esta asignatura pendiente, tenemos a nuestra disposición el p
 
 Nuestros compañeros de CSIRT-CV han preparado un "[pdf interactivo](https://concienciat.gva.es/infografias/dia-de-internet-segura-pdf-interactivo/)" para este día tan especial, donde os será muy fácil acceder a los diferentes contenidos que podéis encontrar en su web "concienciaT", y así mejorar tus hábitos en el uso de las tecnologías y podran sentirse cada vez más seguros.
 
-{{< img src="https://concienciat.gva.es/wp-content/uploads/2020/02/infog_dia_internet_segura_interactivo_cas.png" >}}
+![](https://concienciat.gva.es/wp-content/uploads/2020/02/infog_dia_internet_segura_interactivo_cas.png)
 
 Desde PatoJAD les recomendamos a todos revisar este PDF porque siempre tenemos algo para aprender y recuerden que siempre es importante la seguridad de cada uno, no nos demos el lujo de exponernos!

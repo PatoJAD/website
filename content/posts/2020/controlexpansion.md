@@ -36,7 +36,7 @@ Generando una salida tal como:
 Desktop Documents ls-output.txt Music Pictures Public Templates Videos
 ```
 
-{{< img stc="https://i.postimg.cc/m2s8v8BZ/Captura-de-pantalla-de-2020-11-16-08-42-15.png" >}}
+![](https://i.postimg.cc/m2s8v8BZ/Captura-de-pantalla-de-2020-11-16-08-42-15.png)
 
 También es posible hacer algo como esto:
 
@@ -48,7 +48,7 @@ ls -l $(which cp)
 -rwxr-xr-x 1 root root 71516 2007-12-05 08:58 /bin/cp
 ```
 
-{{< img src="https://i.postimg.cc/2872rhSQ/Captura-de-pantalla-de-2020-11-16-08-42-48.png" >}}
+![](https://i.postimg.cc/2872rhSQ/Captura-de-pantalla-de-2020-11-16-08-42-48.png)
 
 Aquí hemos pasado el resultado de which cp como un argumento para el comando ls, de esta forma obtenemos el listado del programa cp sin tener que saber su ruta completa. No estamos limitados sólo a comandos simples. Se pueden usar tuberías enteras (sólo se muestra una salida parcial)
 
@@ -68,7 +68,7 @@ this is a test
 The total is 00.00
 ```
 
-{{< img src="https://i.postimg.cc/7ZB9T47b/Captura-de-pantalla-de-2020-11-16-08-44-40.png" >}}
+![](https://i.postimg.cc/7ZB9T47b/Captura-de-pantalla-de-2020-11-16-08-44-40.png)
 
 En el primer ejemplo, la separación de palabras del shell ha eliminado el espacio en blanco adicional de la lista de argumentos del comando echo. En el segundo ejemplo, la expansión con parámetros sustituyó con una cadena vacía el valor de “$1” porque era una variable indefinida. El shell proporciona un mecanismo llamado quoting (entrecomillado) para suprimir selectivamente expansiones no deseadas.
 
@@ -91,7 +91,7 @@ Recuerda, la expansión con parámetros, la expansión aritmética y la sustituc
 echo "$USER $((2+2)) $(cal)"
 ```
 
-{{< img src="https://i.postimg.cc/mgZVDkP0/Captura-de-pantalla-de-2020-11-16-08-44-59.png" >}}
+![](https://i.postimg.cc/mgZVDkP0/Captura-de-pantalla-de-2020-11-16-08-44-59.png)
 
 ```bash
 me 4 February 2008
@@ -121,7 +121,7 @@ text ~/*.txt {a,b} foo 4 me
 text ~/*.txt {a,b} $(echo foo) $((2+2)) $USER
 ```
 
-{{< img src="https://i.postimg.cc/Dz8grNd6/Captura-de-pantalla-de-2020-11-16-08-46-57.png" >}}
+![](https://i.postimg.cc/Dz8grNd6/Captura-de-pantalla-de-2020-11-16-08-46-57.png)
 
 Como podemos ver, con cada nivel sucesivo de entrecomillado, se van suprimiendo más expansiones.
 

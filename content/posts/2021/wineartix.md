@@ -41,7 +41,7 @@ Como siempre disfruto mucho de armar videos y dejar mi opinion asi que sin rodeo
 
 ## Instalar WineHQ
 
-{{< img src="https://linuxhint.com/wp-content/uploads/2020/06/1-12.jpg" >}}
+![](https://linuxhint.com/wp-content/uploads/2020/06/1-12.jpg)
 
 Lo primero que debemos hacer es instalar WineHQ en nuestra distribución, para esto debemos agregar las librerías y ejecutar la instalación.
 

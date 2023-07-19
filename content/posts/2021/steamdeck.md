@@ -116,7 +116,7 @@ img: 'https://i.postimg.cc/GtJxbPmK/steamdeck-1080x609.webp'
 authors: ['PatoJAD']
 ---
 
-{{< img src="https://i.postimg.cc/GtJxbPmK/steamdeck-1080x609.webp" >}}
+![](https://i.postimg.cc/GtJxbPmK/steamdeck-1080x609.webp)
 
 Ya se anunció Steam Deck y mucha revolucion género, hoy vamos a hacer un análisis de este lado del mundo (el de GNU/Linux) sobre todo esto que vamos a vivir desde el año que viene que se entreguen estos dispositivos...
 
@@ -124,7 +124,7 @@ Ya se anunció Steam Deck y mucha revolucion género, hoy vamos a hacer un anál
 
 ## La portabilidad se alía con la potencia
 
-{{< img src="https://i.postimg.cc/0NTYmX6Z/1601762882-AMD-Ryzen-ahora-representa-mas-del-25-de-las-CPU-1.webp" >}}
+![](https://i.postimg.cc/0NTYmX6Z/1601762882-AMD-Ryzen-ahora-representa-mas-del-25-de-las-CPU-1.webp)
 
 Steam se ha asociado con AMD para crear la APU personalizada de Steam Deck, optimizada para el juego en dispositivos portátiles. Se trata de una potente combinación de las arquitecturas Zen 2 y RDNA 2 que ofrece un rendimiento más que suficiente para ejecutar los últimos juegos AAA en una envolvente de potencia muy eficiente.
 

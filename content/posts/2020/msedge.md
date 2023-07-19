@@ -26,7 +26,7 @@ authors: ['PatoJAD']
 
 Hace ya un tiempo arribó a las distros de linux el nuevo MS Edge que no es más que un chromiun modificado… Esto implicó entre los usuarios fuertes disputas y opiniones muy abruptas… Para no perder la costumbre hablamos de este tema hoy, cuando todos se olvidaron…
 
-{{< img src="https://i.blogs.es/7af0a9/microsoft-edge-segundo-navegador-mas-usado-mundo/1366_2000.jpeg">}}
+![](https://i.blogs.es/7af0a9/microsoft-edge-segundo-navegador-mas-usado-mundo/1366_2000.jpeg)
 
 ## Video
 
@@ -36,7 +36,7 @@ Como no podía ser menos, todo tema que demora mucho va a parar a youtube, ¿Por
 
 ## Instalar
 
-{{< img src="https://blog.desdelinux.net/wp-content/uploads/2020/09/edge-on-linux.jpg" >}}
+![](https://blog.desdelinux.net/wp-content/uploads/2020/09/edge-on-linux.jpg)
 
 Seguramente sos una persona sensata que sabe que para opinar tenes que instalarlo, o simplemente quieres tenerlo en tu PC. Por esto mismo te dejo los pasos de instalación para que sea mucho más simple!
 

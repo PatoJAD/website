@@ -49,13 +49,13 @@ De esta forma se presenta ante todos nosotros su página en itch.io (perdón por
 
 En mi vida hubiera pensado en jugar este juego, no me gustan las novelas visuales y menos las cosas cursis. Pero tras ver una serie de 3 videos (que sin ningún tipo de autorización pienso compartir) el juego demostró estar a otro nivel y mereció unas amplias horas de juegos.
 
-{{< img src="https://ddlc.moe/images/screen2.png" >}}
+![](https://ddlc.moe/images/screen2.png)
 
-{{< img src="https://ddlc.moe/images/screen3.png" >}}
+![](https://ddlc.moe/images/screen3.png)
 
-{{< img src="https://ddlc.moe/images/screen4.png" >}}
+![](https://ddlc.moe/images/screen4.png)
 
-{{< img src="https://ddlc.moe/images/screen5.png" >}}
+![](https://ddlc.moe/images/screen5.png)
 
 El juego va tomando dinámica a medida que vamos eligiendo y vamos viendo cómo va tomando un giro inesperado. Si te cuesta comenzar con este juego por alguna especie de prejuicio te recomiendo ver estos 3 videos, aunque solo con el primero y la mitad del 2 alcanza para que nos pique el bicho de la curiosidad.
 

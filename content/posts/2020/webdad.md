@@ -31,7 +31,7 @@ Como prometí en el video voy a dejar algunos datos sobre la distro que pueden l
 
 ### Su propio launcher
 
-{{< img src="https://raw.githubusercontent.com/codesardine/Jadesktop/master/jade.jpg" >}}
+![](https://raw.githubusercontent.com/codesardine/Jadesktop/master/jade.jpg)
 
 JADE nos ofrece un launcher que corre nativamente en su desktop, el mismo es HTML y es realmente muy fluido y no consume tantos recursos como, por ejemplo, [ulanucher](/aplicaciones/2020/05/ulauncher/) o [cerebro](/aplicaciones/2020/05/cerebro/) que son dos grandes launchers.
 
@@ -41,6 +41,6 @@ Adicional a esto también nos ofrece los tan populares fondos en movimiento que 
 
 ### Altamente personalizable.
 
-{{< img src="https://i.postimg.cc/MGMv0q6W/Captura-de-pantalla-de-2020-11-20-15-52-06.png" >}}
+![](https://i.postimg.cc/MGMv0q6W/Captura-de-pantalla-de-2020-11-20-15-52-06.png)
 
 Este Escritorio, al estar desarrollado en HTML (En lo que a su interfaz respecta) permitiría que cualquiera con un buen conocimiento en este lenguaje de etiquetas lo personalice al máximo obteniendo increíbles resultados

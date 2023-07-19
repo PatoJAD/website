@@ -39,9 +39,9 @@ De esta forma nos invita a ver la publicacion en el grupo del facebook en la cua
 
 Esta publicacion esta acompañada de las siguientes fotos.
 
-{{< img src="https://scontent.faep8-1.fna.fbcdn.net/v/t1.0-9/85171381_3287307241286505_7490304577745453056_o.jpg?_nc_cat=110&_nc_ohc=uRTFbdD5WhwAX9a_3VP&_nc_ht=scontent.faep8-1.fna&oh=151b034cb929a0f1650ef1290a77ca84&oe=5EBA9A3F" >}}
+![](https://scontent.faep8-1.fna.fbcdn.net/v/t1.0-9/85171381_3287307241286505_7490304577745453056_o.jpg?_nc_cat=110&_nc_ohc=uRTFbdD5WhwAX9a_3VP&_nc_ht=scontent.faep8-1.fna&oh=151b034cb929a0f1650ef1290a77ca84&oe=5EBA9A3F" >}}
 
-{{< img src="https://scontent.faep8-2.fna.fbcdn.net/v/t1.0-9/85127056_3287307317953164_7273262451301285888_o.jpg?_nc_cat=107&_nc_ohc=OAwjkrHbi_EAX9KdMlz&_nc_ht=scontent.faep8-2.fna&oh=f84b744416afd44815f727457b1dcdd8&oe=5EC7810F" >}}
+![](https://scontent.faep8-2.fna.fbcdn.net/v/t1.0-9/85127056_3287307317953164_7273262451301285888_o.jpg?_nc_cat=107&_nc_ohc=OAwjkrHbi_EAX9KdMlz&_nc_ht=scontent.faep8-2.fna&oh=f84b744416afd44815f727457b1dcdd8&oe=5EC7810F" >}}
 
 Ni bien vi esto me hizo recordar a la cantidad de usuarios que en el dia a dia reprochan por no recibir ayuda de la comunidad. Realmente es uno de los mas grandes problemas de linux. Dentro de esta publicacion encontramos los siguientes comentarios (entre muchos otros)
 

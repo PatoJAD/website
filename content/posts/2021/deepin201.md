@@ -25,13 +25,13 @@ authors: ['PatoJAD']
 
 Deepin fue una distribución que cumplía los requisitos para derrocar efectivamente a Ubuntu como la primera distro de medio mundo. Sin embargo, el pasaje de su versión 15 a 20 destruyó lo que con tanto empeño habían logrado los desarrolladores en mucho tiempo de desarrollo.
 
-{{< img src="https://i.postimg.cc/Gt9MRY4z/image.png" >}}
+![](https://i.postimg.cc/Gt9MRY4z/image.png)
 
 Sin embargo, el lanzamiento de la versión 20.1 parece ser lo que esta distro necesitaba para demostrar que encontró el camino y que está luchando por la supremacía…
 
 ## Una versión que entendió el punto.
 
-{{< img src="https://i.postimg.cc/QCBDHFBx/image.png" >}}
+![](https://i.postimg.cc/QCBDHFBx/image.png)
 
 Si bien podemos recalcar muchas cosas nuevas en esta nueva versión es importante recalcar que hay un arduo trabajo en corregir errores y mejorar la performance. Algo que a Deepin le hacía muchísima falta porque se estaba volviendo muy pesado y tampoco ofrece mucho como para consumir todo eso.
 
@@ -41,25 +41,25 @@ Podría tirarme horas comentando los errores de performance que corrigieron o lo
 
 A partir de ahora Deepin cuenta con su propio navegador en lugar de Firefox que era el que venía por defecto. Este navegador se integra mucho más con el escritorio en cuanto estética que es lo que están intentando lograr.
 
-{{< img src="https://i.postimg.cc/4yGMTnzS/image.png" >}}
+![](https://i.postimg.cc/4yGMTnzS/image.png)
 
 También reemplaza Cheese por Camera su propia app para sacar fotos, Si bien deepin tiene algunas apps que no parecen ser necesarias porque no agregan mucho valor, en principio esta es una, entendamos que esto lo hacen para mejorar la integración de las apps usadas con su entorno/ecosistema.
 
-{{< img src="https://i.postimg.cc/dttHRbnr/image.png" >}}
+![](https://i.postimg.cc/dttHRbnr/image.png)
 
 Thunderbird es otra de las aplicaciones que son reemplazadas por el ya anunciado deepin email que a diferencia de la aplicación de la cámara su integración con el escritorio es su valor agregado, no porque los otros no se integren, sino porque sería una de las apps con una estética pulida y cuidada, sin embargo tendríamos que probarla más a fondo.
 
-{{< img src="https://i.postimg.cc/vZKNZ0r9/image.png" >}}
+![](https://i.postimg.cc/vZKNZ0r9/image.png)
 
 Y también Gparted es una app que ya tiene su reemplazo, y la versión de deepin procura, según ellos, ser más simple de usar y mucho más intuitivo. Pero nuevamente recalcamos que estas apps buscan, ante nada, concretar el ecosistema Deepin.
 
-{{< img src="https://i.postimg.cc/XJfHx3Tc/image.png" >}}
+![](https://i.postimg.cc/XJfHx3Tc/image.png)
 
 ## Actualizar
 
 Si queres actualizar para disfrutar de la nueva versión ya podes hacerlo por la terminal o el centro de control. Sin embargo si fuiste de los precavidos que no upgradeaste a la v20 porque era una basofia podes saltar a la v20.1 con un hermoso script que sugiere la misma web de deepin (En el caso de pedir contraseña es “deepin”)
 
-{{< img src="https://i.postimg.cc/htV2KKGF/image.png" >}}
+![](https://i.postimg.cc/htV2KKGF/image.png)
 
 {{< link text="Descargar Script" url="https://wws.lanzous.com/ikMmqjmhtif" >}}
 
@@ -67,7 +67,7 @@ Si queres actualizar para disfrutar de la nueva versión ya podes hacerlo por la
 
 Si no tenes deepin y queres descargar la v20.1 para ver su novedades puedes descargarlo desde los siguientes links.
 
-{{< img src="https://i.postimg.cc/v8pT5yGS/image.png" >}}
+![](https://i.postimg.cc/v8pT5yGS/image.png)
 
 {{< link text="Descargar Oficial" url="http://cdimage.deepin.com/releases/20.1/deepin-desktop-community-1010-amd64.iso" >}}
 

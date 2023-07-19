@@ -24,7 +24,7 @@ authors: ['PatoJAD']
 
 El Software Libre es todo programa informático cuyo código fuente puede ser estudiado, modificado, y utilizado libremente con cualquier fin y redistribuido con o sin cambios o mejoras. De acuerdo con la definición establecida por Richard Stallman, un Software es _"libre"_ cuando garantiza las siguientes 4 libertades:
 
-{{< img src="https://i.postimg.cc/XYKvx8xn/software-libre-competenciadigital-4-728.jpg" >}}
+![](https://i.postimg.cc/XYKvx8xn/software-libre-competenciadigital-4-728.jpg)
 
 Estas son las cuatro libertades esenciales de los usuarios tal y como las define la FSF:
 

@@ -36,11 +36,11 @@ Una ves descargado ya solo queda darle los permisos necesarios para ejecutar y o
 
 Agregamos nuestro dominio
 
-{{< img src="https://www.duckdns.org/img/linux-gui-01.png" >}}
+![](https://www.duckdns.org/img/linux-gui-01.png)
 
 El token que obtuvimos en la WEB
 
-{{< img src="https://www.duckdns.org/img/linux-gui-02.png" >}}
+![](https://www.duckdns.org/img/linux-gui-02.png)
 
 Ahora habrá un archivo de registro y un script de shell (que puede probar manualmente) instalado en algo como
 

@@ -26,7 +26,7 @@ Anteriormente hablamos de [como utilizar nuestro celular con android desde nuest
 
 Como dije de entrada este artículo le corresponde 100% a un usuario de la comunidad que me tiró un super mensaje para aclararme esto. Vale aclarar que esto está muy demorado ya que quise dejar pasar un tiempo para no ser tan repetitivo con los temas.
 
-{{< img src="https://i.postimg.cc/BZzC6LnL/Captura-de-pantalla-de-2020-11-13-08-49-00.png" >}}
+![](https://i.postimg.cc/BZzC6LnL/Captura-de-pantalla-de-2020-11-13-08-49-00.png)
 
 Para poder hacer eso es importante habilitar ADB para poder utilizarlo por Wi-Fi por eso vamos a dejar a continuación toda la información necesaria que fue facilitado por Javier.
 
@@ -75,7 +75,7 @@ Has habilitado exitosamente la conexión a ADB a través de la red WiFi de tu An
 
 ## Usando Scrcpy
 
-{{< img src="https://i.postimg.cc/7YTnTH5B/Captura-de-pantalla-de-2020-11-13-09-15-56.png" >}}
+![](https://i.postimg.cc/7YTnTH5B/Captura-de-pantalla-de-2020-11-13-09-15-56.png)
 
 Una vez que tenemos el dispositivo conectado correctamente (Sugiero mantener la ip estática para evitar tener que reconectar cuando nuestro dispositivo se reconecte a la red) También recuerden que es estrictamente necesario verificar la [instalación que vimos en la publicación anterior](/aplicaciones/2020/11/scrcpy/). Si todo lo anterior está OK vamos a poder usar el comando:
 

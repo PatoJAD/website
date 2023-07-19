@@ -17,7 +17,7 @@ Los servidores proxys son servidores que cumplen una función que a nosotros nos
 
 Para los **administradores de redes** (sobre todo en empresas) este tipo de servidores pueden ser utilizados para que los ordenadores de los empleados no sean los que salgan directamente a internet. Con esto ganan 2 cosas, por un lado pueden filtrar ciertas páginas webs y por otro lado protegen a los usuarios. Para entender cómo se realizan estas dos funciones vamos a ver el esquema básico de conexion con un servidor proxy intermediando
 
-{{< img src="http://cursohacker.es/sites/default/files/styles/large/public/images/20141409122534.gif?itok=M709Qd_2" >}}
+![](http://cursohacker.es/sites/default/files/styles/large/public/images/20141409122534.gif?itok=M709Qd_2" >}}
 
 Como se puede observar en **el esquema el servidor proxy está en la fontera entre internet y la red local**. Vale aclarar que los servidores proxies no son sustitutos de los firewall, y aunque ambos están en la frontera, el proxy suele colocarse justo detrás del firewall para que también **esté protegido**.
 

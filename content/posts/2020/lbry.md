@@ -23,7 +23,7 @@ LBRY es un nuevo protocolo que permite a cualquiera crear aplicaciones que inter
 
 Los sitios tradicionales de video (u otro contenido) como YouTube, Instagram y Spotify almacenan sus cargas en sus servidores y permiten a los espectadores descargarlas. También permiten a los creadores ganar dinero a través de la publicidad u otros mecanismos. Sin embargo, hay algunos inconvenientes bien conocidos, especialmente para las personas cuyo material se percibe como no apto para anunciantes.
 
-{{< img src="https://spee.ch/f/2019-08-lbry-interface-poster.jpg" >}}
+![](https://spee.ch/f/2019-08-lbry-interface-poster.jpg)
 
 LBRY pretende ser una alternativa a estos sitios, permitiendo a los editores y sus fanáticos interactuar directamente sin el riesgo de desmonetización u otra intromisión.
 

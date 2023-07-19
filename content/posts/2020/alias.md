@@ -42,7 +42,7 @@ Aquí tenemos el ejemplo que usaremos:
 cd /usr; ls; cd -
 ```
 
-{{< img src="https://i.postimg.cc/d0mhp3jz/image.png" >}}
+![](https://i.postimg.cc/d0mhp3jz/image.png)
 
 Y nos da una salida como esta:
 
@@ -62,7 +62,7 @@ La primera cosa que tenemos que hacer es inventarnos un nombre para nuestro nuev
 type foo
 ```
 
-{{< img src="https://i.postimg.cc/RFt4yDmq/image.png" >}}
+![](https://i.postimg.cc/RFt4yDmq/image.png)
 
 Que nos retorna
 
@@ -76,7 +76,7 @@ bash: type: foo: not found
 alias foo='cd /usr; ls; cd -'
 ```
 
-{{< img src="https://i.postimg.cc/mZNG9Mgx/image.png" >}}
+![](https://i.postimg.cc/mZNG9Mgx/image.png)
 
 Fíjate en la estructura de este comando:
 
@@ -90,7 +90,7 @@ Tras el comando “alias” le damos a alias un nombre seguido inmediatamente (s
 foo
 ```
 
-{{< img src="https://i.postimg.cc/j2jvCGjS/image.png" >}}
+![](https://i.postimg.cc/j2jvCGjS/image.png)
 
 Ahora nos dara una salida similar a:
 
@@ -106,7 +106,7 @@ También podemos usar el comando type de nuevo para ver nuestro alias:
 type foo
 ```
 
-{{< img src="https://i.postimg.cc/mr8Hhh17/image.png" >}}
+![](https://i.postimg.cc/mr8Hhh17/image.png)
 
 Ahora nos dira:
 
@@ -121,7 +121,7 @@ unalias foo
 type foo
 ```
 
-{{< img src="https://i.postimg.cc/FsH35yfN/image.png" >}}
+![](https://i.postimg.cc/FsH35yfN/image.png)
 
 Y el type nos sirve para verificar que se elimino dando la siguiente salida:
 
@@ -147,7 +147,7 @@ Para ver todos los alias definidos en nuestro entorno, utiliza el comando alias 
 alias
 ```
 
-{{< img src="https://i.postimg.cc/NfkTZNGN/image.png" >}}
+![](https://i.postimg.cc/NfkTZNGN/image.png)
 
 Mostrando las alias de la siguiente forma
 

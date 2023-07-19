@@ -11,7 +11,7 @@ authors: ['PatoJAD']
 
 ## Historia
 
-{{< img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuy.emedemujer.com%2Fwp-content%2Fuploads%2Fsites%2F4%2F2018%2F08%2Fauto1-770x537.jpg&f=1&nofb=1" >}}
+![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fuy.emedemujer.com%2Fwp-content%2Fuploads%2Fsites%2F4%2F2018%2F08%2Fauto1-770x537.jpg&f=1&nofb=1" >}}
 
 Como muchos saben estos días estuve de viaje, eso explica la ausencia en el blog. Y algo muy cómico que me paso previo a salir de viaje fue que mi móvil se rompió, más precisamente su pin de carga.
 
@@ -21,7 +21,7 @@ Sin embargo, en este caso tuve que pedir prestado, o mangear como se dice por ac
 
 ## Configuración Inicial
 
-{{< img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.XMrr8_s7-Zt4vlqXAWxaqgAAAA%26pid%3DApi&f=1" >}}
+![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.XMrr8_s7-Zt4vlqXAWxaqgAAAA%26pid%3DApi&f=1" >}}
 
 La configuración me toco hacerla en el auto de camino a mi primer destino, como tenía muchas horas para manejar y claramente no se puede utilizar el móvil mientras uno maneja, esta parte la realizo mi novia.
 La configuración es muy al estilo siguiente siguiente como siempre, sin embargo, me pareció pésimo que te permita saltar la cuenta icloud y al siguiente paso te obligue a crearla (Creo que la palabra saltar está de más porque no saltea nada) sin embargo hasta ahí todo más que bien.
@@ -34,7 +34,7 @@ También se me hizo molesto que no me permita elegir descargar con mis datos mó
 
 ## Usabilidad
 
-{{< img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.ABJPtmHSbJm1mj49YFx0VgHaES%26pid%3DApi&f=1" >}}
+![](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.ABJPtmHSbJm1mj49YFx0VgHaES%26pid%3DApi&f=1" >}}
 
 Bueno, en este caso es un tanto difícil, estoy muy acostumbrado a Android lo cual hace que mi experiencia este formada. Sin embargo, es muy simple de usar por una cuestión básica. iOS no te permite hacer nada que él no quiera, por lo cual es todo simple y fácil de aprender dado que son 3 o 4 cosas.
 

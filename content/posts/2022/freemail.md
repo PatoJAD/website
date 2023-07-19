@@ -48,14 +48,14 @@ Como primeros pasos debemos tener nuestro dominio en **CloudFlare** ya configura
 
 Una vez que hayamos sido aceptados, basta con configurar los DNS. Si los estamos administrado con CloudFlare (Lo cual sería lo correcto) Basta con un solo botón que configura todo _automágicamente_ en la sección **correo electrónico** -> **Configuración** -> **Iniciar la activación**
 
-{{< img src="https://i.postimg.cc/d1VVkLmw/image.png" >}}
+![](https://i.postimg.cc/d1VVkLmw/image.png)
 
 Luego debemos agregar la dirección de destino en la cual queremos recibir los correos electrónicos (Es decir un email ya existente y funcionando, en mi caso utilizo mi gmail personal para recibir los correos) esto lo hacemos desde **correo electrónico** -> **Rutas** -> **Agregar la dirección de destino**. Esto nos enviará un email de confirmación para saber que se encuentra funcionando. Una vez activado lo veremos con el estado _verificado_
 
-{{< img src="https://i.postimg.cc/fLzJcHZ4/mailverificado.png" >}}
+![](https://i.postimg.cc/fLzJcHZ4/mailverificado.png)
 
 Ya teniendo correctamente configurado el correo de destino debemos agregar (o crear) la dirección de correo custom que queremos, lo cual lo podemos hacer desde: **correo electrónico** -> **Rutas** -> **Crear dirección**. En esta parte es completamente intuitivo y solo nos aparecerá como destino en **Acciones** aquellos correos que ya estén verificados.
 
-{{< img src="https://i.postimg.cc/zvR5KWLZ/mailadd.png" >}}
+![](https://i.postimg.cc/zvR5KWLZ/mailadd.png)
 
 Una vez que hayamos realizado estos pasos ya podemos recibir correos a nuestro nuevo email profesional desde nuestra casilla personal.

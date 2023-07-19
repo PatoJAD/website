@@ -23,13 +23,13 @@ Folding@home (FAH or F@h) es un proyecto informático distribuido para simular l
 
 **El software Folding @ home se ejecuta mientras haces otras cosas.** Mientras continúa con sus actividades cotidianas, su computadora estará trabajando para ayudarnos a encontrar curas para enfermedades como el cáncer, ELA, Parkinson, Huntington, Influenza y muchas otras.
 
-{{< img src="https://www.echosciences-grenoble.fr/uploads/article/image/attachment/1005446576/xl_foldingathome_0780043801666020.jpg" >}}
+![](https://www.echosciences-grenoble.fr/uploads/article/image/attachment/1005446576/xl_foldingathome_0780043801666020.jpg)
 
 **¡Tenga paciencia si experimenta un tiempo de inactividad mientras enfrentamos la pandemia de COVID-19 juntos!** Estamos trabajando como locos para comenzar las simulaciones de las proteínas COVID-19. La respuesta entusiasta a nuestro esfuerzo ha sido tremenda y a veces ha vaciado nuestras colas. Este es un gran "problema", ya que no hay fin para la ciencia valiosa que podemos hacer, es solo una cuestión de darnos algo de tiempo para seguir corriendo.
 
 ## ESTADÍSTICAS
 
-{{< img src="https://foldingathome.org/wp-content/uploads/2016/09/Pande-Lab_Stanford-University_Foldingathome-1-1.jpg" >}}
+![](https://foldingathome.org/wp-content/uploads/2016/09/Pande-Lab_Stanford-University_Foldingathome-1-1.jpg)
 
 Una de las mejores maneras de ayudar a Folding @ home es reclutando a sus amigos y familiares. Comience compartiendo nuestro proyecto con ellos. Entonces únete a un equipo o incluso comienza tu propio equipo. Cuantos más puntos gane su equipo, más nos acercaremos a encontrar curas.
 
@@ -47,6 +47,6 @@ Te estamos esperando para colaborar con el mundo!
 
 Aca podemos ver una imagen de cuanto consume en mi PC.
 
-{{< img src="https://i.postimg.cc/85Nd2q7x/Deepin-Screenshot-Seleccionar-rea-20200409092902.png" >}}
+![](https://i.postimg.cc/85Nd2q7x/Deepin-Screenshot-Seleccionar-rea-20200409092902.png)
 
 Recordemos que siempre podemos pararlo cuando queramos con el FAHControl desde nuestro menu para parar su uso de CPU.

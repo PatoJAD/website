@@ -27,13 +27,13 @@ Antes de iniciar quiero aclarar que esto no es encasillado, ambos tipos de actua
 
 Dependiendo del uso podemos discriminar los que exigen la mayor performance en situaciones de estrés y los usuarios simples. En el primer grupo entran gamers o stremers, diseñadores y editores de videos. Estos requieren siempre ir a la impronta del kernel para poder mejorar la performance de sus procesos y por eso a este grupo le recomiendo Rolling Release.
 
-{{< img src="https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/480/public/media/image/2020/03/olvidate-comprar-silla-gaming-llegan-camas-gaming-1882221.jpg?itok=lnWK14Ov">}}
+![](https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/480/public/media/image/2020/03/olvidate-comprar-silla-gaming-llegan-camas-gaming-1882221.jpg?itok=lnWK14Ov">}}
 
 En cambio al resto de los usuarios, internautas, jugadores casuales, etc. Pueden tranquilamente suplir todas sus necesidades con una distribución Point Release.
 
 ## Según la máquina
 
-{{< img src="https://culturageek.com.ar/wp-content/uploads/2020/12/Culturageek.com_.ar-Corsair-05.jpg" >}}
+![](https://culturageek.com.ar/wp-content/uploads/2020/12/Culturageek.com_.ar-Corsair-05.jpg)
 
 En caso de que nuestro equipo sea más antiguo es recomendable distribuciones Point Release. En cambio los equipos más nuevos es recomendable ir por Rolling Release dado que la sección de drivers y performance se actualiza semana a semana.
 

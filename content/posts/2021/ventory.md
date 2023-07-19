@@ -23,7 +23,7 @@ authors: ['PatoJAD']
 
 Ventoy es una **herramienta** muy útil que convierte una unidad flash USB en un sistema de **arranque múltiple**, lo que permite cargar tantos sistemas operativos como ISOs tengas en el pendrive. Adicional a esto nos permite tener sistemas de forma **persistente**.
 
-{{< img src="https://pclosmag.com/html/Issues/202008/images/page07/VentoyBootMenu.png" >}}
+![](https://pclosmag.com/html/Issues/202008/images/page07/VentoyBootMenu.png)
 
 Ventoy soporta múltiples distribuciones de Linux pero asi mismo tambien funciona con Windows y Otros sistemas operativos dado que ejecuta directamente desde la ISO. Esto se vuelve algo muy cómodo porque sólo será descargar el sistema que queramos y pasarlo al Pendrive.
 

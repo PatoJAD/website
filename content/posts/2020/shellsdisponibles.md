@@ -56,7 +56,7 @@ Si tienes curiosidad por ver que Shells tienes instalados en tu distribución GN
 
 Por ejemplo esto tengo instlado yo:
 
-{{< img src="https://i.ibb.co/cyxfR7q/Screenshot-20200625-090630.png" >}}
+![](https://i.ibb.co/cyxfR7q/Screenshot-20200625-090630.png)
 
 Con esto ya podemos interiorizarnos más si nos interesa, y en caso contrario ya podemos entender que existen diferentes shells dentro del mundo de GNU/Linux. Ya conociendo esto nos vamos dando cuenta que en realidad no es algo tan complejo y podemos ser amigos de estos “shells”
 

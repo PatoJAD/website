@@ -13,7 +13,7 @@ authors: ['PatoJAD']
 
 Muchos conocen Winetricks, una herramienta _imprescindible_ para tunear Wine que nos ha facilitado las cosas entre otras alternativas como PlayOnLinux.
 
-{{< img src="https://1.bp.blogspot.com/-aKkpJFMZfKk/XXzj8U5jyzI/AAAAAAAAdbA/Na65dUYJHigRbZ7_OKJoubCC7qaLAWxmwCLcBGAsYHQ/s320/Steam.png" >}}
+![](https://1.bp.blogspot.com/-aKkpJFMZfKk/XXzj8U5jyzI/AAAAAAAAdbA/Na65dUYJHigRbZ7_OKJoubCC7qaLAWxmwCLcBGAsYHQ/s320/Steam.png)
 
 Pero ¿y si pudiéramos tener una herramienta parecida a Winetricks pero con perfiles al estilo de PlayonLinux dentro de Steam?
 

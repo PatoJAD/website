@@ -48,7 +48,7 @@ Como te habrás dado cuenta, **cualquier programa que interactua de forma direct
 
 Hasta pudiera parecer que la parte "negativa" de Javascript solo está al alcance de aquellos webmasters que elaboren sitios con el objetivo de hacerse con el control de los internátuas que acaben ahí. Esto no es así. Evidentemente hay sitios creados específicamente para que cuando alguien los visite con un navegador desactualizado (normalmente internet explorer en nuestros amigos windowsnautas) se infecten los equipos. Pero dentro del "hacking" y javascript este tipo de técnicas es de las menos comunes ya que Google suele detectar este tipo de script rápidamente y avisa a los internáutas con carteles de este estilo:
 
-{{< img src="http://cursohacker.es/sites/default/files/styles/large/public/images/20142202182941.png" >}}
+![](http://cursohacker.es/sites/default/files/styles/large/public/images/20142202182941.png)
 
 Y aunque el usuario es libre de ignorar esta advertencia esta medida hace que la gran mayoría de los internáutas no vayan al sitio web. Además Google penaliza las páginas que tienen código Javascript malicioso haciendo que no aparezcan en el buscador, y de aparecer que aparezcan en posiciones bastante bajas.
 

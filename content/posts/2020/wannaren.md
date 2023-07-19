@@ -33,16 +33,16 @@ Los investigadores de la firma de seguridad Bitdefender anunciaron el lanzamient
 
 **Paso 2:** Ahora haga doble clic en el archivo ejecutable descargado de Bitdefender (almacenado como BDWannaRenDecryptor.exe). Deje que se ejecute haciendo clic en Sí en el indicador de UAC.
 
-{{< img src="https://noticiasseguridad.com/nsnews_u/2020/08/wannaren01.jpg" >}}
+![](https://noticiasseguridad.com/nsnews_u/2020/08/wannaren01.jpg)
 
 **Paso 3:** Lea el Acuerdo de Licencia de Usuario Final y, en su caso, haga clic en “Acepto”. Pero si somos realistas nadie lee estos acuerdos y asi les va buscando como desencriptar sus máquinas…
 
-{{< img src="https://noticiasseguridad.com/nsnews_u/2020/08/wannaren02.jpg" >}}
+![](https://noticiasseguridad.com/nsnews_u/2020/08/wannaren02.jpg)
 
 **Paso 4:** Se le mostrará una ventana emergente solicitando algunos pares de archivos limpios y cifrados en una carpeta de prueba. Acorde a los especialistas del curso de hacker, en este punto solo será posible remover el cifrado de archivos más pequeños o del mismo tamaño que el par más grande de archivos de prueba.
 
-{{< img src="https://noticiasseguridad.com/nsnews_u/2020/08/wannaren03.jpg" >}}
+![](https://noticiasseguridad.com/nsnews_u/2020/08/wannaren03.jpg)
 
 **Paso 5:** Seleccione la opción “Escanear todo el sistema” si desea que la herramienta busque todos los archivos cifrados. Los especialistas de Bitdefender recomiendan seleccionar también la opción de “Archivos de Respaldo”. Es vital que considere que la “carpeta de prueba” debe contener algunos pares de archivos cifrados/no cifrados.
 
-{{< img src="https://noticiasseguridad.com/nsnews_u/2020/08/wannaren04.jpg" >}}
+![](https://noticiasseguridad.com/nsnews_u/2020/08/wannaren04.jpg)

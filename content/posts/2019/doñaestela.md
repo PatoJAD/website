@@ -28,7 +28,7 @@ Estos días pusimos un caso hipotético para que los linuxnautas nos comenten qu
 
 ## Doña Estela
 
-{{< img src="http://domusrealtor.com/wp-content/uploads/2017/02/Anciana.png" >}}
+![](http://domusrealtor.com/wp-content/uploads/2017/02/Anciana.png)
 
 > Hoy traigo una incógnita, que distro le recomendarían a Doña Estela y porque:
 >
@@ -56,7 +56,7 @@ Este planteo es el que se postula con el fin de ver que es lo que piensa la comu
 
 ---
 
-> {{< img src="https://i.postimg.cc/c4M5ptrk/distropedro.jpg" >}}
+> ![](https://i.postimg.cc/c4M5ptrk/distropedro.jpg)
 >
 > yo le propondia algo ultraligero como al estilo Linux Lite o una menos conocida como podria ser Nanolinux
 >

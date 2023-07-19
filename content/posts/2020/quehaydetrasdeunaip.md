@@ -13,7 +13,7 @@ Una dirección IP no es algo que se asigne de forma aleatoria sin respetar ning�
 
 Ya avanzamos en la publicación anterior una [introducción a lo que es una ip](/post/2020/01/direcciones-ips-nuestra-huella-en-la-red/). Hoy veremos mas a fondo las partes en las que se dividen. Cojamos por ejempo la siguiente dirección IP: 192.168.5.1, es una IP privada, (luego veremos porqué) internamente la IP, todas las direcciones IPs tiene una parte de red y otra parte de host, se represeta así:
 
-{{< img src="http://cursohacker.es/sites/default/files/styles/large/public/images/20130912140151.jpg?itok=1qFl8cpq" >}}
+![](http://cursohacker.es/sites/default/files/styles/large/public/images/20130912140151.jpg?itok=1qFl8cpq" >}}
 
 En donde 192 es el primer octeto, 168 el segundo, 5 es el tercero y 1 es el cuarto. Saber esto es necesario para comprender que las direcciones IPs son finitas, y van desde:
 

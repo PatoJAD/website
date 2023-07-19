@@ -46,7 +46,7 @@ Cosas de Algunos.
 <br>
 Vaya Uno a saber.
 
-{{< img src="https://i.postimg.cc/KvKDXG5j/Alb-Williams-00.jpg" >}}
+![](https://i.postimg.cc/KvKDXG5j/Alb-Williams-00.jpg)
 
 Williams dijo:
 
@@ -84,7 +84,7 @@ Hombre o Mujer que lee estas líneas, has de saber que existe en la web, un luga
 
 El sitio web en cuestión se hace llamar _[musicforprogramming](https://musicforprogramming.net/)_.
 
-{{< img src="https://i.postimg.cc/fyRSfK8k/00-program-music.png" >}}
+![](https://i.postimg.cc/fyRSfK8k/00-program-music.png)
 
 Con un _Estilo Editor de Código Fuente Moderno_, el diseño de la página ya da una idea de el tipo de sonidos que alli se alojan.
 <br>
@@ -92,7 +92,7 @@ Aunque ya se sabe que sobre gustos no hay ni habrá nada escrito, comparto sobre
 
 Dicen los Pibes de _[musicforprogramming](https://musicforprogramming.net/)_ acerca de su gestión:
 
-{{< img src="https://i.postimg.cc/2ySTLnv7/about-musicforprogrammers.png" >}}
+![](https://i.postimg.cc/2ySTLnv7/about-musicforprogrammers.png)
 
 > A través de años de prueba y error: saltando en las emisoras de radio por Internet, reproduciendo nuestras colecciones de música en forma aleatoria o simplemente repitiendo álbumes solos, hemos encontrado que la música más efectiva para ayudar a los períodos prolongados de concentración intensa tiende a tener una mezcla de las siguientes cualidades:
 
@@ -108,11 +108,11 @@ Dicen los Pibes de _[musicforprogramming](https://musicforprogramming.net/)_ ace
 -   Paredes de reverb
     > La música que posee estas cualidades a menudo puede proporcionar la cantidad justa de interés para ocupar las partes de su cerebro que de lo contrario se dejarían libres para vagar y conducir a la distracción durante su trabajo.
 
-En la parte inferior del sitio, hace acto de presencia la opción: {{< img src="https://i.postimg.cc/sD20MC4C/switch-theme-negro.png" >}}
+En la parte inferior del sitio, hace acto de presencia la opción: ![](https://i.postimg.cc/sD20MC4C/switch-theme-negro.png)
 
 Cuya misión en esta vida es la de cambiar la apariencia, por lo que una vez pulsado, el sitio se verá asi:
 
-{{< img src="https://i.postimg.cc/xjL96Hw1/switch-theme-mfp.png">}}
+![](https://i.postimg.cc/xjL96Hw1/switch-theme-mfp.png)
 
 En la misma parte inferior, hacen fila un par de links mas, que aportan:
 
@@ -120,7 +120,7 @@ En la misma parte inferior, hacen fila un par de links mas, que aportan:
 -   Los Créditos.
 -   La dirección para tenerlos en un lector de noticias.
 
-{{< img src="https://i.postimg.cc/ZK1g2D6k/parte-inferior-mfp.png" >}}
+![](https://i.postimg.cc/ZK1g2D6k/parte-inferior-mfp.png)
 
 En una próxima Entrada, vamos a echarle un ojo a la reproducción de estos -y otros- audios en estas _cacharras_.
 

@@ -40,4 +40,4 @@ Este anticheat está en muchos juegos grandes y populares que no arribaron en li
 -   Far Cray 5
 -   Rust
 
-{{< img src="https://img-21.ccm2.net/yif027yhQBE2S6hyumWpyA4HVz4=/570x/afa432eef8564ffda583916015ee5313/ccm-faq/eac2.JPG" >}}
+![](https://img-21.ccm2.net/yif027yhQBE2S6hyumWpyA4HVz4=/570x/afa432eef8564ffda583916015ee5313/ccm-faq/eac2.JPG" >}}

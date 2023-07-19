@@ -15,13 +15,13 @@ Pero como todo lo bueno en este mundo tiene su lado “malo” y si bien para es
 
 Así como muchas distros dia a dia nacen y quieren contribuir con el mundo, allá en el fondo de linux, en las partes mas oscuras y recónditas podemos encontrar distros que harían que cualquier linuxnauta ponga una cara similar a esta:
 
-{{< img src="https://i.postimg.cc/JhmrwpxX/que512.png" >}}
+![](https://i.postimg.cc/JhmrwpxX/que512.png)
 
 Vamos a ver algunas de las distros de que me dejaron asi…
 
 ## Hannah Montana Linux
 
-{{< img src="http://hannahmontana.sourceforge.net/Site/Home_files/hml.2.jpg" >}}
+![](http://hannahmontana.sourceforge.net/Site/Home_files/hml.2.jpg)
 
 Hannah Montana Linux es un sistema operativo Linux basado en Kubuntu. Si bien esta distro no saco mas versiones hace tiempo es perfectamente usable y entendemos que es para Fanáticos de la cantante…
 
@@ -31,7 +31,7 @@ La verdad es que no se que decir sobre esto, no es algo que esté mal, incluso l
 
 Nunca conociste a una persona que no podías decirle nada porque se ofendia (a puesto a que muchos pensaron en Pato hablándole a cualquier pedro sobre la tierra). Bueno esa persona volvió y en forma de Distro de Linux!!!!!
 
-{{< img src="https://i.ytimg.com/vi/knbfwin6lIg/maxresdefault.jpg" >}}
+![](https://i.ytimg.com/vi/knbfwin6lIg/maxresdefault.jpg)
 
 Esta distro es perfecta para todos los que son habilidosos con la terminal, dado que si fallas un comando se ejecuta automáticamente el tan famoso
 
@@ -45,6 +45,6 @@ Suicidando literalmente a nuestra distro… Diganme si no es hermoso, yo la rein
 
 Apartheid es una distribución Linux desarrollada por miembros del Stormfront de Estados Unidos, basada en PCLinuxOS y con entorno de escritorio LXDE, y de tipo Out Of The Box, es decir, lista para ser utilizada tras su instalación por la paquetería que ya integra. A simple vista parece una distro normal pero…
 
-{{< img src="https://www.linuxadictos.com/wp-content/uploads/apartheid-1.jpg" >}}
+![](https://www.linuxadictos.com/wp-content/uploads/apartheid-1.jpg)
 
 Por si no sabes de donde proviene la palabra Apartheid, se trata de un sistema de segregación racial que hubo en Sudáfrica y Namibia, separando a los ciudadanos por razas en espacios diferentes. Stromfront es un website, básicamente un foro, donde se reúne gente de orientación racista.

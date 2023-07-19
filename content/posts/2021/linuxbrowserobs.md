@@ -37,7 +37,7 @@ Después de tener la carpeta creada, procedemos a descomprimir ahi dentro lo que
 tar -zxvf linuxbrowser0.6.1-obs23.0.2-64bit.tgz -C $HOME/.config/obs-studio/plugins/
 ```
 
-{{< img src="https://github.com/bazukas/obs-linuxbrowser/raw/master/img/obs-linuxbrowser.png" >}}
+![](https://github.com/bazukas/obs-linuxbrowser/raw/master/img/obs-linuxbrowser.png)
 
 Este comando está asumiendo que vos estás en la carpeta donde lo descargaste. Por ultimo tenes que asegurarte de tener estas dependencias instaladas:
 

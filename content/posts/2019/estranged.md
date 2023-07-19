@@ -24,7 +24,7 @@ authors: ['PatoJAD']
 
 En esta oportunidad tenemos este impecable juego que viene con la novedad de su seguna parte como acceso anticipado. En esta segunda parte podemos seguir con la aventura de nuestro protagonista esta vez con un crecimiento importante en el desarrollo y el tiempo dedicado a esta segunda entrega
 
-{{< img src="https://steamcdn-a.akamaihd.net/steam/apps/582890/ss_be3dc947a7dfc521ad4cccdffdc92b37d62c8a0f.600x338.jpg?t=1552600294" >}}
+![](https://steamcdn-a.akamaihd.net/steam/apps/582890/ss_be3dc947a7dfc521ad4cccdffdc92b37d62c8a0f.600x338.jpg?t=1552600294" >}}
 
 ## Sobre el juego
 
@@ -40,7 +40,7 @@ Explora los ricos ambientes y conoce a los curiosos habitantes de la isla mientr
 
 -   Banda sonora original - La banda sonora ha sido compuesta especialmente para Estranged y fue diseñada junto a los niveles del juego. La música concuerda con la jugabilidad y ayuda a conjugar la atmósfera de Estranged para llevar la historia a la vida.
 
-{{< img src="https://steamcdn-a.akamaihd.net/steam/apps/582890/ss_43e3996ffa64c8d7b818bcb990f1d73c7c567b2b.600x338.jpg?t=1552600294" >}}
+![](https://steamcdn-a.akamaihd.net/steam/apps/582890/ss_43e3996ffa64c8d7b818bcb990f1d73c7c567b2b.600x338.jpg?t=1552600294" >}}
 
 ## Requisitos
 
@@ -58,7 +58,7 @@ Explora los ricos ambientes y conoce a los curiosos habitantes de la isla mientr
 -   Gráficos: NVIDIA GeForce 8 or higher, ATI X1600 or higher
 -   Almacenamiento: 6 GB de espacio disponible
 
-{{< img src="https://steamcdn-a.akamaihd.net/steam/apps/261820/ss_3a9a4e2ec4f0a14a901594f0270e93dc0f4afd7d.600x338.jpg?t=1515275082" >}}
+![](https://steamcdn-a.akamaihd.net/steam/apps/261820/ss_3a9a4e2ec4f0a14a901594f0270e93dc0f4afd7d.600x338.jpg?t=1515275082" >}}
 
 El segundo juego es la continuación del primero (Es ideal jugarlo para entender el mundo en el que estamos) y un juego muy recomendable. El progreso del juego está muy bien logrado y la hambientalizacion es digna de dedicarle nuestros mejores auriculares y una habitación obscura para la completa inmersión en este título.
 

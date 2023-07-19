@@ -25,7 +25,7 @@ authors: ['PatoJAD']
 
 En este momento vamos a ver como se instala postman en nuestro GNU/Linux, en esta instalación vamos a ver la forma más genérica, si bien para cada distribución existe su propia alternativa, ya usar usando AUR en Arch o SNAP en cualquier distro existe una forma un tanto… más simple que es útil para usos portables de esta herramienta.
 
-{{< img src="https://i.postimg.cc/L5gh73HD/image.webp" >}}
+![](https://i.postimg.cc/L5gh73HD/image.webp)
 
 ## Descarga
 

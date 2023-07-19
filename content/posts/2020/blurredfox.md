@@ -11,7 +11,7 @@ authors: ['PatoJAD']
 
 En esta oportunidad quiero compartir un theme para nuestro firefox que nos permitirá darle un mejor estilo para lucirlo en nuestros viernes de escritorios.
 
-{{< img src="https://i.postimg.cc/NF7ZXbyv/image.png" >}}
+![](https://i.postimg.cc/NF7ZXbyv/image.png)
 
 ## Requisitos
 

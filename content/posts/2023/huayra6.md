@@ -25,7 +25,7 @@ Llego **Huayra 6** con la grandeza de una escaloneta que trajo la copa del mundo
 
 > **Huayra GNU/Linux** es el primer sistema operativo libre desarrollado por el Estado Nacional (Argentino) que incluye una selección de software ideal para el trabajo en clase y mucho más. Con un escritorio liviano y ágil, realiza un uso óptimo de recursos y es seguro, sin necesidad de antivirus.
 
-{{< img src="https://huayra.educar.gob.ar/wp-content/uploads/2023/03/fondo_Sacaloneta.png" >}}
+![](https://huayra.educar.gob.ar/wp-content/uploads/2023/03/fondo_Sacaloneta.png)
 
 ## Video
 
@@ -45,7 +45,7 @@ Esta increíble app que nos permite realizar animaciones en stop motion llega co
 
 ### Huayra duino LR
 
-{{< img src="https://i.postimg.cc/Qdb69B6R/Screenshot-20230613-105914.png" >}}
+![](https://i.postimg.cc/Qdb69B6R/Screenshot-20230613-105914.png)
 
 Agrega una nueva aplicación que permite programar en arduino directamente desde bloques. De esta forma podemos tener un primer acercamiento a arduino (pensado para los niños más pequeños pero no excluye a quienes queremos empezar sin conocimientos previos) que nos permita iniciar sin tener que aprender a programar de golpe.
 
@@ -55,7 +55,7 @@ También agrega una nueva tienda que permite realizar instalaciones de software 
 
 ### Libro vivo de Hechizos
 
-{{< img src="https://i.postimg.cc/fbvhbTXL/Screenshot-20230613-110153.png" >}}
+![](https://i.postimg.cc/fbvhbTXL/Screenshot-20230613-110153.png)
 
 Un manual o libro de **Huayra** que va desde el contexto filosófico y el marco teórico en el cual se construye **Huayra**, hasta sus fines prácticos como instalación de la distribución, instalación de aplicaciones, actualización, etc…
 

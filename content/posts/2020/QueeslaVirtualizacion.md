@@ -15,7 +15,7 @@ Desde el punto del vista del "hacking ético" esta herramienta nos dará la posi
 
 ## ¿Qué es la virtualización?
 
-{{< img src="https://blog.desdelinux.net/wp-content/uploads/2019/01/virtualbox-virtualizacion-importancia-blog-desdelinux-830x531.jpg" >}}
+![](https://blog.desdelinux.net/wp-content/uploads/2019/01/virtualbox-virtualizacion-importancia-blog-desdelinux-830x531.jpg)
 
 La virtualización consiste en términos generales en emular mediante algún programa o sistema un hardware sobre el que montar un servicio, servidor o red. De esta forma se crea lo que conocemos como una máquina virtual. Así, con un solo ordenador tu puedes crear varias máquinas virtuales e instalar en cada una de ellas el software (ya sea un windows, una distribución de Linux, o MacOS) que necesites para trabajar. Esto es realmente interesante no solo para el usuario que se dedica de forma profesional a la informática sino para todos los usuarios.
 
@@ -23,7 +23,7 @@ La virtualización consiste en términos generales en emular mediante algún pro
 
 En primer lugar vamos a necesitar vitualizar servidores para poder trabajarlos sin hacer cambios en nuestro equipo. Si nosotros pretendemos instalar cada servicio o porgrama en nuestro PC conseguiríamos que finalmente fuera lento e insostenible para trabajar. En cambio si nosotros instalamos el software que queremos en una máquina virtual nuestro pc no se resentirá, podremos trabajarlo como si lo estuvieramos instalando en un ordenador de pruebas sin comprometer la seguridad de nuestro equipo. Algo que a nosotros como pentesters debería ser una prioridad.
 
-{{< img src="https://lh3.googleusercontent.com/proxy/LxCYzwleqBmVFo4TXyqQ9Qa89B30L07--55TmGLLKlkBtGrGHAkxoWKDioNhh_jYpXT7LL7L7F3dTErXZvKa0XzP4-wnZCpBh7A9I6LCCW8dWn2MjO9JA7niVwV2CTMzaKWSIPV_4c0o8BK7Wo8VeA" >}}
+![](https://lh3.googleusercontent.com/proxy/LxCYzwleqBmVFo4TXyqQ9Qa89B30L07--55TmGLLKlkBtGrGHAkxoWKDioNhh_jYpXT7LL7L7F3dTErXZvKa0XzP4-wnZCpBh7A9I6LCCW8dWn2MjO9JA7niVwV2CTMzaKWSIPV_4c0o8BK7Wo8VeA" >}}
 
 Otra razón de peso para trabajar con máquinas virtuales en el entorno de intrusiones es que podremos instalarnos distribuciones de pentesting "profesional" como lo es Kali Linux (a fines practivos de esta saga es muy util) sin necesidad de instalarlo directamente en nuestro PC obligándonos a modificar el sistema de arranque. Aunque como pentester lo normal es que lo tengas instalado sin virtualizar, para empezar, y ver cómo trabajan estas distribuciones para pentester lo ideal es virtualizarlas, familiarizarse con su uso y finalmente acabar instalándola como sistema operativo arrancable.
 
@@ -35,7 +35,7 @@ También te pasará en multitud de ocasiones que quedrás auditar un programa en
 
 Como administrador de sistemas o redes trabajar virtualizando servidores, aplicaciones o servicios es una estrategía que cada día se está poniendo en práctica con más énfasis. Los beneficios de la virtualización para los administradores se pueden dividir en estos grupos:
 
-{{< img src="https://www.letscloud.io/blog/wp-content/uploads/2019/07/tools-of-sys-admin.jpg" >}}
+![](https://www.letscloud.io/blog/wp-content/uploads/2019/07/tools-of-sys-admin.jpg)
 
 1. **SEGURIDAD**. Supongamos que necesitas instalar un servidor LAMP (Linux, Apache, MySQL, PHP, esto es un servidor para montar páginas web) y un servidor de archivos puede optar por dos opciones. Instalar en un único servidor ambos servicios, LAMP y servicio para compartir archivos. Todo te funcionaría bien, ¿pero que ocurriría si un hacker encontrara una vulnerabilidad en tu web y pudiera tomar el control del servidor? Que no solo tendría acceso a los archivos de tu web, sino que también a todos los archivos que tienes compartidos, con lo cual desde un fallo en la web se ha comprometido todos los archivos de tue empresa.
    En cambio si se hubiera escogido una solución virutalizada se habría podido crear en el serivodor 2 máquinas virtuales. En la primera se instalaría el servidor LAMP, y en la segunda se instalaría el servidor de archivos. En este escenario el hacker que consiga encontrar una vulnerabilidad en la web solo tendría acceso a la máquina virtual que aloja el servidor LAMP. Y aunque habría conseguido comprometer tu web los archivos de tu empresa aún segurían aislados y seguros. Es por este motivo por el que para muchos admnistradores la solución ideal es crear una máquina virtual por cada servicio que tenga un riesgo medio/alto de ser vulnerado.

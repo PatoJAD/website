@@ -32,7 +32,7 @@ Podemos ver en Gitlab el código y realizar nuestro propio fork para crear nuest
 
 En Wordpress deberemos ir al menú `Ajustes -> Compartir` y en el siguiente menú añadir lo necesario:
 
-{{< img src="https://victorhckinthefreeworld.files.wordpress.com/2014/01/diaspora2.png" >}}
+![](https://victorhckinthefreeworld.files.wordpress.com/2014/01/diaspora2.png)
 
 -   En Nombre del servicio: ponemos el texto que queremos que aparezca en nuestro botón ej: "Comparte Libre"
 -   En Compartiendo URL: pondremos lo siguiente: https://compartelibre.patojad.com.ar/?text=%post_title%&url=%post_url%

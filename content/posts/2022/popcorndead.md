@@ -26,7 +26,7 @@ authors: ['PatoJAD']
 
 Muchos usamos Popcorn alguna vez, y muchos podemos seguir instalandolo desde los repositorios oficiales de las distros. Sin embargo, si entramos en su sitio web podemos ver que ellos ya se están despidiendo y podemos verla con esta foto que también podemos ver en su web.
 
-{{< img src="https://i.postimg.cc/59Bw6R2C/image.png" >}}
+![](https://i.postimg.cc/59Bw6R2C/image.png)
 
 O que podemos verlo directamente ingresando en su [web](https://popcorn-time.tw/)
 
@@ -34,4 +34,4 @@ O que podemos verlo directamente ingresando en su [web](https://popcorn-time.tw/
 
 Claramente el proyecto fue abandonado, perseguido, y dado de baja, por lo cual siempre es posible que vuelva a realizarse un fork y revivir el proyecto, pero a esto deberemos esperar novedades.
 
-{{< img src="https://i.blogs.es/01af3a/popcorn-time-timeline/1366_2000.jpg" >}}
+![](https://i.blogs.es/01af3a/popcorn-time-timeline/1366_2000.jpg)

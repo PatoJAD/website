@@ -26,7 +26,7 @@ img: 'https://i.postimg.cc/2yhM8CmK/image.png'
 authors: ['PatoJAD']
 ---
 
-{{< img src="https://i.postimg.cc/2yhM8CmK/image.png" >}}
+![](https://i.postimg.cc/2yhM8CmK/image.png)
 
 Hamachi es una app que nos permite generar una red privada virtual, de esta forma podemos compartir recursos, jugar en “LAN”, y muchas cosas más con personas que no se encuentran en la misma red, o en el mismo país…
 
@@ -92,7 +92,7 @@ Existen unos compilados en BETA para esta arquitectura, a continuación dejo la 
 
 ## Windows
 
-{{< img src="https://imag.malavida.com/mvimgbig/download-fs/hamachi-1410-1.jpg" >}}
+![](https://imag.malavida.com/mvimgbig/download-fs/hamachi-1410-1.jpg)
 
 En el caso de que uses Windows bastará con descargar el archivo .msi (Que veran a continuacion) e instalarlo con un doble click. Es importante recalcar que la descarga es directamente de la página oficial, no está alojado por este blog ni ningún otro
 
@@ -100,7 +100,7 @@ En el caso de que uses Windows bastará con descargar el archivo .msi (Que veran
 
 ## MacOS
 
-{{< img src="https://images.sftcdn.net/images/t_app-cover-m,f_auto/p/2bea4bde-96d7-11e6-878e-00163ed833e7/2690128288/logmein-hamachi-screenshot.jpg" >}}
+![](https://images.sftcdn.net/images/t_app-cover-m,f_auto/p/2bea4bde-96d7-11e6-878e-00163ed833e7/2690128288/logmein-hamachi-screenshot.jpg)
 
 En el caso de usar el sistema de la manzanita me cuesta un poco más poder definir correctamente el procedimiento porque no uso este sistema pero si puedo facilitarte la descarga oficial de su sitio y de ahi calculo que no debe ser muy complejo
 

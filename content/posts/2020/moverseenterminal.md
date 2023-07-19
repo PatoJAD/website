@@ -21,7 +21,7 @@ Lo primero que necesitamos aprender es **cómo navegar** por el sistema de archi
 
 La mayoría de nosotros, probablemente, **estamos familiarizados con un gestor de archivos gráfico** que representa el árbol del sistema de directorios. Fíjate que el árbol, normalmente, aparece colgando boca abajo, o sea, con la raíz arriba y las ramas hacia abajo.
 
-{{< img src="http://multimedia.uoc.edu/blogs/sqsw/files/2013/01/sfjerar.gif" >}}
+![](http://multimedia.uoc.edu/blogs/sqsw/files/2013/01/sfjerar.gif" >}}
 
 Sin embargo, la línea de comandos no tiene imágenes (o al menos no nativamente), así que para navegar por el árbol del sistema de ficheros tenemos que pensar de una forma **un poco diferente** a lo que venimos _acostumbrados_.
 
@@ -33,7 +33,7 @@ Obteniendo una salida similar a esta
 
     /home/pato
 
-{{< img src="https://i.postimg.cc/6pxrpC3d/Screenshot-20200708-090455.png" >}}
+![](https://i.postimg.cc/6pxrpC3d/Screenshot-20200708-090455.png)
 
 La primera vez que accedemos al sistema nuestro directorio de trabajo actual es nuestro directorio home (~). Cada cuenta de usuario tiene su propio directorio home y es el **único lugar donde un usuario sin privilegios puede escribir archivos**.
 
@@ -47,7 +47,7 @@ Obteniendo una salida similar a esta
 
     Desktop Documents Music Pictures Public Templates Videos
 
-{{< img src="https://i.postimg.cc/J4ZTxrH5/Screenshot-20200708-090638.png" >}}
+![](https://i.postimg.cc/J4ZTxrH5/Screenshot-20200708-090638.png)
 
 En realidad, podemos usar el comando ls para listar el contenido de cualquier directorio, no solo el directorio de trabajo actual, y hay muchas otras cosas curiosas que puede hacer también…
 
@@ -72,7 +72,7 @@ Obtendremos una salida como
 
 Y esto listará muchísimos archivos
 
-{{< img src="https://i.postimg.cc/5ywwBtKH/Screenshot-20200708-090822.png" >}}
+![](https://i.postimg.cc/5ywwBtKH/Screenshot-20200708-090822.png)
 
 Ahora podemos ver que **hemos cambiado el directorio** de trabajo a /usr/bin y que está lleno de archivos. ¿Ves cómo ha cambiado el prompt del shell? Por defecto, normalmente está configurado para mostrar automáticamente el nombre del directorio de trabajo.
 
@@ -100,7 +100,7 @@ Obteniendo una salida como esta
 
 Dos métodos diferentes con idénticos resultados. ¿Cuál usamos? ¡El que requiera teclear menos!
 
-{{< img src="https://i.postimg.cc/HszMdRqC/Screenshot-20200708-091020.png" >}}
+![](https://i.postimg.cc/HszMdRqC/Screenshot-20200708-091020.png)
 
 Ahora, hay algo importante que se debe señalar aquí. En la mayoría de los casos, puedes omitir el “./”. Está implícito. Escribir:
 
@@ -124,7 +124,7 @@ Cambia el directorio de trabajo al anterior directorio de trabajo.
 
 Cambia el directorio de trabajo al directorio home de nombre_de_usuario. Por ejemplo, cd ~pato cambiará el directorio al directorio home del usuario “pato”.
 
-{{< img src="https://i.postimg.cc/sxV2LDDG/Screenshot-20200708-091153.png" >}}
+![](https://i.postimg.cc/sxV2LDDG/Screenshot-20200708-091153.png)
 
 ## Resumiendo
 

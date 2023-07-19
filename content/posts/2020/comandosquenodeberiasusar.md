@@ -25,7 +25,7 @@ Navegando por la web, me encontre unas imagenes que creo que todo el user de lin
 
 ## Eliminar todo de forma recursiva
 
-{{< img src="https://i.postimg.cc/d0SP9yy7/image.png" >}}
+![](https://i.postimg.cc/d0SP9yy7/image.png)
 
 Este es probablemente el comando más popular en el ámbito de los _trolls_ de linux y si bien es popular nunca esta de mas entender bien cómo funciona y obviamente evitar el uso y la distribución de lo mismo. Este comando es el tan conocido:
 
@@ -39,7 +39,7 @@ Si bien todos entendemos las consecuencias de este comando que es la pérdida to
 
 ## Bomba Fork
 
-{{< img src="https://i.postimg.cc/tJQcrtCg/image.png" >}}
+![](https://i.postimg.cc/tJQcrtCg/image.png)
 
 La sintaxis de este comando es algo realmente raro, y al fin de cuenta no es tan dañino este comando, si bien tilda la PC basta con un reinicio para poder seguir, sin embargo existen muchas formas de volverlo muy dañino, pero si estás tentado en probar alguno de la lista te diria que pruebes este aunque sea bajo tu propio riesgo. El comando _raro_ es:
 
@@ -53,7 +53,7 @@ Y según el colega que realizó las imágenes podemos describir su función de l
 
 ## Mover todo a la nada
 
-{{< img src="https://i.postimg.cc/7ZYWQLDS/image.png" >}}
+![](https://i.postimg.cc/7ZYWQLDS/image.png)
 
 Este comando es el punto intermedio entre los dos anteriores. Es más dañino que la **Bomba Fork** por lo cual no recomiendo probarlo. Este comando es muy similar a uno que suele estar en los scripts para evitar borrar las cosas las mueven a este directorio. El comando en sí que debemos evitar es:
 

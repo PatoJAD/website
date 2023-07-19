@@ -20,7 +20,7 @@ authors: ['PatoJAD']
 
 En el 30° aniversario de la creación de la World Wide Web (WWW), lo que conocemos como Web o como la "triple W". Comúnmente se suele confundir al término que se celebra hoy (WWW) con Internet, pero vale aclarar que no son lo mismo. Internet es la red de redes, mientras que la WWW es el sistema que se utiliza para acceder a esta red.
 
-{{< img src="https://i.postimg.cc/rmB5SCpX/hb-patojad.png" >}}
+![](https://i.postimg.cc/rmB5SCpX/hb-patojad.png)
 
 > El ingeniero británico Tim Berners-Lee presentó un día como hoy de 1989 una propuesta titulada "Gestión de la información: una propuesta". Imaginaba una gran base de datos de hipertextos con enlaces mecanografiados para ayudar a sus colegas del CERN, un laboratorio de física nuclear suizo, a compartir información entre varias computadoras.
 >

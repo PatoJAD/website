@@ -24,7 +24,7 @@ Muchos de nosotros crecimos con juegos de otra época, y tenemos cierta fidelida
 
 En medio de esta "aventura" me encontre con el mundo feliz de _RetroPie_, lo cual me permitió convertir mi PC en una consola retro para jugar con mi familia (con posibles peleas maritales ¡Luego de que te gana en el Street fighter!).
 
-{{< img src="https://i.postimg.cc/wBNvv4qp/Themes.png" >}}
+![](https://i.postimg.cc/wBNvv4qp/Themes.png)
 <br>
 
 ## Instalación
@@ -57,6 +57,6 @@ cd RetroPie-Setup && sudo ./retropie_setup.sh
 
 Veremos una pantalla como esta:
 
-{{< img src="https://i.postimg.cc/XYdSBRCQ/c4e3da42-79c4-11e6-82a8-026afa67801b.png" >}}
+![](https://i.postimg.cc/XYdSBRCQ/c4e3da42-79c4-11e6-82a8-026afa67801b.png)
 
 Eligiendo solo Basic Install tenemos todo para iniciar a jugar (el proceso puede demorar mucho dependiendo de velocidad de internet). Para saber mas les dejo la documentación correspondiente (en Inglés) lugar de donde saque la informacion.

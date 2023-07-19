@@ -28,7 +28,7 @@ Cambiar los DNS de nuestro equipo es algo que deberiamos hacer siempre, ya que l
 
 El Sistema de nombres de dominio (DNS) es la guía telefónica de Internet. Mientras que las personas acceden a la información en línea a través de nombres de dominio como example.com, los ordenadores lo hacen utilizando direcciones del Protocolo de Internet (IP), cadenas únicas de caracteres alfanuméricos que se asignan a cada propiedad de Internet. El DNS traduce los nombres de dominio a direcciones IP para que los usuarios puedan acceder fácilmente a un sitio web sin tener que conocer su dirección IP.
 
-{{< img src="https://www.cloudflare.com/img/learning/dns/what-is-1.1.1.1/dns-lookup.png" >}}
+![](https://www.cloudflare.com/img/learning/dns/what-is-1.1.1.1/dns-lookup.png)
 
 ### ¿Qué es un solucionador de DNS?
 
@@ -58,7 +58,7 @@ La potencia de la red de Cloudflare da a `1.1.1.1` una ventaja natural en lo ref
 
 Además, los centros de datos de la red tienen acceso a los millones de propiedades de Internet de la plataforma de Cloudflare, lo que hace que las consultas de esos dominios sean extremadamente rápidas. En general, el supervisor independiente de DNS DNSPerf clasifica `1.1.1.1` como el servicio de DNS más rápido del mundo:
 
-{{< img src="https://www.cloudflare.com/img/learning/dns/what-is-1.1.1.1/query-speed.png" >}}
+![](https://www.cloudflare.com/img/learning/dns/what-is-1.1.1.1/query-speed.png)
 
 ## Pasos a seguir
 

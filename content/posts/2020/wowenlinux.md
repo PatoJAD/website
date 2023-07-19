@@ -20,7 +20,7 @@ img: 'https://hardwareviews.com/wp-content/uploads/2020/07/word-of-warcraft-1620
 authors: ['PatoJAD']
 ---
 
-{{< img src="https://cadenaser00.epimg.net/ser/imagenes/2019/08/27/ser_madrid_sur/1566920041_790600_1566920146_noticia_normal.jpg" >}}
+![](https://cadenaser00.epimg.net/ser/imagenes/2019/08/27/ser_madrid_sur/1566920041_790600_1566920146_noticia_normal.jpg)
 
 Todos conocemos este gran juego o la gran mayoría, yo creo que junto al **Lineage 2** y el **[MU](/post/2019/05/como-instalar-mu-online-en-linux/)** son los _MMORPG_ que marcaron mi infancia, y hoy por hoy sigue siendo uno de los juegos que nos sorprenden y nos dan mucha emoción a cambio de horas de nuestra vida.
 
@@ -28,15 +28,15 @@ Todos conocemos este gran juego o la gran mayoría, yo creo que junto al **Linea
 
 Actualmente existen muchas versiones del WoW pero no todas podemos jugarla en linux, en mi basta experiencia (Aunque muchos me puedan contradecir y eso me gustaria) el soporte de Wine para 64bits es deplorable. Al punto tal de que solo podemos correr perfectamente aplicaciones de 32bits y este es nuestro limitante.
 
-{{< img src="https://i.postimg.cc/QVLFXMzs/image.png" >}}
+![](https://i.postimg.cc/QVLFXMzs/image.png)
 
 Desde la versión del WoW conocida como **Battle of Azeroth** se eliminó completamente el soporte para 32bits por lo cual no podemos avanzar hasta que wine no mejore su compatibilidad con 64bits. Esto nos impide, de momento, jugar en el servidor oficial de blizzard.
 
-{{< img src="https://gamedustria.com/wp-content/uploads/2016/09/WoWLEgion.jpg" >}}
+![](https://gamedustria.com/wp-content/uploads/2016/09/WoWLEgion.jpg)
 
 En esta oportunidad voy a explicar como utilizar este magnifico juego pero obviamente desde un servidor privado con una de las últimas versiones que nos soportan los 32bits que no es nada más ni nada menos que **Legion** donde podemos disfrutar la historia de Illidan.
 
-{{< img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtPtNMJoMaEVWXxKzq-lzloVmnrJ7C_FGrLAlIAB4GiRJYQ2lvT7_kVj4-9_pk1Bb4bDmA9lFPTTxk3-IzmIwCT9rosCDkxcA&usqp=CAU&ec=45732302" >}}
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtPtNMJoMaEVWXxKzq-lzloVmnrJ7C_FGrLAlIAB4GiRJYQ2lvT7_kVj4-9_pk1Bb4bDmA9lFPTTxk3-IzmIwCT9rosCDkxcA&usqp=CAU&ec=45732302" >}}
 
 **ATENCIÓN: Si bien existen videos de como instalar el original con Lutris esto crashea muchísimo en raids y situaciones específicas por lo cual no recomiendo pagar una suscripción hasta que no esté mejorado el soporte a 64 bits para evitar golpes de ira**
 
@@ -49,13 +49,13 @@ Por suerte el Wow es un juego que no requiere mucho hardware para jugar, poniend
 -   **Memoria RAM:** 2GB
 -   **Espacio en el Disco Duro:** 45GB
 
-{{< img src="https://www.guiaswow.com/wp-content/uploads/2016/02/Zu7dsO3.png" >}}
+![](https://www.guiaswow.com/wp-content/uploads/2016/02/Zu7dsO3.png)
 
 Como vemos es realmente poco lo que pide y seguramente nosotros cumplamos estos requisitos, pero vale aclarar que si lo que vamos a usar es la placa de video integrada recomiendo tener un mínimo de 4GB de ram dado que la integrada utiliza nuestra ram como VRAM.
 
 ## Instalar WineHQ
 
-{{< img src="https://linuxhint.com/wp-content/uploads/2020/06/1-12.jpg" >}}
+![](https://linuxhint.com/wp-content/uploads/2020/06/1-12.jpg)
 
 Lo primero que debemos hacer es instalar WineHQ en nuestra distribución, para esto debemos agregar las librerías y ejecutar la instalación.
 
@@ -117,7 +117,7 @@ Si estás en una distro basada en arch lo que recomiendo es instalar wine-stagin
 
 ## Volviendo al WoW
 
-{{< img src="https://i.ytimg.com/vi/XwkaeAQcWRw/maxresdefault.jpg" >}}
+![](https://i.ytimg.com/vi/XwkaeAQcWRw/maxresdefault.jpg)
 
 Volviendo al juego, en mi caso elegí un servidor especifico, conocido como [Freakz](https://www.wow-freakz.com/) que no es un paytowin y en el cual no hay colas largas para jugar. Una vez descargado lo descomprimimos en la carpeta que querramos en mi caso utilizo el directorio
 

@@ -39,6 +39,6 @@ Como podemos ver este video toca algunos temas más a los que quería hacer menc
 
 Más allá de los errores técnicos que pueda llegar a cometer que estimo que serán muchos más que cometeré en este camino de aprendizaje también existen errores meramente humanos, donde seguramente dominado por algún sentimiento actuó de una forma u otra.
 
-{{< img src="https://www.infosol.com.mx/wordpress/wp-content/uploads/disculpas-publicas-efectivas-1.jpg" >}}
+![](https://www.infosol.com.mx/wordpress/wp-content/uploads/disculpas-publicas-efectivas-1.jpg)
 
 Siento que es preciso pedir perdón a **Pedro Crespo** de una forma pública porque, más allá de que yo piense una cosa, no fue la mejor forma de afrontarlo y decirlo, puedo entender que se haya enojado con los videos anteriores o incluso se haya sentido mal, así que si lo estas leyendo, ¡Disculpa por los modos! todos estamos en constante aprendizaje y este es uno más...

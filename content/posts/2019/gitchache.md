@@ -20,7 +20,7 @@ authors: ['PatoJAD']
 
 Un repositorio git puede ser accedido utilizando distintos protocolos, de entre los cuales los más comunes son SSH y HTTPS.
 
-{{< img src="https://i.stack.imgur.com/5OBMZ.png" >}}
+![](https://i.stack.imgur.com/5OBMZ.png)
 
 HTTPS tiene algunas ventajas sobre SSH: Es más fácil de utilizar, porque no necesita la generación de un par de claves pública/privada, y normalmente no tiene problemas en atravesar firewalls y proxies. El inconveniente es que es necesario introducir el usuario y contraseña cada vez que se accede al repositorio remoto con una operación pull o push.
 
@@ -36,7 +36,7 @@ git config --global credential.helper store
 
 Con esto, en el siguiente acceso que se realice al repositorio remoto, el usuario y contraseña introducidos quedan almacenados en un fichero `~/.git-credentials`.
 
-{{< img src="http://noticias.universia.es/net/images/ciencia-tecnologia/-/-a/-ap/-aplicaciones-gratuitas-gestionar-contrasenas.jpg" >}}
+![](http://noticias.universia.es/net/images/ciencia-tecnologia/-/-a/-ap/-aplicaciones-gratuitas-gestionar-contrasenas.jpg)
 
 Si nos preocupa que la contraseña quede guardada en el disco duro, podemos utilizar un asistente de credenciales “cache”. En este caso, la contraseña queda guardada en memoria, durante un tiempo limitado que se puede configurar (por defecto, 15 minutos). Por ejemplo, para utilizar este asistente, con una duración de una hora:
 

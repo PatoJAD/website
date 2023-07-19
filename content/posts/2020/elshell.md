@@ -15,7 +15,7 @@ Volviendo al **Shell**, lo podemos definir como un Programa Utilitario que se in
 
 ## Lo que hace el Shell
 
-{{< img src="https://i.blogs.es/c701d7/terminal/1366_2000.png" >}}
+![](https://i.blogs.es/c701d7/terminal/1366_2000.png)
 
 Después de que tipeamos un comando, la responsabilidad del Shell es:
 

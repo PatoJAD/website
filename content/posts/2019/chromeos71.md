@@ -32,7 +32,7 @@ Todos los dispositivos se beneficiarán de la integración de mensajes para web 
 Mejoras en el soporte para Linux
 Chrome OS 71 trae muchas funciones para mejorar el soporte de Linux, lo que permite un desarrollo y programación más avanzado. La máquina virtual de Linux ahora aparece en el administrador de tareas de Chrome OS.
 
-{{< img src="https://blog.desdelinux.net/wp-content/uploads/2018/12/chrome-71-shut-down-linux.png" >}}
+![](https://blog.desdelinux.net/wp-content/uploads/2018/12/chrome-71-shut-down-linux.png)
 
 Mientras tanto, la máquina virtual ahora puede ser apagada con un clic derecho en el icono de terminal. La nueva opción para cerrar Linux es mucho más rápida que reiniciar tu terminal. Adicionalmente, las carpetas compartidas te permitirán leer y escribir en los archivos.
 

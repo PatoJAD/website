@@ -52,7 +52,7 @@ Que genera una salida como la siguiente
 
 ## **--help** – Muestra información de uso
 
-{{< img src="https://i.postimg.cc/zvjB480Z/image.png" >}}
+![](https://i.postimg.cc/zvjB480Z/image.png)
 
 Muchos programas ejecutables soportan una opción “--help” que muestra una descripción de la sintaxis y las opciones soportadas por el comando. Por ejemplo:
 
@@ -81,7 +81,7 @@ La mayoría de los programas ejecutables pensados para usarse en la línea de co
 
     man programa
 
-{{< img src="https://i.postimg.cc/G2jdmzYv/image.png" >}}
+![](https://i.postimg.cc/G2jdmzYv/image.png)
 
 Donde “programa” es el nombre del comando que queremos ver. Las man pages varían algo en formato pero generalmente contienen un título, una sinopsis de la sintaxis del comando, una descripción del propósito del comando y una lista y descripción de cada opción del comando. Las man pages, de todas formas, no suelen incluir ejemplos, y están pensadas como una referencia, no como un tutorial. Como ejemplo, probaremos a ver la man page para el comando ls:
 
@@ -93,7 +93,7 @@ En la mayoría de los sistemas Linux, man usa less para mostrar la man page, as�
 
 ## **apropos** – Muestra comandos apropiados
 
-{{< img src="https://i.postimg.cc/ZYGzz1XX/image.png" >}}
+![](https://i.postimg.cc/ZYGzz1XX/image.png)
 
 También es posible buscar en el listado de las man pages posibles coincidencias basadas en un término de búsqueda. Es muy tosco pero a veces ayuda. Aquí tienes un ejemplo de una búsqueda en las man pages utilizando el término de búsqueda “floppy”:
 
@@ -112,7 +112,7 @@ El primer campo de cada línea es el nombre de la man page, el segundo campo mue
 
 ## **whatis** – Muestra una descripción muy breve de un comando
 
-{{< img src="https://i.postimg.cc/bwvTCv3P/image.png" >}}
+![](https://i.postimg.cc/bwvTCv3P/image.png)
 
 El programa whatis muestra el nombre y una descripción de una línea de una man page coincidente con una palabra especificada:
 

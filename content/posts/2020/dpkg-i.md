@@ -35,7 +35,7 @@ Para **verificar** que un paquete se ha instalado podemos escribir en la termina
 
 Entre las comillas colocamos una palabra clave para buscar elpaquete, en este caso quiero verificar si se instaló Chrome. Si la terminal arroja una lista y antes del paquete muestra «ii» quiere decir que está instalado
 
-{{< img src="https://i.postimg.cc/mDS9KHDP/image.png" >}}
+![](https://i.postimg.cc/mDS9KHDP/image.png)
 
 Para **desinstalar** un paquete utilizando dpkg utilizamos la opción -r o -remove, ejemplo:
 

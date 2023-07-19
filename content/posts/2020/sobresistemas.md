@@ -31,11 +31,11 @@ Teniendo en cuenta todo esto recomiendo leer de antemano la publicación de los 
 
 ## ¿Que Sistema Operativo es Mejor?
 
-{{< img src="https://i.blogs.es/aece81/ssoo2/1366_2000.jpg" >}}
+![](https://i.blogs.es/aece81/ssoo2/1366_2000.jpg)
 
 Tal vez en algún momento hubiera entrado en debate por estos temas, sin embargo si uno se toma el tiempo de pensarlo es una estupidez. Podemos definir, al igual que la comida, que una sea técnicamente mejor que otra. Pero no se trata de eso, la comida gourmet existe porque a mucha gente le gusta y se desvive. Tampoco falta esas personas que quieren comer en locales de comida rápida todo el tiempo, porque les gusta su sabor. Y están aquellos que prefieren el buen **guiso de la abuela que nadie supera**...
 
-{{< img src="https://media.todojujuy.com/adjuntos/227/imagenes/001/031/0001031523.jpg" >}}
+![](https://media.todojujuy.com/adjuntos/227/imagenes/001/031/0001031523.jpg)
 
 También estamos otros, aquellos que superamos el fanatismo y las banderas, aquellos que amamos comer la comida de nuestra abuela mientras hablamos de la vida, que alguna noche podemos ir a un local de comida rápida a reir con amigos y porque no darse el lujo de una comida gourmet cuando es posible…
 
@@ -49,13 +49,13 @@ El conocimiento es conocimiento en sí y queremos abarcar la tecnología, Los si
 
 ## ¿Y los que solo usamos software libre?
 
-{{< img src="https://i.blogs.es/dddd8d/react/450_1000.png" >}}
+![](https://i.blogs.es/dddd8d/react/450_1000.png)
 
 Para vos que solamente usas software libre también va este discurso, por que no solo son esos 3 sistemas (que son los más populares) Existen otros sistemas que son libre y que deberías tener en cuenta en algún momento (BDS, ReactOS, Haiku, etc.)
 
 ## Ser y dejar ser
 
-{{< img src="https://i2.wp.com/www.reefviews.com/wp-content/uploads/2017/03/libertad-ser-humano.jpg" >}}
+![](https://i2.wp.com/www.reefviews.com/wp-content/uploads/2017/03/libertad-ser-humano.jpg)
 
 Claramente esto no implica que todos debamos tener todos los sistemas operativos instalados, pero sí implica tener tolerancia, y esta publicación empuja a eso, tolerancia… En nuestra comunidad de Telegram apoyamos a todos los usuarios sin importar si usan Windows, Mac, ReactOS o lo que sea, siempre intentamos ayudar y aprender. Lo mismo implica para esos que dicen **“Si usas ubuntu no te ayudo”** (claramente eso va apuntado a mi que cuando me dicen que usan ubuntu y tienen bugs les recomiendo pasar a debian) Porque estamos acá por amor a la tecnología y debemos respetar y colaborar con todos
 

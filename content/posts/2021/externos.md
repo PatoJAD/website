@@ -26,7 +26,7 @@ En esta oportunidad me dedique un poco a probar y comentar esta distro, como sie
 
 ## Aplicaciones Propias
 
-{{< img src="https://externos.io/wp-content/uploads/2017/04/4th-1920x918.png" >}}
+![](https://externos.io/wp-content/uploads/2017/04/4th-1920x918.png)
 
 **eXtern** viene con software dedicado a la reproducción de video y audio. Cada software se ha ajustado para ofrecer la mejor experiencia de reproducción para el sistema operativo. Ademas incluye un poderoso navegador web con total compatibilidad con las últimas tecnologías web.
 
@@ -34,7 +34,7 @@ En esta oportunidad me dedique un poco a probar y comentar esta distro, como sie
 
 > "Permite una nueva forma de escribir aplicaciones con todas las tecnologías web".
 
-{{< img src="https://externos.io/wp-content/uploads/2017/01/devkit_reduced-1024x551.png" >}}
+![](https://externos.io/wp-content/uploads/2017/01/devkit_reduced-1024x551.png)
 
 Nuevamente vemos como las tecnologias web estan intentando salir del navegador para migrar a nuestro escritorio y consolidarse como una tecnologia mas abarcativa.
 

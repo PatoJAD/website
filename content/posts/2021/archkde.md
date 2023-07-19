@@ -43,13 +43,13 @@ Podemos ver si abrimos cualquiera de estas apps, que dejaron de funcionar correc
 
 ## Nueva versión nuevo problema.
 
-{{< img src="https://www.lancetalent.com/blog/wp-content/uploads/actualizar-wordpress.png" >}}
+![](https://www.lancetalent.com/blog/wp-content/uploads/actualizar-wordpress.png)
 
 Se me dio por revisar la paqueteria de arch, donde siempre encuentro soluciones y esto sirvió para entender que el problema era de la versión qt5-webengine-5.15.3-2 que generaba este error en general. Por lo cual la solución no depende explícitamente de mi, o al menos hasta donde entendí.
 
 ## ¿Cómo lo soluciono?
 
-{{< img src="https://i.postimg.cc/gjK49PGk/image.png" >}}
+![](https://i.postimg.cc/gjK49PGk/image.png)
 
 Así como el tiempo cura todas las heridas hay que esperar a que se actualice a la nueva versión donde este error este. Ya, en lo que a Arch respecta, hay un ticket cargado y hay alguien que está llevando y esperamos que pronto obtengamos la actualización que nos permita solventar este error.
 

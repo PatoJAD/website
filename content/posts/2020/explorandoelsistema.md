@@ -29,7 +29,7 @@ Genera una salida como la siguiente:
 
     lince.jpg: JPEG image data, JFIF standard 1.01
 
-{{< img src="https://i.postimg.cc/fLFKNtNs/Screenshot-20200724-092502.png" >}}
+![](https://i.postimg.cc/fLFKNtNs/Screenshot-20200724-092502.png)
 
 Hay muchos tipos de archivos. De hecho, una de las ideas comunes en los sistemas operativos tipo Unix, como es Linux, es que **“todo es un archivo”**. Mientras que muchos de los archivos en tu sistema son familiares, por ejemplo MP3 y JPEG, hay otros muchos que son un poco menos obvios y algunos que son un poco raros.
 
@@ -47,7 +47,7 @@ Una vez ejecutado, el programa less nos permite desplazarnos arriba y abajo a tr
 
     less /etc/passwd
 
-{{< img src="https://i.postimg.cc/D0XcyvvX/Screenshot-20200724-092653.png" >}}
+![](https://i.postimg.cc/D0XcyvvX/Screenshot-20200724-092653.png)
 
 Una vez que el programa less arranca, podemos ver el contenido del archivo. Si el archivo ocupa más de una página, podemos desplazarnos arriba y abajo. Para salir de less, pulsamos la tecla “q”.
 

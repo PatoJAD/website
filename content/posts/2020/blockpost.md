@@ -26,7 +26,7 @@ authors: ['PatoJAD']
 
 > Disparador 3D cúbico procedimental en las mejores tradiciones del género. El juego es un rico cóctel que consta de las soluciones de juego más populares y funcionales. Personalización de personajes, apertura de casos y mejora del arsenal existente
 
-{{< img src="https://cdn.cloudflare.steamstatic.com/steam/apps/706990/ss_68e64bfe0dccd3e570cb6f975b686637bd5d973f.600x338.jpg" >}}
+![](https://cdn.cloudflare.steamstatic.com/steam/apps/706990/ss_68e64bfe0dccd3e570cb6f975b686637bd5d973f.600x338.jpg)
 
 Así se define este juego en su portada Steam. Si bien este juego no es de esos que uno juega en 4K para sorprenderse por los gráficos, es realmente interesante porque si bien es muy básico y liviano es realmente divertido. Y lo más emocionante es que no requiere de un gran equipo para poder jugar ni de mucho espacio en el disco, lo cual nos permite incluir a esos compañeros que tampoco juegan seguido y echarse unas risas.
 
@@ -34,7 +34,7 @@ Así se define este juego en su portada Steam. Si bien este juego no es de esos 
 
 Entre otras cosas que más que detallar conviene entrar y probarlas, las principales características del juego son:
 
-{{< img src="https://cdn.cloudflare.steamstatic.com/steam/apps/706990/ss_6e84078fde2dc1a4b12f1f7242d1af805a0e30f3.600x338.jpg" >}}
+![](https://cdn.cloudflare.steamstatic.com/steam/apps/706990/ss_6e84078fde2dc1a4b12f1f7242d1af805a0e30f3.600x338.jpg)
 
 -   7 modos de juego con conjuntos únicos de ubicaciones (mapas)
 -   Más de 20 ubicaciones de juegos
@@ -45,7 +45,7 @@ Entre otras cosas que más que detallar conviene entrar y probarlas, las princip
 
 Como dijimos antes los requisitos para poder jugar a este juego son realmente bajos y por lo cual cualquier persona con una pc de hace 5 años aprox podría jugar a este maravilloso juego.
 
-{{< img src="https://cdn.cloudflare.steamstatic.com/steam/apps/706990/ss_77ef2a3f336663ff7b57fa39f047b405c9201d7d.600x338.jpg" >}}
+![](https://cdn.cloudflare.steamstatic.com/steam/apps/706990/ss_77ef2a3f336663ff7b57fa39f047b405c9201d7d.600x338.jpg)
 
 -   SO: Windows 7
 -   Procesador: Core 2 Duo E6600
@@ -63,7 +63,7 @@ Este juego como vemos este juego es nativo pura y exclusivamente en Windows, sin
 
 Una vez que lo descargamos, y **ANTES** de iniciarlo debemos agregar algunos parámetros para que funcione correctamente, para eso vamos a darle click derecho al juego y seleccionamos **Propiedades**...
 
-{{< img src="https://i.postimg.cc/cH3V889S/Captura-de-pantalla-2020-09-01-22-51-14.png" >}}
+![](https://i.postimg.cc/cH3V889S/Captura-de-pantalla-2020-09-01-22-51-14.png)
 
 En esta sección debemos ir a Parámetros de lanzamiento y agregar tal cual el siguiente comando:
 

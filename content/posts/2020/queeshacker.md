@@ -25,7 +25,7 @@ La palabra Hacker es muy utilizada y mal implementada en estos días, es algo qu
 
 Más allá de las miles de historia que uno pueda encontrar rondando por internet es preciso ir a los primeros lugares donde se puede evidenciar. Esta palabra se comenzó a utilizar por el MIT dentro del ámbito de la telefonía.
 
-{{< img src="https://hopp.typepad.com/.a/6a00e553da444b8834019aff6e7bbe970d-pi" >}}
+![](https://hopp.typepad.com/.a/6a00e553da444b8834019aff6e7bbe970d-pi" >}}
 
 Luego de esto se comenzó a utilizar mucho más y fue “expandiendo” su significado hasta el punto donde ahora se desconoce en gran mayoría.
 

@@ -26,7 +26,7 @@ Yo recordaba con anterioridad haber hablado de esto, sin embargo no encontre reg
 
 ## ¿Que es GameMode?
 
-{{< img src="https://www.profesionalreview.com/wp-content/uploads/2018/04/GameMode-mejora-el-rendimiento-de-los-juegos-en-Linux-1.jpg" >}}
+![](https://www.profesionalreview.com/wp-content/uploads/2018/04/GameMode-mejora-el-rendimiento-de-los-juegos-en-Linux-1.jpg)
 
 Básicamente es una herramienta que realiza modificaciones de configuración temporales para poder obtener un mejor rendimiento de los videojuegos en linux. Lo cual nos permite disfrutar de una mejor experiencia sin modificar kernel ni agregar adicionales. Entre las mejoras que podemos encontrar se recalcan las siguientes:
 
@@ -95,17 +95,17 @@ Como dije antes para **Steam** también podemos activarlo y en este caso voy a e
 
 Lo primero que debemos hacer es ir a la Biblioteca y buscar el juego al cual queremos optimizar (recordemos que el mismo deberá estar instalado) Una vez que lo encontramos le damos click derecho e ingresamos en las propiedades
 
-{{< img src="https://i.postimg.cc/k5QnDL0X/Screenshot-20200805-091858.png" >}}
+![](https://i.postimg.cc/k5QnDL0X/Screenshot-20200805-091858.png)
 
 En esa ventana emergente que nos ejecuto vamos a seleccionar **DEFINIR PARÁMETROS DE LANZAMIENTO...** que nos volverá abrir una ventana emergente…
 
-{{< img src="https://i.postimg.cc/3R9YFmrs/Screenshot-20200805-092007.png" >}}
+![](https://i.postimg.cc/3R9YFmrs/Screenshot-20200805-092007.png)
 
 En esta ventana vamos a agregar el comando tal cual lo podemos ver en la parte de abajo, es importante que no te olvides de ninguna parte del mismo (en el caso de que ya hayas editado esto es posible mezclar configuraciones)
 
     gamemoderun %command%
 
-{{< img src="https://i.postimg.cc/9Mcc9J2P/Screenshot-20200805-092039.png" >}}
+![](https://i.postimg.cc/9Mcc9J2P/Screenshot-20200805-092039.png)
 
 Una vez agregado basta con guardarlo y ya podemos iniciar el juego desde steam que va a iniciar con GameMode. (Las imagenes se pueden ver diferentes dado que uso una Skin para Steam)
 

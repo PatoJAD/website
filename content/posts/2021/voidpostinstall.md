@@ -39,7 +39,7 @@ Imaginense para cualquier persona amante de la tecnología recibir un mensaje as
 
 Void es una distro de linux indie, bastante interesante, cuenta con su propio administrador de paquetes y una filosofía interesante. En lo personal no genere contenido para void porque aun siento que esta medio verde, y puede llegar a dar algún volantazo desde mi apreciación. Si bien la distro es completamente estable siento que todavía están terminando de tomar algunas decisiones.
 
-{{< img src="https://voidlinux.org/assets/screenshots/mate-desktop-xtraeme.png" >}}
+![](https://voidlinux.org/assets/screenshots/mate-desktop-xtraeme.png)
 
 Dicho esto, creo que es realmente una distro para equipo de pocos recursos. Si hay algo que aprendemos en linux es que “mientras más decisiones tengamos que tomar, mejor es la calidad final” por lo cual sabemos que a diferencia de Antix esta distro es mucho más fluida, incluso que Artix que le da muchas vueltas a Antix.
 

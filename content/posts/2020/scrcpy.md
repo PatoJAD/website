@@ -21,7 +21,7 @@ authors: ['PatoJAD']
 
 En lo personal soy una persona que dependo mucho de mi dispositivo celular para poder trabajar, ya que en el tengo apps relacionadas con 2FA y varios y realmente no es cómodo estar cambiando de dispositivo todo el tiempo, y más cuando olvidamos cargar el celular y no tiene la batería suficiente.
 
-{{< img src="https://i.postimg.cc/BZzC6LnL/Captura-de-pantalla-de-2020-11-13-08-49-00.png" >}}
+![](https://i.postimg.cc/BZzC6LnL/Captura-de-pantalla-de-2020-11-13-08-49-00.png)
 
 Esta aplicación que estamos mostrando hoy es una solución para la gente como yo, que les gusta dejar el Celular conectado por USB y seguirlo usando sin sacar las manos del teclado.
 
@@ -76,7 +76,7 @@ Luego cree mi propio icono en el menú, pero bastará con ejecutarlo y tener nue
 adb devices
 ```
 
-{{< img src="https://i.postimg.cc/7YTnTH5B/Captura-de-pantalla-de-2020-11-13-09-15-56.png" >}}
+![](https://i.postimg.cc/7YTnTH5B/Captura-de-pantalla-de-2020-11-13-09-15-56.png)
 
 En caso de tener algún error o necesitar ayuda no te olvides que estamos disponibles en el grupo de Telegram para todos ustedes!
 

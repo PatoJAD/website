@@ -39,31 +39,31 @@ Estos tipos de ataques tienen formas técnicas que son las que eventualmente uti
 
 ## Ataques no Técnicos
 
-{{< img src="https://alpinesecurity.com/wp-content/uploads/2017/03/online-password-cracking.jpg" >}}
+![](https://alpinesecurity.com/wp-content/uploads/2017/03/online-password-cracking.jpg)
 
 Estos “ataques” son realizados sin necesidad de tener una preparación técnica y suelen estar guiados por el “azar” o el conocimiento sobre el usuario afectado. Eventualmente puede estar involucrada la ingeniería social o el poco cuidado de los usuarios para con su información.
 
 ### Shoulder Surfing
 
-{{< img src="https://miro.medium.com/max/1003/1*oK1M8qrk-ETnmJNNAnaNng.png" >}}
+![](https://miro.medium.com/max/1003/1*oK1M8qrk-ETnmJNNAnaNng.png)
 
 Como su nombre lo indica, consiste literalmente en mirar por encima del hombro sin que el objetivo se de cuenta, para tratar de conseguir información. Pero a pesar de que parezca una idea producto de Hollywood, existen numerosos casos en los que este método ha sido efectivo. Las empresas más pequeñas son quizás las que corren mayor riesgo de sufrir esto, dado que no pueden controlar sus sitios con la misma eficacia que una organización más grande. Los expertos en seguridad advirtieron recientemente sobre una vulnerabilidad en el proceso de autenticación utilizado por WhatsApp. Los usuarios que intentan usar WhatsApp en un dispositivo nuevo primero deben ingresar un código único que se envía a través de un mensaje de texto, que se puede usar para restaurar la cuenta de un usuario y el historial de chat desde una copia de seguridad. Se descubrió que si un pirata informático pudo obtener el número de teléfono de un usuario, puede descargar la aplicación en un dispositivo limpio y emitir un mensaje para un nuevo código, que, si está a distancia de espionaje, podría copiarlo. llega al propio dispositivo del usuario.
 
 ### Ingeniería Social
 
-{{< img src="https://i.postimg.cc/RFThqTTS/image.png" >}}
+![](https://i.postimg.cc/RFThqTTS/image.png)
 
 La Ingeniería Social es una de las mejores técnicas que ofrece la rama de los ataques no técnicos. La Ingeniería Social consiste en recopilar cada vez más información sobre una persona mediante técnicas psicológicas y el engaño. Muchas veces aplica convertirse en parte de un círculo medianamente cercano de la persona objetivo, conociendo así sus gustos, patrones, información, historia y datos; esto acompañado de información que se puede sacar de internet, como por ejemplo sus redes sociales, historial de navegación, y más; puede permitirnos descubrir las contraseñas que utiliza.
 
 ### Dumpster Diving
 
-{{< img src="https://i.postimg.cc/Hsn0DJpc/image.png">}}
+![](https://i.postimg.cc/Hsn0DJpc/image.png)
 
 En la técnica de buceo en el contenedor, tratamos de recopilar todo tipo de información revisando contenedores de basura, estos pueden encontrarse en espacios públicos o áreas de acceso restringido que requieran de una entrada no autorizada. El buceo en basureros depende de una debilidad humana: la falta de conocimientos sobre seguridad. Es por esto que se pueden encontrar muchas cosas buceando en contenedores de basura (por ejemplo, CDs, DVDs, discos duros, documentos de empresas, etc.), tales elementos pueden ser de gran utilidad al momento de descifrar contraseñas.
 
 ## Ataques Técnicos
 
-{{< img src="https://assets.skyfilabs.com/images/blog/password-cracker-using-python.webp" >}}
+![](https://assets.skyfilabs.com/images/blog/password-cracker-using-python.webp)
 
 La diferentes técnicas que existen en el mercado son muchas, por la cual se han tomado algunas para ser analizadas, dependiendo de sus diferentes procesos a realizar.
 
@@ -71,7 +71,7 @@ La diferentes técnicas que existen en el mercado son muchas, por la cual se han
 
 El ataque por **fuerza bruta** es el método para averiguar una contraseña probando todas las posibles cadenas, que cuentan con determinada longitud y están compuestas por un conjunto de caracteres específico, hasta dar con la correcta. Dicho ataque, La teoría garantiza una **tasa de éxito del 100%**. Sin embargo, al intentar un ataque de fuerza bruta a una contraseña de más de 8 caracteres, el tiempo necesario para realizarlo se vuelve inviable debido al crecimiento exponencial de posibles cadenas con la adición de cada carácter extra. Hydra, Medusa y Ncrack, pueden ser una de las variadas herramientas que performan ataques a servicios activos cliente/servidor (como ftp, http, mysql, ssh, etc) utilizando esta técnica.
 
-{{< img src="https://1.bp.blogspot.com/-s8qbBu1e8FA/XufVG8vcGyI/AAAAAAAAHBs/BOES6gu9WsoJTcKj2A721P2-MMEUM2WuQCNcBGAsYHQ/s1600/2_hydra-fuerza-bruta-wordlist-ftp.png" >}}
+![](https://1.bp.blogspot.com/-s8qbBu1e8FA/XufVG8vcGyI/AAAAAAAAHBs/BOES6gu9WsoJTcKj2A721P2-MMEUM2WuQCNcBGAsYHQ/s1600/2_hydra-fuerza-bruta-wordlist-ftp.png)
 
 Por último, los ataques de fuerza bruta son una de las **técnicas más habituales** de robo de contraseñas en Internet dado que **no es necesario tener grandes conocimientos**. En contrapartida, este tipo de ataque es extremadamente ineficiente porque intenta muchas cadenas que es poco probable que produzcan una coincidencia.
 
@@ -79,7 +79,7 @@ Por último, los ataques de fuerza bruta son una de las **técnicas más habitua
 
 El ataque por diccionario es el siguiente mejor ataque para vulnerar una contraseña. Este, utiliza un diccionario de palabras para llevar a cabo su cometido. Los diccionarios son básicamente archivos de texto cuyo contenido es una palabra o frase por línea, cada línea es una posible versión de la contraseña. La diferencia entre un diccionario y un ataque de fuerza bruta es que un diccionario contiene una lista de coincidencias probables en lugar de todas las posibles combinaciones, logrando así una mejor optimización. Además, un diccionario debe estar bien elaborado, de lo contrario si se incluye cualquier combinación se corre el riesgo de convertirse en un ataque de fuerza bruta y pierde su eficacia.
 
-{{< img src="https://cdn.arstechnica.net/wp-content/uploads/2013/03/IMG_1667.jpg" >}}
+![](https://cdn.arstechnica.net/wp-content/uploads/2013/03/IMG_1667.jpg)
 
 Las listas de palabras con la mejor tasa de éxito son las que se componen de contraseñas reales tomadas de diferentes fuentes públicas o bases de datos divulgadas previamente. **Una lista de palabras bien optimizada** puede marcar la diferencia respecto a todos los ataques descritos. Hay muchos lugares donde se pueden descargar diccionarios genéricos o temáticos y una breve búsqueda en internet revelará estas fuentes. Sin embargo, cuando se precisa de un diccionario más específico, las cosas se vuelven un poco más difíciles y es necesario un proceso de investigación, para elaborarlo. Un diccionario se puede generar a partir de cualquier cosa, se puede generar a partir de artículos, noticias, búsqueda de Google, resultados, contenido del sitio web, registros y cualquier cosa que esté formada por "palabras". Entonces, si quisiéramos agregar ahora un conjunto de palabras específicas a nuestro Diccionario, buscaríamos en Google a nuestra víctima, tomaríamos los resultados y los agregamos. También nos interesa todo el texto de cada enlace devuelto. También se puede tratar de encontrar documentos o registros en el servidor de las víctimas y agregarlas. Cuanta más información tengamos, más grande será el Diccionario.
 

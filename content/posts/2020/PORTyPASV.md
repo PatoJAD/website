@@ -17,13 +17,13 @@ En estos escenarios no había ningún problema en trabajar con servidores FTP, y
 
 Haciendo memoria de las últimas publicaciones sobre servidores y clientes FTP ya deberías saber que este tipo de servidores trabajan de forma estándar sobre el puerto 21. Esto significa que cuando nos conectamos a un servidor FTP se establece una conexión entre un puerto aleatorio de nuestro PC y el puerto 21 del servidor FTP. De este modo creamos un canal de conexión que podría representarse así:
 
-{{< img src="http://cursohacker.es/sites/default/files/styles/large/public/images/20131912152702.png" >}}
+![](http://cursohacker.es/sites/default/files/styles/large/public/images/20131912152702.png)
 
 Una vez establecido este canal ya estamos en disposición de trabajar con el servidor FTP al que nos hemos conectado. Nosotros emitimos comandos por este canal y el servidor nos devuelve la respuesta. Pero claro, ¿Qué ocurre cuando pedimos descargar un archivo? Muy sencillo, que el canal se ocuparía descargando el archivo y no podríamos seguir emitiendo más peticiones hasta completar la descarga. Esto es un problema que nos impediría trabajar en paralelo, poder descargar varios archivos a la vez o navegar por el servidor mientras descargamos archivos. Para soluciona esto, los servidores FTP cuando pedimos descargar un archivo "crean" un canal secundario. De esta forma el canal primario siempre queda disponible para lanzar órdenes y las descargas se hacen en canales secundarios, permitiendo así poder seguir trabajando con el servidor FTP aun estando descargando archivos u haciendo cualquier otra tarea.
 
 Aquí es donde se crea el problema, a la hora de crear el canal secundario. Cuando se trabaja con IPs públicas directamente, el servidor FTP conocía tu IP pública, y era capaz de conectar contigo de forma directa, hoy esto no es posible, ya que si estás en una red local y tienes una IP privada, el servidor FTP no conocerá tu IP privada y cuando intenta crear el canal secundario falla. Pero vamos a verlo con un ejemplo gráfico:
 
-{{< img src="http://cursohacker.es/sites/default/files/styles/large/public/images/20131912155613.jpg?itok=QWzqwLGV" >}}
+![](http://cursohacker.es/sites/default/files/styles/large/public/images/20131912155613.jpg?itok=QWzqwLGV" >}}
 
 Nosotros estamos trabajando en nuestro PC que es el que tiene la IP 192.168.1.2. Recordemos que esto es una IP privada, que solo "tiene validez" dentro de nuestra red local. El router se encargará de convertir nuestra IP privada en una IP pública, en nuestro ejemplo se convertirá nuestra IP privada 192.168.1.2 en la IP pública 80.5.63.7 y llegamos al servidor FTP que tiene la IP 87.25.67.5. Si en este punto mirásemos el log del servidor FTP veríamos que se ha conectado un usuario desde la IP 80.5.63.7 y no desde 192.168.1.2, esto es porque en internet nosotros aparecemos con nuestra IP pública. Así que a ojos del servidor FTP nosotros somos 80.5.63.7.
 

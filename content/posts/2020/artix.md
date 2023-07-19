@@ -41,7 +41,7 @@ En esta oportunidad quiero hablar de una distribución de GNU/Linux que muy prob
 -   **Categoría:** Desktop, Live Medium
 -   **Estado:** Activo
 
-{{< img src="https://i.ytimg.com/vi/lz8hsZjjNZY/maxresdefault.jpg">}}
+![](https://i.ytimg.com/vi/lz8hsZjjNZY/maxresdefault.jpg)
 
 Como remarca desde su web y así la identifica totalmente, **Artix Linux** es una distro basada en Arch, por tanto sabemos que es rolling release, **libre de systemd** y que reemplaza a este con **Openrc**, **s6** o **runit**. Artix es la continuación de los icónicos ManjaroOpenRC y ArchOpenRC tomando una camino más firme con desarrollo continuo.
 
@@ -49,13 +49,13 @@ Como remarca desde su web y así la identifica totalmente, **Artix Linux** es un
 
 En muchos lugares lei que Artix va dirigida a usuarios con mucho expertis en el mundo de GNU/Linux. Sin embargo creo que esta a nivel de aquellos que usan manjaro dia a dia. con la leve diferencia que deben arreglárselas para instalar el **pamac** o el gestor gráfico de preferencia.
 
-{{< img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Artix_Community_FF-Inkscape_2020-02.png">}}
+![](https://upload.wikimedia.org/wikipedia/commons/a/ab/Artix_Community_FF-Inkscape_2020-02.png)
 
 Viene con una instalación mínima lo cual nos permite de alguna forma elegir a nosotros las apps a utilizar, esto nos permite tener el sistema limpio para no arrastrar actualizaciones de aplicaciones que nunca usamos.
 
 ## Instalación
 
-{{< img src="https://i0.wp.com/entornosgnulinux.com/wp-content/uploads/2019/03/Calamarares.jpg" >}}
+![](https://i0.wp.com/entornosgnulinux.com/wp-content/uploads/2019/03/Calamarares.jpg)
 
 La instalación se realiza mediante gestor gráfico (si es que descargaste la iso con algun escritorio disponible) conocido como **calamares** uno de los más populares que existen hoy en dia.
 

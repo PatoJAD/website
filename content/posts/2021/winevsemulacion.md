@@ -20,7 +20,7 @@ authors: ['PatoJAD']
 
 > ¿Porque siempre hablan del uso de wine y porque no el uso de una máquina virtual con windows para el uso de programas o juegos? ¿Qué inconvenientes tendría el uso de cualquiera de estos?
 
-{{< img src="https://i.postimg.cc/wT3V7DXh/photo-2022-04-04-08-11-27-2.jpg" >}}
+![](https://i.postimg.cc/wT3V7DXh/photo-2022-04-04-08-11-27-2.jpg)
 
 En base a estas preguntas de un usuario en la red social de Facebook nace este video que intenta exponer las pro y contras
 

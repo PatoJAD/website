@@ -26,7 +26,7 @@ Como es de “común conocimiento” siempre una cadena se rompe por el eslabón
 
 ## ERROR 1: ¿Tienes la misma contraseña para todas tus cuentas?
 
-{{< img src="https://www.lavanguardia.com/r/GODO/LV/p6/WebSite/2019/06/04/Recortada/img_ppons_20190604-103420_imagenes_lv_colaboradores_istock-921526892-kWCH-U462671425033IgG-992x558@LaVanguardia-Web.jpg" >}}
+![](https://www.lavanguardia.com/r/GODO/LV/p6/WebSite/2019/06/04/Recortada/img_ppons_20190604-103420_imagenes_lv_colaboradores_istock-921526892-kWCH-U462671425033IgG-992x558@LaVanguardia-Web.jpg)
 
 > Usar la misma contraseña para acceder a tus redes sociales y a tu cuenta de banco no es una buena idea. Serás un blanco muy fácil para cualquier ciberdelincuente o persona malintencionada con la que te cruces en la Red.
 
@@ -34,7 +34,7 @@ Acá es donde todos dicen “Pero Pato, con suerte me acuerdo la fecha de mi cum
 
 ## ERROR 2: ¿Te conectas a redes WIFI públicas?
 
-{{< img src="https://jefflovesjessica.com/images/best-vpn-for-public-wifi-hotspots.jpg" >}}
+![](https://jefflovesjessica.com/images/best-vpn-for-public-wifi-hotspots.jpg)
 
 > Evita conectarte a redes WIFI públicas, sobre todo, si vas a realizar operaciones bancarias. En estas redes abiertas, cualquier ciberdelincuente podría estar espiando la red y robarte contraseñas tan importantes como la de acceso a tu cuenta bancaria.
 >
@@ -46,7 +46,7 @@ Entonces después de leer esto vos me decis “Pato los datos no son gratis y ha
 
 ## ERROR 3: ¿Usas contraseñas inseguras?
 
-{{< img src="https://www.pandasecurity.com/es/mediacenter/src/uploads/2016/11/pandasecurity-gestor-contrase%C3%B1as-1024x683.jpg">}}
+![](https://www.pandasecurity.com/es/mediacenter/src/uploads/2016/11/pandasecurity-gestor-contrase%C3%B1as-1024x683.jpg)
 
 > Parece increíble que una de las contraseñas más frecuentes siga siendo 123456. Es un error muy habitual utilizar nombre y año de nacimiento e incluso el nombre de una mascota.
 >
@@ -58,7 +58,7 @@ Entonces después de leer esto vos me decis “Pato los datos no son gratis y ha
 
 ## ERROR 4: ¡Cuidado con los adjuntos que recibes por email!
 
-{{< img src="https://blog.ida.cl/wp-content/uploads/sites/5/2019/05/email_internet-655x470.png" >}}
+![](https://blog.ida.cl/wp-content/uploads/sites/5/2019/05/email_internet-655x470.png)
 
 > Si recibes un fichero adjunto desde una cuenta desconocida ¡no lo abras nunca! Probablemente sea malicioso.
 >
@@ -68,7 +68,7 @@ Hoy en día no somos muchos quienes seguimos usando el email activamente (La may
 
 ## ERROR 5: ¡Denuncia si eres víctima de un ciberdelito!
 
-{{< img src="https://i1.wp.com/aldiaargentina.microjuris.com/wp-content/uploads/2020/06/shutterstock_1354181000-1.jpg?fit=800%2C421&ssl=1" >}}
+![](https://i1.wp.com/aldiaargentina.microjuris.com/wp-content/uploads/2020/06/shutterstock_1354181000-1.jpg?fit=800%2C421&ssl=1" >}}
 
 > No pienses que no se puede hacer nada. Si han suplantado tu identidad en Redes Sociales, denúncialo cuanto antes.
 >
@@ -78,7 +78,7 @@ Parece que no, pero es realmente denunciar esto, o hacer denuncias masivas impul
 
 ## ERROR 6: ¡Recuerda mantener la privacidad!
 
-{{< img src="https://www.consolidatedcredit.org/es/wp-content/uploads/2019/02/Fotolia_180085577_Subscription_Monthly_M-Privacidad-de-Datos.jpg" >}}
+![](https://www.consolidatedcredit.org/es/wp-content/uploads/2019/02/Fotolia_180085577_Subscription_Monthly_M-Privacidad-de-Datos.jpg)
 
 > Un error muy común es no ser cuidadosos con la información que manejamos en nuestro lugar de trabajo y es algo que te puede traer consecuencias nefastas en cualquier carrera profesional.
 >
@@ -88,7 +88,7 @@ Creo que es algo que todos sabemos pero nunca está de más repetirlo (Nunca est
 
 ## ERROR 7: ¿Contraseñas por defecto?
 
-{{< img src="https://aurora.com.gt/wp-content/uploads/2015/06/ip-router-nexxt-aurora.com_.gt_.png" >}}
+![](https://aurora.com.gt/wp-content/uploads/2015/06/ip-router-nexxt-aurora.com_.gt_.png)
 
 > ¿Has cambiado la contraseña que viene por defecto en el router de tu casa o negocio?
 >

@@ -23,13 +23,13 @@ Ya con anterioridad hablamos de mejorar la performance de nuestra placa de video
 
 ## Posibles problemas
 
-{{< img src="https://www.sololinux.es/wp-content/uploads/2017/08/kernel-panic-sololinux-es-2.png" >}}
+![](https://www.sololinux.es/wp-content/uploads/2017/08/kernel-panic-sololinux-es-2.png)
 
 Si usas Ubuntu o Debian suelen traer un kernel que se llama “generic” este kernel busca simplificar la vida de los teniendo como dependencias todos los controladores para evitar errores, sin embargo si pretendemos quedarnos con este kernel no vamos a poder seguir, en contraposición otras distros como arch y demás no suelen tener este problemas pero siempre existen kernels alternativos (zen, liquorix, etc).
 
 ## Cambiando el kernel
 
-{{< img src="https://xanmod.org/index_files/xanmod_wallpaper.png" >}}
+![](https://xanmod.org/index_files/xanmod_wallpaper.png)
 
 En mi caso de Debian o Ubuntu voy a recomendar Xanmod que si bien hay un [tutorial de como instalarlo](/post/2020/09/mejorar-el-rendimiento-de-tu-placa-de-video/) quiero aprovechar esta oportunidad para mejorar ese tutorial.
 

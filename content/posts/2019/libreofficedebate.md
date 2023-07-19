@@ -27,7 +27,7 @@ El día de ayer se armó un hermoso debate en la comunidad del Maratón Linuxero
 
 Muchos conocemos ya a "Switched to Linux" por lo cual vamos a proceder a ver el debate
 
-{{< img src="https://i.postimg.cc/jSVC7kjR/debate.png" >}}
+![](https://i.postimg.cc/jSVC7kjR/debate.png)
 
 > nop
 >
@@ -63,7 +63,7 @@ Nos ahorraríamos las discusiones de la conveniencia del despliegue e implementa
 
 Tras estos puntos de vista podemos ver la diversidad que se genera a pensando en un tema y lo importante que es escuchar a los demás…
 
-{{< img src="https://i.postimg.cc/pX5pytR0/Libre-Office.jpg" >}}
+![](https://i.postimg.cc/pX5pytR0/Libre-Office.jpg)
 
 Libre Office es una aplicación que lleva mucho tiempo y camino recorrido, en su largo tiempo llego a niveles increíbles y poco tiene que envidiarle a la competencia. Hoy la podemos tomar como una de las aplicaciones de Offimatica más estables y ligeras. A esto tenemos que sumarle su completísima suite que nos permite crear contenido a nuestro propio gusto.
 

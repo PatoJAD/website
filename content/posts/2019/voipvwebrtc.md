@@ -29,7 +29,7 @@ Por su parte lo que llamamos VOIP no es más que la implementación del protocol
 
 ## VOIP y WebRTC Juntos
 
-{{< img src="https://bloggeek.me/wp-content/uploads/2017/09/201709-web-voip-webrtc.jpg" >}}
+![](https://bloggeek.me/wp-content/uploads/2017/09/201709-web-voip-webrtc.jpg)
 
 Si bien nativamente no es posible juntarlos muchas librerías nos permiten utilizarlos juntos con el fin de formar un servicio más óptimo. Esto nos permite, por ejemplo, crear una web que se comunique con un servidor SIP y viceversa. Jitsi por ejemplo inició siendo un proyecto VOIP basado en SIP y luego reescribieron su código con una mezcla de SIP y WebRTC Para mejorar la performance y poder funcionar con anchos de banda muchos más modestos.
 

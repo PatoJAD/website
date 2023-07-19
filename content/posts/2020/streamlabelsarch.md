@@ -26,7 +26,7 @@ Hace un tiempo hablamos de [StreamLabs](/aplicaciones/2020/11/streamlabs-en-linu
 
 ## Una explicación no basta
 
-{{< img src="https://i.postimg.cc/W4mRQDLy/image.png" >}}
+![](https://i.postimg.cc/W4mRQDLy/image.png)
 
 Si bien en aquel [artículo](/aplicaciones/2020/11/streamlabs-en-linux/) explique cómo debería realizarse la conversión para utilizarlo en Arch no creo que todo el mundo tenga que ponerse a ver estas cosas. Por lo cual decidí subirlo a AUR para que todo aquel que desee utilizarlo pueda hacerlo sin ningún problema. por lo cual, a partir de hoy si queremos utilizarlo basta con un solo comando para utilizarlo.
 
@@ -36,7 +36,7 @@ yay -S streamlabels
 
 ## ¿Cómo funciona AUR?¿Es difícil subir mi paquete?
 
-{{< img src="https://i.postimg.cc/tCpSktNL/image.png" >}}
+![](https://i.postimg.cc/tCpSktNL/image.png)
 
 Realmente es muy sencillo, aunque vale aclarar que puede costar identificar bien en un inicio como hacerlo correctamente. Por lo cual a modo de muestra en esta oportunidad voy a dejar como está construido este repositorio de Stream Labels para que logren imaginarse como es. Todo el proceso del registro en AUR y demás confío en que pueden…
 
@@ -44,7 +44,7 @@ Realmente es muy sencillo, aunque vale aclarar que puede costar identificar bien
 
 Esta es la magia de AUR, con este archivo basta para subir un repo que esté disponible para todo el mundo. En este archivo vamos a encontrar, las sumas md5 de todos los archivos utilizados, el nombre del paquete, la versión, la descarga, el proceso de instalación, dependencias, descripción, etc…
 
-{{< img src="https://i.postimg.cc/QCbqwwJv/image.png" >}}
+![](https://i.postimg.cc/QCbqwwJv/image.png)
 
 ```Shell
 # Maintainer: Joaquin (Pato) Decima <https://patojad.com.ar/>

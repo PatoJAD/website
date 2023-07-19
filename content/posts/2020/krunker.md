@@ -28,19 +28,19 @@ Muchas veces en la sección de videojuegos tratamos de explicar cómo portear un
 Krunker.io es un juego caricaturizado de disparos en primera persona en el cual asumes el papel de un soldado de pixel en medio de la batalla. Usa tus tácticas de guerra y puntería para acabar con todos tus enemigos. Mata a tus enemigos y gana puntos.
 Antes de luchar, elige entre 11 clases diferentes entre las que se incluyen el detective, el cañonero, el agente, el corredor, el arquero y el cazador. Cada clase cuenta con trajes y estilos diferentes, además de armas primarias y secundarias distintas.
 
-{{< img src="https://i.ytimg.com/vi/9q3YZC-pFGg/maxresdefault.jpg" >}}
+![](https://i.ytimg.com/vi/9q3YZC-pFGg/maxresdefault.jpg)
 
 Aparte de la gran variedad de clases, el juego también cuenta con una gran selección de armas increíbles. Prueba armas letales como el rifle de asalto, el rifle de francotirador, la escopeta, el revólver o las uzis. Todas tienen distintas ventajas: por ejemplo, el rifle de francotirador tiene una mirilla y es perfecto para el combate a distancia.
 
-{{< img src="https://i.ytimg.com/vi/6_DwUSl28LE/maxresdefault.jpg" >}}
+![](https://i.ytimg.com/vi/6_DwUSl28LE/maxresdefault.jpg)
 
 Krunker es un shooter en primera persona muy original en cuanto a su jugabilidad. Se trata también de un juego caótico de ritmo muy rápido: los personajes deben moverse a toda velocidad y permanecer alerta para no recibir disparos. Además, los jugadores necesitarán ser rápidos a la hora de apuntar y tener un buen pulso (como en la mayoría de los juegos FPS).
 
-{{< img src="https://images.sftcdn.net/images/t_app-cover-l,f_auto/p/7cb9fcff-89c4-4648-8496-96e90331f1e7/1261880317/krunker-screenshot.jpg" >}}
+![](https://images.sftcdn.net/images/t_app-cover-l,f_auto/p/7cb9fcff-89c4-4648-8496-96e90331f1e7/1261880317/krunker-screenshot.jpg)
 
 Dispondrás de una enorme selección de mapas, creados tanto por los desarrolladores del juego como por los fans. Los usuarios pueden enviar sus propias creaciones y elegir entre cientos de mapas ingeniados por otros jugadores. La creatividad de los diseños de los mapas es asombrosa: podrás encontrarte de todo, desde paisajes de lava hasta antiguas pirámides aztecas.
 
-{{< img src="https://static.miniclipcdn.com/images/big-images/krunker_444x285.jpg" >}}
+![](https://static.miniclipcdn.com/images/big-images/krunker_444x285.jpg)
 
 Finalmente, los jugadores pueden comprobar sus puntuaciones en la sección social, que incluye clasificaciones y varias estadísticas. Intenta conseguir un puesto en la tabla con tus dotes para la batalla pixelada.
 

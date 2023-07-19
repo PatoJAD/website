@@ -25,7 +25,7 @@ authors: ['PatoJAD']
 
 Oranchelo es un tema de iconos de diseño plano para XFCE4 basado en Super Flat Remix e inspirado en "Corny icons" de Patryk Goworowski. Si bien su destino es XFCE tras probarlo en otros desktops pudimos ver que se adaptan bien, a ser sincero es uno de los mejores que vi en Desktops nuevos como Deepin. Su uso es simple para cualquier distro gracias a su propio instalador que trae en su repositorio de git
 
-{{< img src="https://2.bp.blogspot.com/-IHBM65dQ7yo/V7k0DL0NX_I/AAAAAAAAHvk/4lPzxcDtnJUQ8weAzBIo_P5xTIeWYiuyQCEw/s1920/oranchelo-2.jpg" >}}
+![](https://2.bp.blogspot.com/-IHBM65dQ7yo/V7k0DL0NX_I/AAAAAAAAHvk/4lPzxcDtnJUQ8weAzBIo_P5xTIeWYiuyQCEw/s1920/oranchelo-2.jpg)
 
 ## Instalacion
 

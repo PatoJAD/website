@@ -24,7 +24,7 @@ authors: ['PatoJAD']
 
 Dentro del mundo de **GNU/Linux** existe muchísimo software libre incluso **Linux** el kernel de este sistema, y al ser libre cualquiera puede compilarlo y configurarlo como quiera, incluso publicarlo. En esta oportunidad vamos a ver cómo instalar un kernel modificado por la comunidad para mejorar el rendimiento bajo demanda, es un kernel muy bueno para quienes les gusta jugar, entre otras cosas.
 
-{{< img src="https://i.postimg.cc/gkd80yH4/image.png" >}}
+![](https://i.postimg.cc/gkd80yH4/image.png)
 
 ## Sobre Zen
 

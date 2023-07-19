@@ -27,7 +27,7 @@ En linux somos muchos los que usamos terminal, diría que la gran mayoría y cad
 
 Eventualmente siempre buscamos que ofrece A o que ofrece B, muchas veces la gran lista de cosas desarrolladas no son tan importantes como las propias obtenidas por los usuarios, aun así dejamos esa lista de cosas que ofrece segun su repositorio de GIT:
 
-{{< img src="https://camo.githubusercontent.com/829c1c31ee4acdd88e55585d638e33202bdc3c947c9426c597d133cf7734bb95/68747470733a2f2f676e756e6e312e6769746875622e696f2f74696c69782d7765622f6173736574732f696d616765732f67616c6c6572792f74696c69782d73637265656e73686f742d312e706e67" >}}
+![](https://camo.githubusercontent.com/829c1c31ee4acdd88e55585d638e33202bdc3c947c9426c597d133cf7734bb95/68747470733a2f2f676e756e6e312e6769746875622e696f2f74696c69782d7765622f6173736574732f696d616765732f67616c6c6572792f74696c69782d73637265656e73686f742d312e706e67)
 
 -   Diseñe los terminales de cualquier manera dividiéndolos horizontal o verticalmente
 -   Los terminales se pueden reorganizar usando arrastrar y soltar tanto dentro como entre ventanas

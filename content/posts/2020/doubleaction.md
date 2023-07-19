@@ -23,13 +23,13 @@ authors: ['PatoJAD']
 
 Double Action es un elegante juego multijugador gratuito sobre bucear, voltear y deslizarse hacia el caos de las películas de acción.
 
-{{< img src="https://cdn.cloudflare.steamstatic.com/steam/apps/317360/ss_39480620e2bdffe9e354143bab51403417d7d5df.600x338.jpg?t=1447363023" >}}
+![](https://cdn.cloudflare.steamstatic.com/steam/apps/317360/ss_39480620e2bdffe9e354143bab51403417d7d5df.600x338.jpg?t=1447363023" >}}
 
 ## ¿Cómo es la doble acción?
 
 Imagínese haciendo una voltereta hacia atrás en la cara de un tipo y luego zambulléndose a través de una ventana, con pistolas chapadas en oro disparando a cámara lenta. Hay una explosión detrás de ti y alguien ha robado tu maletín lleno de dinero.
 
-{{< img src="https://cdn.cloudflare.steamstatic.com/steam/apps/317360/ss_226821a1200b41a01e21241a696a6de4d8ca4528.600x338.jpg" >}}
+![](https://cdn.cloudflare.steamstatic.com/steam/apps/317360/ss_226821a1200b41a01e21241a696a6de4d8ca4528.600x338.jpg)
 
 ¿Es suficiente acción para ti? Multiplíquelo por dos para obtener doble acción.
 
@@ -37,11 +37,11 @@ Imagínese haciendo una voltereta hacia atrás en la cara de un tipo y luego zam
 
 Double Action es una batalla real sin límites intercalados con objetivos para sobrevivir a los puntos de control, capturar el maletín lleno de dinero y cazar al criminal buscado.
 
-{{< img src="https://cdn.cloudflare.steamstatic.com/steam/apps/317360/ss_eb0ff5103793ea8e3985c769066bf7f78fa24f14.600x338.jpg" >}}
+![](https://cdn.cloudflare.steamstatic.com/steam/apps/317360/ss_eb0ff5103793ea8e3985c769066bf7f78fa24f14.600x338.jpg)
 
 ## Me gustan las armas
 
-{{< img src="https://cdn.cloudflare.steamstatic.com/steam/apps/317360/ss_446d33ec3a1ae51f9b8cf328d474084e3553b443.600x338.jpg" >}}
+![](https://cdn.cloudflare.steamstatic.com/steam/apps/317360/ss_446d33ec3a1ae51f9b8cf328d474084e3553b443.600x338.jpg)
 
 -   **The Sentinel 9** - Una (o dos) pistola(s) de 9 mm
 -   **The Stallion .45** - Una (o dos) pistola(s) calibre .45

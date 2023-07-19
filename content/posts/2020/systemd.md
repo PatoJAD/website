@@ -9,7 +9,7 @@ img: 'https://linuxforallsite.files.wordpress.com/2017/09/tux_system.jpg'
 authors: ['PatoJAD']
 ---
 
-{{< img src="https://nosystemd.org/img/nosystemd.png" >}}
+![](https://nosystemd.org/img/nosystemd.png)
 
 Cuando escribo mis artículos trato de no ser fanático, incluso intento explicar mis puntos de vistas y comprender las personas que piensan diferente, en este caso la idea es explicar un poco el motivo por el cual yo **no apoyo SystemD** y para hacerlo me voy a apoyar en otro sitio que obviamente se tomó el tiempo de hacer todo el trabajo que no hice yo…
 
@@ -19,7 +19,7 @@ Mi idea no es generar odiadores de systemd ni mucho menos, ni tampoco voy a ser 
 
 _SystemD_ afirma ser un reemplazo bueno y moderno para **SysVinit**, un llamado _demonio_ init (o init para los amigos). Por lo general, el demonio init es el primer proceso generado por el núcleo y, por lo tanto, tiene el **PID** #1 y es responsable de generar otros demonios que son necesarios para que el sistema operativo funcione, por ejemplo, redes, cron, syslog, etc.
 
-{{< img src="https://live.mrf.io/statics/i/ps/www.muylinux.com/wp-content/uploads/2018/05/systemd.png" >}}
+![](https://live.mrf.io/statics/i/ps/www.muylinux.com/wp-content/uploads/2018/05/systemd.png)
 
 Ahora en criollo el init es el primer proceso y **se encarga de que los demás inicien**... Esto es muy importante la función del init es que lo demás inicie, un policía atrapa delincuentes, un bombero apaga incendios, un init inicia otros procesos…
 
@@ -53,31 +53,31 @@ Muchos no queremos ponernos a instalar y sabemos que esto puede generar errores 
 
 #### Devuan
 
-{{< img src="https://i.blogs.es/bed4ed/devuan-jessie-screenshot/1366_2000.png" >}}
+![](https://i.blogs.es/bed4ed/devuan-jessie-screenshot/1366_2000.png)
 
 Se ve a simple vista, devuan es el debian sin SystemD y en mi experiencia es uno de los más limpios y rápidos. La instalación no es difícil, pero tampoco es linda, su instalador es simple pero feo estéticamente… Esto puede generar algún rechazo al inicio pero es una opción impecable…
 
 #### Antix
 
-{{< img src="https://i.ytimg.com/vi/B0NmniRxCpg/maxresdefault.jpg" >}}
+![](https://i.ytimg.com/vi/B0NmniRxCpg/maxresdefault.jpg)
 
 Antix es el revividor de ordenadores, está basado en Debian pero sin systemd (especie de devuan) Tiene escritorios como fluxbox que es extremadamente liviano y esta distro apenas llega a los 300 mb iniciados (con los conkys y todo eso..)
 
 #### MX Linux
 
-{{< img src="https://www.muylinux.com/wp-content/uploads/2019/05/mxlinux183.jpg" >}}
+![](https://www.muylinux.com/wp-content/uploads/2019/05/mxlinux183.jpg)
 
 Esta es una distro intentando ser el Mint del mundo SystemD, también usa Debs y trae muchas apps preinstaladas y configuradas para simplificar al usuario final. Si bien no tiene relación alguna con Mint es una linda comparación para entender a quien va Orientado. Sin embargo desde mi punto de vista es una distro muy cargada con muchas apps.
 
 #### Artix
 
-{{< img src="https://i0.wp.com/entornosgnulinux.com/wp-content/uploads/2019/03/Calamarares.jpg" >}}
+![](https://i0.wp.com/entornosgnulinux.com/wp-content/uploads/2019/03/Calamarares.jpg)
 
 Si sos mas del palo de ARCH Artix es para vos, desde mi punto de vista es la mejor distro, rápida y una vez instalado KDE (en mi caso me gusta ponerle KDE) queda impecable, la instalacion es mas al estilo de manjaro porque es muy simple.
 
 #### Mención Especial
 
-{{< img src="https://proyectotictac.files.wordpress.com/2020/04/pantallazo-menu-milagros-2.0.png" >}}
+![](https://proyectotictac.files.wordpress.com/2020/04/pantallazo-menu-milagros-2.0.png)
 
 Este último no es una distro en si, o al menos eso aclara en su sitio, pero para mi vale mucho la pena dedicarle un tiempo porque es magnífica y está hecho por una de las personas mas importantes en este mundo de Linux hispanohablante. Hablo nada más ni nada menos de **MilagrOS** la cual podemos ver en su web.
 

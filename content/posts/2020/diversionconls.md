@@ -72,7 +72,7 @@ drwxrwxr-x 2 me me 4096 2007-10-26 17:20 Videos
 
 Añadiendo “-l” al comando, cambiamos la salida al formato largo.
 
-{{< img src="https://i.postimg.cc/Kz0rYX84/Screenshot-20200715-084652.png" >}}
+![](https://i.postimg.cc/Kz0rYX84/Screenshot-20200715-084652.png)
 
 ## Opciones y argumentos
 
@@ -96,7 +96,7 @@ ls -lt --reverse
 
 Fíjate que las opciones de los comandos, como los nombres de archivo en Linux, distinguen entre mayúsculas y minúsculas.
 
-{{< img src="https://i.postimg.cc/4NqPtTb9/Screenshot-20200715-084749.png" >}}
+![](https://i.postimg.cc/4NqPtTb9/Screenshot-20200715-084749.png)
 
 El comando ls tiene un gran número de posibles opciones. Las más comunes están listadas a continuación.
 

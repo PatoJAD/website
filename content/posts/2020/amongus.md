@@ -27,11 +27,11 @@ En esta oportunidad vamos a comentar un poco sobre este hermoso que se está vol
 
 Es de mala educación no contar un poco sobre este juego antes, pero tampoco quiero ponerme a parafrasear de antemano así que vamos a dejar toda la data a manos de nuestro amigo Steam
 
-{{< img src="https://cdn.cloudflare.steamstatic.com/steam/apps/945360/extras/steam_AboutBanner.png" >}}
+![](https://cdn.cloudflare.steamstatic.com/steam/apps/945360/extras/steam_AboutBanner.png)
 
 Juega con 4-10 jugadores en línea o vía WiFi local mientras intentas preparar tu nave espacial para la partida, pero ten cuidado, ya que uno o más jugadores aleatorios entre la Tripulación son impostores empeñados en matar a todos.
 
-{{< img src="https://cdn.cloudflare.steamstatic.com/steam/apps/945360/extras/steam_AboutCrew.png" >}}
+![](https://cdn.cloudflare.steamstatic.com/steam/apps/945360/extras/steam_AboutCrew.png)
 
 -   Gana completando tareas para preparar el barco o expulsando a todos los impostores.
 -   Reacciona rápidamente para deshacer los sabotajes del impostor.
@@ -40,7 +40,7 @@ Juega con 4-10 jugadores en línea o vía WiFi local mientras intentas preparar 
 -   Llame a reuniones de emergencia para hablar sobre comportamientos sospechosos.
 -   Vote para expulsar a los supuestos impostores.
 
-{{< img src="https://cdn.cloudflare.steamstatic.com/steam/apps/945360/extras/steam_AboutImpostor.png" >}}
+![](https://cdn.cloudflare.steamstatic.com/steam/apps/945360/extras/steam_AboutImpostor.png)
 
 -   Mata a tus compañeros de tripulación y enmarca a los transeúntes.
 -   Finge ejecutar tareas para mezclarte con los compañeros de tripulación.
@@ -48,7 +48,7 @@ Juega con 4-10 jugadores en línea o vía WiFi local mientras intentas preparar 
 -   Usa sabotajes para causar caos y dividir a la tripulación.
 -   Cierre las puertas para atrapar a las víctimas y matarlas en privado.
 
-{{< img src="https://cdn.cloudflare.steamstatic.com/steam/apps/945360/extras/steam_AboutMultiPlay.png" >}}
+![](https://cdn.cloudflare.steamstatic.com/steam/apps/945360/extras/steam_AboutMultiPlay.png)
 
 ## Características
 
@@ -72,7 +72,7 @@ Para poder jugarlo primero debemos tener habilitado la utilización de Proton co
 
 Lo primero que tenemos que hacer es ir a `Steam -> Parametros` (Suponiendo que esta en español steam). Una vez ahí veremos una ventana de configuración donde iremos a la sección `Steam Play` y veremos algo así:
 
-{{< img src="https://i.postimg.cc/jdySrDtB/Captura-de-pantalla-2020-09-01-22-44-31.png" >}}
+![](https://i.postimg.cc/jdySrDtB/Captura-de-pantalla-2020-09-01-22-44-31.png)
 
 Ahí seleccionaremos _Activar Steam Play para todos los demás títulos_ con la versión de Protón más reciente (En el desplegable) Nos pedirá reiniciar una vez que hagamos esto.
 
@@ -80,7 +80,7 @@ Una vez que se haya reiniciado debemos buscar el juego en nuestra biblioteca y p
 
 Una vez que lo descargamos, y **ANTES** de iniciarlo debemos agregar algunos parámetros para que funcione correctamente, para eso vamos a darle click derecho al juego y seleccionamos **Propiedades..**
 
-{{< img src="https://i.postimg.cc/cH3V889S/Captura-de-pantalla-2020-09-01-22-51-14.png" >}}
+![](https://i.postimg.cc/cH3V889S/Captura-de-pantalla-2020-09-01-22-51-14.png)
 
 En esta sección debemos ir a **Parámetros de lanzamiento** y agregar tal cual el siguiente comando:
 
@@ -90,6 +90,6 @@ PROTON_NO_ESYNC=1 PROTON_USE_WINED3D=1 %command%
 
 Dando como resultado una pantalla así:
 
-{{< img src="https://i.postimg.cc/j2rB6dmJ/Captura-de-pantalla-2020-09-01-22-51-25.png" >}}
+![](https://i.postimg.cc/j2rB6dmJ/Captura-de-pantalla-2020-09-01-22-51-25.png)
 
 Por último volvemos a reiniciar steam y ya podemos jugar tranquilamente, recomiendo traducir al español el juego si no tienes un gran dominio del inglés! Y si estas interesado en jugarlo no te olvides de meterte en nuestros grupos para que juguemos juntos!

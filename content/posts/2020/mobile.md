@@ -27,11 +27,11 @@ Ya a estas alturas creo que no tiene sentido aclarar que me encanta recorrer blo
 
 ## Linux en los dispositivos móviles
 
-{{< img src="https://liliputing.com/wp-content/uploads/2020/07/mobian-700x453.jpg" >}}
+![](https://liliputing.com/wp-content/uploads/2020/07/mobian-700x453.jpg)
 
 En la actualidad existen muchos proyectos para llevar Linux a dispositivos mobiles como **Ubuntu Touch** y **Mobian** proyectos que realiza un gran trabajo adaptando el SO para estos dispositivos
 
-{{< img src="https://cloud.addictivetips.com/wp-content/uploads/2017/09/touch.jpg" >}}
+![](https://cloud.addictivetips.com/wp-content/uploads/2017/09/touch.jpg)
 
 ## Linux en celulares 2007
 
@@ -41,7 +41,7 @@ En esta recorrida por los blogs de antaño encontré que en 2007 esto ya existí
 >
 > Las buenas lenguas indican que el dispositivo se caracterizará por tener pantallas desde 4.5 hasta 6 pulgadas con resoluciones de 800x400 y 1024x600, además que también se dice que la empresa estaría pensando hacer de este un producto que llegue a las grandes masas, por lo que se preveé precios al alcance de cualquier usuario común y corriente.
 >
-> {{< img src="http://3.bp.blogspot.com/_LywfR9febDg/RiQ0JyRNJEI/AAAAAAAAABk/gyJjG5HJx5w/s320/intel.jpg" >}}
+> ![](http://3.bp.blogspot.com/_LywfR9febDg/RiQ0JyRNJEI/AAAAAAAAABk/gyJjG5HJx5w/s320/intel.jpg)
 
 Estas son las publicaciones que encontrábamos en esa época, o incluso los siguientes titulares…
 

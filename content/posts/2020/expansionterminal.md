@@ -21,7 +21,7 @@ authors: ['PatoJAD']
 
 Cada vez que escribes un comando y presionas la tecla enter, bash realiza varios procesos sobre el texto antes de llevar a cabo el comando. Hemos visto un par de casos de cómo una simple secuencia de caracteres, por ejemplo “\*”, puede tener mucho significado para el shell. El proceso que hace que esto ocurra se llama expansión. Con la expansión, introduces algo y se expande en otra cosa antes de que el shell actúe sobre ello. Para demostrar qué queremos decir con esto, echemos un vistazo al comando echo. echo es un shell builtin que realiza una tarea muy simple. Muestra sus argumentos de texto en la salida estándar:
 
-{{< img src="https://i.postimg.cc/QMJHF4VH/Captura-de-pantalla-de-2020-11-09-09-57-43.png" >}}
+![](https://i.postimg.cc/QMJHF4VH/Captura-de-pantalla-de-2020-11-09-09-57-43.png)
 
     echo PatoJAD el mejor Blog
 
@@ -37,7 +37,7 @@ Muestra una salida como:
 
     Desktop Documents ls-output.txt Music Pictures Public Templates Videos
 
-{{< img src="https://i.postimg.cc/V67vRJqw/Captura-de-pantalla-de-2020-11-09-09-58-46.png" >}}
+![](https://i.postimg.cc/V67vRJqw/Captura-de-pantalla-de-2020-11-09-09-58-46.png)
 
 Pero, ¿qué ha pasado? ¿por qué echo no ha escrito “\*”? Como recordarás de nuestro trabajo con comodines, el carácter “\*” significa coincidencia con cualquier carácter en el nombre de archivo, pero lo que no hemos visto en nuestra conversación original es cómo hace eso el shell. La respuesta sencilla es que el shell expande el “\*” en algo más (en este ejemplo, los nombres de los archivos que se encuentran en el directorio de trabajo actual) antes de que el comando echo se ejecute. Cuando presionamos la tecla enter, el shell automáticamente expande todos los caracteres en la línea de comandos antes de que el comando sea ejecutado, por lo que el comando echo no ve el “\*”, sólo su resultado expandido. Sabiendo esto, podemos ver que echo se ha comportado como se esperaba.
 
@@ -54,7 +54,7 @@ El mecanismo según el cual trabajan los comodines se llama expansión de nombre
 
 podríamos llevar a cabo las siguientes expansiones:
 
-{{< img src="https://i.postimg.cc/nrCzwn2D/Captura-de-pantalla-de-2020-11-09-09-59-49.png" >}}
+![](https://i.postimg.cc/nrCzwn2D/Captura-de-pantalla-de-2020-11-09-09-59-49.png)
 
     echo D*
 
@@ -70,7 +70,7 @@ y:
 
     Documents Pictures Templates Videos
 
-{{< img src="https://i.postimg.cc/XJNXdfyx/Captura-de-pantalla-de-2020-11-09-10-00-11.png" >}}
+![](https://i.postimg.cc/XJNXdfyx/Captura-de-pantalla-de-2020-11-09-10-00-11.png)
 
 ## Expansión de nombres de archivos ocultos
 
@@ -98,7 +98,7 @@ Este patrón se expande en todos los nombres de archivo que empiecen con un punt
 
 El shell permite realizar aritmética mediante la expansión. Esto nos permite usar el prompt del shell como una calculadora:
 
-{{< img src="https://i.postimg.cc/MHNGCg3r/Captura-de-pantalla-de-2020-11-09-10-00-41.png" >}}
+![](https://i.postimg.cc/MHNGCg3r/Captura-de-pantalla-de-2020-11-09-10-00-41.png)
 
     echo $((2 + 2))
 

@@ -94,87 +94,87 @@ Siempre suelo tomar las opiniones en telegram, es más simple guardar los mensaj
 
 Esta red social solo la uso para el blog, pero en este caso creí correcto poner (en formato imagen) lo que las personas opinan sobre este polémico tema.
 
-{{< img src="https://i.postimg.cc/VNLf90Th/Screenshot-20200806-131557.png" >}}
+![](https://i.postimg.cc/VNLf90Th/Screenshot-20200806-131557.png)
 
-{{< img src="https://i.postimg.cc/cJ9sF4GL/Screenshot-20200806-132005.png" >}}
+![](https://i.postimg.cc/cJ9sF4GL/Screenshot-20200806-132005.png)
 
-{{< img src="https://i.postimg.cc/NMKQSqQ7/Screenshot-20200806-132051.png" >}}
+![](https://i.postimg.cc/NMKQSqQ7/Screenshot-20200806-132051.png)
 
-{{< img src="https://i.postimg.cc/vBCGdqBR/Screenshot-20200806-132117.png" >}}
+![](https://i.postimg.cc/vBCGdqBR/Screenshot-20200806-132117.png)
 
-{{< img src="https://i.postimg.cc/XqF4NfGr/Screenshot-20200806-132140.png" >}}
+![](https://i.postimg.cc/XqF4NfGr/Screenshot-20200806-132140.png)
 
-{{< img src="https://i.postimg.cc/DZ4K5rcx/Screenshot-20200806-132237.png" >}}
+![](https://i.postimg.cc/DZ4K5rcx/Screenshot-20200806-132237.png)
 
-{{< img src="https://i.postimg.cc/59FxmV7f/Screenshot-20200806-132350.png" >}}
+![](https://i.postimg.cc/59FxmV7f/Screenshot-20200806-132350.png)
 
-{{< img src="https://i.postimg.cc/3wcTgS2y/Screenshot-20200806-132409.png" >}}
+![](https://i.postimg.cc/3wcTgS2y/Screenshot-20200806-132409.png)
 
-{{< img src="https://i.postimg.cc/J4VR62vZ/Screenshot-20200806-132429.png" >}}
+![](https://i.postimg.cc/J4VR62vZ/Screenshot-20200806-132429.png)
 
-{{< img src="https://i.postimg.cc/5NBbZmWG/Screenshot-20200806-132717.png" >}}
+![](https://i.postimg.cc/5NBbZmWG/Screenshot-20200806-132717.png)
 
-{{< img src="https://i.postimg.cc/Gmbdrscp/Screenshot-20200806-132746.png" >}}
+![](https://i.postimg.cc/Gmbdrscp/Screenshot-20200806-132746.png)
 
-{{< img src="https://i.postimg.cc/Z5jZqKRx/Screenshot-20200806-133444.png" >}}
+![](https://i.postimg.cc/Z5jZqKRx/Screenshot-20200806-133444.png)
 
-{{< img src="https://i.postimg.cc/pdTv5b5b/Screenshot-20200806-133530.png" >}}
+![](https://i.postimg.cc/pdTv5b5b/Screenshot-20200806-133530.png)
 
-{{< img src="https://i.postimg.cc/sxFCLM6s/Screenshot-20200806-133601.png" >}}
+![](https://i.postimg.cc/sxFCLM6s/Screenshot-20200806-133601.png)
 
-{{< img src="https://i.postimg.cc/NF1vvQST/Screenshot-20200806-133921.png" >}}
+![](https://i.postimg.cc/NF1vvQST/Screenshot-20200806-133921.png)
 
-{{< img src="https://i.postimg.cc/KcL2M5jz/Screenshot-20200806-154007.png" >}}
+![](https://i.postimg.cc/KcL2M5jz/Screenshot-20200806-154007.png)
 
-{{< img src="https://i.postimg.cc/hPBqb7Q0/Screenshot-20200806-154042.png" >}}
+![](https://i.postimg.cc/hPBqb7Q0/Screenshot-20200806-154042.png)
 
-{{< img src="https://i.postimg.cc/qMxHmM8H/Screenshot-20200806-154124.png" >}}
+![](https://i.postimg.cc/qMxHmM8H/Screenshot-20200806-154124.png)
 
-{{< img src="https://i.postimg.cc/GpH0hF6b/Screenshot-20200806-154302.png" >}}
+![](https://i.postimg.cc/GpH0hF6b/Screenshot-20200806-154302.png)
 
-{{< img src="https://i.postimg.cc/7ZB8kssB/Screenshot-20200806-154412.png" >}}
+![](https://i.postimg.cc/7ZB8kssB/Screenshot-20200806-154412.png)
 
-{{< img src="https://i.postimg.cc/Jz7VSVqD/Screenshot-20200806-154429.png" >}}
+![](https://i.postimg.cc/Jz7VSVqD/Screenshot-20200806-154429.png)
 
-{{< img src="https://i.postimg.cc/Y0NZybLz/Screenshot-20200806-154453.png" >}}
+![](https://i.postimg.cc/Y0NZybLz/Screenshot-20200806-154453.png)
 
-{{< img src="https://i.postimg.cc/zDTsBX2H/Screenshot-20200806-154527.png" >}}
+![](https://i.postimg.cc/zDTsBX2H/Screenshot-20200806-154527.png)
 
-{{< img src="https://i.postimg.cc/dtvzTPgH/Screenshot-20200806-154600.png" >}}
+![](https://i.postimg.cc/dtvzTPgH/Screenshot-20200806-154600.png)
 
-{{< img src="https://i.postimg.cc/DygRrpT2/Screenshot-20200806-154637.png" >}}
+![](https://i.postimg.cc/DygRrpT2/Screenshot-20200806-154637.png)
 
-{{< img src="https://i.postimg.cc/QtTRcXXP/Screenshot-20200806-171748.png" >}}
+![](https://i.postimg.cc/QtTRcXXP/Screenshot-20200806-171748.png)
 
-{{< img src="https://i.postimg.cc/R08k33zK/Screenshot-20200806-171808.png" >}}
+![](https://i.postimg.cc/R08k33zK/Screenshot-20200806-171808.png)
 
-{{< img src="https://i.postimg.cc/kGPLckG5/Screenshot-20200806-171825.png" >}}
+![](https://i.postimg.cc/kGPLckG5/Screenshot-20200806-171825.png)
 
-{{< img src="https://i.postimg.cc/K88wJ7Gt/Screenshot-20200806-171847.png" >}}
+![](https://i.postimg.cc/K88wJ7Gt/Screenshot-20200806-171847.png)
 
-{{< img src="https://i.postimg.cc/YCDVV40Z/Screenshot-20200807-083433.png" >}}
+![](https://i.postimg.cc/YCDVV40Z/Screenshot-20200807-083433.png)
 
-{{< img src="https://i.postimg.cc/s2B8RVZX/Screenshot-20200807-083501.png" >}}
+![](https://i.postimg.cc/s2B8RVZX/Screenshot-20200807-083501.png)
 
-{{< img src="https://i.postimg.cc/s2tLjtpJ/Screenshot-20200807-083542.png" >}}
+![](https://i.postimg.cc/s2tLjtpJ/Screenshot-20200807-083542.png)
 
-{{< img src="https://i.postimg.cc/4dVSmBPR/Screenshot-20200807-083602.png" >}}
+![](https://i.postimg.cc/4dVSmBPR/Screenshot-20200807-083602.png)
 
-{{< img src="https://i.postimg.cc/HntvtnFS/Screenshot-20200807-083636.png" >}}
+![](https://i.postimg.cc/HntvtnFS/Screenshot-20200807-083636.png)
 
-{{< img src="https://i.postimg.cc/52r7gZkM/Screenshot-20200807-083700.png" >}}
+![](https://i.postimg.cc/52r7gZkM/Screenshot-20200807-083700.png)
 
-{{< img src="https://i.postimg.cc/v87Ky2DW/Screenshot-20200807-083728.png" >}}
+![](https://i.postimg.cc/v87Ky2DW/Screenshot-20200807-083728.png)
 
-{{< img src="https://i.postimg.cc/8Cry0tqf/Screenshot-20200807-123623.png" >}}
+![](https://i.postimg.cc/8Cry0tqf/Screenshot-20200807-123623.png)
 
-{{< img src="https://i.postimg.cc/HsBPcJwn/Screenshot-20200808-162953.png" >}}
+![](https://i.postimg.cc/HsBPcJwn/Screenshot-20200808-162953.png)
 
-{{< img src="https://i.postimg.cc/tCXM4dV8/Screenshot-20200808-163032.png" >}}
+![](https://i.postimg.cc/tCXM4dV8/Screenshot-20200808-163032.png)
 
-{{< img src="https://i.postimg.cc/QtG6Gc34/Screenshot-20200808-163107.png" >}}
+![](https://i.postimg.cc/QtG6Gc34/Screenshot-20200808-163107.png)
 
-{{< img src="https://i.postimg.cc/Cx5rjF7N/Screenshot-20200808-163133.png" >}}
+![](https://i.postimg.cc/Cx5rjF7N/Screenshot-20200808-163133.png)
 
 ## El mismísimo Blog
 

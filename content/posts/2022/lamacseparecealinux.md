@@ -30,7 +30,7 @@ authors: ['PatoJAD']
 
 Ya hace tiempo, me es más difícil crear contenido, a medida que aumentan las responsabilidades es mucho más difícil hacerse un tiempo para poder escribir o grabar. Sin embargo sigo con este método de tomar preguntas de diferentes lugares y responder o tomarla como disparador para hablar de algún tema. En este caso la pregunta es la siguiente:
 
-{{< img src="https://i.postimg.cc/pL5xYCPM/Screenshot-20220504-202955-Facebook-1.jpg" >}}
+![](https://i.postimg.cc/pL5xYCPM/Screenshot-20220504-202955-Facebook-1.jpg)
 
 ## Vídeo
 

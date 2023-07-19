@@ -19,7 +19,7 @@ En este periodo de la cursada están viendo **Ofimática** (Cosa que ni yo se po
 
 ## Docentes que no están preparados
 
-{{< img src="https://aedlorotava.files.wordpress.com/2016/11/equipo-docente-informatica.jpg" >}}
+![](https://aedlorotava.files.wordpress.com/2016/11/equipo-docente-informatica.jpg)
 
 Yo trato de ser muy justo en lo que hablo, pienso y digo, más allá de que en los videos me ponga picante _(Es que a ustedes les gusta lo picante)_. La historia que traigo hoy es realmente indignante, porque deja claro que existen muchas personas que no se toman el tiempo de hacer bien su trabajo.
 
@@ -31,19 +31,19 @@ Sin embargo si sos un profesor de Informática **no podes no saber que existen o
 
 En la parte de Hojas de cálculo (O mal llamado excel por este “docente”) devolvió el trabajo con supuesto _“errores”_ que tiene que ver con la compatibilidad (MS Office cambia algunas funciones por nombres raros...) por lo cual podemos verlo como dos cosas, o decidió no tomarse el tiempo de instalar LibreOffice para corregir lo cual sería una **discriminación**, o simplemente ignora la existencia del mismo y no estaría en condiciones de corregir el trabajo.
 
-{{< img src="https://blog.fromdoppler.com/wp-content/uploads/problemasdecontenido.png" >}}
+![](https://blog.fromdoppler.com/wp-content/uploads/problemasdecontenido.png)
 
 ¿Es realmente aceptable que esto pase? ¿Una persona no puede cursar si no tiene el dinero suficiente como para comprar un sistema operativo y un paquete de informatica? O peor aún, caer en la **piratería** (delito punible en argentina). Estamos hablando de un establecimiento público. ¿Las autoridades de la institución avalan esto limitantes impuestos a sus estudiantes?
 
 # Otra cara de la misma moneda
 
-{{< img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTHtg6hmjidPlV_zZ6dUgJUem1HxRSGGgAaOWls6prsdTmBg_qT&usqp=CAU" >}}
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTHtg6hmjidPlV_zZ6dUgJUem1HxRSGGgAaOWls6prsdTmBg_qT&usqp=CAU" >}}
 
 Yo curso en la **misma Facultad**, en el **mismo Departamento** (Ciencia y Tecnología) pero _otra carrera_ (Lic. en Desarrollo de Software) y desde que entré a la facultad siempre se incentivo a usar sistemas libres (o al menos en la mayoría de las materias cursadas) ¿Como es posible que dentro de un mismo departamento las cosas sean tan antagónicas?
 
 # Mi crítica…
 
-{{< img src="https://promocionmusical.es/wp-content/uploads/2018/03/xcriticas-redes-sociales-big-810x455.jpg.pagespeed.ic.ZWrrVB9BqD.jpg" >}}
+![](https://promocionmusical.es/wp-content/uploads/2018/03/xcriticas-redes-sociales-big-810x455.jpg.pagespeed.ic.ZWrrVB9BqD.jpg)
 
 Claramente no pido que todos usen linux (aunque no es una mala idea), simplemente **razono** por mi parte que debería ser todo apto para aquellos usuarios que usan Windows y sus herramientas y para aquellos que no lo usan por diferentes motivos:
 

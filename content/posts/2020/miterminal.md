@@ -22,7 +22,7 @@ authors: ['PatoJAD']
 
 Muchos me preguntaron sobre mi terminal en videos anteriores, en esta oportunidad quiero explicar como llegar a tener una terminal como la que uso yo, y específicamente, porque tener una terminal así.
 
-{{< img src="https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/performance.gif" >}}
+![](https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/performance.gif" >}}
 
 Dentro de mi profesión como developer es importante la velocidad y simplicidad de tareas cotidianas y una de esas es el uso de la terminal, la terminal la uso todo el dia y para prácticamente todo, por lo cual requiero una terminal que pueda personalizar para que se acomode y obviamente me simplifique todo lo que pueda…
 
@@ -52,7 +52,7 @@ Sin embargo por sí solo puede ser un poco engorroso de configurar y puede lleva
 
 ## Oh My ZSH al rescate
 
-{{< img src="https://www.ivaylopavlov.com/wp-content/uploads/2017/04/Screenshot-2017-04-30-00.43.48.png" >}}
+![](https://www.ivaylopavlov.com/wp-content/uploads/2017/04/Screenshot-2017-04-30-00.43.48.png)
 
 Es un framework desarrollado por la comunidad para gestionar la configuración de ZSH. El cual viene a simplificar la tarea personalizar y añadir plugins y configurarlo a gusto, esto puede llegar a ser realmente muy útil y por supuesto simple de instalar, para iniciar debemos instalar sus dependencias:
 
@@ -70,7 +70,7 @@ De esta forma se instalará este “aditivo” que permitirá configurarlo a nue
 
 ## PowerLevel 10k
 
-{{< img src="https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/prompt-styles-high-contrast.png" >}}
+![](https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/prompt-styles-high-contrast.png)
 
 Esto ya es 100% decicion mia, es un theme que me gusto y que suma un valor agregado con datos que muchas veces pueden ser interesantes que pueden leer en su documentación dentro de los cuales puedo resaltar:
 
@@ -114,7 +114,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 Ahora reiniciamos la terminal y nos abrira una configuracion paso a paso donde vamos a ir eligiendo entre ejemplos como se vera la terminal, las primeras preguntas son si vemos los iconos y luego nos mostrará opciones (casi siempre del 1 al 4) donde iremos estableciendo la visualización…
 
-{{< img src="https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/configuration-wizard.gif" >}}
+![](https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/configuration-wizard.gif" >}}
 
 En el caso de que no nos guste como quedo o queramos cambiarlo siempre se puede ejecutar el comando:
 

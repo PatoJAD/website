@@ -34,7 +34,7 @@ Este tipo de archivo es capaz de colapsar el ordenador por un colapso de buffer 
 
 Un archivo zip es, básicamente, un archivo central que referencia a los otros archivos
 
-{{< img src="https://www.bamsoftware.com/hacks/zipbomb/normal.svg" >}}
+![](https://www.bamsoftware.com/hacks/zipbomb/normal.svg" >}}
 
 El directorio central está al final del archivo zip. Es una lista de encabezados que contiene metadatos para un solo archivo, como su nombre de archivo y suma de verificación CRC-32, y un puntero hacia atrás a un encabezado de archivo local. Un encabezado de directorio central tiene 46 bytes de longitud, más la longitud del nombre del archivo.
 

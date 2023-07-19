@@ -27,7 +27,7 @@ Es común que al utilizar cualquier distribución basada en Arch (Artix, endeavo
 
 YAY está escrito en GO un lenguaje de programación que tiene una fácil lectura y es extensible. Una gran ventaja es que su compilación es realmente rápida y muy simple. Toma como inspiración yaourt, apacman y pacmaur. Paru, en cambio, está escrito en Rust y toma como inspiración a YAY por lo cual es muy simple de migrar de uno a otro.
 
-{{< img src="https://i.postimg.cc/xTvdwb1M/image.png" >}}
+![](https://i.postimg.cc/xTvdwb1M/image.png)
 
 Si bien YAY es mucho más popular y tiene una comunidad mucho más grande, actualmente paru es, por no mucho, más activo. Lo cual supone ser una ventaja, sin embargo, para los usuarios finales esto no afecta en gran cantidad. Sin embargo una de las diferencias que note es que paru es, efectivamente, más rápido que YAY. Lo cual es útil si tenemos equipos de pocos recursos. Sin embargo, en lo personal creo que yay tiene una sintaxis más feliz que paru. Es más simple y rápido escribir yay, incluso para autocompletar. Sin embargo, paru puede volverse un poco tosco y molesto.
 

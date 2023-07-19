@@ -23,7 +23,7 @@ authors: ['PatoJAD']
 
 Steam es una de las plataformas de videojuegos más grandes del mundo. Y los usuarios de linux contamos con esta plataforma nativa desde hace muchos años. En esta oportunidad vamos a intentar sacarle un poco más de provecho reduciendo el consumo de la plataforma para poder obtener un mejor resultado a la hora de jugar en nuestros equipos. Es posible jugar en equipos de pocos recursos y lo mejor es tratar de optimizar el consumo de todo el sistema en general.
 
-{{< img src="https://www.muycomputer.com/wp-content/uploads/2018/09/steam-portada.jpg" >}}
+![](https://www.muycomputer.com/wp-content/uploads/2018/09/steam-portada.jpg)
 
 ## Video
 
@@ -41,4 +41,4 @@ steam -no-browser +open steam://open/minigameslist
 
 Con este comando podemos generar lanzadores y/o abrir el juego desde la terminal de una forma más “performante” donde no se habiliten los navegadores ni muchos procesos en segundo plano que eventualmente no utilizamos
 
-{{< img src="https://www.howtogeek.com/wp-content/uploads/2020/10/steam-small-mode.png" >}}
+![](https://www.howtogeek.com/wp-content/uploads/2020/10/steam-small-mode.png)

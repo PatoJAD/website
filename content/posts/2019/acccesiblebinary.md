@@ -31,7 +31,7 @@ authors: ['elhada3d']
 -   Esto es un proyecto moldeable, modular y pensado para llevarlo a cabo de manera colaborativa, donde cada uno pondrá de sus conocimientos para que esto sea una realidad. “Divide y vencerás” en el sentido de pequeñas tareas para lograr resolver un problema grande.
 -   **Ayudarnos sin límites** es la premisa, si logramos realizar este proyecto estaremos contribuyendo al desarrollo humano enfocado en el entendimiento para el mejor avance tecnológico de la historia. “Una máquina puede pensar siempre y cuando el humano que la haga pensar también sepa cómo hacerlo”
 
-{{< img src="https://blog.ida.cl/wp-content/uploads/sites/5/2019/03/Usabilidad-y-accesibilidad-655x470.png" >}}
+![](https://blog.ida.cl/wp-content/uploads/sites/5/2019/03/Usabilidad-y-accesibilidad-655x470.png)
 
 ## I PARTE: INVESTIGACIÓN
 
@@ -116,7 +116,7 @@ Se maneja básicamente siguiendo un esquema de repetición clasificando y separa
 
 **Lógica difusa**: La Lógica Difusa actualmente está relacionada y fundamentada en la teoría de los Conjuntos Difusos. Según esta teoría, el grado de pertenencia de un elemento a un conjunto va a venir determinado por una función de pertenencia, que puede tomar todos los valores reales comprendidos en el intervalo [0,1]
 
-{{< img src="http://image.basekit.com/live256922_accesibilidad_1.png" >}}
+![](http://image.basekit.com/live256922_accesibilidad_1.png)
 
 #### Lenguajes para desarrollo:
 

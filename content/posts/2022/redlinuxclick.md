@@ -30,7 +30,7 @@ Sin embargo, existe una red social que es pura y exclusivamente para usuarios de
 
 En la red contamos con grupos y páginas al igual que en la mayoría de las redes sociales. También cuenta con un sistema de microblogging que nos permite realizar publicaciones más extensas que un simple estado (los cuales también pueden tener multimedia como en otras redes sociales)
 
-{{< img src="https://i.postimg.cc/g0mrW8DJ/image.png" >}}
+![](https://i.postimg.cc/g0mrW8DJ/image.png)
 
 Contamos con un chat donde podemos hablar con nuestros amigos (amigos a los cuales seguimos) Y como podemos ver en la imagen muchas secciones más interesantes para ir publicando y completando uniendonos todos…
 

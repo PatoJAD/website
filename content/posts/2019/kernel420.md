@@ -17,7 +17,7 @@ En esta nueva versión del Kernel de Linux se hicieron 14.997 parches de 1857 De
 
 Aproximadamente el 47% de todos los cambios presentados en 4.20 están relacionados con los controladores de dispositivos, aproximadamente el 17% de los cambios están relacionados con la actualización de códigos específicos para arquitecturas de hardware, el 14% están relacionados con la pila de red, el 3% son sistemas de archivos y el 4% son subsistemas internos del Kernel.
 
-{{< img src="https://i.postimg.cc/zB7WMNjX/Linux-kernel-4-20-released.jpg" >}}
+![](https://i.postimg.cc/zB7WMNjX/Linux-kernel-4-20-released.jpg)
 
 ## ¿Qué hay de nuevo en el Kernel de Linux 4.20?
 
@@ -53,7 +53,7 @@ En la implementación de puentes de red (subsistema de puentes), se ha agregado 
 
 El soporte para 5 y 6 canales para la banda de 60 GHz se ha agregado a la pila inalámbrica ieee80211, así como la capacidad de habilitar la funcionalidad FTM Responder desde el espacio del usuario.
 
-{{< img src="https://i.postimg.cc/WbCZxXMr/Linux-Kernel-5-featured.jpg" >}}
+![](https://i.postimg.cc/WbCZxXMr/Linux-Kernel-5-featured.jpg)
 
 ## ¿Y el Kernel 5.0 para cuando?
 

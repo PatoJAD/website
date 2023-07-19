@@ -18,7 +18,7 @@ img: 'https://i2.wp.com/www.linuxlinks.com/wp-content/uploads/2019/07/Music-visu
 authors: ['PatoJAD']
 ---
 
-{{< img src="https://camo.githubusercontent.com/a4d7fd8c67e2e061f508c492fbe1f12187196bb9/68747470733a2f2f7468756d62732e6766796361742e636f6d2f44656669616e74496e666f726d616c496e6469616e7370696e796c6f6163682d73697a655f726573747269637465642e676966" >}}
+![](https://camo.githubusercontent.com/a4d7fd8c67e2e061f508c492fbe1f12187196bb9/68747470733a2f2f7468756d62732e6766796361742e636f6d2f44656669616e74496e666f726d616c496e6469616e7370696e796c6f6163682d73697a655f726573747269637465642e676966)
 
 GLava es un visualizador de espectro de audio OpenGL **altamente configurable** y de uso general para X11. **El desarrollo es activo** y se alienta la presentación de informes sobre problemas.
 

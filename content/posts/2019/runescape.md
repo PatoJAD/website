@@ -13,7 +13,7 @@ authors: ['PatoJAD']
 
 El combate de RuneScape es emocionante y desafiante, con muchas opciones y capacidades diferentes para elegir. Hay disponibles miles de combinaciones de armaduras y armas, y los jugadores más fuertes son aquellos que se preparan bien para la batalla. Los jugadores pueden tratar de derrotar a cientos de NPC diferentes a medida que avanzan en su aventura o pueden participar en combates con otros jugadores en áreas específicas de PvP. Sigue leyendo para descubrir por qué Combat es una parte tan importante del juego de RuneScape.
 
-{{< img src="https://images.ctfassets.net/ra5kw4ubxdsf/5VDo7YuJQo3KdqQDvSUdvp/e639ecc171bd6c4de47392202b7e633c/RS3_Device_Tablet_450x615.webp?q=75&w=680" >}}
+![](https://images.ctfassets.net/ra5kw4ubxdsf/5VDo7YuJQo3KdqQDvSUdvp/e639ecc171bd6c4de47392202b7e633c/RS3_Device_Tablet_450x615.webp?q=75&w=680" >}}
 
 ## Evolución del combate
 

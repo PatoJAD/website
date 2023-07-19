@@ -215,19 +215,19 @@ Vamos a instalar nuestra servidor gráfico y placa, para esto vamos a dividirlo 
 
 #### Intel
 
-{{< img src="https://hardzone.es/app/uploads-hardzone.es/2019/09/Intel-Cascade-Lake-X-intro.jpg" >}}
+![](https://hardzone.es/app/uploads-hardzone.es/2019/09/Intel-Cascade-Lake-X-intro.jpg)
 
     sudo pacman -Syyu xf86-video-intel mesa-demos intel-ucode xorg pavucontrol pulseaudio
 
 #### Nvdia
 
-{{< img src="https://hardzone.es/app/uploads-hardzone.es/2020/04/NVIDIA-Hotfix.jpg" >}}
+![](https://hardzone.es/app/uploads-hardzone.es/2020/04/NVIDIA-Hotfix.jpg)
 
     sudo pacman -Syyu xf86-video-nouveau mesa-demos mesa-libgl xorg pavucontrol pulseaudio
 
 #### AMD
 
-{{< img src="https://hardzone.es/app/uploads-hardzone.es/2020/03/AMD-Ryzen-9.jpg" >}}
+![](https://hardzone.es/app/uploads-hardzone.es/2020/03/AMD-Ryzen-9.jpg)
 
     sudo pacman -Syyu xf86-video-amdgpu mesa-vdpau mesa-demos xorg pavucontrol pulseaudio
 
@@ -237,7 +237,7 @@ A continuación vamos a ver la instalación de los escritorios disponibles y sus
 
 #### Instalar XFCE4
 
-{{< img src="https://docs.xfce.org/_media/xfce/4.12/slider-desktop.jpg" >}}
+![](https://docs.xfce.org/_media/xfce/4.12/slider-desktop.jpg)
 
 290MiB/RAM aproximadamente, un escritorio muy ligero y bastante personalizable
 
@@ -247,7 +247,7 @@ A continuación vamos a ver la instalación de los escritorios disponibles y sus
 
 #### Instalar Deepin
 
-{{< img src="https://www.deepin.org/wp-content/uploads/2020/04/01-1.jpg" >}}
+![](https://www.deepin.org/wp-content/uploads/2020/04/01-1.jpg)
 
 590MiB/RAM aproximadamente, es un escritorio muy estético aunque el nivel de personalización es bastante bajo
 
@@ -257,7 +257,7 @@ A continuación vamos a ver la instalación de los escritorios disponibles y sus
 
 #### Instalar Budgie
 
-{{< img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Ubuntu-budgie-18.04-cat.png/1280px-Ubuntu-budgie-18.04-cat.png" >}}
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Ubuntu-budgie-18.04-cat.png/1280px-Ubuntu-budgie-18.04-cat.png)
 
 460MiB/RAM aproximadamente, un escritorio maleable y muy buscado
 
@@ -265,7 +265,7 @@ A continuación vamos a ver la instalación de los escritorios disponibles y sus
 
 #### Instalar Cinnamon
 
-{{< img src="https://erikdubois.be/wp-content/uploads/2017/01/arch-cinnamon-aureola-acros.jpg" >}}
+![](https://erikdubois.be/wp-content/uploads/2017/01/arch-cinnamon-aureola-acros.jpg)
 
 450MiB/RAM aproximadamente, es un escritorio muy estético y fluido, con cada actualización este escritorio se renueva y nos soprende mas
 
@@ -273,7 +273,7 @@ A continuación vamos a ver la instalación de los escritorios disponibles y sus
 
 #### Instalar Enlightenment
 
-{{< img src="https://i.stack.imgur.com/FvoTq.jpg" >}}
+![](https://i.stack.imgur.com/FvoTq.jpg)
 
 149MiB/RAM aproximadamente, es un escritorio muy liviano y muy optimizado, altamente recomendado para equipos viejos
 
@@ -283,7 +283,7 @@ A continuación vamos a ver la instalación de los escritorios disponibles y sus
 
 #### Instalar GNOME
 
-{{< img src="https://i.redd.it/qeu6pls7v7w11.png" >}}
+![](https://i.redd.it/qeu6pls7v7w11.png)
 
 740MiB/RAM aproximadamente, es un escritorio muy maleable y bastante fluido (es uno de los escritorios con más precarga pero lo vale en la usabilidad) es el preferido de **Pipe** y **Julio**
 
@@ -291,7 +291,7 @@ A continuación vamos a ver la instalación de los escritorios disponibles y sus
 
 #### Instalar GNOME/Flashback
 
-{{< img src="https://external-preview.redd.it/38qPd6ZJGLQXB2HtQ6iL2ZEvOw-Dsg0VM05FOTc8O7I.png?auto=webp&s=bab6f84634f388e1abc83e14c954f94fe34b150d" >}}
+![](https://external-preview.redd.it/38qPd6ZJGLQXB2HtQ6iL2ZEvOw-Dsg0VM05FOTc8O7I.png?auto=webp&s=bab6f84634f388e1abc83e14c954f94fe34b150d" >}}
 
 435MiB/RAM aproximadamente, el diseño del escritorio y la tecnología subyacente es similar a GNOME 2. No utiliza la aceleración 3D en absoluto, por lo que generalmente es más rápido y requiere menos CPU
 
@@ -299,7 +299,7 @@ A continuación vamos a ver la instalación de los escritorios disponibles y sus
 
 #### Instalar LXDE — GTK3
 
-{{< img src="https://cdn.pling.com/img//hive/content-pre1/159897-1.png" >}}
+![](https://cdn.pling.com/img//hive/content-pre1/159897-1.png)
 
 175MiB/RAM aproximadamente, es un escritorio muy fluido y pueden lograrse estéticas únicas
 
@@ -307,7 +307,7 @@ A continuación vamos a ver la instalación de los escritorios disponibles y sus
 
 #### Instalar LXQt
 
-{{< img src="https://blog.desdelinux.net/wp-content/uploads/2014/05/lxqt-1.png" >}}
+![](https://blog.desdelinux.net/wp-content/uploads/2014/05/lxqt-1.png)
 
 227MiB/RAM aproximadamente, es un escritorio fluido con un nivel de precarga bajo pero suficiente
 
@@ -315,7 +315,7 @@ A continuación vamos a ver la instalación de los escritorios disponibles y sus
 
 #### Instalar LXDE — GTK2
 
-{{< img src="https://blog.desdelinux.net/wp-content/uploads/2012/07/2012-07-17-194657_1440x900_scrot.png" >}}
+![](https://blog.desdelinux.net/wp-content/uploads/2012/07/2012-07-17-194657_1440x900_scrot.png)
 
 170MiB/RAM aproximadamente, es la versión con GTK2 de lxde, en lo personal prefiero la versión con GTK3 pero eso va por cada uno.
 
@@ -323,7 +323,7 @@ A continuación vamos a ver la instalación de los escritorios disponibles y sus
 
 #### Instalar MATE
 
-{{< img src="https://fc06.deviantart.net/fs71/f/2012/150/f/9/archlinux_mate_29_05_12_by_chetaahmc-d51p82z.png" >}}
+![](https://fc06.deviantart.net/fs71/f/2012/150/f/9/archlinux_mate_29_05_12_by_chetaahmc-d51p82z.png)
 
 332MiB/RAM aproximadamente, es uno de los escritorios con mejor relación consumo oferta y realmente es uno de los que personalmente más me gusta.
 
@@ -337,7 +337,7 @@ mate-power-manager > El backend UPower (opcional)
 
 #### Instalar Sugar
 
-{{< img src="https://sugarlabs.org/assets/home-screenshot.png" >}}
+![](https://sugarlabs.org/assets/home-screenshot.png)
 
 260MiB/RAM aproximadamente, el escritorio pensado para niños (Si, no hay nada mejor que nuestro niño de 6 años use Arch, imaginense lo que va a ser a los 20) es ligero y pensado para ser muy simple de usar
 
@@ -347,7 +347,7 @@ mate-power-manager > El backend UPower (opcional)
 
 #### Instalar KDE Plasma
 
-{{< img src="https://arcolinuxd.com/wp-content/uploads/2018/06/archlinux-plasma-menu.jpg" >}}
+![](https://arcolinuxd.com/wp-content/uploads/2018/06/archlinux-plasma-menu.jpg)
 
 700MiB/RAM aproximadamente, es un escritorio muy estético y personalizable, la precarga es baja pero en algunos casos puede ir aumentando en el uso.
 

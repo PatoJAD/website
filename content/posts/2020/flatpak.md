@@ -15,7 +15,7 @@ Vamos a hablar de Flatpak, un tipo de paquetería que puede ser amado y odiado a
 
 Para arrancar tendríamos que entender que es flatpak y si bien podríamos usar muchas definiciones técnicas, no es la idea, hoy vamos a discutir sobre la mesa siendo racionales, los tecnicismos los dejamos para una segunda etapa (que probablemente nunca haga porque voy a olvidarlo).
 
-{{< img src="https://tecnonucleous.com/content/images/2018/04/flatpaklogo.jpg" >}}
+![](https://tecnonucleous.com/content/images/2018/04/flatpaklogo.jpg)
 
 Flatpak es un tipo de paquetería que presenta como principal ventaja que es indiferente a la versión del sistema y/o librerías instaladas. Por lo cual si lo vemos así entendemos que es la solución a todos los problemas de compatibilidad que tenemos y esto es así, pero no tan así…
 
@@ -23,7 +23,7 @@ Flatpak es un tipo de paquetería que presenta como principal ventaja que es ind
 
 Claramente tiene un secreto, y esto es lo que lo hace tan bueno como malo, flatpack nos permite independizarnos de nuestro sistema porque virtualiza las aplicaciones, dandole asi todo lo que necesitan para ejecutar independientemente de la distro de linux que estemos ejecutando.
 
-{{< img src="https://blog.desdelinux.net/wp-content/uploads/2019/01/virtualbox-virtualizacion-importancia-blog-desdelinux-830x531.jpg" >}}
+![](https://blog.desdelinux.net/wp-content/uploads/2019/01/virtualbox-virtualizacion-importancia-blog-desdelinux-830x531.jpg)
 
 Esto es lo que nos permite evitar errores de compatibilidad y para eso es realmente bueno. Sin embargo, todos los extremos son malos y es un poco lo que quiero recalcar.
 
@@ -37,7 +37,7 @@ Tal como dije Flatpak tiene cosas buenas pero también cosas malas y para aprove
 -   Aislamiento de programas
 -   Mejora compatibilidad
 
-{{< img src="https://corporativocln.com/wp-content/uploads/sites/3/2017/02/lo-bueno-lo-malo-y-lo-feo-del-servicio-al-cliente-1236x865.jpg" >}}
+![](https://corporativocln.com/wp-content/uploads/sites/3/2017/02/lo-bueno-lo-malo-y-lo-feo-del-servicio-al-cliente-1236x865.jpg)
 
 Si nosotros mantenemos buenas prácticas vamos a poder sacarle el mejor de los provechos a flatpak, para eso basta con cumplir ciertos requisitos…
 
@@ -45,7 +45,7 @@ Si nosotros mantenemos buenas prácticas vamos a poder sacarle el mejor de los p
 -   **Evitar el permiso de Administrador:** Es realmente importante entender que estas apps está corriendo sobre una virtualización y lo ideal es que siempre que pueda evitarse no darles permiso de administrador, aun así algunas apps lo requieren y está bien dárselo (Ahora que lo pienso esto aplica para todo linux, nunca ejecutes sudo o su si no es estrictamente necesario y sabes lo que va a pasar)
 -   **Da poco y espera poco:** Flatpak tiene relación amor odio con la filosofía unix (aunque todos sabemos que linux no es unix) por lo cual puede que el precio a pagar por esta “super compatibilidad” es que las apps no funcionen como lo esperas y esto muchas veces es así (faltan funciones, no abren las apps, si tildan… Pequeños precios a pagar)
 
-{{< img src="http://www.desmotivar.com/img/desmotivaciones/146365_hay-que-saber-cuando-parar.jpg" >}}
+![](http://www.desmotivar.com/img/desmotivaciones/146365_hay-que-saber-cuando-parar.jpg)
 
 Si seguimos y entendemos esto que recién hablamos probablemente puedas entender un poco más sobre flatpak y de esa forma usarlo para sacarle provecho sin achanchar tu equipo.
 

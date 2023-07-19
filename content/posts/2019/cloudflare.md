@@ -20,7 +20,7 @@ authors: ['PatoJAD']
 
 CloudFlare es un sistema gratuito que actúa como un proxy (intermediario) entre los visitantes del sitio web y el servidor. Al actuar como un proxy, CloudFlare guarda temporalmente contenido estático del sitio, el cual disminuye el número de peticiones al servidor pero sigue permitiendo a los visitantes el acceso al sitio.
 
-{{< img src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/53qCYhQbir5WtIU0VDWESo/1c28d510cb5bb9a44e56916e37a889b6/Cloudflare_default_OG_.png" >}}
+![](https://cf-assets.www.cloudflare.com/slt3lc6tev37/53qCYhQbir5WtIU0VDWESo/1c28d510cb5bb9a44e56916e37a889b6/Cloudflare_default_OG_.png)
 
 ## Ventajas
 

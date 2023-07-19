@@ -23,7 +23,7 @@ Primero debemos **verificar** que nuestro archivo **no este protegido**, cosa qu
 
 El sitio del que hablamos hoy solo acepta una pequeña lista de formatos, sin embargo podemos transformar los archivos a esos formatos. Personalmente recomiendo utilizar siempre PDF que no este protegido contra escrituras. Sin embargo pede traducir cualquiera de los siguientes formatos:
 
-{{< img src="https://i.postimg.cc/NjsBh7Zy/image.png" >}}
+![](https://i.postimg.cc/NjsBh7Zy/image.png)
 
 ## Finalmente la Traduccion
 

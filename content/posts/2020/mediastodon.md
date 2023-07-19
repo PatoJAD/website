@@ -16,7 +16,7 @@ Originalmente Kim escribió esta sencilla aplicación que usa la API de Mastodon
 A partir de ese código creado por Kim, Victorhck ha hecho una pequeña modificación para mostrar capturas de pantalla de GNU/Linux mostrando su mejor composición de fondo de escritorio, iconos, temas, etc...
 Recopila las capturas de pantalla que se comparten en Mastodon con la etiqueta #unixporn (Tal como podemos ver en el inicio de Mediastodon)
 
-{{< img src="https://i.postimg.cc/C58pMRzb/unixporn.png" >}}
+![](https://i.postimg.cc/C58pMRzb/unixporn.png)
 
 ## Mi parte del trabajo
 

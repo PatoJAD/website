@@ -13,7 +13,7 @@ En esta oportunidad vamos a ver como hacer **nuestro propio pack de stickers**, 
 
 En mi caso los voy a usar mi propia cara y para eso voy usar **BitMoji** (Gracias Cumpi por darlo a conocer) y voy a descargar de ahi en formato PNG todos lo que quiera convertir en sticker.
 
-{{< img src="https://sdk.bitmoji.com/render/panel/9c3e3a09-773c-4836-a93c-7efe79b8b562-c796801f-3d03-48e6-9753-c6df668cc1af-v1.png?transparent=1&palette=1" >}}
+![](https://sdk.bitmoji.com/render/panel/9c3e3a09-773c-4836-a93c-7efe79b8b562-c796801f-3d03-48e6-9753-c6df668cc1af-v1.png?transparent=1&palette=1" >}}
 
 Una vez descargados las imágenes nos daremos cuenta que **no coinciden con el requisito de telegram** que sean de por lo menos 512\*512 pero sí son perfectamente cuadradas, lo cual es perfecto para el uso que le queremos dar.
 
@@ -39,13 +39,13 @@ Una vez iniciada la conversación nos va mostrar toda la lista de opciones y com
 
 Lo primero que te pedirá el bot es un nombre para el paquete de stickers. Este nombre será visible para quien vea cualquiera de sus stickers, así que intenta que sea descriptivo. En mi caso vamos a usar _PatoJAD_
 
-{{< img src="https://i.postimg.cc/4NtJ3vtN/image.png" >}}
+![](https://i.postimg.cc/4NtJ3vtN/image.png)
 
 ## Agregando Stickers
 
 Ahora tenemos que ir agregando de a uno cada uno de los stickers que queremos, para eso tenemos que enviarlo **COMO ARCHIVO** y no como _imagen_, y luego enviar los emojis con los que queremos relacionarlos, y así consecutivamente con todos los stickers que tengamos.
 
-{{< img src="https://i.postimg.cc/c45QsSRN/image.png">}}
+![](https://i.postimg.cc/c45QsSRN/image.png)
 
 Una vez que hayamos subido todos los que nos gustan debemos terminar **publicando el paquete** de stickers para su uso, esto lo podemos hacer simplemente enviando el comando publish al bot de la siguiente forma:
 
@@ -57,7 +57,7 @@ Y nos pedira 2 datos más, **una imagen que represente al pack** que también de
 
 Y una vez enviado nos pedirá **el nombre Corto del Pack**, en nuestro caso vamos a volver a usar _PatoJAD_ dado que es corto y fácil de aprender.
 
-{{< img src="https://i.postimg.cc/B6VqjMMt/image.png" >}}
+![](https://i.postimg.cc/B6VqjMMt/image.png)
 
 Y ya nos genero una url para compartir el sticker con quienes queramos y poder empezarlo a utilizar… Te dejo el pack que cree por _si queres usarlo_ y espero que te sirva y no te olvides de enviarnos los packs que hagas a [nuestro grupo de telegram](https://t.me/PatoJADCommunity)
 

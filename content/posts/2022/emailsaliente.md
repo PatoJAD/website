@@ -51,15 +51,15 @@ Si bien [esto ya es muy profesional](/post/2022/09/email-profesional-gratis/), t
 
 Para esto debemos ingresar en nuestra cuenta de Gmail e ir a las configuraciones de la misma para poder agregar una nueva cuenta de correo saliente. Esto lo hacemos desde **Ajustes** -> **Ver todos los Ajustes** -> **Cuentas e Importación** -> **Enviar como:** -> **Añadir otra dirección de correo electrónico**
 
-{{< img src="https://i.postimg.cc/ZKSKp7Lw/gmailconf.png" >}}
+![](https://i.postimg.cc/ZKSKp7Lw/gmailconf.png)
 
 Añadimos el correo, con el nombre que utilizaremos para identificarlo de la siguiente manera (recuerda que los datos son a modo ejemplo, tu debes completarlo con tus datos particulares)
 
-{{< img src="https://i.postimg.cc/ncGVk4Rp/image.png" >}}
+![](https://i.postimg.cc/ncGVk4Rp/image.png)
 
 Luego vamos a completar los campos con los datos de nuestra cuenta de Gmail (en este caso la cuenta que los recibe y la que envía van a ser la misma) de la siguiente manera:
 
-{{< img src="https://i.postimg.cc/q7zk49kv/image.png" >}}
+![](https://i.postimg.cc/q7zk49kv/image.png)
 
 Donde:
 

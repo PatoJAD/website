@@ -19,7 +19,7 @@ En el mundo "hacking" no hay programa o métodología estándar para conseguir h
 
 Si eres padre de un menor de edad que está empezando a coquetar en internet deberías poder ser capaz de ver con quien se está relaccionando, ya que por desgracia para todos sabemos que puede convertirse en el objetivo de algún adulto con malas intenciones. Al igual que a todos nos han dicho alguna vez "no hables con desconocidos" en la red ocurre lo mismo. Solo que en la red es mas dificil detectar para el crío saber si realmente está hablando con otro chaval o con alguien que se **está haciendo pasar por un niño**.
 
-{{< img src="http://cursohacker.es/sites/default/files/styles/large/public/images/20140901015913.jpg" >}}
+![](http://cursohacker.es/sites/default/files/styles/large/public/images/20140901015913.jpg)
 
 Esta gente suele ganarse la confianza de tus hijos haciéndoloes creer que son también menores y poco a poco se los van llevando a su terreno hasta que tu hijo hará exactamente lo que el adulto pretendía desde el principio.
 
@@ -27,7 +27,7 @@ Esta gente suele ganarse la confianza de tus hijos haciéndoloes creer que son t
 
 Si eres un empresario ten presente desde ya la siguiente frase en mente "**una cadena es tan fuerte como eslabón mas débil**". Esto es, de nada te servirá que tu red sea la más segura de la zona si tus empleados no está bien educados. Si no tienes un protocolo de actuación bien definido un atacante ducho en ingeniería social podría sacar información suficiente de tu empresa sin ser descubierto en tan solo unas horas.
 
-{{< img src="http://cursohacker.es/sites/default/files/images/20140901020210.jpg" >}}
+![](http://cursohacker.es/sites/default/files/images/20140901020210.jpg)
 
 El siguiente es un ejemplo de **ingeniería social** real que se ha dado y se dará en multitud de ocasiones.
 
@@ -37,7 +37,7 @@ El siguiente es un ejemplo de **ingeniería social** real que se ha dado y se da
 
 Si bien que cada vez que abrimos una cuenta de correo electrónico con el proveedor que sea nos obliga a crear una contraseña también nos suele dar un método alternativo en caso de que olvidemos la contraseña. Este método alternativo suele ser escoger una pregunta a la cual solo nosotros conozcamos la respuesta y nos sea fácil recordar. Esto tiene un problema y que muchas personas eligen preguntas del tipo: "Mi profesor favorito", "Mi equipo de futbol favorito", "Mi actor favoríto" "Nombre de mi abuela materna"... Evidentemente si pierdes tu clave, le das a recuperar contraseña olvidada y el sistema te hace cualquiera de esas preguntas las vas a poder responder sin muchos problemas. Pero precisamente este es el problema...
 
-{{< img src="https://rincondelgeek.com/wp-content/uploads/2019/01/tecnicas-de-ingenieria-social.png" >}}
+![](https://rincondelgeek.com/wp-content/uploads/2019/01/tecnicas-de-ingenieria-social.png)
 
 Si un atacante descubre que tienes una pregunta de ese estilo podrá entablar una conversación contigo y sacarte el tema de forma disimulada para que tu mismo le des la respuesta. En cuanto tu le des la respuesta estará en posición de hacerse pasar por tí respondiendo correctamente a la pregunta que el sistema de recuperación de claves le está formulado. Este método no suele ser muy efectivo, pero si que es cierto que si el atacante conoce a la víctima y la pregunta es sencilla podrá hacer un par de pruebas que le llevarán menos de 5 minutos antes de descartar el método.
 

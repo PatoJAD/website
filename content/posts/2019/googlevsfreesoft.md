@@ -31,19 +31,19 @@ Detener la propagación del malware es un objetivo digno de un gran agradecimien
 
 Si un desarrollador de software intenta lanzar una nueva versión de su software en línea, es probable que reciba esta advertencia en su Google Search Console:
 
-{{< img src="https://miro.medium.com/max/716/1*E6wn_ALLvQ0e8ecBvNHRMA.png" >}}
+![](https://miro.medium.com/max/716/1*E6wn_ALLvQ0e8ecBvNHRMA.png)
 
 Por definición y sin excepciones, todo el software es desconocido cuando se lanza por primera vez. No importa que haya tenido su dominio durante catorce años sin haber alojado nada malicioso:
 
-{{< img src="https://miro.medium.com/max/292/1*rnS-W4PreMl592nkDUkhuw.png" >}}
+![](https://miro.medium.com/max/292/1*rnS-W4PreMl592nkDUkhuw.png)
 
 No importa si ninguno de los setenta y dos analizadores de virus marcan contenido malicioso en su ejecutable:
 
-{{< img src="https://miro.medium.com/max/645/1*P0hj5bYQXD_DR3xQj51Rtw.png" >}}
+![](https://miro.medium.com/max/645/1*P0hj5bYQXD_DR3xQj51Rtw.png)
 
 No importa si solicita una revisión de Google que vuelve clara:
 
-{{< img src="https://miro.medium.com/max/375/1*-4WN5wrHYt2VvKM32h6KLg.png">}}
+![](https://miro.medium.com/max/375/1*-4WN5wrHYt2VvKM32h6KLg.png)
 
 Las advertencias simplemente regresan, a menudo en el mismo archivo que ya ha revisado. Esto no es solo una advertencia aterradora que se ignora fácilmente: los navegadores web advertirán a los usuarios que su software puede ser malicioso. Y se desprende de la advertencia de Google que considera que su sitio está comprometido, lo que puede conducir a penalizaciones en los resultados de búsqueda, incluida la exclusión de la lista.
 
@@ -53,7 +53,7 @@ Este proceso es totalmente opaco: ¿cuántas descargas se necesitan antes de que
 
 Supongamos que desea obtener un certificado de firma de código para ver si eso ayuda:
 
-{{< img src="https://miro.medium.com/max/933/1*fYd1TFryBmlhjn3lqRNVKA.png" >}}
+![](https://miro.medium.com/max/933/1*fYd1TFryBmlhjn3lqRNVKA.png)
 
 Qué trato para un pequeño desarrollador de software libre. Además, debe tener un negocio registrado que sea verificado por Better Business Bureau para recibir su certificado EV. Si desea un certificado regular, puede hacerlo adjuntando su nombre legal público a su software y enviando una copia de su licencia de conducir. Y eso no quiere decir nada de los riesgos que toma estos días en línea al publicar su nombre legal.
 

@@ -19,7 +19,7 @@ Esto nació en base a una consulta que realizaron ayer en nuestro hermoso grupo 
 
 ## SpeedTest-Cli
 
-{{< img src="https://i.postimg.cc/pd3Ym0k9/Captura-de-pantalla-2020-09-23-19-39-40.png" >}}
+![](https://i.postimg.cc/pd3Ym0k9/Captura-de-pantalla-2020-09-23-19-39-40.png)
 
 Este hermoso cli de SpeedTest trae muchas funciones que podríamos describir pero que hoy no vienen al caso… Lo que si viene al caso es la hermosa funcionalidad que ya explique antes…
 
@@ -57,7 +57,7 @@ Se agradece a **geekytheory** por toda la información brindada para poder reali
 
 ## Instrucciones de uso
 
-{{< img src="https://i.postimg.cc/63RVnd1M/Captura-de-pantalla-2020-09-23-19-53-20.png" >}}
+![](https://i.postimg.cc/63RVnd1M/Captura-de-pantalla-2020-09-23-19-53-20.png)
 
 Como hablamos el otro dia existen muchas herramientas para saber cómo usar un comando de terminal, les dejo la información en este caso especifico de como saberlo y cual es la información que nos da usando:
 

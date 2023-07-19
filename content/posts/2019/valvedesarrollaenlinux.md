@@ -20,7 +20,7 @@ img: 'https://www.madboxpc.com/wp-content/uploads/2012/10/ValveUbuntu.jpg'
 authors: ['PatoJAD']
 ---
 
-{{< img src="https://i.blogs.es/3ceaaf/modo-juego/450_1000.jpg" >}}
+![](https://i.blogs.es/3ceaaf/modo-juego/450_1000.jpg)
 
 El revuelo reciente debido a la propuesta de valve a conformar parte de los desarrolladores del Kernel de Linux deja a muchas personas expresando disconformidad a una propuesta que no está 100% consolidada y como se me está haciendo costumbre aparezco entre las sombras con la idea de aclarar o postular un punto de vista más… Abstracto…
 

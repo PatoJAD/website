@@ -25,7 +25,7 @@ El día jueves 20 del mes de Mayo se liberó la versión Oficial de pacman 6 el 
 
 ## Changelog
 
-{{< img src="https://i.postimg.cc/DwNCYM02/image.png" >}}
+![](https://i.postimg.cc/DwNCYM02/image.png)
 
 Seguramente te estás preguntando qué cambio y aca te dejo la lista de cambios que impactaron en la versión V6:
 
@@ -83,7 +83,7 @@ Seguramente te estás preguntando qué cambio y aca te dejo la lista de cambios 
 
 Tantas novedades nos emociona a todos incluso a nuestro querido GUI pamac que desde que actualices a la versión 6 de pacman quedará tan emocionado que no volverá a abrir.
 
-{{< img src="https://c2.staticflickr.com/2/1739/40662649560_57b7477f00_o.png" >}}
+![](https://c2.staticflickr.com/2/1739/40662649560_57b7477f00_o.png)
 
 Lamentablemente toda esta actualización generó discompatibilidad con pamac y ya no podemos usar este gestor gráfico por un tiempo hasta que se actualice… Claramente que no va a actualizarse por sí solo por lo cual te dejamos un comando que vas a ir pegando en la terminal dia a dia hasta que entre la actualización se encuentre pamac
 

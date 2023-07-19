@@ -24,7 +24,7 @@ En linux existen muchas formas de buscar archivos, directorios, binarios, códig
 
 ## Find
 
-{{< img src="https://i.ibb.co/Qc1pGqZ/Screenshot-20200701-091150.png" >}}
+![](https://i.ibb.co/Qc1pGqZ/Screenshot-20200701-091150.png)
 
 Para buscar archivos en la línea de comando puedes usar el comando find, su sintaxis es la siguiente:
 
@@ -38,11 +38,11 @@ Donde:
 -   **Criterio** es las propiedades del archivo.
 -   **Acción** son opciones que influyen en la condición o control de la búsqueda
 
-{{< img src="https://i.ibb.co/44QS1PY/Screenshot-20200701-091308.png" >}}
+![](https://i.ibb.co/44QS1PY/Screenshot-20200701-091308.png)
 
 ## Locate
 
-{{< img src="https://i.ibb.co/DtZN6vh/Screenshot-20200701-091835.png" >}}
+![](https://i.ibb.co/DtZN6vh/Screenshot-20200701-091835.png)
 
 El comando locate es una **alternativa** al comando find. El comando find debe buscar a través de la parte del sistema de archivos seleccionado, proceso que puede ser un poco lento.
 
@@ -52,22 +52,22 @@ Por otro lado, locate busca a través de una base de datos previamente creada pa
 updatedb
 ```
 
-{{< img src="https://i.ibb.co/yV0Bdh7/Screenshot-20200701-091923.png" >}}
+![](https://i.ibb.co/yV0Bdh7/Screenshot-20200701-091923.png)
 
 ## Whereis
 
-{{< img src="https://i.ibb.co/nzR3SJ6/Screenshot-20200701-092220.png" >}}
+![](https://i.ibb.co/nzR3SJ6/Screenshot-20200701-092220.png)
 
 el comando whereis retorna los binarios (opción -b), página de manual (opción -m) y los código fuentes (opción -s) de un comando específico. Si no se usa ninguna opción devolverá toda la información, si está disponible. Este comando es más rápido que find pero es menos minucioso.
 
-{{< img src="https://i.ibb.co/9pc9JD9/Screenshot-20200701-092342.png" >}}
+![](https://i.ibb.co/9pc9JD9/Screenshot-20200701-092342.png)
 
 ## Which
 
-{{< img src="https://i.ibb.co/jDKmtRN/Screenshot-20200701-092617.png" >}}
+![](https://i.ibb.co/jDKmtRN/Screenshot-20200701-092617.png)
 
 El comando wich busca todas las rutas listadas en la variable PATH para un comando específico y devuelve la ruta completa del comando. El comando es específicamente útil si existen varias versiones del mismo comando en diferentes directorios y si quieres saber qué versión se ejecuta cuando no se especifica ninguna ruta.
 
 Muchas veces necesitamos saber dónde están los binarios y esta solución no solo es práctica sino que es muy fácil de usar.
 
-{{< img src="https://i.ibb.co/hC19jv5/Screenshot-20200701-092711.png" >}}
+![](https://i.ibb.co/hC19jv5/Screenshot-20200701-092711.png)

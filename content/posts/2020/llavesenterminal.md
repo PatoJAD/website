@@ -32,7 +32,7 @@ Nos daría una salida tal como:
 Front-A-Back Front-B-Back Front-C-Back
 ```
 
-{{< img src="https://i.postimg.cc/kgchWZSV/Captura-de-pantalla-de-2020-11-11-08-46-15.png" >}}
+![](https://i.postimg.cc/kgchWZSV/Captura-de-pantalla-de-2020-11-11-08-46-15.png)
 
 Los patrones a expandir con llaves pueden contener un prefijo llamado preamble (preámbulo) y un sufijo llamado postcript (postdata). La expresión entre llaves puede contener una lista de cadenas separadas por comas o un rango de números enteros o caracteres individuales. El patrón no debe contener espacios en blanco. Aquí hay un ejemplo usando un rango de números enteros:
 
@@ -46,7 +46,7 @@ Que imprime la siguiente salida
 Number_1 Number_2 Number_3 Number_4 Number_5
 ```
 
-{{< img src="https://i.postimg.cc/Ls8QDTkx/Captura-de-pantalla-de-2020-11-11-08-46-38.png" >}}
+![](https://i.postimg.cc/Ls8QDTkx/Captura-de-pantalla-de-2020-11-11-08-46-38.png)
 
 Los números enteros también pueden tener ceros a la izquierda así:
 
@@ -62,7 +62,7 @@ Imprimiendo como salidas respectivamente:
 001 002 003 004 005 006 007 008 009 010 011 012 013 014 015
 ```
 
-{{< img src="https://i.postimg.cc/2yh0yXmS/Captura-de-pantalla-de-2020-11-11-08-47-42.png" >}}
+![](https://i.postimg.cc/2yh0yXmS/Captura-de-pantalla-de-2020-11-11-08-47-42.png)
 
 Un rango de letras en orden inverso:
 
@@ -76,7 +76,7 @@ Mostrando:
 Z Y X W V U T S R Q P O N M L K J I H G F E D C B A
 ```
 
-{{< img src="https://i.postimg.cc/qRtbVv5n/Captura-de-pantalla-de-2020-11-11-08-47-59.png" >}}
+![](https://i.postimg.cc/qRtbVv5n/Captura-de-pantalla-de-2020-11-11-08-47-59.png)
 
 Las expansiones con llaves pueden ser anidadas:
 
@@ -90,7 +90,7 @@ Lo que daría una salida tal como:
 aA1b aA2b aB3b aB4b
 ```
 
-{{< img src="https://i.postimg.cc/Bv7YVKM4/Captura-de-pantalla-de-2020-11-11-08-48-14.png" >}}
+![](https://i.postimg.cc/Bv7YVKM4/Captura-de-pantalla-de-2020-11-11-08-48-14.png)
 
 ¿Y para qué sirve esto? La aplicación más común es hacer listas de archivos o directorios a crear. Por ejemplo, si fuésemos fotógrafos con una gran colección de imágenes que queremos organizar en años y meses, la primera cosa que deberíamos hacer es crear una serie de directorios nombrados en formato numérico “Año-Mes”. De esta forma, los directorios se ordenarán cronológicamente. Podríamos escribir la lista completa de directorios, pero sería un montón de trabajo y sería muy fácil equivocarnos. En lugar de eso, podríamos hacer esto:
 
@@ -112,4 +112,4 @@ Nos mostraría lo siguiente:
 2007-06 2007-12 2008-06 2008-12 2009-06 2009-12
 ```
 
-{{< img src="https://i.postimg.cc/gJfMYbC7/Captura-de-pantalla-de-2020-11-11-08-49-23.png" >}}
+![](https://i.postimg.cc/gJfMYbC7/Captura-de-pantalla-de-2020-11-11-08-49-23.png)

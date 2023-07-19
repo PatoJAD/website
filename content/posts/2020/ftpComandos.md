@@ -36,7 +36,7 @@ Conexión al servidor:
 
     ftp 192.168.0.77
 
-{{< img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-1.jpg" >}}
+![](https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-1.jpg)
 
 Consultar los comandos ftp disponibles
 
@@ -46,14 +46,14 @@ Consultar que hace un comando en concreto
 
     ftp> ? Nombre del comandos
 
-{{< img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-2.jpg" >}}
+![](https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-2.jpg)
 
 Ver listar los ficheros y directorios
 
     ftp> dir
     ftp> ls
 
-{{< img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-3.jpg" >}}
+![](https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-3.jpg)
 
 Entrar a un subdirectorio
 
@@ -67,28 +67,28 @@ Descargar ficheros del servidores
 
     ftp> get fichero
 
-{{< img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-4.jpg" >}}
+![](https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-4.jpg)
 
 Los ficheros se guardan en la ubicación local en la que nos encontremos.
 Descargar varios ficheros a la vez del servidores (aquí entran en juego los comodines del shell de Linux)
 
     ftp>mget ficheros
 
-{{< img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-5.jpg" >}}
+![](https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-5.jpg)
 
-{{< img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-7.jpg" >}}
+![](https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-7.jpg)
 
 Ver donde estamos en nuestra maquina local
 
     ftp> lcd
 
-{{< img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-8.jpg" >}}
+![](https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-8.jpg)
 
 Movernos por los directorios locales
 
 ftp> lcd directorio
 
-{{< img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-9.jpg" >}}
+![](https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-9.jpg)
 
 Cerrar sesión FTP
 
@@ -98,40 +98,40 @@ Cerrar sesión FTP
 
 Para los siguientes comandos necesitamos permisos de propietario por lo que nos identificamos como tal (también podemos usar el comando user).
 
-{{< img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-10.jpg" >}}
+![](https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-10.jpg)
 
 Borrar fichero
 
     ftp> delete fichero
 
-{{< img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-11.jpg" >}}
+![](https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-11.jpg)
 
 Crear directorios
 
     ftp> mkdir nombreDirectorio
 
-{{< img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-12.jpg" >}}
+![](https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-12.jpg)
 
 Borrar directorio
 
     ftp> rmdir nombreDirectorio
 
-{{< img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-13.jpg" >}}
+![](https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-13.jpg)
 
 Subir fichero
 
     ftp> put fichero
 
-{{< img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-15.jpg" >}}
+![](https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-15.jpg)
 
 Subir multiples ficheros
 
     ftp> mput ficheros
 
-{{< img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-16.jpg" >}}
+![](https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-16.jpg)
 
 Borrar múltiples archivos
 
     ftp> mdelete ficheros
 
-{{< img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-17.jpg" >}}
+![](https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-17.jpg)

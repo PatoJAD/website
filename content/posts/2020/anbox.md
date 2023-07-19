@@ -31,7 +31,7 @@ Sin embargo de esta app hay cosas que no me gustan aunque entiendo su decisión 
 
 Como dijimos anteriormente esta aplicación no utiliza QEMU ni ningún otro emulado para levantar una aplicación por lo cual mejora el rendimiento haciéndolo más **PERFORMANTE** (Abrazo a todos los que me _bardearon_ de forma cariñosa por usar performante y les tengo que dar la derecha es una palabra que no existe pero que todo Linuxnauta entiende) Por lo cual lo vuelve una de las **mejores opciones** porque sería una capa de compatibilidad (Como wine) que hace que nuestro sistema no baje el rendimiento bruscamente
 
-{{< img src="https://c1.staticflickr.com/1/913/41527912900_68ce4a25d5_o.jpg" >}}
+![](https://c1.staticflickr.com/1/913/41527912900_68ce4a25d5_o.jpg)
 
 Anbox es una solución **convergente**. Funciona de igual forma en una computadora portátil y un teléfono móvil, siempre que ejecuten alguna variante de Linux, claramente. Sin ir muy lejos, los orígenes de esta iniciativa radica en **Ubuntu Touch** por lo cual podemos ver hasta donde planean alcanzar la compatibilidad…
 
@@ -39,7 +39,7 @@ Anbox es una solución **convergente**. Funciona de igual forma en una computado
 
 La instalación es directamente snap, esto es algo que no me agrada a simple vista dado que snap podría llegar reiterar librerias y demas sin ningun tipo de sentido al igual que sus hermanos como flatpack y demás…
 
-{{< img src="https://cdn.lignux.com/wp-content/uploads/2018/07/anbox-1.png">}}
+![](https://cdn.lignux.com/wp-content/uploads/2018/07/anbox-1.png)
 
 Sin embargo después de revisar cómo está implementado este increíble proyecto comprendí que es **realmente importante** que esto sea así dado que necesita versiones muy específicas y una actualización podría llegar a rompernos todo y al ser una app tan delicada con una función tan importante (Piensen en un smart donde se use wpp laboralmente instalado en Anbox no debería romper nunca) por lo cual podemos decir que Anbox es **un buen ejemplo** de cómo se debe usar snap
 
@@ -74,7 +74,7 @@ sudo modprobe ashmem_linux
 sudo modprobe binder_linux
 ```
 
-{{< img src="https://vidatecno.net/wp-content/uploads/2019/05/como-ejecutar-aplicaciones-android-en-ubuntu-linux-con-anbox-1.jpg" >}}
+![](https://vidatecno.net/wp-content/uploads/2019/05/como-ejecutar-aplicaciones-android-en-ubuntu-linux-con-anbox-1.jpg)
 
 Ahora debería tener dos nuevos nodos en su directorio de sistemas /dev el cual podemos probar con el siguiente comando:
 
@@ -103,7 +103,7 @@ sudo snap refresh --beta --devmode anbox
 
 ## Instalar aplicaciones
 
-{{< img src="https://instatecno.com/wp-content/uploads/2020/02/Anbox-700x400.jpg">}}
+![](https://instatecno.com/wp-content/uploads/2020/02/Anbox-700x400.jpg)
 
 Ya teniendo instalado Anbox tenemos que instalar aplicaciones, o mejor dicho queremos por lo cual debemos proseguir de la siguiente forma. Requerimos tener el adb instalado si no lo tenes podes hacerlo asi:
 

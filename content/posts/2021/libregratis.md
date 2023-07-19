@@ -39,6 +39,6 @@ Durante todo el video hago algunas referencia a material de terceros, o anuncio 
 
 ## Material de lectura adicional
 
-{{< img src="https://i.postimg.cc/QC9wNS4s/photo-2021-09-08-09-29-33.webp" >}}
+![](https://i.postimg.cc/QC9wNS4s/photo-2021-09-08-09-29-33.webp)
 
 {{< link url="https://www.gnu.org/philosophy/selling.html" text="Información Oficial desde GNU" >}}

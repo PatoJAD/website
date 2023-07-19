@@ -56,7 +56,7 @@ dando como repuesta algo similar a lo siguiente:
             TX packets 0  bytes 0 (0.0 B)
             TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
-{{< img src="https://i.postimg.cc/wxWT9yFW/Deepin-Screenshot-20200129092416.png" >}}
+![](https://i.postimg.cc/wxWT9yFW/Deepin-Screenshot-20200129092416.png)
 
 Muchas distribuciones no traen instalado ifconfig por defecto (Gracias a Riky por remarcarlo) en ese caso tenemos dos opciones, instalarlo o usar ip la cua les su remplazo. Para instalarlo basta con instalar el paquete net-tools:
 
@@ -95,13 +95,13 @@ dando como repuesta algo similar a lo siguiente:
         inet6 fe80::e106:f57f:60b7:7236/64 scope link noprefixroute
            valid_lft forever preferred_lft forever
 
-{{< img src="https://i.postimg.cc/bJrYnqw0/Deepin-Screenshot-20200129100142.png" >}}
+![](https://i.postimg.cc/bJrYnqw0/Deepin-Screenshot-20200129100142.png)
 
 En mi caso me encuentro conectado por Ethernet tengo la direccion IPv4 172.20.10.4 y la IPv6 fe80::e106:f57f:60b7:7236. En este caso la IP es privada por lo cual puedo tener otros dispositivos con la IP 172.20.10.X que se encuentren dentro de mi red. Sin embargo, nuestra ip publica es otra es decir que para internet esta IP no es validad dado que solo me identifica dentro de mi red local.
 
 ## ¿Cómo se convierte mi ip privada en una ip pública?
 
-{{< img src="https://i.postimg.cc/B6pZLX3n/20130712015313.jpg" >}}
+![](https://i.postimg.cc/B6pZLX3n/20130712015313.jpg)
 
 Supongamos que nuestro ordenador es el que tiene la IP 192.168.1.4 y quiere ver la web que tiene el ordenador 66.25.5.66 Entonces se producen los siguientes pasos:
 

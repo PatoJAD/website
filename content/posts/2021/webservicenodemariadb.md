@@ -22,7 +22,7 @@ authors: ['PatoJAD']
 
 En esta oportunidad cuento con mucha alegría que me anime a dar de forma diferida mi “primer curso” online sobre cómo crear un WebService con NodeJS y MariaDB
 
-{{< img src="https://i.postimg.cc/4NXBdb3D/curso-flayer.png" >}}
+![](https://i.postimg.cc/4NXBdb3D/curso-flayer.png)
 
 De seguro todo esto requiere mucho más trabajo y los siguientes cursos, en caso de que siga dictandolos, sean mejores. Pero es un pequeño piloto que servirá para comenzar una nueva etapa donde planeo dejar un contenido más armado y estructurado.
 

@@ -29,7 +29,7 @@ Dentro de los argumentos entre los cuales otros sistemas operativos son **"mejor
 
 ## ES DIFÍCIL DE USAR (**FALSO**)
 
-{{< img src="https://articles-images.sftcdn.net/wp-content/uploads/sites/2/2012/11/iStock_000014382431Small-568x330.jpg" >}}
+![](https://articles-images.sftcdn.net/wp-content/uploads/sites/2/2012/11/iStock_000014382431Small-568x330.jpg)
 
 Bueno, esto es relativamente falso. Ha de ser real si **a mi hijo de 7 años le digo que instale arch**, o mi abuela, pero entendamos que **existe una distribución de Linux para cada necesidad**, y para mi hijo y/o mi abuela existen distros como Deepin, Zorin, MX, o incluso Ubuntu (Quien me conoce, sabe que no suelo recomendar ubuntu, pero es real que lo instale muchas veces y es incluso la primera junto a mint que recomiendo cuando no puedo dar mucho soporte de mi parte).
 
@@ -39,7 +39,7 @@ Esto podemos verlo en el experimento de [Doña Estela](/post/2019/08/la-comunida
 
 ## NO VA A FUNCIONAR EN MI PC (**FALSO**)
 
-{{< img src="https://xarxatic.com/wp-content/uploads/2015/10/nofuncionanada15.jpg" >}}
+![](https://xarxatic.com/wp-content/uploads/2015/10/nofuncionanada15.jpg)
 
 Esto es más que falso, incluso en algún momento fue al revez (La netbook noblex que me asignó el gobierno en el año 2012 cualquier distro le reconoce todo el hardware pero windows 7 no) Si bien hoy **Windows 10 y casi cualquier distribución de linux reconoce todo el hardware** hay posibilidades en ambos sistemas que tengamos que buscar los drivers a mano e instalarlo. Son pocos los componentes que no funcionan incluso muchas empresas de Hardware **ya se encuentran trabajando en el soporte para linux** (ejemplo AMD)
 
@@ -49,7 +49,7 @@ Si bien eso son solo consejos **hoy en dia cualquier so se puede instalar casi e
 
 ## NO PUEDES PONER JUEGOS (**FALSO**)
 
-{{< img src="https://img.eldefinido.cl/portadas/650/2017-08-31-3402RQK4055.jpg" >}}
+![](https://img.eldefinido.cl/portadas/650/2017-08-31-3402RQK4055.jpg)
 
 Esto es mucho más que falso, **hoy en día existen muchos juegos nativos para linux**, incluso muchos proyectos que portan y configuran por vos juegos que no están nativos. Es una realidad que **no se pueden jugar al 100% de los juegos en Linux**, sin embargo este catálogo está creciendo muchísimo en estos muchos años, esto es impulsado por empresas como Vale con protón, y demás…
 
@@ -57,7 +57,7 @@ Pueden ver incluso en mi canal que juego juegos siempre desde linux, e incluso e
 
 ## NO TIENE SOPORTE (**FALSO**)
 
-{{< img src="https://www.valoradata.com/files/uploads/2014/08/soporte1-1024x699.jpg" >}}
+![](https://www.valoradata.com/files/uploads/2014/08/soporte1-1024x699.jpg)
 
 Esto es cierto, yo nunca he pagado por una distribución Linux, y en mi vida he llamado a soporte técnico… ya va, un momento. El Software Libre no es sinónimo de “software gratis”, de hecho hay empresas enormes como Red Hat que utilizan Linux para ofrecer soluciones empresariales, sí, esta gente cobra por su trabajo, son sumamente respetados y ofrecen calidad.
 
