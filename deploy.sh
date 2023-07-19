@@ -3,7 +3,7 @@
 # abort on errors
 set -e
 # build
-hugo
+hugo --minify
 
 # navigate into the build output directory
 cd public
