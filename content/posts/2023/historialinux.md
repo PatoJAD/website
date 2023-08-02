@@ -32,7 +32,7 @@ tags:
         'revolucion tecnología',
         'tecnologia open source'
     ]
-categories: ['Windows', 'Aplicaciones']
+categories: ['Linux']
 img: 'https://i.postimg.cc/T1pFkGj2/historialinux1.webp'
 authors: ['PatoJAD']
 ---
