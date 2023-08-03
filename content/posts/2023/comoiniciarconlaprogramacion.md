@@ -5,7 +5,7 @@ description: Guía para Principiantes sobre como iniciar en el mundo de la progr
 type: post
 tags: [programacion para principiantes, iniciar en programacion, aprender a programar, guia para principiantes en programacion, fundamentos de programacion, lenguajes de programacion, desarrollo web, python, javascript, java, c#, html, css, recursos para aprender a programar, que se necesita para programar, editor de codigo, consejos para principiantes en programacion, por donde empezar en programacion, que estudiar primero para aprender a programar, que se necesita para programar]
 categories: [Programacion]
-img: https://i.postimg.cc/wT9tQdfY/aprenderaprogramar.webp
+img: https://i.postimg.cc/bvnJcQqk/aprenderaprogramar.webp
 authors: [PatoJAD]
 ---
 
