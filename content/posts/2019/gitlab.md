@@ -1,23 +1,12 @@
 ---
-title: 'GitLab Pages'
+title: GitLab Pages
 date: '2019-10-09'
-description: 'Muchas personas preguntan como hice el blog, hoy vemos que es GitLab Pages.'
-type: 'post'
-tags:
-    [
-        'gitlab',
-        'pages',
-        'dominio',
-        'desarrollo',
-        'programacion',
-        'linux',
-        'gnu/linux',
-        'web',
-        'estatica',
-    ]
-categories: ['Programacion']
-img: 'https://i.ytimg.com/vi/TWqh9MtT4Bg/maxresdefault.jpg'
-authors: ['PatoJAD']
+description: Muchas personas preguntan como hice el blog, hoy vemos que es GitLab Pages.
+type: post
+tags: [gitlab, pages, dominio, desarrollo, programacion, linux, gnu/linux, web, estatica]
+categories: [Programacion]
+img: https://i.ytimg.com/vi/TWqh9MtT4Bg/maxresdefault.jpg
+authors: [PatoJAD]
 ---
 
 > GitLab Pages es una característica que le permite publicar sitios web estáticos directamente desde un repositorio en GitLab.
@@ -26,7 +15,7 @@ authors: ['PatoJAD']
 
 ## Características
 
--   Use cualquier generador de sitio web estático o HTML sin formato
+-   Use cualquier generador de sitio web estático o [HTML](/post/2023/08/html-el-lenguaje-fundamental-de-la-web/) sin formato
 -   Cree sitios web para sus proyectos, grupos o cuenta de usuario
 -   Aloje en GitLab.com de forma gratuita, o en su propia instancia de GitLab
 -   Conecte sus dominios personalizados y certificados TLS
@@ -35,7 +24,7 @@ Pages está disponible de forma gratuita para todos los usuarios de GitLab.com, 
 
 ## Sitios Estaticos
 
-Para publicar un sitio web con páginas, puede usar cualquier generador de sitio estático, como Jekyll, Hugo (el caso de este Blog), Middleman, Harp, Hexo y Brunch, solo por nombrar algunos. También puede publicar cualquier sitio web escrito directamente en HTML, CSS y JavaScript. Pages no admite el procesamiento dinámico del lado del servidor, por ejemplo, como .php y .asp
+Para publicar un sitio web con páginas, puede usar cualquier generador de sitio estático, como Jekyll, Hugo (el caso de este Blog), Middleman, Harp, Hexo y Brunch, solo por nombrar algunos. También puede publicar cualquier sitio web escrito directamente en [HTML](/post/2023/08/html-el-lenguaje-fundamental-de-la-web/), CSS y JavaScript. Pages no admite el procesamiento dinámico del lado del servidor, por ejemplo, como .php y .asp
 
 ## Como funciona
 

@@ -1,17 +1,17 @@
 ---
-title: 'Traducir documentos online'
+title: Traducir documentos online
 date: '2020-05-05 09:38:00'
-description: 'Muchas veces encontramos PDF en un idioma que no dominamos, ya sea texto o información. Aqui una de las mejores herramientas free para traducirlos!'
-type: 'post'
-tags: ['traducir', 'pdf', 'doc', 'translate', 'online']
-categories: ['Noticias']
-img: 'https://i.postimg.cc/FF0WN3CH/traducirpdf.webp'
-authors: ['PatoJAD']
+description: Muchas veces encontramos PDF en un idioma que no dominamos, ya sea texto o información. Aqui una de las mejores herramientas free para traducirlos!
+type: post
+tags: [traducir, pdf, doc, translate, online]
+categories: [Noticias]
+img: https://i.postimg.cc/FF0WN3CH/traducirpdf.webp
+authors: [PatoJAD]
 ---
 
 Hasta ahora los métodos que me había encontrado para traducir un archivo tenían sus **inconvenientes**, sin embargo hay que reconocer que se ha avanzado mucho en este sentido. El metodo que en esta ocacion les traigo parece ser que apunta en mucho a **eliminar esos inconvenientes** que se presentaban.
 
-Por ejemplo: el metodo de convertir el archivo de PDF a HTML, representa una **perdida de formato**.
+Por ejemplo: el metodo de convertir el archivo de PDF a [HTML](/post/2023/08/html-el-lenguaje-fundamental-de-la-web/), representa una **perdida de formato**.
 
 Veamos que **importante** es conservar el formato en un texto, por ejemplo si lo que estas manejando es un manual de cualquier programa, en el que los graficos son determinantes para poder aprender el uso de este de manera efectiva.
 

@@ -1,12 +1,12 @@
 ---
-title: 'HTTP/3 ¿Una internet mas rapida?'
+title: HTTP/3 ¿Una internet mas rapida?
 date: '2020-03-25 08:47:00'
-description: 'Un nuevo protocolo se acerca a nostros para definir una internet mas rapida...'
-type: 'post'
-tags: ['http', 'red', 'internet', 'protocolo', 'educacionit']
-categories: ['Redes']
-img: 'https://blog.educacionit.com/wp-content/uploads/2020/02/1366_2000-1-2.jpg'
-authors: ['PatoJAD']
+description: Un nuevo protocolo se acerca a nostros para definir una internet mas rapida...
+type: post
+tags: [http, red, internet, protocolo, educacionit]
+categories: [Redes]
+img: https://blog.educacionit.com/wp-content/uploads/2020/02/1366_2000-1-2.jpg
+authors: [PatoJAD]
 ---
 
 ## HTTP/3: qué es, de dónde viene, y qué es lo que cambia para buscar un Internet más rápido
@@ -29,13 +29,13 @@ También es el que define la sintaxis y la semántica que utilizan los elementos
 
 ![](https://i.blogs.es/c14f79/get-video/1366_2000.jpg)
 
-Este protocolo sigue el modelo de cliente-servidor. Esto quiere decir que cuando tú estableces una conexión, **realizas peticiones a un servidor** para que este te muestre el contenido de la página. Este contenido se mostrará en tu navegador usando el código HTML, que es el estandarizado para colocar los elementos que hay en cada web, pero para cargar estos elementos, te llegarán a través de la conexión establecida.
+Este protocolo sigue el modelo de cliente-servidor. Esto quiere decir que cuando tú estableces una conexión, **realizas peticiones a un servidor** para que este te muestre el contenido de la página. Este contenido se mostrará en tu navegador usando el código [HTML](/post/2023/08/html-el-lenguaje-fundamental-de-la-web/), que es el estandarizado para colocar los elementos que hay en cada web, pero para cargar estos elementos, te llegarán a través de la conexión establecida.
 
 ![](https://i.blogs.es/3e82f1/peticion/1366_2000.jpg)
 
 En esta imagen puedes ver los diferentes campos que tiene una petición de HTTP. El primero **es el método que define el tipo de operación que se quiere realizar,** y que suele ser un verbo como GET (obtener) o POST, o un nombre como OPTIONS o HEAD.
 
-A la derecha viene la dirección del recurso que se ha pedido, o la URL de este recurso. A esta dirección se le quitan los elementos obvios del contexto, como el http:// inicial, el puerto o el nombre del dominio. Le acompañan la versión del protocolo HTTP, y debajo ya tienes las cabeceras opcionales que aportan información adicional a los servidores. Si se usan métodos como POST, también puede haber un cuerpo de mensaje para enviar información al servidor.
+A la derecha viene la dirección del recurso que se ha pedido, o la URL de este recurso. A esta dirección se le quitan los elementos obvios del contexto, como el http&#x3A;// inicial, el puerto o el nombre del dominio. Le acompañan la versión del protocolo HTTP, y debajo ya tienes las cabeceras opcionales que aportan información adicional a los servidores. Si se usan métodos como POST, también puede haber un cuerpo de mensaje para enviar información al servidor.
 
 ## Cómo ha evolucionado el HTTP
 

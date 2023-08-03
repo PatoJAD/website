@@ -20,7 +20,7 @@ El mundo de la programación es emocionante y lleno de oportunidades para aquell
 Cuando decides aventurarte en el campo de la programación, puede ser difícil determinar por dónde empezar. Aquí hay algunas opciones populares y recomendadas para dar tus primeros pasos:
 
 -   **Fundamentos de Programación:** Comienza con los conceptos básicos, independientemente del lenguaje que elijas. Aprende sobre variables, tipos de datos, estructuras de control (como bucles y condicionales) y funciones. Este conocimiento es esencial para cualquier lenguaje de programación.
--   **HTML y CSS:** Si te interesa el desarrollo web, aprender HTML y CSS te permitirá crear sitios web estáticos. HTML proporciona la estructura y el contenido, mientras que CSS se encarga del diseño y la apariencia.
+-   **[HTML](/post/2023/08/html-el-lenguaje-fundamental-de-la-web/) y CSS:** Si te interesa el desarrollo web, aprender [HTML](/post/2023/08/html-el-lenguaje-fundamental-de-la-web/) y CSS te permitirá crear sitios web estáticos. [HTML](/post/2023/08/html-el-lenguaje-fundamental-de-la-web/) proporciona la estructura y el contenido, mientras que CSS se encarga del diseño y la apariencia.
 -   **JavaScript:** Como uno de los lenguajes de programación más populares, JavaScript te permite agregar interactividad y funcionalidad dinámica a tus sitios web. Conocer JavaScript te abrirá muchas puertas en el desarrollo web. Y es pie para utilizar [TypeScript](/post/2023/03/que-es-typescript-en-que-se-parece-a-javascript/).
 
 * * *

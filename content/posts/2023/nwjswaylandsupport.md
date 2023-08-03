@@ -1,32 +1,15 @@
 ---
-title: 'Ejecutar apps NW.js en Wayland'
+title: Ejecutar apps NW.js en Wayland
 date: '2023-06-29 16:34:00.00'
-description: 'Hoy vamos a ver como modificar el package.json de una app NW.js para que se ejecute en Wayland de forma nativa'
-type: 'post'
-tags:
-    [
-        'nwjs',
-        'wayland',
-        'linux',
-        'nw',
-        'nwjs wayland',
-        'nwjs wayland support',
-        'kera',
-        'kera wayland',
-        'kera wayland support',
-        'kera desktop',
-        'kera desktop wayland',
-        'nw wayland',
-        '0.50.0',
-        'nwjs 0.50.0',
-        'nwjs 0.50.0 wayland',
-    ]
-categories: ['Programacion', 'Aplicaciones', 'Linux']
-img: 'https://i.postimg.cc/5tP2KRbf/nwjsw-ayland.webp'
-authors: ['PatoJAD']
+description: Hoy vamos a ver como modificar el package.json de una app NW.js para que se ejecute en Wayland de forma nativa
+type: post
+tags: [nwjs, wayland, linux, nw, nwjs wayland, nwjs wayland support, kera, kera wayland, kera wayland support, kera desktop, kera desktop wayland, nw wayland, 0.50.0, nwjs 0.50.0, nwjs 0.50.0 wayland]
+categories: [Programacion, Aplicaciones, Linux]
+img: https://i.postimg.cc/5tP2KRbf/nwjsw-ayland.webp
+authors: [PatoJAD]
 ---
 
-NW.js es un framework que nos permite crear aplicaciones de escritorio con tecnologías web, es decir, podemos crear aplicaciones con HTML, CSS y JavaScript, y ejecutarlas en el escritorio de cualquier sistema operativo. Y si bien es un framework muy interesante, tiene un problema, no funciona en Wayland. O al menos no antes de la version 0.50.0. Sin embargo hay una forma de hacerlo funcionar en Wayland, y es modificando el package.json de la app siempre y cuando use la version 0.50.0 o superior.
+NW.js es un framework que nos permite crear aplicaciones de escritorio con tecnologías web, es decir, podemos crear aplicaciones con [HTML](/post/2023/08/html-el-lenguaje-fundamental-de-la-web/), CSS y JavaScript, y ejecutarlas en el escritorio de cualquier sistema operativo. Y si bien es un framework muy interesante, tiene un problema, no funciona en Wayland. O al menos no antes de la version 0.50.0. Sin embargo hay una forma de hacerlo funcionar en Wayland, y es modificando el package.json de la app siempre y cuando use la version 0.50.0 o superior.
 
 ## Modificando el package.json como dev
 
@@ -49,7 +32,9 @@ Hace no mucho se dio a conocer este escritorio que si bien no es funcional aun p
 Sin embargo si estamos en wayland y queremos tener una mejor experiencia con Kera Desktop, podemos modificar el package.json de la siguiente forma:
 
 -   Abrimos la carpeta de la app, en mi caso `~/Kera-Desktop-Linux-X64`
+
 -   Abrimos la carpeta `package.nw` y dentro de ella el archivo `package.json`
+
 -   Veremos un archivo como este:
 
     ```json
@@ -124,6 +109,6 @@ Sin embargo si estamos en wayland y queremos tener una mejor experiencia con Ker
 
 De esta forma a la hora de volver a abrir la app en nuestro entorno de wayland podemos hacerlo con una ventana nativa y sin ningun problema.
 
----
+* * *
 
-Fuente: https://nwjs.readthedocs.io/en/latest/
+Fuente: <https://nwjs.readthedocs.io/en/latest/>
