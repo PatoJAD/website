@@ -1,25 +1,15 @@
 ---
-title: 'Conectarse al WiFi desde la Terminal'
+title: Conectarse al WiFi desde la Terminal
 date: '2020-07-13 09:41:00'
-description: 'Vamos a estar viendo un poco como conectarse al Wi-Fi desde la Terminal de nuestro Linux'
-type: 'post'
-tags:
-    [
-        'iwconfig',
-        'ifconfig',
-        'iwlist',
-        'nmcli',
-        'wifi',
-        'terminal',
-        'linux',
-        'conectar',
-    ]
-categories: ['Linux']
-img: 'https://www.profesionalreview.com/wp-content/uploads/2017/08/C%C3%B3mo-conectarte-a-una-red-Wifi-usando-la-terminal.jpg'
-authors: ['PatoJAD']
+description: Vamos a estar viendo un poco como conectarse al Wi-Fi desde la Terminal de nuestro Linux
+type: post
+tags: [iwconfig, ifconfig, iwlist, nmcli, wifi, terminal, linux, conectar]
+categories: [Linux]
+img: https://i.postimg.cc/W3gMs8Bv/wifiterm.webp
+authors: [PatoJAD]
 ---
 
-Seguimos trabajando para que no le tengas miedo a la hermosa terminal que tenemos, por eso en esta oportunidad vamos a ver como se puede conectar al wifi utilizando la terminal. Esto es importante porque muchas veces queremos instalar una distro core o net y no tenemos un cable de red a mano, ahora no va a ser problema, porque la terminal nos va a permitir conectarnos al wifi sin más…
+Seguimos trabajando para que no le tengas miedo a la hermosa terminal que tenemos, por eso en esta oportunidad vamos a ver como se puede conectar al wifi utilizando la terminal. Esto es importante porque muchas veces queremos instalar una distro core o net y no tenemos un cable de red a mano, ahora no va a ser problema, porque la terminal nos va a permitir conectarnos al wifi sin más...
 
 El procedimiento para conectarte a una red Wifi usando la terminal, que vamos a ver a continuación, puede ser aplicado tanto para redes con seguridad **WEP** como **WPA**, es independiente de la distro en la que estemos en ese momento y funciona con cualquier tarjeta de red (siempre y cuando el sistema la reconozca, es decir que si es privativa debemos instalar los drivers).
 
