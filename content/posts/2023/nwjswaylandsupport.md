@@ -9,7 +9,7 @@ img: https://i.postimg.cc/5tP2KRbf/nwjsw-ayland.webp
 authors: [PatoJAD]
 ---
 
-NW.js es un framework que nos permite crear aplicaciones de escritorio con tecnologías web, es decir, podemos crear aplicaciones con [HTML](/post/2023/08/html-el-lenguaje-fundamental-de-la-web/), CSS y JavaScript, y ejecutarlas en el escritorio de cualquier sistema operativo. Y si bien es un framework muy interesante, tiene un problema, no funciona en Wayland. O al menos no antes de la version 0.50.0. Sin embargo hay una forma de hacerlo funcionar en Wayland, y es modificando el package.json de la app siempre y cuando use la version 0.50.0 o superior.
+NW.js es un framework que nos permite crear aplicaciones de escritorio con tecnologías web, es decir, podemos crear aplicaciones con [HTML](/post/2023/08/html-el-lenguaje-fundamental-de-la-web/), [CSS](/post/2023/08/descubriendo-el-mundo-de-css/) y JavaScript, y ejecutarlas en el escritorio de cualquier sistema operativo. Y si bien es un framework muy interesante, tiene un problema, no funciona en Wayland. O al menos no antes de la version 0.50.0. Sin embargo hay una forma de hacerlo funcionar en Wayland, y es modificando el package.json de la app siempre y cuando use la version 0.50.0 o superior.
 
 ## Modificando el package.json como dev
 
