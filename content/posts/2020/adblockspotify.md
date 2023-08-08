@@ -1,26 +1,15 @@
 ---
-title: 'AdBlock Spotify'
+title: AdBlock Spotify
 date: '2020-07-07 09:23:00'
-description: 'La comunidad genero un "complemento" que nos permite utilizar Spotify sin nececidad de escuchar la molesta publicidad'
-type: 'aplicaciones'
-tags:
-    [
-        'spotify',
-        'ads',
-        'block',
-        'adsblock',
-        'app',
-        'deb',
-        'publicidad',
-        'free',
-        'gratis',
-    ]
-categories: ['Aplicaciones']
-img: 'https://planetawindows.com/wp-content/uploads/2016/09/V%C3%ADdeo-43-1200x675.jpg'
-authors: ['PatoJAD']
+description: La comunidad genero un complemento que nos permite utilizar Spotify sin nececidad de escuchar la molesta publicidad
+type: aplicaciones
+tags: [spotify, ads, block, adsblock, app, deb, publicidad, free, gratis]
+categories: [Aplicaciones]
+img: https://planetawindows.com/wp-content/uploads/2016/09/V%C3%ADdeo-43-1200x675.jpg
+authors: [PatoJAD]
 ---
 
-Muchos de nosotros usamos diferentes reproductores de música, y algunos de nosotros incluso usamos servicios de música online, en este caso vamos a hablar de una en específico: **Spotify**, un servicio de música online que cuenta con una versión Free la cual nos permite escuchar música _100% gratis_ con unas publicidades que suelen ser tolerables al inicio pero cada vez son más invasivas…
+Muchos de nosotros usamos diferentes reproductores de música, y algunos de nosotros incluso usamos servicios de música online, en este caso vamos a hablar de una en específico: **Spotify**, un servicio de música online que cuenta con una versión Free la cual nos permite escuchar música _100% gratis_ con unas publicidades que suelen ser tolerables al inicio pero cada vez son más invasivas...
 
 ## Una comunidad que no quiere Publicidad
 
@@ -28,7 +17,7 @@ La comunidad **no quiere publicidad** cuando escucha música. Y como siempre la 
 
 ## Instalación
 
-La instalación de este _“complemento”_ como nos marcan en su README se realiza mediante la compilación del mismo, lo cual suena realmente más difícil de lo que es, bastará con correr algunos comandos. Sin embargo, **nosotros armamos un deb** para simplificar un poco la instalación. El mismo lo pueden descargar a continuación.
+La instalación de este _"complemento"_ como nos marcan en su README se realiza mediante la compilación del mismo, lo cual suena realmente más difícil de lo que es, bastará con correr algunos comandos. Sin embargo, **nosotros armamos un deb** para simplificar un poco la instalación. El mismo lo pueden descargar a continuación.
 
 {{< link url="https://www.mediafire.com/file/ag5vyxovkv53f15/spotify-adblock_1-PatoJAD_amd64.deb/file" text="Descargar en formato DEB" >}}
 
@@ -62,4 +51,4 @@ Categories=Audio;Music;Player;AudioVideo;
 StartupWMClass=spotify
 ```
 
-Es posible que ni bien después de crearlo no aparezca en el menú esto puede llegar a demorar unos minutos (Hasta que se refresque o se reinicie) sin embargo obtendremos dentro del menú un nuevo “Spotify” que inicia con el bloqueador de una
+Es posible que ni bien después de crearlo no aparezca en el menú esto puede llegar a demorar unos minutos (Hasta que se refresque o se reinicie) sin embargo obtendremos dentro del menú un nuevo "Spotify" que inicia con el bloqueador de una
