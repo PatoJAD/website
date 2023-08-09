@@ -1,34 +1,12 @@
 ---
-title: 'Abrir puertos aapanel'
+title: Abrir puertos aaPanel
 date: '2023-07-07 11:54:00.00'
-description: 'Vamos a ver como abrir los puertos de aapanel en Debian, Ubuntu y Centos. De una forma simple y rapida.'
-type: 'post'
-tags:
-    [
-        'aapanel',
-        'cpanel',
-        'panel',
-        'webserver',
-        'simple',
-        'ports',
-        'gratis',
-        'debian',
-        'ubuntu',
-        'centos',
-        'deepin',
-        'python',
-        'php',
-        'mysql',
-        'puertos',
-        'aapanel ports',
-        'abrir puertos',
-        'abrir puertos aapanel',
-        'configurar puertos',
-        'configurar puertos aapanel',
-    ]
-categories: ['Linux', 'Aplicaciones']
-img: 'https://i.postimg.cc/XNRRTBwn/aapanel.webp'
-authors: ['PatoJAD']
+description: Vamos a ver como abrir los puertos de aapanel en Debian, Ubuntu y Centos. De una forma simple y rapida.
+type: post
+tags: [aapanel, cpanel, panel, webserver, simple, ports, gratis, debian, ubuntu, centos, deepin, python, php, mysql, puertos, aapanel ports, abrir puertos, abrir puertos aapanel, configurar puertos, configurar puertos aapanel]
+categories: [Linux, Aplicaciones]
+img: https://i.postimg.cc/XNRRTBwn/aapanel.webp
+authors: [PatoJAD]
 ---
 
 Vamos a ver que puertos tenemos que tener habilitados para que aapanel funcione correctamente. Y como abrirlos en nuestro servidor utilizando `ufw`. Recuerda que si instalaste tal como lo vimos en el video anterior de [instalar aapanel](/post/2023/06/instalar-aapanel/) y no estas pudiendo ingresar a la url que dio el panel entonces es porque alguno de estos puertos no se encuentra abierto.
@@ -67,6 +45,6 @@ ufw allow 3306
 ufw allow 7800
 ```
 
----
+* * *
 
-Fuente: https://www.aapanel.com/
+Fuente: <https://www.aapanel.com/>

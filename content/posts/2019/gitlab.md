@@ -24,7 +24,7 @@ Pages está disponible de forma gratuita para todos los usuarios de GitLab.com, 
 
 ## Sitios Estaticos
 
-Para publicar un sitio web con páginas, puede usar cualquier generador de sitio estático, como Jekyll, Hugo (el caso de este Blog), Middleman, Harp, Hexo y Brunch, solo por nombrar algunos. También puede publicar cualquier sitio web escrito directamente en [HTML](/post/2023/08/html-el-lenguaje-fundamental-de-la-web/), CSS y JavaScript. Pages no admite el procesamiento dinámico del lado del servidor, por ejemplo, como .php y .asp
+Para publicar un sitio web con páginas, puede usar cualquier generador de sitio estático, como Jekyll, Hugo (el caso de este Blog), Middleman, Harp, Hexo y Brunch, solo por nombrar algunos. También puede publicar cualquier sitio web escrito directamente en [HTML](/post/2023/08/html-el-lenguaje-fundamental-de-la-web/), [CSS](/post/2023/08/descubriendo-el-mundo-de-css/) y JavaScript. Pages no admite el procesamiento dinámico del lado del servidor, por ejemplo, como .php y .asp
 
 ## Como funciona
 

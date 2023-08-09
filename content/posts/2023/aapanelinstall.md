@@ -1,32 +1,12 @@
 ---
-title: 'Instalar aapanel'
+title: Instalar aaPanel
 date: '2023-06-21 11:34:00.00'
-description: 'Veamos la forma correcta de instalar aapanel en Debian, Ubuntu y Centos. De una forma simple y rapida.'
-type: 'post'
-tags:
-    [
-        'aapanel',
-        'cpanel',
-        'panel',
-        'webserver',
-        'simple',
-        'instalacion',
-        'gratis',
-        'debian',
-        'ubuntu',
-        'centos',
-        'deepin',
-        'python',
-        'php',
-        'mysql',
-        'aapanel install',
-        'aapanel install debian',
-        'aapanel install ubuntu',
-        'aapanel install centos',
-    ]
-categories: ['Linux', 'Aplicaciones']
-img: 'https://i.postimg.cc/XNRRTBwn/aapanel.webp'
-authors: ['PatoJAD']
+description: Veamos la forma correcta de instalar aapanel en Debian, Ubuntu y Centos. De una forma simple y rapida.
+type: post
+tags: [aapanel, cpanel, panel, webserver, simple, instalacion, gratis, debian, ubuntu, centos, deepin, python, php, mysql, aapanel install, aapanel install debian, aapanel install ubuntu, aapanel install centos]
+categories: [Linux, Aplicaciones]
+img: https://i.postimg.cc/XNRRTBwn/aapanel.webp
+authors: [PatoJAD]
 ---
 
 aaPanel es un software que mejora la eficiencia de la gestión de servidores admite más de 100 funciones, como LEMP/LNMP/monitor/FTP/base de datos con un solo clic Después de más de 80 iteraciones, es completamente funcional y seguro, y ha sido aprobado e instalado por millones de usuarios en todo el mundo.
@@ -70,7 +50,7 @@ aaPanel es un software que mejora la eficiencia de la gestión de servidores adm
     -   Estadísticas del sitio web
     -   etc.
 
----
+* * *
 
 [Mas información](https://www.aapanel.com/new/pricing.html)
 
@@ -102,6 +82,6 @@ wget -O install.sh http://www.aapanel.com/script/install-ubuntu_6.0_en.sh && bas
 
 {{< info text="Se recomienda utilizar los navegadores Chrome, Firefox y edge para acceder a la dirección de inicio de sesión del panel" >}}
 
----
+* * *
 
 [Fuente](https://www.aapanel.com/)
