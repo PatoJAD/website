@@ -11,6 +11,10 @@ authors: [PatoJAD]
 
 En el vertiginoso mundo de la informática, la elección de una plataforma de alojamiento web sólida y eficiente es fundamental para el éxito de cualquier proyecto en línea. **aaPanel**, una herramienta de panel de control gratuita y de código abierto, ha ganado popularidad por su capacidad para simplificar la administración de servidores y sitios web. En este artículo, te guiaré a través de los pasos para configurar un sitio **PHP** en **aaPanel**, maximizando así el rendimiento y la accesibilidad de tu proyecto web.
 
+## ¿Qué es aaPanel?
+
+**aaPanel** es un panel de control de hosting web gratuito y de código abierto que facilita la administración de servidores. Proporciona una interfaz gráfica intuitiva y amigable que permite a los usuarios gestionar servicios como **Apache**, **Nginx**, **PHP**, bases de datos y más, sin necesidad de conocimientos técnicos avanzados.
+
 ## Instalación de aaPanel
 
 El primer paso es instalar aaPanel en tu servidor. Asegúrate de tener acceso a un servidor compatible con los requisitos de aaPanel, como **Debian**, **Ubuntu** o **CentOS**. Una vez que hayas instalado el sistema operativo, puedes instalar aaPanel siguiendo los pasos detallados en el siguiente artículo:

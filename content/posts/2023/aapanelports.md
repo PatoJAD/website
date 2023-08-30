@@ -11,6 +11,10 @@ authors: [PatoJAD]
 
 Vamos a ver que puertos tenemos que tener habilitados para que aapanel funcione correctamente. Y como abrirlos en nuestro servidor utilizando `ufw`. Recuerda que si instalaste tal como lo vimos en el video anterior de [instalar aapanel](/post/2023/06/instalar-aapanel/) y no estas pudiendo ingresar a la url que dio el panel entonces es porque alguno de estos puertos no se encuentra abierto.
 
+## ¿Qué es aaPanel?
+
+**aaPanel** es un panel de control de hosting web gratuito y de código abierto que facilita la administración de servidores. Proporciona una interfaz gráfica intuitiva y amigable que permite a los usuarios gestionar servicios como **Apache**, **Nginx**, **PHP**, bases de datos y más, sin necesidad de conocimientos técnicos avanzados.
+
 ## Puertos
 
 Los puertos que tenemos que abrir son los siguientes:

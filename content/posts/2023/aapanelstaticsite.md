@@ -11,6 +11,10 @@ authors: [PatoJAD]
 
 En el mundo en constante evolución de la tecnología web, la creación de sitios estáticos se ha convertido en una opción popular para aquellos que buscan un enfoque simplificado y de alto rendimiento para su presencia en línea. A través del uso de herramientas como **aaPanel**, puedes crear y administrar sitios estáticos de manera eficiente y efectiva. En esta guía paso a paso, te mostraremos cómo crear un sitio estático utilizando **aaPanel**, aprovechando su potencial para alcanzar un sitio web rápido y seguro.
 
+## ¿Qué es aaPanel?
+
+**aaPanel** es un panel de control de hosting web gratuito y de código abierto que facilita la administración de servidores. Proporciona una interfaz gráfica intuitiva y amigable que permite a los usuarios gestionar servicios como **Apache**, **Nginx**, **PHP**, bases de datos y más, sin necesidad de conocimientos técnicos avanzados.
+
 ## Introducción a **aaPanel** y Preparación del Entorno
 
 Para comenzar, asegúrate de haber instalado **aaPanel** en tu servidor, siguiendo los pasos detallados en los siguientes articulos: 

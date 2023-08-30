@@ -9,7 +9,11 @@ img: https://i.postimg.cc/K8Dv5P58/aapanelstore.webp
 authors: [PatoJAD]
 ---
 
-Ya vimos como realizar la instalacion de aaPanel y como abrir los puertos necesarios. Tambien realizamos el primer ingreso y la instalacion de LAMP o LNMP segun deseemos. Ahora veremos el appstore de aapanel. Y realiamos instalaciones desde diferentes areas de modulos o complemento.
+Ya vimos como realizar la instalacion de aaPanel y como abrir los puertos necesarios. Tambien realizamos el primer ingreso y la instalacion de LAMP o LNMP segun deseemos. Ahora veremos el appstore de aaPanel. Y realiamos instalaciones desde diferentes areas de modulos o complemento.
+
+## ¿Qué es aaPanel?
+
+**aaPanel** es un panel de control de hosting web gratuito y de código abierto que facilita la administración de servidores. Proporciona una interfaz gráfica intuitiva y amigable que permite a los usuarios gestionar servicios como **Apache**, **Nginx**, **PHP**, bases de datos y más, sin necesidad de conocimientos técnicos avanzados.
 
 ## Video
 
