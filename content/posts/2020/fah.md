@@ -5,7 +5,7 @@ description: 'El Día de Internet Segura se celebra cada año el segundo martes 
 type: 'post'
 tags: ['folding', 'at', 'home', 'covid', 'coronavirus']
 categories: ['Noticias']
-img: 'https://overclock3d.net/gfx/articles/2020/03/03144125761l.jpg'
+img: 'https://i.postimg.cc/cLNRQxrC/fah.webp'
 authors: ['PatoJAD']
 ---
 

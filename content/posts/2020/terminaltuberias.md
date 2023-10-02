@@ -17,7 +17,7 @@ tags:
         'pipelines',
     ]
 categories: ['Linux']
-img: 'https://www.ionos.es/digitalguide/fileadmin/DigitalGuide/Screenshots/ubuntu-bash.png'
+img: 'https://i.postimg.cc/pV4YLYvD/ubuntu-bash.webp'
 authors: ['PatoJAD']
 ---
 
