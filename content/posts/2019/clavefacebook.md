@@ -14,7 +14,7 @@ tags:
         'firmar',
     ]
 categories: ['Seguridad', 'Noticias']
-img: 'https://masquedigital.com/wp-content/uploads/2019/02/M%C3%A1sQueDigital-%C2%A1Otra-vez-Facebook-Nueva-filtraci%C3%B3n-de-datos-afectar%C3%ADa-a-m%C3%A1s-de-un-mill%C3%B3n-de-usuarios-IMG.jpg'
+img: https://i.postimg.cc/ncPQM6Js/fbclavefiltrada.webp
 authors: ['PatoJAD']
 ---
 

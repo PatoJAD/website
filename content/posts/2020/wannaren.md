@@ -17,7 +17,7 @@ tags:
         'maleware',
     ]
 categories: ['Seguridad', 'Windows']
-img: 'https://pbs.twimg.com/media/EU6MR-xXgAE0H9q.jpg'
+img: 'https://i.postimg.cc/kMj2hkDj/wannaren.webp'
 authors: ['PatoJAD']
 ---
 
