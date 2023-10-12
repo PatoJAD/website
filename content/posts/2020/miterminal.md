@@ -1,6 +1,6 @@
 ---
 title: 'Mi terminal ZSH + PowerLevel10K'
-date: '2020-07-22 08:22:00'
+date: '2023-10-12 12:22:00'
 description: 'Ya muchos preguntaron por mi terminal en videos o publicaciones asi que despues de tanta demora decidi compartirla'
 type: 'post'
 tags:
@@ -14,17 +14,27 @@ tags:
         'bash',
         'pl10k',
         'linux',
+        'ubuntu',
+        'debian',
+        'arch',
+        'archlinux',
+        'consola',
+        'prompt',
+        'patojad',
+        'console',
     ]
-categories: ['Estilo', 'Linux']
+categories: ['Estilo', 'Linux', 'MacOS']
 img: 'https://i.postimg.cc/15KHksnn/Screenshot-20200722-081612.png'
 authors: ['PatoJAD']
 ---
 
 Muchos me preguntaron sobre mi terminal en videos anteriores, en esta oportunidad quiero explicar como llegar a tener una terminal como la que uso yo, y específicamente, porque tener una terminal así.
 
-![](https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/performance.gif" >}}
+![](https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/performance.gif)
 
 Dentro de mi profesión como developer es importante la velocidad y simplicidad de tareas cotidianas y una de esas es el uso de la terminal, la terminal la uso todo el dia y para prácticamente todo, por lo cual requiero una terminal que pueda personalizar para que se acomode y obviamente me simplifique todo lo que pueda…
+
+{{< youtube id="DvcA_iFov54" >}}
 
 ## ZSH un shell diferente
 
@@ -39,7 +49,13 @@ ZSH (Z shell) es una terminal (o mejor dicho shell) para uso interactivo que nos
 La instalación es muy simple porque viene en los repositorios de la mayoría de las distros de linux. Lo cual nos permite hacerlo de una manera muy simple:
 
 ```bash
+# debian/ubuntu
 sudo apt install zsh
+```
+
+```bash
+# archlinux
+sudo pacman -S zsh
 ```
 
 Si queremos definir este shell como shell por defecto (de esta forma al abrir la terminal iniciará este shell y no bash que suele ser el shell por defecto de la mayoría de las distros) ejecutamos el siguiente comando:
@@ -57,7 +73,13 @@ Sin embargo por sí solo puede ser un poco engorroso de configurar y puede lleva
 Es un framework desarrollado por la comunidad para gestionar la configuración de ZSH. El cual viene a simplificar la tarea personalizar y añadir plugins y configurarlo a gusto, esto puede llegar a ser realmente muy útil y por supuesto simple de instalar, para iniciar debemos instalar sus dependencias:
 
 ```bash
+# debian/ubuntu
 sudo apt install git-core curl
+```
+
+```bash
+# archlinux
+sudo pacman -S git curl
 ```
 
 y a continuación instalamos directamente desde su git.
@@ -90,35 +112,35 @@ Para instalarlos voy a indicar el paso a paso, no es obligatorio seguirlo así d
 
 Luego desde la terminal descargamos el theme de PowerLevel10k desde su repositorio oficial:
 
-```bash
+```zsh
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
 Por último queda modificar el archivo de configuracion para que inicie este theme, para hacerlo en este caso lo explicare con nano pero pueden usar el editor que quieran:
 
-```bash
+```zsh
 nano ~/.zshrc
 ```
 
 ahi buscamos la linea que tenga lo siguiente
 
-```
+```cfg
 ZSH_THEME="..."
 ```
 
 Donde los puntos suspensivos _(...)_ son cualquier texto. y lo remplazamos por la siguiente linea
 
-```
+```cfg
 ZSH_THEME="powerlevel10k/powerlevel10k"
 ```
 
 Ahora reiniciamos la terminal y nos abrira una configuracion paso a paso donde vamos a ir eligiendo entre ejemplos como se vera la terminal, las primeras preguntas son si vemos los iconos y luego nos mostrará opciones (casi siempre del 1 al 4) donde iremos estableciendo la visualización…
 
-![](https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/configuration-wizard.gif" >}}
+![](https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/configuration-wizard.gif)
 
 En el caso de que no nos guste como quedo o queramos cambiarlo siempre se puede ejecutar el comando:
 
-```bash
+```zsh
 p10k configure
 ```
 

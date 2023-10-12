@@ -35,7 +35,7 @@ El juego aun esta en BETA y podemos apreciar que va avanzando con el tiempo… U
 
 ¡Participa en una partida rápida y lucha contra los sopas de todo el mundo, o invita a algunos amigos y diviértete juntos en un juego privado de tu elección!
 
-![](https://cdn.cloudflare.steamstatic.com/steam/apps/782940/extras/CharacterCustomizer_060120.gif" >}}
+![](https://cdn.cloudflare.steamstatic.com/steam/apps/782940/extras/CharacterCustomizer_060120.gif)
 
 Aquí hay una muestra de lo que hay en el menú:
 
@@ -56,7 +56,7 @@ Métete en el nuevo chasis de carne de tu marca y ponte manos a la obra para per
 
 Cuando se trata de moda, lo cubrimos con un baúl lleno de diferentes estilos culinarios, vibraciones y goteos. Tu lanzador de sopa es tuyo para diseñar y decorar. Cabello, delantales, manoplas, ollas, cucharones, incluso panzas de cerveza: honestamente, el mundo es tu ostra; decorar al contenido de su corazón.
 
-![](https://cdn.cloudflare.steamstatic.com/steam/apps/782940/extras/Comp_70.gif" >}}
+![](https://cdn.cloudflare.steamstatic.com/steam/apps/782940/extras/Comp_70.gif)
 
 ¡Empieza a diseñar tu personaje ahora, antes de que nerfemos el personalizador!
 

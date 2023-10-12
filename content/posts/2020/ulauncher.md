@@ -11,7 +11,7 @@ authors: ['PatoJAD']
 
 Hace un tiempo hablamos de alternativas a Krunner y fue ahí cuando conocí a esta hermosa app, pero pasó mucho tiempo desde aquel entonces y creemos que teniamos que contar un poco más sobre esta hermosa aplicación que sobre todo aumenta nuestra productividad de una forma increíble.
 
-![](https://ulauncher.io/assets/images/demo.gif" >}}
+![](https://ulauncher.io/assets/images/demo.gif)
 
 ## Búsqueda "dudosa"
 

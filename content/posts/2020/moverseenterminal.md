@@ -21,7 +21,7 @@ Lo primero que necesitamos aprender es **cómo navegar** por el sistema de archi
 
 La mayoría de nosotros, probablemente, **estamos familiarizados con un gestor de archivos gráfico** que representa el árbol del sistema de directorios. Fíjate que el árbol, normalmente, aparece colgando boca abajo, o sea, con la raíz arriba y las ramas hacia abajo.
 
-![](http://multimedia.uoc.edu/blogs/sqsw/files/2013/01/sfjerar.gif" >}}
+![](http://multimedia.uoc.edu/blogs/sqsw/files/2013/01/sfjerar.gif)
 
 Sin embargo, la línea de comandos no tiene imágenes (o al menos no nativamente), así que para navegar por el árbol del sistema de ficheros tenemos que pensar de una forma **un poco diferente** a lo que venimos _acostumbrados_.
 

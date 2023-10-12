@@ -29,7 +29,7 @@ Puede usar el servicio DDNS de diferentes maneras:
 
 Vea en su cuenta DynDNS (DDCLIENT) si su dirección IP se actualizó y cuándo, en tiempo real.
 
-![](https://dyndnss.net/eng/up.gif" >}}
+![](https://dyndnss.net/eng/up.gif)
 
 ## ¿Cuánto cuesta el servicio de DNS dinámico?
 
