@@ -29,11 +29,11 @@ Si bien en el video se muestra como actualizar **aaPanel** desde la interfaz web
 
 {{< youtube id="BeEUYGgzoJ4" >}}
 
-A continuación, se detallan los pasos para actualizar aaPanel a la última versión en caso de querer hacerlo desde la terminal conectadose al servidor por SSH:
+A continuación, se detallan los pasos para actualizar aaPanel a la última versión en caso de querer hacerlo desde la terminal conectadose al servidor por [SSH](/post/2023/10/claves-ssh-una-guía-completa-para-la-seguridad-en-conexiones-remotas/):
 
 ### Acceder al Servidor
 
-Inicia sesión en tu servidor a través de SSH utilizando un cliente como PuTTY (en el caso de estar en Windows) o la terminal en sistemas Unix o Unix-Like como Linux.
+Inicia sesión en tu servidor a través de [SSH](/post/2023/10/claves-ssh-una-guía-completa-para-la-seguridad-en-conexiones-remotas/) utilizando un cliente como PuTTY (en el caso de estar en Windows) o la terminal en sistemas Unix o Unix-Like como Linux.
 
 ```zsh
 ssh username@server_ip

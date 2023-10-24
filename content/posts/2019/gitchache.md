@@ -18,11 +18,11 @@ img: 'https://vabadus.es/images/cache/imagen_nodo/images/articulos/5c9deecdad597
 authors: ['PatoJAD']
 ---
 
-Un repositorio git puede ser accedido utilizando distintos protocolos, de entre los cuales los más comunes son SSH y HTTPS.
+Un repositorio git puede ser accedido utilizando distintos protocolos, de entre los cuales los más comunes son [SSH](/post/2023/10/claves-ssh-una-guía-completa-para-la-seguridad-en-conexiones-remotas/) y HTTPS.
 
 ![](https://i.stack.imgur.com/5OBMZ.png)
 
-HTTPS tiene algunas ventajas sobre SSH: Es más fácil de utilizar, porque no necesita la generación de un par de claves pública/privada, y normalmente no tiene problemas en atravesar firewalls y proxies. El inconveniente es que es necesario introducir el usuario y contraseña cada vez que se accede al repositorio remoto con una operación pull o push.
+HTTPS tiene algunas ventajas sobre [SSH](/post/2023/10/claves-ssh-una-guía-completa-para-la-seguridad-en-conexiones-remotas/): Es más fácil de utilizar, porque no necesita la generación de un par de claves pública/privada, y normalmente no tiene problemas en atravesar firewalls y proxies. El inconveniente es que es necesario introducir el usuario y contraseña cada vez que se accede al repositorio remoto con una operación pull o push.
 
 Pero también es posible configurar git para que almacene estas credenciales y las utilice cuando sea necesario, sin solicitarlas cada vez.
 
