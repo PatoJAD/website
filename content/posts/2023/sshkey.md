@@ -24,7 +24,7 @@ tags:
         'guia',
     ]
 categories: ["Seguridad", "Redes"]
-img: 'https://i.postimg.cc/4dwcTKQ5/tsvsjs.png'
+img: 'https://i.postimg.cc/G2S5QhY5/ssh.webp'
 authors: ['PatoJAD']
 ---
 
