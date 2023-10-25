@@ -1,7 +1,7 @@
 ---
 title: 'Claves SSH: Una Guía Completa para la Seguridad en Conexiones Remotas'
 date: '2023-10-24 12:55:00'
-description: 'Estos meta tags están diseñados para ser informativos y atractivos desde el punto de vista del SEO. Asegúrate de integrarlos en la estructura de tu página web de manera adecuada, y contribuirán a una mejor visibilidad y clasificación en los motores de búsqueda.'
+description: 'Aprende cómo importar y respaldar tus claves SSH de manera segura y eficiente. Evita la creación manual y altas repetitivas en esta guía para desarrolladores y DevOps.'
 type: 'post'
 tags:
     [
