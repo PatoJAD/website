@@ -19,7 +19,7 @@ tags:
         'dnf',
         'yay',
     ]
-categories: ['Aplicaciones']
+categories: ['Aplicaciones', 'Linux']
 img: 'https://linuxhint.com/wp-content/uploads/2020/06/1-12.jpg'
 authors: ['PatoJAD']
 ---
