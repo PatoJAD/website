@@ -1,300 +1,266 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>mongo on PatoJAD</title>
-    <link>https://patojad.com.ar/tags/mongo/</link>
-    <description>Recent content in mongo on PatoJAD</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>es-AR</language>
-    <lastBuildDate>Mon, 05 Jun 2023 10:45:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://patojad.com.ar/tags/mongo/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Como instalar MongoDB en Windows</title>
-      <link>https://patojad.com.ar/post/2023/06/como-instalar-mongodb-en-windows/</link>
-      <pubDate>Mon, 05 Jun 2023 10:45:00 +0000</pubDate>
-      
-      <guid>https://patojad.com.ar/post/2023/06/como-instalar-mongodb-en-windows/</guid>
-      <description>&lt;p&gt;Vamos a ver como realizar la instalacion de &lt;strong&gt;MongoDB&lt;/strong&gt; en Windows (ya sea 10 o 11) con winget desde nuestra terminal.&lt;/p&gt;
-&lt;h2 id=&#34;video&#34;&gt;Video&lt;/h2&gt;
-&lt;p&gt;En el video sigo los pasos para la instalacion utilizando winget para realizar la instalacion.&lt;/p&gt;
-&lt;div class=&#34;ratio ratio-16x9 embed-video&#34;&gt;
-	&lt;iframe
-		src=&#39;https://www.youtube.com/embed/jRX23FDGCW4?rel=0&#39;
-		title=&#34;Video de Youtube&#34;
-		allowfullscreen&gt;
-	&lt;/iframe&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&#34;comandos-utilizados&#34;&gt;Comandos Utilizados&lt;/h2&gt;
-&lt;p&gt;Este es el comendo que utilizamos para realizar la instalacion de MongoDB en Windows 10 o 11 utilizando winget:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;winget install -e --id MongoDB.Server
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;ejecute-mongodb-community-edition-desde-la-terminal&#34;&gt;Ejecute MongoDB Community Edition desde la terminal&lt;/h2&gt;
-&lt;p&gt;Para ejecutar MongoDB (o mongo) desde la terminal de Windows, debemos ejecutar el siguiente comando para crear la carpeta donde se guardaran los datos de la base de datos:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; C:&lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;md &lt;span class=&#34;s2&#34;&gt;&amp;#34;\data\db&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Luego ejecutamos el siguiente comando para ejecutar mongo:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;C:\Program Files\MongoDB\Server\6.0\bin\mongod.exe&amp;#34;&lt;/span&gt; --dbpath&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;c:\data\db&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;div class=&#34;alert alert-info col-12&#34; style=&#34;position:relative;&#34;&gt;
-  &lt;div class=&#34;info-box-content container&#34;&gt;
-    &lt;div class=&#34;row&#34;&gt;
-      &lt;div class=&#34;col-2 text-center&#34;&gt;
-        &lt;span class=&#34;fa fa-info fa-5x&#34;&gt;&lt;/span&gt;
-      &lt;/div&gt;
-      &lt;div class=&#34;col-10&#34;&gt;
-        &lt;p class=&#34;no-margin&#34;&gt;En este caso usamos c:\data\db pero pueden elegir el directorio que quieran&lt;/p&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&#34;agregar-binarios-de-mongodb-a-la-path-del-sistema&#34;&gt;Agregar binarios de MongoDB a la PATH del sistema&lt;/h2&gt;
-&lt;p&gt;Si agrega &lt;code&gt;C:\Archivos de programa\MongoDB\Server\6.0\bin&lt;/code&gt; a su PATH del sistema, puede omitir la ruta completa a los archivos binarios del servidor MongoDB. También debe agregar la ruta a &lt;code&gt;mongosh&lt;/code&gt; si aún no lo ha hecho.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;Fuente: &lt;a href=&#34;https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/&#34;&gt;https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Como instalar MongoDB en MacOS</title>
-      <link>https://patojad.com.ar/post/2023/05/como-instalar-mongodb-en-macos/</link>
-      <pubDate>Fri, 05 May 2023 13:45:00 +0000</pubDate>
-      
-      <guid>https://patojad.com.ar/post/2023/05/como-instalar-mongodb-en-macos/</guid>
-      <description>&lt;p&gt;Vamos a ver como realizar la instalacion de &lt;strong&gt;MongoDB&lt;/strong&gt; en MacOS. Recuerda que para esto debes tener instalado primero &lt;a href=&#34;https://patojad.com.ar/post/2023/02/como-instalar-brew-en-macos/&#34;&gt;Homebrew&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;video&#34;&gt;Video&lt;/h2&gt;
-&lt;p&gt;En el video sigo los pasos para la instalación de MongoDB en MacOS utilizando Homebrew. Sin embargo abajo te dejo los pasos a seguir para que puedas copiar y pegar en tu terminal.&lt;/p&gt;
-&lt;div class=&#34;ratio ratio-16x9 embed-video&#34;&gt;
-	&lt;iframe
-		src=&#39;https://www.youtube.com/embed/wa6I0jlqrQM?rel=0&#39;
-		title=&#34;Video de Youtube&#34;
-		allowfullscreen&gt;
-	&lt;/iframe&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&#34;comandos&#34;&gt;Comandos&lt;/h2&gt;
-&lt;p&gt;Los siguientes comandos podes usarlos en tu terminal (Recorda tener instalado &lt;a href=&#34;https://patojad.com.ar/post/2023/02/como-instalar-brew-en-macos/&#34;&gt;Homebrew&lt;/a&gt;):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;brew tap mongodb/brew
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Una ves agregado el TAP de MongoDB podemos instalarlo de manera oficial, pero antes debemos actualizar:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;brew update
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Luego si, ya podemos proceder a realizar la instalación de la siguiente manera:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;brew install mongodb-community
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;instalado&#34;&gt;Instalado&lt;/h2&gt;
-&lt;p&gt;Una ves instalado tendremos acceso a los siguientes binarios:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;El servidor &lt;code&gt;mongod&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Enrutador de consultas &lt;code&gt;mongos&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;El cliente de MongoDB para Shell &lt;code&gt;mongosh&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;p&gt;Fuente: &lt;a href=&#34;https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/&#34;&gt;https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Como instalar MongoDB en GNU/Linux</title>
-      <link>https://patojad.com.ar/post/2023/04/como-instalar-mongodb-en-gnu/linux/</link>
-      <pubDate>Wed, 19 Apr 2023 13:45:00 +0000</pubDate>
-      
-      <guid>https://patojad.com.ar/post/2023/04/como-instalar-mongodb-en-gnu/linux/</guid>
-      <description>&lt;p&gt;Vamos a ver como realizar la instalacion de &lt;strong&gt;MongoDB&lt;/strong&gt; en nuestra distribucion de GNU/Linux preferida.&lt;/p&gt;
-&lt;h2 id=&#34;video&#34;&gt;Video&lt;/h2&gt;
-&lt;p&gt;En el video sigo los pasos para la instalacion en cualquier distribucion base Arch linux que es la que utilizo yo, sin embargo en la parte de abajo dejare la forma de realizarlo en distintas distribuciones&lt;/p&gt;
-&lt;div class=&#34;ratio ratio-16x9 embed-video&#34;&gt;
-	&lt;iframe
-		src=&#39;https://www.youtube.com/embed/tQk0Q8rBkHY?rel=0&#39;
-		title=&#34;Video de Youtube&#34;
-		allowfullscreen&gt;
-	&lt;/iframe&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&#34;comando-para-arch-linux&#34;&gt;Comando para Arch Linux&lt;/h2&gt;
-&lt;p&gt;En arch linux la instalacion es tan simple como podemos ver en el video utilizando:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;yay -Sy mongodb-bin
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;debian-y-derivadas-como-ubuntu&#34;&gt;Debian y derivadas como ubuntu&lt;/h2&gt;
-&lt;p&gt;Debemos asegurarnos de tener &lt;code&gt;gnupg&lt;/code&gt; para poder instalar las llaves necesarias, podemos instalarlo de la siguiente manera:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get install gnupg
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;y una ves instalado procedemos a realizar la descarga e instalacion de las llaves de la siguiente manera:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;curl -fsSL https://pgp.mongodb.com/server-6.0.asc &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;   sudo gpg -o /usr/share/keyrings/mongodb-server-6.0.gpg &lt;span class=&#34;se&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;   --dearmor
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;creamos el archivo &lt;code&gt;/etc/apt/sources.list.d/mongodb-org-6.0.list&lt;/code&gt; para agregar el repositorio, esto lo podemos hacer de la siguiente manera:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nano /etc/apt/sources.list.d/mongodb-org-6.0.list
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;guardamos y cerramos el archivo limpio para luego dentro agregar el repositorio segun corresponda.&lt;/p&gt;
-&lt;h3 id=&#34;debian-10&#34;&gt;Debian 10&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;deb [ signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] http://repo.mongodb.org/apt/debian buster/mongodb-org/6.0 main&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;debian-11&#34;&gt;Debian 11&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;deb [ signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg] http://repo.mongodb.org/apt/debian bullseye/mongodb-org/6.0 main&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;ubuntu-184&#34;&gt;Ubuntu 18.4&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/6.0 multiverse&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;ubuntu-204&#34;&gt;Ubuntu 20.4&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;ubuntu-224&#34;&gt;Ubuntu 22.4&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;hr&gt;
-&lt;p&gt;Una vez creado el archivo procedemos a instalar el paquete de la siguiente manera:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt update &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo apt install -y mongodb-org
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;rhel--centos--oracle--rocky--almalinux&#34;&gt;RHEL / CentOS / Oracle / Rocky / AlmaLinux&lt;/h2&gt;
-&lt;p&gt;Vamos a crear el archivo &lt;code&gt;/etc/yum.repos.d/mongodb-org-6.0.repo&lt;/code&gt; que nos permitira agregar el repositorio para la instalacion y dentro vamos a agregar lo siguiente:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[mongodb-org-6.0]
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;name=MongoDB Repository
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;baseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/6.0/x86_64/
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;gpgcheck=1
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;enabled=1
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;gpgkey=https://www.mongodb.org/static/pgp/server-6.0.asc
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Una vez creado el archivo procedemos a instalar el paquete de la siguiente manera:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo yum install -y mongodb-org
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;hr&gt;
-&lt;p&gt;Fuente: &lt;a href=&#34;https://www.mongodb.com/docs/manual/administration/install-on-linux/&#34;&gt;https://www.mongodb.com/docs/manual/administration/install-on-linux/&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&#34;text-center&#34;&gt;
-  &lt;a
-    class=&#34;theme-btn&#34;
-    target=&#34;_blank&#34;
-    title=&#39;Debatir en el Foro&#39;
-    rel=&#34;noopener&#34;
-    href=&#39;https://community.vasak.net.ar/topic/52/como-instalar-mongodb-en-gnu-linux&#39;&gt;
-    Debatir en el Foro
-  &lt;/a&gt;
-&lt;/div&gt;
-
-</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>mongo on PatoJAD</title><link>https://patojad.com.ar/tags/mongo/</link><description>Recent content in mongo on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Mon, 05 Jun 2023 10:45:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/mongo/index.xml" rel="self" type="application/rss+xml"/><item><title>Como instalar MongoDB en Windows</title><link>https://patojad.com.ar/post/2023/06/como-instalar-mongodb-en-windows/</link><pubDate>Mon, 05 Jun 2023 10:45:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/06/como-instalar-mongodb-en-windows/</guid><description>&lt;p>Vamos a ver como realizar la instalacion de &lt;strong>MongoDB&lt;/strong> en Windows (ya sea 10 o 11) con winget desde nuestra terminal.&lt;/p>
+&lt;h2 id="video">Video&lt;/h2>
+&lt;p>En el video sigo los pasos para la instalacion utilizando winget para realizar la instalacion.&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/jRX23FDGCW4?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="comandos-utilizados">Comandos Utilizados&lt;/h2>
+&lt;p>Este es el comendo que utilizamos para realizar la instalacion de MongoDB en Windows 10 o 11 utilizando winget:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">winget install -e --id MongoDB.Server
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="ejecute-mongodb-community-edition-desde-la-terminal">Ejecute MongoDB Community Edition desde la terminal&lt;/h2>
+&lt;p>Para ejecutar MongoDB (o mongo) desde la terminal de Windows, debemos ejecutar el siguiente comando para crear la carpeta donde se guardaran los datos de la base de datos:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> C:&lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span>md &lt;span class="s2">&amp;#34;\data\db&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Luego ejecutamos el siguiente comando para ejecutar mongo:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="s2">&amp;#34;C:\Program Files\MongoDB\Server\6.0\bin\mongod.exe&amp;#34;&lt;/span> --dbpath&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;c:\data\db&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="alert alert-info col-12" style="position:relative;">
+&lt;div class="info-box-content container">
+&lt;div class="row">
+&lt;div class="col-2 text-center">
+&lt;span class="fa fa-info fa-5x">&lt;/span>
+&lt;/div>
+&lt;div class="col-10">
+&lt;p class="no-margin">En este caso usamos c:\data\db pero pueden elegir el directorio que quieran&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;h2 id="agregar-binarios-de-mongodb-a-la-path-del-sistema">Agregar binarios de MongoDB a la PATH del sistema&lt;/h2>
+&lt;p>Si agrega &lt;code>C:\Archivos de programa\MongoDB\Server\6.0\bin&lt;/code> a su PATH del sistema, puede omitir la ruta completa a los archivos binarios del servidor MongoDB. También debe agregar la ruta a &lt;code>mongosh&lt;/code> si aún no lo ha hecho.&lt;/p>
+&lt;hr>
+&lt;p>Fuente: &lt;a href="https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/
+&lt;/a>&lt;/p></description></item><item><title>Como instalar MongoDB en MacOS</title><link>https://patojad.com.ar/post/2023/05/como-instalar-mongodb-en-macos/</link><pubDate>Fri, 05 May 2023 13:45:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/05/como-instalar-mongodb-en-macos/</guid><description>&lt;p>Vamos a ver como realizar la instalacion de &lt;strong>MongoDB&lt;/strong> en MacOS. Recuerda que para esto debes tener instalado primero &lt;a href="https://patojad.com.ar/post/2023/02/como-instalar-brew-en-macos/" >
+&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+Homebrew
+&lt;/a>.&lt;/p>
+&lt;h2 id="video">Video&lt;/h2>
+&lt;p>En el video sigo los pasos para la instalación de MongoDB en MacOS utilizando Homebrew. Sin embargo abajo te dejo los pasos a seguir para que puedas copiar y pegar en tu terminal.&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/wa6I0jlqrQM?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="comandos">Comandos&lt;/h2>
+&lt;p>Los siguientes comandos podes usarlos en tu terminal (Recorda tener instalado &lt;a href="https://patojad.com.ar/post/2023/02/como-instalar-brew-en-macos/" >
+&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+Homebrew
+&lt;/a>):&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">brew tap mongodb/brew
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Una ves agregado el TAP de MongoDB podemos instalarlo de manera oficial, pero antes debemos actualizar:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">brew update
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Luego si, ya podemos proceder a realizar la instalación de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">brew install mongodb-community
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="instalado">Instalado&lt;/h2>
+&lt;p>Una ves instalado tendremos acceso a los siguientes binarios:&lt;/p>
+&lt;ul>
+&lt;li>El servidor &lt;code>mongod&lt;/code>&lt;/li>
+&lt;li>Enrutador de consultas &lt;code>mongos&lt;/code>&lt;/li>
+&lt;li>El cliente de MongoDB para Shell &lt;code>mongosh&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>Fuente: &lt;a href="https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
+&lt;/a>&lt;/p></description></item><item><title>Como instalar MongoDB en GNU/Linux</title><link>https://patojad.com.ar/post/2023/04/como-instalar-mongodb-en-gnu/linux/</link><pubDate>Wed, 19 Apr 2023 13:45:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/04/como-instalar-mongodb-en-gnu/linux/</guid><description>&lt;p>Vamos a ver como realizar la instalacion de &lt;strong>MongoDB&lt;/strong> en nuestra distribucion de GNU/Linux preferida.&lt;/p>
+&lt;h2 id="video">Video&lt;/h2>
+&lt;p>En el video sigo los pasos para la instalacion en cualquier distribucion base Arch linux que es la que utilizo yo, sin embargo en la parte de abajo dejare la forma de realizarlo en distintas distribuciones&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/tQk0Q8rBkHY?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="comando-para-arch-linux">Comando para Arch Linux&lt;/h2>
+&lt;p>En arch linux la instalacion es tan simple como podemos ver en el video utilizando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -Sy mongodb-bin
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="debian-y-derivadas-como-ubuntu">Debian y derivadas como ubuntu&lt;/h2>
+&lt;p>Debemos asegurarnos de tener &lt;code>gnupg&lt;/code> para poder instalar las llaves necesarias, podemos instalarlo de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo apt-get install gnupg
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>y una ves instalado procedemos a realizar la descarga e instalacion de las llaves de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">curl -fsSL https://pgp.mongodb.com/server-6.0.asc &lt;span class="p">|&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> sudo gpg -o /usr/share/keyrings/mongodb-server-6.0.gpg &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --dearmor
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>creamos el archivo &lt;code>/etc/apt/sources.list.d/mongodb-org-6.0.list&lt;/code> para agregar el repositorio, esto lo podemos hacer de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">nano /etc/apt/sources.list.d/mongodb-org-6.0.list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>guardamos y cerramos el archivo limpio para luego dentro agregar el repositorio segun corresponda.&lt;/p>
+&lt;h3 id="debian-10">Debian 10&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;deb [ signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] http://repo.mongodb.org/apt/debian buster/mongodb-org/6.0 main&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="debian-11">Debian 11&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;deb [ signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg] http://repo.mongodb.org/apt/debian bullseye/mongodb-org/6.0 main&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="ubuntu-184">Ubuntu 18.4&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/6.0 multiverse&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="ubuntu-204">Ubuntu 20.4&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="ubuntu-224">Ubuntu 22.4&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;p>Una vez creado el archivo procedemos a instalar el paquete de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo apt update &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> sudo apt install -y mongodb-org
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="rhel--centos--oracle--rocky--almalinux">RHEL / CentOS / Oracle / Rocky / AlmaLinux&lt;/h2>
+&lt;p>Vamos a crear el archivo &lt;code>/etc/yum.repos.d/mongodb-org-6.0.repo&lt;/code> que nos permitira agregar el repositorio para la instalacion y dentro vamos a agregar lo siguiente:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">[mongodb-org-6.0]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">name=MongoDB Repository
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">baseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/6.0/x86_64/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">gpgcheck=1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">enabled=1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">gpgkey=https://www.mongodb.org/static/pgp/server-6.0.asc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Una vez creado el archivo procedemos a instalar el paquete de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo yum install -y mongodb-org
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;p>Fuente: &lt;a href="https://www.mongodb.com/docs/manual/administration/install-on-linux/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+https://www.mongodb.com/docs/manual/administration/install-on-linux/
+&lt;/a>&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Debatir en el Foro'
+rel="noopener"
+href='https://community.vasak.net.ar/topic/52/como-instalar-mongodb-en-gnu-linux'>
+Debatir en el Foro
+&lt;/a>
+&lt;/div></description></item></channel></rss>

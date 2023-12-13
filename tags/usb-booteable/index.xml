@@ -1,106 +1,84 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>usb booteable on PatoJAD</title>
-    <link>https://patojad.com.ar/tags/usb-booteable/</link>
-    <description>Recent content in usb booteable on PatoJAD</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>es-AR</language>
-    <lastBuildDate>Fri, 08 Mar 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://patojad.com.ar/tags/usb-booteable/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Como usar dd</title>
-      <link>https://patojad.com.ar/post/2019/03/como-usar-dd/</link>
-      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://patojad.com.ar/post/2019/03/como-usar-dd/</guid>
-      <description>&lt;p&gt;Muchas nos preguntamos cuál es la mejor APP para armar nuestros USB booteables&amp;hellip; En los grupos encontramos muchas respuestas diferentes y cada uno con su fanatismo.&lt;/p&gt;
-&lt;p&gt;La realidad de esto es que puede fallar en cualquier momento no existe una app perfecta ni siquiera lo preferida (etcher) que es a mí parecer la que mejor funciona se salva de algún que otro error&lt;/p&gt;
-&lt;h3 id=&#34;entonces-que-usamos&#34;&gt;Entonces&amp;hellip; ¿Que usamos?&lt;/h3&gt;
-&lt;p&gt;La respuesta corta a esta pregunta es &amp;ldquo;cualquiera&amp;rdquo; y la larga &amp;ldquo;cualquiera que te guste&amp;rdquo; sin embargo hoy vamos a explicar cuál debemos usar cuando nuestra app preferida falla. Imagino que muchos ya se imaginan que estamos hablando de la terminal y el famoso comando “dd”&lt;/p&gt;
-&lt;p&gt;Para usarlo basicamebte debemos hacer&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo dd &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;origen &lt;span class=&#34;nv&#34;&gt;of&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;destino
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Donde if significa input file (archivo de entrada), es decir, lo que se quiere copiar (iso, cd, etc..) y of significa output file (archivo de salida), o sea, el archivo destino (donde se van a copiar los datos).
-Tanto el origen como destino pueden ser dispositivos (lectora de CD o DVD, disco duro, diskettera, pendrive, partición, etc.), archivo de copia de seguridad o imagen de disco, etc, pero no carpetas o subcarpetas.&lt;/p&gt;
-&lt;p&gt;Uno de los principales problemas a la hora de usar dd es que no comprendemos bien nuestros discos (/dev/sda1, sdb1, etc…) y es importante comprender bien que disco estamos señalando (más que nada en of donde vamos a estar escribiendo los datos), para asegurarnos correctamente cuales son los discos que vamos a usar podemos simplemente utilizar cualquier gestor de particiones grafico (por ejemplo, gparted) o el comando&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fdisk –l
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;El único “problema” de este comando básico es que no deja una incertidumbre de cuanto falta, cómo va el proceso y demás… Recordemos que no nos da un feedback de lo que está pasando mientras se está grabando.&lt;/p&gt;
-&lt;p&gt;Esto se puede solucionar con un pequeño cambio en el comando original que nos mostrara como va ocurriendo todo:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo dd &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;origen &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;pv&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;dd &lt;span class=&#34;nv&#34;&gt;of&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;destino
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Como resultado obtendríamos en el terminal una especie de barra de progreso, la información sobre bytes transferidos, el tiempo que lleva ejecutándose y la tasa de transferencia, todo esto en tiempo real.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; alf &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; - &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; ~ &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;└──┤ dd &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/devmmcblk0p1 &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;pv&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;dd &lt;span class=&#34;nv&#34;&gt;of&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/dev/mmcblk0p2
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1,630GB 0:21:30 &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;1,12MB/s&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Además al terminar nos muestra estadísticas de la tasa de transferencia, el total de bytes transferidos y el tiempo total que tardó en transferir todos los datos.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; alf &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; - &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; ~ &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;└──┤ dd &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/devmmcblk0p1 &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;pv&lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;dd &lt;span class=&#34;nv&#34;&gt;of&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/dev/mmcblk0p2
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;10530816+0 registros leídos &amp;lt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;10530816+0 registros escritos
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;5391777792&lt;/span&gt; bytes &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;5.4 GB&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; copiados, 3873,48 s, 1,4 MB/s
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;5,02GB 1:04:33 &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;1,33MB/s&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &amp;lt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;10530816+0 registros leídos &amp;lt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;10530816+0 registros escritos
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;5391777792&lt;/span&gt; bytes &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;5.4 GB&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; copiados, 3873,48 s, 1,4 MB/s
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; alf &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; - &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; ~ &lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;└──┤
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;Comprobar antes de ejecutar cualquier linea de comandos con esta segunda sintaxis, que tenemos instalado en el sistema el paquete pv, o instalarlo si no lo tuviéramos: ambas cosas con Synaptic.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Si necesitas mas informacion sobre este comando podemos usar &lt;a href=&#39;https://patojad.com.ar/post/2019/01/man-tu-manual-para-linux/&#39; title=&#39;MAN siguiendo nuestro tuto&#39; &gt;MAN siguiendo nuestro tuto&lt;/a&gt;
-&lt;/p&gt;
-&lt;p&gt;Fuente: desdelinux&lt;/p&gt;
-</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>usb booteable on PatoJAD</title><link>https://patojad.com.ar/tags/usb-booteable/</link><description>Recent content in usb booteable on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Fri, 08 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/usb-booteable/index.xml" rel="self" type="application/rss+xml"/><item><title>Como usar dd</title><link>https://patojad.com.ar/post/2019/03/como-usar-dd/</link><pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/03/como-usar-dd/</guid><description>&lt;p>Muchas nos preguntamos cuál es la mejor APP para armar nuestros USB booteables&amp;hellip; En los grupos encontramos muchas respuestas diferentes y cada uno con su fanatismo.&lt;/p>
+&lt;p>La realidad de esto es que puede fallar en cualquier momento no existe una app perfecta ni siquiera lo preferida (etcher) que es a mí parecer la que mejor funciona se salva de algún que otro error&lt;/p>
+&lt;h3 id="entonces-que-usamos">Entonces&amp;hellip; ¿Que usamos?&lt;/h3>
+&lt;p>La respuesta corta a esta pregunta es &amp;ldquo;cualquiera&amp;rdquo; y la larga &amp;ldquo;cualquiera que te guste&amp;rdquo; sin embargo hoy vamos a explicar cuál debemos usar cuando nuestra app preferida falla. Imagino que muchos ya se imaginan que estamos hablando de la terminal y el famoso comando “dd”&lt;/p>
+&lt;p>Para usarlo basicamebte debemos hacer&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo dd &lt;span class="k">if&lt;/span>&lt;span class="o">=&lt;/span>origen &lt;span class="nv">of&lt;/span>&lt;span class="o">=&lt;/span>destino
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Donde if significa input file (archivo de entrada), es decir, lo que se quiere copiar (iso, cd, etc..) y of significa output file (archivo de salida), o sea, el archivo destino (donde se van a copiar los datos).
+Tanto el origen como destino pueden ser dispositivos (lectora de CD o DVD, disco duro, diskettera, pendrive, partición, etc.), archivo de copia de seguridad o imagen de disco, etc, pero no carpetas o subcarpetas.&lt;/p>
+&lt;p>Uno de los principales problemas a la hora de usar dd es que no comprendemos bien nuestros discos (/dev/sda1, sdb1, etc…) y es importante comprender bien que disco estamos señalando (más que nada en of donde vamos a estar escribiendo los datos), para asegurarnos correctamente cuales son los discos que vamos a usar podemos simplemente utilizar cualquier gestor de particiones grafico (por ejemplo, gparted) o el comando&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">fdisk –l
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>El único “problema” de este comando básico es que no deja una incertidumbre de cuanto falta, cómo va el proceso y demás… Recordemos que no nos da un feedback de lo que está pasando mientras se está grabando.&lt;/p>
+&lt;p>Esto se puede solucionar con un pequeño cambio en el comando original que nos mostrara como va ocurriendo todo:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo dd &lt;span class="k">if&lt;/span>&lt;span class="o">=&lt;/span>origen &lt;span class="p">|&lt;/span>pv&lt;span class="p">|&lt;/span>dd &lt;span class="nv">of&lt;/span>&lt;span class="o">=&lt;/span>destino
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Como resultado obtendríamos en el terminal una especie de barra de progreso, la información sobre bytes transferidos, el tiempo que lleva ejecutándose y la tasa de transferencia, todo esto en tiempo real.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="o">(&lt;/span> alf &lt;span class="o">)&lt;/span> - &lt;span class="o">(&lt;/span> ~ &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">└──┤ dd &lt;span class="k">if&lt;/span>&lt;span class="o">=&lt;/span>/devmmcblk0p1 &lt;span class="p">|&lt;/span>pv&lt;span class="p">|&lt;/span>dd &lt;span class="nv">of&lt;/span>&lt;span class="o">=&lt;/span>/dev/mmcblk0p2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">1,630GB 0:21:30 &lt;span class="o">[&lt;/span>1,12MB/s&lt;span class="o">]&lt;/span> &lt;span class="o">[&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Además al terminar nos muestra estadísticas de la tasa de transferencia, el total de bytes transferidos y el tiempo total que tardó en transferir todos los datos.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="o">(&lt;/span> alf &lt;span class="o">)&lt;/span> - &lt;span class="o">(&lt;/span> ~ &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">└──┤ dd &lt;span class="k">if&lt;/span>&lt;span class="o">=&lt;/span>/devmmcblk0p1 &lt;span class="p">|&lt;/span>pv&lt;span class="p">|&lt;/span>dd &lt;span class="nv">of&lt;/span>&lt;span class="o">=&lt;/span>/dev/mmcblk0p2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">10530816+0 registros leídos &amp;lt;&lt;span class="o">=&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">10530816+0 registros escritos
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">5391777792&lt;/span> bytes &lt;span class="o">(&lt;/span>5.4 GB&lt;span class="o">)&lt;/span> copiados, 3873,48 s, 1,4 MB/s
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">5,02GB 1:04:33 &lt;span class="o">[&lt;/span>1,33MB/s&lt;span class="o">]&lt;/span> &lt;span class="o">[&lt;/span> &amp;lt;&lt;span class="o">=&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">10530816+0 registros leídos &amp;lt;&lt;span class="o">=&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">10530816+0 registros escritos
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">5391777792&lt;/span> bytes &lt;span class="o">(&lt;/span>5.4 GB&lt;span class="o">)&lt;/span> copiados, 3873,48 s, 1,4 MB/s
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">(&lt;/span> alf &lt;span class="o">)&lt;/span> - &lt;span class="o">(&lt;/span> ~ &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">└──┤
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>Comprobar antes de ejecutar cualquier linea de comandos con esta segunda sintaxis, que tenemos instalado en el sistema el paquete pv, o instalarlo si no lo tuviéramos: ambas cosas con Synaptic.&lt;/li>
+&lt;/ul>
+&lt;p>Si necesitas mas informacion sobre este comando podemos usar &lt;a href="https://patojad.com.ar/post/2019/01/man-tu-manual-para-linux/" >
+&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+MAN siguiendo nuestro tuto
+&lt;/a>&lt;/p>
+&lt;p>Fuente: desdelinux&lt;/p></description></item></channel></rss>

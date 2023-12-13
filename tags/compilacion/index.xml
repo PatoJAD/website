@@ -1,60 +1,35 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>compilacion on PatoJAD</title>
-    <link>https://patojad.com.ar/tags/compilacion/</link>
-    <description>Recent content in compilacion on PatoJAD</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>es-AR</language>
-    <lastBuildDate>Tue, 14 Jul 2020 09:05:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://patojad.com.ar/tags/compilacion/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Crea tus .deb con Checkinstall</title>
-      <link>https://patojad.com.ar/post/2020/07/crea-tus-.deb-con-checkinstall/</link>
-      <pubDate>Tue, 14 Jul 2020 09:05:00 +0000</pubDate>
-      
-      <guid>https://patojad.com.ar/post/2020/07/crea-tus-.deb-con-checkinstall/</guid>
-      <description>&lt;p&gt;En esta oportunidad vamos a ver como generar un deb utilizando &lt;strong&gt;checkinstall&lt;/strong&gt; en el proceso de compilación. Esto es extremadamente útil para los usuarios que acostumbramos compilar algunas piezas de software que no se encuentran en deb, nos permite generar nuestros propios debs para simplificar el proceso a futuro&lt;/p&gt;
-&lt;h2 id=&#34;recomendaciones&#34;&gt;Recomendaciones&lt;/h2&gt;
-&lt;p&gt;Si bien no soy nadie para decir que hacer siempre recomiendo seguir un hilo para facilitar el aprendizaje… Por esto mismo recomiendo ver la publicación anterior y entender como funciona eso antes de seguir dado que esta oportunidad entiendo que esos conocimientos ya estan y avanzo un poco más rápido para evitar alargar el video (saben que me gusta conciso y útil)&lt;/p&gt;
-&lt;h2 id=&#34;preparando-tu-equipo&#34;&gt;Preparando tu equipo&lt;/h2&gt;
-&lt;p&gt;Claramente este proceso es un poco más complejo que lo vimos anteriormente usando dpkg, dado que ahora no solo vamos a empaquetar sino que también vamos a compilar. Recomiendo arrancar con programas realmente pequeños e ir aumentando la complejidad de a poco. En líneas generales vamos a tener 2 dependencias &lt;strong&gt;siempre&lt;/strong&gt; que las vamos a instalar así:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install checkinstall make
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Uno es para compilar y el otro para generar el deb. Sin embargo siempre debemos leer la documentación del proyecto que queramos compilar para poder entender qué dependencias tiene adicionales a esta e instalarlas antes de iniciar el proceso y así evitar errores.&lt;/p&gt;
-&lt;h2 id=&#34;generando-el-deb&#34;&gt;Generando el deb&lt;/h2&gt;
-&lt;p&gt;En este caso no voy a explicar cómo compilar sino que voy a explicar como generar el deb por lo cual la compilación corre por cuenta de uno (leer la documentacion de git básicamente)&lt;/p&gt;
-&lt;div class=&#34;ratio ratio-16x9 embed-video&#34;&gt;
-	&lt;iframe
-		src=&#39;https://www.youtube.com/embed/kcQvq4oDUgM?rel=0&#39;
-		title=&#34;Video de Youtube&#34;
-		allowfullscreen&gt;
-	&lt;/iframe&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&#34;comandos&#34;&gt;Comandos&lt;/h2&gt;
-&lt;p&gt;El único comando que nos importa o mejor dicho que le da relevancia al tutorial que vemos aquí que es simplemente el siguiente&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo checkinstall --install&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;no
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;El install=no puede omitirse si queremos que aparte de generar el deb se instale el programa en nuestra distro, sin embargo recomiendo evitarlo e instalarlo desde el deb que generamos para probar que funcione correctamente.&lt;/p&gt;
-&lt;p&gt;No te olvides de comentarnos qué te parece y preguntarnos tus dudas en nuestro canal de Telegram.&lt;/p&gt;
-</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>compilacion on PatoJAD</title><link>https://patojad.com.ar/tags/compilacion/</link><description>Recent content in compilacion on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 14 Jul 2020 09:05:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/compilacion/index.xml" rel="self" type="application/rss+xml"/><item><title>Crea tus .deb con Checkinstall</title><link>https://patojad.com.ar/post/2020/07/crea-tus-.deb-con-checkinstall/</link><pubDate>Tue, 14 Jul 2020 09:05:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/07/crea-tus-.deb-con-checkinstall/</guid><description>&lt;p>En esta oportunidad vamos a ver como generar un deb utilizando &lt;strong>checkinstall&lt;/strong> en el proceso de compilación. Esto es extremadamente útil para los usuarios que acostumbramos compilar algunas piezas de software que no se encuentran en deb, nos permite generar nuestros propios debs para simplificar el proceso a futuro&lt;/p>
+&lt;h2 id="recomendaciones">Recomendaciones&lt;/h2>
+&lt;p>Si bien no soy nadie para decir que hacer siempre recomiendo seguir un hilo para facilitar el aprendizaje… Por esto mismo recomiendo ver la publicación anterior y entender como funciona eso antes de seguir dado que esta oportunidad entiendo que esos conocimientos ya estan y avanzo un poco más rápido para evitar alargar el video (saben que me gusta conciso y útil)&lt;/p>
+&lt;h2 id="preparando-tu-equipo">Preparando tu equipo&lt;/h2>
+&lt;p>Claramente este proceso es un poco más complejo que lo vimos anteriormente usando dpkg, dado que ahora no solo vamos a empaquetar sino que también vamos a compilar. Recomiendo arrancar con programas realmente pequeños e ir aumentando la complejidad de a poco. En líneas generales vamos a tener 2 dependencias &lt;strong>siempre&lt;/strong> que las vamos a instalar así:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo apt install checkinstall make
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Uno es para compilar y el otro para generar el deb. Sin embargo siempre debemos leer la documentación del proyecto que queramos compilar para poder entender qué dependencias tiene adicionales a esta e instalarlas antes de iniciar el proceso y así evitar errores.&lt;/p>
+&lt;h2 id="generando-el-deb">Generando el deb&lt;/h2>
+&lt;p>En este caso no voy a explicar cómo compilar sino que voy a explicar como generar el deb por lo cual la compilación corre por cuenta de uno (leer la documentacion de git básicamente)&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/kcQvq4oDUgM?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="comandos">Comandos&lt;/h2>
+&lt;p>El único comando que nos importa o mejor dicho que le da relevancia al tutorial que vemos aquí que es simplemente el siguiente&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo checkinstall --install&lt;span class="o">=&lt;/span>no
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>El install=no puede omitirse si queremos que aparte de generar el deb se instale el programa en nuestra distro, sin embargo recomiendo evitarlo e instalarlo desde el deb que generamos para probar que funcione correctamente.&lt;/p>
+&lt;p>No te olvides de comentarnos qué te parece y preguntarnos tus dudas en nuestro canal de Telegram.&lt;/p></description></item></channel></rss>

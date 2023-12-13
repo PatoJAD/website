@@ -1,93 +1,69 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>subproceso on PatoJAD</title>
-    <link>https://patojad.com.ar/tags/subproceso/</link>
-    <description>Recent content in subproceso on PatoJAD</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>es-AR</language>
-    <lastBuildDate>Thu, 30 Apr 2020 09:26:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://patojad.com.ar/tags/subproceso/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Subproceso dpkg devolvió el código de salida de error</title>
-      <link>https://patojad.com.ar/post/2020/04/subproceso-dpkg-devolvi%C3%B3-el-c%C3%B3digo-de-salida-de-error/</link>
-      <pubDate>Thu, 30 Apr 2020 09:26:00 +0000</pubDate>
-      
-      <guid>https://patojad.com.ar/post/2020/04/subproceso-dpkg-devolvi%C3%B3-el-c%C3%B3digo-de-salida-de-error/</guid>
-      <description>&lt;p&gt;Es comun que durante las actualizaciones de version a version, o la instalacion de un paquete que no este en nuestros repositorios tengamos algun error en dpkg. Vamos a estar viendo una serie de soluciones a los errores mas comunes&amp;hellip;&lt;/p&gt;
-&lt;h2 id=&#34;error-1&#34;&gt;Error 1&lt;/h2&gt;
-&lt;p&gt;Los paquetes tienen archivos que se &lt;strong&gt;sobrescriben&lt;/strong&gt;. Los paquetes tienen &lt;strong&gt;dependencias sin resolver&lt;/strong&gt;. Hay conflictos entre los paquetes. Un paquete no puede ser eliminado o modificado por dpkg. Solucion:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo echo &amp;quot;force-all&amp;quot; &amp;gt;/etc/dpkg/dpkg.cfg
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>subproceso on PatoJAD</title><link>https://patojad.com.ar/tags/subproceso/</link><description>Recent content in subproceso on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Thu, 30 Apr 2020 09:26:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/subproceso/index.xml" rel="self" type="application/rss+xml"/><item><title>Subproceso dpkg devolvió el código de salida de error</title><link>https://patojad.com.ar/post/2020/04/subproceso-dpkg-devolvi%C3%B3-el-c%C3%B3digo-de-salida-de-error/</link><pubDate>Thu, 30 Apr 2020 09:26:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/04/subproceso-dpkg-devolvi%C3%B3-el-c%C3%B3digo-de-salida-de-error/</guid><description>&lt;p>Es comun que durante las actualizaciones de version a version, o la instalacion de un paquete que no este en nuestros repositorios tengamos algun error en dpkg. Vamos a estar viendo una serie de soluciones a los errores mas comunes&amp;hellip;&lt;/p>
+&lt;h2 id="error-1">Error 1&lt;/h2>
+&lt;p>Los paquetes tienen archivos que se &lt;strong>sobrescriben&lt;/strong>. Los paquetes tienen &lt;strong>dependencias sin resolver&lt;/strong>. Hay conflictos entre los paquetes. Un paquete no puede ser eliminado o modificado por dpkg. Solucion:&lt;/p>
+&lt;pre>&lt;code>sudo echo &amp;quot;force-all&amp;quot; &amp;gt;/etc/dpkg/dpkg.cfg
 sudo apt-get -f install
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;error-2&#34;&gt;Error 2&lt;/h2&gt;
-&lt;p&gt;Instalación de un &lt;strong&gt;paquete dañado&lt;/strong&gt;, vuelvo a intentar instalar y aptitude dice que &lt;strong&gt;ya está instalado&lt;/strong&gt;! Solución:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt-get remove paquete_dañado
+&lt;/code>&lt;/pre>
+&lt;h2 id="error-2">Error 2&lt;/h2>
+&lt;p>Instalación de un &lt;strong>paquete dañado&lt;/strong>, vuelvo a intentar instalar y aptitude dice que &lt;strong>ya está instalado&lt;/strong>! Solución:&lt;/p>
+&lt;pre>&lt;code>sudo apt-get remove paquete_dañado
 sudo apt-get update
 sudo apt-get clean
 sudo apt-get --reinstall install paquete
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;error-3&#34;&gt;Error 3&lt;/h2&gt;
-&lt;p&gt;Error de verificación de las &lt;strong&gt;llaves públicas GPG&lt;/strong&gt;(NO_PUBKEY)… Error muy comun de firmas de paquetes o repositorios. Solución:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt-get update
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Buscamos y copiamos el número de error que aparece en negrita.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;The following signatures couldn&#39;t be verified because the public key is not available: NO_PUBKEY **010908312D230C5F**
+&lt;/code>&lt;/pre>
+&lt;h2 id="error-3">Error 3&lt;/h2>
+&lt;p>Error de verificación de las &lt;strong>llaves públicas GPG&lt;/strong>(NO_PUBKEY)… Error muy comun de firmas de paquetes o repositorios. Solución:&lt;/p>
+&lt;pre>&lt;code>sudo apt-get update
+&lt;/code>&lt;/pre>
+&lt;p>Buscamos y copiamos el número de error que aparece en negrita.&lt;/p>
+&lt;pre>&lt;code>The following signatures couldn't be verified because the public key is not available: NO_PUBKEY **010908312D230C5F**
 There is no public key available for the following key IDs:**010908312D230C5F**
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Y luego ejecutamos el siguiente comando remplazando el id por el respectivo al de su errores&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;gpg --keyserver keyserver.ubuntu.com --recv **010908312D230C5F**
+&lt;/code>&lt;/pre>
+&lt;p>Y luego ejecutamos el siguiente comando remplazando el id por el respectivo al de su errores&lt;/p>
+&lt;pre>&lt;code>gpg --keyserver keyserver.ubuntu.com --recv **010908312D230C5F**
 gpg --export --armor **010908312D230C5F** | sudo apt-key add -
 sudo apt-get update
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Puede que el &lt;em&gt;keyserver no tengla la clave&lt;/em&gt;, hay que buscar el respectivo a su distro de ser asi&amp;hellip;&lt;/p&gt;
-&lt;h2 id=&#34;error-4&#34;&gt;Error 4&lt;/h2&gt;
-&lt;p&gt;El &lt;strong&gt;subproceso post-installation script devolvió el código de salida de error&lt;/strong&gt; (cualquier error). Se encontraron errores al procesar: (nombre_paquete). Solución:&lt;/p&gt;
-&lt;p&gt;Determinamos el nombre del paquete que causó el error, por ejemplo, en el registro de a continuación, se muestra en negrita el nombre del paquete que causó el problema (xosview)&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;newaliases: warning: valid_hostname: numeric hostname: 69522
+&lt;/code>&lt;/pre>
+&lt;p>Puede que el &lt;em>keyserver no tengla la clave&lt;/em>, hay que buscar el respectivo a su distro de ser asi&amp;hellip;&lt;/p>
+&lt;h2 id="error-4">Error 4&lt;/h2>
+&lt;p>El &lt;strong>subproceso post-installation script devolvió el código de salida de error&lt;/strong> (cualquier error). Se encontraron errores al procesar: (nombre_paquete). Solución:&lt;/p>
+&lt;p>Determinamos el nombre del paquete que causó el error, por ejemplo, en el registro de a continuación, se muestra en negrita el nombre del paquete que causó el problema (xosview)&lt;/p>
+&lt;pre>&lt;code>newaliases: warning: valid_hostname: numeric hostname: 69522
 newaliases: fatal: bad parameter value: 69522
 dpkg: error processing xosview (–configure):
 subprocess post-installation script returned error exit status 75
 Errors were encountered while processing: **xosview**
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Después de haber determinado el nombre del paquete, ejecutamos los siguientes comandos cambiando la palabra &lt;strong&gt;xosview&lt;/strong&gt; por el nombre del paquete que causó el problema en nuestro caso:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo rm -f /var/lib/dpkg/info/xosview.post*
+&lt;/code>&lt;/pre>
+&lt;p>Después de haber determinado el nombre del paquete, ejecutamos los siguientes comandos cambiando la palabra &lt;strong>xosview&lt;/strong> por el nombre del paquete que causó el problema en nuestro caso:&lt;/p>
+&lt;pre>&lt;code>sudo rm -f /var/lib/dpkg/info/xosview.post*
 sudo rm -f /var/lib/dpkg/info/xosview.pre*
 sudo apt-get -f install
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;error-5&#34;&gt;Error 5&lt;/h2&gt;
-&lt;p&gt;Error mientras se &lt;strong&gt;elimina un paquete&lt;/strong&gt;. Solución:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo rm -f /var/lib/dpkg/info/paquete_defectuoso.post*
+&lt;/code>&lt;/pre>
+&lt;h2 id="error-5">Error 5&lt;/h2>
+&lt;p>Error mientras se &lt;strong>elimina un paquete&lt;/strong>. Solución:&lt;/p>
+&lt;pre>&lt;code>sudo rm -f /var/lib/dpkg/info/paquete_defectuoso.post*
 sudo rm -f /var/lib/dpkg/info/paquete_defectuoso.pre*
 sudo apt-get remove paquete_defectuoso
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;error-6&#34;&gt;Error 6&lt;/h2&gt;
-&lt;p&gt;Error en &lt;strong&gt;/var/lib/dpkg/status&lt;/strong&gt;. Solución:&lt;/p&gt;
-&lt;p&gt;Normalmente se soluciona así:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo cp /var/lib/dpkg/status-old /var/lib/dpkg/status
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Si esto no soluciona el problema, ver &lt;strong&gt;Error 7&lt;/strong&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;error-7&#34;&gt;Error 7&lt;/h2&gt;
-&lt;p&gt;Persiste el problema anterior o problema con apt-get que contiene muchos repositorios o &lt;strong&gt;Error out of room&lt;/strong&gt;. Solución:&lt;/p&gt;
-&lt;p&gt;El problema puede parecerse a esto:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;E: Dynamic MMap ran out of room
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Editamos el archivo apt.conf (recuerden cambiar gedit por el editor que tengan ustedes)&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo gedit /etc/apt/apt.conf
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Modificamos el &lt;strong&gt;tamaño de la caché&lt;/strong&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Apt::Cache-Limit “8388604″;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;error-8&#34;&gt;Error 8&lt;/h2&gt;
-&lt;p&gt;Durante la descarga algunos archivos &lt;strong&gt;no se encuentran disponibles&lt;/strong&gt;. Solución:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt-get update
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Si el problema persiste después de volver a intentar instalar los paquetes, revisa el archivo /etc/apt/sources.list.&lt;/p&gt;
-</description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;/code>&lt;/pre>
+&lt;h2 id="error-6">Error 6&lt;/h2>
+&lt;p>Error en &lt;strong>/var/lib/dpkg/status&lt;/strong>. Solución:&lt;/p>
+&lt;p>Normalmente se soluciona así:&lt;/p>
+&lt;pre>&lt;code>sudo cp /var/lib/dpkg/status-old /var/lib/dpkg/status
+&lt;/code>&lt;/pre>
+&lt;p>Si esto no soluciona el problema, ver &lt;strong>Error 7&lt;/strong>.&lt;/p>
+&lt;h2 id="error-7">Error 7&lt;/h2>
+&lt;p>Persiste el problema anterior o problema con apt-get que contiene muchos repositorios o &lt;strong>Error out of room&lt;/strong>. Solución:&lt;/p>
+&lt;p>El problema puede parecerse a esto:&lt;/p>
+&lt;pre>&lt;code>E: Dynamic MMap ran out of room
+&lt;/code>&lt;/pre>
+&lt;p>Editamos el archivo apt.conf (recuerden cambiar gedit por el editor que tengan ustedes)&lt;/p>
+&lt;pre>&lt;code>sudo gedit /etc/apt/apt.conf
+&lt;/code>&lt;/pre>
+&lt;p>Modificamos el &lt;strong>tamaño de la caché&lt;/strong>.&lt;/p>
+&lt;pre>&lt;code>Apt::Cache-Limit “8388604″;
+&lt;/code>&lt;/pre>
+&lt;h2 id="error-8">Error 8&lt;/h2>
+&lt;p>Durante la descarga algunos archivos &lt;strong>no se encuentran disponibles&lt;/strong>. Solución:&lt;/p>
+&lt;pre>&lt;code>sudo apt-get update
+&lt;/code>&lt;/pre>
+&lt;p>Si el problema persiste después de volver a intentar instalar los paquetes, revisa el archivo /etc/apt/sources.list.&lt;/p></description></item></channel></rss>

@@ -1,184 +1,258 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>apt on PatoJAD</title>
-    <link>https://patojad.com.ar/tags/apt/</link>
-    <description>Recent content in apt on PatoJAD</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>es-AR</language>
-    <lastBuildDate>Fri, 16 Apr 2021 09:36:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://patojad.com.ar/tags/apt/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>¿Como instalar Wine?</title>
-      <link>https://patojad.com.ar/post/2021/04/como-instalar-wine/</link>
-      <pubDate>Fri, 16 Apr 2021 09:36:00 +0000</pubDate>
-      
-      <guid>https://patojad.com.ar/post/2021/04/como-instalar-wine/</guid>
-      <description>&lt;p&gt;Ya con anterioridad me consultaron de como instalar Wine en Artix, esto me llevó a armar el video y obviamente siempre a explicar mi perspectiva o punto de vista sobre el uso de wine. En esta oportunidad el video es específico de distros basadas en Arch. Sin embargo, en la parte inferior van a poder encontrar la instalación para otras distros de linux.&lt;/p&gt;
-&lt;h2 id=&#34;pre-requisitos&#34;&gt;Pre requisitos&lt;/h2&gt;
-&lt;p&gt;Si venis por Artix o cualquier distro de Arch te recomiendo que veas de antemano las instalaciones y configuraciones de las que hago uso en el video y doy por sabido estas son&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#39;https://patojad.com.ar/post/2021/03/activar-multilib-artix/&#39; title=&#39;Multilib&#39; &gt;Multilib&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#39;https://patojad.com.ar/post/2020/10/instalar-yay-en-artix-linux/&#39; title=&#39;yay&#39; &gt;yay&lt;/a&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;video&#34;&gt;Video&lt;/h2&gt;
-&lt;p&gt;Como siempre disfruto mucho de armar videos y dejar mi opinion asi que sin rodeos los dejo con el video&lt;/p&gt;
-&lt;div class=&#34;ratio ratio-16x9 embed-video&#34;&gt;
-	&lt;iframe
-		src=&#39;https://www.youtube.com/embed/47A2KBLgj6I?rel=0&#39;
-		title=&#34;Video de Youtube&#34;
-		allowfullscreen&gt;
-	&lt;/iframe&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&#34;instalar-winehq&#34;&gt;Instalar WineHQ&lt;/h2&gt;
-&lt;div class=&#34;text-center&#34;&gt;
-  &lt;img
-    src=&#39;https://linuxhint.com/wp-content/uploads/2020/06/1-12.jpg&#39;
-    class=&#34;img-fluid blog-content-img&#34;
-    alt=&#34;imagen de Post&#34;
-    title=&#34;imagen de Post&#34;/&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Lo primero que debemos hacer es instalar WineHQ en nuestra distribución, para esto debemos agregar las librerías y ejecutar la instalación.&lt;/p&gt;
-&lt;h3 id=&#34;debian&#34;&gt;Debian&lt;/h3&gt;
-&lt;p&gt;Habilitamos los 32 bits&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo dpkg --add-architecture i386
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Descargamos e instalamos a Key&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget -nc https://dl.winehq.org/wine-builds/winehq.key
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-key add winehq.key
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Agregamos el repositorio dependiendo de nuestra versión&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Version&lt;/th&gt;
-&lt;th&gt;Agregar a /etc/apt/sources.list:&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Debian 8 (Jessie)&lt;/td&gt;
-&lt;td&gt;deb &lt;a href=&#34;https://dl.winehq.org/wine-builds/debian/&#34;&gt;https://dl.winehq.org/wine-builds/debian/&lt;/a&gt; jessie main&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Debian 9 (Stretch)&lt;/td&gt;
-&lt;td&gt;deb &lt;a href=&#34;https://dl.winehq.org/wine-builds/debian/&#34;&gt;https://dl.winehq.org/wine-builds/debian/&lt;/a&gt; stretch main&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Debian 10 (currently Testing) (Buster)&lt;/td&gt;
-&lt;td&gt;deb &lt;a href=&#34;https://dl.winehq.org/wine-builds/debian/&#34;&gt;https://dl.winehq.org/wine-builds/debian/&lt;/a&gt; buster main&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Actualizamos el Sistema&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt update
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Instalamos uno de los paquetes&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;version&lt;/th&gt;
-&lt;th&gt;comando&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Stable branch&lt;/td&gt;
-&lt;td&gt;sudo apt install &amp;ndash;install-recommends winehq-stable&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Development branch&lt;/td&gt;
-&lt;td&gt;sudo apt install &amp;ndash;install-recommends winehq-devel&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Staging branch&lt;/td&gt;
-&lt;td&gt;sudo apt install &amp;ndash;install-recommends winehq-staging&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;fedora&#34;&gt;Fedora&lt;/h3&gt;
-&lt;p&gt;Agregamos los repositories&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;version&lt;/th&gt;
-&lt;th&gt;comando&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Fedora 29&lt;/td&gt;
-&lt;td&gt;dnf config-manager &amp;ndash;add-repo &lt;a href=&#34;https://dl.winehq.org/wine-builds/fedora/29/winehq.repo&#34;&gt;https://dl.winehq.org/wine-builds/fedora/29/winehq.repo&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Fedora 30&lt;/td&gt;
-&lt;td&gt;dnf config-manager &amp;ndash;add-repo &lt;a href=&#34;https://dl.winehq.org/wine-builds/fedora/30/winehq.repo&#34;&gt;https://dl.winehq.org/wine-builds/fedora/30/winehq.repo&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;E instalamos la version que deseamos&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;version&lt;/th&gt;
-&lt;th&gt;comando&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Stable branch&lt;/td&gt;
-&lt;td&gt;dnf install winehq-stable&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Development branch&lt;/td&gt;
-&lt;td&gt;dnf install winehq-devel&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Staging branch&lt;/td&gt;
-&lt;td&gt;dnf install winehq-staging&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Para otras distribuciones o BDS o MacOS revisar en su &lt;a href=&#39;https://wiki.winehq.org/Download&#39; title=&#39;sitio oficial&#39; &gt;sitio oficial&lt;/a&gt;
-&lt;/p&gt;
-&lt;h3 id=&#34;arch&#34;&gt;Arch&lt;/h3&gt;
-&lt;p&gt;Si estás en una distro basada en arch lo que recomiendo es instalar wine-staging que es, personalmente la instalación que me dio un mejor rendimiento. En mi caso lo hice con yay pero puedes hacerlo directamente con pacman&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;yay -S wine-staging
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>apt on PatoJAD</title><link>https://patojad.com.ar/tags/apt/</link><description>Recent content in apt on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Wed, 15 Nov 2023 12:02:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/apt/index.xml" rel="self" type="application/rss+xml"/><item><title>Instalación de Wine en GNU/Linux para Ejecutar Aplicaciones Windows</title><link>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</link><pubDate>Wed, 15 Nov 2023 12:02:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</guid><description>&lt;p>La compatibilidad entre sistemas operativos es esencial, y Wine, una herramienta de código abierto, facilita la ejecución de aplicaciones Windows en entornos GNU/Linux. En esta guía, exploraremos qué es Wine, cómo instalarlo en distintas distribuciones y dónde se instalan las aplicaciones. ¡Descubre cómo ampliar las posibilidades de tu sistema operativo!&lt;/p>
+&lt;h2 id="qué-es-wine">¿Qué es Wine?&lt;/h2>
+&lt;p>Wine, que significa &amp;ldquo;Wine Is Not an Emulator&amp;rdquo; (Wine no es un emulador), es una capa de compatibilidad que permite ejecutar aplicaciones diseñadas para Microsoft Windows en sistemas operativos basados en Unix, como GNU/Linux. No es una máquina virtual ni emula un entorno Windows completo; en cambio, traduce llamadas de sistema de Windows a llamadas de sistema compatibles con Unix.&lt;/p>
+&lt;h2 id="por-qué-usar-wine">¿Por qué usar Wine?&lt;/h2>
+&lt;p>Wine es una herramienta muy útil para aquellos que necesitan ejecutar aplicaciones Windows en entornos GNU/Linux. Algunos ejemplos de casos de uso incluyen:&lt;/p>
+&lt;ul>
+&lt;li>Ejecutar aplicaciones de productividad como Microsoft Office.&lt;/li>
+&lt;li>Ejecutar aplicaciones de diseño como Adobe Photoshop.&lt;/li>
+&lt;li>Ejecutar juegos de Windows.&lt;/li>
+&lt;li>Ejecutar aplicaciones de Windows que no tienen alternativas nativas en GNU/Linux.&lt;/li>
+&lt;/ul>
+&lt;h2 id="video">Video&lt;/h2>
+&lt;p>En el video explico una forma de instalar Wine en Arch Linux y derivadas, sin embargo, en la parte inferior de este post vas a encontrar la instalación para otras distros de linux. También quiero resaltar que la forma de instalar en el video no es la única, hay otras formas de instalar Wine en Arch Linux y derivadas, pero esta es la que yo uso y me funciona.&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/4ZtUmUqTAyg?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;p>En la documentacion del blog vamos a encontrar la otra forma de instalar Wine en Arch Linux y derivadas.&lt;/p>
+&lt;h2 id="cómo-se-instala-wine">¿Cómo se instala Wine?&lt;/h2>
+&lt;p>La instalación de Wine varía según la distribución de GNU/Linux que estés utilizando. A continuación, se detallan los pasos para algunas distribuciones populares.&lt;/p>
+&lt;h3 id="debianubuntu">Debian/Ubuntu&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo dpkg --add-architecture i386
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install wine64 wine32
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="fedora">Fedora&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo dnf install wine
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="arch-linux-y-derivadas-como-manjaro">Arch Linux (y derivadas como Manjaro):&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S wine
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="opensuse">OpenSUSE:&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo zypper install wine
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="dónde-se-instalan-las-aplicaciones-con-wine">¿Dónde se instalan las aplicaciones con Wine?&lt;/h2>
+&lt;p>Las aplicaciones instaladas con Wine se almacenan en un directorio llamado &lt;code>wineprefix&lt;/code>. Por defecto, se encuentra en el directorio de inicio del usuario en una carpeta oculta llamada &lt;code>.wine&lt;/code>. Dentro de este directorio, encontrarás una estructura similar a la de un sistema Windows estándar, con carpetas como &lt;code>Program Files&lt;/code> y &lt;code>Windows&lt;/code>.&lt;/p>
+&lt;h3 id="proceso-de-instalación-básico-de-una-aplicación-con-wine">Proceso de instalación básico de una aplicación con Wine&lt;/h3>
+&lt;ul>
+&lt;li>Descarga el instalador de la aplicación Windows que deseas ejecutar.&lt;/li>
+&lt;li>Abre una terminal y navega hasta el directorio donde descargaste el instalador.&lt;/li>
+&lt;li>Ejecuta el siguiente comando:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">wine nombre_del_instalador.exe
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Sigue los pasos de instalación como lo harías en Windows.&lt;/li>
+&lt;/ul>
+&lt;h2 id="conclusiones">Conclusiones&lt;/h2>
+&lt;p>&lt;strong>Wine&lt;/strong> es una herramienta invaluable para aquellos que necesitan ejecutar aplicaciones Windows en entornos GNU/Linux. Su capacidad para traducir llamadas de sistema y proporcionar un entorno de ejecución nativo es fundamental para mejorar la interoperabilidad entre diferentes sistemas operativos.&lt;/p></description></item><item><title>¿Como instalar Wine?</title><link>https://patojad.com.ar/post/2021/04/como-instalar-wine/</link><pubDate>Fri, 16 Apr 2021 09:36:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/04/como-instalar-wine/</guid><description>&lt;p>Ya con anterioridad me consultaron de como instalar Wine en Artix, esto me llevó a armar el video y obviamente siempre a explicar mi perspectiva o punto de vista sobre el uso de wine. En esta oportunidad el video es específico de distros basadas en Arch. Sin embargo, en la parte inferior van a poder encontrar la instalación para otras distros de linux.&lt;/p>
+&lt;h2 id="pre-requisitos">Pre requisitos&lt;/h2>
+&lt;p>Si venis por Artix o cualquier distro de Arch te recomiendo que veas de antemano las instalaciones y configuraciones de las que hago uso en el video y doy por sabido estas son&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2021/03/activar-multilib-artix/" >
+&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+Multilib
+&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2020/10/instalar-yay-en-artix-linux/" >
+&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+yay
+&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="video">Video&lt;/h2>
+&lt;p>Como siempre disfruto mucho de armar videos y dejar mi opinion asi que sin rodeos los dejo con el video&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/47A2KBLgj6I?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="instalar-winehq">Instalar WineHQ&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://linuxhint.com/wp-content/uploads/2020/06/1-12.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Lo primero que debemos hacer es instalar WineHQ en nuestra distribución, para esto debemos agregar las librerías y ejecutar la instalación.&lt;/p>
+&lt;h3 id="debian">Debian&lt;/h3>
+&lt;p>Habilitamos los 32 bits&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo dpkg --add-architecture i386
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Descargamos e instalamos a Key&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">wget -nc https://dl.winehq.org/wine-builds/winehq.key
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-key add winehq.key
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Agregamos el repositorio dependiendo de nuestra versión&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Version&lt;/th>
+&lt;th>Agregar a /etc/apt/sources.list:&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Debian 8 (Jessie)&lt;/td>
+&lt;td>deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+https://dl.winehq.org/wine-builds/debian/
+&lt;/a> jessie main&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Debian 9 (Stretch)&lt;/td>
+&lt;td>deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+https://dl.winehq.org/wine-builds/debian/
+&lt;/a> stretch main&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Debian 10 (currently Testing) (Buster)&lt;/td>
+&lt;td>deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+https://dl.winehq.org/wine-builds/debian/
+&lt;/a> buster main&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Actualizamos el Sistema&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo apt update
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Instalamos uno de los paquetes&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>version&lt;/th>
+&lt;th>comando&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Stable branch&lt;/td>
+&lt;td>sudo apt install &amp;ndash;install-recommends winehq-stable&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Development branch&lt;/td>
+&lt;td>sudo apt install &amp;ndash;install-recommends winehq-devel&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Staging branch&lt;/td>
+&lt;td>sudo apt install &amp;ndash;install-recommends winehq-staging&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="fedora">Fedora&lt;/h3>
+&lt;p>Agregamos los repositories&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>version&lt;/th>
+&lt;th>comando&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Fedora 29&lt;/td>
+&lt;td>dnf config-manager &amp;ndash;add-repo &lt;a href="https://dl.winehq.org/wine-builds/fedora/29/winehq.repo" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+https://dl.winehq.org/wine-builds/fedora/29/winehq.repo
+&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Fedora 30&lt;/td>
+&lt;td>dnf config-manager &amp;ndash;add-repo &lt;a href="https://dl.winehq.org/wine-builds/fedora/30/winehq.repo" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+https://dl.winehq.org/wine-builds/fedora/30/winehq.repo
+&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>E instalamos la version que deseamos&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>version&lt;/th>
+&lt;th>comando&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Stable branch&lt;/td>
+&lt;td>dnf install winehq-stable&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Development branch&lt;/td>
+&lt;td>dnf install winehq-devel&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Staging branch&lt;/td>
+&lt;td>dnf install winehq-staging&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Para otras distribuciones o BDS o MacOS revisar en su &lt;a href="https://wiki.winehq.org/Download" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+sitio oficial
+&lt;/a>&lt;/p>
+&lt;h3 id="arch">Arch&lt;/h3>
+&lt;p>Si estás en una distro basada en arch lo que recomiendo es instalar wine-staging que es, personalmente la instalación que me dio un mejor rendimiento. En mi caso lo hice con yay pero puedes hacerlo directamente con pacman&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S wine-staging
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>

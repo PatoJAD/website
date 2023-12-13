@@ -1,68 +1,36 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>xenmod on PatoJAD</title>
-    <link>https://patojad.com.ar/tags/xenmod/</link>
-    <description>Recent content in xenmod on PatoJAD</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>es-AR</language>
-    <lastBuildDate>Thu, 17 Sep 2020 08:50:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://patojad.com.ar/tags/xenmod/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Mejorar el Rendimiento de tu CPU</title>
-      <link>https://patojad.com.ar/post/2020/09/mejorar-el-rendimiento-de-tu-cpu/</link>
-      <pubDate>Thu, 17 Sep 2020 08:50:00 +0000</pubDate>
-      
-      <guid>https://patojad.com.ar/post/2020/09/mejorar-el-rendimiento-de-tu-cpu/</guid>
-      <description>&lt;p&gt;Ya con anterioridad hablamos de mejorar la performance de nuestra placa de video, algunos usuarios notaron más los cambios que otros, y en base a eso decidí terminar la segunda parte. Ya mejoramos el GPU (aunque sea integrado) Ahora nos toca el CPU. Al igual que el GPU lo ideal es eliminar lo que no sirve para optimizar todo tipos de llamada pero en este caso algunas distros pueden complicarnos más que otras.&lt;/p&gt;
-&lt;h2 id=&#34;posibles-problemas&#34;&gt;Posibles problemas&lt;/h2&gt;
-&lt;div class=&#34;text-center&#34;&gt;
-  &lt;img
-    src=&#39;https://www.sololinux.es/wp-content/uploads/2017/08/kernel-panic-sololinux-es-2.png&#39;
-    class=&#34;img-fluid blog-content-img&#34;
-    alt=&#34;imagen de Post&#34;
-    title=&#34;imagen de Post&#34;/&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Si usas Ubuntu o Debian suelen traer un kernel que se llama “generic” este kernel busca simplificar la vida de los teniendo como dependencias todos los controladores para evitar errores, sin embargo si pretendemos quedarnos con este kernel no vamos a poder seguir, en contraposición otras distros como arch y demás no suelen tener este problemas pero siempre existen kernels alternativos (zen, liquorix, etc).&lt;/p&gt;
-&lt;h2 id=&#34;cambiando-el-kernel&#34;&gt;Cambiando el kernel&lt;/h2&gt;
-&lt;div class=&#34;text-center&#34;&gt;
-  &lt;img
-    src=&#39;https://xanmod.org/index_files/xanmod_wallpaper.png&#39;
-    class=&#34;img-fluid blog-content-img&#34;
-    alt=&#34;imagen de Post&#34;
-    title=&#34;imagen de Post&#34;/&gt;
-&lt;/div&gt;
-
-&lt;p&gt;En mi caso de Debian o Ubuntu voy a recomendar Xanmod que si bien hay un &lt;a href=&#39;https://patojad.com.ar/post/2020/09/mejorar-el-rendimiento-de-tu-placa-de-video/&#39; title=&#39;tutorial de como instalarlo&#39; &gt;tutorial de como instalarlo&lt;/a&gt;
- quiero aprovechar esta oportunidad para mejorar ese tutorial.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;echo &#39;deb http://deb.xanmod.org releases main&#39; | sudo tee /etc/apt/sources.list.d/xanmod-kernel.list &amp;amp;&amp;amp; wget -qO - https://dl.xanmod.org/gpg.key | sudo apt-key add -
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Con este comando vamos agregar el &lt;strong&gt;repositorio oficial&lt;/strong&gt; de Xanmod a nuestra distro (recordemos que es siempre en bases Debian o Ubuntu) y además de esto agregamos las llaves para poder instalar el contenido de este repositorio. Luego de esto procedemos a actualizar y a instalar el kerner &lt;strong&gt;Xenmod&lt;/strong&gt; de la siguiente forma:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt update &amp;amp;&amp;amp; sudo apt install linux-xanmod
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Tiene diferentes variables donde podemos elegir el tipo de kernel que queremos instalar entre las cuales podemos ver:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;linux-xanmod&lt;/strong&gt; Versión completa del kernel funcional&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;linux-xanmod-edge&lt;/strong&gt; Versión completa adelantada (puede generar algún error)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;linux-xanmod-lts&lt;/strong&gt; Versión de soporte a largo plazo&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;linux-xanmod-rt&lt;/strong&gt; Versión RealTime (orientado a multimedia)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;linux-xanmod-edge-rt&lt;/strong&gt; Versión RealTime adelantada (orientado a multimedia puede generar errores)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Una vez que tengamos instalado el kernel basta con reiniciar para poder iniciar el sistema con el nuevo kernel. Yo luego de reiniciar eliminar los kernels viejos (si comprobé que todo funciona ok) Pero son manías mías.&lt;/p&gt;
-&lt;h2 id=&#34;mejorando-la-performance-del-cpu&#34;&gt;Mejorando la performance del CPU&lt;/h2&gt;
-&lt;p&gt;Bien, ahora lo que vamos a hacer es eliminar el controlador que no utilicemos para mejorar la performance de las llamadas como dije antes. Cuando hagamos esto &lt;strong&gt;puede eliminar el kernel anterior&lt;/strong&gt; si no lo hicimos nosotros, en caso de que el kernel funcione ok podemos proseguir.&lt;/p&gt;
-&lt;p&gt;En caso de tener un &lt;strong&gt;Intel&lt;/strong&gt; debemos ejecutar:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt remove amd64-microcode
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;En caso de tener un procesador de &lt;strong&gt;AMD&lt;/strong&gt; debemos ejecutar:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;sudo apt remove intel-microcode
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>xenmod on PatoJAD</title><link>https://patojad.com.ar/tags/xenmod/</link><description>Recent content in xenmod on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Thu, 17 Sep 2020 08:50:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/xenmod/index.xml" rel="self" type="application/rss+xml"/><item><title>Mejorar el Rendimiento de tu CPU</title><link>https://patojad.com.ar/post/2020/09/mejorar-el-rendimiento-de-tu-cpu/</link><pubDate>Thu, 17 Sep 2020 08:50:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/09/mejorar-el-rendimiento-de-tu-cpu/</guid><description>&lt;p>Ya con anterioridad hablamos de mejorar la performance de nuestra placa de video, algunos usuarios notaron más los cambios que otros, y en base a eso decidí terminar la segunda parte. Ya mejoramos el GPU (aunque sea integrado) Ahora nos toca el CPU. Al igual que el GPU lo ideal es eliminar lo que no sirve para optimizar todo tipos de llamada pero en este caso algunas distros pueden complicarnos más que otras.&lt;/p>
+&lt;h2 id="posibles-problemas">Posibles problemas&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://www.sololinux.es/wp-content/uploads/2017/08/kernel-panic-sololinux-es-2.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Si usas Ubuntu o Debian suelen traer un kernel que se llama “generic” este kernel busca simplificar la vida de los teniendo como dependencias todos los controladores para evitar errores, sin embargo si pretendemos quedarnos con este kernel no vamos a poder seguir, en contraposición otras distros como arch y demás no suelen tener este problemas pero siempre existen kernels alternativos (zen, liquorix, etc).&lt;/p>
+&lt;h2 id="cambiando-el-kernel">Cambiando el kernel&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://xanmod.org/index_files/xanmod_wallpaper.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>En mi caso de Debian o Ubuntu voy a recomendar Xanmod que si bien hay un &lt;a href="https://patojad.com.ar/post/2020/09/mejorar-el-rendimiento-de-tu-placa-de-video/" >
+&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+tutorial de como instalarlo
+&lt;/a> quiero aprovechar esta oportunidad para mejorar ese tutorial.&lt;/p>
+&lt;pre>&lt;code>echo 'deb http://deb.xanmod.org releases main' | sudo tee /etc/apt/sources.list.d/xanmod-kernel.list &amp;amp;&amp;amp; wget -qO - https://dl.xanmod.org/gpg.key | sudo apt-key add -
+&lt;/code>&lt;/pre>
+&lt;p>Con este comando vamos agregar el &lt;strong>repositorio oficial&lt;/strong> de Xanmod a nuestra distro (recordemos que es siempre en bases Debian o Ubuntu) y además de esto agregamos las llaves para poder instalar el contenido de este repositorio. Luego de esto procedemos a actualizar y a instalar el kerner &lt;strong>Xenmod&lt;/strong> de la siguiente forma:&lt;/p>
+&lt;pre>&lt;code>sudo apt update &amp;amp;&amp;amp; sudo apt install linux-xanmod
+&lt;/code>&lt;/pre>
+&lt;p>Tiene diferentes variables donde podemos elegir el tipo de kernel que queremos instalar entre las cuales podemos ver:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>linux-xanmod&lt;/strong> Versión completa del kernel funcional&lt;/li>
+&lt;li>&lt;strong>linux-xanmod-edge&lt;/strong> Versión completa adelantada (puede generar algún error)&lt;/li>
+&lt;li>&lt;strong>linux-xanmod-lts&lt;/strong> Versión de soporte a largo plazo&lt;/li>
+&lt;li>&lt;strong>linux-xanmod-rt&lt;/strong> Versión RealTime (orientado a multimedia)&lt;/li>
+&lt;li>&lt;strong>linux-xanmod-edge-rt&lt;/strong> Versión RealTime adelantada (orientado a multimedia puede generar errores)&lt;/li>
+&lt;/ul>
+&lt;p>Una vez que tengamos instalado el kernel basta con reiniciar para poder iniciar el sistema con el nuevo kernel. Yo luego de reiniciar eliminar los kernels viejos (si comprobé que todo funciona ok) Pero son manías mías.&lt;/p>
+&lt;h2 id="mejorando-la-performance-del-cpu">Mejorando la performance del CPU&lt;/h2>
+&lt;p>Bien, ahora lo que vamos a hacer es eliminar el controlador que no utilicemos para mejorar la performance de las llamadas como dije antes. Cuando hagamos esto &lt;strong>puede eliminar el kernel anterior&lt;/strong> si no lo hicimos nosotros, en caso de que el kernel funcione ok podemos proseguir.&lt;/p>
+&lt;p>En caso de tener un &lt;strong>Intel&lt;/strong> debemos ejecutar:&lt;/p>
+&lt;pre>&lt;code>sudo apt remove amd64-microcode
+&lt;/code>&lt;/pre>
+&lt;p>En caso de tener un procesador de &lt;strong>AMD&lt;/strong> debemos ejecutar:&lt;/p>
+&lt;pre>&lt;code>sudo apt remove intel-microcode
+&lt;/code>&lt;/pre></description></item></channel></rss>

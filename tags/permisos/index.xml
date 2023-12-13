@@ -1,171 +1,149 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>permisos on PatoJAD</title>
-    <link>https://patojad.com.ar/tags/permisos/</link>
-    <description>Recent content in permisos on PatoJAD</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>es-AR</language>
-    <lastBuildDate>Mon, 11 Jan 2021 09:20:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://patojad.com.ar/tags/permisos/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Cambiando los permisos de un archivo</title>
-      <link>https://patojad.com.ar/post/2021/01/cambiando-los-permisos-de-un-archivo/</link>
-      <pubDate>Mon, 11 Jan 2021 09:20:00 +0000</pubDate>
-      
-      <guid>https://patojad.com.ar/post/2021/01/cambiando-los-permisos-de-un-archivo/</guid>
-      <description>&lt;p&gt;Para cambiar el modo (los permisos) de un archivo o un directorio, se utiliza el comando chmod. chmod soporta dos formas distintas de especificar los cambios de permisos: representación en números octales o representación simbólica.&lt;/p&gt;
-&lt;h2 id=&#34;números-octales&#34;&gt;Números octales&lt;/h2&gt;
-&lt;p&gt;Con la notación octal usamos números octales para especificar el patrón de los permisos que queremos. Como cada dígito en un número octal representa tres dígitos binarios, esto coincide muy bien con la forma de almacenar los permisos de archivo. Esta tabla muestra lo que queremos decir:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Octal&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Binario&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Permisos de archivo&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;0&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;000&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&amp;mdash;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;001&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&amp;ndash;x&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;010&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;-w-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;3&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;011&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;-wx&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;4&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;100&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;r&amp;ndash;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;5&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;101&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;r-x&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;6&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;110&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;rw-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;7&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;111&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;rwx&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Usando tres dígitos octales, podemos establecer los permisos de archivo para el propietario, el grupo propietario y el mundo:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; foo.txt
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ls -l foo.txt
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-rw-r-- &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; me me &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; 2008-03-06 14:52 foo.txt
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;chmod &lt;span class=&#34;m&#34;&gt;600&lt;/span&gt; foo.txt
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ls -l foo.txt
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw------- &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; me me &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; 2008-03-06 14:52 foo.txt
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Pasándole el argumento “600”, podemos establecer los permisos del propietario para leer y escribir mientras borramos todos los permisos para el grupo propietario y el mundo. Aunque recordar la correspondencia entre octal y binario puede parecer un inconveniente, normalmente sólo tendrás que usar algunos muy comunes: 7(rwx), 6(rw-), 5(r-x), 4(r&amp;ndash;), y 0(&amp;mdash;).&lt;/p&gt;
-&lt;h2 id=&#34;notación-simbólica&#34;&gt;Notación simbólica&lt;/h2&gt;
-&lt;p&gt;chmod también soporta notación simbólica para especificar los permisos de archivo. La notación simbólica se divide en tres partes: a quién afecta el cambio, qué operaciónes se realizarán, y qué permisos se establecerán. Para especificar quién se ve afectado se usa una combinación de los caracteres “u”, “g”, “o” y “a” de la siguiente manera:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Símbolo&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Significado&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;u&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Abreviatura de “usuario” pero significa el propietario del archivo o el directorio.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;g&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;El grupo propietario.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;o&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Abreviatura de “otros”, pero se refiere al mundo.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;a&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Abreviatura de “all” (todos). Es la combinación de “u”, “g” y “o”&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Si no se especifica ningún carácter, se asume “all”. La operación puede ser un “+” indicando que un permiso ha de ser añadido, un “-” indicando que un permiso ha de ser retirado, o un “=” indicando que sólo los permisos especificados deben ser aplicados y todos los demás han de ser eliminados.&lt;/p&gt;
-&lt;p&gt;Los permisos se especifican con los caracteres “r”, “w” y “x”. Aquí tenemos algunos ejemplos de la notación simbólica:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Notación&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;Significado&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;u+x&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Añade permisos de ejecución para el propietario&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;u-x&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Elimina permisos de ejecución del propietario&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;+x&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Añade permisos de ejecución para el propietario, el grupo y el mundo. Equivalente a a+x&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;o-rw&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Elimina los permisos de lectura y escritura para cualquier persona, que no sea el propietario ni el grupo propietario.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;go=rw&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Configura al grupo propietario y a cualquier persona, que no sea el propietario, para que tengan permisos de lectura y escritura. Si el grupo propietario o el mundo previamente tenían permisos de ejecución, los elimina.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;u+x, go=rx&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Añade permisos de ejecución para el propietario y establece los permisos para el grupo y para otros de lectura y ejecución. Múltiples especificaciones pueden ser separadas por comas.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Algunos prefieren usar la notación octal, otros prefieren la simbólica. La notación simbólica ofrece la ventaja de permitirte establecer un atributo individual sin molestar a los otros.&lt;/p&gt;
-&lt;p&gt;Échale un vistazo a la &lt;a href=&#39;https://patojad.com.ar/post/2019/01/man-tu-manual-para-linux/&#39; title=&#39;man page&#39; &gt;man page&lt;/a&gt;
- de chmod para más detalles y una lista de opciones. Una advertencia con respecto a la opción “&amp;ndash;recursive”: actúa tanto en archivos como en directorios, así que no es tan útil como uno esperaría, rara vez queremos que archivos y directorios tengan los mismos permisos.&lt;/p&gt;
-</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>permisos on PatoJAD</title><link>https://patojad.com.ar/tags/permisos/</link><description>Recent content in permisos on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Mon, 11 Jan 2021 09:20:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/permisos/index.xml" rel="self" type="application/rss+xml"/><item><title>Cambiando los permisos de un archivo</title><link>https://patojad.com.ar/post/2021/01/cambiando-los-permisos-de-un-archivo/</link><pubDate>Mon, 11 Jan 2021 09:20:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/01/cambiando-los-permisos-de-un-archivo/</guid><description>&lt;p>Para cambiar el modo (los permisos) de un archivo o un directorio, se utiliza el comando chmod. chmod soporta dos formas distintas de especificar los cambios de permisos: representación en números octales o representación simbólica.&lt;/p>
+&lt;h2 id="números-octales">Números octales&lt;/h2>
+&lt;p>Con la notación octal usamos números octales para especificar el patrón de los permisos que queremos. Como cada dígito en un número octal representa tres dígitos binarios, esto coincide muy bien con la forma de almacenar los permisos de archivo. Esta tabla muestra lo que queremos decir:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:center">Octal&lt;/th>
+&lt;th style="text-align:center">Binario&lt;/th>
+&lt;th style="text-align:center">Permisos de archivo&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:center">0&lt;/td>
+&lt;td style="text-align:center">000&lt;/td>
+&lt;td style="text-align:center">&amp;mdash;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">1&lt;/td>
+&lt;td style="text-align:center">001&lt;/td>
+&lt;td style="text-align:center">&amp;ndash;x&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">2&lt;/td>
+&lt;td style="text-align:center">010&lt;/td>
+&lt;td style="text-align:center">-w-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">3&lt;/td>
+&lt;td style="text-align:center">011&lt;/td>
+&lt;td style="text-align:center">-wx&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">4&lt;/td>
+&lt;td style="text-align:center">100&lt;/td>
+&lt;td style="text-align:center">r&amp;ndash;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">5&lt;/td>
+&lt;td style="text-align:center">101&lt;/td>
+&lt;td style="text-align:center">r-x&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">6&lt;/td>
+&lt;td style="text-align:center">110&lt;/td>
+&lt;td style="text-align:center">rw-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">7&lt;/td>
+&lt;td style="text-align:center">111&lt;/td>
+&lt;td style="text-align:center">rwx&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Usando tres dígitos octales, podemos establecer los permisos de archivo para el propietario, el grupo propietario y el mundo:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&amp;gt; foo.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ls -l foo.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-rw-rw-r-- &lt;span class="m">1&lt;/span> me me &lt;span class="m">0&lt;/span> 2008-03-06 14:52 foo.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">chmod &lt;span class="m">600&lt;/span> foo.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ls -l foo.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-rw------- &lt;span class="m">1&lt;/span> me me &lt;span class="m">0&lt;/span> 2008-03-06 14:52 foo.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Pasándole el argumento “600”, podemos establecer los permisos del propietario para leer y escribir mientras borramos todos los permisos para el grupo propietario y el mundo. Aunque recordar la correspondencia entre octal y binario puede parecer un inconveniente, normalmente sólo tendrás que usar algunos muy comunes: 7(rwx), 6(rw-), 5(r-x), 4(r&amp;ndash;), y 0(&amp;mdash;).&lt;/p>
+&lt;h2 id="notación-simbólica">Notación simbólica&lt;/h2>
+&lt;p>chmod también soporta notación simbólica para especificar los permisos de archivo. La notación simbólica se divide en tres partes: a quién afecta el cambio, qué operaciónes se realizarán, y qué permisos se establecerán. Para especificar quién se ve afectado se usa una combinación de los caracteres “u”, “g”, “o” y “a” de la siguiente manera:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:center">Símbolo&lt;/th>
+&lt;th style="text-align:center">Significado&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:center">u&lt;/td>
+&lt;td style="text-align:center">Abreviatura de “usuario” pero significa el propietario del archivo o el directorio.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">g&lt;/td>
+&lt;td style="text-align:center">El grupo propietario.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">o&lt;/td>
+&lt;td style="text-align:center">Abreviatura de “otros”, pero se refiere al mundo.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">a&lt;/td>
+&lt;td style="text-align:center">Abreviatura de “all” (todos). Es la combinación de “u”, “g” y “o”&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Si no se especifica ningún carácter, se asume “all”. La operación puede ser un “+” indicando que un permiso ha de ser añadido, un “-” indicando que un permiso ha de ser retirado, o un “=” indicando que sólo los permisos especificados deben ser aplicados y todos los demás han de ser eliminados.&lt;/p>
+&lt;p>Los permisos se especifican con los caracteres “r”, “w” y “x”. Aquí tenemos algunos ejemplos de la notación simbólica:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:center">Notación&lt;/th>
+&lt;th style="text-align:center">Significado&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:center">u+x&lt;/td>
+&lt;td style="text-align:center">Añade permisos de ejecución para el propietario&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">u-x&lt;/td>
+&lt;td style="text-align:center">Elimina permisos de ejecución del propietario&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">+x&lt;/td>
+&lt;td style="text-align:center">Añade permisos de ejecución para el propietario, el grupo y el mundo. Equivalente a a+x&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">o-rw&lt;/td>
+&lt;td style="text-align:center">Elimina los permisos de lectura y escritura para cualquier persona, que no sea el propietario ni el grupo propietario.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">go=rw&lt;/td>
+&lt;td style="text-align:center">Configura al grupo propietario y a cualquier persona, que no sea el propietario, para que tengan permisos de lectura y escritura. Si el grupo propietario o el mundo previamente tenían permisos de ejecución, los elimina.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">u+x, go=rx&lt;/td>
+&lt;td style="text-align:center">Añade permisos de ejecución para el propietario y establece los permisos para el grupo y para otros de lectura y ejecución. Múltiples especificaciones pueden ser separadas por comas.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Algunos prefieren usar la notación octal, otros prefieren la simbólica. La notación simbólica ofrece la ventaja de permitirte establecer un atributo individual sin molestar a los otros.&lt;/p>
+&lt;p>Échale un vistazo a la &lt;a href="https://patojad.com.ar/post/2019/01/man-tu-manual-para-linux/" >
+&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+man page
+&lt;/a> de chmod para más detalles y una lista de opciones. Una advertencia con respecto a la opción “&amp;ndash;recursive”: actúa tanto en archivos como en directorios, así que no es tan útil como uno esperaría, rara vez queremos que archivos y directorios tengan los mismos permisos.&lt;/p></description></item></channel></rss>
