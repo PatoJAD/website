@@ -28,7 +28,7 @@ tags:
       'archlinux',
       'arch linux',
     ]
-categories: ['Linux', 'Apliaciones']
+categories: ['Linux', 'Aplicaciones']
 img: 'https://i.postimg.cc/13NTWs6z/installwine.webp'
 authors: ['PatoJAD']
 ---
