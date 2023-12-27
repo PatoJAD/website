@@ -1,37 +1,36 @@
 ---
-title: 'Onlyoffice DocSpace 2.0 lanzado con salas públicas, complementos, reasignación de datos, interfaz RTL y otras mejoras'
-date: '2023-12-13 15:56:00'
-description: 'Explora las últimas actualizaciones de Onlyoffice DocSpace 2.0, una plataforma de colaboración líder.'
-type: 'post'
+title: "Onlyoffice DocSpace 2.0 lanzado con salas públicas, complementos, reasignación de datos, interfaz RTL y otras mejoras"
+date: "2023-12-13 15:56:00"
+description: "Explora las últimas actualizaciones de Onlyoffice DocSpace 2.0, una plataforma de colaboración líder."
+type: "post"
 tags:
-    [
-        'noticia',
-        'informatica',
-        "onlyoffice",
-        "docspace",
-        "colaboracion",
-        "salas",
-        "complementos",
-        "reasignacion",
-        "datos",
-        "rtl",
-        "mejoras",
-        "actualizaciones",
-        "novedades",
-        "nueva",
-        "version",
-        "2.0",
-        "lanzamiento",
-        "lanzado",
-        "publico",
-        "pdf",
-        "salas publicas",
-    ]
-categories: ['Aplicaciones', 'Noticias']
-img: 'https://static-blog.onlyoffice.com/wp-content/uploads/2023/12/04110647/onlyoffice-docspace-2.0.jpg'
-authors: ['PatoJAD']
+  [
+    "noticia",
+    "informatica",
+    "onlyoffice",
+    "docspace",
+    "colaboracion",
+    "salas",
+    "complementos",
+    "reasignacion",
+    "datos",
+    "rtl",
+    "mejoras",
+    "actualizaciones",
+    "novedades",
+    "nueva",
+    "version",
+    "2.0",
+    "lanzamiento",
+    "lanzado",
+    "publico",
+    "pdf",
+    "salas publicas",
+  ]
+categories: ["Aplicaciones", "Noticias"]
+img: "https://static-blog.onlyoffice.com/wp-content/uploads/2023/12/04110647/onlyoffice-docspace-2.0.jpg"
+authors: ["PatoJAD"]
 ---
-
 
 Después de un gran lanzamiento de ONLYOFFICE DocSpace 1.0 en abril de 2023, los desarrolladores lanzaron la versión 2.0 del entorno colaborativo basado en salas con la pila tecnológica actualizada y muchas características nuevas.
 
@@ -55,7 +54,7 @@ A partir de ahora, los administradores de SOLAMENTE OFFICE DocSpace pueden reasi
 
 También es posible seleccionar manualmente otro usuario de destino para reasignarlo. Esta característica permite elegir si eliminar un usuario o no al reasignar datos. Si se elimina un usuario y se reasignan sus datos, se eliminarán sus archivos personales. Es posible cancelar el proceso de reasignación ya iniciado haciendo clic en el botón correspondiente.
 
-## Complementos para funciones adicionales 
+## Complementos para funciones adicionales
 
 La última actualización trae complementos integrados del sistema que permiten ampliar la funcionalidad de DocSpace. El propietario y los administradores de DocSpace pueden habilitar dichos complementos a través de la configuración de Integración. Una vez habilitados, los complementos están disponibles para todos los usuarios.
 
@@ -99,11 +98,11 @@ La plataforma proporciona un entorno de sala para organizar una estructura de ar
 
 ## Enlaces útiles
 
-* Sitio oficial : https://www.onlyoffice.com
-* Página oficial del proyecto - https://www.onlyoffice.com/docspace.aspx
-* Registro — https://www.onlyoffice.com/docspace-registration.aspx
-* Facebook - https://facebook.com/profile.php?id=100064155187996
-* Twitter - https://twitter.com/only_office
-* Linkedin - https://linkedin.com/company/ascensio-system-sia/
-* Instagram - https://instagram.com/the_onlyoffice/
-* TikTok - https://tiktok.com/@only_office
+- Sitio oficial : https://www.onlyoffice.com
+- Página oficial del proyecto - https://www.onlyoffice.com/docspace.aspx
+- Registro — https://www.onlyoffice.com/docspace-registration.aspx
+- Facebook - https://facebook.com/profile.php?id=100064155187996
+- Twitter - https://twitter.com/only_office
+- Linkedin - https://linkedin.com/company/ascensio-system-sia/
+- Instagram - https://instagram.com/the_onlyoffice/
+- TikTok - https://tiktok.com/@only_office
