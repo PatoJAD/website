@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>protontricks on PatoJAD</title><link>https://patojad.com.ar/tags/protontricks/</link><description>Recent content in protontricks on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Thu, 18 Jun 2020 08:04:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/protontricks/index.xml" rel="self" type="application/rss+xml"/><item><title>Como configurar Proton con Protontricks</title><link>https://patojad.com.ar/post/2020/06/como-configurar-proton-con-protontricks/</link><pubDate>Thu, 18 Jun 2020 08:04:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/06/como-configurar-proton-con-protontricks/</guid><description>&lt;p>&lt;strong>Proton&lt;/strong> es la propuesta de Steam para ejecutar juegos de Windows desde Linux, pero no deja de ser un Wine optimizado por Valve y con una lista de con una lista de compatibilidad que va creciendo poco a poco.&lt;/p>
+&lt;p>Muchos conocen Winetricks, una herramienta &lt;em>imprescindible&lt;/em> para tunear Wine que nos ha facilitado las cosas entre otras alternativas como PlayOnLinux.&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://1.bp.blogspot.com/-aKkpJFMZfKk/XXzj8U5jyzI/AAAAAAAAdbA/Na65dUYJHigRbZ7_OKJoubCC7qaLAWxmwCLcBGAsYHQ/s320/Steam.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Pero ¿y si pudiéramos tener una herramienta parecida a Winetricks pero con perfiles al estilo de PlayonLinux dentro de Steam?&lt;/p>
+&lt;p>Claramente ya alguien se hizo esta pregunta, la compartió y diseño una respuesta: &lt;strong>Protontricks&lt;/strong> es la respuesta para hacer funcionar esos juegos que aún no están soportados de forma oficial por Steam.&lt;/p>
+&lt;h2 id="instalando-protontricks">Instalando Protontricks&lt;/h2>
+&lt;p>Para usar &lt;strong>Protontricks&lt;/strong> es necesario instalar algunas herramientas primero, así como &lt;strong>Winetrick&lt;/strong>, entre otras cosas. También es altamente recomendable que Instales y/o &lt;strong>actualices los controladores de la GPU y Vulkan para mejor rendimiento&lt;/strong>.&lt;/p>
+&lt;p>Para arrancar vamos a instalar &lt;em>PIP&lt;/em>, &lt;em>Git&lt;/em> y &lt;em>Winetricks&lt;/em> en primer lugar, esto lo vamos a hacer de la siguiente forma:&lt;/p>
+&lt;pre>&lt;code>sudo apt install python3-pip python3-setuptools python3-venv git winetricks
+&lt;/code>&lt;/pre>
+&lt;p>A continuación vamos a Instalar Pipx. No es estrictamente necesario pero si es muy recomendado y en esta ocasión vamos a usarlo.&lt;/p>
+&lt;pre>&lt;code>python3 -m pip install --user pipx
+~/.local/bin/pipx ensurepath
+&lt;/code>&lt;/pre>
+&lt;p>Para continuar vamos a &lt;em>cerrar la terminal y la volvemos a abrir&lt;/em> es necesario para que se apliquen los paths. A continuación de esto vamos a instalar &lt;strong>Protontricks&lt;/strong>&lt;/p>
+&lt;pre>&lt;code>pipx install protontricks
+pipx upgrade protontricks
+&lt;/code>&lt;/pre>
+&lt;p>Para instalar la última versión de desarrollo.&lt;/p>
+&lt;pre>&lt;code>pipx install --spec git+https://github.com/Matoking/protontricks.git protontricks
+&lt;/code>&lt;/pre>
+&lt;h2 id="hora-de-usarlo">Hora de Usarlo!&lt;/h2>
+&lt;p>Primero instala el juego con &lt;strong>SteamPlay&lt;/strong> (Proton). A continuación buscaremos el APPID de la siguiente forma.&lt;/p>
+&lt;pre>&lt;code>protontricks -s JUEGO
+&lt;/code>&lt;/pre>
+&lt;p>Esto nos mostrará la APPID de la siguiente forma:&lt;/p>
+&lt;pre>&lt;code>Found the following games:
+JUEGO (NUMERO_APPID)
+&lt;/code>&lt;/pre>
+&lt;p>Ahora instalamos los componentes necesarios para hacer funcionar ese juego como por ejemplo DirectX9.&lt;/p>
+&lt;pre>&lt;code>protontricks APPID d3dx9 d3dcompiler_43 win10
+&lt;/code>&lt;/pre>
+&lt;p>Listo, con eso sería todo en principio, aunque hay que tener en cuenta que como sucedía en Wine, cada juego puede llegar a necesitar algunas modificaciones o instalar ciertos elementos para que funcione correctamente.&lt;/p>
+&lt;p>Para saber que componentes debes instalar busca el juego en &lt;a href="https://www.protondb.com/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+ProtonDB
+&lt;/a> para ver las configuraciones de otros usuarios.&lt;/p>
+&lt;p>Fuente: Mis Juegos en Linux&lt;/p></description></item></channel></rss>

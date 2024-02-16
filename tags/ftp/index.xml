@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ftp on PatoJAD</title><link>https://patojad.com.ar/tags/ftp/</link><description>Recent content in ftp on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Fri, 14 Feb 2020 11:42:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/ftp/index.xml" rel="self" type="application/rss+xml"/><item><title>FTP problemas de conexion, PORT y PASV</title><link>https://patojad.com.ar/post/2020/02/ftp-problemas-de-conexion-port-y-pasv/</link><pubDate>Fri, 14 Feb 2020 11:42:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/02/ftp-problemas-de-conexion-port-y-pasv/</guid><description>&lt;p>Uno de los problemas de los servidores FTP es el modo de trabajo en que se pensaron. Cuando estos servidores empezaron a proliferar en la red, hace ya algunos años, la gente se conectaba a internet de forma directa, sin routers, eran aquellos tiempos en los que los módems de 56k hacían que un pc se conectara directamente a internet sin &lt;a href="https://patojad.com.ar/post/2020/01/direcciones-ips-nuestra-huella-en-la-red/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+IP privada, directamente con la IP pública
+&lt;/a>.&lt;/p>
+&lt;p>En estos escenarios no había ningún problema en trabajar con servidores FTP, ya que se trabaja de forma directa entre tu IP pública y la IP pública del servidor FTP. Hoy, con el auge de las redes LAN y las IPs privadas el modelo de conexión con los servidores FTP han tenido ciertos problemas que han sido solucionados, pero que aún así debemos tener claro cómo se ha implantado la solución para aquellos casos en los que no somos capaces de trabajar correctamente con un servidor FTP. Una consecuencia directa de esta solución es la posibilidad de utilizar un servidor FTP como herramienta de intromision a sistemas. Por lo cual es importante conocer a fondo esta herramienta ya sea que seamos administradores de sistemas o informaticos del area de seguridad.&lt;/p>
+&lt;h2 id="protocolo-de-conexión-en-servidores-ftp">Protocolo de conexión en servidores FTP&lt;/h2>
+&lt;p>Haciendo memoria de las últimas publicaciones sobre servidores y clientes FTP ya deberías saber que este tipo de servidores trabajan de forma estándar sobre el puerto 21. Esto significa que cuando nos conectamos a un servidor FTP se establece una conexión entre un puerto aleatorio de nuestro PC y el puerto 21 del servidor FTP. De este modo creamos un canal de conexión que podría representarse así:&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="http://cursohacker.es/sites/default/files/styles/large/public/images/20131912152702.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Una vez establecido este canal ya estamos en disposición de trabajar con el servidor FTP al que nos hemos conectado. Nosotros emitimos comandos por este canal y el servidor nos devuelve la respuesta. Pero claro, ¿Qué ocurre cuando pedimos descargar un archivo? Muy sencillo, que el canal se ocuparía descargando el archivo y no podríamos seguir emitiendo más peticiones hasta completar la descarga. Esto es un problema que nos impediría trabajar en paralelo, poder descargar varios archivos a la vez o navegar por el servidor mientras descargamos archivos. Para soluciona esto, los servidores FTP cuando pedimos descargar un archivo &amp;ldquo;crean&amp;rdquo; un canal secundario. De esta forma el canal primario siempre queda disponible para lanzar órdenes y las descargas se hacen en canales secundarios, permitiendo así poder seguir trabajando con el servidor FTP aun estando descargando archivos u haciendo cualquier otra tarea.&lt;/p>
+&lt;p>Aquí es donde se crea el problema, a la hora de crear el canal secundario. Cuando se trabaja con IPs públicas directamente, el servidor FTP conocía tu IP pública, y era capaz de conectar contigo de forma directa, hoy esto no es posible, ya que si estás en una red local y tienes una IP privada, el servidor FTP no conocerá tu IP privada y cuando intenta crear el canal secundario falla. Pero vamos a verlo con un ejemplo gráfico:&lt;/p>
+&lt;p>![](&lt;a href="http://cursohacker.es/sites/default/files/styles/large/public/images/20131912155613.jpg?itok=QWzqwLGV%22" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+http://cursohacker.es/sites/default/files/styles/large/public/images/20131912155613.jpg?itok=QWzqwLGV"
+&lt;/a> &amp;gt;}}&lt;/p>
+&lt;p>Nosotros estamos trabajando en nuestro PC que es el que tiene la IP 192.168.1.2. Recordemos que esto es una IP privada, que solo &amp;ldquo;tiene validez&amp;rdquo; dentro de nuestra red local. El router se encargará de convertir nuestra IP privada en una IP pública, en nuestro ejemplo se convertirá nuestra IP privada 192.168.1.2 en la IP pública 80.5.63.7 y llegamos al servidor FTP que tiene la IP 87.25.67.5. Si en este punto mirásemos el log del servidor FTP veríamos que se ha conectado un usuario desde la IP 80.5.63.7 y no desde 192.168.1.2, esto es porque en internet nosotros aparecemos con nuestra IP pública. Así que a ojos del servidor FTP nosotros somos 80.5.63.7.&lt;/p>
+&lt;p>Bien ya tenemos creado nuestro canal primario. Enviamos al servidor el &lt;a href="https://patojad.com.ar/post/2020/02/comandos-ftp/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+comando para descargar un archivo
+&lt;/a> y este se dispone a crear el canal secundario para entregarnos este archivo por el canal secundario y que nosotros podamos seguir dándole ordenes por el canal primario. Entonces como para el servidor nosotros somos el cliente con IP 80.5.63.7 el servidor FTP intentará craear un canal secundario con la IP 80.5.63.7. Pero esta es la IP de nuestro router, y cuando detecta que un servidor intenta establecer una conexión no sabe qué hacer y no nos redirige la petición a nuestro PC 192.168.1.2, con lo cual el canal secundario nunca se establece y falla. Este es el motivo por el que parece que el servidor se queda colgado. Realmente no es que se haya quedado colgado es que por nuestra configuración de red el servidor FTP no ha sabido establecer con nosotros el canal secundario necesario para hacer la descarga del archivo.&lt;/p>
+&lt;h2 id="modo-activo-y-modo-pasivo-comando-port-y-pasv">Modo activo y modo pasivo, comando PORT y PASV&lt;/h2>
+&lt;p>Para solucionar el problema descrito anteriormente tenemos comandos para indicar al servidor la arquitectura de nuestra red y así poder trabajar de forma correcta con el servidor, sin que el nuestra arquitectura sea un impedimento. El modo activo y el modo pasivo indican quien abre el canal secundario y quien espera la conexión. En modo pasivo las conexiones son siempre abiertas por el cliente, mientras que en modo activo se abren por el que envía los datos, el servidor. En el ejemplo anterior el servidor (que por defecto tiene establecido el modo activo) es quien crea el canal secundario con nosotros encontrándose la dificultad del router, si nosotros habilitamos el modo pasivo seremos nosotros quienes crearemos el canal secundario y así evitamos que la conexión quede colgada en el router. Al igual que nosotros hemos sido capaces de establecer el canal primario también debemos ser capaces de craear el secundario si ningún firewall nos lo impide.&lt;/p>
+&lt;h2 id="solución-comando-port-ftp-server">Solución comando PORT ftp server&lt;/h2>
+&lt;p>Con este comando nosotros indicamos al servidor FTP dónde estamos esperando la conexión. ¿Cómo y en qué situaciones este comando nos puede ayudar? Supongamos que el administrador del firewall o cortafuegos que protege al servidor FTP ha denegado todas las nuevas conexiones que se le hagan por puertos distintos al 21, con esta configuración nosotros no podriamos establecer el canal secundario ya que su cortafuegos nos lo impediría. En este caso podemos hacer uso del comando PORT para indicar al servidor FTP cómo ha de conectarse a nosotros.&lt;/p>
+&lt;p>En primer lugar. en nuestro router debemos de mapear un puerto. Así mapeando un puerto hacemos que cuando el servidor FTP se conecte con nuestro router para establecer el canal secundario en el puerto que le especifiquemos ésta conexión sea redirigida a nuestro PC y así no se queda &amp;ldquo;parada&amp;rdquo; en nuestro router. Supongamos que mapeamos el puerto 6970. A efectos práticos, toda conexión que llege a la IP pública de nuestro router (80.5.63.7) al puerto 6970 será redirigida a nuestra IP privada (192.168.1.2) al puerto 6970. Así que debemos indicar al servidor FTP que queremos que establezca el canal secundario con nuestra IP pública en el puerto 6970 (80.5.63.7:6970). Esto lo hacemos así:&lt;/p>
+&lt;pre>&lt;code>PORT 80,5,63,7,27,58
+&lt;/code>&lt;/pre>
+&lt;p>Veamos con detalle de donde han salido estos números, los 4 primeros 80 5 63 y 7 hacen referencia a nuestra IP, los 2 siguientes 27 y 58 al puerto. ¿Cómo se han calculado? Así; queríamos indicar al servidor el puerto 6970 entonces hemos hecho lo siguiente: 27x256=6912; 6912+58 = 6970 Si tu quieres calcular estas 2 componentes para cualquier puerto, primero divide el puerto entre 256 quédate con la parte entera, luego multiplica la parte entera por 256, el segundo número es al diferencia entre el resultado obtenido el y el puerto en cuestión.&lt;/p>
+&lt;h2 id="solución-comando-pasv-ftp-server">Solución comando PASV ftp server&lt;/h2>
+&lt;p>Si nos encontramos en una red local en la que nos es imposible configurar nuestro router para mapearnos un puerto entonces nuestra única solución será indicarle al servidor FTP que seremos nosotros quienes crearemos el canal secundario. Para esto primero pasamos el comando PASV sin parámetros para indicar al servidor esta condición. Seguidamente le pasamos un comando PORT para indicarle al puerto del servidor FTP al que deseamos conectarnos. Esta sería la secuencia&lt;/p>
+&lt;pre>&lt;code>PASV
+PORT 87,25,67,5,27,58
+&lt;/code>&lt;/pre>
+&lt;p>Primero hemos establecido el modo pasivo y luego le hemos dicho que nos vamos a conectar a su IP al puerto 6970, ahora cuando hagamos el comando GET para descargar el archivo se creará el canal secundario con la configuración indicada.&lt;/p></description></item><item><title>Comandos FTP</title><link>https://patojad.com.ar/post/2020/02/comandos-ftp/</link><pubDate>Thu, 06 Feb 2020 09:22:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/02/comandos-ftp/</guid><description>&lt;p>ya hablamos anteriormente de &lt;a href="https://patojad.com.ar/post/2020/02/servidor-ftp-qu%c3%a9-es-instalando-nuestro-propio-servidor/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+como instalar nuestro servidor FTP
+&lt;/a>. Hoy veremos cómo trabajar con un servidor tan solo con comandos FTP. Puede que te preguntes de qué vale conocer los comandos de un servidor FTP si hoy día cualquier herramienta de gestión gráfica nos puede hacer todo el trabajo de forma fácil y sencilla. Sin embargo siempre es util conocerlo para poder trabajar lo mas bajo nivel que podamos.&lt;/p>
+&lt;h2 id="por-qué-utilizar-comandos-ftp">¿Por qué utilizar comandos FTP?&lt;/h2>
+&lt;p>Las herramientas gráficas nos pueden funcionar muy bien para el día a día, de hecho no usarlas para las funciones diarías sería una pérdida de tiempo ya que nos automatizan gran parte del trabajo. Sin embargo, cuando estas herramientas fallan llega la hora de trabajar a un nivel mas bajo, poder entender cómo trabaja un servidor FTP y así poder diagnosticar y solucionar el problema.&lt;/p>
+&lt;h2 id="encontrar-servidores-ftp-públicos-anónimos">Encontrar servidores FTP públicos (anónimos).&lt;/h2>
+&lt;p>En la red existen servidores de acceso público, con contenido que google no indexa, si sabes manejarte. Aquí podrás encontrar tanto programas antiguos, que no hayarás en indexado por ninguna web. También podrás econtrar material específico de diversa índole. Algunos de los buscadores de servidores FTP públicos son:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.searchftps.net/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://www.searchftps.net/
+&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.ftp-sites.org/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+http://www.ftp-sites.org/
+&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>En estos servidores podrás logearte como &amp;ldquo;anonymous&amp;rdquo; y dejando la clave en blanco. Por cortesía cuando uno accede a un servidor FTP anónimo suele escribir en el campo contraseña su dirección de correo electrónico, pero no es ni mucho menos obligatorio. Indagando en estos buscadores estamos seguros de que econtrarás bastante información interesante que no encontrarías haciendo una símple búsqueda en google, ni tan siquiera haciendo búsquedas avanzadas&lt;/p>
+&lt;h2 id="comandos-avanzados-en-servidores-ftp">Comandos avanzados en servidores FTP&lt;/h2>
+&lt;p>Antes de empezar a trabajar los comandos que sirven para conectarse, descargar y subir archivos a un servidor FTP entre otras muchas acciones. Vamos a tener claros algunos conceptos. En primer lugar debes saber que los servidores FTP trabajan por defecto en el puerto 21. Esto es, cuando aprendamos hacer escáners en la red, si detectamos que una máquina tiene el puerto 21 abierto con mucha probabilidad se tratará de un servidor FTP. Y digo con mucha probabilidad puesto que el puerto 21 es el puerto por defecto, el puerto estándar, pero esto se puede cambiar y es una medida de seguridad que emplean muchos administradores de sistemas para esconder sus servidores FTP. No obstante también puede ser que estemos conectando a servidores falsos, (honeypots) que son servidores destinados a engañar a las personas que intentan ingresar sin permisos creyendose &amp;ldquo;hackers&amp;rdquo; o salidos de alguna serie y hacerles perder el tiempo intentando conectar a un servidor que en realidad está vacio y solo emula un servidor FTP.&lt;/p>
+&lt;p>Antes que nada recomiendo utilizar siempre man para poder ver la especificacion para lo cual les dejo el &lt;a href="https://patojad.com.ar/post/2019/01/man-tu-manual-para-linux/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+link de la publicacion
+&lt;/a>&lt;/p>
+&lt;pre>&lt;code>man ftp
+&lt;/code>&lt;/pre>
+&lt;p>Conexión al servidor:&lt;/p>
+&lt;pre>&lt;code>ftp 192.168.0.77
+&lt;/code>&lt;/pre>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-1.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Consultar los comandos ftp disponibles&lt;/p>
+&lt;pre>&lt;code>ftp&amp;gt; ?
+&lt;/code>&lt;/pre>
+&lt;p>Consultar que hace un comando en concreto&lt;/p>
+&lt;pre>&lt;code>ftp&amp;gt; ? Nombre del comandos
+&lt;/code>&lt;/pre>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-2.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Ver listar los ficheros y directorios&lt;/p>
+&lt;pre>&lt;code>ftp&amp;gt; dir
+ftp&amp;gt; ls
+&lt;/code>&lt;/pre>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-3.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Entrar a un subdirectorio&lt;/p>
+&lt;pre>&lt;code>ftp&amp;gt; cd directorio
+&lt;/code>&lt;/pre>
+&lt;p>Volver al directorio padre&lt;/p>
+&lt;pre>&lt;code>ftp&amp;gt; cd ..
+&lt;/code>&lt;/pre>
+&lt;p>Descargar ficheros del servidores&lt;/p>
+&lt;pre>&lt;code>ftp&amp;gt; get fichero
+&lt;/code>&lt;/pre>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-4.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Los ficheros se guardan en la ubicación local en la que nos encontremos.
+Descargar varios ficheros a la vez del servidores (aquí entran en juego los comodines del shell de Linux)&lt;/p>
+&lt;pre>&lt;code>ftp&amp;gt;mget ficheros
+&lt;/code>&lt;/pre>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-5.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-7.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Ver donde estamos en nuestra maquina local&lt;/p>
+&lt;pre>&lt;code>ftp&amp;gt; lcd
+&lt;/code>&lt;/pre>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-8.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Movernos por los directorios locales&lt;/p>
+&lt;p>ftp&amp;gt; lcd directorio&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-9.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Cerrar sesión FTP&lt;/p>
+&lt;pre>&lt;code>ftp&amp;gt; bye
+ftp&amp;gt; quit
+ftp&amp;gt; exit
+&lt;/code>&lt;/pre>
+&lt;p>Para los siguientes comandos necesitamos permisos de propietario por lo que nos identificamos como tal (también podemos usar el comando user).&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-10.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Borrar fichero&lt;/p>
+&lt;pre>&lt;code>ftp&amp;gt; delete fichero
+&lt;/code>&lt;/pre>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-11.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Crear directorios&lt;/p>
+&lt;pre>&lt;code>ftp&amp;gt; mkdir nombreDirectorio
+&lt;/code>&lt;/pre>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-12.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Borrar directorio&lt;/p>
+&lt;pre>&lt;code>ftp&amp;gt; rmdir nombreDirectorio
+&lt;/code>&lt;/pre>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-13.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Subir fichero&lt;/p>
+&lt;pre>&lt;code>ftp&amp;gt; put fichero
+&lt;/code>&lt;/pre>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-15.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Subir multiples ficheros&lt;/p>
+&lt;pre>&lt;code>ftp&amp;gt; mput ficheros
+&lt;/code>&lt;/pre>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-16.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Borrar múltiples archivos&lt;/p>
+&lt;pre>&lt;code>ftp&amp;gt; mdelete ficheros
+&lt;/code>&lt;/pre>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://victorroblesweb.es/wp-content/uploads/2013/11/Comandos-ftp-17.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p></description></item><item><title>Servidor FTP qué es, instalando nuestro propio servidor</title><link>https://patojad.com.ar/post/2020/02/servidor-ftp-qu%C3%A9-es-instalando-nuestro-propio-servidor/</link><pubDate>Tue, 04 Feb 2020 09:10:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/02/servidor-ftp-qu%C3%A9-es-instalando-nuestro-propio-servidor/</guid><description>&lt;p>Los servidores FTP son uno de los tipos de servidores mas comunes intercambiar archivos entre dos ordenadores. Si eres webmaster, o tienes en mente crear una web en el futuro casi con total probabilidad tendrás que usar uno de ellos para subir los archivos a tu sitio web.&lt;/p>
+&lt;p>FTP como tal es un protocolo de intercambio de información, pero comunmente llamamos servidores FTP a aquellos que tilizan dicho protocolo para hacer el intercambio de archivos. Estos servidores en su inicio no utilizaban ningún tipo de cifrado con la consecuencia de que cuando nos logeamos en un servidor de este tipo nuestros datos (usuario y contraseña) viajan por la red en texto plano y son legibles por cualquiera que sepa cómo interceptar la conexión.&lt;/p>
+&lt;p>Actualmente conviven tanto el protocolo FTP como el protocolo SFTP que es igual pero utillizando cifado asimétrico, lo cual nos hace ganar y mucho en seguridad, aunque no nos garantiza la protección total frente a ataques.&lt;/p>
+&lt;h2 id="instalar-nuestro-propio-servidor-ftp">Instalar nuestro propio servidor FTP&lt;/h2>
+&lt;p>En nuestro proyecto primará siempre la práctica frente a la teoría, así que nada mejor para ver cómo funciona un servidor FTP que instalando nostros mismos uno en local y juando un poco con el. Tenemos tanto servidores de pago como servidores ftp gratis y nosotros siempre os vamos a mostrar herramientas gratuitas frente a herramientas privadas. Así que vamos a ellos.&lt;/p>
+&lt;h3 id="paso-1--instalar-vsftpd">Paso 1 – Instalar Vsftpd&lt;/h3>
+&lt;p>Siempre antes de comenzar cualquier tipo de instalacion es importante tener actualizado el sistema para eso basta con un simple:&lt;/p>
+&lt;pre>&lt;code>sudo apt update
+&lt;/code>&lt;/pre>
+&lt;p>(En este caso vamos a dar los comandos para debian/ubuntu pero los paquetes seran los mismos para todas las distribuciones) Cuando termines con esto, instala el daemon vsftpd usando el siguiente comando:&lt;/p>
+&lt;pre>&lt;code>sudo apt-get install vsftpd
+&lt;/code>&lt;/pre>
+&lt;p>Una vez completada la instalación, haz una copia de seguridad del archivo original para que podamos comenzar nuestro trabajo con un archivo de configuración en blanco:&lt;/p>
+&lt;pre>&lt;code>sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.original
+&lt;/code>&lt;/pre>
+&lt;p>Ahora estamos listos para dar el siguiente paso y configurar el firewall.&lt;/p>
+&lt;h3 id="paso-2--permitir-el-tráfico-ftp-desde-el-firewall">Paso 2 – Permitir el tráfico FTP desde el firewall&lt;/h3>
+&lt;p>Para permitir que el servidor FTP de nuestro linux se comunique con el mundo exterior, tiene que abrirse paso a través del firewall(nosotros veremos los firewall de la maquina, los del router los puede ver cada uno por su lado, en caso de dudas estamos en el grupo de Telegram). Primero veamos si el firewall está habilitado en la máquina o no. Ejecuta el siguiente comando para verificar el estado:&lt;/p>
+&lt;pre>&lt;code>sudo ufw status
+&lt;/code>&lt;/pre>
+&lt;p>Si ves el siguiente mensaje:&lt;/p>
+&lt;pre>&lt;code>ufw: command not found
+&lt;/code>&lt;/pre>
+&lt;p>Significa que el firewall no está instalado y puedes continuar con el siguiente paso.&lt;/p>
+&lt;p>Sin embargo, si el resultado muestra algunas reglas definidas o un mensaje de que el estado del firewall es activo, deberás verificar si el tráfico FTP funcionará. Avancemos y abramos los puertos 20 y 21 para el tráfico FTP; los puertos 40000-50000 serán los reservados para el rango de puertos pasivos que eventualmente se establecerán en el archivo de configuración y el puerto 990 se usará cuando se habilite el TLS. Ejecuta los siguientes comandos para hacerlo:&lt;/p>
+&lt;pre>&lt;code>sudo ufw allow 20/tcp
+sudo ufw allow 21/tcp
+sudo ufw allow 990/tcp
+sudo ufw allow 40000:50000/tcp
+&lt;/code>&lt;/pre>
+&lt;p>Ahora veamos el estado de nuevo:&lt;/p>
+&lt;pre>&lt;code>sudo ufw status
+&lt;/code>&lt;/pre>
+&lt;p>El resultado debería ser algo así:&lt;/p>
+&lt;pre>&lt;code>Status: active
+To Action From
+-- ------ ----
+990/tcp ALLOW Anywhere
+20/tcp ALLOW Anywhere
+21/tcp ALLOW Anywhere
+40000:50000/tcp ALLOW Anywhere
+20/tcp (v6) ALLOW Anywhere (v6)
+21/tcp (v6) ALLOW Anywhere (v6)
+990/tcp (v6) ALLOW Anywhere (v6)
+40000:50000/tcp (v6) ALLOW Anywhere (v6)
+&lt;/code>&lt;/pre>
+&lt;p>Ahora que tenemos todos los puertos necesarios abiertos y disponibles para nosotros, podemos pasar al siguiente paso.&lt;/p>
+&lt;h3 id="paso-3--crear-el-directorio-de-usuarios">Paso 3 – Crear el directorio de usuarios&lt;/h3>
+&lt;p>En el tercer paso para crear un servidor FTP, tendremos que seleccionar el usuario que va a utilizar el acceso FTP. Solo para mostrar cómo se hace, agregaremos un nuevo usuario. Para crearlo, usa el siguiente comando:&lt;/p>
+&lt;pre>&lt;code>sudo adduser pato
+&lt;/code>&lt;/pre>
+&lt;p>Cuando el sistema te pregunte, ingresa una contraseña para el usuario y completa todos los demás detalles. Lo ideal es que el FTP se restrinja a un directorio específico por motivos de seguridad. Vsftpd usa jaulas chroot para lograr esto. Con chroot habilitado, un usuario local está restringido a su directorio de inicio (por defecto). Sin embargo, es posible que debido a la seguridad de vsftpd, un usuario no pueda escribir en el directorio. No eliminaremos los privilegios de escritura de la carpeta de inicio; en su lugar, crearemos un directorio ftp que actuará como chroot junto con un directorio de archivos modificables que será responsable de mantener los archivos pertinentes. Usa el siguiente comando para crear la carpeta FTP:&lt;/p>
+&lt;pre>&lt;code>sudo mkdir /home/pato/ftp
+&lt;/code>&lt;/pre>
+&lt;p>Establece la propiedad usando:&lt;/p>
+&lt;pre>&lt;code>sudo chown nobody:nogroup /home/pato/ftp
+&lt;/code>&lt;/pre>
+&lt;p>Finalmente, elimina los permisos de escritura:&lt;/p>
+&lt;pre>&lt;code>sudo chmod a-w /home/pato/ftp
+&lt;/code>&lt;/pre>
+&lt;p>Ahora, usa el siguiente comando para verificar los permisos:&lt;/p>
+&lt;pre>&lt;code>sudo ls -la /home/pato/ftp
+&lt;/code>&lt;/pre>
+&lt;p>El resultado debería ser algo así:&lt;/p>
+&lt;pre>&lt;code>total 8
+dr-xr-xr-x 2 nobody nogroup 4096 Jun 29 11:32 .
+drwxr-xr-x 3 pato pato 4096 Jun 29 11:32 ..
+&lt;/code>&lt;/pre>
+&lt;p>Como paso siguiente, crearemos el directorio contenedor de archivos y asignaremos la propiedad:&lt;/p>
+&lt;pre>&lt;code>sudo mkdir /home/pato/ftp/files
+sudo chown pato:pato /home/pato/ftp/files
+&lt;/code>&lt;/pre>
+&lt;p>Finalmente, agrega un archivo de prueba al directorio el cual se usará cuando probemos todo más adelante:&lt;/p>
+&lt;pre>&lt;code>echo &amp;quot;vsftpd sample file&amp;quot; | sudo tee /home/pato/ftp/files/sample.txt
+&lt;/code>&lt;/pre>
+&lt;h3 id="paso-4--configurar-vsftpd">Paso 4 – Configurar vsftpd&lt;/h3>
+&lt;p>El siguiente paso en nuestra apuesta por configurar un servidor FTP, es configurar vsftpd y nuestro acceso FTP. En este tutorial, permitiremos que un solo usuario se conecte con FTP utilizando una cuenta shell local. Las dos configuraciones clave requeridas para esto ya están establecidas en el archivo de configuración (vsftpd.conf). En primer lugar, verifica que el archivo de configuración tenga una configuración que coincida con las mencionadas a continuación utilizando el comando nano (se puede usar vi o vim tambien):&lt;/p>
+&lt;pre>&lt;code>sudo nano /etc/vsftpd.conf
+. . .
+# Allow anonymous FTP? (Disabled by default).
+anonymous_enable=NO
+#
+# Uncomment this to allow local users to log in.
+local_enable=YES
+. . .
+&lt;/code>&lt;/pre>
+&lt;p>En el mismo archivo, procederemos a eliminar # y a habilitar el write_enable:&lt;/p>
+&lt;pre>&lt;code>. . .
+write_enable=YES
+. . .
+&lt;/code>&lt;/pre>
+&lt;p>Chroot tampoco se comentará para garantizar que el usuario conectado a través de FTP solo acceda a los archivos dentro del directorio permitido:&lt;/p>
+&lt;pre>&lt;code>. . .
+chroot_local_user=YES
+. . .
+&lt;/code>&lt;/pre>
+&lt;p>También se deben agregar manualmente algunos valores nuevos. Simplemente puedes pegarlos en la parte inferior del archivo. En primer lugar, se agregará un user_sub_token en la ruta del directorio local_root. Esto permitirá que la configuración funcione con el usuario actual y con cualquier otro usuario que se agregue posteriormente:&lt;/p>
+&lt;pre>&lt;code>user_sub_token=$USER
+local_root=/home/$USER/ftp
+&lt;/code>&lt;/pre>
+&lt;p>Para garantizar que haya una cantidad considerable de conexiones disponibles, limitaremos la cantidad de puertos utilizados en el archivo de configuración:&lt;/p>
+&lt;pre>&lt;code>pasv_min_port = 40000
+pasv_max_port = 50000
+&lt;/code>&lt;/pre>
+&lt;p>En este tutorial, planeamos permitir el acceso caso por caso, así que ajustemos la configuración de forma tal que el acceso solo se otorgue a los usuarios que se hayan agregado explícitamente a una lista:&lt;/p>
+&lt;pre>&lt;code>userlist_enable=YES
+userlist_file=/etc/vsftpd.userlist
+userlist_deny=NO
+&lt;/code>&lt;/pre>
+&lt;p>El flag userlist_deny es el responsable de alternar la lógica; cuando se establece en «NO», solo se permitirá el acceso a los usuarios especificados en la lista. Una vez hecho esto, haz clic en CTRL+X y confirma los cambios del archivo.&lt;/p>
+&lt;p>Por último, procederemos con la creación y adición de nuestro usuario al archivo:&lt;/p>
+&lt;pre>&lt;code>echo &amp;quot;pato&amp;quot; | sudo tee -a /etc/vsftpd.userlist
+&lt;/code>&lt;/pre>
+&lt;p>Verifica que el usuario esté realmente activo ejecutando el siguiente comando:&lt;/p>
+&lt;pre>&lt;code>cat /etc/vsftpd.userlist
+&lt;/code>&lt;/pre>
+&lt;p>El resultado debe ser «pato». Reinicia el daemon utilizando el siguiente comando para cargar los cambios de configuración:&lt;/p>
+&lt;pre>&lt;code>sudo systemctl restart vsftpd
+&lt;/code>&lt;/pre>
+&lt;h3 id="paso-5--hacer-que-el-ftp-sea-seguro">Paso 5 – Hacer que el FTP sea seguro&lt;/h3>
+&lt;p>Por defecto, FTP no hace ninguna encriptación de datos, por eso utilizaremos TTL/SSL para garantizar la seguridad. En primer lugar, debemos crear el certificado SSL y usarlo para proteger el servidor FTP de Ubuntu. Para comenzar, usa el siguiente comando:&lt;/p>
+&lt;pre>&lt;code>sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/vsftpd.pem -out /etc/ssl/private/vsftpd.pem
+&lt;/code>&lt;/pre>
+&lt;p>El flag -days hace que el certificado sea válido por un año y hemos incluido una clave privada RSA de 2048 bits en el mismo comando. Una vez sean solicitados, ingresa los datos personales correspondientes en el campo provisto.&lt;/p>
+&lt;p>Cuando termines de crear el certificado, abre nuevamente el archivo de configuración:&lt;/p>
+&lt;pre>&lt;code>sudo nano /etc/vsftpd.conf
+&lt;/code>&lt;/pre>
+&lt;p>El final del archivo debe contener dos líneas que comiencen con «_rsa«. Comenta ambas líneas así:&lt;/p>
+&lt;pre>&lt;code># rsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
+# rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
+&lt;/code>&lt;/pre>
+&lt;p>En lugar de eso, apuntemos el archivo de configuración al certificado que acabamos de crear. Agrega las siguientes líneas:&lt;/p>
+&lt;pre>&lt;code>rsa_cert_file=/etc/ssl/private/vsftpd.pem
+rsa_private_key_file=/etc/ssl/private/vsftpd.pem
+&lt;/code>&lt;/pre>
+&lt;p>Ahora habilitaremos SSL y nos aseguraremos de que solo los clientes que tengan SSL habilitados nos puedan contactar. Cambia el valor de ssl_enable a YES:&lt;/p>
+&lt;pre>&lt;code>ssl_enable=YES
+&lt;/code>&lt;/pre>
+&lt;p>Ahora agrega las siguientes líneas para mayor protección: (Esto no permitirá conexiones anónimas a través de SSL)&lt;/p>
+&lt;pre>&lt;code>allow_anon_ssl=NO
+force_local_data_ssl=YES
+force_local_logins_ssl=YES
+&lt;/code>&lt;/pre>
+&lt;p>Configura el servidor para usar TLS usando:&lt;/p>
+&lt;pre>&lt;code>ssl_tlsv1=YES
+ssl_sslv2=NO
+ssl_sslv3=NO
+&lt;/code>&lt;/pre>
+&lt;p>Aquí agregaremos 2 opciones más. En primer lugar, no será necesario reutilizar SSL porque puede ocasionar que muchos clientes de FTP se averíen. En segundo lugar, utilizaremos suites de encriptación de alto cifrado, lo que significa que las longitudes de claves son iguales o superiores a 128 bits.&lt;/p>
+&lt;pre>&lt;code>require_ssl_reuse=NO
+ssl_ciphers=HIGH
+&lt;/code>&lt;/pre>
+&lt;p>Comencemos una vez más para aplicar las nuevas configuraciones:&lt;/p>
+&lt;pre>&lt;code>sudo systemctl restart vsftpd
+&lt;/code>&lt;/pre>
+&lt;p>¡Buen trabajo! Has configurado el servidor FTP en tu Linux para que funcione con el protocolo SSL/TLS. Cualquier duda o inconveniente nos vemos en el grupo de Telegram.&lt;/p></description></item></channel></rss>

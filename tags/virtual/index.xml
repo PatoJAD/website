@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>virtual on PatoJAD</title><link>https://patojad.com.ar/tags/virtual/</link><description>Recent content in virtual on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Mon, 05 Jul 2021 10:17:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/virtual/index.xml" rel="self" type="application/rss+xml"/><item><title>Open Assistant un asistente Open Source</title><link>https://patojad.com.ar/post/2021/07/open-assistant-un-asistente-open-source/</link><pubDate>Mon, 05 Jul 2021 10:17:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/07/open-assistant-un-asistente-open-source/</guid><description>&lt;p>Siempre se habla de los asistentes, muchos sistemas tienen su sistema y en linux, por alguna extraña razón no es altamente explotado. En cuanto a Windows podemos encontrar a Cortana, que por suerte ya no viene por defecto en Windows 11. Para Android, tenemos a Google Assistant que no va tan mal. Y los que tienen el dinero como para regocijarse en Apple tienen a Siri, un asistente que es de los más humanizados que existe. Y existen varios más, pero hoy vamos a hablar de uno que no escuche mucho nombrar&amp;hellip;&lt;/p>
+&lt;h2 id="mi-punto-de-vista">Mi punto de vista&lt;/h2>
+&lt;p>Yo no soy un gran fanatico de los asistentes, no pude nunca sacarle el jugo que quiero, porque los asistentes que probé no se integraban bien desde mi perspectiva. Claramente no soy un gran conocedor pero debo admitir que es cómodo poder estar haciendo algo con el teclado (Ejemplo codeando como un campeón) Y pedirle al asistente que cambie la canción que estamos escuchando. Por esto creo que los asistentes (Siempre y cuando no sean como Cortana que te lentea hasta una master race) son una muy buena herramienta para tener instaladas y acostumbrarnos a utilizarlo. Además mientras más mañana nos demos y más curioso seamos existen algunos asistentes que pueden volverse muy útiles y muy manipulables para obtener mejores resultados.&lt;/p>
+&lt;h2 id="oa">OA&lt;/h2>
+&lt;p>&lt;strong>OA&lt;/strong> o también conocido como Open Assistant es un asistente, que claramente corre en GNU/Linux, escrito en python, que tiene la particularidad de ser completamente extensible. Esto nos permite tener un asistente con un lenguaje que casi cualquier persona pueda extender.&lt;/p>
+&lt;h3 id="instalar-oa">Instalar OA&lt;/h3>
+&lt;p>Lo primero que debemos hacer es instalar las dependencias necesarias para poder correr OA de la siguiente manera:&lt;/p>
+&lt;h5 id="ubuntudebian">Ubuntu/Debian&lt;/h5>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt-get install -y python3 python3-dev python3-pip build-essential swig git libpulse-dev espeak libasound2-dev
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h5 id="arch">Arch&lt;/h5>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo pacman -S swig espeak python
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Una vez que tengamos las dependencias instaladas debemos descargar el paquete y descomprimirlo, para descargarlo podemos hacerlo desde el siguiente link:&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Descargar OA'
+rel="noopener"
+href='https://github.com/openassistant/oa-core/archive/master.zip'>
+Descargar OA
+&lt;/a>
+&lt;/div>
+&lt;p>Una ves que lo descomprimimos pasamos a la carpeta e instalamos las dependencias de python que necesita el proyecto, esto lo podemos hacer con el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">pip install -r requirements.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="alert alert-info col-12" style="position:relative;">
+&lt;div class="info-box-content container">
+&lt;div class="row">
+&lt;div class="col-2 text-center">
+&lt;span class="fa fa-info fa-5x">&lt;/span>
+&lt;/div>
+&lt;div class="col-10">
+&lt;p class="no-margin">En caso de estar en Debian, Ubuntu o derivadas. Deben sustituir pip por pip3 para ejecutarlo con esta versión en especifico&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;p>A continuación de esto, ya podemos iniciar el proyecto, para esto lo podemos hacer de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">python -m oa
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="alert alert-info col-12" style="position:relative;">
+&lt;div class="info-box-content container">
+&lt;div class="row">
+&lt;div class="col-2 text-center">
+&lt;span class="fa fa-info fa-5x">&lt;/span>
+&lt;/div>
+&lt;div class="col-10">
+&lt;p class="no-margin">En caso de estar en Debian, Ubuntu o derivadas. Deben sustituir python por python3 para ejecutarlo con esta versión en especifico&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;p>Y ya estaría funcionando, para ver más sobre comandos o como agregar nuestros propios comandos por voz les dejo el link a su repo donde está la documentación.&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Mas Info'
+rel="noopener"
+href='https://github.com/openassistant/oa-core'>
+Mas Info
+&lt;/a>
+&lt;/div>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='La Web'
+rel="noopener"
+href='https://openassistant.org/'>
+La Web
+&lt;/a>
+&lt;/div>
+&lt;h2 id="tu-opinión">Tu opinión&lt;/h2>
+&lt;p>Sabemos que no todos pensamos igual y siempre queremos conocer tu opinión sobre estos temas, ¿Que piensas sobre los asistentes virtuales? ¿Usas alguno? ¿Usarias OA?&lt;/p></description></item></channel></rss>

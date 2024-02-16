@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>liquorix on PatoJAD</title><link>https://patojad.com.ar/tags/liquorix/</link><description>Recent content in liquorix on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Thu, 27 May 2021 09:18:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/liquorix/index.xml" rel="self" type="application/rss+xml"/><item><title>Instalar el Zen Kernel</title><link>https://patojad.com.ar/post/2021/05/instalar-el-zen-kernel/</link><pubDate>Thu, 27 May 2021 09:18:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/05/instalar-el-zen-kernel/</guid><description>&lt;p>Dentro del mundo de &lt;strong>GNU/Linux&lt;/strong> existe muchísimo software libre incluso &lt;strong>Linux&lt;/strong> el kernel de este sistema, y al ser libre cualquiera puede compilarlo y configurarlo como quiera, incluso publicarlo. En esta oportunidad vamos a ver cómo instalar un kernel modificado por la comunidad para mejorar el rendimiento bajo demanda, es un kernel muy bueno para quienes les gusta jugar, entre otras cosas.&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/gkd80yH4/image.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;h2 id="sobre-zen">Sobre Zen&lt;/h2>
+&lt;p>Zen es el kernel conocido como Liquorix compilado para Arch y este kernel presenta muchísimas mejoras entre las que podemos ver:&lt;/p>
+&lt;blockquote>
+&lt;p>Liquorix es un reemplazo del kernel de distribución creado con la mejor configuración y fuentes de kernel para cargas de trabajo de escritorio, multimedia y juegos.&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>&lt;strong>Zen Interactive Tuning:&lt;/strong> ajusta el kernel para mejorar la capacidad de respuesta a costa del rendimiento y el uso de energía.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">--- Virtual Memory Subsystem ---------------------------
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Mem dirty before &lt;span class="nb">bg&lt;/span> writeback..: &lt;span class="m">10&lt;/span> % -&amp;gt; &lt;span class="m">20&lt;/span> %
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Mem dirty before sync writeback: &lt;span class="m">20&lt;/span> % -&amp;gt; &lt;span class="m">50&lt;/span> %
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--- Block Layer ----------------------------------------
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Default MQ scheduler......: mq-deadline -&amp;gt; bfq
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--- CPU Scheduler &lt;span class="o">(&lt;/span>CFS&lt;span class="o">)&lt;/span> --------------------------------
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Scheduling latency.............: &lt;span class="m">6&lt;/span> -&amp;gt; &lt;span class="m">3&lt;/span> ms
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Minimal granularity............: 0.75 -&amp;gt; 0.3 ms
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Wakeup granularity.............: &lt;span class="m">1&lt;/span> -&amp;gt; 0.5 ms
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">CPU migration cost.............: 0.5 -&amp;gt; 0.25 ms
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Bandwidth slice size...........: &lt;span class="m">5&lt;/span> -&amp;gt; &lt;span class="m">3&lt;/span> ms
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--- CPU Scheduler &lt;span class="o">(&lt;/span>MuQSS&lt;span class="o">)&lt;/span> ------------------------------
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Scheduling interval............: &lt;span class="m">6&lt;/span> -&amp;gt; &lt;span class="m">4&lt;/span> ms
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ISO task max realtime use......: &lt;span class="m">70&lt;/span> % -&amp;gt; &lt;span class="m">25&lt;/span> %
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>&lt;strong>Programador de procesos MuQSS:&lt;/strong> programador de procesos justo para juegos, multimedia y cargas en tiempo real.&lt;/li>
+&lt;li>&lt;strong>Programación de alta resolución:&lt;/strong> tiempos de espera de alta resolución y frecuencia de tick de 1000 Hz para una programación precisa de tareas con baja fluctuación.&lt;/li>
+&lt;li>&lt;strong>RCU jerárquica basada en árboles no garantizada:&lt;/strong> implementación de RCU para sistemas en tiempo real.&lt;/li>
+&lt;li>&lt;strong>Prevención de kernel duro:&lt;/strong> Prevención de kernel más agresiva antes de requerir parches en tiempo real. Garantiza un sistema receptivo en escenarios de cargas de trabajo mixtas de alta intensidad.&lt;/li>
+&lt;li>&lt;strong>Budget Fair Queue:&lt;/strong> programador de disco adecuado optimizado para el uso de escritorio, alto rendimiento / baja latencia.&lt;/li>
+&lt;li>&lt;strong>Control de congestión TCP BBR2:&lt;/strong> Control de congestión rápido, maximiza el rendimiento, garantizando velocidades más altas que Cubic.&lt;/li>
+&lt;li>&lt;strong>Reemplazo directo del núcleo de distribución:&lt;/strong> configuración de estilo de distribución adecuada que admite la selección más amplia de hardware. Opciones de paravirtualización habilitadas para reducir la sobrecarga bajo virtualización.&lt;/li>
+&lt;li>&lt;strong>Depuración mínima:&lt;/strong> número mínimo de opciones de depuración habilitadas para aumentar el rendimiento del kernel.&lt;/li>
+&lt;/ul>
+&lt;h2 id="instalación">Instalación&lt;/h2>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/OLiOcArU5fM?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;p>Primero debemos instalar el kernel, esto lo podemos hacer con pacman o con yay de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S linux-zen linux-zen-header
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S linux-zen linux-zen-header
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Si venís de distribuciones basadas en Debian ya intentaste reiniciar, pero como se demuestra en el video no funciona asi, por lo cual es necesario actualizar el GRUB.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo update-grub
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>GameMode en Linux</title><link>https://patojad.com.ar/post/2020/08/gamemode-en-linux/</link><pubDate>Wed, 05 Aug 2020 09:17:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/08/gamemode-en-linux/</guid><description>&lt;p>Yo recordaba con anterioridad haber hablado de esto, sin embargo no encontre registro en el blog de esto, por lo cual estimo que fue en mi periodo como fundador de LatinLinux. Ayer por la noche estaba mirando un hermoso stremeng de nuestro gran amigo Linux Gaming Español y se mencionó el mítico GameMode de linux para mejorar el rendimiento…&lt;/p>
+&lt;h2 id="que-es-gamemode">¿Que es GameMode?&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://www.profesionalreview.com/wp-content/uploads/2018/04/GameMode-mejora-el-rendimiento-de-los-juegos-en-Linux-1.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Básicamente es una herramienta que realiza modificaciones de configuración temporales para poder obtener un mejor rendimiento de los videojuegos en linux. Lo cual nos permite disfrutar de una mejor experiencia sin modificar kernel ni agregar adicionales. Entre las mejoras que podemos encontrar se recalcan las siguientes:&lt;/p>
+&lt;ul>
+&lt;li>Cambiar el gobernador de la CPU.&lt;/li>
+&lt;li>Prioridad de O/I.&lt;/li>
+&lt;li>Programador de kernel (SCHED_ISO).&lt;/li>
+&lt;li>Protector de pantalla inhibido&lt;/li>
+&lt;li>Modo de rendimiento de GPU (NVIDIA y AMD), overclocking de GPU (NVIDIA),&lt;/li>
+&lt;li>Scripts personalizados.&lt;/li>
+&lt;/ul>
+&lt;p>Este maravilloso programa se encuentra para todas las distribuciones de linux y en esta oportunidad vamos a intentar generalizar la instalación.&lt;/p>
+&lt;p>&lt;strong>¡ATENCIÓN! - Este sistemita depende fielmente de systemD para iniciar. De momento no intente portearlo ni usarlo en distros sin systemd con capa de compatibilidad (cómo MX)&lt;/strong>&lt;/p>
+&lt;h2 id="no-es-lo-mismo-que-hace-liquorix-y-xanmod">¿No es lo mismo que hace Liquorix y Xanmod?&lt;/h2>
+&lt;p>La respuesta corta es, si, la diferencia es que GameMode solo selecciona esas configuraciones mientras estamos jugando y el resto del rato tenemos nuestro kernel en estado normal o como viene por defecto.&lt;/p>
+&lt;p>Sin embargo cabe recalcar que pueden ser utilizados en conjunto, y no genera conflictos. Los kernels, a diferencia de GameMode, están pensado para todos los usos del dia a dia, por lo cual el GameMode cambiara esas configs que para que en dicho momento funcione pura y exclusivamente como plataforma de juegos.&lt;/p>
+&lt;h2 id="como-lo-instalo">¿Como lo instalo?&lt;/h2>
+&lt;p>Para instalarlo basta con instalar las dependencias dependiendo de qué base tenemos, a continuación dejo las genéricas que suelen faltar (puede que te falte una más pero eso lo notarás al momento de compilar, ahi te marcara que es lo que falta)&lt;/p>
+&lt;p>&lt;strong>Debian y derivados:&lt;/strong>&lt;/p>
+&lt;pre>&lt;code>sudo apt install meson libsystemd-dev pkg-config ninja-build git libdbus-1-dev dbus-user-session
+&lt;/code>&lt;/pre>
+&lt;p>&lt;strong>Arch y derivados&lt;/strong>&lt;/p>
+&lt;pre>&lt;code>sudo pacman -S meson systemd git dbus
+&lt;/code>&lt;/pre>
+&lt;p>&lt;strong>Fedora y derivados&lt;/strong>&lt;/p>
+&lt;pre>&lt;code>sudo dnf install meson systemd-devel pkg-config git dbus-devel
+&lt;/code>&lt;/pre>
+&lt;p>&lt;strong>Gentoo&lt;/strong>&lt;/p>
+&lt;pre>&lt;code>emerge --ask games-util/gamemode
+&lt;/code>&lt;/pre>
+&lt;p>Una vez que las dependencias estén instaladas podemos proceder a instalar de su propio git la herramienta para comenzar a utilizarla.&lt;/p>
+&lt;pre>&lt;code>cd /tmp/
+git clone https://github.com/FeralInteractive/gamemode.git
+cd gamemode
+git checkout 1.5
+./bootstrap.sh
+&lt;/code>&lt;/pre>
+&lt;p>Como podemos ver clonamos el repositorio en la carpeta tmp (archivos temporales) y luego hacemos un checkout a la 1.5 (Si bien al actual es 1.5.1 dio errores al compilar, y no tiene cambios significativos) Y luego ejecutamos ./bootstrap.sh que nos permite realizar la instalacion mediante este script.&lt;/p>
+&lt;h2 id="como-lo-uso">¿Como lo uso?&lt;/h2>
+&lt;p>Lo bueno de esto es que también es muy simple de utilizar y vamos a ver 2 ejemplos de uso que desde mi punto de vista son “los más usados” uno con los juegos nativos y otro mediante steam.&lt;/p>
+&lt;h3 id="juegos-nativos">Juegos nativos&lt;/h3>
+&lt;p>La mayoría de los juegos nativos podemos ejecutarlos por la terminal, por lo cual como primera instancia bastaría con ejecutarlo por la terminal de la siguiente manera:&lt;/p>
+&lt;pre>&lt;code>gamemoderun supertuxkart
+&lt;/code>&lt;/pre>
+&lt;p>Si concluimos con que queremos tenerlo un poco más “automático” bastará con editar el lanzador del menú y modificar el comando agregandolo el gamemoderun anteriormente. De esta forma vamos a tener el GameMode tambien ejecutandolo desde el menú&lt;/p>
+&lt;h3 id="steam-y-gamemode">Steam y GameMode&lt;/h3>
+&lt;p>Como dije antes para &lt;strong>Steam&lt;/strong> también podemos activarlo y en este caso voy a explicar el paso a paso para evitar errores.&lt;/p>
+&lt;p>Lo primero que debemos hacer es ir a la Biblioteca y buscar el juego al cual queremos optimizar (recordemos que el mismo deberá estar instalado) Una vez que lo encontramos le damos click derecho e ingresamos en las propiedades&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/k5QnDL0X/Screenshot-20200805-091858.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>En esa ventana emergente que nos ejecuto vamos a seleccionar &lt;strong>DEFINIR PARÁMETROS DE LANZAMIENTO&amp;hellip;&lt;/strong> que nos volverá abrir una ventana emergente…&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/3R9YFmrs/Screenshot-20200805-092007.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>En esta ventana vamos a agregar el comando tal cual lo podemos ver en la parte de abajo, es importante que no te olvides de ninguna parte del mismo (en el caso de que ya hayas editado esto es posible mezclar configuraciones)&lt;/p>
+&lt;pre>&lt;code>gamemoderun %command%
+&lt;/code>&lt;/pre>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/9Mcc9J2P/Screenshot-20200805-092039.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Una vez agregado basta con guardarlo y ya podemos iniciar el juego desde steam que va a iniciar con GameMode. (Las imagenes se pueden ver diferentes dado que uso una Skin para Steam)&lt;/p>
+&lt;h2 id="cosas-raras">Cosas raras&lt;/h2>
+&lt;p>A mi al ejecutar el juego se me pega un toque pero despues de unos segundos va “con de todo” por lo cual puedo asumir que tiene que ver con los cambios de configuraciones que realiza el GameMode&lt;/p>
+&lt;p>Ahora contanos vos ¿Lo Usaste? ¿Que te pareció? ¿Notaste una mejora?&lt;/p>
+&lt;hr>
+&lt;p>Recorda &lt;strong>apoyarnos&lt;/strong> en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p></description></item><item><title>Liquorix ¿Que es? ¿Como lo instalo?</title><link>https://patojad.com.ar/post/2020/01/liquorix-que-es-como-lo-instalo/</link><pubDate>Tue, 28 Jan 2020 08:28:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/01/liquorix-que-es-como-lo-instalo/</guid><description>&lt;p>Liquorixes un Kernel que se encuentra modificado (a nivel configuraciones) que nos permite obtener un mejor rendimiento de nuestra dristribucion, suele tener como costo un pequeño aumento en el consumo de energia (en equipos desktops o conectados a la corriente no nos daremos cuenta de esto) que puede afectar a los equipos que dispongan de poca autonomia.&lt;/p>
+&lt;h2 id="características-principales">CARACTERÍSTICAS PRINCIPALES&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>Sintoniza el kernel para la capacidad de respuesta a costa del rendimiento y el uso de energía.&lt;/p>
+&lt;pre>&lt;code> --- Virtual Memory Subsystem ---------------------------
+Mem dirty before bg writeback..: 10 % -&amp;gt; 20 %
+Mem dirty before sync writeback: 20 % -&amp;gt; 50 %
+--- Block Layer ----------------------------------------
+Block Layer Queue Depth........: 128 -&amp;gt; 512
+Default MQ scheduler......: mq-deadline -&amp;gt; bfq
+--- CPU Scheduler (CFS) --------------------------------
+Scheduling latency.............: 6 -&amp;gt; 3 ms
+Minimal granularity............: 0.75 -&amp;gt; 0.3 ms
+Wakeup granularity.............: 1 -&amp;gt; 0.5 ms
+CPU migration cost.............: 0.5 -&amp;gt; 0.25 ms
+Bandwidth slice size...........: 5 -&amp;gt; 3 ms
+--- CPU Scheduler (MuQSS) ------------------------------
+Scheduling interval............: 6 -&amp;gt; 2 ms
+ISO task max realtime use......: 70 % -&amp;gt; 25 %
+&lt;/code>&lt;/pre>
+&lt;/li>
+&lt;li>
+&lt;p>Programador de proceso justo para juegos, multimedia y cargas en tiempo real.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Tiempos de espera de alta resolución para la programación precisa de tareas de baja fluctuación. IRQs y RCU roscados para reducir la fluctuación de fase causada por tics periódicos a 250Hz.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Implementación de RCU para sistemas en tiempo real.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>La preferencia de kernel más agresiva antes de requerir parches en tiempo real. Garantiza un sistema receptivo en escenarios de carga de trabajo mixta de alta intensidad.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Programador de disco adecuado optimizado para uso de escritorio, alto rendimiento/baja latencia.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Control de congestión rápido, maximiza el rendimiento, garantizando velocidades más altas que Cubic.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Las compilaciones binarias se producen para Debian estable, de prueba e inestable. Las compilaciones de Ubuntu están disponibles en el PPA Liquorix el mismo día a las pocas horas de que se publiquen las versiones de Debian.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Configuración de estilo de distribución adecuada que admite la selección más amplia de hardware. Opciones de paravirtualización habilitadas para reducir la sobrecarga en la virtualización.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Número mínimo de opciones de depuración habilitadas para aumentar el rendimiento del kernel.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="instalacion">Instalacion&lt;/h2>
+&lt;p>En esta oportunidad me encuentro usando Deepin como distro base en mi ambito laboral, por lo cual decidi instalarle Liquorix como kernel, para esto mismo genero el tutorial con el proceso de instalacion.&lt;/p>
+&lt;p>Lo primero que debemos hacer es agregar los repositorios de Liquorix a nuestra distro, para eso vamos a usar lo siguiente&lt;/p>
+&lt;h3 id="debian">Debian&lt;/h3>
+&lt;pre>&lt;code>codename=&amp;quot;$(find /etc/apt -type f -name '*.list' | xargs grep -E '^deb' | awk '{print $3}' | grep -Eo '^[a-z]+' | sort | uniq -c | sort -n | tail -n1 | grep -Eo '[a-z]+$')&amp;quot; &amp;amp;&amp;amp; sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install apt-transport-https &amp;amp;&amp;amp; echo -e &amp;quot;deb http://liquorix.net/debian $codename main\ndeb-src http://liquorix.net/debian $codename main\n\n# Mirrors:\n#\n# Unit193 - France\n# deb http://mirror.unit193.net/liquorix $codename main\n# deb-src http://mirror.unit193.net/liquorix $codename main&amp;quot; | sudo tee /etc/apt/sources.list.d/liquorix.list &amp;amp;&amp;amp; curl https://liquorix.net/linux-liquorix.pub | sudo apt-key add - &amp;amp;&amp;amp; sudo apt-get update
+&lt;/code>&lt;/pre>
+&lt;h3 id="deepin">Deepin&lt;/h3>
+&lt;pre>&lt;code>codename=&amp;quot;stable&amp;quot; &amp;amp;&amp;amp; sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install apt-transport-https &amp;amp;&amp;amp; echo -e &amp;quot;deb http://liquorix.net/debian $codename main\ndeb-src http://liquorix.net/debian $codename main\n\n# Mirrors:\n#\n# Unit193 - France\n# deb http://mirror.unit193.net/liquorix $codename main\n# deb-src http://mirror.unit193.net/liquorix $codename main&amp;quot; | sudo tee /etc/apt/sources.list.d/liquorix.list &amp;amp;&amp;amp; curl https://liquorix.net/linux-liquorix.pub | sudo apt-key add - &amp;amp;&amp;amp; sudo apt-get update
+&lt;/code>&lt;/pre>
+&lt;h3 id="ubuntu">Ubuntu&lt;/h3>
+&lt;pre>&lt;code>sudo add-apt-repository ppa:damentz/liquorix &amp;amp;&amp;amp; sudo apt-get update
+&lt;/code>&lt;/pre>
+&lt;p>Una ves que los agregamos y nos aseguramos de tener la distribucion correctamente actualizada procedemos a instalar esta version del kernel
+(Les recomiendo guardar bien el nombre de los binarios por si hay errores poder volverlo atras con facilidad desde las opciones avanzadas)&lt;/p>
+&lt;h3 id="debian-deepin-y-ubuntu">Debian, Deepin y Ubuntu&lt;/h3>
+&lt;pre>&lt;code>sudo apt-get install linux-image-liquorix-amd64 linux-headers-liquorix-amd64
+&lt;/code>&lt;/pre>
+&lt;p>Una ves instalado correctamente solo reiniciamos y ya tenemos el nuevo kernel funcionando&lt;/p></description></item></channel></rss>

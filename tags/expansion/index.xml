@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>expansion on PatoJAD</title><link>https://patojad.com.ar/tags/expansion/</link><description>Recent content in expansion on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Mon, 16 Nov 2020 08:37:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/expansion/index.xml" rel="self" type="application/rss+xml"/><item><title>Control de Expansión</title><link>https://patojad.com.ar/post/2020/11/control-de-expansi%C3%B3n/</link><pubDate>Mon, 16 Nov 2020 08:37:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/11/control-de-expansi%C3%B3n/</guid><description>&lt;p>Ya logramos ver como funcionan las expansiones, sin embargo muchas veces las mismas expansiones nos jugaran en contra y por lo cual lo mejor es aprender a controlarlas.&lt;/p>
+&lt;h2 id="sustitución-de-comandos">Sustitución de comandos&lt;/h2>
+&lt;p>La sustitución de comandos nos permite usar la salida de un comando como una expansión:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="k">$(&lt;/span>ls&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Generando una salida tal como:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">Desktop Documents ls-output.txt Music Pictures Public Templates Videos
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/m2s8v8BZ/Captura-de-pantalla-de-2020-11-16-08-42-15.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>También es posible hacer algo como esto:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ls -l &lt;span class="k">$(&lt;/span>which cp&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">-rwxr-xr-x &lt;span class="m">1&lt;/span> root root &lt;span class="m">71516&lt;/span> 2007-12-05 08:58 /bin/cp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/2872rhSQ/Captura-de-pantalla-de-2020-11-16-08-42-48.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Aquí hemos pasado el resultado de which cp como un argumento para el comando ls, de esta forma obtenemos el listado del programa cp sin tener que saber su ruta completa. No estamos limitados sólo a comandos simples. Se pueden usar tuberías enteras (sólo se muestra una salida parcial)&lt;/p>
+&lt;h2 id="entrecomillado">Entrecomillado&lt;/h2>
+&lt;p>Ahora que hemos visto de cuántas formas el shell puede realizar expansiones, es hora de aprender cómo podemos controlarlas. Tomemos un ejemplo:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> this is a &lt;span class="nb">test&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> The total is &lt;span class="nv">$100&lt;/span>.00
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Generando como salida correspondientemente:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">this is a &lt;span class="nb">test&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">The total is 00.00
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/7ZB9T47b/Captura-de-pantalla-de-2020-11-16-08-44-40.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>En el primer ejemplo, la separación de palabras del shell ha eliminado el espacio en blanco adicional de la lista de argumentos del comando echo. En el segundo ejemplo, la expansión con parámetros sustituyó con una cadena vacía el valor de “$1” porque era una variable indefinida. El shell proporciona un mecanismo llamado quoting (entrecomillado) para suprimir selectivamente expansiones no deseadas.&lt;/p>
+&lt;h2 id="comillas-dobles">Comillas dobles&lt;/h2>
+&lt;p>El primer tipo de entrecomillado que vamos a ver son las comillas dobles. Si colocas un texto dentro de comillas dobles, todos los caracteres especiales utilizados por el shell perderán su significado especial y serán tratados como caracteres ordinarios. Las excepciones son “$”, “\” (barra invertida), y “`” (tilde invertida). Esto significa que la separación de palabras, expansión de nombres de archivo, expansión de la tilde de la ñ y la expansión con llaves están suprimidas, pero la expansión con parámetros, la expansión aritmética y la sustitución de comandos sí que funcionarán. Usando comillas dobles, podemos manejar nombres de archivo que contengan espacios en blanco. Digamos que somos la desafortunada víctima de un archivo llamado two words.txt. Si tratáramos de usarlo en la línea de comandos, la separación de palabras haría que fuera tratado como dos argumentos separados en lugar del único argumento que queremos:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ls -l two words.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ls: cannot access two: No such file or directory
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ls: cannot access words.txt: No such file or directory
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Recuerda, la expansión con parámetros, la expansión aritmética y la sustitución de comandos siguen funcionando dentro de las comillas dobles:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$USER&lt;/span>&lt;span class="s2"> &lt;/span>&lt;span class="k">$((&lt;/span>&lt;span class="m">2&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="m">2&lt;/span>&lt;span class="k">))&lt;/span>&lt;span class="s2"> &lt;/span>&lt;span class="k">$(&lt;/span>cal&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/mgZVDkP0/Captura-de-pantalla-de-2020-11-16-08-44-59.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">me &lt;span class="m">4&lt;/span> February &lt;span class="m">2008&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Su Mo Tu We Th Fr Sa
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="m">1&lt;/span> &lt;span class="m">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="m">3&lt;/span> &lt;span class="m">4&lt;/span> &lt;span class="m">5&lt;/span> &lt;span class="m">6&lt;/span> &lt;span class="m">7&lt;/span> &lt;span class="m">8&lt;/span> &lt;span class="m">9&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">10&lt;/span> &lt;span class="m">11&lt;/span> &lt;span class="m">12&lt;/span> &lt;span class="m">13&lt;/span> &lt;span class="m">14&lt;/span> &lt;span class="m">15&lt;/span> &lt;span class="m">16&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">17&lt;/span> &lt;span class="m">18&lt;/span> &lt;span class="m">19&lt;/span> &lt;span class="m">20&lt;/span> &lt;span class="m">21&lt;/span> &lt;span class="m">22&lt;/span> &lt;span class="m">23&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">24&lt;/span> &lt;span class="m">25&lt;/span> &lt;span class="m">26&lt;/span> &lt;span class="m">27&lt;/span> &lt;span class="m">28&lt;/span> &lt;span class="m">29&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="comillas-simples">Comillas simples&lt;/h2>
+&lt;p>Si necesitamos suprimir todas las expansiones, usamos comillas simples. A continuación vemos una comparación entre sin comillas, comillas dobles y comillas simples:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> text ~/*.txt &lt;span class="o">{&lt;/span>a,b&lt;span class="o">}&lt;/span> &lt;span class="k">$(&lt;/span>&lt;span class="nb">echo&lt;/span> foo&lt;span class="k">)&lt;/span> &lt;span class="k">$((&lt;/span>&lt;span class="m">2&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="m">2&lt;/span>&lt;span class="k">))&lt;/span> &lt;span class="nv">$USER&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;text ~/*.txt {a,b} &lt;/span>&lt;span class="k">$(&lt;/span>&lt;span class="nb">echo&lt;/span> foo&lt;span class="k">)&lt;/span>&lt;span class="s2"> &lt;/span>&lt;span class="k">$((&lt;/span>&lt;span class="m">2&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="m">2&lt;/span>&lt;span class="k">))&lt;/span>&lt;span class="s2"> &lt;/span>&lt;span class="nv">$USER&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;text ~/*.txt {a,b} $(echo foo) $((2+2)) $USER&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Generando como salida correspondientemente&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">text /home/me/ls-output.txt a b foo &lt;span class="m">4&lt;/span> me
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">text ~/*.txt &lt;span class="o">{&lt;/span>a,b&lt;span class="o">}&lt;/span> foo &lt;span class="m">4&lt;/span> me
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">text ~/*.txt &lt;span class="o">{&lt;/span>a,b&lt;span class="o">}&lt;/span> &lt;span class="k">$(&lt;/span>&lt;span class="nb">echo&lt;/span> foo&lt;span class="k">)&lt;/span> &lt;span class="k">$((&lt;/span>&lt;span class="m">2&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="m">2&lt;/span>&lt;span class="k">))&lt;/span> &lt;span class="nv">$USER&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/Dz8grNd6/Captura-de-pantalla-de-2020-11-16-08-46-57.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Como podemos ver, con cada nivel sucesivo de entrecomillado, se van suprimiendo más expansiones.&lt;/p>
+&lt;h2 id="caracteres-de-escape">Caracteres de escape&lt;/h2>
+&lt;p>Algunas veces sólo queremos entrecomillar un único carácter. Para hacerlo, podemos preceder un carácter con una barra invertida, que en este contexto se llama carácter de escape. A menudo se hace dentro de las comillas dobles para prevenir selectivamente una expansión:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;The balance for user &lt;/span>&lt;span class="nv">$USER&lt;/span>&lt;span class="s2"> is: &lt;/span>&lt;span class="nv">$5&lt;/span>&lt;span class="s2">.00&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">The balance &lt;span class="k">for&lt;/span> user me is: &lt;span class="nv">$5&lt;/span>.00
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>También es común usar caracteres de escape para eliminar el significado especial de un carácter en un nombre de archivo. Por ejemplo, es posible usar caracteres en nombres de archivo que normalmente tienen un significado especial para el shell. Esto incluye “$”, “!”, “&amp;amp;”, “ “, y otros. Para incluir un carácter especial en un nombre de archivo puedes hacer esto:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mv bad&lt;span class="se">\&amp;amp;&lt;/span>filename good_filename
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Para permitir que la barra invertida aparezca, la “escapamos” escribiendo “\\”. Fíjate que dentro de las comillas simples, la barra invertida pierde su significado especial y se trata como un carácter ordinario.&lt;/p></description></item><item><title>Expansión con llaves</title><link>https://patojad.com.ar/post/2020/11/expansi%C3%B3n-con-llaves/</link><pubDate>Wed, 11 Nov 2020 08:54:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/11/expansi%C3%B3n-con-llaves/</guid><description>&lt;p>Quizás la expansión más extraña es la llamada &lt;strong>expansión con llaves&lt;/strong>. Con ella, puedes crear múltiples cadenas de texto a partir de un patrón que contenga llaves. Aquí tienes un ejemplo:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> Front-&lt;span class="o">{&lt;/span>A,B,C&lt;span class="o">}&lt;/span>-Back
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Nos daría una salida tal como:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">Front-A-Back Front-B-Back Front-C-Back
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/kgchWZSV/Captura-de-pantalla-de-2020-11-11-08-46-15.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Los patrones a expandir con llaves pueden contener un prefijo llamado preamble (preámbulo) y un sufijo llamado postcript (postdata). La expresión entre llaves puede contener una lista de cadenas separadas por comas o un rango de números enteros o caracteres individuales. El patrón no debe contener espacios en blanco. Aquí hay un ejemplo usando un rango de números enteros:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> Number_&lt;span class="o">{&lt;/span>1..5&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Que imprime la siguiente salida&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">Number_1 Number_2 Number_3 Number_4 Number_5
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/Ls8QDTkx/Captura-de-pantalla-de-2020-11-11-08-46-38.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Los números enteros también pueden tener ceros a la izquierda así:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="o">{&lt;/span>01..15&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="o">{&lt;/span>001..15&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Imprimiendo como salidas respectivamente:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="m">01&lt;/span> &lt;span class="m">02&lt;/span> &lt;span class="m">03&lt;/span> &lt;span class="m">04&lt;/span> &lt;span class="m">05&lt;/span> &lt;span class="m">06&lt;/span> &lt;span class="m">07&lt;/span> &lt;span class="m">08&lt;/span> &lt;span class="m">09&lt;/span> &lt;span class="m">10&lt;/span> &lt;span class="m">11&lt;/span> &lt;span class="m">12&lt;/span> &lt;span class="m">13&lt;/span> &lt;span class="m">14&lt;/span> &lt;span class="m">15&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">001&lt;/span> &lt;span class="m">002&lt;/span> &lt;span class="m">003&lt;/span> &lt;span class="m">004&lt;/span> &lt;span class="m">005&lt;/span> &lt;span class="m">006&lt;/span> &lt;span class="m">007&lt;/span> &lt;span class="m">008&lt;/span> &lt;span class="m">009&lt;/span> &lt;span class="m">010&lt;/span> &lt;span class="m">011&lt;/span> &lt;span class="m">012&lt;/span> &lt;span class="m">013&lt;/span> &lt;span class="m">014&lt;/span> &lt;span class="m">015&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/2yh0yXmS/Captura-de-pantalla-de-2020-11-11-08-47-42.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Un rango de letras en orden inverso:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="o">{&lt;/span>Z..A&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Mostrando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">Z Y X W V U T S R Q P O N M L K J I H G F E D C B A
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/qRtbVv5n/Captura-de-pantalla-de-2020-11-11-08-47-59.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Las expansiones con llaves pueden ser anidadas:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> a&lt;span class="o">{&lt;/span>A&lt;span class="o">{&lt;/span>1,2&lt;span class="o">}&lt;/span>,B&lt;span class="o">{&lt;/span>3,4&lt;span class="o">}}&lt;/span>b
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Lo que daría una salida tal como:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">aA1b aA2b aB3b aB4b
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/Bv7YVKM4/Captura-de-pantalla-de-2020-11-11-08-48-14.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>¿Y para qué sirve esto? La aplicación más común es hacer listas de archivos o directorios a crear. Por ejemplo, si fuésemos fotógrafos con una gran colección de imágenes que queremos organizar en años y meses, la primera cosa que deberíamos hacer es crear una serie de directorios nombrados en formato numérico “Año-Mes”. De esta forma, los directorios se ordenarán cronológicamente. Podríamos escribir la lista completa de directorios, pero sería un montón de trabajo y sería muy fácil equivocarnos. En lugar de eso, podríamos hacer esto:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mkdir Fotos
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> Fotos
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkdir &lt;span class="o">{&lt;/span>2007..2009&lt;span class="o">}&lt;/span>-&lt;span class="o">{&lt;/span>01..12&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ls
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Nos mostraría lo siguiente:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">2007-01 2007-07 2008-01 2008-07 2009-01 2009-07
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2007-02 2007-08 2008-02 2008-08 2009-02 2009-08
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2007-03 2007-09 2008-03 2008-09 2009-03 2009-09
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2007-04 2007-10 2008-04 2008-10 2009-04 2009-10
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2007-05 2007-11 2008-05 2008-11 2009-05 2009-11
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2007-06 2007-12 2008-06 2008-12 2009-06 2009-12
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/gJfMYbC7/Captura-de-pantalla-de-2020-11-11-08-49-23.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p></description></item><item><title>Expansión</title><link>https://patojad.com.ar/post/2020/11/expansi%C3%B3n/</link><pubDate>Mon, 09 Nov 2020 10:12:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/11/expansi%C3%B3n/</guid><description>&lt;p>Cada vez que escribes un comando y presionas la tecla enter, bash realiza varios procesos sobre el texto antes de llevar a cabo el comando. Hemos visto un par de casos de cómo una simple secuencia de caracteres, por ejemplo “*”, puede tener mucho significado para el shell. El proceso que hace que esto ocurra se llama expansión. Con la expansión, introduces algo y se expande en otra cosa antes de que el shell actúe sobre ello. Para demostrar qué queremos decir con esto, echemos un vistazo al comando echo. echo es un shell builtin que realiza una tarea muy simple. Muestra sus argumentos de texto en la salida estándar:&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/QMJHF4VH/Captura-de-pantalla-de-2020-11-09-09-57-43.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;pre>&lt;code>echo PatoJAD el mejor Blog
+&lt;/code>&lt;/pre>
+&lt;p>Veremos una salida tal como:&lt;/p>
+&lt;pre>&lt;code>PatoJAD el mejor Blog
+&lt;/code>&lt;/pre>
+&lt;p>Es muy sencillo. Cualquier argumento que pasemos a echo se muestra. Probemos otro ejemplo:&lt;/p>
+&lt;pre>&lt;code>echo *
+&lt;/code>&lt;/pre>
+&lt;p>Muestra una salida como:&lt;/p>
+&lt;pre>&lt;code>Desktop Documents ls-output.txt Music Pictures Public Templates Videos
+&lt;/code>&lt;/pre>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/V67vRJqw/Captura-de-pantalla-de-2020-11-09-09-58-46.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Pero, ¿qué ha pasado? ¿por qué echo no ha escrito “*”? Como recordarás de nuestro trabajo con comodines, el carácter “*” significa coincidencia con cualquier carácter en el nombre de archivo, pero lo que no hemos visto en nuestra conversación original es cómo hace eso el shell. La respuesta sencilla es que el shell expande el “*” en algo más (en este ejemplo, los nombres de los archivos que se encuentran en el directorio de trabajo actual) antes de que el comando echo se ejecute. Cuando presionamos la tecla enter, el shell automáticamente expande todos los caracteres en la línea de comandos antes de que el comando sea ejecutado, por lo que el comando echo no ve el “*”, sólo su resultado expandido. Sabiendo esto, podemos ver que echo se ha comportado como se esperaba.&lt;/p>
+&lt;h2 id="expansión-de-nombres-de-archivo">Expansión de nombres de archivo&lt;/h2>
+&lt;p>El mecanismo según el cual trabajan los comodines se llama expansión de nombres de archivo. Si probamos algunas de las técnicas que hemos empleado en nuestros capítulos anteriores, veremos que son realmente expansiones. Tomemos un directorio home que aparezca de la siguiente forma:&lt;/p>
+&lt;pre>&lt;code>ls
+Desktop ls-output.txt Pictures Templates
+Documents Music Public Videos
+&lt;/code>&lt;/pre>
+&lt;p>podríamos llevar a cabo las siguientes expansiones:&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/nrCzwn2D/Captura-de-pantalla-de-2020-11-09-09-59-49.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;pre>&lt;code>echo D*
+Desktop Documents
+&lt;/code>&lt;/pre>
+&lt;p>y:&lt;/p>
+&lt;pre>&lt;code>echo *s
+Documents Pictures Templates Videos
+&lt;/code>&lt;/pre>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/XJNXdfyx/Captura-de-pantalla-de-2020-11-09-10-00-11.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;h2 id="expansión-de-nombres-de-archivos-ocultos">Expansión de nombres de archivos ocultos&lt;/h2>
+&lt;p>Como sabemos, los nombres de archivo que empiezan por un punto están ocultos. La expansión de nombres de archivo también respeta este comportamiento. Una expansión como:&lt;/p>
+&lt;pre>&lt;code>echo *
+&lt;/code>&lt;/pre>
+&lt;p>no revela los archivos ocultos. Podría parecer a primera vista que podríamos incluir archivos ocultos en una expansión comenzando el patrón con un punto, así:&lt;/p>
+&lt;pre>&lt;code>echo .*
+&lt;/code>&lt;/pre>
+&lt;p>Casi funciona. De todas formas, si examinamos los resultados atentamente, veremos que los nombres “.” y “..” también aparecen en los resultados. Como estos nombres se refieren al directorio actual y su directorio padre, usar este patrón probablemente producirá un resultado incorrecto. Podemos verlo si probamos el comando:&lt;/p>
+&lt;pre>&lt;code>ls -d .* | less
+&lt;/code>&lt;/pre>
+&lt;p>Para ejecutar mejor una expansión de nombres de archivo en esta situación, tenemos que emplear un patrón más específico:&lt;/p>
+&lt;pre>&lt;code>echo .[!.]*
+&lt;/code>&lt;/pre>
+&lt;p>Este patrón se expande en todos los nombres de archivo que empiecen con un punto, no incluye un segundo punto, seguido de cualquier otro carácter. Esto funcionará correctamente con la mayoría de archivos ocultos (aunque no incluirá archivos con varios puntos al comienzo de su nombre). El comando ls con la opción -A (“almost all” o “casi todo”) proporcionará un listado correcto de los archivos ocultos:&lt;/p>
+&lt;pre>&lt;code>ls -A
+&lt;/code>&lt;/pre>
+&lt;h2 id="expansión-aritmética">Expansión aritmética&lt;/h2>
+&lt;p>El shell permite realizar aritmética mediante la expansión. Esto nos permite usar el prompt del shell como una calculadora:&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/MHNGCg3r/Captura-de-pantalla-de-2020-11-09-10-00-41.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;pre>&lt;code>echo $((2 + 2))
+4
+&lt;/code>&lt;/pre>
+&lt;p>La expansión aritmética usa la forma:&lt;/p>
+&lt;pre>&lt;code>$((expresión))
+&lt;/code>&lt;/pre>
+&lt;p>Donde &lt;em>expresión&lt;/em> es una expresión aritmética consistente en valores y operadores aritméticos. La expansión aritmética sólo soporta enteros (números enteros sin decimales), pero puede realizar un buen número de operaciones diferentes.&lt;/p>
+&lt;hr>
+&lt;p>Recorda &lt;strong>apoyarnos&lt;/strong> en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p></description></item></channel></rss>

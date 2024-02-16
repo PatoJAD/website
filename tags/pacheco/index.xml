@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>pacheco on PatoJAD</title><link>https://patojad.com.ar/tags/pacheco/</link><description>Recent content in pacheco on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Thu, 26 Nov 2020 08:22:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/pacheco/index.xml" rel="self" type="application/rss+xml"/><item><title>Vulnerability Research</title><link>https://patojad.com.ar/post/2020/11/vulnerability-research/</link><pubDate>Thu, 26 Nov 2020 08:22:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/11/vulnerability-research/</guid><description>&lt;p>Antes de arrancar vamos a ir con 2 definiciones que podríamos decir que son &lt;em>de manual&lt;/em> pero nos permitirán de acá en adelante saber de qué estamos hablando.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Vulnerabilidades:&lt;/strong> La entendemos como una ausencia de un control o una falla o debilidad en un control.&lt;/li>
+&lt;li>&lt;strong>Exploit:&lt;/strong> Es un software que tiene la capacidad de explotar una Vulnerabilidad. Entendemos que un exploit explota solo una vulnerabilidad.&lt;/li>
+&lt;/ul>
+&lt;h2 id="entre-lo-bueno-y-lo-malo">Entre lo bueno y lo malo&lt;/h2>
+&lt;p>Cada exploit existente o cada app que es utilizada para realizar pruebas de seguridad está disponible para quien la quiera usar. Indiferentemente de si sos un Hacker Chino (y cuando hablamos de hacker lo hacemos de verdad no de gente que usa Kali para lo cual te recomiendo leer &lt;a href="https://patojad.com.ar/posts/2020/09/que-es-un-hacker/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+¿qué es un hacker?
+&lt;/a>), un empleado de seguridad defensiva, o un ciberdelincuente de la DeepWeb. Lo cual hace que el trabajo, al ser mayormente colaborativo, se vea reflejado para todos los “bandos”.&lt;/p>
+&lt;h2 id="qué-es-vulnerability-research">¿Qué es Vulnerability Research?&lt;/h2>
+&lt;p>Usar una traducción literal acá nos alejaría del significado real. Básicamente Vulnerability Research es la búsqueda (o también llamado investigación) de vulnerabilidades. Estas búsquedas suelen extenderse mucho más allá de lo que nosotros creemos. Se suelen hacer en:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Software:&lt;/strong> Aplicaciones, programas de uso diario, etc.&lt;/li>
+&lt;li>&lt;strong>Dispositivos:&lt;/strong> Celulares, computadores, routers, etc.&lt;/li>
+&lt;li>&lt;strong>Procesos:&lt;/strong> Esto se ve mayormente en empresas, aceptación de pagos, o formas de verificar, etc.&lt;/li>
+&lt;li>&lt;strong>Entornos Físicos:&lt;/strong> Alarmas, cerraduras electrónicas, una puerta que no cierre bien, etc.&lt;/li>
+&lt;/ul>
+&lt;p>Y más allá de estos tipos de vulnerabilidades que debemos investigar existe una forma de clasificarlos y estas formas son:&lt;/p>
+&lt;ul>
+&lt;li>Explotabilidad&lt;/li>
+&lt;li>Impacto&lt;/li>
+&lt;/ul>
+&lt;p>Veremos más adelante en profundidad estos dos tipos. Lo interesante de Vulnerability Research es que más allá de las conocidas que podemos encontrar en los exploit o en las listas, al encontrar nuevas vulnerabilidades marcan hacia donde moverse la industria en el dia a dia.&lt;/p>
+&lt;h2 id="quienes-hacen-esto">¿Quienes hacen esto?&lt;/h2>
+&lt;p>Claramente los profesionales no son los únicos que se dedican a esto. Existen muchas personas independientes o entusiastas que se dedican a esto por diversos motivos, los cuales pueden ser, diversión, curiosidad, dinero, autosuperación, etc. Muchas herramientas son libre, gratuitas o estan a disponibilidad de todos. Por ejemplo podemos encontrar:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Kali Linux:&lt;/strong> Una distro basada en Debian que busca posicionarse como la más importante en seguridad, desde mi punto de vista es que su comunidad está llena de gente que se cree hacker por usar &lt;code>nmap&lt;/code> o &lt;code>airodump-ng&lt;/code>&lt;/li>
+&lt;li>&lt;strong>ReadOS:&lt;/strong> Una distro basada en Arch que contiene todo lo necesario para iniciarnos en el mundo de la seguridad informática&lt;/li>
+&lt;/ul>
+&lt;h2 id="ciclo-de-vida-de-una-vulnerabilidad">Ciclo de vida de una Vulnerabilidad&lt;/h2>
+&lt;p>Las vulnerabilidades tienen un ciclo de vida &lt;em>definido&lt;/em> en cuanto a proceso o método, sin embargo el tiempo en que cada etapa existe es completamente diferente en cada caso y así mismo su resolución final.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Aplicación liberada al mercado:&lt;/strong> Si bien decimos &lt;em>la aplicación&lt;/em> puede deberse a un producto (hardware, como los populares intel que les encanta tener vulnerabilidades) y no necesariamente es durante el lanzamiento puede estar relacionado también a una actualización.&lt;/li>
+&lt;li>&lt;strong>Descubrimiento de vulnerabilidad:&lt;/strong> El descubrimiento puede darse por parte de la misma empresa o por un tercero. Si bien muchas veces es público, algunas veces deciden mantener el exploit en privado.&lt;/li>
+&lt;li>&lt;strong>Conocimiento del fabricante:&lt;/strong> En caso de que no lo haya descubierto el mismo fabricante, esta etapa lleva un tiempo adicional que está relacionado a cuánto tarda en enterarse de dicha vulnerabilidad.&lt;/li>
+&lt;li>&lt;strong>Liberación de la solución:&lt;/strong> La solución está desarrollada y liberada&lt;/li>
+&lt;li>&lt;strong>Gestión de la actualización:&lt;/strong> Se gestiona y distribuye la actualización con el parche correspondiente.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>Recorda &lt;strong>apoyarnos&lt;/strong> en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p></description></item><item><title>7 errores comunes de ciberseguridad</title><link>https://patojad.com.ar/post/2020/10/7-errores-comunes-de-ciberseguridad/</link><pubDate>Fri, 30 Oct 2020 10:44:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/10/7-errores-comunes-de-ciberseguridad/</guid><description>&lt;p>Como es de “común conocimiento” siempre una cadena se rompe por el eslabón más débil. En pleno siglo XXI la tecnología avanza a grandes pasos y cada vez el usuario es este eslabón fácil de romper. Una de las propuestas de este blog es intentar mejorar el día a día de sus lectores, ya sean recurrentes o casuales. Y muchas veces esto lo hacemos, como en este caso, replicando información realmente útil. Por lo cual hoy vamos a compartir información brindada por &lt;strong>CSIRT-CV&lt;/strong> de España. Sin más preámbulo veamos estos 7 errores comunes que debemos evitar.&lt;/p>
+&lt;h2 id="error-1-tienes-la-misma-contraseña-para-todas-tus-cuentas">ERROR 1: ¿Tienes la misma contraseña para todas tus cuentas?&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://www.lavanguardia.com/r/GODO/LV/p6/WebSite/2019/06/04/Recortada/img_ppons_20190604-103420_imagenes_lv_colaboradores_istock-921526892-kWCH-U462671425033IgG-992x558@LaVanguardia-Web.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;blockquote>
+&lt;p>Usar la misma contraseña para acceder a tus redes sociales y a tu cuenta de banco no es una buena idea. Serás un blanco muy fácil para cualquier ciberdelincuente o persona malintencionada con la que te cruces en la Red.&lt;/p>
+&lt;/blockquote>
+&lt;p>Acá es donde todos dicen “Pero Pato, con suerte me acuerdo la fecha de mi cumpleaños como voy a manejar todas estas contraseñas” Bueno yo pensaba exactamente lo mismo y si bien la respuesta es fácil me la tuvo que decir un grande de la seguridad informática para que comience a aplicar esta maravilla. &lt;strong>Usa un gestor de contraseñas&lt;/strong> solo vas a tener que acordarte 1 contraseña y ahí adentro el programa solo se va a acordar de todas las demás…&lt;/p>
+&lt;h2 id="error-2-te-conectas-a-redes-wifi-públicas">ERROR 2: ¿Te conectas a redes WIFI públicas?&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://jefflovesjessica.com/images/best-vpn-for-public-wifi-hotspots.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;blockquote>
+&lt;p>Evita conectarte a redes WIFI públicas, sobre todo, si vas a realizar operaciones bancarias. En estas redes abiertas, cualquier ciberdelincuente podría estar espiando la red y robarte contraseñas tan importantes como la de acceso a tu cuenta bancaria.&lt;/p>
+&lt;p>Si aún así lo haces, fíjate que sea siempre a través de HTTPS (busca el candado cerrado) para que la información vaya cifrada.&lt;/p>
+&lt;p>Ya lo sabes, la próxima vez, antes de engancharte a un wifi público, piénsatelo dos veces.&lt;/p>
+&lt;/blockquote>
+&lt;p>Entonces después de leer esto vos me decis “Pato los datos no son gratis y hay muchas redes abiertas que dan diferentes instituciones” Bueno yo hable anteriormente de la importancia de los datos. El uso de redes abiertas deberíamos hacerlo teniendo en cuenta el cifrado de las aplicaciones que usemos, o la baja importancia de un dato (No me molesta que me roben un meme, pero si me molesta que me roben el texto plano con mis futuras publicaciones, si existiera)&lt;/p>
+&lt;h2 id="error-3-usas-contraseñas-inseguras">ERROR 3: ¿Usas contraseñas inseguras?&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://www.pandasecurity.com/es/mediacenter/src/uploads/2016/11/pandasecurity-gestor-contrase%C3%B1as-1024x683.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;blockquote>
+&lt;p>Parece increíble que una de las contraseñas más frecuentes siga siendo 123456. Es un error muy habitual utilizar nombre y año de nacimiento e incluso el nombre de una mascota.&lt;/p>
+&lt;p>Una contraseña robusta tiene que tener 8 o más caracteres, mayúsculas y minúsculas, signos de puntuación y caracteres especiales (%, $, &amp;amp;,…) y sobre todo, cámbialas periódicamente y así tus cuentas estarán siempre seguras.&lt;/p>
+&lt;p>No se lo pongas fácil a los ciberdelincuentes.&lt;/p>
+&lt;/blockquote>
+&lt;p>“Pato, otra vez con esto, no me voy a acordar de esas contraseñas” Si estás pensando eso te recomiendo releer el error 1, acordate que solo 1 contraseña (Una que debería ser bastante compleja como T0d05!L05_D145@L330_3l_Bl0G@P4t0J4D) y todas las demás pueden ser hashes o cosas raras que tu gestor de contraseñas pueden guardarlas tranquilamente.&lt;/p>
+&lt;h2 id="error-4-cuidado-con-los-adjuntos-que-recibes-por-email">ERROR 4: ¡Cuidado con los adjuntos que recibes por email!&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://blog.ida.cl/wp-content/uploads/sites/5/2019/05/email_internet-655x470.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;blockquote>
+&lt;p>Si recibes un fichero adjunto desde una cuenta desconocida ¡no lo abras nunca! Probablemente sea malicioso.&lt;/p>
+&lt;p>Si te lo envía un conocido pero te parece “extraño”, consúltale antes de abrirlo. ¡No seas víctima del phishing!&lt;/p>
+&lt;/blockquote>
+&lt;p>Hoy en día no somos muchos quienes seguimos usando el email activamente (La mayoría solo tiene uno porque es requisito para registrarse) Pero aun así muchos caen en estas trampas que apelan al apuro y al poco recaudo de las personas. Tomate un tiempo y chequea las cosas solo eso basta…&lt;/p>
+&lt;h2 id="error-5-denuncia-si-eres-víctima-de-un-ciberdelito">ERROR 5: ¡Denuncia si eres víctima de un ciberdelito!&lt;/h2>
+&lt;p>![](&lt;a href="https://i1.wp.com/aldiaargentina.microjuris.com/wp-content/uploads/2020/06/shutterstock_1354181000-1.jpg?fit=800%2C421&amp;amp;ssl=1%22" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://i1.wp.com/aldiaargentina.microjuris.com/wp-content/uploads/2020/06/shutterstock_1354181000-1.jpg?fit=800%2C421&amp;ssl=1"
+&lt;/a> &amp;gt;}}&lt;/p>
+&lt;blockquote>
+&lt;p>No pienses que no se puede hacer nada. Si han suplantado tu identidad en Redes Sociales, denúncialo cuanto antes.&lt;/p>
+&lt;p>Tampoco pagues el rescate a los secuestradores para recuperar tu información si eres víctima de un ransomware, DENÚNCIALO. ¡No lo olvides!&lt;/p>
+&lt;/blockquote>
+&lt;p>Parece que no, pero es realmente denunciar esto, o hacer denuncias masivas impulsadas por la comunidad (Sólo en casos reales) Para no dejar impune a estos delincuentes&lt;/p>
+&lt;h2 id="error-6-recuerda-mantener-la-privacidad">ERROR 6: ¡Recuerda mantener la privacidad!&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://www.consolidatedcredit.org/es/wp-content/uploads/2019/02/Fotolia_180085577_Subscription_Monthly_M-Privacidad-de-Datos.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;blockquote>
+&lt;p>Un error muy común es no ser cuidadosos con la información que manejamos en nuestro lugar de trabajo y es algo que te puede traer consecuencias nefastas en cualquier carrera profesional.&lt;/p>
+&lt;p>Toma ciertas precauciones como cerrar siempre todas las sesiones de tus cuentas de redes sociales o de cualquier otro servicio y si te ausentas un momento, recuerda bloquear siempre tu equipo.&lt;/p>
+&lt;/blockquote>
+&lt;p>Creo que es algo que todos sabemos pero nunca está de más repetirlo (Nunca está demás repetirlo). No hay mucho para agregar dado que es muy claro con lo que dice.&lt;/p>
+&lt;h2 id="error-7-contraseñas-por-defecto">ERROR 7: ¿Contraseñas por defecto?&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://aurora.com.gt/wp-content/uploads/2015/06/ip-router-nexxt-aurora.com_.gt_.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;blockquote>
+&lt;p>¿Has cambiado la contraseña que viene por defecto en el router de tu casa o negocio?&lt;/p>
+&lt;p>Si la respuesta es no, cámbiala lo antes posible y te ahorrarás muchos quebraderos de cabeza en el caso de que ciberdelincuentes consigan acceder a la información de la compañía a la que pertenece tu dispositivo.&lt;/p>
+&lt;p>Además, recuerda mantener siempre actualizado su firmware. Tanto el cambio de contraseña como la actualización del firmware lo deberías hacer en cualquier dispositivo IoT que tengas en casa.&lt;/p>
+&lt;/blockquote>
+&lt;p>No sé si es peor que esto siga pasando o que también pase en grandes empresas… Esta clase de cosas puede hacer que nuestro wifi quede inaccesible lo cual es realmente molesto… Siempre se deben cambiar las contraseñas por defecto (Se los digo yo que deje la contraseña del wifi que venía en el equipo)&lt;/p>
+&lt;hr>
+&lt;p>Recorda &lt;strong>apoyarnos&lt;/strong> en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p></description></item><item><title>¿Antivirus?¿Es Necesario? Rectificación</title><link>https://patojad.com.ar/post/2020/09/antiviruses-necesario-rectificaci%C3%B3n/</link><pubDate>Wed, 30 Sep 2020 09:40:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/09/antiviruses-necesario-rectificaci%C3%B3n/</guid><description>&lt;p>Con anterioridad hablamos ya sobre este &lt;a href="https://patojad.com.ar/posts/2019/01/antivirus-en-linux/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+tema en esta publicación
+&lt;/a>, la cual te recomiendo leer de antemano para comprender un poco la rectificación que quiero realizar sobre dicho tema.&lt;/p>
+&lt;p>Sin embargo, como ya veremos, esta publicación les faltaban marcar algunos detalles que desde mi punto son realmente importantes, por lo cual creo que es correcto que cuando una persona se equivoca intente enmendar su error y esta es una forma de hacerlo.&lt;/p>
+&lt;h2 id="el-video">El video&lt;/h2>
+&lt;p>En esta oportunidad voy a utilizar un video para poder abarcar el tema de la necesidad de los antivirus, espero que te guste el video y te diviertas como yo me divertí mientras lo hacía&amp;hellip;&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/bB3Nt5HFMCA?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;p>Como podemos ver este video toca algunos temas más a los que quería hacer mención en la parte escrita también&lt;/p>
+&lt;h2 id="disculpas">Disculpas&lt;/h2>
+&lt;p>Más allá de los errores técnicos que pueda llegar a cometer que estimo que serán muchos más que cometeré en este camino de aprendizaje también existen errores meramente humanos, donde seguramente dominado por algún sentimiento actuó de una forma u otra.&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://www.infosol.com.mx/wordpress/wp-content/uploads/disculpas-publicas-efectivas-1.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Siento que es preciso pedir perdón a &lt;strong>Pedro Crespo&lt;/strong> de una forma pública porque, más allá de que yo piense una cosa, no fue la mejor forma de afrontarlo y decirlo, puedo entender que se haya enojado con los videos anteriores o incluso se haya sentido mal, así que si lo estas leyendo, ¡Disculpa por los modos! todos estamos en constante aprendizaje y este es uno más&amp;hellip;&lt;/p></description></item><item><title>¿Que es un Hacker?</title><link>https://patojad.com.ar/post/2020/09/que-es-un-hacker/</link><pubDate>Fri, 18 Sep 2020 12:12:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/09/que-es-un-hacker/</guid><description>&lt;p>La palabra Hacker es muy utilizada y mal implementada en estos días, es algo que se usa para todo y que cualquiera se adjudica para ganar un poco de “fama”. El tema es ¿Cuántos realmente saben lo que significan esto?&lt;/p>
+&lt;h2 id="de-dónde-viene">¿De dónde viene?&lt;/h2>
+&lt;p>Más allá de las miles de historia que uno pueda encontrar rondando por internet es preciso ir a los primeros lugares donde se puede evidenciar. Esta palabra se comenzó a utilizar por el MIT dentro del ámbito de la telefonía.&lt;/p>
+&lt;p>![](&lt;a href="https://hopp.typepad.com/.a/6a00e553da444b8834019aff6e7bbe970d-pi%22" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://hopp.typepad.com/.a/6a00e553da444b8834019aff6e7bbe970d-pi"
+&lt;/a> &amp;gt;}}&lt;/p>
+&lt;p>Luego de esto se comenzó a utilizar mucho más y fue “expandiendo” su significado hasta el punto donde ahora se desconoce en gran mayoría.&lt;/p>
+&lt;h2 id="que-no-es-un-hacker">¿Que &lt;strong>no&lt;/strong> es un hacker?&lt;/h2>
+&lt;p>Una forma de saber que es algo es sabiendo que no es… Esta información suele ser, en algunos casos, más útil y clara que una definición. En este caso voy a listar un grupo de “personas” que son mal llamadas hackers:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Programadores&lt;/strong> es común que a los programadores se les diga hackers (y hay algunos que lo son) pero esto no tiene punto de relación, un programador no es un hacker más allá de que sepa un poco de seguridad.&lt;/li>
+&lt;li>&lt;strong>Profesional de Seguridad&lt;/strong> En este caso es más difícil diferenciar pero hay que entender que no porque una persona sea un profesional de la seguridad se convierte en hacker, existen muchos que por más que trabajan en seguridad ofensiva no son hackers.&lt;/li>
+&lt;li>&lt;strong>Persona que se le ocurrió algo ingenioso&lt;/strong> Muchas veces creen que esos que le encuentran la vuelta a algo pareciendo estar por encima del promedio no necesariamente son hackers.&lt;/li>
+&lt;li>&lt;strong>Ciberdelincuentes&lt;/strong> Este es el común error de todos “un hacker obtuvo fotos íntimas de x celebridad” Estas personas no solo no son hackers sino que son todo lo contrario.&lt;/li>
+&lt;/ul>
+&lt;h2 id="a-la-rae-le-falta-cultura">A la &lt;strong>RAE&lt;/strong> le falta cultura&lt;/h2>
+&lt;p>Si bien hoy ya no lo vamos a encontrar así la RAE en algún momento definió a los Hackers como “piratas informáticos”. Sin embargo hoy en día luego de mucho debate la RAE todo una definición un poco más acercada:&lt;/p>
+&lt;blockquote>
+&lt;p>Persona con grandes conocimientos de informática que se dedica a detectar fallos de seguridad en sistemas informáticos.&lt;/p>
+&lt;/blockquote>
+&lt;p>Si bien es muy acertada puede tener un gran problema de aceptación en algunos puntos. Sin embargo hoy va virando constantemente.&lt;/p>
+&lt;h2 id="algunos-hackers-famosos">Algunos Hackers famosos&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Linus Tolvad&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>John Draper&lt;/strong> también conocido como Captain Crunch&lt;/li>
+&lt;li>&lt;strong>John Harris&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Richard Stallman&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h2 id="puntos-en-común">Puntos en Común&lt;/h2>
+&lt;p>Si bien existen muchísimos más de los que yo puse en este ejemplo vamos a ir viendo algunos puntos en común entre estos y los otros Hackers que bien ganado tienen el título.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Gran curiosidad&lt;/strong> Todos buscaban entender cómo funcionaban las cosas. Y siempre buscaron solucionar los problemas con lo que tenían a disposición.&lt;/li>
+&lt;li>&lt;strong>Gran Determinación&lt;/strong> Sus hazañas llevaron mucho tiempo y una gran determinación para llegar hasta donde están.&lt;/li>
+&lt;li>&lt;strong>Gran conocimiento&lt;/strong> Esto es más que obvio, se genera un gran conocimiento en algo específico con un gran nivel de dominio de este tema.&lt;/li>
+&lt;/ul>
+&lt;h2 id="filosofía-hacker">Filosofía Hacker&lt;/h2>
+&lt;p>La filosofía hacker tiene unos pilares que rápidamente nos ayudan a comprender y diferenciar entre quienes lo son y quienes no. &lt;strong>Aprender&lt;/strong> es siempre la meta del Hacker, busca un constante aprendizaje y perfeccionamiento. &lt;strong>Compartir&lt;/strong> Los hackers no solo buscan aprender sino que también comparten lo que descubren y/o aprenden con el mundo. Y claramente esto se apoya en la &lt;strong>libertad&lt;/strong> (libertad de acción, el conocimiento libre, etc.)&lt;/p>
+&lt;h2 id="te-lo-explican-mejor">Te lo explican mejor!!&lt;/h2>
+&lt;p>Te dejo un video de la UTN donde un profesor explica mejor estos temas. Es importante entender que es un profesional y sabe de lo que habla.&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/f9f4GpHJCIM?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div></description></item><item><title>Evaluaciones de Seguridad</title><link>https://patojad.com.ar/post/2020/09/evaluaciones-de-seguridad/</link><pubDate>Sat, 12 Sep 2020 09:24:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/09/evaluaciones-de-seguridad/</guid><description>&lt;p>&lt;strong>ATENCION: Antes de seguir te recomiendo que te pases por la &lt;a href="https://patojad.com.ar/post/2020/09/que-es-la-seguridad-inform%c3%a1tica/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+siguiente pulbicacion
+&lt;/a> dado que damos esto por entendido&lt;/strong>&lt;/p>
+&lt;p>Las evaluaciones de seguridad deben tener una periodicidad regular que permite mantener una correlación de la los datos en los cuales se puedan obtener resultados, por ejemplo aquellas personas que sacan fotos todos los meses a sus bebés para luego ver el crecimiento… De nada serviría tener una foto de un dia, la otra del otro dia y la otra dentro de 10 años. Para poder ver correctamente el crecimiento debemos mantener un periodo regular de imágenes.&lt;/p>
+&lt;h2 id="motivación">Motivación&lt;/h2>
+&lt;p>Este tipo de regulación se da gracias a una “motivación” que técnicamente suelen ser homologaciones, normas, o puede ser mantener la seguridad de nuestros sistemas. Esto podemos compararlo con la motivación de las personas que buscan ver su cuerpo “esbelto” y para esto todas las semanas se pesan o se sacan fotos para poder ver el cambio. Las principales motivaciones dentro de la seguridad son:&lt;/p>
+&lt;ul>
+&lt;li>Cumplimiento de leyes, normas, etc.&lt;/li>
+&lt;li>Obtencion de Informacion para la gestión de seguridad&lt;/li>
+&lt;li>Identificación de &lt;strong>riesgos de negocio&lt;/strong>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="conocimiento-sobre-el-objetivo">Conocimiento sobre el Objetivo&lt;/h2>
+&lt;p>El conocimiento sobre el objetivo es realmente importante y podemos dividirlo en 3 tipos: Black Box (Sin conocimiento), Grey Box (Algunos conocimientos) y White Box (Con un conocimiento completo). Por ejemplo, un White Box es analizar el código fuente (Dado que al tenerlo tenemos todo el conocimiento) Y un ejemplo de Black Box es buscar vulnerabilidades de una empresa X que no conocemos de nada.&lt;/p>
+&lt;p>También Influye el conocimiento de la empresa que nos piden evaluar, dado que si la empresa sabe que vamos a evaluarla podría duplicar o triplicar la gente esperando un ataque lo cual no daría valores normales. Esto también podemos dividirlo en 3 tipos Double blind (Cuando no son notificados de lo que va a ocurrir), Blind (Cuando saben la fecha pero no que va a pasar o viseversa) o Transparent (Cuando saben que va a pasar y cuando)&lt;/p>
+&lt;h2 id="ámbito-de-aplicación-de-las-evaluaciones">Ámbito de aplicación de las evaluaciones.&lt;/h2>
+&lt;p>En esta oportunidad vamos a ver en que ámbitos podemos aplicarlo (Esto puede ir variando pero tenemos que tener una estructura para poder organizarlo mejor)&lt;/p>
+&lt;h3 id="sistemas-y-redes">Sistemas y redes&lt;/h3>
+&lt;p>Dentro de este ámbito podemos analizar diferentes cosas:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Análisis de vulnerabilidades:&lt;/strong> En este caso solo identificamos vulnerabilidades “conocidas” en un software conocido. Suele ser fácil de automatizar. Y existen diferentes áreas: Sobre SO, Apps o configuraciones.&lt;/li>
+&lt;li>&lt;strong>Penetration Test:&lt;/strong> También conocido como Ethical Hacking (Aunque pueden llegar a encontrarse diferencias a terminos practicos es similar) A diferencia del análisis acá estamos induciendo la penetración para lograr el objetivo incluyendo diferentes formas de ataques. Esta área no es netamente técnica, aquí podemos analizar vulnerabilidades que se generan por las personas, por ejemplo, el mal uso de datos. Para llevarse a cabo requiere el uso de una metodología, por lo cual se lleva a cabo por Pentesters o Ethical Hackers.&lt;/li>
+&lt;li>&lt;strong>Auditoría de Seguridad:&lt;/strong> La auditoría se diferencia principalmente porque no es ofensiva como las otras. Estas auditorías pueden referirse también a procesos, sistemas o productos. Y suele estar basado en guías, checklist, entre otras cosas.&lt;/li>
+&lt;li>&lt;strong>Análisis de Infraestructura:&lt;/strong> Estos análisis son exclusivos de Redes: protocolos, dispositivos y servicios. Suele hacerse sobre vulnerabilidades conocidas.&lt;/li>
+&lt;li>&lt;strong>Test de plataformas específicas:&lt;/strong> Estos análisis suelen ser de plataformas que utilizan las empresas donde los errores suelen estar en configuraciones, niveles de permisos, errores de implementación entre muchos otros temas. Esta área abarcar estos sistemas tan grandes&lt;/li>
+&lt;/ul>
+&lt;h3 id="software">Software&lt;/h3>
+&lt;p>Dentro de Software vamos a mostrar los 3 tipos que vamos a discriminar en esta oportunidad:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Software Testing tradicional:&lt;/strong> En este caso lo que se verifican requerimientos funcionales con “casos de uso” verificando que el software cumpla la función para la que fue desarrollado (Sólo verifica eso, no verifica que no tenga errores) Estos requerimientos no suelen estar muy relacionados con la seguridad y si lo hacen es en pequeñas cosas.&lt;/li>
+&lt;li>&lt;strong>Security Testing:&lt;/strong> Busca determinar el nivel de seguridad de un Software desde su exterior (Lo que definimos como &lt;strong>Back Box&lt;/strong>) A diferencia del tradicional este intenta evitar errores o inseguridades. En este caso a diferencia de los casos de uso se construyen patrones de ataque. Puede incluirse ingeniería inversa y/o técnicas específicas.&lt;/li>
+&lt;li>&lt;strong>Auditoría de Código fuente:&lt;/strong> Este es un caso de &lt;strong>White Box&lt;/strong> donde analizamos el código estático en busca de errores o fallas. Esto puede hacerse manualmente aunque hoy en día es casi imposible analizar miles líneas de código. Pero esto también puede hacerse buscando cosas más específicas como funciones peligrosas.&lt;/li>
+&lt;/ul>
+&lt;h3 id="procesos">Procesos&lt;/h3>
+&lt;p>Si bien en procesos podríamos explicarlo como una sola cosa está bueno generar divisiones para poder realizar un mejor análisis y particionarlo mejor:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Análisis funcional específico:&lt;/strong> Este análisis consta en desgranar lo mayor posible un procedimiento como para poder ver cada parte y para comprender dónde se puede generar el error. No suele estar basado en aspectos técnicos.&lt;/li>
+&lt;li>&lt;strong>Análisis diferencia:&lt;/strong> Este análisis, también conocido como Gap Analysis, es mucho más estructurado. Se establece un nivel que debe ser cumplido y se compara con el estado actual. Suele realizarse con reuniones con los responsables de los procesos.&lt;/li>
+&lt;/ul>
+&lt;h3 id="entorno-físico">Entorno físico&lt;/h3>
+&lt;p>En este caso se buscan determinar vulnerabilidades físicas y/o ambientales. Para esto se requiere un equipo especializado en el tema que puede ser interno, o externo. Si bien esto puede estar encarado como un Pentest no debe confundirse con tal. En detalle esto evalúa cerraduras, puertas, ventanas, equipamentos electrónicos, infraestructura, cableados, etc.&lt;/p>
+&lt;h2 id="red-team-test">Red Team test&lt;/h2>
+&lt;p>Este tipo de análisis es muy similar al pentest pero es muchisimo mas realista dado que nosotros ejecutamos un “hackeo” completamente realista donde el cliente desconoce por completo estos ataques. Estos equipos suelen ser multidisciplinarios. Si bien son guiados por equipos internos puede contener colaboradores externos de ser requerido.&lt;/p>
+&lt;p>Puede existir Blue team un equipo que se dedica a defender, con una serie de reglas de juegos que permite dar más dinamismo.&lt;/p>
+&lt;hr>
+&lt;p>Recorda &lt;strong>apoyarnos&lt;/strong> en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p></description></item><item><title>¿Que es la seguridad informática?</title><link>https://patojad.com.ar/post/2020/09/que-es-la-seguridad-inform%C3%A1tica/</link><pubDate>Thu, 10 Sep 2020 10:47:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/09/que-es-la-seguridad-inform%C3%A1tica/</guid><description>&lt;p>Muchas veces hablamos de seguridad informática, pero a la hora de definirlo es realmente difícil comprender todo lo que abarca. La seguridad informática es un grupo extremadamente grande de conceptos, conocimiento, etc.&lt;/p>
+&lt;p>Sin embargo todavía no me metí en este mundo a fondo como para tener un conocimiento apto para poder explicarlo pero conozco a una persona que tiene el conocimiento necesario como para poder explicarnos a todos…&lt;/p>
+&lt;h2 id="introducción">Introducción&lt;/h2>
+&lt;p>Federico Pacheco es un profesor que tuve el agrado de conocer digitalmente en este contexto cuarentena, no es solo un gran profesor de varias universidades. Es uno de esos profesores que lleva todo a otro nivel&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/EH9ioUVcwyQ?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;p>En este primer video vamos a apreciar una introducción y/o pantallazo a lo que es la seguridad informática…&lt;/p>
+&lt;h2 id="principios-de-la-seguridad-de-la-información">Principios de la Seguridad de la Información&lt;/h2>
+&lt;p>Adicionalmente a esta introducción Fede nos deja otro excelente video donde podemos profundizar un poco más los principios de la seguridad informática.&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/s_wOgabafmk?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="agradecimientos">Agradecimientos&lt;/h2>
+&lt;p>Desde ya quiero agradecer a Fede por permitirme usar su contenido para poder explicar esto… Y si te gusta este estilo de videos, y sobre todo te gustan los libros te recomiendo pasarte por el canal de Fede y mirar esos “resumenes” de libros impecables que realiza…&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Ir al Canal de Fede'
+rel="noopener"
+href='https://www.youtube.com/c/VisualAnanda'>
+Ir al Canal de Fede
+&lt;/a>
+&lt;/div></description></item></channel></rss>

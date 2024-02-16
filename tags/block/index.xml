@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>block on PatoJAD</title><link>https://patojad.com.ar/tags/block/</link><description>Recent content in block on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 07 Jul 2020 09:23:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/block/index.xml" rel="self" type="application/rss+xml"/><item><title>AdBlock Spotify</title><link>https://patojad.com.ar/post/2020/07/adblock-spotify/</link><pubDate>Tue, 07 Jul 2020 09:23:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/07/adblock-spotify/</guid><description>&lt;p>Muchos de nosotros usamos diferentes reproductores de música, y algunos de nosotros incluso usamos servicios de música online, en este caso vamos a hablar de una en específico: &lt;strong>Spotify&lt;/strong>, un servicio de música online que cuenta con una versión Free la cual nos permite escuchar música &lt;em>100% gratis&lt;/em> con unas publicidades que suelen ser tolerables al inicio pero cada vez son más invasivas&amp;hellip;&lt;/p>
+&lt;h2 id="una-comunidad-que-no-quiere-publicidad">Una comunidad que no quiere Publicidad&lt;/h2>
+&lt;p>La comunidad &lt;strong>no quiere publicidad&lt;/strong> cuando escucha música. Y como siempre la comunidad encuentra la forma de obtener lo que quiere. Y en esta solución que ofrecemos hoy es nada más ni nada menos que un filtro que bloquea la publicidad en el momento de su obtención.&lt;/p>
+&lt;h2 id="instalación">Instalación&lt;/h2>
+&lt;p>La instalación de este &lt;em>&amp;ldquo;complemento&amp;rdquo;&lt;/em> como nos marcan en su README se realiza mediante la compilación del mismo, lo cual suena realmente más difícil de lo que es, bastará con correr algunos comandos. Sin embargo, &lt;strong>nosotros armamos un deb&lt;/strong> para simplificar un poco la instalación. El mismo lo pueden descargar a continuación.&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Descargar en formato DEB'
+rel="noopener"
+href='https://www.mediafire.com/file/ag5vyxovkv53f15/spotify-adblock_1-PatoJAD_amd64.deb/file'>
+Descargar en formato DEB
+&lt;/a>
+&lt;/div>
+&lt;h2 id="cómo-utilizarlo">Cómo utilizarlo&lt;/h2>
+&lt;p>Se puede utilizar simplemente con la línea de comandos, o terminal, o shell. Recuerden que esto se utiliza teniendo instalado Spotify y desde la terminal lo podemos hacer con el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">LD_PRELOAD&lt;/span>&lt;span class="o">=&lt;/span>/usr/local/lib/spotify-adblock.so spotify
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Sin embargo, es molesto cada vez que queramos usarlo tener que ejecutar este comando por lo cual podemos, por única vez, armar este archivo que nos permite generar un lanzador en nuestro menú, que nos permite ejecutar todo esto desde un simple botón.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">nano ~/.local/share/applications/spotify-adblock.desktop
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Y dentro de ese archivo que creamos debemos poner lo siguiente.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="line">&lt;span class="cl">&lt;span class="k">[Desktop Entry]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Type&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">Application&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Name&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">Spotify (PatoJAD)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">GenericName&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">Music Player&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Icon&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">spotify-client&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">TryExec&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">spotify&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Exec&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">env LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify %U&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Terminal&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">MimeType&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">x-scheme-handler/spotify;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Categories&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">Audio;Music;Player;AudioVideo;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">StartupWMClass&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">spotify&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Es posible que ni bien después de crearlo no aparezca en el menú esto puede llegar a demorar unos minutos (Hasta que se refresque o se reinicie) sin embargo obtendremos dentro del menú un nuevo &amp;ldquo;Spotify&amp;rdquo; que inicia con el bloqueador de una&lt;/p></description></item></channel></rss>

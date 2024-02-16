@@ -1,0 +1,1234 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>instalar on PatoJAD</title><link>https://patojad.com.ar/tags/instalar/</link><description>Recent content in instalar on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 09 Jan 2024 10:34:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/instalar/index.xml" rel="self" type="application/rss+xml"/><item><title>Guía Completa para Instalar y Utilizar Timeshift en Linux</title><link>https://patojad.com.ar/post/2024/01/gu%C3%ADa-completa-para-instalar-y-utilizar-timeshift-en-linux/</link><pubDate>Tue, 09 Jan 2024 10:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/01/gu%C3%ADa-completa-para-instalar-y-utilizar-timeshift-en-linux/</guid><description>&lt;p>La gestión de copias de seguridad es esencial para cualquier usuario de Linux que desee mantener la integridad de su sistema operativo. En este artículo, exploraremos &lt;strong>Timeshift&lt;/strong>, una poderosa herramienta de respaldo para Linux, respondiendo preguntas clave y proporcionando instrucciones detalladas para su instalación en diversas distribuciones.&lt;/p>
+&lt;hr>
+&lt;h2 id="qué-es-timeshift-de-linux">¿Qué es Timeshift de Linux?&lt;/h2>
+&lt;p>&lt;strong>Timeshift&lt;/strong> es una herramienta de respaldo para sistemas operativos basados en Linux que permite realizar instantáneas del sistema en un momento específico. Estas instantáneas se pueden utilizar para restaurar el sistema a ese estado particular en caso de fallos o problemas. &lt;strong>Timeshift&lt;/strong> utiliza tecnologías como &lt;strong>rsync&lt;/strong> y &lt;strong>Btrfs&lt;/strong> para crear y gestionar estas instantáneas.&lt;/p>
+&lt;hr>
+&lt;h2 id="qué-diferencia-hay-entre-rsync-y-timeshift">¿Qué diferencia hay entre rsync y Timeshift?&lt;/h2>
+&lt;p>Aunque &lt;strong>rsync&lt;/strong> y &lt;strong>Timeshift&lt;/strong> comparten la capacidad de realizar copias de seguridad, difieren en su enfoque. &lt;strong>Rsync&lt;/strong> es una herramienta de sincronización de archivos, mientras que &lt;strong>Timeshift&lt;/strong> va más allá al capturar el estado completo del sistema en un momento dado. &lt;strong>Timeshift&lt;/strong> simplifica el proceso de restauración del sistema a un estado anterior mediante la gestión eficiente de instantáneas.&lt;/p>
+&lt;hr>
+&lt;h2 id="timeshift-es-una-herramienta-de-respaldo">¿Timeshift es una herramienta de respaldo?&lt;/h2>
+&lt;p>Sí, &lt;strong>Timeshift&lt;/strong> se clasifica como una herramienta de respaldo, pero va más allá de simplemente copiar archivos. Al crear instantáneas del sistema, &lt;strong>Timeshift&lt;/strong> permite restaurar todo el estado del sistema, incluyendo archivos del sistema, configuraciones y aplicaciones instaladas, proporcionando una solución integral para la gestión de copias de seguridad.&lt;/p>
+&lt;hr>
+&lt;h2 id="timeshift-funciona-en-ubuntu">¿Timeshift funciona en Ubuntu?&lt;/h2>
+&lt;p>&lt;strong>Timeshift&lt;/strong> es compatible con varias distribuciones de Linux, incluyendo &lt;strong>Ubuntu&lt;/strong>. Su versatilidad y capacidad de adaptación a diferentes sistemas hacen que sea una opción sólida para usuarios de Ubuntu, o cualquier distribucion, que buscan una solución de respaldo confiable.&lt;/p>
+&lt;hr>
+&lt;h2 id="instalación-de-timeshift-en-distintas-distribuciones">Instalación de Timeshift en Distintas Distribuciones:&lt;/h2>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/24c3O_uj0E4?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;p>A continuación, te presentamos cómo instalar &lt;strong>Timeshift&lt;/strong> en algunas de las distribuciones de Linux más populares:&lt;/p>
+&lt;h3 id="ubuntu--debian">Ubuntu / Debian&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt-get update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get install timeshift
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="arch-linux">Arch Linux&lt;/h3>
+&lt;p>En este caso diferimos del video ya que en el mismo se instala desde AUR con algunos complementos adicionales que simplifican y automatizan su uso y en este caso lo haremos desde los repositorios oficiales.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo pacman -S timeshift
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="fedora">Fedora&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install timeshift
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="opensuse">openSUSE:&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo zypper install timeshift
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="conclusión">Conclusión&lt;/h2>
+&lt;p>&lt;strong>Timeshift&lt;/strong> emerge como una herramienta esencial para la gestión de copias de seguridad en sistemas Linux. Su capacidad para crear instantáneas del sistema y simplificar la restauración lo convierte en una opción valiosa. Al seguir nuestras instrucciones, puedes instalar y comenzar a utilizar Timeshift en tu distribución de Linux preferida, asegurando la estabilidad y seguridad de tu sistema.&lt;/p></description></item><item><title>Instalación de Wine en GNU/Linux para Ejecutar Aplicaciones Windows</title><link>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</link><pubDate>Wed, 15 Nov 2023 12:02:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</guid><description>&lt;p>La compatibilidad entre sistemas operativos es esencial, y Wine, una herramienta de código abierto, facilita la ejecución de aplicaciones Windows en entornos GNU/Linux. En esta guía, exploraremos qué es Wine, cómo instalarlo en distintas distribuciones y dónde se instalan las aplicaciones. ¡Descubre cómo ampliar las posibilidades de tu sistema operativo!&lt;/p>
+&lt;h2 id="qué-es-wine">¿Qué es Wine?&lt;/h2>
+&lt;p>Wine, que significa &amp;ldquo;Wine Is Not an Emulator&amp;rdquo; (Wine no es un emulador), es una capa de compatibilidad que permite ejecutar aplicaciones diseñadas para Microsoft Windows en sistemas operativos basados en Unix, como GNU/Linux. No es una máquina virtual ni emula un entorno Windows completo; en cambio, traduce llamadas de sistema de Windows a llamadas de sistema compatibles con Unix.&lt;/p>
+&lt;h2 id="por-qué-usar-wine">¿Por qué usar Wine?&lt;/h2>
+&lt;p>Wine es una herramienta muy útil para aquellos que necesitan ejecutar aplicaciones Windows en entornos GNU/Linux. Algunos ejemplos de casos de uso incluyen:&lt;/p>
+&lt;ul>
+&lt;li>Ejecutar aplicaciones de productividad como Microsoft Office.&lt;/li>
+&lt;li>Ejecutar aplicaciones de diseño como Adobe Photoshop.&lt;/li>
+&lt;li>Ejecutar juegos de Windows.&lt;/li>
+&lt;li>Ejecutar aplicaciones de Windows que no tienen alternativas nativas en GNU/Linux.&lt;/li>
+&lt;/ul>
+&lt;h2 id="video">Video&lt;/h2>
+&lt;p>En el video explico una forma de instalar Wine en Arch Linux y derivadas, sin embargo, en la parte inferior de este post vas a encontrar la instalación para otras distros de linux. También quiero resaltar que la forma de instalar en el video no es la única, hay otras formas de instalar Wine en Arch Linux y derivadas, pero esta es la que yo uso y me funciona.&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/4ZtUmUqTAyg?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;p>En la documentacion del blog vamos a encontrar la otra forma de instalar Wine en Arch Linux y derivadas.&lt;/p>
+&lt;h2 id="cómo-se-instala-wine">¿Cómo se instala Wine?&lt;/h2>
+&lt;p>La instalación de Wine varía según la distribución de GNU/Linux que estés utilizando. A continuación, se detallan los pasos para algunas distribuciones populares.&lt;/p>
+&lt;h3 id="debianubuntu">Debian/Ubuntu&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo dpkg --add-architecture i386
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install wine64 wine32
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="fedora">Fedora&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo dnf install wine
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="arch-linux-y-derivadas-como-manjaro">Arch Linux (y derivadas como Manjaro):&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S wine
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="opensuse">OpenSUSE:&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo zypper install wine
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="dónde-se-instalan-las-aplicaciones-con-wine">¿Dónde se instalan las aplicaciones con Wine?&lt;/h2>
+&lt;p>Las aplicaciones instaladas con Wine se almacenan en un directorio llamado &lt;code>wineprefix&lt;/code>. Por defecto, se encuentra en el directorio de inicio del usuario en una carpeta oculta llamada &lt;code>.wine&lt;/code>. Dentro de este directorio, encontrarás una estructura similar a la de un sistema Windows estándar, con carpetas como &lt;code>Program Files&lt;/code> y &lt;code>Windows&lt;/code>.&lt;/p>
+&lt;h3 id="proceso-de-instalación-básico-de-una-aplicación-con-wine">Proceso de instalación básico de una aplicación con Wine&lt;/h3>
+&lt;ul>
+&lt;li>Descarga el instalador de la aplicación Windows que deseas ejecutar.&lt;/li>
+&lt;li>Abre una terminal y navega hasta el directorio donde descargaste el instalador.&lt;/li>
+&lt;li>Ejecuta el siguiente comando:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">wine nombre_del_instalador.exe
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Sigue los pasos de instalación como lo harías en Windows.&lt;/li>
+&lt;/ul>
+&lt;h2 id="conclusiones">Conclusiones&lt;/h2>
+&lt;p>&lt;strong>Wine&lt;/strong> es una herramienta invaluable para aquellos que necesitan ejecutar aplicaciones Windows en entornos GNU/Linux. Su capacidad para traducir llamadas de sistema y proporcionar un entorno de ejecución nativo es fundamental para mejorar la interoperabilidad entre diferentes sistemas operativos.&lt;/p></description></item><item><title>App Store de aaPanel</title><link>https://patojad.com.ar/post/2023/07/app-store-de-aapanel/</link><pubDate>Thu, 27 Jul 2023 11:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/07/app-store-de-aapanel/</guid><description>&lt;p>Ya vimos como realizar la instalacion de aaPanel y como abrir los puertos necesarios. Tambien realizamos el primer ingreso y la instalacion de LAMP o LNMP segun deseemos. Ahora veremos el appstore de aaPanel. Y realiamos instalaciones desde diferentes areas de modulos o complemento.&lt;/p>
+&lt;h2 id="qué-es-aapanel">¿Qué es aaPanel?&lt;/h2>
+&lt;p>&lt;strong>aaPanel&lt;/strong> es un panel de control de hosting web gratuito y de código abierto que facilita la administración de servidores. Proporciona una interfaz gráfica intuitiva y amigable que permite a los usuarios gestionar servicios como &lt;strong>Apache&lt;/strong>, &lt;strong>Nginx&lt;/strong>, &lt;strong>PHP&lt;/strong>, bases de datos y más, sin necesidad de conocimientos técnicos avanzados.&lt;/p>
+&lt;h2 id="video">Video&lt;/h2>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/UoWdSFqEJPk?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;p>En el video podemos apreciar y recorrer un poco mas la seccion de appstore de aapanel. En esta seccion podemos encontrar complementos para nuestro panel, como tambien para nuestros sitios web.&lt;/p>
+&lt;h2 id="imagenes">Imagenes&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/nrhLsCmh/aapanelstore1.webp" alt="aapanel" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>
+&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/5yK28b5q/aapanelstore2.webp" alt="aapanel" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>
+&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/76V6YgfR/aapanelstore3.webp" alt="aapanel" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;hr>
+&lt;p>&lt;a href="https://www.aapanel.com/new/feature.html#shop" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+Fuente
+&lt;/a>&lt;/p></description></item><item><title>Instalar The Legend of Zelda en Yuzu</title><link>https://patojad.com.ar/post/2023/05/instalar-the-legend-of-zelda-en-yuzu/</link><pubDate>Wed, 24 May 2023 10:20:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/05/instalar-the-legend-of-zelda-en-yuzu/</guid><description>&lt;p>Antes que nada quiero aclarar que no podran encontrar los links de descarga en este articulo. Si bien la persona que me facilito la guia, genero un comprimido con todo lo que necesitamos no es parte de este sitio web formentar la pirateria. Por lo que si quieren jugarlo deberan buscarlo por su cuenta.&lt;/p>
+&lt;p>Ya sabiendo esto lo siguiente es instalar &lt;strong>Yuzu&lt;/strong> en nuestro sistema operativo. Para esto bastaria la documentacion de su sitio oficial:&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Instalación de Yuzu'
+rel="noopener"
+href='https://yuzu-emu.org/help/quickstart/'>
+Instalación de Yuzu
+&lt;/a>
+&lt;/div>
+&lt;p>Sin embargo, en caso de ser necesario armare la guia para instalarlo en Windows, Linux y MacOS. Pero por ahora vamos a suponer que ya lo tenemos instalado.&lt;/p>
+&lt;h2 id="configuracion-de-yuzu">Configuracion de &lt;strong>Yuzu&lt;/strong>&lt;/h2>
+&lt;p>Una vez descargado el emulador y los datos del juego, lo que debemos hacer es descomprimir el comprimido que nos facilitaron. Abrimos el emulador y vamos a ver un mensaje de error que nos pide que lo activemos. Para esto iremos al menu, en la parte de archivo y seleccionamos la opcion de &lt;code>Abrir carpeta de instalación de Yuzu&lt;/code>.&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/MT028k2X/image.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Dentro de la carpeta que se nos abrio, vamos a buscar la carpeta de &lt;code>keys&lt;/code> y dentro de esta vamos a pegar los archivos que se encuentra dentro del comprimido que nos facilitaron (las claves).&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/fTqr0WMY/image.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Y una vez agregadas las claves, nos toca extraer y copiar la carpeta firmware que esta dentro del comprimido que nos facilitaron. Esta carpeta la vamos a pegar dentro de la carpeta &lt;code>nand -&amp;gt; system -&amp;gt; Contents -&amp;gt; registered&lt;/code> que se encuentra dentro de la carpeta de instalacion de &lt;strong>Yuzu&lt;/strong>.&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/W1wcKFrg/image.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;h2 id="instalando-el-juego">Instalando el juego&lt;/h2>
+&lt;p>Una vez que ya agregamos la clave y la carpeta de firmware, lo que nos queda es instalar el juego. Para esto vamos a abrir el emulador y vamos a añadir nuevo directorio de juegos, navegamos hasta la carpeta donde se encuentra el juego y la seleccionamos.&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/rmRJZpwx/image.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Una vez que seleccionamos la carpeta, ya podremos ver el juego en la lista de juegos disponibles. Lo seleccionamos y le damos click derecho para abrir las opciones.&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/R07n6Tjy/image.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Dentro de las opciones vamos a seleccionar la opcion de &lt;code>Abrir ubicacion de los Mods&lt;/code>. Esto nos va a abrir una carpeta donde vamos a pegar los mods que nos provee el comprimido que nos facilitaron.&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/hjxcMSL5/image.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;div class="alert alert-warning col-12" style="position:relative;">
+&lt;div class="info-box-content container">
+&lt;div class="row">
+&lt;div class="col-2 text-center">
+&lt;span class="fa fa-warning fa-5x">&lt;/span>
+&lt;/div>
+&lt;div class="col-10">
+&lt;p class="no-margin">ATENCION: Los mods proporcionados son para la version 1.1.1, por lo cual es necesario realizar la actualiazcion del juego antes de lanzarlo&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;p>No es requerido agregar los mods, pero si es recomendado ya que mejoran la experiencia de juego.&lt;/p>
+&lt;h2 id="actualizando-el-juego">Actualizando el juego&lt;/h2>
+&lt;p>Dentro del comprimido que nos facilitaron, vamos a encontrar dos archivos de extensión &lt;code>.nsp&lt;/code>. Estos archivos son los que vamos a utilizar para actualizar el juego. Para esto vamos a abrir el emulador y vamos al menu de &lt;code>Archivo -&amp;gt; Instalar archivo NAND&lt;/code>. Y vamos a seleccionar las actualizaciones del juego.&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/FHXvsfLC/image.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Es &lt;strong>sumamente importante&lt;/strong> que las actualizaciones se instalen en orden, es decir, primero la actualizacion 1.1 y luego la 1.1.1. Una vez que se instalaron las actualizaciones, ya podremos lanzar el juego.&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/yNSrJnCF/image.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;div class="alert alert-info col-12" style="position:relative;">
+&lt;div class="info-box-content container">
+&lt;div class="row">
+&lt;div class="col-2 text-center">
+&lt;span class="fa fa-info fa-5x">&lt;/span>
+&lt;/div>
+&lt;div class="col-10">
+&lt;p class="no-margin">El v131072Update corresponde a la version 1.1, mientras que el [v196608] a la version 1.1.1&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;h2 id="lanzando-el-juego">Lanzando el juego&lt;/h2>
+&lt;p>Ya teniendo el juego instalado, con los mods que deseamos y las actualizaciones aplicadas basta con lanzarlo y disfutarlo haciendole un click a la imagen&amp;hellip;&lt;/p>
+&lt;hr>
+&lt;p>Fuente: Borrego Villegas&lt;/p></description></item><item><title>Como instalar MongoDB en MacOS</title><link>https://patojad.com.ar/post/2023/05/como-instalar-mongodb-en-macos/</link><pubDate>Fri, 05 May 2023 13:45:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/05/como-instalar-mongodb-en-macos/</guid><description>&lt;p>Vamos a ver como realizar la instalacion de &lt;strong>MongoDB&lt;/strong> en MacOS. Recuerda que para esto debes tener instalado primero &lt;a href="https://patojad.com.ar/post/2023/02/como-instalar-brew-en-macos/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Homebrew
+&lt;/a>.&lt;/p>
+&lt;h2 id="video">Video&lt;/h2>
+&lt;p>En el video sigo los pasos para la instalación de MongoDB en MacOS utilizando Homebrew. Sin embargo abajo te dejo los pasos a seguir para que puedas copiar y pegar en tu terminal.&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/wa6I0jlqrQM?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="comandos">Comandos&lt;/h2>
+&lt;p>Los siguientes comandos podes usarlos en tu terminal (Recorda tener instalado &lt;a href="https://patojad.com.ar/post/2023/02/como-instalar-brew-en-macos/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Homebrew
+&lt;/a>):&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">brew tap mongodb/brew
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Una ves agregado el TAP de MongoDB podemos instalarlo de manera oficial, pero antes debemos actualizar:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">brew update
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Luego si, ya podemos proceder a realizar la instalación de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">brew install mongodb-community
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="instalado">Instalado&lt;/h2>
+&lt;p>Una ves instalado tendremos acceso a los siguientes binarios:&lt;/p>
+&lt;ul>
+&lt;li>El servidor &lt;code>mongod&lt;/code>&lt;/li>
+&lt;li>Enrutador de consultas &lt;code>mongos&lt;/code>&lt;/li>
+&lt;li>El cliente de MongoDB para Shell &lt;code>mongosh&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>Fuente: &lt;a href="https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
+&lt;/a>&lt;/p></description></item><item><title>Install GIT en Windows con Winget</title><link>https://patojad.com.ar/post/2023/04/install-git-en-windows-con-winget/</link><pubDate>Mon, 10 Apr 2023 10:06:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/04/install-git-en-windows-con-winget/</guid><description>&lt;p>hoy vamos a ver como instalar &lt;strong>git&lt;/strong> en &lt;strong>Windows&lt;/strong> utilizando &lt;em>winget&lt;/em> el gestor de paquetes de microsoft.&lt;/p>
+&lt;h2 id="video">video&lt;/h2>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/LKnMeKqkjfk?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="comando">Comando&lt;/h2>
+&lt;p>Para que sea mucho mas facil te dejo el comando para que puedas copiar y pegar en tu terminal&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">winget install -e --id Git.Git
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Comentar en el Foro'
+rel="noopener"
+href='https://community.vasak.net.ar/topic/51/install-git-en-windows-con-winget'>
+Comentar en el Foro
+&lt;/a>
+&lt;/div></description></item><item><title>Install NodeJS en MacOS con Homebrew</title><link>https://patojad.com.ar/post/2023/04/install-nodejs-en-macos-con-homebrew/</link><pubDate>Fri, 07 Apr 2023 07:56:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/04/install-nodejs-en-macos-con-homebrew/</guid><description>&lt;p>Vamos a ver como realizar la instalación de &lt;strong>NodeJS&lt;/strong> de una forma muy simple y rápida utilizando &lt;em>homebrew.&lt;/em> De esta forma simple y rápida podemos obtener &lt;strong>cualquier&lt;/strong> versión de NodeJS y NPM.&lt;/p>
+&lt;p>Para poder realizar esto vamos a necesitar instalar previamente &lt;strong>Homebrew&lt;/strong>, pero no te preocupes, si no lo tenes te dejo a continuación un artículo donde te explico como instalarlo en MacOS.&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Instalar Homebrew en MacOS'
+rel="noopener"
+href='https://patojad.com.ar/post/2023/02/como-instalar-brew-en-macos/'>
+Instalar Homebrew en MacOS
+&lt;/a>
+&lt;/div>
+&lt;h2 id="video">Video&lt;/h2>
+&lt;p>Ya teniendo homebrew instalado correctamente podemos proceder a instalarlo, para que puedas seguirlo paso a paso dejo el video a continuación:&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/PJojM__8bBI?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;p>El comando utilizado para esta ocasión es el que dejaré a continuación. En caso de querer pegar en la terminal de linux se suele hacer con &lt;code>ctrl&lt;/code>+&lt;code>shift&lt;/code>+&lt;code>v&lt;/code> sino podes utilizar el mouse con &lt;code>click derecho&lt;/code> -&amp;gt; &lt;code>pegar&lt;/code> dependiendo de tu terminal:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">brew install node
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Responder en el foro'
+rel="noopener"
+href='https://community.vasak.net.ar/topic/50/install-nodejs-en-macos-con-homebrew'>
+Responder en el foro
+&lt;/a>
+&lt;/div></description></item><item><title>Install VS Code en Windows con Winget</title><link>https://patojad.com.ar/post/2023/04/install-vs-code-en-windows-con-winget/</link><pubDate>Tue, 04 Apr 2023 10:06:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/04/install-vs-code-en-windows-con-winget/</guid><description>&lt;p>Vamos a ver como realizar la instalación de &lt;strong>Visual Studio Code&lt;/strong> de una forma muy simple y rápida utilizando &lt;em>winget&lt;/em>.&lt;/p>
+&lt;h2 id="instalandolo">Instalandolo&lt;/h2>
+&lt;p>Para que puedas seguirlo paso a paso dejo el video a continuación:&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/LjYbsXcXilA?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;p>El comando utilizado para esta ocasión es el que dejaré a continuación. En caso de querer pegar en la terminal de windows se suele hacer con &lt;code>ctrl&lt;/code>+&lt;code>v&lt;/code> sino podes utilizar el mouse con &lt;code>click derecho&lt;/code> -&amp;gt; &lt;code>pegar&lt;/code> dependiendo de tu terminal:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">winget install -e --id Microsoft.VisualStudioCode
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Responder en el foro'
+rel="noopener"
+href='https://community.vasak.net.ar/topic/49/install-vs-code-en-windows-con-winget'>
+Responder en el foro
+&lt;/a>
+&lt;/div></description></item><item><title>Install NodeJS en Windows con Winget</title><link>https://patojad.com.ar/post/2023/03/install-nodejs-en-windows-con-winget/</link><pubDate>Tue, 28 Mar 2023 13:56:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/03/install-nodejs-en-windows-con-winget/</guid><description>&lt;p>Vamos a ver como realizar la instalación de &lt;strong>NodeJS&lt;/strong> de una forma muy simple y rápida utilizando &lt;em>winget.&lt;/em> De esta forma simple y rápida podemos obtener &lt;strong>cualquier&lt;/strong> versión de NodeJS y NPM directamente desde winget.&lt;/p>
+&lt;h2 id="instalandolo">Instalandolo&lt;/h2>
+&lt;p>Para que puedas seguirlo paso a paso dejo el video a continuación:&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/3WT-dPSifOw?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;p>El comando utilizado para esta ocasión es el que dejaré a continuación. En caso de querer pegar en la terminal de windows se suele hacer con &lt;code>ctrl&lt;/code>+&lt;code>v&lt;/code> sino podes utilizar el mouse con &lt;code>click derecho&lt;/code> -&amp;gt; &lt;code>pegar&lt;/code> dependiendo de tu terminal:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">winget install -e --id OpenJS.NodeJS
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Responder en el foro'
+rel="noopener"
+href='https://community.vasak.net.ar/topic/48/install-nodejs-en-windows-con-winget'>
+Responder en el foro
+&lt;/a>
+&lt;/div></description></item><item><title>Install NodeJS en Linux con Homebrew</title><link>https://patojad.com.ar/post/2023/02/install-nodejs-en-linux-con-homebrew/</link><pubDate>Mon, 27 Feb 2023 11:56:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/02/install-nodejs-en-linux-con-homebrew/</guid><description>&lt;p>Vamos a ver como realizar la instalación de &lt;strong>NodeJS&lt;/strong> de una forma muy simple y rápida utilizando &lt;em>homebrew.&lt;/em> De esta forma simple y rápida podemos obtener &lt;strong>cualquier&lt;/strong> versión de NodeJS y NPM sin importar nuestra versión de linux, nuestro gestor de paquetes o la versión que estén disponible en los repositorios.&lt;/p>
+&lt;p>Para poder realizar esto vamos a necesitar instalar previamente Homebrew, pero no te preocupes, si no lo tenes te dejo a continuación un artículo donde te explico como instalarlo en tu distribución de GNU/Linux.&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Instalar Homebrew en GNU/Linux'
+rel="noopener"
+href='https://patojad.com.ar/post/2023/01/como-instalar-brew-en-gnu/post/'>
+Instalar Homebrew en GNU/Linux
+&lt;/a>
+&lt;/div>
+&lt;h2 id="instalandolo">Instalandolo&lt;/h2>
+&lt;p>Ya teniendo homebrew instalado correctamente podemos proceder a instalarlo, para que puedas seguirlo paso a paso dejo el video a continuación:&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/wtGZngSiwn4?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;p>El comando utilizado para esta ocasión es el que dejaré a continuación. En caso de querer pegar en la terminal de linux se suele hacer con &lt;code>ctrl&lt;/code>+&lt;code>shift&lt;/code>+&lt;code>v&lt;/code> sino podes utilizar el mouse con &lt;code>click derecho&lt;/code> -&amp;gt; &lt;code>pegar&lt;/code> dependiendo de tu terminal:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">brew install node
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Responder en el foro'
+rel="noopener"
+href='https://community.vasak.net.ar/topic/13/install-nodejs-en-linux-con-homebrew'>
+Responder en el foro
+&lt;/a>
+&lt;/div></description></item><item><title>Obteniendo .deb de apps instaladas</title><link>https://patojad.com.ar/post/2021/04/obteniendo-.deb-de-apps-instaladas/</link><pubDate>Fri, 23 Apr 2021 10:31:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/04/obteniendo-.deb-de-apps-instaladas/</guid><description>&lt;p>Es común que muchas veces encontremos en alguna distro una app que sea única de esta distro y nos gusta mucho. En esta oportunidad vamos a portear o a recuperar los instalados en las distribuciones basadas en Debian/Ubuntu.&lt;/p>
+&lt;h2 id="instalando-repack">Instalando repack&lt;/h2>
+&lt;p>Lo primero es instalar las dependencias o mejor dicho las app necesaria para poder rearmar los paquetes .deb para poder llevarlos a otras distros. Esto lo vamos a instalar de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt-get install dpkg-repack
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="usando-repack">Usando Repack&lt;/h2>
+&lt;p>Realmente es muy simple, repack nos permite generar .deb desde paquetes ya instalados, lo cual nos permite acceder a cualquier app instalada esté o no en el repositorio. Si se instaló con un deb podemos volver a generar el deb&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dpkg-repack nombre-de-la-app
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>¿Como instalar Wine?</title><link>https://patojad.com.ar/post/2021/04/como-instalar-wine/</link><pubDate>Fri, 16 Apr 2021 09:36:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/04/como-instalar-wine/</guid><description>&lt;p>Ya con anterioridad me consultaron de como instalar Wine en Artix, esto me llevó a armar el video y obviamente siempre a explicar mi perspectiva o punto de vista sobre el uso de wine. En esta oportunidad el video es específico de distros basadas en Arch. Sin embargo, en la parte inferior van a poder encontrar la instalación para otras distros de linux.&lt;/p>
+&lt;h2 id="pre-requisitos">Pre requisitos&lt;/h2>
+&lt;p>Si venis por Artix o cualquier distro de Arch te recomiendo que veas de antemano las instalaciones y configuraciones de las que hago uso en el video y doy por sabido estas son&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2021/03/activar-multilib-artix/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Multilib
+&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2020/10/instalar-yay-en-artix-linux/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+yay
+&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="video">Video&lt;/h2>
+&lt;p>Como siempre disfruto mucho de armar videos y dejar mi opinion asi que sin rodeos los dejo con el video&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/47A2KBLgj6I?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="instalar-winehq">Instalar WineHQ&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://linuxhint.com/wp-content/uploads/2020/06/1-12.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Lo primero que debemos hacer es instalar WineHQ en nuestra distribución, para esto debemos agregar las librerías y ejecutar la instalación.&lt;/p>
+&lt;h3 id="debian">Debian&lt;/h3>
+&lt;p>Habilitamos los 32 bits&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo dpkg --add-architecture i386
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Descargamos e instalamos a Key&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">wget -nc https://dl.winehq.org/wine-builds/winehq.key
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-key add winehq.key
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Agregamos el repositorio dependiendo de nuestra versión&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Version&lt;/th>
+&lt;th>Agregar a /etc/apt/sources.list:&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Debian 8 (Jessie)&lt;/td>
+&lt;td>deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://dl.winehq.org/wine-builds/debian/
+&lt;/a> jessie main&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Debian 9 (Stretch)&lt;/td>
+&lt;td>deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://dl.winehq.org/wine-builds/debian/
+&lt;/a> stretch main&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Debian 10 (currently Testing) (Buster)&lt;/td>
+&lt;td>deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://dl.winehq.org/wine-builds/debian/
+&lt;/a> buster main&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Actualizamos el Sistema&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo apt update
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Instalamos uno de los paquetes&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>version&lt;/th>
+&lt;th>comando&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Stable branch&lt;/td>
+&lt;td>sudo apt install &amp;ndash;install-recommends winehq-stable&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Development branch&lt;/td>
+&lt;td>sudo apt install &amp;ndash;install-recommends winehq-devel&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Staging branch&lt;/td>
+&lt;td>sudo apt install &amp;ndash;install-recommends winehq-staging&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="fedora">Fedora&lt;/h3>
+&lt;p>Agregamos los repositories&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>version&lt;/th>
+&lt;th>comando&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Fedora 29&lt;/td>
+&lt;td>dnf config-manager &amp;ndash;add-repo &lt;a href="https://dl.winehq.org/wine-builds/fedora/29/winehq.repo" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://dl.winehq.org/wine-builds/fedora/29/winehq.repo
+&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Fedora 30&lt;/td>
+&lt;td>dnf config-manager &amp;ndash;add-repo &lt;a href="https://dl.winehq.org/wine-builds/fedora/30/winehq.repo" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://dl.winehq.org/wine-builds/fedora/30/winehq.repo
+&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>E instalamos la version que deseamos&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>version&lt;/th>
+&lt;th>comando&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Stable branch&lt;/td>
+&lt;td>dnf install winehq-stable&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Development branch&lt;/td>
+&lt;td>dnf install winehq-devel&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Staging branch&lt;/td>
+&lt;td>dnf install winehq-staging&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Para otras distribuciones o BDS o MacOS revisar en su &lt;a href="https://wiki.winehq.org/Download" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+sitio oficial
+&lt;/a>&lt;/p>
+&lt;h3 id="arch">Arch&lt;/h3>
+&lt;p>Si estás en una distro basada en arch lo que recomiendo es instalar wine-staging que es, personalmente la instalación que me dio un mejor rendimiento. En mi caso lo hice con yay pero puedes hacerlo directamente con pacman&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S wine-staging
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Tilix un gran emulador de terminal</title><link>https://patojad.com.ar/post/2021/02/tilix-un-gran-emulador-de-terminal/</link><pubDate>Thu, 18 Feb 2021 09:13:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/02/tilix-un-gran-emulador-de-terminal/</guid><description>&lt;p>En linux somos muchos los que usamos terminal, diría que la gran mayoría y cada uno tiene sus propias diferencias o elecciones, pero como siempre digo, esto no debería obnubilarlos para poder conocer “nuevas” apps. En este caso voy a compartir un emulador de terminal que si bien escuche hablar mucho no lo hubiera usado de no ser por Pipe que me lo recomendó fuertemente.&lt;/p>
+&lt;h2 id="que-ofrece">¿Que ofrece?&lt;/h2>
+&lt;p>Eventualmente siempre buscamos que ofrece A o que ofrece B, muchas veces la gran lista de cosas desarrolladas no son tan importantes como las propias obtenidas por los usuarios, aun así dejamos esa lista de cosas que ofrece segun su repositorio de GIT:&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://camo.githubusercontent.com/829c1c31ee4acdd88e55585d638e33202bdc3c947c9426c597d133cf7734bb95/68747470733a2f2f676e756e6e312e6769746875622e696f2f74696c69782d7765622f6173736574732f696d616765732f67616c6c6572792f74696c69782d73637265656e73686f742d312e706e67" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;ul>
+&lt;li>Diseñe los terminales de cualquier manera dividiéndolos horizontal o verticalmente&lt;/li>
+&lt;li>Los terminales se pueden reorganizar usando arrastrar y soltar tanto dentro como entre ventanas&lt;/li>
+&lt;li>Los terminales se pueden separar en una nueva ventana mediante arrastrar y soltar&lt;/li>
+&lt;li>Las pestañas o la barra lateral enumeran las sesiones actuales&lt;/li>
+&lt;li>La entrada se puede sincronizar entre terminales, por lo que los comandos escritos en un terminal se replican en los demás.&lt;/li>
+&lt;li>La agrupación de terminales se puede guardar y cargar desde el disco&lt;/li>
+&lt;li>Los terminales admiten títulos personalizados&lt;/li>
+&lt;li>Los esquemas de color se almacenan en archivos y se pueden crear esquemas de color personalizados simplemente creando un nuevo archivo&lt;/li>
+&lt;li>Fondo transparente&lt;/li>
+&lt;li>Imágenes de fondo&lt;/li>
+&lt;li>Soporte del modo Quake (es decir, terminal desplegable)&lt;/li>
+&lt;li>Hipervínculos personalizados&lt;/li>
+&lt;li>Cambios de perfil automáticos (activados) basados ​​en el nombre de host y el directorio&lt;/li>
+&lt;li>Admite notificaciones cuando los procesos se completan fuera de la vista.&lt;/li>
+&lt;li>Soporte de disparador experimental (requiere VTE parcheado)&lt;/li>
+&lt;li>Soporte de insignia experimental (requiere VTE parcheado)&lt;/li>
+&lt;/ul>
+&lt;p>Sin embargo como dije antes puede llegar a ser enriquecedora la experiencia de los usuarios y por eso quiero contar como me sirvio a mi esto.&lt;/p>
+&lt;h2 id="mi-experiencia">Mi experiencia&lt;/h2>
+&lt;p>Para empezar cuando elegí usarlo fue solo porque realmente es un emulador rápido, nunca demoró en abrir y siempre pude usarlo cómodamente. Sin embargo, en lo personal, me simplificó el trabajo con servidores. Muchas veces tuve que actualizar múltiples servidores, instalar nuevas “apps” o actualizar, quizas compilar algunas… Todo esto podía hacer escribiendo una sola vez ya que se replicaba en todas las terminales que tenía organizadas de una forma cómoda gracias a su método “tilling”.&lt;/p>
+&lt;p>Es muy útil si trabajamos con múltiples apps locales para desarrollar también dado que elimina el número de ventanas levantadas y obviamente mantiene una excelente performance.&lt;/p>
+&lt;h2 id="instalación">Instalación&lt;/h2>
+&lt;p>Esta hermosa “terminal” se encuentra en todas las distros de GNU/Linux, o al menos en la gran mayoría. Por lo cual siempre se puede instalar desde los repositorios de la siguiente forma. Recordemos que estos comandos funcionan también con las derivadas.&lt;/p>
+&lt;h4 id="debianubuntu">Debian/Ubuntu&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt install tilix
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="fedora">Fedora&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install tilix
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="arch">Arch&lt;/h4>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo pacman -S tilix
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>O con yay&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo yay -S tilix/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Edge en Linux</title><link>https://patojad.com.ar/post/2020/12/edge-en-linux/</link><pubDate>Fri, 18 Dec 2020 09:06:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/12/edge-en-linux/</guid><description>&lt;p>Hace ya un tiempo arribó a las distros de linux el nuevo MS Edge que no es más que un chromiun modificado… Esto implicó entre los usuarios fuertes disputas y opiniones muy abruptas… Para no perder la costumbre hablamos de este tema hoy, cuando todos se olvidaron…&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.blogs.es/7af0a9/microsoft-edge-segundo-navegador-mas-usado-mundo/1366_2000.jpeg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;h2 id="video">Video&lt;/h2>
+&lt;p>Como no podía ser menos, todo tema que demora mucho va a parar a youtube, ¿Por qué? nunca lo sabremos pero te dejamos este hermoso video para que vos también des tu opinión.&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/peCck-Rg3To?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="instalar">Instalar&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://blog.desdelinux.net/wp-content/uploads/2020/09/edge-on-linux.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Seguramente sos una persona sensata que sabe que para opinar tenes que instalarlo, o simplemente quieres tenerlo en tu PC. Por esto mismo te dejo los pasos de instalación para que sea mucho más simple!&lt;/p>
+&lt;h3 id="debianubuntu-y-derivados">Debian/Ubuntu y derivados&lt;/h3>
+&lt;p>Basta con agregar los repositorios y la llave para asegurarnos de que sean los correctos, luego lo instalamos con nuestro amigo APT como siempre.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">curl https://packages.microsoft.com/keys/microsoft.asc &lt;span class="p">|&lt;/span> gpg –dearmor &amp;gt; microsoft.gpg
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo install -o root -g root -m &lt;span class="m">644&lt;/span> microsoft.gpg /etc/apt/trusted.gpg.d/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo sh -c ‘echo «deb &lt;span class="o">[&lt;/span>&lt;span class="nv">arch&lt;/span>&lt;span class="o">=&lt;/span>amd64&lt;span class="o">]&lt;/span> https://packages.microsoft.com/repos/edge stable main» &amp;gt; /etc/apt/sources.list.d/microsoft-edge-dev.list’
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo rm microsoft.gpg
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install microsoft-edge-dev
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="instalación-en-fedora-y-derivados">Instalación en Fedora y derivados&lt;/h3>
+&lt;p>Al igual que ubuntu y amigas es necesario agregar los repos, las llaves e instalarlo de la siguiente forma.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo rpm –import https://packages.microsoft.com/keys/microsoft.asc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dnf config-manager –add-repo https://packages.microsoft.com/yumrepos/edge
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo mv /etc/yum.repos.d/packages.microsoft.com_yumrepos_edge.repo /etc/yum.repos.d/microsoft-edge-dev.repo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dnf install microsoft-edge-dev
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="instalación-en-opensuse-y-derivadas">Instalación en openSUSE y derivadas&lt;/h3>
+&lt;p>El proceso es similar a los anteriores pero con los comandos correspondientes a esta distribución&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo rpm –import https://packages.microsoft.com/keys/microsoft.asc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo zypper ar https://packages.microsoft.com/yumrepos/edge microsoft-edge-dev
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo zypper update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo zypper install microsoft-edge-dev
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="arch-linux">Arch Linux&lt;/h3>
+&lt;p>Aca como siempre juega un papel enorme la comunidad ya que MS ni se molestó en armar un paquete pero por suerte existe yay y podemos hacer simplemente:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">yay -S microsoft-edge-dev-bin
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>¿Como instalar Hamachi?</title><link>https://patojad.com.ar/post/2020/12/como-instalar-hamachi/</link><pubDate>Fri, 11 Dec 2020 09:13:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/12/como-instalar-hamachi/</guid><description>&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/2yhM8CmK/image.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Hamachi es una app que nos permite generar una red privada virtual, de esta forma podemos compartir recursos, jugar en “LAN”, y muchas cosas más con personas que no se encuentran en la misma red, o en el mismo país…&lt;/p>
+&lt;h2 id="debian-based">Debian Based&lt;/h2>
+&lt;p>Para instalarlo en cualquier debian based tenemos que descargar el .deb e instalarlo, a continuación dejo los comandos actualizados al dia de la fecha.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">wget https://www.vpn.net/installers/logmein-hamachi_2.1.0.203-1_amd64.deb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dpkg -i logmein-hamachi_2.1.0.203-1_amd64.deb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install -f
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>En el caso de que tengas una pc 32 bits, tranca palanca que estos ñatos tienen los 32 bits a manopla:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">wget https://www.vpn.net/installers/logmein-hamachi_2.1.0.203-1_i386.deb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dpkg -i logmein-hamachi_2.1.0.203-1_i386.deb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install -f
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="fedora-y-similares">Fedora (y Similares)&lt;/h2>
+&lt;p>También puede ser que tengas por ahi Fedora, CentOS o RHEL y quieras tener hamachi, no hay drama la instalación es asi de simple.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">wget https://www.vpn.net/installers/logmein-hamachi-2.1.0.203-1.x86_64.rpm
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo rpm –i logmein-hamachi-2.1.0.203-1.x86_64.rpm
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Y si tu pc es 32 bits seria algo asi:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">wget https://www.vpn.net/installers/logmein-hamachi-2.1.0.203-1.i486.rpm
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo rpm –i logmein-hamachi-2.1.0.203-1.i486.rpm
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="cualquier-otra-distro">Cualquier otra distro&lt;/h2>
+&lt;p>Existe una forma de instalarlo independientemente de la distro que estemos usando. Para esto debemos seguir los siguientes pasos:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">wget https://www.vpn.net/installers/logmein-hamachi-2.1.0.203-x64.tgz
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">tar -xvzf logmein-hamachi-2.1.0.203-x64.tgz
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> logmein-hamachi-2.1.0.203-x64
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">./install.sh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Y en el caso de tener un Linux con 32 Bits podemos hacerlo de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">wget https://www.vpn.net/installers/logmein-hamachi-2.1.0.203-x86.tgz
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">tar -xvzf logmein-hamachi-2.1.0.203-x86.tgz
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> logmein-hamachi-2.1.0.203-x86
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">./install.sh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="arm">ARM&lt;/h2>
+&lt;p>Existen unos compilados en BETA para esta arquitectura, a continuación dejo la web oficial de descarga donde no solo podrán obtener los ARM sino también podrán comprobar que la versión que puse sea la más actualizada.&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='ARM en Linux'
+rel="noopener"
+href='https://www.vpn.net/linux'>
+ARM en Linux
+&lt;/a>
+&lt;/div>
+&lt;h2 id="windows">Windows&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://imag.malavida.com/mvimgbig/download-fs/hamachi-1410-1.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>En el caso de que uses Windows bastará con descargar el archivo .msi (Que veran a continuacion) e instalarlo con un doble click. Es importante recalcar que la descarga es directamente de la página oficial, no está alojado por este blog ni ningún otro&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Descargar Para Windows'
+rel="noopener"
+href='https://secure.logmein.com/hamachi.msi'>
+Descargar Para Windows
+&lt;/a>
+&lt;/div>
+&lt;h2 id="macos">MacOS&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://images.sftcdn.net/images/t_app-cover-m,f_auto/p/2bea4bde-96d7-11e6-878e-00163ed833e7/2690128288/logmein-hamachi-screenshot.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>En el caso de usar el sistema de la manzanita me cuesta un poco más poder definir correctamente el procedimiento porque no uso este sistema pero si puedo facilitarte la descarga oficial de su sitio y de ahi calculo que no debe ser muy complejo&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Descargar para MacOS'
+rel="noopener"
+href='https://secure.logmein.com/LogMeInHamachi.zip'>
+Descargar para MacOS
+&lt;/a>
+&lt;/div>
+&lt;hr>
+&lt;p>Recorda &lt;strong>apoyarnos&lt;/strong> en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p></description></item><item><title>Guia para instalar Arch</title><link>https://patojad.com.ar/post/2020/10/guia-para-instalar-arch/</link><pubDate>Tue, 13 Oct 2020 10:46:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/10/guia-para-instalar-arch/</guid><description>&lt;p>Siempre hablamos de esta distribución tan maravillosa y en esta oportunidad vamos a aprovechar que un usuario nos dejó una guía tan específica y tan perfecta que vamos a proceder con la instalación de Arch linux. Con esta guía solo basta seguir paso a paso.&lt;/p>
+&lt;h4 id="atención-esta-guia-solo-sirve-para-instalarlo-sobre-disco-duro-y-no-sobre-ssd">Atención esta guia solo sirve para instalarlo sobre Disco Duro y no sobre SSD&lt;/h4>
+&lt;h2 id="preparando-el-equipo">Preparando el equipo&lt;/h2>
+&lt;p>Una vez que hayamos booteado nuestro prendive con Arch linux vamos a poner nuestro teclado en español de la siguiente forma:&lt;/p>
+&lt;pre>&lt;code>loadkeys la-latin1
+&lt;/code>&lt;/pre>
+&lt;p>Teniendo el teclado en español ya podemos digitar sin mayores problemas por lo cual podemos proceder a conectarnos a internet siguiendo estos pasos si usaras WiFi en vez de cable.&lt;/p>
+&lt;pre>&lt;code>iwctl
+device list
+station wlan0 scan
+station wlan0 get-networks
+station wlan0 connect [&amp;quot;Nombre_de_la_Red&amp;quot;] PassDelWiFi
+exit
+&lt;/code>&lt;/pre>
+&lt;p>En este caso la wlan0 era la que me correspondía, si te sale otro número que no sea 0 solo cambialo por el que te sale por ejemplo wlan1. Para comprobar si ya tienes conexión activada&lt;/p>
+&lt;pre>&lt;code>ping patojad.com.ar
+&lt;/code>&lt;/pre>
+&lt;p>Presiona las teclas Ctrl+C para parar el ping si todo funciona ok, en caso contrario debemos revisar el paso anterior. Antes de preparar el disco debemos identificar si realmente tenemos UEFI o BIOS (si es que no lo sabemos de antemano) esto podemos verlo de la siguiente manera:&lt;/p>
+&lt;pre>&lt;code>ls /sys/firmware/efi/efivars
+&lt;/code>&lt;/pre>
+&lt;p>Si te aparece una lista con varios identificadores es porque estás utilizando un ordenador UEFI y debes saltar hasta la parte de Preparando el Disco UEFI&lt;/p>
+&lt;h2 id="preparando-el-disco-bios">Preparando el Disco BIOS&lt;/h2>
+&lt;p>Para particionar el disco basta con ingresar a la herramienta de terminal que nos permite particionarlo y eso podemos hacerlo de la siguiente forma&lt;/p>
+&lt;pre>&lt;code>cfdisk
+&lt;/code>&lt;/pre>
+&lt;p>Seleccionar &lt;strong>DOS&lt;/strong> para crear una tabla de particiones para &lt;strong>BIOS&lt;/strong>. A continuación te dejo en detalle una de las formas recomendadas. Desde el expertise de cada uno sabe que puede omitir el home o el swap. Si no entendes mucho de las particiones te recomiendo la siguiente configuración&lt;/p>
+&lt;pre>&lt;code>sda1 /boot 512M
+sda2 /swap 4-6G | Vas a la opción Type y la marcas &amp;quot;Linux Swap&amp;quot;
+sda3 /root 30-60G
+sda4 /home |Lo que sobre
+&lt;/code>&lt;/pre>
+&lt;p>Write para escribir cambios en el disco y quit para salir. Luego te recomiendo listar los discos duros y sus particiones, es para asegurarte que todo haya salido bien en el particionado&lt;/p>
+&lt;pre>&lt;code>fdisk -l
+&lt;/code>&lt;/pre>
+&lt;p>Si todo lo anterior salió correctamente es hora de formatear las particiones para poder usarlas y eso lo vamos a hacer de la siguiente manera (Este paso puede variar si no particionaste como recomendamos en el paso anterior)&lt;/p>
+&lt;pre>&lt;code>mkfs.ext2 /dev/sda1 ; mkfs.ext4 /dev/sda3 ; mkfs.ext4 /dev/sda4 ; mkswap /dev/sda2
+&lt;/code>&lt;/pre>
+&lt;p>Puedes hacerlo 1 por 1 también si te sientes más cómodo. Una vez formateados nos toca montar las particiones y swap:&lt;/p>
+&lt;pre>&lt;code>mount /dev/sda3 /mnt ; mkdir /mnt/boot ; mount /dev/sda1 /mnt/boot ; mkdir /mnt/home ; mount /dev/sda4 /mnt/home ; mkswap /dev/sda2
+&lt;/code>&lt;/pre>
+&lt;p>Luego de esto escribes &amp;ldquo;swapon&amp;rdquo; para encender la swap. Puedes hacerlo 1 por 1 también si es que es más cómodo.&lt;/p>
+&lt;pre>&lt;code>swapon
+&lt;/code>&lt;/pre>
+&lt;h2 id="preparando-el-disco-uefi">Preparando el Disco &lt;strong>UEFI&lt;/strong>&lt;/h2>
+&lt;p>Primero utilizamos el siguiente comando:&lt;/p>
+&lt;pre>&lt;code>fdisk /dev/sda
+&lt;/code>&lt;/pre>
+&lt;p>A eso lo continuas escribiendo g luego w y q para salir. Seleccionar &lt;strong>GPT&lt;/strong> para crear una tabla de particiones para &lt;strong>UEFI&lt;/strong>. A continuación te dejo en detalle una de las formas recomendadas. Desde el expertise de cada uno sabe que puede omitir el home o el swap. Si no entendes mucho de las particiones te recomiendo la siguiente configuración&lt;/p>
+&lt;pre>&lt;code>sda1 /boot/efi 512M | La marcamos bootable | Luego vamos a Type y la marcamos &amp;quot;EFI System&amp;quot;
+sda2 /swap 4-6G | Vas a la opción Type y la marcas &amp;quot;Linux Swap&amp;quot;
+sda3 /root 30-60G
+sda4 /home |Lo que sobre
+&lt;/code>&lt;/pre>
+&lt;p>Write para escribir cambios en el disco y quit para salir. Luego te recomiendo listar los discos duros y sus particiones, es para asegurarte que todo haya salido bien en el particionado&lt;/p>
+&lt;pre>&lt;code>fdisk -l
+&lt;/code>&lt;/pre>
+&lt;p>Si todo lo anterior salió correctamente es hora de formatear las particiones para poder usarlas y eso lo vamos a hacer de la siguiente manera (Este paso puede variar si no particionaste como recomendamos en el paso anterior)&lt;/p>
+&lt;pre>&lt;code>mkfs.vfat -F32 /dev/sda1 ; mkfs.ext4 /dev/sda3 ; mkfs.ext4 /dev/sda4 ; mkswap /dev/sda2
+&lt;/code>&lt;/pre>
+&lt;p>Puedes hacerlo 1 por 1 también si te sientes más cómodo. Una vez formateados nos toca montar las particiones y swap:&lt;/p>
+&lt;pre>&lt;code>mount /dev/sda3 /mnt ; mkdir /mnt/boot/efi ; mount /dev/sda1 /mnt/boot/efi ; mkdir /mnt/home ; mount /dev/sda4 /mnt/home ; swapon /dev/sda2
+&lt;/code>&lt;/pre>
+&lt;h2 id="instalación-del-sistema-bios">Instalación del Sistema BIOS&lt;/h2>
+&lt;p>Una vez que ya tengamos nuestras particiones funcionando de 10 debemos instalar el sistema y para eso vamos a hacerlo con el siguiente comando en el caso de que nuestro equipo sea &lt;strong>BIOS&lt;/strong>&lt;/p>
+&lt;pre>&lt;code>pacstrap /mnt base linux-lts linux-firmware linux-lts-headers grub networkmanager network-manager-applet netctl wireless_tools iw wpa_supplicant nano xdg-user-dirs dhcpcd base-devel xterm sudo
+&lt;/code>&lt;/pre>
+&lt;h2 id="instalación-del-sistema-uefi">Instalación del Sistema UEFI&lt;/h2>
+&lt;p>Una vez que ya tengamos nuestras particiones funcionando de 10 debemos instalar el sistema y para eso vamos a hacerlo con el siguiente comando en el caso de que nuestro equipo sea &lt;strong>UEFI&lt;/strong>&lt;/p>
+&lt;pre>&lt;code>pacstrap /mnt base linux-lts linux-firmware linux-lts-headers grub networkmanager network-manager-applet netctl wireless_tools iw wpa_supplicant nano xdg-user-dirs dhcpcd base-devel sudo xterm efibootmgr
+&lt;/code>&lt;/pre>
+&lt;h2 id="configuraciones-varias">Configuraciones Varias&lt;/h2>
+&lt;p>Ahora llega una parte que vamos a realizar algunas configuraciones varias, esto aplica tanto a UEFI como a BIOS y se realizan de la misma manera. Lo primero que vamos a realizar es descomentar multilib e Include para esto vamos a usar nano de la siguiente manera:&lt;/p>
+&lt;pre>&lt;code>nano /mnt/etc/pacman.conf
+&lt;/code>&lt;/pre>
+&lt;p>Presionar crtl+w | escribir multilib y descomentar ambas líneas. Para poder hacer uso del multilib&lt;/p>
+&lt;pre>&lt;code>[multilib]
+Include = /etc/pacman.de/mirrorlist
+&lt;/code>&lt;/pre>
+&lt;p>A continuación vamos a generar fstab de la siguiente manera&lt;/p>
+&lt;pre>&lt;code>genfstab -U /mnt &amp;gt;&amp;gt; /mnt/etc/fstab
+&lt;/code>&lt;/pre>
+&lt;p>No tenemos que olvidarnos de cambiar root al nuevo sistema con este simple comando&lt;/p>
+&lt;pre>&lt;code>arch-chroot /mnt
+&lt;/code>&lt;/pre>
+&lt;p>Y por último procedemos con unas configuraciones varias en lo que respecta a locacion, hostname etc&amp;hellip;&lt;/p>
+&lt;pre>&lt;code>ln -sf usr/share/zoneinfo/TuContinente/TuPais_o_Capital /etc/localtime
+hwclock -w
+nano /etc/locale.gen | crt+w escribir do | desmarcar #es_DO.UTF-8
+locale-gen
+echo CualquierNombre &amp;gt; /etc/hostname
+echo KEYMAP=es &amp;gt; /etc/vconsole.conf
+echo LANG=es_DO.UTF-8 &amp;gt; /etc/locale.conf
+&lt;/code>&lt;/pre>
+&lt;h2 id="instalación-del-grub-en-bios">Instalación del GRUB en BIOS&lt;/h2>
+&lt;p>Es importante instalar nuestro cargador de arranque para poder iniciar el sistema y esto lo podemos hacer con 2 simples comandos para &lt;strong>BIOS&lt;/strong>&lt;/p>
+&lt;pre>&lt;code>grub-install /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg
+&lt;/code>&lt;/pre>
+&lt;h2 id="instalación-del-grub-en-uefi">Instalación del GRUB en UEFI&lt;/h2>
+&lt;p>En el caso de estar en &lt;strong>UEFI&lt;/strong> la instalación del cargador de arranque se realiza con los siguientes comandos:&lt;/p>
+&lt;pre>&lt;code>grub-install --efi-directory=/boot/efi --bootloader-id='Arch Linux' --target=x86_64-efi
+grub-mkconfig -o /boot/grub/grub.cfg
+&lt;/code>&lt;/pre>
+&lt;h2 id="configurando-el-usuario-y-el-sistema">Configurando el usuario y el sistema&lt;/h2>
+&lt;p>Una vez instalado el GRUB podemos proceder a configurar los usuarios y el resto del sistema, para esto iniciamos configurando la contraseña root de la siguiente manera:&lt;/p>
+&lt;pre>&lt;code>passwd
+&lt;/code>&lt;/pre>
+&lt;p>Una vez configurada la contraseña podemos configurar ya el usuario y contraseña que vamos a utilizar:&lt;/p>
+&lt;pre>&lt;code>useradd -mUG wheel [tu usuario]
+passwd [tu usuario]
+&lt;/code>&lt;/pre>
+&lt;p>Ahora sí ya podemos apagar todo y reiniciar para poder seguir con el sistema ya instalado!&lt;/p>
+&lt;pre>&lt;code>exit
+reboot
+&lt;/code>&lt;/pre>
+&lt;p>Una vez que haya reiniciado con éxito y estemos de nuevo en nuestro sistema vamos a configurar usuario sudoers de la siguiente forma (para esto debemos logearnos como root con su y la contraseña)&lt;/p>
+&lt;pre>&lt;code>EDITOR=nano visudo
+&lt;/code>&lt;/pre>
+&lt;p>Ctrl+w | escribir: %wheel para buscar y luego procedemos a descomentar # %wheel. Ya habiendo configurado eso podemos proceder a activar internet de la siguiente manera:&lt;/p>
+&lt;pre>&lt;code>systemctl enable NetworkManager
+systemctl start NetworkManager.service
+&lt;/code>&lt;/pre>
+&lt;p>Si usaste wifi en vez de cable escribe para obtener la lista de dispositivos y poder realizar la coneccion:&lt;/p>
+&lt;pre>&lt;code>ip link
+&lt;/code>&lt;/pre>
+&lt;p>Una vez que identifiquemos la placa wifi la usamos de la siguiente forma&lt;/p>
+&lt;pre>&lt;code>ip link set wlo1 up
+&lt;/code>&lt;/pre>
+&lt;p>Con ese comando ya estaria prendida la placa WiFi y podemos conectarnos de la siguiente forma:&lt;/p>
+&lt;pre>&lt;code>nmcli dev wifi connect PatoJADWiFi password p4t0j4d
+&lt;/code>&lt;/pre>
+&lt;h2 id="instalación-del-servidor-gráfico-y-driver-de-tu-gráfica">Instalación del servidor gráfico y driver de tu gráfica&lt;/h2>
+&lt;p>Vamos a instalar nuestra servidor gráfico y placa, para esto vamos a dividirlo dependiendo de nuestra placa de video&lt;/p>
+&lt;h4 id="intel">Intel&lt;/h4>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://hardzone.es/app/uploads-hardzone.es/2019/09/Intel-Cascade-Lake-X-intro.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;pre>&lt;code>sudo pacman -Syyu xf86-video-intel mesa-demos intel-ucode xorg pavucontrol pulseaudio
+&lt;/code>&lt;/pre>
+&lt;h4 id="nvdia">Nvdia&lt;/h4>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://hardzone.es/app/uploads-hardzone.es/2020/04/NVIDIA-Hotfix.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;pre>&lt;code>sudo pacman -Syyu xf86-video-nouveau mesa-demos mesa-libgl xorg pavucontrol pulseaudio
+&lt;/code>&lt;/pre>
+&lt;h4 id="amd">AMD&lt;/h4>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://hardzone.es/app/uploads-hardzone.es/2020/03/AMD-Ryzen-9.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;pre>&lt;code>sudo pacman -Syyu xf86-video-amdgpu mesa-vdpau mesa-demos xorg pavucontrol pulseaudio
+&lt;/code>&lt;/pre>
+&lt;h2 id="instalación-del-escritorio-y-sus-utilidades">Instalación del escritorio y sus utilidades&lt;/h2>
+&lt;p>A continuación vamos a ver la instalación de los escritorios disponibles y sus utilidades te recomendamos escoger el que más te guste:&lt;/p>
+&lt;h4 id="instalar-xfce4">Instalar XFCE4&lt;/h4>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://docs.xfce.org/_media/xfce/4.12/slider-desktop.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>290MiB/RAM aproximadamente, un escritorio muy ligero y bastante personalizable&lt;/p>
+&lt;pre>&lt;code>pacman -S xfce4 xfce4-goodies network-manager-applet
+pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+pacman -S light-locker accountsservice
+&lt;/code>&lt;/pre>
+&lt;h4 id="instalar-deepin">Instalar Deepin&lt;/h4>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://www.deepin.org/wp-content/uploads/2020/04/01-1.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>590MiB/RAM aproximadamente, es un escritorio muy estético aunque el nivel de personalización es bastante bajo&lt;/p>
+&lt;pre>&lt;code>pacman -S deepin deepin-extra
+pacman -S lightdm deepin-session-ui
+pacman -S light-locker accountsservice
+&lt;/code>&lt;/pre>
+&lt;h4 id="instalar-budgie">Instalar Budgie&lt;/h4>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Ubuntu-budgie-18.04-cat.png/1280px-Ubuntu-budgie-18.04-cat.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>460MiB/RAM aproximadamente, un escritorio maleable y muy buscado&lt;/p>
+&lt;pre>&lt;code>pacman -S budgie-desktop gnome gnome-shell gnome-extra gdm
+&lt;/code>&lt;/pre>
+&lt;h4 id="instalar-cinnamon">Instalar Cinnamon&lt;/h4>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://erikdubois.be/wp-content/uploads/2017/01/arch-cinnamon-aureola-acros.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>450MiB/RAM aproximadamente, es un escritorio muy estético y fluido, con cada actualización este escritorio se renueva y nos soprende mas&lt;/p>
+&lt;pre>&lt;code>pacman -S cinnamon gdm
+&lt;/code>&lt;/pre>
+&lt;h4 id="instalar-enlightenment">Instalar Enlightenment&lt;/h4>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.stack.imgur.com/FvoTq.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>149MiB/RAM aproximadamente, es un escritorio muy liviano y muy optimizado, altamente recomendado para equipos viejos&lt;/p>
+&lt;pre>&lt;code>pacman -S enlightenment terminology gnu-free-fonts
+pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+pacman -S light-locker accountsservice
+&lt;/code>&lt;/pre>
+&lt;h4 id="instalar-gnome">Instalar GNOME&lt;/h4>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.redd.it/qeu6pls7v7w11.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>740MiB/RAM aproximadamente, es un escritorio muy maleable y bastante fluido (es uno de los escritorios con más precarga pero lo vale en la usabilidad) es el preferido de &lt;strong>Pipe&lt;/strong> y &lt;strong>Julio&lt;/strong>&lt;/p>
+&lt;pre>&lt;code>pacman -S gnome gnome-extra gdm
+&lt;/code>&lt;/pre>
+&lt;h4 id="instalar-gnomeflashback">Instalar GNOME/Flashback&lt;/h4>
+&lt;p>![](&lt;a href="https://external-preview.redd.it/38qPd6ZJGLQXB2HtQ6iL2ZEvOw-Dsg0VM05FOTc8O7I.png?auto=webp&amp;amp;s=bab6f84634f388e1abc83e14c954f94fe34b150d%22" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://external-preview.redd.it/38qPd6ZJGLQXB2HtQ6iL2ZEvOw-Dsg0VM05FOTc8O7I.png?auto=webp&amp;s=bab6f84634f388e1abc83e14c954f94fe34b150d"
+&lt;/a> &amp;gt;}}&lt;/p>
+&lt;p>435MiB/RAM aproximadamente, el diseño del escritorio y la tecnología subyacente es similar a GNOME 2. No utiliza la aceleración 3D en absoluto, por lo que generalmente es más rápido y requiere menos CPU&lt;/p>
+&lt;pre>&lt;code>pacman -S gnome-flashback gnome gnome-applets sensors-applet gdm
+&lt;/code>&lt;/pre>
+&lt;h4 id="instalar-lxde--gtk3">Instalar LXDE — GTK3&lt;/h4>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://cdn.pling.com/img//hive/content-pre1/159897-1.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>175MiB/RAM aproximadamente, es un escritorio muy fluido y pueden lograrse estéticas únicas&lt;/p>
+&lt;pre>&lt;code>pacman -S lxde-gtk3 lxdm-gtk3 lxde-common
+&lt;/code>&lt;/pre>
+&lt;h4 id="instalar-lxqt">Instalar LXQt&lt;/h4>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://blog.desdelinux.net/wp-content/uploads/2014/05/lxqt-1.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>227MiB/RAM aproximadamente, es un escritorio fluido con un nivel de precarga bajo pero suficiente&lt;/p>
+&lt;pre>&lt;code>pacman -S lxqt sddm breeze-icons xdg-utils xscreensaver xautolock gnu-free-fonts
+&lt;/code>&lt;/pre>
+&lt;h4 id="instalar-lxde--gtk2">Instalar LXDE — GTK2&lt;/h4>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://blog.desdelinux.net/wp-content/uploads/2012/07/2012-07-17-194657_1440x900_scrot.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>170MiB/RAM aproximadamente, es la versión con GTK2 de lxde, en lo personal prefiero la versión con GTK3 pero eso va por cada uno.&lt;/p>
+&lt;pre>&lt;code>pacman -S lxde lxdm lxde-common
+&lt;/code>&lt;/pre>
+&lt;h4 id="instalar-mate">Instalar MATE&lt;/h4>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://fc06.deviantart.net/fs71/f/2012/150/f/9/archlinux_mate_29_05_12_by_chetaahmc-d51p82z.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>332MiB/RAM aproximadamente, es uno de los escritorios con mejor relación consumo oferta y realmente es uno de los que personalmente más me gusta.&lt;/p>
+&lt;pre>&lt;code>pacman -S mate mate-extra mate-media
+pacman -S mate-applet-dock mate-applet-streamer mate-power-manager
+pacman -S network-manager-applet system-config-printer
+&lt;/code>&lt;/pre>
+&lt;p>mate-extra &amp;gt; Paquete de programas para MATE (opcional)
+system-config-printer &amp;gt; Configuración de Impresoras (opcional)
+mate-power-manager &amp;gt; El backend UPower (opcional)&lt;/p>
+&lt;h4 id="instalar-sugar">Instalar Sugar&lt;/h4>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://sugarlabs.org/assets/home-screenshot.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>260MiB/RAM aproximadamente, el escritorio pensado para niños (Si, no hay nada mejor que nuestro niño de 6 años use Arch, imaginense lo que va a ser a los 20) es ligero y pensado para ser muy simple de usar&lt;/p>
+&lt;pre>&lt;code>pacman -S sugar sugar-fructose sugar-runner network-manager-applet
+pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+pacman -S light-locker accountsservice
+&lt;/code>&lt;/pre>
+&lt;h4 id="instalar-kde-plasma">Instalar KDE Plasma&lt;/h4>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://arcolinuxd.com/wp-content/uploads/2018/06/archlinux-plasma-menu.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>700MiB/RAM aproximadamente, es un escritorio muy estético y personalizable, la precarga es baja pero en algunos casos puede ir aumentando en el uso.&lt;/p>
+&lt;pre>&lt;code>pacman -S plasma gnu-free-fonts ttf-hack kde-applications sddm
+&lt;/code>&lt;/pre>
+&lt;p>kde-applications &amp;gt; Paquete de programas para KDE (opcional)&lt;/p>
+&lt;h2 id="iniciando-el-sistema">Iniciando el sistema&lt;/h2>
+&lt;p>Para entrar al sistema solo escribes&lt;/p>
+&lt;pre>&lt;code>systemctl enable lightdm|sddm|gdm
+&lt;/code>&lt;/pre>
+&lt;p>Depende de el escritorio que instales por ejemplo instalaste kde plasma entonces deberías poner&lt;/p>
+&lt;pre>&lt;code>systemctl enable sddm
+&lt;/code>&lt;/pre>
+&lt;p>Y luego para poder iniciarlo también depende del escritorio que instales por ejemplo con kde&lt;/p>
+&lt;pre>&lt;code>systemctl start sddm.service
+&lt;/code>&lt;/pre>
+&lt;p>Deberías cambiar en ambos casos a sddm por el gestor de sesiones que hayas instalado para poder iniciarlo&lt;/p>
+&lt;h2 id="créditos">Créditos&lt;/h2>
+&lt;p>El contenido de esta publicación no es mio, simplemente acomode y junte las 2 guías para llegar a esta publicación. Quiero agradecer a &lt;strong>Im Rere =)&lt;/strong> por permitirme usar sus guías.&lt;/p>
+&lt;hr>
+&lt;p>Recorda &lt;strong>apoyarnos&lt;/strong> en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p></description></item><item><title>Instalar YAY en Artix Linux</title><link>https://patojad.com.ar/post/2020/10/instalar-yay-en-artix-linux/</link><pubDate>Tue, 06 Oct 2020 10:43:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/10/instalar-yay-en-artix-linux/</guid><description>&lt;p>En base a lo que pide Pipe en esta oportunidad vamos a seguir con Artix esta hermosa distro que es realmente performante. Para esta oportunidad vamos a ver como instalar yay en esta magnífica distro. Por lo cual voy a dejar un corto video donde explico todo y obviamente todo esto va a estar a lo largo de la publicación.&lt;/p>
+&lt;h2 id="el-video">El Video&lt;/h2>
+&lt;p>Espero que les guste el video, y no se olviden de apoyar y suscribirse al canal para motivar el progreso.&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/w-XxsaqPBZU?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="instalación">Instalación&lt;/h2>
+&lt;p>Para la instalación debemos ejecutar la siguiente línea de comandos que es lo que realizó durante el video. De esta forma podemos copiar y pegar&lt;/p>
+&lt;pre>&lt;code>sudo pacman -Sy
+sudo pacman -S git base-devel
+cd /tmp
+rm -rf yay 2&amp;gt; /dev/null
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+&lt;/code>&lt;/pre>
+&lt;h2 id="adicional">Adicional&lt;/h2>
+&lt;p>Para activar la salida colorida en pacman y, por extensión, en yay, como recalqué en el video se puede usar este comando:&lt;/p>
+&lt;pre>&lt;code>sudo sed -i '/^#Color/s/^#//' /etc/pacman.conf
+&lt;/code>&lt;/pre>
+&lt;p>Ya teniendo todo ok debemos eliminar aurman de la siguiente manera&amp;hellip;&lt;/p>
+&lt;pre>&lt;code>sudo pacman -R aurman
+&lt;/code>&lt;/pre></description></item></channel></rss>
