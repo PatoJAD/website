@@ -10,7 +10,7 @@ cd public
 
 echo 'patojad.com.ar' >CNAME
 
-git init
+git init -b main
 git add -A
 git commit -m 'deploy'
 
