@@ -1,12 +1,25 @@
 ---
-title: '¿Qué son exactamente los comandos?'
-date: '2020-09-09 10:33:00'
-description: 'Vamos a comenzar a entender un poco mas sobre los comandos de linux'
-type: 'post'
-tags: ['type', 'linux', 'which', 'comandos', 'terminal', 'consola']
-categories: ['Linux']
-img: 'https://elandroidefeliz.com/wp-content/uploads/2018/02/Listado-de-comandos-MS-DOS-definitivo-696x425.jpg'
-authors: ['PatoJAD']
+title: "¿Qué son exactamente los comandos?"
+date: "2020-09-09 10:33:00"
+description: "Vamos a comenzar a entender un poco mas sobre los comandos de linux"
+type: "post"
+tags:
+  [
+    "type",
+    "linux",
+    "which",
+    "comandos",
+    "terminal",
+    "consola",
+    "que son los comandos",
+    que son los comandos de linux,
+    comandos de linux,
+    comandos de terminal,
+    comandos de consola',
+  ]
+categories: ["Linux", "MacOS", "Windows"]
+img: "https://i.postimg.cc/vB8ZsLBW/comandos.jpg"
+authors: ["PatoJAD"]
 ---
 
 Un comando puede ser una de estas cuatro cosas:
@@ -23,22 +36,26 @@ A menudo es útil saber exactamente cual de los cuatro tipos de comandos estamos
 
 El comando type es un shell builtin que muestra el tipo de comando que el shell ejecutará, indicándole el nombre de un comando en particular. Funciona así:
 
+```zsh
     type comando
+```
 
 donde "comando" es el nombre del comando que quieres examinar. Aquí tienes algunos ejemplos:
 
-    type type
-    type is a shell builtin
+```zsh
+type type
+type is a shell builtin
 
 
 
-    type ls
-    ls is aliased to 'ls --color=tty'
+type ls
+ls is aliased to 'ls --color=tty'
 
 
 
-    type cp
-    cp is /bin/cp
+type cp
+cp is /bin/cp
+```
 
 Aquí vemos los resultados para tres comandos diferentes. Fíjate en el de ls (realizado sobre un sistema Fedora) y en cómo el comando ls es realmente un alias del comando ls con la opción “--color=tty” añadida. ¡Ahora sabemos porqué la salida de ls se muestra en color!
 
@@ -46,13 +63,17 @@ Aquí vemos los resultados para tres comandos diferentes. Fíjate en el de ls (r
 
 A veces hay más de una versión de un programa ejecutable instalada en un sistema. Aunque no es muy usual en los sistemas de escritorio, sí es más frecuente en grandes servidores. Para determinar la localización exacta de un ejecutable dado tenemos el comando which:
 
-    which ls
-    /bin/ls
+```zsh
+which ls
+/bin/ls
+```
 
 which sólo funciona con programas ejecutables, ni con builtins ni con alias que son sustitutos de los verdaderos programas ejecutables. Cuando intentamos usar which en un shell builtin, por ejemplo, cd, no tendremos respuesta o nos dará un mensaje de error:
 
-    which cd
-    /usr/bin/which: no cd in (/opt/jre1.6.0_03/bin:/usr/lib/qt-3.3/bin:/usr/kerberos/bin:/opt/jre1.6.0_03/bin:/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/home/me/bin)
+```zsh
+which cd
+/usr/bin/which: no cd in (/opt/jre1.6.0_03/bin:/usr/lib/qt-3.3/bin:/usr/kerberos/bin:/opt/jre1.6.0_03/bin:/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/home/me/bin)
+```
 
 ## Obteniendo la documentación de un comando
 
