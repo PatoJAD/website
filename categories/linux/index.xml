@@ -1,4 +1,673 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GNU/Linux on PatoJAD</title><link>https://patojad.com.ar/categories/linux/</link><description>Recent content in GNU/Linux on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Wed, 15 Nov 2023 12:02:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/categories/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Instalación de Wine en GNU/Linux para Ejecutar Aplicaciones Windows</title><link>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</link><pubDate>Wed, 15 Nov 2023 12:02:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</guid><description>&lt;p>La compatibilidad entre sistemas operativos es esencial, y Wine, una herramienta de código abierto, facilita la ejecución de aplicaciones Windows en entornos GNU/Linux. En esta guía, exploraremos qué es Wine, cómo instalarlo en distintas distribuciones y dónde se instalan las aplicaciones. ¡Descubre cómo ampliar las posibilidades de tu sistema operativo!&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GNU/Linux on PatoJAD</title><link>https://patojad.com.ar/categories/linux/</link><description>Recent content in GNU/Linux on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Mon, 25 Mar 2024 12:34:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/categories/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Formatos de Empaquetado en Linux: Nativos, Flatpak, Snap y AppImage</title><link>https://patojad.com.ar/post/2024/03/formatos-de-empaquetado-en-linux-nativos-flatpak-snap-y-appimage/</link><pubDate>Mon, 25 Mar 2024 12:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/03/formatos-de-empaquetado-en-linux-nativos-flatpak-snap-y-appimage/</guid><description>&lt;p>En el tradicional formato de empaquetado de Linux, tenemos &lt;strong>DEB&lt;/strong> (para debian, ubuntu y derivadas), &lt;strong>RPM&lt;/strong> (para redhat, fedora y derivadas) y otras variantes. Más recientemente, se han añadido &lt;strong>Flatpak&lt;/strong>, &lt;strong>Snap&lt;/strong> e &lt;strong>AppImage&lt;/strong>, lo que ha generado una gran variedad de formatos con diferentes características, ventajas y limitaciones. En este análisis, exploraremos el rendimiento de cada formato y las funciones que faltan en cada uno.&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/1zGKcj92PcQ?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="nativas">Nativas&lt;/h2>
+&lt;p>Generalmente no son compatibles entre distintas distribuciones, no implementan ningún modelo de seguridad o espacio aislado específico y se distribuyen a través de repositorios, ya sean oficiales o de terceros. Estos paquetes pueden contener bibliotecas o aplicaciones y todas las bibliotecas se comparten entre aplicaciones, lo que ahorra espacio y evita bibliotecas duplicadas. Sin embargo, esto también significa que una aplicación que necesita una biblioteca más nueva podría no funcionar en una distribución más antigua.&lt;/p>
+&lt;h2 id="flatpak">Flatpak&lt;/h2>
+&lt;p>Generalmente agregan además de sus paquetes regulares, son agnósticos de la distribución en sí, por lo que si su distro admite el &lt;strong>Flatpak&lt;/strong>, puede ejecutar exactamente el mismo paquete que cualquier otra distribución. El desarrollador empaqueta su aplicación una vez y se ejecuta en todo, no es necesario duplicar el trabajo de empaquetado. Los &lt;strong>Flatpak&lt;/strong> tienen un empaquetado &amp;ldquo;sandbox&amp;rdquo;, lo que significa que ofrecen menos agujeros de seguridad para posibles atacantes y, al mismo tiempo, comparten una gran cantidad de bibliotecas a través de tiempos de ejecución. Algunos &lt;strong>Flatpak&lt;/strong> contienen muchas bibliotecas en las que confían muchas aplicaciones. También pueden enviar sus propias bibliotecas en el paquete, lo que significa que pueden usar más espacio con el tiempo. Los &lt;strong>Flatpak&lt;/strong> se distribuyen principalmente a través de Flathub y repositorios en línea, pero usted también puede crear su propio repositorio ya que todo es de código abierto.&lt;/p>
+&lt;h2 id="snap">Snap&lt;/h2>
+&lt;p>Los &lt;strong>Snaps&lt;/strong> son básicamente el mismo concepto que los &lt;strong>Flatpak&lt;/strong>, pero para Ubuntu. Hay algunas diferencias técnicas con los &lt;strong>Flatpak&lt;/strong>, especialmente con respecto a cómo se abren y montan las aplicaciones en el sistema, pero funcionan de la misma manera. De esta manera, tiene tiempos de ejecución que incluyen bibliotecas necesarias para múltiples aplicaciones y luego las aplicaciones que pueden usar estos tiempos de ejecución se pueden aislar, pero no es obligatorio, por lo que algunas no lo son y se distribuyen exclusivamente a través de la tienda de Snap administrada por Canonical y ese específico. El back-end no es de código abierto. Los &lt;strong>Snaps&lt;/strong> se empaquetan una vez y cualquier distribución puede usar el mismo Snap siempre que admita el formato. Otra gran diferencia es que los &lt;strong>Snaps&lt;/strong> son adecuados no solo para aplicaciones gráficas sino también para programas de línea de comandos, aplicaciones del lado del servidor o incluso el kernel, el entorno de escritorio, el cargador de arranque o los controladores.&lt;/p>
+&lt;h2 id="appimage">AppImage&lt;/h2>
+&lt;p>Son un formato más portátil similar a lo que hace &lt;strong>MacOS&lt;/strong>: toda la aplicación se envía dentro de un solo archivo con la mayoría, si no todas, sus bibliotecas. Esto significa que puede copiar y pegar aplicaciones desde un sistema a otro y se ejecutan en cualquier distribución que tenga acceso a fuse, que es lo que usan las imágenes de la aplicación para ejecutar las imágenes de la aplicación. A diferencia de las anteriores, no se ejecutan en un sandbox, aunque puedes hacerlo manualmente con algo como Fire Jail y, a veces, dependen de las bibliotecas del sistema que distribución se envía como paquetes regulares. Esto significa que ciertas imágenes de aplicaciones pueden no funcionar en ciertos sistemas que no tienen la biblioteca requerida; generalmente se distribuyen desde el sitio web de los desarrolladores o desde la aplicación App Image Hub. Las imágenes no crean automáticamente entradas en su sistema. menú a menos que use un demonio específico que se ejecuta en segundo plano.&lt;/p>
+&lt;h2 id="puntos-de-referencia-de-rendimiento">Puntos de referencia de rendimiento&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/Z5xcr9pK/image.png" alt="PC de pruebas" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Las pruebas de rendimiento se llevaron a cabo en una máquina virtual Ubuntu 23.04 con 16 GB de RAM y un procesador Intel Core i7 de 13.a generación. Se instalaron aplicaciones en todos los formatos de empaquetado, y se midió el tiempo de apertura inicial y las ejecuciones posteriores. Los resultados mostraron diferencias en el tiempo de inicio y el rendimiento en pruebas como Velocímetro y Jetstream Benchmark.&lt;/p>
+&lt;ul>
+&lt;li>16 GB de RAM&lt;/li>
+&lt;li>Procesador Intel Core i7 de 13.a generación&lt;/li>
+&lt;li>Renderizado por hardware&lt;/li>
+&lt;li>Ubuntu 23.04&lt;/li>
+&lt;li>Maquina virtual&lt;/li>
+&lt;/ul>
+&lt;p>Recordemos que esto no pretende ser una maquina real sino un punto para una comparación de rendimiento entre los distintos formatos de empaquetado.&lt;/p>
+&lt;h3 id="resultados">Resultados&lt;/h3>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/Dzfc52PQ/image.png" alt="Resultados 1" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>
+&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/RCJLgpKY/image.png" alt="Resultados 2" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;h2 id="sandbox">Sandbox&lt;/h2>
+&lt;p>Los formatos de empaquetado como &lt;strong>Flatpaks&lt;/strong> y &lt;strong>Snaps&lt;/strong> utilizan entornos de sandbox para proporcionar aislamiento y seguridad a las aplicaciones. Sin embargo, esto puede afectar el rendimiento y la compatibilidad con ciertas características, como la mensajería nativa. El Sandbox no es 100% a prueba de balas. Nada lo es, pero es interesante limitar a qué puede acceder la aplicación, todo esto se administra a través de permisos de aplicaciones, de manera muy similar a lo que encontraría en las aplicaciones de Android o iOS, puede otorgar permisos a las aplicaciones para acceder a archivos y carpetas específicos o servicios y componentes específicos del sistema, todo esto generalmente se maneja a través de portales de escritorio que significa que la aplicación realmente no accede al archivo o a la carpeta, abre un portal que es lo que accede al recurso requerido y lo pasa a la aplicación.&lt;/p>
+&lt;p>Esto es similar a cómo los navegadores web ejecutan cada pestaña en un proceso separado al que no se puede acceder. el hilo principal del navegador o las otras pestañas, los paquetes regulares no están protegidos de forma predeterminada, se instalan en el sistema de archivos y requieren privilegios de root para instalarse, lo que significa que si el paquete tiene algunos scripts maliciosos posteriores a la instalación que ejecuta, le ha dado rienda suelta sobre su sistema y cualquier aplicación que haya instalado a través de paquetes pueden acceder a cualquier cosa que su usuario pueda acceder a su directorio completo de home, por ejemplo, u otros archivos de configuración de aplicaciones.&lt;/p>
+&lt;h2 id="funciones-faltantes">Funciones faltantes&lt;/h2>
+&lt;p>Cada formato de empaquetado tiene limitaciones y funciones faltantes. Por ejemplo, los paquetes &lt;strong>Flatpak&lt;/strong> y Snap carecen de compatibilidad con la mensajería nativa, lo que puede afectar su utilidad en ciertos casos de uso. Además, el soporte para el tema del sistema puede ser imperfecto en algunos formatos, lo que puede afectar la integración visual con el entorno del usuario.&lt;/p>
+&lt;h2 id="conclusión">Conclusión&lt;/h2>
+&lt;p>A pesar de las diferencias y limitaciones, todos los formatos de empaquetado ofrecen una experiencia similar en la ejecución de aplicaciones en Linux. La elección del formato adecuado puede depender de factores como la seguridad, la portabilidad y las características específicas requeridas por el usuario. Si bien la unificación hacia un formato de empaquetado único podría simplificar la experiencia para los usuarios principiantes, actualmente cada formato tiene su lugar en el ecosistema de Linux.&lt;/p></description></item><item><title>Explorando SystemD en el Mundo Linux: Críticas, Realidades y Controversias</title><link>https://patojad.com.ar/post/2024/03/explorando-systemd-en-el-mundo-linux-cr%C3%ADticas-realidades-y-controversias/</link><pubDate>Fri, 15 Mar 2024 18:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/03/explorando-systemd-en-el-mundo-linux-cr%C3%ADticas-realidades-y-controversias/</guid><description>&lt;p>En el vasto y diverso ecosistema de Linux, cada componente del sistema es objeto de discusión y opinión, y el sistema de inicio no es la excepción. &lt;strong>SystemD&lt;/strong> ha sido un tema de controversia dentro de la comunidad, generando críticas y debates en línea. En este artículo, profundizaremos en qué es &lt;strong>SystemD&lt;/strong>, su evolución, y las razones detrás de las críticas que ha enfrentado.&lt;/p>
+&lt;p>Ya escribi algunos articulos planteando los problemas de &lt;strong>SystemD&lt;/strong> y las alternativas que existen, pero en esta ocasión quiero profundizar en el tema y explicar las razones de la resistencia que ha enfrentado &lt;strong>SystemD&lt;/strong>. Y la explicacion de las cosas buenas que tiene, porque no todo es malo.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2020/06/systemd-solucion-o-problema/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+SystemD ¿Solucion o Problema?
+&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2020/07/systemd-no-es-el-problema-respuesta-a-zatiel/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+¿SystemD no es el problema? Respuesta a Zatiel
+&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="desentrañando-systemd-y-su-rol-como-sistema-de-inicio">Desentrañando SystemD y su Rol como Sistema de Inicio&lt;/h2>
+&lt;p>En el corazón de todos los sistemas basados en Linux se encuentra un sistema de inicio, el primer proceso que entra en acción después de arrancar el sistema operativo. Este proceso trabaja en segundo plano, gestionando servicios y procesos esenciales. En este contexto, &lt;strong>SystemD&lt;/strong> se presenta como un sistema de inicio predominante en muchas distribuciones de Linux.&lt;/p>
+&lt;p>Iniciado en 2010 bajo el liderazgo de &lt;strong>Red Hat&lt;/strong> y &lt;strong>Leonard Puttering&lt;/strong>, &lt;strong>SystemD&lt;/strong> nació con la intención de reemplazar soluciones existentes como &lt;strong>SysV&lt;/strong> y &lt;strong>Upstart&lt;/strong>. Su enfoque principal era mejorar el rendimiento del sistema, acelerar los tiempos de arranque y reducir el consumo de recursos. Rápidamente, se convirtió en el sistema de inicio predeterminado para distros populares como &lt;em>Fedora&lt;/em>, &lt;em>Arch Linux&lt;/em>, &lt;em>Debian&lt;/em> y &lt;em>Ubuntu&lt;/em>, entre otras.&lt;/p>
+&lt;p>A pesar de su adopción generalizada, algunas distribuciones, como &lt;em>Alpine Linux&lt;/em>, &lt;em>MX Linux&lt;/em>, &lt;em>&lt;a href="https://patojad.com.ar/post/2019/09/voidlinux-por-jos%c3%a9/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Void Linux
+&lt;/a>&lt;/em>, &lt;em>&lt;a href="https://patojad.com.ar/post/2020/08/artix-linux/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Artix
+&lt;/a>&lt;/em>, &lt;em>&lt;a href="https://patojad.com.ar/post/2020/06/instalcion-milagros/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+MilagOS
+&lt;/a>&lt;/em> y otras, han optado por no adoptar &lt;strong>SystemD&lt;/strong>.&lt;/p>
+&lt;h2 id="explorando-las-razones-de-la-resistencia">Explorando las Razones de la Resistencia&lt;/h2>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/crIeSArnZfo?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h3 id="el-argumento-del-bloat">El Argumento del &amp;ldquo;Bloat&amp;rdquo;&lt;/h3>
+&lt;p>Un argumento recurrente contra &lt;strong>SystemD&lt;/strong> es su expansión progresiva hacia funciones que tradicionalmente eran gestionadas por servicios individuales. Esta acumulación de características ha llevado a críticas sobre su conformidad con la filosofía &lt;strong>UNIX&lt;/strong>, que aboga por la simplicidad y la especialización de funciones.&lt;/p>
+&lt;p>Aunque &lt;strong>SystemD&lt;/strong> mantiene su modularidad (recordemos qeu son varios mini-binarios especificos), su crecimiento ha llevado a la percepción de ser una solución monolítica. Además, su actualización periódica y la adición de nuevas funciones pueden traducirse en un mayor uso de espacio y recursos, lo que preocupa a aquellos que buscan eficiencia (hablando en kb de recursos).&lt;/p>
+&lt;h3 id="dependencia-omnipresente-y-restricciones-de-opciones">Dependencia Omnipresente y Restricciones de Opciones&lt;/h3>
+&lt;p>&lt;strong>SystemD&lt;/strong> se ha vuelto tan integral en muchos aspectos del sistema que su ausencia puede limitar la funcionalidad de otros componentes. Servicios como el inicio de sesión gráfico o la gestión de conexiones de red a menudo dependen de componentes de &lt;strong>SystemD&lt;/strong>. Aunque es posible prescindir de él, las distribuciones que optan por no implementarlo deben buscar, proporcionar y mantener alternativas.&lt;/p>
+&lt;p>No podemos culpar a los desarrolladres de las aplicaciones por usar el set de herramientas que les provee &lt;strong>SystemD&lt;/strong>. Sin embargo, esto puede ser un problema para aquellos que buscan una mayor diversidad de opciones. Aun asi, hay que entender que estos set de herramienta facilitan y simplifican el trabajo de los desarrolladores, permitiendoles enfocarse en la funcionalidad de sus aplicaciones.&lt;/p>
+&lt;h3 id="red-hat-como-dueño-de-systemd">Red Hat como &amp;ldquo;Dueño&amp;rdquo; de SystemD&lt;/h3>
+&lt;p>Otra crítica común se dirige al hecho de que &lt;strong>SystemD&lt;/strong> es un proyecto de &lt;strong>Red Hat&lt;/strong>. Aunque comenzó como un proyecto de esta compañía, actualmente propiedad de IBM, algunas voces expresan preocupación sobre el control que una entidad única puede tener sobre la dirección del sistema de inicio en Linux. Las recientes transformaciones en la gestión de la comunidad por parte de &lt;strong>Red Hat&lt;/strong> han aumentado estas preocupaciones.&lt;/p>
+&lt;p>Aun asi, &lt;strong>SystemD&lt;/strong> es un proyecto de código abierto, y su desarrollo está abierto a la participación de la comunidad. Además, la adopción de &lt;strong>SystemD&lt;/strong> por parte de otras distribuciones, como Debian y Ubuntu, ha ayudado a mitigar estas preocupaciones dado que en la actualidad es un proyecto que va mas alla de &lt;strong>Red Hat&lt;/strong>.&lt;/p>
+&lt;h3 id="restricción-de-opciones-y-seguridad-del-sistema">Restricción de Opciones y Seguridad del Sistema&lt;/h3>
+&lt;p>&lt;strong>SystemD&lt;/strong> ha sido señalado como un factor que contribuye a la uniformidad en los sistemas Linux, restringiendo la diversidad de opciones. También se argumenta que su presencia crea un riesgo de seguridad, al ser un objetivo único para posibles ataques.&lt;/p>
+&lt;p>Sin embargo, defensores de &lt;strong>SystemD&lt;/strong> contrarrestan estas preocupaciones destacando su integración con el kernel de Linux y su eficiencia. Aseguran que, aunque puede haber un riesgo potencial debido a su ubicuidad, la confianza en un proyecto bien mantenido y ampliamente utilizado puede superar estos desafíos. Y es una realidad que &lt;strong>SystemD&lt;/strong> es un proyecto bien mantenido y ampliamente utilizado con un desarrollo activo.&lt;/p>
+&lt;h2 id="conclusión">Conclusión&lt;/h2>
+&lt;p>En resumen, las críticas hacia &lt;strong>SystemD&lt;/strong> abordan aspectos que van desde la filosofía &lt;strong>UNIX&lt;/strong> hasta preocupaciones sobre dependencias y seguridad. Aunque se presentan alternativas viables, la elección de utilizar &lt;strong>SystemD&lt;/strong> o no a menudo se reduce a la conveniencia, eficiencia y preferencias de cada usuario.&lt;/p></description></item><item><title>Instalar grafica NVIDIA integrada en Arch Linux</title><link>https://patojad.com.ar/post/2024/02/instalar-grafica-nvidia-integrada-en-arch-linux/</link><pubDate>Tue, 20 Feb 2024 14:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/02/instalar-grafica-nvidia-integrada-en-arch-linux/</guid><description>&lt;p>Hola! Les comparto el método que encontré para hacer funcionar mi gráfica nvidia integrada con 10 años de antigüedad usando drivers privativo y Optimus Manager!&lt;/p>
+&lt;blockquote>
+&lt;p>Ej.: mi gráfica es NVIDIA GeForge GTX770M y la versión compatible es la nvidia-470xx)&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="detectando-tipo-de-controladores-de-video">Detectando tipo de controladores de video:&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">lspci &lt;span class="p">|&lt;/span> grep VGA
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>en mi caso responde: &lt;code>00:02.0 VGA compatible controller: Intel Corporation 4th Gen Core Processor Integrated Graphics Controller (rev 06)&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">lspci -k &lt;span class="p">|&lt;/span> grep VGA -A &lt;span class="m">2&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>en mi caso responde:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">00:02.0 VGA compatible controller: Intel Corporation 4th Gen Core Processor Integrated Graphics Controller (rev 06)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Subsystem: Toshiba Corporation 4th Gen Core Processor Integrated Graphics Controller
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Kernel driver in use: i915
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="instalando-controlador-de-codigo-abieto-de-intel">Instalando controlador de Codigo abieto de Intel:&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S xf86-video-intel intel-ucode
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="detectar-nvidia">Detectar Nvidia:&lt;/h3>
+&lt;ul>
+&lt;li>Ver DRIVERS de VIDEO instalados:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">xrandr --listproviders
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Ver paquetes NVIDIA instalados:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Ss nvidia
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Ver paquete NVIDIA SETTINGS instalado:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Ss nvidia-settings
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="desinstalando-versiones-anteriores">Desinstalando versiones anteriores:&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Rns nombredelpaquete
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>ej.:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Rns nvidia-340xx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="detectar-driver-compatible-con-la-gráfica-nvidia">Detectar Driver compatible con la gráfica NVIDIA:&lt;/h2>
+&lt;p>Hay que considerar dos factores de compatibilidad: &lt;strong>Versión nvidia&lt;/strong> y el &lt;strong>Kernel&lt;/strong>&lt;/p>
+&lt;h3 id="ver-lista-de-compatibilidad">Ver lista de compatibilidad:&lt;/h3>
+&lt;ul>
+&lt;li>Entrar a la &lt;a href="https://www.nvidia.com/en-us/drivers/unix/legacy-gpu/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+siguiente página
+&lt;/a> y buscar tu modelo de nvidia dentro de la lista para saber con
+que versión es compatible.&lt;/li>
+&lt;/ul>
+&lt;h4 id="nvidia-según-el-kernel">Nvidia según el kernel:&lt;/h4>
+&lt;ul>
+&lt;li>kernel linux → nvidia&lt;/li>
+&lt;li>linux-lts → nvidia-lts&lt;/li>
+&lt;li>todos los kernel (construye dinámicamente los módulos del kernel) → nvidia-dkms&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>ej: en mi caso como el modelo de la nvidia es viejo debo usar por compatibilidad el kernetl lts pero con nvidia-dkms&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="pasos-previos-a-la-instalación">Pasos previos a la instalación:&lt;/h2>
+&lt;ul>
+&lt;li>Habilitar Multilib para ejecutar aplicaciones 32 bits en sist. de 64 bits:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo nano /etc/pacman.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>(para habilitar hay que descomentar las dos lineas siguientes, borrar # y guardar)
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="line">&lt;span class="cl">&lt;span class="k">[multilib]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Include&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">/etc/pacman.d/mirrorlist&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Para guardar cambios: Ctrol + o (letra), Para confirmar: enter, Para salir: Ctrol + x&lt;/li>
+&lt;li>Entrar al archivo sddm para editarlo (en el caso de que se use kde) con el siguiente comando:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo nano /etc/sddm.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Agregar # a las dos líneas que estan debajo de [X11]:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="line">&lt;span class="cl">&lt;span class="k">[X11]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># DisplayCommand&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># DisplayStopCommand&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Ctrl + o
+Enter
+Ctrol + X&lt;/li>
+&lt;/ul>
+&lt;h3 id="borrar-archivos-que-esten-dentro-de-la-carpeta-x11-para-que-no-interfieran">Borrar archivos que esten dentro de la carpeta X11 para que no interfieran:&lt;/h3>
+&lt;ul>
+&lt;li>Ir a la carpeta: &lt;code>/etc/X11/&lt;/code>&lt;/li>
+&lt;li>Ver si hay archivos xorg fuera de las carpetas.&lt;/li>
+&lt;li>Si hay archivos xorg: los vamos a borrar de la siguiente manera:
+&lt;ul>
+&lt;li>Hacer Click derecho y seleccionar abrir terminal aqui&lt;/li>
+&lt;li>Para Borrar los archivos y dejar las carpetas
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo rm xorg.conf
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo mv xorg.conf xorg.conf0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo rm xorg.conf.nvidia-xconfig-original
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="instalar-controlador-privativo-de-nvidia">Instalar controlador privativo de Nvidia:&lt;/h2>
+&lt;h3 id="nvidia-para-kernel-linux-última-versión">Nvidia para kernel linux (última versión)&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S nvidia nvidia-utils
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="nvidia-para-kernel-linux-lts-para-nvidia-viejas-es-mejor-no-usar-lts">Nvidia para kernel linux-lts: (para nvidia viejas es mejor no usar lts)&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S nvidia-lts
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="nvidia-para-kernel-linux-zen-sirve-para-todos-los-kernel-dkms">Nvidia para kernel linux-zen: (sirve para todos los kernel) dkms&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S nvidia-dkms
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>ej: en mi caso compatible con GeForge GTX770M&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S nvidia-470xx-dkms
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yay -S nvidia-470xx-utils
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yay -S lib32-nvidia-470xx-utils
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yay -S lib32-opencl-nvidia-470xx
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yay -S opencl-nvidia-470xx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>En una linea todos los paquetes dkms para la versión 470xx:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S nvidia-470xx-dkms nvidia-470xx-utils lib32-nvidia-470xx-utils lib32-opencl-nvidia-470xx opencl-nvidia-470xx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="instalar-mhwd">Instalar MhWd:&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">$ yay -S mhwd-nvidia-versión
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>ej: en mi caso compatible 470xx&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S mhwd-nvidia-470xx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="instalar-nvidia-settings">Instalar Nvidia Settings:&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S nvidia-settings
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>ej.: Compatible 470xx:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S nvidia-470xx-settings
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="instalar-bbswithc">Instalar bbswithc&lt;/h2>
+&lt;h3 id="para-kernel-linux">Para kernel linux:&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S bbswitch
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="para-kernel-linux-zen-o-si-usamos-las-nvidia-dkms">Para kernel linux-Zen o si usamos las nvidia-dkms:&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S bbswitch-dkms
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="instalar-optimus-manager">Instalar Optimus Manager:&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S optimus-manager optimus-manager-qt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Actualizar:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Syyu
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Verificar el estado de Optimus Manager:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">systemctl status optimus-manager.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Para parar el proceso apretar: q&lt;/p>
+&lt;p>Reiniciar:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">reboot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="configurar-optimus-manager">Configurar Optimus Manager:&lt;/h3>
+&lt;ul>
+&lt;li>Ir al Menú de aplicaciones y ejecutar Optimus manager&lt;/li>
+&lt;li>Va aparecer un icono en la barra.&lt;/li>
+&lt;li>Hacer Click derecho sobre el ícono de Optimus manager de la barra y entrar a Configuración.
+&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/ZYdrnpxr/image.png" alt="Optimus Manager" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>
+&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/Gmh8FyGg/image.png" alt="Optimus Manager" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>
+&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/VkGSDkFf/image.png" alt="Optimus Manager" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>
+&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/FKYYqXPj/image.png" alt="Optimus Manager" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>
+&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/ZqXWzsgX/image.png" alt="Optimus Manager" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>
+&lt;div class="alert alert-warning col-12" style="position:relative;">
+&lt;div class="info-box-content container">
+&lt;div class="row">
+&lt;div class="col-2 text-center">
+&lt;span class="fa fa-warning fa-5x">&lt;/span>
+&lt;/div>
+&lt;div class="col-10">
+&lt;p class="no-margin">OJO: INICIAR SESIÓN CON X11 (Xorg de KDE) porque optimus manager no es compatible con wayland&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/li>
+&lt;li>Reiniciar el sistema:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">reboot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="comprobar-si-funciona-nvidia">Comprobar si funciona Nvidia:&lt;/h3>
+&lt;ul>
+&lt;li>Abrir la consola y poner el siguiente comando:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">optimus-manager --print-mode
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>ej: en mi caso responde:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Current GPU mode : nvidia
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Poner el siguiente comando:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">glxgears -info
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Se abre la siguiente ventana:
+&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/c1BLFJsp/image.png" alt="glxgears" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/li>
+&lt;li>Cerrar la ventana chicha y se frena el proceso.&lt;/li>
+&lt;li>Subir por la consola hasta donde se puso el comando para ver el resultado.
+Ej: en mi caso dio:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Running synchronized to the vertical refresh. The framerate should be
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">approximately the same as the monitor refresh rate.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">GL_RENDERER = NVIDIA GeForce GTX 770M/PCIe/SSE2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">GL_VERSION = 4.6.0 NVIDIA 470.223.02
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">GL_VENDOR = NVIDIA Corporation
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="configurar-nvidia-settings">CONFIGURAR NVIDIA SETTINGS&lt;/h3>
+&lt;ul>
+&lt;li>Entrar al Menu de apliciones y abrir Nvidia X Server Settings&lt;/li>
+&lt;li>Entrar a “OpenGL Settings”&lt;/li>
+&lt;li>En la solapa Image Settings:&lt;/li>
+&lt;li>Poner la configuración deseada:
+High Performance (mejor rendimiento, elijo esta)
+High Quality (mejor calidad)&lt;/li>
+&lt;/ul>
+&lt;h3 id="instalar-el-controlador-gwe-controla-las-gpu-nvidia">INSTALAR EL CONTROLADOR GWE: controla las GPU NVIDIA&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S gwe
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Únete como Beta Tester y Ayuda a Mejorar Arch Linux</title><link>https://patojad.com.ar/post/2024/02/%C3%BAnete-como-beta-tester-y-ayuda-a-mejorar-arch-linux/</link><pubDate>Fri, 16 Feb 2024 10:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/02/%C3%BAnete-como-beta-tester-y-ayuda-a-mejorar-arch-linux/</guid><description>&lt;p>¿Eres un usuario apasionado de &lt;strong>Arch Linux&lt;/strong> y te encantaría contribuir a su mejora? ¡Esta es tu oportunidad! &lt;strong>Arch Linux&lt;/strong> está en busca de Beta Testers que deseen probar nuevas versiones de aplicaciones y bibliotecas antes de su lanzamiento oficial al público.&lt;/p>
+&lt;p>Los Beta Testers desempeñan un papel crucial en la mejora de la estabilidad y calidad de &lt;strong>Arch Linux&lt;/strong>. Gracias a su arduo trabajo, la distribución ha experimentado mejoras significativas en los últimos años.&lt;/p>
+&lt;h2 id="qué-es-un-beta-tester">¿Qué es un Beta Tester?&lt;/h2>
+&lt;p>Un Beta Tester es un usuario que prueba una versión de software antes de su lanzamiento oficial. Su tarea consiste en detectar errores y problemas que puedan surgir, con el objetivo de garantizar una experiencia de usuario óptima.&lt;/p>
+&lt;h2 id="el-anuncio">El Anuncio&lt;/h2>
+&lt;p>El anuncio original fue publicado en Reddit por &lt;a href="https://www.reddit.com/user/Antiz1996/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fab fa-reddit-alien">&lt;/i>&amp;nbsp;
+u/Antiz1996 (Robin Candau)
+&lt;/a>, miembro del equipo de testing de Arch. En el anuncio, se invita a los usuarios a unirse al equipo de pruebas oficial de &lt;strong>Arch Linux&lt;/strong>.&lt;/p>
+&lt;blockquote>
+&lt;p>Hola,&lt;/p>
+&lt;p>Esperamos que hayan tenido un buen comienzo en el nuevo año 2024. Con el nuevo año suelen venir nuevas resoluciones. Si no tiene ninguno hasta ahora, tenemos uno para usted: ¿Qué pasaría si decidiera brindarle a Arch un poco de ayuda con las actualizaciones del paquete de prueba este año? 😃&lt;/p>
+&lt;p>Arch utiliza &lt;a href="https://wiki.archlinux.org/title/Official_repositories#Testing_repositories" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+repositorios de prueba
+&lt;/a> como un búfer para las actualizaciones de paquetes principales/críticos (o cualquier otra actualización de paquetes que se beneficiaría de ser probada primero) antes de ingresar a los repositorios estables.&lt;/p>
+&lt;p>Probar estas actualizaciones de paquetes nos ayuda a detectar más errores por adelantado y garantiza actualizaciones impecables para los repositorios estables, ¡y ahí es donde usted puede ayudar!&lt;/p>
+&lt;p>Al unirse al &lt;a href="https://wiki.archlinux.org/title/Arch_Testing_Team" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+equipo de pruebas oficial de Arch Linux
+&lt;/a>, tendrá la posibilidad de &amp;ldquo;aprobar&amp;rdquo; paquetes durante las pruebas después de garantizar su corrección (o &lt;a href="https://wiki.archlinux.org/title/Bug_reporting_guidelines" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+informar un error
+&lt;/a> de otro modo). Esto ayuda a los mantenedores de paquetes de Arch a detectar posibles errores por adelantado y ayuda a sacar paquetes de los repositorios de prueba de manera más rápida y eficiente.&lt;/p>
+&lt;p>No necesariamente buscamos pruebas en profundidad. Verificar que un programa se inicia correctamente y que eres capaz de realizar tu rutina habitual con él ya es una buena prueba por sí sola. También puede consultar las &lt;a href="https://wiki.archlinux.org/title/Arch_Testing_Team#Guidelines" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+pautas generales de prueba
+&lt;/a>.&lt;/p>
+&lt;p>Esta es una forma muy eficaz y bastante sencilla de contribuir a Arch Linux. Cuantos más probadores tengamos, más confiables serán las actualizaciones de paquetes.&lt;/p>
+&lt;p>¡Esperamos ver a algunos de ustedes allí! 😉&lt;/p>
+&lt;/blockquote>
+&lt;p>Podes ver el anuncio original en &lt;a href="https://www.reddit.com/r/archlinux/comments/1aniloc/join_the_arch_testing_team_call_for_participation/?share_id=ix0fdh7Xw1cmkqPFbaAC0&amp;amp;utm_content=1&amp;amp;utm_medium=android_app&amp;amp;utm_name=androidcss&amp;amp;utm_source=share&amp;amp;utm_term=1" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fab fa-reddit-alien">&lt;/i>&amp;nbsp;
+Reddit
+&lt;/a>.&lt;/p>
+&lt;h2 id="cómo-aplicar">¿Cómo Aplicar?&lt;/h2>
+&lt;p>Para convertirte en un tester oficial de Arch, simplemente contacta a &lt;a href="https://archlinux.org/people/developers/#bluewind" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+Florian Pritz
+&lt;/a> a través de &lt;a href="mailto:bluewind@xinu.at" >
+&lt;i class="fas fa-envelope">&lt;/i>&amp;nbsp;
+correo electrónico
+&lt;/a> y solicita una cuenta de verificador.&lt;/p>
+&lt;p>Una vez que obtengas tu cuenta de verificador, podrás acceder a la &lt;a href="https://archlinux.org/devel" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+archweb
+&lt;/a> y encontrarás una pestaña llamada &amp;ldquo;signoffs&amp;rdquo;. En esta sección, podrás ver una lista de paquetes que necesitan al menos dos firmas de aprobación (signoffs).&lt;/p>
+&lt;p>Prueba los paquetes listados localmente y, si funcionan correctamente, puedes firmarlos presionando el botón &amp;ldquo;signoff&amp;rdquo; en el paquete respectivo.&lt;/p>
+&lt;p>¡Únete hoy mismo y contribuye al crecimiento y desarrollo de &lt;strong>Arch Linux&lt;/strong>!&lt;/p></description></item><item><title>Guía Completa para Instalar y Utilizar Timeshift en Linux</title><link>https://patojad.com.ar/post/2024/01/gu%C3%ADa-completa-para-instalar-y-utilizar-timeshift-en-linux/</link><pubDate>Tue, 09 Jan 2024 10:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/01/gu%C3%ADa-completa-para-instalar-y-utilizar-timeshift-en-linux/</guid><description>&lt;p>La gestión de copias de seguridad es esencial para cualquier usuario de Linux que desee mantener la integridad de su sistema operativo. En este artículo, exploraremos &lt;strong>Timeshift&lt;/strong>, una poderosa herramienta de respaldo para Linux, respondiendo preguntas clave y proporcionando instrucciones detalladas para su instalación en diversas distribuciones.&lt;/p>
+&lt;hr>
+&lt;h2 id="qué-es-timeshift-de-linux">¿Qué es Timeshift de Linux?&lt;/h2>
+&lt;p>&lt;strong>Timeshift&lt;/strong> es una herramienta de respaldo para sistemas operativos basados en Linux que permite realizar instantáneas del sistema en un momento específico. Estas instantáneas se pueden utilizar para restaurar el sistema a ese estado particular en caso de fallos o problemas. &lt;strong>Timeshift&lt;/strong> utiliza tecnologías como &lt;strong>rsync&lt;/strong> y &lt;strong>Btrfs&lt;/strong> para crear y gestionar estas instantáneas.&lt;/p>
+&lt;hr>
+&lt;h2 id="qué-diferencia-hay-entre-rsync-y-timeshift">¿Qué diferencia hay entre rsync y Timeshift?&lt;/h2>
+&lt;p>Aunque &lt;strong>rsync&lt;/strong> y &lt;strong>Timeshift&lt;/strong> comparten la capacidad de realizar copias de seguridad, difieren en su enfoque. &lt;strong>Rsync&lt;/strong> es una herramienta de sincronización de archivos, mientras que &lt;strong>Timeshift&lt;/strong> va más allá al capturar el estado completo del sistema en un momento dado. &lt;strong>Timeshift&lt;/strong> simplifica el proceso de restauración del sistema a un estado anterior mediante la gestión eficiente de instantáneas.&lt;/p>
+&lt;hr>
+&lt;h2 id="timeshift-es-una-herramienta-de-respaldo">¿Timeshift es una herramienta de respaldo?&lt;/h2>
+&lt;p>Sí, &lt;strong>Timeshift&lt;/strong> se clasifica como una herramienta de respaldo, pero va más allá de simplemente copiar archivos. Al crear instantáneas del sistema, &lt;strong>Timeshift&lt;/strong> permite restaurar todo el estado del sistema, incluyendo archivos del sistema, configuraciones y aplicaciones instaladas, proporcionando una solución integral para la gestión de copias de seguridad.&lt;/p>
+&lt;hr>
+&lt;h2 id="timeshift-funciona-en-ubuntu">¿Timeshift funciona en Ubuntu?&lt;/h2>
+&lt;p>&lt;strong>Timeshift&lt;/strong> es compatible con varias distribuciones de Linux, incluyendo &lt;strong>Ubuntu&lt;/strong>. Su versatilidad y capacidad de adaptación a diferentes sistemas hacen que sea una opción sólida para usuarios de Ubuntu, o cualquier distribucion, que buscan una solución de respaldo confiable.&lt;/p>
+&lt;hr>
+&lt;h2 id="instalación-de-timeshift-en-distintas-distribuciones">Instalación de Timeshift en Distintas Distribuciones:&lt;/h2>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/24c3O_uj0E4?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;p>A continuación, te presentamos cómo instalar &lt;strong>Timeshift&lt;/strong> en algunas de las distribuciones de Linux más populares:&lt;/p>
+&lt;h3 id="ubuntu--debian">Ubuntu / Debian&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt-get update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get install timeshift
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="arch-linux">Arch Linux&lt;/h3>
+&lt;p>En este caso diferimos del video ya que en el mismo se instala desde AUR con algunos complementos adicionales que simplifican y automatizan su uso y en este caso lo haremos desde los repositorios oficiales.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo pacman -S timeshift
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="fedora">Fedora&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install timeshift
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="opensuse">openSUSE:&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo zypper install timeshift
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="conclusión">Conclusión&lt;/h2>
+&lt;p>&lt;strong>Timeshift&lt;/strong> emerge como una herramienta esencial para la gestión de copias de seguridad en sistemas Linux. Su capacidad para crear instantáneas del sistema y simplificar la restauración lo convierte en una opción valiosa. Al seguir nuestras instrucciones, puedes instalar y comenzar a utilizar Timeshift en tu distribución de Linux preferida, asegurando la estabilidad y seguridad de tu sistema.&lt;/p></description></item><item><title>MacOS y Windows no pueden... Pero Linux si...</title><link>https://patojad.com.ar/post/2023/12/macos-y-windows-no-pueden...-pero-linux-si.../</link><pubDate>Wed, 27 Dec 2023 10:09:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/12/macos-y-windows-no-pueden...-pero-linux-si.../</guid><description>&lt;p>En el universo tecnológico, Linux destaca por sus capacidades únicas que superan a sus competidores más grandes, Windows y MacOS. Antes de explorar estas diferencias, es importante destacar que no estamos proclamando la supremacía de un sistema sobre otro, simplemente queremos resaltar algunas de las ventajas del sistema que personalmente prefiero utilizar.&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/HtNYQqgPHqQ?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="portabilidad-un-mundo-de-posibilidades">Portabilidad: Un Mundo de Posibilidades&lt;/h2>
+&lt;p>La portabilidad de Linux es una joya escondida: cambiar el disco de PC es suficiente para trasladar todo el sistema. Aunque esto pueda parecer poco interesante a primera vista, brinda una ventaja significativa al recuperar datos o migrar de un equipo a otro. La ejecución de drivers esenciales a nivel de kernel asegura una retrocompatibilidad impresionante entre distintos equipos.&lt;/p>
+&lt;p>Aunque es cierto que algunos drivers específicos, como los de las placas de vídeo propietarias, deben instalarse al cambiar de equipo, el sistema iniciará y será perfectamente funcional. En comparación, en Windows, la dependencia de los drivers está tan integrada en la instalación que es probable que no reconozca hardware como la placa de red o Bluetooth, y conseguir instaladores puede resultar complicado.&lt;/p>
+&lt;h2 id="adaptabilidad-modularidad-linux-se-ajusta-a-ti">Adaptabilidad (Modularidad): Linux se Ajusta a Ti&lt;/h2>
+&lt;p>La adaptabilidad de Linux es una característica distintiva: el sistema se adapta a tus necesidades, no al revés. Aunque esto puede generar críticas debido a la abundancia de aplicaciones similares, en mi experiencia profesional, esta flexibilidad ha ahorrado tiempo considerable. La capacidad de programar tareas para satisfacer mis necesidades ha aumentado no solo mi productividad, sino también la posibilidad de automatizar diversas tareas para un multitasking eficiente. En sistemas más cerrados, las limitaciones a menudo conducen a frustraciones o a la necesidad de modificar el sistema para lograr objetivos específicos.&lt;/p>
+&lt;h2 id="live-más-que-una-prueba-una-herramienta-poderosa">Live: Más que una Prueba, una Herramienta Poderosa&lt;/h2>
+&lt;p>La opción de tener un live no solo facilita la prueba previa del sistema, sino que también proporciona una herramienta potente para ejecutar en cualquier PC. Aunque hay proyectos en Windows que ofrecen funcionalidades similares, no son oficiales ni estables, ya que la estabilidad está vinculada a la versión de la ISO. Linux, en cambio, ofrece diversas herramientas para arrancar desde la ISO y utilizar el sistema para probar, instalar o incluso realizar reparaciones y recuperación de datos.&lt;/p>
+&lt;h2 id="compatibilidad-con-hardware-antiguo-un-doble-filo">Compatibilidad con Hardware Antiguo: Un Doble Filo&lt;/h2>
+&lt;p>La compatibilidad de Linux con hardware antiguo puede considerarse una desventaja para aquellos que ejecutan el sistema en equipos con dos décadas de antigüedad. Sin embargo, en equipos de 5 o 10 años atrás, Linux es completamente compatible con la mayoría de los dispositivos, a diferencia de otros sistemas que presentan limitaciones y requieren manipulaciones para la instalación.&lt;/p>
+&lt;h2 id="personalización-de-la-interfaz-de-usuario-ui">Personalización de la Interfaz de Usuario (UI)&lt;/h2>
+&lt;p>Linux brilla en la personalización de la interfaz de usuario, ofreciendo una variedad de configuraciones que realzan su aspecto. La posibilidad de personalizar iconos, algo complejo en otros sistemas, se logra de manera sencilla en Linux. Mientras que en otros sistemas se puede hacer con software adicional, en Linux la adaptabilidad y personalización están integradas en todo el sistema.&lt;/p>
+&lt;h2 id="múltiples-proveedores-diversidad-y-soporte">Múltiples Proveedores: Diversidad y Soporte&lt;/h2>
+&lt;p>Cada distribución de Linux tiene su propio ciclo, permitiendo cambiar de una a otra y recibir soporte de diferentes empresas, como Canonical o Red Hat. Esto asegura la existencia y diversidad de elecciones, manteniendo la robustez del soporte a lo largo del tiempo.&lt;/p></description></item><item><title>Instalación de Wine en GNU/Linux para Ejecutar Aplicaciones Windows</title><link>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</link><pubDate>Wed, 15 Nov 2023 12:02:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</guid><description>&lt;p>La compatibilidad entre sistemas operativos es esencial, y Wine, una herramienta de código abierto, facilita la ejecución de aplicaciones Windows en entornos GNU/Linux. En esta guía, exploraremos qué es Wine, cómo instalarlo en distintas distribuciones y dónde se instalan las aplicaciones. ¡Descubre cómo ampliar las posibilidades de tu sistema operativo!&lt;/p>
 &lt;h2 id="qué-es-wine">¿Qué es Wine?&lt;/h2>
 &lt;p>Wine, que significa &amp;ldquo;Wine Is Not an Emulator&amp;rdquo; (Wine no es un emulador), es una capa de compatibilidad que permite ejecutar aplicaciones diseñadas para Microsoft Windows en sistemas operativos basados en Unix, como GNU/Linux. No es una máquina virtual ni emula un entorno Windows completo; en cambio, traduce llamadas de sistema de Windows a llamadas de sistema compatibles con Unix.&lt;/p>
 &lt;h2 id="por-qué-usar-wine">¿Por qué usar Wine?&lt;/h2>
@@ -332,7 +1001,7 @@ MesloLGS NF Bold Italic
 &lt;p>Gather ha demostrado ser una herramienta invaluable para los equipos de desarrollo de software al simplificar la gestión de proyectos, mejorar la colaboración y proporcionar una mayor visibilidad en el progreso del trabajo. Su capacidad para integrarse con otras herramientas populares y su enfoque en la eficiencia hacen que Gather sea una elección lógica para los equipos que buscan optimizar sus procesos de desarrollo. Si tu equipo aún no ha explorado Gather, podría ser el momento de considerar su implementación y aprovechar sus beneficios para impulsar la eficiencia en el desarrollo de software.&lt;/p>
 &lt;hr>
 &lt;p>&lt;a href="https://gather.town/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 Fuente
 &lt;/a>&lt;/p></description></item><item><title>Charlas Linuxeras - Linuxtubers ¿Se puede vivir de Linux? Controversias en las Comunidades Hispanohablantes</title><link>https://patojad.com.ar/post/2023/09/charlas-linuxeras-linuxtubers-se-puede-vivir-de-linux-controversias-en-las-comunidades-hispanohablantes/</link><pubDate>Thu, 07 Sep 2023 10:15:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/09/charlas-linuxeras-linuxtubers-se-puede-vivir-de-linux-controversias-en-las-comunidades-hispanohablantes/</guid><description>&lt;p>Hoy salio el primer capitulo de Charlas Linuxeras, un podcast de Ainus, donde habla de diferentes tematicas aledañas a Linux, en este primer capitulo hablamos de Linuxtubers, ¿Se puede vivir de Linux? Es la comunidad un poco tóxica, debate y charla sobre el estado actual de la comunidad Linuxera.&lt;/p>
 &lt;p>&lt;a class="spreaker-player" href="https://www.spreaker.com/user/12313971/charlas-linuxeras-01-linuxtubers" data-resource="episode_id=56718400" data-theme="dark" data-playlist="false" data-width="100%" data-height="200px" style="border-radius: var(--site-radius)">Escucha&amp;quot;Charlas Linuxeras - EP01 - Linuxtubers&amp;quot; en Spreaker.&lt;/a>&lt;script async src="https://widget.spreaker.com/widgets.js">&lt;/script>&lt;/p>
@@ -349,23 +1018,23 @@ allowfullscreen>
 &lt;p>Y por supuesto no te olvides de seguir a Ainus en sus redes sociales:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://twitter.com/ainus64" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-twitter">&lt;/i>&amp;nbsp;
+&lt;i class="fab fa-twitter">&lt;/i>&amp;nbsp;
 Twitter
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://instagram.com/ainus_64/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-instagram">&lt;/i>&amp;nbsp;
+&lt;i class="fab fa-instagram">&lt;/i>&amp;nbsp;
 Instagram
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://youtube.com/@Ainus64" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-youtube">&lt;/i>&amp;nbsp;
+&lt;i class="fab fa-youtube">&lt;/i>&amp;nbsp;
 Youtube
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://twitch.tv/ainus64" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-twitch">&lt;/i>&amp;nbsp;
+&lt;i class="fab fa-twitch">&lt;/i>&amp;nbsp;
 Twitch
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://mastodon.social/@Ainumortis" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-mastodon">&lt;/i>&amp;nbsp;
+&lt;i class="fab fa-mastodon">&lt;/i>&amp;nbsp;
 Mastodon
 &lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>Cómo Actualizar aaPanel y Mantener tu Servidor Web al Día</title><link>https://patojad.com.ar/post/2023/08/c%C3%B3mo-actualizar-aapanel-y-mantener-tu-servidor-web-al-d%C3%ADa/</link><pubDate>Wed, 30 Aug 2023 11:23:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/08/c%C3%B3mo-actualizar-aapanel-y-mantener-tu-servidor-web-al-d%C3%ADa/</guid><description>&lt;p>Mantener tu servidor web actualizado es esencial para garantizar su rendimiento, seguridad y funcionalidad. En este artículo, aprenderás cómo actualizar &lt;strong>aaPanel&lt;/strong>, una herramienta de panel de control que simplifica la administración de servidores web, y te proporciona una guía paso a paso para llevar a cabo este proceso.&lt;/p>
@@ -388,12 +1057,12 @@ allowfullscreen>
 &lt;/iframe>
 &lt;/div>
 &lt;p>A continuación, se detallan los pasos para actualizar aaPanel a la última versión en caso de querer hacerlo desde la terminal conectadose al servidor por &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 SSH
 &lt;/a>:&lt;/p>
 &lt;h3 id="acceder-al-servidor">Acceder al Servidor&lt;/h3>
 &lt;p>Inicia sesión en tu servidor a través de &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 SSH
 &lt;/a> utilizando un cliente como PuTTY (en el caso de estar en Windows) o la terminal en sistemas Unix o Unix-Like como Linux.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -435,15 +1104,15 @@ SSH
 &lt;p>El primer paso es instalar aaPanel en tu servidor. Asegúrate de tener acceso a un servidor compatible con los requisitos de aaPanel, como &lt;strong>Debian&lt;/strong>, &lt;strong>Ubuntu&lt;/strong> o &lt;strong>CentOS&lt;/strong>. Una vez que hayas instalado el sistema operativo, puedes instalar aaPanel siguiendo los pasos detallados en el siguiente artículo:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://patojad.com.ar/post/2023/06/instalar-aapanel/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Instalar aaPanel
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://patojad.com.ar/post/2023/07/abrir-puertos-aapanel/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Abrir puertos aaPanel
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://patojad.com.ar/post/2023/07/primer-ingreso-a-aapanel/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Primer ingreso a aaPanel
 &lt;/a>&lt;/li>
 &lt;/ul>
@@ -481,15 +1150,15 @@ allowfullscreen>
 &lt;p>Para comenzar, asegúrate de haber instalado &lt;strong>aaPanel&lt;/strong> en tu servidor, siguiendo los pasos detallados en los siguientes articulos:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://patojad.com.ar/post/2023/06/instalar-aapanel/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Instalar aaPanel
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://patojad.com.ar/post/2023/07/abrir-puertos-aapanel/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Abrir puertos aaPanel
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://patojad.com.ar/post/2023/07/primer-ingreso-a-aapanel/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Primer ingreso a aaPanel
 &lt;/a>&lt;/li>
 &lt;/ul>
@@ -516,10 +1185,10 @@ allowfullscreen>
 &lt;li>Una vez que hayas creado el sitio estático, podrás acceder a la configuración detallada.&lt;/li>
 &lt;li>Utiliza las opciones disponibles para personalizar aspectos como las reglas de reescritura, la protección de directorios y la gestión de acceso.&lt;/li>
 &lt;li>Añade cualquier archivo necesario para tu sitio estático, como &lt;strong>&lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 HTML
 &lt;/a>&lt;/strong>, &lt;strong>&lt;a href="https://patojad.com.ar/post/2023/08/descubriendo-el-mundo-de-css/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 CSS
 &lt;/a>&lt;/strong>, y archivos de imágenes en la ubicación designada.&lt;/li>
 &lt;/ul>
@@ -581,7 +1250,7 @@ allowfullscreen>
 &lt;/div>&lt;/p>
 &lt;hr>
 &lt;p>&lt;a href="https://www.aapanel.com/new/feature.html#shop" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 Fuente
 &lt;/a>&lt;/p></description></item><item><title>Primer ingreso a aaPanel</title><link>https://patojad.com.ar/post/2023/07/primer-ingreso-a-aapanel/</link><pubDate>Thu, 13 Jul 2023 10:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/07/primer-ingreso-a-aapanel/</guid><description>&lt;p>Ya vimos como realizar la instalacion de aaPanel y como abrir los puertos necesarios, ahora veremos como ingresar por primera vez y realizar la instalacion de LAMP o LNMP segun deseemos. Con esto nuestro panel estara listo para ser usado.&lt;/p>
 &lt;h2 id="video">Video&lt;/h2>
@@ -606,10 +1275,10 @@ allowfullscreen>
 &lt;/div>
 &lt;hr>
 &lt;p>&lt;a href="https://www.aapanel.com/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 Fuente
 &lt;/a>&lt;/p></description></item><item><title>Abrir puertos aaPanel</title><link>https://patojad.com.ar/post/2023/07/abrir-puertos-aapanel/</link><pubDate>Fri, 07 Jul 2023 11:54:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/07/abrir-puertos-aapanel/</guid><description>&lt;p>Vamos a ver que puertos tenemos que tener habilitados para que aapanel funcione correctamente. Y como abrirlos en nuestro servidor utilizando &lt;code>ufw&lt;/code>. Recuerda que si instalaste tal como lo vimos en el video anterior de &lt;a href="https://patojad.com.ar/post/2023/06/instalar-aapanel/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 instalar aapanel
 &lt;/a> y no estas pudiendo ingresar a la url que dio el panel entonces es porque alguno de estos puertos no se encuentra abierto.&lt;/p>
 &lt;h2 id="qué-es-aapanel">¿Qué es aaPanel?&lt;/h2>
@@ -661,13 +1330,13 @@ allowfullscreen>
 &lt;/div>
 &lt;/div>&lt;hr>
 &lt;p>Fuente: &lt;a href="https://www.aapanel.com/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://www.aapanel.com/
 &lt;/a>&lt;/p></description></item><item><title>Ejecutar apps NW.js en Wayland</title><link>https://patojad.com.ar/post/2023/06/ejecutar-apps-nw.js-en-wayland/</link><pubDate>Thu, 29 Jun 2023 16:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/06/ejecutar-apps-nw.js-en-wayland/</guid><description>&lt;p>NW.js es un framework que nos permite crear aplicaciones de escritorio con tecnologías web, es decir, podemos crear aplicaciones con &lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 HTML
 &lt;/a>, &lt;a href="https://patojad.com.ar/post/2023/08/descubriendo-el-mundo-de-css/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 CSS
 &lt;/a> y JavaScript, y ejecutarlas en el escritorio de cualquier sistema operativo. Y si bien es un framework muy interesante, tiene un problema, no funciona en Wayland. O al menos no antes de la version 0.50.0. Sin embargo hay una forma de hacerlo funcionar en Wayland, y es modificando el package.json de la app siempre y cuando use la version 0.50.0 o superior.&lt;/p>
 &lt;h2 id="modificando-el-packagejson-como-dev">Modificando el package.json como dev&lt;/h2>
@@ -839,7 +1508,7 @@ CSS
 &lt;p>De esta forma a la hora de volver a abrir la app en nuestro entorno de wayland podemos hacerlo con una ventana nativa y sin ningun problema.&lt;/p>
 &lt;hr>
 &lt;p>Fuente: &lt;a href="https://nwjs.readthedocs.io/en/latest/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://nwjs.readthedocs.io/en/latest/
 &lt;/a>&lt;/p></description></item><item><title>Instalar aaPanel</title><link>https://patojad.com.ar/post/2023/06/instalar-aapanel/</link><pubDate>Wed, 21 Jun 2023 11:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/06/instalar-aapanel/</guid><description>&lt;p>aaPanel es un software que mejora la eficiencia de la gestión de servidores admite más de 100 funciones, como LEMP/LNMP/monitor/FTP/base de datos con un solo clic Después de más de 80 iteraciones, es completamente funcional y seguro, y ha sido aprobado e instalado por millones de usuarios en todo el mundo.&lt;/p>
 &lt;h2 id="caracteristicas">Caracteristicas&lt;/h2>
@@ -893,7 +1562,7 @@ Demo
 &lt;/ul>
 &lt;hr>
 &lt;p>&lt;a href="https://www.aapanel.com/new/pricing.html" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 Mas información
 &lt;/a>&lt;/p>
 &lt;h2 id="instalacion">Instalacion&lt;/h2>
@@ -958,7 +1627,7 @@ allowfullscreen>
 &lt;/div>
 &lt;hr>
 &lt;p>&lt;a href="https://www.aapanel.com/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 Fuente
 &lt;/a>&lt;/p></description></item><item><title>Llego Huayra 6</title><link>https://patojad.com.ar/post/2023/06/llego-huayra-6/</link><pubDate>Tue, 13 Jun 2023 11:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/06/llego-huayra-6/</guid><description>&lt;p>Llego &lt;strong>Huayra 6&lt;/strong> con la grandeza de una escaloneta que trajo la copa del mundo y novedades que demuestran que esta distribución sigue siendo una de las mejores para el uso en escuelas.&lt;/p>
 &lt;blockquote>
@@ -1001,7 +1670,7 @@ allowfullscreen>
 &lt;p>Un manual o libro de &lt;strong>Huayra&lt;/strong> que va desde el contexto filosófico y el marco teórico en el cual se construye &lt;strong>Huayra&lt;/strong>, hasta sus fines prácticos como instalación de la distribución, instalación de aplicaciones, actualización, etc…&lt;/p>
 &lt;h2 id="descarga">Descarga&lt;/h2>
 &lt;p>Podemos descargar &lt;strong>Huayra 6&lt;/strong> desde su &lt;a href="https://huayra.educar.gob.ar/descargas/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 página oficial
 &lt;/a>&lt;/p></description></item><item><title>Debian 12, ¿Que cambios tiene?</title><link>https://patojad.com.ar/post/2023/06/debian-12-que-cambios-tiene/</link><pubDate>Sun, 11 Jun 2023 11:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/06/debian-12-que-cambios-tiene/</guid><description>&lt;p>Si bien en internet está lleno de videos, mostrando instalaciones, o “recorriendo” &lt;strong>Debian 12&lt;/strong> la verdad es que no encontré ninguno que hablara de los cambios que esto tiene.&lt;/p>
 &lt;p>&lt;strong>Debian&lt;/strong> es una distribución muy importante para todo el mundo Linux o GNU/Linux, incluso su manual, si bien está orientado a &lt;strong>Debian&lt;/strong> nos ayuda entender cosas muy importantes sobre linux de una forma muy didáctica y aplicable a cualquier distribución…&lt;/p>
@@ -1017,15 +1686,15 @@ is proud to present its new stable version 12 (code name &amp;ldquo;bookworm&amp
 &lt;p>Después de 1 año, 9 meses y 28 días de desarrollo, el proyecto &lt;strong>Debian&lt;/strong> se enorgullece en presentar su nueva versión estable 12 (nombre en clave &amp;ldquo;bookworm&amp;rdquo;).&lt;/p>
 &lt;/blockquote>
 &lt;p>&amp;ldquo;bookworm&amp;rdquo; será “soportado” durante los próximos 5 años gracias a la combinación trabajo del &lt;a href="https://security-team.debian.org/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 equipo de seguridad de Debian
 &lt;/a> y al &lt;a href="https://wiki.debian.org/LTS" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 equipo de Debian LTS
 &lt;/a>.&lt;/p>
 &lt;h2 id="resolución-non-free">Resolución non-free&lt;/h2>
 &lt;p>De acuerdo con la resolución de paquetes no libres (del 2022 que generó polémica para aquellos que siguen un ideal no financiado más que la usabilidad) se decidió separar el &lt;a href="https://www.debian.org/vote/2022/vote_003" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 firmware no libre
 &lt;/a> del resto de paquetes no libres, con el fin de poder elegir el uso del firmware y no de librerías o software non free (Lo que parece un punto medio entre la lógica de tener una distro usable en cualquier equipo y el intento de usar software libre todo lo que sea posible)&lt;/p>
 &lt;h2 id="escritorios">Escritorios&lt;/h2>
@@ -1072,6 +1741,7 @@ firmware no libre
 &lt;/ul>
 &lt;hr>
 &lt;p>Fuente: &lt;a href="mailto:debian-announce@lists.debian.org" >
+&lt;i class="fas fa-envelope">&lt;/i>&amp;nbsp;
 debian-announce@lists.debian.org
 &lt;/a>&lt;/p></description></item><item><title>Instalar The Legend of Zelda en Yuzu</title><link>https://patojad.com.ar/post/2023/05/instalar-the-legend-of-zelda-en-yuzu/</link><pubDate>Wed, 24 May 2023 10:20:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/05/instalar-the-legend-of-zelda-en-yuzu/</guid><description>&lt;p>Antes que nada quiero aclarar que no podran encontrar los links de descarga en este articulo. Si bien la persona que me facilito la guia, genero un comprimido con todo lo que necesitamos no es parte de este sitio web formentar la pirateria. Por lo que si quieren jugarlo deberan buscarlo por su cuenta.&lt;/p>
 &lt;p>Ya sabiendo esto lo siguiente es instalar &lt;strong>Yuzu&lt;/strong> en nuestro sistema operativo. Para esto bastaria la documentacion de su sitio oficial:&lt;/p>
@@ -1288,7 +1958,7 @@ allowfullscreen>
 &lt;/div>
 &lt;/div>&lt;hr>
 &lt;p>Fuente: &lt;a href="https://www.mongodb.com/docs/manual/administration/install-on-linux/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://www.mongodb.com/docs/manual/administration/install-on-linux/
 &lt;/a>&lt;/p>
 &lt;div class="text-center">
@@ -1513,19 +2183,19 @@ allowfullscreen>
 &lt;p>No te olvides de dejar tu comentario de que te parece esta decicion de MS o si te da lo mismo porque no usas sus apps.&lt;/p></description></item><item><title>Agregar Repositorio de SteamOS a Arch</title><link>https://patojad.com.ar/post/2022/09/agregar-repositorio-de-steamos-a-arch/</link><pubDate>Tue, 13 Sep 2022 11:48:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/09/agregar-repositorio-de-steamos-a-arch/</guid><description>&lt;p>Vamos a agregar los repositorios de SteamOS (Holo y jupiter) a nuestra distribución de Arch Linux favorita. Esto puede sernos útil para poder acceder a sus apps, configuraciones y personalizaciones.&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://steamdeck-packages.steamos.cloud/archlinux-mirror/jupiter/os/x86_64/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-steam">&lt;/i>&amp;nbsp;
+&lt;i class="fab fa-steam">&lt;/i>&amp;nbsp;
 Repositorio Jupiter
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://steamdeck-packages.steamos.cloud/archlinux-mirror/holo/os/x86_64/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-steam">&lt;/i>&amp;nbsp;
+&lt;i class="fab fa-steam">&lt;/i>&amp;nbsp;
 Repositorio Holo
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://steamdeck-packages.steamos.cloud/archlinux-mirror/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-steam">&lt;/i>&amp;nbsp;
+&lt;i class="fab fa-steam">&lt;/i>&amp;nbsp;
 Todos los Repositorios
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://steamdeck-packages.steamos.cloud/archlinux-mirror/iso/latest/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-steam">&lt;/i>&amp;nbsp;
+&lt;i class="fab fa-steam">&lt;/i>&amp;nbsp;
 Ultimas ISO
 &lt;/a>&lt;/li>
 &lt;/ul>
@@ -1643,12 +2313,12 @@ allowfullscreen>
 &lt;/iframe>
 &lt;/div>
 &lt;p>¿Vos qué pensas? Si estás en sistemas ¿Que distro usas?¿Por qué?&lt;/p></description></item><item><title>Bottles ¿Lo mejor de wine?</title><link>https://patojad.com.ar/post/2022/04/bottles-lo-mejor-de-wine/</link><pubDate>Tue, 12 Apr 2022 08:47:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/04/bottles-lo-mejor-de-wine/</guid><description>&lt;p>Tras lo charlado la semana anterior en &lt;a href="https://patojad.com.ar/post/2022/04/usar-wine-o-emular/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 ¿Usar Wine o Emular?
 &lt;/a> se disparó una pregunta sobre si bottles era recomendable o perjudicaba el trabajo de wine. ¿Si es tan bueno algo malo debe tener? fue una de las dudas que planteaban por lo cual decidí charlar un poco de este tema.&lt;/p>
 &lt;h2 id="video">Video&lt;/h2>
 &lt;p>En el video hablo sobre nuestro amigo Zatiel del cual &lt;strong>puedes ver su canal en la sección de sitios amigos&lt;/strong> y te dejo el &lt;a href="https://clips.twitch.tv/IncredulousPiercingBubbleteaRickroll-CAbDyyKFPB6Ulww2?tt_content=url&amp;amp;tt_medium=clips_api" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 link al clip
 &lt;/a> donde realiza el reclamo por no estar accidentalmente en esta sección&lt;/p>
 &lt;div class="ratio ratio-16x9 embed-video">
@@ -1772,7 +2442,7 @@ allowfullscreen>
 &lt;/div>
 &lt;ul>
 &lt;li>La mayoría de los paquetes disponibles en este repositorio se crean automáticamente a partir de su paquete fuente AUR respectivo. Sin embargo, hay algunas excepciones, consulte &lt;a href="https://github.com/chaotic-aur/packages" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-github">&lt;/i>&amp;nbsp;
+&lt;i class="fab fa-github">&lt;/i>&amp;nbsp;
 https://github.com/chaotic-aur/packages
 &lt;/a> para averiguar cuáles.&lt;/li>
 &lt;li>El clúster de construcción principal es un nodo en el centro de datos de UFSCars que está alojado en San Carlos, San Paulo, Brazil.&lt;/li>
@@ -1880,7 +2550,7 @@ https://github.com/chaotic-aur/packages
 &lt;p>Yo me voy a quedar con yay, al menos de momento pero me gustaría saber tu opinion y analisis sobre estas dos apps&lt;/p></description></item><item><title>Reflexión: SOFTWARE LIBRE, PANDEMIA y RECURSOS</title><link>https://patojad.com.ar/post/2021/12/reflexi%C3%B3n-software-libre-pandemia-y-recursos/</link><pubDate>Wed, 15 Dec 2021 09:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/12/reflexi%C3%B3n-software-libre-pandemia-y-recursos/</guid><description>&lt;p>¿Cuánto hace que pensaste en cambiar tu pc o notebook por una más “potente”? Estamos entrando de lleno a una etapa donde la obsolescencia programada se debe llevar al máximo.&lt;/p>
 &lt;h2 id="por-qué-ahora">¿Por qué ahora?&lt;/h2>
 &lt;p>La pandemia ha dejado trastabillando la economía mundial y la tecnología no puede quedar exenta. De todas formas el concepto de la &lt;a href="https://es.wikipedia.org/wiki/Obsolescencia_programada" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 obsolescencia programada
 &lt;/a> data de mucho antes, basta con acceder a Wikipedia para comprender el concepto.&lt;/p>
 &lt;h2 id="pero-con-la-demanda-en-comunicaciones-es-tan-así">Pero con la demanda en comunicaciones ¿es tan así?&lt;/h2>
@@ -1898,7 +2568,7 @@ En internet hay infinidad de información, foros o wikis de acceso totalmente gr
 &lt;p>Puede ser que en el sentido de uso domiciliario en ordenadores sea “impopular”, pero debemos tener en cuenta que la inmensa mayoría de pc vienen con sistema operativo OEM de Windows, es decir que vienen con una licencia limitada en el tiempo que después debes pagar para seguir usando. También es verdad que vienen parches piratas para sortear estas “trabas legales”, pero lo más grave no es la ilegalidad del parche, sino la imposibilidad de disponer plenamente del equipamiento adquirido, de no tener control, y sobre todo de que la información de cada usuario viaja a internet sin su consentimiento.&lt;/p>
 &lt;h2 id="qué-seguridad-tengo-de-que-con-linux-no-pase-eso">¿Qué seguridad tengo de que con Linux no pase eso?&lt;/h2>
 &lt;p>De hecho es sabido, como se menciona antes, que es un sistema de código abierto: todo el que desee puede acceder a la “receta”, para saber cómo funciona; de ahí que si se quiere hacer algo indebido, van a haber miles de programadores que van a estar advirtiendo esto. Ya pasó con una distribución llamada Deepin, muy criticada por la comunidad por &lt;a href="https://www.muylinux.com/2018/04/13/acusan-deepin-spyware/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 filtrar información de los usuarios
 &lt;/a> supuestamente para “optimizar su experiencia”.&lt;/p>
 &lt;p>Sin embargo no pasa lo mismo con Windows, cualquier empresa que desee obtener información sobre conductas de los usuarios puede adquirir las bases de datos generadas por sistemas cerrados, porque por eso son cerrados &lt;em>(seamos honestos, de los usuarios domiciliarios, ¿quien ha comprado licencia de uso de Windows?, el negocio va por otro lado… eejemmmm, Facebook….)&lt;/em>&lt;/p>
@@ -2028,7 +2698,7 @@ href='https://gitlab.com/davidmauroweb/mad-void_mate'>
 Ver en GitLab
 &lt;/a>
 &lt;/div></description></item><item><title>¿La función que no esta en GNU/Linux?</title><link>https://patojad.com.ar/post/2021/11/la-funci%C3%B3n-que-no-esta-en-gnu/linux/</link><pubDate>Sun, 28 Nov 2021 08:15:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/11/la-funci%C3%B3n-que-no-esta-en-gnu/linux/</guid><description>&lt;p>El otro día leí un artículo de Genbeta que enuncia &lt;strong>&lt;em>&lt;a href="https://www.genbeta.com/windows/mi-funcion-favorita-windows-10-11-sigue-estar-linux-macos-asi-puedes-anadir-te-mejore-vida" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 “Mi función favorita de Windows 10 y 11 sigue sin estar en Linux y macOS”
 &lt;/a>&lt;/em>&lt;/strong>. Como desarrollador me llamó mucho la atención. Yo estoy seguro de que existen muchas funciones que no están disponibles en GNU/Linux y me gustaría poder portearlas. Sin embargo, este artículo, solo demuestra un poco de desconocimiento o descontento con GNU/Linux y no una realidad.&lt;/p>
 &lt;p>&lt;div class="text-center">
@@ -2242,7 +2912,7 @@ allowfullscreen>
 &lt;/div>
 &lt;/div>
 &lt;/div></description></item><item><title>Activar Descargas paralelas en Pacman</title><link>https://patojad.com.ar/post/2021/07/activar-descargas-paralelas-en-pacman/</link><pubDate>Thu, 15 Jul 2021 09:51:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/07/activar-descargas-paralelas-en-pacman/</guid><description>&lt;p>Como mencionamos &lt;a href="https://patojad.com.ar/post/2021/06/lleg%c3%b3-pacman-v6-y-pamac-qued%c3%b3-anonadado/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 hace un tiempo llegó pacman 6
 &lt;/a>, y la primera impresión para algunos no fue buena porque pamac no estaba a la altura ni estaba preparado para esto. Sin embargo ya está todo solucionado y podemos comenzar a sacarle el mejor provecho a esto. En esta oportunidad vamos a hablar de una nueva opción que seguro queremos tener habilitada en nuestra distro…&lt;/p>
 &lt;h2 id="descargas-en-paralelo">Descargas en paralelo&lt;/h2>
@@ -2683,11 +3353,11 @@ Descargar
 &lt;p>Si venis por Artix o cualquier distro de Arch te recomiendo que veas de antemano las instalaciones y configuraciones de las que hago uso en el video y doy por sabido estas son&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://patojad.com.ar/post/2021/03/activar-multilib-artix/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Multilib
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://patojad.com.ar/post/2020/10/instalar-yay-en-artix-linux/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 yay
 &lt;/a>&lt;/li>
 &lt;/ul>
@@ -2738,21 +3408,21 @@ allowfullscreen>
 &lt;tr>
 &lt;td>Debian 8 (Jessie)&lt;/td>
 &lt;td>deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://dl.winehq.org/wine-builds/debian/
 &lt;/a> jessie main&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>Debian 9 (Stretch)&lt;/td>
 &lt;td>deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://dl.winehq.org/wine-builds/debian/
 &lt;/a> stretch main&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>Debian 10 (currently Testing) (Buster)&lt;/td>
 &lt;td>deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://dl.winehq.org/wine-builds/debian/
 &lt;/a> buster main&lt;/td>
 &lt;/tr>
@@ -2803,14 +3473,14 @@ https://dl.winehq.org/wine-builds/debian/
 &lt;tr>
 &lt;td>Fedora 29&lt;/td>
 &lt;td>dnf config-manager &amp;ndash;add-repo &lt;a href="https://dl.winehq.org/wine-builds/fedora/29/winehq.repo" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://dl.winehq.org/wine-builds/fedora/29/winehq.repo
 &lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>Fedora 30&lt;/td>
 &lt;td>dnf config-manager &amp;ndash;add-repo &lt;a href="https://dl.winehq.org/wine-builds/fedora/30/winehq.repo" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://dl.winehq.org/wine-builds/fedora/30/winehq.repo
 &lt;/a>&lt;/td>
 &lt;/tr>
@@ -2840,7 +3510,7 @@ https://dl.winehq.org/wine-builds/fedora/30/winehq.repo
 &lt;/tbody>
 &lt;/table>
 &lt;p>Para otras distribuciones o BDS o MacOS revisar en su &lt;a href="https://wiki.winehq.org/Download" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 sitio oficial
 &lt;/a>&lt;/p>
 &lt;h3 id="arch">Arch&lt;/h3>
@@ -3035,7 +3705,7 @@ Reporte del BUG
 &lt;h2 id="según-el-uso">Según el uso&lt;/h2>
 &lt;p>Dependiendo del uso podemos discriminar los que exigen la mayor performance en situaciones de estrés y los usuarios simples. En el primer grupo entran gamers o stremers, diseñadores y editores de videos. Estos requieren siempre ir a la impronta del kernel para poder mejorar la performance de sus procesos y por eso a este grupo le recomiendo Rolling Release.&lt;/p>
 &lt;p>![](&lt;a href="https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/480/public/media/image/2020/03/olvidate-comprar-silla-gaming-llegan-camas-gaming-1882221.jpg?itok=lnWK14Ov%22%3e%7d%7d" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/480/public/media/image/2020/03/olvidate-comprar-silla-gaming-llegan-camas-gaming-1882221.jpg?itok=lnWK14Ov">}}
 &lt;/a>&lt;/p>
 &lt;p>En cambio al resto de los usuarios, internautas, jugadores casuales, etc. Pueden tranquilamente suplir todas sus necesidades con una distribución Point Release.&lt;/p>
@@ -3046,7 +3716,7 @@ https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/styles/480/public/
 &lt;p>En caso de que nuestro equipo sea más antiguo es recomendable distribuciones Point Release. En cambio los equipos más nuevos es recomendable ir por Rolling Release dado que la sección de drivers y performance se actualiza semana a semana.&lt;/p>
 &lt;h2 id="según-el-uso-1">Según el uso&lt;/h2>
 &lt;p>Hoy mucha gente relaciona Rolling Release con algo inestable, y esto no es para nada cierto sin embargo es verdad que para algunos usos no es recomendable este estilo de actualizaciones. En el caso de usuarios simples y servidores es recomendable las distribuciones Point Release. En cualquier otro caso, siempre y cuando actualices todos los dias, te recomendaria tener Rolling Release&lt;/p></description></item><item><title>Manjaro WebDad</title><link>https://patojad.com.ar/post/2021/02/manjaro-webdad/</link><pubDate>Fri, 26 Feb 2021 08:53:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/02/manjaro-webdad/</guid><description>&lt;p>Hace ya un tiempo di mi opinión sobre &lt;a href="https://patojad.com.ar/instalaciones/2020/11/ubuntu-web-remix/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Ubuntu web
 &lt;/a>, y en los recientes días, con el aumento del uso de ChromeOS parece ser que esta distro es una excelente idea. Sin embargo, por otro camino diferente existe un joven que desarrolló un escritorio que lo podríamos definir como &amp;ldquo;Lo que Ubuntu Web no pudo&amp;rdquo; dado que es aún más embebible con esta idea.&lt;/p>
 &lt;h2 id="manjaro-webdad">Manjaro WebDad&lt;/h2>
@@ -3064,18 +3734,18 @@ allowfullscreen>
 &lt;img src="https://raw.githubusercontent.com/codesardine/Jadesktop/master/jade.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
 &lt;/div>&lt;/p>
 &lt;p>JADE nos ofrece un launcher que corre nativamente en su desktop, el mismo es &lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 HTML
 &lt;/a> y es realmente muy fluido y no consume tantos recursos como, por ejemplo, &lt;a href="https://patojad.com.ar/aplicaciones/2020/05/ulauncher/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 ulanucher
 &lt;/a> o &lt;a href="https://patojad.com.ar/aplicaciones/2020/05/cerebro/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 cerebro
 &lt;/a> que son dos grandes launchers.&lt;/p>
 &lt;h3 id="fondos-en-movimiento">Fondos en movimiento&lt;/h3>
 &lt;p>Adicional a esto también nos ofrece los tan populares fondos en movimiento que muchos agregan con apps como Komorebi. Pero nuevamente lo hace desde una etiqueta &lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 HTML
 &lt;/a> lo cual es mucho menos costoso que desarrollar una app que lo haga.&lt;/p>
 &lt;h3 id="altamente-personalizable">Altamente personalizable.&lt;/h3>
@@ -3083,7 +3753,7 @@ HTML
 &lt;img src="https://i.postimg.cc/MGMv0q6W/Captura-de-pantalla-de-2020-11-20-15-52-06.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
 &lt;/div>&lt;/p>
 &lt;p>Este Escritorio, al estar desarrollado en &lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 HTML
 &lt;/a> (En lo que a su interfaz respecta) permitiría que cualquiera con un buen conocimiento en este lenguaje de etiquetas lo personalice al máximo obteniendo increíbles resultados&lt;/p></description></item><item><title>Flatpack no siempre es un enemigo</title><link>https://patojad.com.ar/post/2021/02/flatpack-no-siempre-es-un-enemigo/</link><pubDate>Mon, 22 Feb 2021 10:12:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/02/flatpack-no-siempre-es-un-enemigo/</guid><description>&lt;p>Si bien muchas veces explique porque el uso de flatpack y gestores similares que empaquetan todas las librerías necesarias generando apps al mejor estilo MS-DOS no son recomendables. El hecho de que no prefiera usarlas no implica que sea un desertor de la misma, hoy pretendo explicar cuando, &lt;strong>desde mi punto de vista,&lt;/strong> es ideal el uso de este tipo de paqueterias.&lt;/p>
 &lt;p>&lt;div class="text-center">
@@ -3317,7 +3987,7 @@ HTML
 &lt;/table>
 &lt;p>Algunos prefieren usar la notación octal, otros prefieren la simbólica. La notación simbólica ofrece la ventaja de permitirte establecer un atributo individual sin molestar a los otros.&lt;/p>
 &lt;p>Échale un vistazo a la &lt;a href="https://patojad.com.ar/post/2019/01/man-tu-manual-para-linux/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 man page
 &lt;/a> de chmod para más detalles y una lista de opciones. Una advertencia con respecto a la opción “&amp;ndash;recursive”: actúa tanto en archivos como en directorios, así que no es tan útil como uno esperaría, rara vez queremos que archivos y directorios tengan los mismos permisos.&lt;/p></description></item><item><title>¿Realmente Deepin arruinó todo?</title><link>https://patojad.com.ar/post/2021/01/realmente-deepin-arruin%C3%B3-todo/</link><pubDate>Wed, 06 Jan 2021 10:50:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/01/realmente-deepin-arruin%C3%B3-todo/</guid><description>&lt;p>Dada mi última publicación sobre esta distro muchos preguntaron porque digo que “deepin arruino todo”. Entiendo que hay muchos puntos de vista opuestos y por eso quiero aclarar que el siguiente punto de vista es nada más ni nada menos que mi punto de vista y no una verdad absoluta.&lt;/p>
 &lt;h2 id="busca-ofrecer-algo-que-no-ofrece">Busca ofrecer algo que no Ofrece&lt;/h2>
@@ -4300,7 +4970,7 @@ zipsplit
 &lt;/code>&lt;/pre></description></item><item><title>Pacman conflicto de Archivos al Actualizar</title><link>https://patojad.com.ar/post/2020/11/pacman-conflicto-de-archivos-al-actualizar/</link><pubDate>Tue, 03 Nov 2020 08:40:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/11/pacman-conflicto-de-archivos-al-actualizar/</guid><description>&lt;p>Dentro de todas las distribuciones basadas en Arch Linux siempre existe la posibilidad de tener errores al actualizar, mas que nada cuando se juntan muchas actualizaciones por periodos realmente largos. En estos casos las posibilidades de errores aumentan y es preciso buscar una solución.&lt;/p>
 &lt;h2 id="el-caso-de-artix-linux">El caso de Artix Linux&lt;/h2>
 &lt;p>Artix es una distribución muy buena de la que &lt;a href="https://patojad.com.ar/post/2020/08/artix-linux/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 ya hablamos antes
 &lt;/a>, incluso en el canal de youtube le dedique un saga, un poco corta, a la cual el dia de hoy sumo un video mas. Los sabores oficiales de artix, al dia de la fecha, tienen este problema de actualizaciones acumuladas, el cual da el error:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -4326,7 +4996,7 @@ allowfullscreen>
 &lt;p>Si te gusto no te olvides de apoyarme suscribiendote y dándole un “Me Gusta” ¡No cuesta nada pero vale mucho!&lt;/p>
 &lt;h2 id="lo-utilizado">Lo utilizado&lt;/h2>
 &lt;p>Si bien como se aclara en el video podemos usar &lt;a href="https://patojad.com.ar/post/2020/09/manipulando-archivos-y-directorios/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 comodines
 &lt;/a>. En este caso vamos a dejar el comando específico y cada uno lo modifica de la forma que crea conveniente. El patrón a seguir es el siguiente:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -4826,7 +5496,7 @@ pacman -S light-locker accountsservice
 &lt;/code>&lt;/pre>
 &lt;h4 id="instalar-gnomeflashback">Instalar GNOME/Flashback&lt;/h4>
 &lt;p>![](&lt;a href="https://external-preview.redd.it/38qPd6ZJGLQXB2HtQ6iL2ZEvOw-Dsg0VM05FOTc8O7I.png?auto=webp&amp;amp;s=bab6f84634f388e1abc83e14c954f94fe34b150d%22" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://external-preview.redd.it/38qPd6ZJGLQXB2HtQ6iL2ZEvOw-Dsg0VM05FOTc8O7I.png?auto=webp&amp;s=bab6f84634f388e1abc83e14c954f94fe34b150d"
 &lt;/a> &amp;gt;}}&lt;/p>
 &lt;p>435MiB/RAM aproximadamente, el diseño del escritorio y la tecnología subyacente es similar a GNOME 2. No utiliza la aceleración 3D en absoluto, por lo que generalmente es más rápido y requiere menos CPU&lt;/p>
@@ -5281,7 +5951,7 @@ Report bugs to &amp;lt;bug-coreutils@gnu.org&amp;gt;.
 &lt;/code>&lt;/pre>
 &lt;p>En la mayoría de los sistemas Linux, man usa less para mostrar la man page, así que todos los comandos de less que nos son familiares funcionan cuando está mostrado la página.&lt;/p>
 &lt;p>&lt;strong>Si quieres saber más sobre man te dejo &lt;a href="https://patojad.com.ar/post/2019/01/man-tu-manual-para-linux/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 un articulo
 &lt;/a> para leer&lt;/strong>&lt;/p>
 &lt;h2 id="apropos--muestra-comandos-apropiados">&lt;strong>apropos&lt;/strong> – Muestra comandos apropiados&lt;/h2>
@@ -5322,7 +5992,7 @@ mformat (1) - add an MSDOS filesystem to a low-level formatted floppy disk
 &lt;img src="https://xanmod.org/index_files/xanmod_wallpaper.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
 &lt;/div>&lt;/p>
 &lt;p>En mi caso de Debian o Ubuntu voy a recomendar Xanmod que si bien hay un &lt;a href="https://patojad.com.ar/post/2020/09/mejorar-el-rendimiento-de-tu-placa-de-video/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 tutorial de como instalarlo
 &lt;/a> quiero aprovechar esta oportunidad para mejorar ese tutorial.&lt;/p>
 &lt;pre>&lt;code>echo 'deb http://deb.xanmod.org releases main' | sudo tee /etc/apt/sources.list.d/xanmod-kernel.list &amp;amp;&amp;amp; wget -qO - https://dl.xanmod.org/gpg.key | sudo apt-key add -
@@ -5356,27 +6026,70 @@ tutorial de como instalarlo
 &lt;p>A menudo es útil saber exactamente cual de los cuatro tipos de comandos estamos usando y Linux proporciona un par de formas de averiguarlo.&lt;/p>
 &lt;h2 id="type--muestra-de-qué-tipo-es-un-comando">type – Muestra de qué tipo es un comando&lt;/h2>
 &lt;p>El comando type es un shell builtin que muestra el tipo de comando que el shell ejecutará, indicándole el nombre de un comando en particular. Funciona así:&lt;/p>
-&lt;pre>&lt;code>type comando
-&lt;/code>&lt;/pre>
-&lt;p>donde &amp;ldquo;comando&amp;rdquo; es el nombre del comando que quieres examinar. Aquí tienes algunos ejemplos:&lt;/p>
-&lt;pre>&lt;code>type type
-type is a shell builtin
-type ls
-ls is aliased to 'ls --color=tty'
-type cp
-cp is /bin/cp
-&lt;/code>&lt;/pre>
-&lt;p>Aquí vemos los resultados para tres comandos diferentes. Fíjate en el de ls (realizado sobre un sistema Fedora) y en cómo el comando ls es realmente un alias del comando ls con la opción “&amp;ndash;color=tty” añadida. ¡Ahora sabemos porqué la salida de ls se muestra en color!&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">type&lt;/span> comando
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>donde &amp;ldquo;comando&amp;rdquo; es el nombre del comando que quieres examinar. Aquí tienes algunos ejemplos:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">type&lt;/span> &lt;span class="nb">type&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">type&lt;/span> is a shell &lt;span class="nb">builtin&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">type&lt;/span> ls
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ls is aliased to &lt;span class="s1">&amp;#39;ls --color=tty&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">type&lt;/span> cp
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cp is /bin/cp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Aquí vemos los resultados para tres comandos diferentes. Fíjate en el de ls (realizado sobre un sistema Fedora) y en cómo el comando ls es realmente un alias del comando ls con la opción “&amp;ndash;color=tty” añadida. ¡Ahora sabemos porqué la salida de ls se muestra en color!&lt;/p>
 &lt;h2 id="which--muestra-la-localización-de-un-ejecutable">which – Muestra la localización de un ejecutable&lt;/h2>
 &lt;p>A veces hay más de una versión de un programa ejecutable instalada en un sistema. Aunque no es muy usual en los sistemas de escritorio, sí es más frecuente en grandes servidores. Para determinar la localización exacta de un ejecutable dado tenemos el comando which:&lt;/p>
-&lt;pre>&lt;code>which ls
-/bin/ls
-&lt;/code>&lt;/pre>
-&lt;p>which sólo funciona con programas ejecutables, ni con builtins ni con alias que son sustitutos de los verdaderos programas ejecutables. Cuando intentamos usar which en un shell builtin, por ejemplo, cd, no tendremos respuesta o nos dará un mensaje de error:&lt;/p>
-&lt;pre>&lt;code>which cd
-/usr/bin/which: no cd in (/opt/jre1.6.0_03/bin:/usr/lib/qt-3.3/bin:/usr/kerberos/bin:/opt/jre1.6.0_03/bin:/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/home/me/bin)
-&lt;/code>&lt;/pre>
-&lt;h2 id="obteniendo-la-documentación-de-un-comando">Obteniendo la documentación de un comando&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">which ls
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/bin/ls
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>which sólo funciona con programas ejecutables, ni con builtins ni con alias que son sustitutos de los verdaderos programas ejecutables. Cuando intentamos usar which en un shell builtin, por ejemplo, cd, no tendremos respuesta o nos dará un mensaje de error:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">which &lt;span class="nb">cd&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/usr/bin/which: no &lt;span class="nb">cd&lt;/span> in &lt;span class="o">(&lt;/span>/opt/jre1.6.0_03/bin:/usr/lib/qt-3.3/bin:/usr/kerberos/bin:/opt/jre1.6.0_03/bin:/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/home/me/bin&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="obteniendo-la-documentación-de-un-comando">Obteniendo la documentación de un comando&lt;/h2>
 &lt;p>Ahora que sabemos qué es un comando, podemos buscar la documentación disponible para cada tipo de comando. Pero esto lo veremos mas adelante&amp;hellip;&lt;/p>
 &lt;hr>
 &lt;p>Recorda &lt;strong>apoyarnos&lt;/strong> en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p></description></item><item><title>Manipulando archivos y directorios</title><link>https://patojad.com.ar/post/2020/09/manipulando-archivos-y-directorios/</link><pubDate>Thu, 03 Sep 2020 10:12:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/09/manipulando-archivos-y-directorios/</guid><description>&lt;p>Seguimos trabajando con la terminal, vamos despacio pero avanzamos firme, en esta oportunidad vamos a aumentar los comandos que vamos a ir usando en el dia a dia.&lt;/p>
@@ -5533,7 +6246,7 @@ Si directorio2 existe, mueve directorio1 (y su contenido) dentro del directorio2
 &lt;h2 id="ten-cuidado-con-rm">¡Ten cuidado con rm!&lt;/h2>
 &lt;p>Los sistemas operativos tipo Unix, por ejemplo Linux, no tienen un comando para restaurar archivos. Una vez que borras algo con rm, se ha ido. Linux asume que eres listo y sabes lo que haces.&lt;/p>
 &lt;p>Ten especial cuidado con los comodines. Piensa en este ejemplo clásico. Digamos que quieres borrar sólo los archivos &lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 HTML
 &lt;/a> en un directorio. Para hacerlo, escribes:&lt;/p>
 &lt;pre>&lt;code>rm *.html
@@ -5838,7 +6551,7 @@ Paralelismo entre sistemas operativos y comidas
 &lt;p>Claramente esto no implica que todos debamos tener todos los sistemas operativos instalados, pero sí implica tener tolerancia, y esta publicación empuja a eso, tolerancia… En nuestra comunidad de Telegram apoyamos a todos los usuarios sin importar si usan Windows, Mac, ReactOS o lo que sea, siempre intentamos ayudar y aprender. Lo mismo implica para esos que dicen &lt;strong>“Si usas ubuntu no te ayudo”&lt;/strong> (claramente eso va apuntado a mi que cuando me dicen que usan ubuntu y tienen bugs les recomiendo pasar a debian) Porque estamos acá por amor a la tecnología y debemos respetar y colaborar con todos&lt;/p>
 &lt;h2 id="tu-turno">Tu turno!&lt;/h2>
 &lt;p>Claramente esta publicación puede sonar polémica ante muchas personas y no quiero ser de los que solo exponen su idea, Comentanos, decinos qué pensas ya que todos tienen su lugar en nuestra comunidad&lt;/p></description></item><item><title>Review MilagrOS</title><link>https://patojad.com.ar/post/2020/08/review-milagros/</link><pubDate>Tue, 04 Aug 2020 08:43:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/08/review-milagros/</guid><description>&lt;p>Ya con anterioridad hablamos de esta &lt;a href="https://patojad.com.ar/instalaciones/2020/06/instalcion-milagros/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 hermosa distribucion y mostramos el paso a paso de su instalación
 &lt;/a>. Hoy venimos a completar o a sumar un poco desde mi punto de vista persona comentando que pienso yo de esta distribución.&lt;/p>
 &lt;h2 id="review">Review&lt;/h2>
@@ -5851,7 +6564,7 @@ allowfullscreen>
 &lt;/iframe>
 &lt;/div>
 &lt;p>Desde ya quiero agradecer a LPI del &lt;a href="https://proyectotictac.com/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 Proyecto TicTac
 &lt;/a> por siempre dar una mano!&lt;/p></description></item><item><title>Lo malo de GNU/Linux 2006</title><link>https://patojad.com.ar/post/2020/07/lo-malo-de-gnu/linux-2006/</link><pubDate>Tue, 28 Jul 2020 09:47:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/07/lo-malo-de-gnu/linux-2006/</guid><description>&lt;p>Navegando por internet siempre me gusta curiosear sobre linux, y de navegar un poco llegue a un artículo escrito en 2006 el cual reclutaba un top 10 motivos por el cual no utilizar GNU/Linux.&lt;/p>
 &lt;p>Este artículo puede parecer viejo y obsoleto sin embargo como se dice comúnmente &lt;em>la basura de uno, es el tesoro de otro&lt;/em> y este mismo artículo añejado fue motivación para tomarnos un momento de refleccion.&lt;/p>
@@ -5922,7 +6635,7 @@ allowfullscreen>
 &lt;/blockquote>
 &lt;p>No te olvides de mandarnos tu respuestas para saber qué opina la comunidad y poder enriquecer un poco más todo esto!&lt;/p>
 &lt;p>Fuente: &lt;a href="http://lomalodelinux.blogspot.com/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 http://lomalodelinux.blogspot.com/
 &lt;/a>&lt;/p></description></item><item><title>Preparandose para explorar el sistema</title><link>https://patojad.com.ar/post/2020/07/preparandose-para-explorar-el-sistema/</link><pubDate>Fri, 24 Jul 2020 09:38:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/07/preparandose-para-explorar-el-sistema/</guid><description>&lt;p>Ahora que sabemos cómo movernos por el sistema de archivos, es hora de realizar una visita guiada por nuestro sistema GNU/Linux. Sin embargo, antes de empezar, vamos a aprender algunos comandos más que serán útiles en nuestro viaje:&lt;/p>
 &lt;ul>
@@ -6191,7 +6904,7 @@ allowfullscreen>
 &lt;li>&lt;strong>nmcli&lt;/strong>: Nos permite controlar NetworkManager y reportar el estado de la red, brindándonos la posibilidad de crear, mostrar, editar, eliminar, activar y desactivar las conexiones de red.&lt;/li>
 &lt;/ul>
 &lt;p>Para conocer a detalle la sintaxis y el uso de cada uno de estos comandos podemos ejecutar el comando acompañado del argumento de ayuda, o bien &lt;a href="https://patojad.com.ar/post/2019/01/man-tu-manual-para-linux/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 utilizar man como ya vimos antes en el blog
 &lt;/a>.&lt;/p>
 &lt;h2 id="conectandonos">Conectandonos&lt;/h2>
@@ -6366,7 +7079,7 @@ pwd
 &lt;h2 id="tambien-leer">Tambien Leer&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://patojad.com.ar/posts/2020/07/por-qu%c3%a9-usar-la-l%c3%adnea-de-comandos/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 ¿Por qué usar la línea de comandos?
 &lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>¿SystemD no es el problema? Respuesta a Zatiel</title><link>https://patojad.com.ar/post/2020/07/systemd-no-es-el-problema-respuesta-a-zatiel/</link><pubDate>Mon, 06 Jul 2020 08:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/07/systemd-no-es-el-problema-respuesta-a-zatiel/</guid><description>&lt;p>Ya en este blog es un poco recurrente hablar de inits, en especial del tan aclamado SystemD un init tan popular que muchas personas dudan de que puedan existir otros en su lugar. Las miradas sobre este init suelen ser muy divididas. Mientras existe un grupo de personas que lo defienden a muerte otros intentan extinguir a como dé lugar… Después estamos lo que estamos en un limbo bajo la teoría de “vive y deja vivir” donde si bien no procedemos a estar de acuerdo con SystemD en general tampoco linchamos a quienes lo usan…&lt;/p>
@@ -6394,19 +7107,19 @@ allowfullscreen>
 &lt;p>Como dije antes es recurrente en este blog hablar de inits, tal vez a estas alturas muchos ya los tengan entendido (a su funcionalidad) pero otros no para lo cual estoy dejando abajo todo lo que nosotros ya hablamos anteriormente con el fin de obtener más información&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://patojad.com.ar/post/2020/06/systemd-solucion-o-problema/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 https://patojad.com.ar/post/2020/06/systemd-solucion-o-problema/
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://patojad.com.ar/post/2019/04/systemd-al-volante-mata/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 https://patojad.com.ar/post/2019/04/systemd-al-volante-mata/
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://patojad.com.ar/post/2019/01/lo-que-la-gente-opina-sobre-los-inits/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 https://patojad.com.ar/post/2019/01/lo-que-la-gente-opina-sobre-los-inits/
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://patojad.com.ar/post/2019/01/lo-que-la-gente-opina-sobre-los-inits/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 https://patojad.com.ar/post/2019/01/lo-que-la-gente-opina-sobre-los-inits/
 &lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>¿Por qué usar la línea de comandos?</title><link>https://patojad.com.ar/post/2020/07/por-qu%C3%A9-usar-la-l%C3%ADnea-de-comandos/</link><pubDate>Fri, 03 Jul 2020 09:41:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/07/por-qu%C3%A9-usar-la-l%C3%ADnea-de-comandos/</guid><description>&lt;p>A continuación vamos a dejar la traducción de, &lt;em>&amp;ldquo;The Linux Command Line - Second Internet Edition&amp;rdquo; de William E. Shotts, Jr.&lt;/em> La traducción en carácter literal fue realizado por Adriano Sánchez.&lt;/p>
@@ -6594,7 +7307,7 @@ href='https://nosystemd.org/'>
 Mas info
 &lt;/a>
 &lt;/div></description></item><item><title>Shells disponibles</title><link>https://patojad.com.ar/post/2020/06/shells-disponibles/</link><pubDate>Thu, 25 Jun 2020 09:13:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/06/shells-disponibles/</guid><description>&lt;p>El otro día comenzamos a hablar de &amp;ldquo;&lt;a href="https://patojad.com.ar/post/2020/06/el-shell-de-linux/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 el Shell de GNU/Linux
 &lt;/a>&amp;rdquo; (No quiero entrar en debates pero tampoco quiero que se enojen por poner solo Linux) y comprendimos que no es tan malo como muchos creen, y ahora estoy acá para contarte un poco que existen &lt;strong>varios shells&lt;/strong> y queremos que sepas cual es el que tienes instalado…&lt;/p>
 &lt;h1 id="shell-usuario-usuario-shell">Shell Usuario, Usuario Shell&amp;hellip;&lt;/h1>
@@ -7022,19 +7735,19 @@ allowfullscreen>
 &lt;/div>
 &lt;h2 id="a-lo-que-vinimos">A lo que vinimos!!&lt;/h2>
 &lt;p>![](&lt;a href="https://i0.wp.com/revolutionarygamesstudio.com/wp-content/uploads/2015/01/Ocean-Slide-1.jpg?w=1080&amp;amp;ssl=1%22" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://i0.wp.com/revolutionarygamesstudio.com/wp-content/uploads/2015/01/Ocean-Slide-1.jpg?w=1080&amp;ssl=1"
 &lt;/a> &amp;gt;}}&lt;/p>
 &lt;p>Desde los bajos pozos de marea de su planeta natal, ascenderá al dominio cósmico. En cada paso, las potentes herramientas de creación y la mecánica de simulación profunda ayudarán al desarrollo de su especie. Revolutionary Games es el equipo de código abierto de voluntarios dedicados con el objetivo de hacer que Thrive sea una realidad.&lt;/p>
 &lt;p>Nuestro equipo busca lograr dos objetivos principales: crear un juego atractivo y convincente que respete la inteligencia de nuestros jugadores y que sea lo más preciso posible en nuestra descripción de la teoría científica conocida sin comprometer la primera.&lt;/p>
 &lt;p>![](&lt;a href="https://i2.wp.com/revolutionarygamesstudio.com/wp-content/uploads/2015/01/Lizard-Slide-1.jpg?w=1079&amp;amp;ssl=1%22" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://i2.wp.com/revolutionarygamesstudio.com/wp-content/uploads/2015/01/Lizard-Slide-1.jpg?w=1079&amp;ssl=1"
 &lt;/a> &amp;gt;}}&lt;/p>
 &lt;p>Thrive encapsulará al jugador en las maravillas de la ciencia y el universo, permitiéndole manipular el mundo virtual a su alrededor con editores para modificar la tecnología, la cultura, los organismos y los sistemas solares completos. Se planean siete etapas: microbio, multicelular, consciente, despertar, sociedad, industrial y espacial, aunque por el momento solo nos estamos centrando en la primera de ellas, ya que todo el proyecto es una empresa masiva.&lt;/p>
 &lt;p>Thrive toma muchos juegos como inspiración, desde roguelikes hasta juegos de gran estrategia, pero planeamos seguir nuestro propio camino con muchas mecánicas de juego. No esperes un clon.&lt;/p>
 &lt;p>![](&lt;a href="https://i1.wp.com/revolutionarygamesstudio.com/wp-content/uploads/25b746db34e91b981a22486b2fa72a371aeac0fb.jpeg?fit=1080%2C763&amp;amp;ssl=1%22" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://i1.wp.com/revolutionarygamesstudio.com/wp-content/uploads/25b746db34e91b981a22486b2fa72a371aeac0fb.jpeg?fit=1080%2C763&amp;ssl=1"
 &lt;/a> &amp;gt;}}&lt;/p>
 &lt;p>Nuestro objetivo es explorar las posibilidades de simulación dentro del contexto del juego, enfrentando al jugador contra el entorno del juego mientras ejercen las fuerzas de la evolución. Los jugadores crearán y editarán un organismo en su viaje desde la insignificancia hasta las estrellas, utilizando múltiples herramientas de creación para elevarse por encima de sus adversarios, ellos mismos productos de la evolución por selección natural en el ecosistema más amplio del juego.&lt;/p>
@@ -7049,7 +7762,7 @@ href='https://github.com/Revolutionary-Games/Thrive/releases'>
 Descargar Juego
 &lt;/a>
 &lt;/div></description></item><item><title>Cómo instalar paquetes DEB usando dpkg</title><link>https://patojad.com.ar/post/2020/05/c%C3%B3mo-instalar-paquetes-deb-usando-dpkg/</link><pubDate>Wed, 20 May 2020 06:40:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/05/c%C3%B3mo-instalar-paquetes-deb-usando-dpkg/</guid><description>&lt;p>Anteriormente hablamos de &lt;a href="https://patojad.com.ar/post/2020/04/como-crear-un-deb-con-dpkg/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 cómo crear paquetes .deb
 &lt;/a> en Debian, Ubuntu o derivadas utilizando el gestor de paquetes dpkg, sin embargo hoy llego el dia de dar un pequeño paso hacia atrás y ver como se instala utilizando el mismo gestor.&lt;/p>
 &lt;p>Antes de iniciar quiero agradecer a Julio por brindar la información y obviamente a la autora de todo esto que es nada más ni nada menos que Gabriela González.&lt;/p>
@@ -7076,13 +7789,13 @@ cómo crear paquetes .deb
 &lt;pre>&lt;code>dpkg -P paquete.deb
 &lt;/code>&lt;/pre>
 &lt;p>Si quieren conocer más a fondo esta herramienta, pueden leer el manual de Debian sobre la &lt;a href="https://debian-handbook.info/browse/es-ES/stable/sect.manipulating-packages-with-dpkg.html" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 manipulación de paquetes con dpkg
 &lt;/a>.&lt;/p>
 &lt;hr>
 &lt;p>Recorda &lt;strong>apoyarnos&lt;/strong> en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p></description></item><item><title>Instalar GTA V en Linux</title><link>https://patojad.com.ar/post/2020/05/instalar-gta-v-en-linux/</link><pubDate>Mon, 18 May 2020 08:27:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/05/instalar-gta-v-en-linux/</guid><description>&lt;p>Como muchos saben estos dias se estuvo entregando el GTA V gratis en la Epic Store. Es un juego bastante bueno aunque debo admitir que cuando salió se esperaba mas de él, sin embargo logró conformar a la gente e incluso el anuncio de que este juego se estaba regalando fue suficiente como para tirar los sitios de Epic Games.&lt;/p>
 &lt;p>Como podemos ven &lt;a href="https://www.protondb.com/app/271590" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 en la página de protondb
 &lt;/a> este juego funciona bien con Proton aunque con wine no tenemos la misma suerte, lamentablemente no suele funcionar a la primera e incluso si funciona no obtiene un buen rendimiento (Si lo hiciste funcionar en wine y con buen rendimiento enséñanos porque no lo logramos)&lt;/p>
 &lt;p>Por lo cual queremos compartir con ustedes lo que un usuario de reddit nos trae para que podamos instalar este hermoso juego y jugarlo casi sin problemas.&lt;/p>
@@ -7092,7 +7805,7 @@ en la página de protondb
 &lt;p>&lt;strong>Requisitos:&lt;/strong> Steam con proton instalado, winetricks, protontricks y wine&lt;/p>
 &lt;h2 id="crea-una-cuenta-y-reclama-el-gta-v-gratis">Crea una cuenta y reclama el GTA V gratis&lt;/h2>
 &lt;p>Si aun no tenes el juego, &lt;strong>todavía estás a tiempo&lt;/strong>, quedan algunos días para reclamarlo tienes aun hasta el 21 de mayo, así que si no tienes cuenta puedes registrarte, activar la autenticación en 2 pasos y reclamar el juego en &lt;a href="https://www.epicgames.com/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 Epic Games
 &lt;/a>.&lt;/p>
 &lt;h2 id="descargue-e-instale-epic-games-launcher">Descargue e instale Epic Games Launcher&lt;/h2>
@@ -7136,7 +7849,7 @@ NOTE: A game must be launched at least once before protontricks can find the gam
 &lt;p>Bueno, esto es relativamente falso. Ha de ser real si &lt;strong>a mi hijo de 7 años le digo que instale arch&lt;/strong>, o mi abuela, pero entendamos que &lt;strong>existe una distribución de Linux para cada necesidad&lt;/strong>, y para mi hijo y/o mi abuela existen distros como Deepin, Zorin, MX, o incluso Ubuntu (Quien me conoce, sabe que no suelo recomendar ubuntu, pero es real que lo instale muchas veces y es incluso la primera junto a mint que recomiendo cuando no puedo dar mucho soporte de mi parte).&lt;/p>
 &lt;p>Volviendo al tema, hoy por hoy una persona &lt;strong>puede utilizar una distribución de linux sin ningún problema&lt;/strong>, no es necesario abrir la termina, ni saber informática ni mucho menos, los escritorios y las distribuciones (entendamos a esto como la comunidad) se esforzaron mucho para poder hacer esto posible y el mito de que linux es dificil de usar no tiene ningún fundamento.&lt;/p>
 &lt;p>Esto podemos verlo en el experimento de &lt;a href="https://patojad.com.ar/post/2019/08/la-comunidad-opina-los-linuxnautas-con-do%C3%B1a-estela/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Doña Estela
 &lt;/a>&lt;/p>
 &lt;h2 id="no-va-a-funcionar-en-mi-pc-falso">NO VA A FUNCIONAR EN MI PC (&lt;strong>FALSO&lt;/strong>)&lt;/h2>
@@ -7230,7 +7943,7 @@ sudo apt-get remove paquete_defectuoso
 &lt;p>Si el problema persiste después de volver a intentar instalar los paquetes, revisa el archivo /etc/apt/sources.list.&lt;/p></description></item><item><title>¿Que es DynDNS? ¿Como lo instalo?</title><link>https://patojad.com.ar/post/2020/04/que-es-dyndns-como-lo-instalo/</link><pubDate>Tue, 28 Apr 2020 09:17:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/04/que-es-dyndns-como-lo-instalo/</guid><description>&lt;p>¿Quieres ser el &lt;strong>servidor principal&lt;/strong> y ejecutar tu &lt;strong>propio servidor doméstico&lt;/strong> o una cámara IP y lograrlo de forma &lt;strong>externa&lt;/strong>?&lt;/p>
 &lt;p>El problema es el &lt;strong>cambio de la dirección IP&lt;/strong> (dinámicamente) de su línea de internet. Esto significa que es imposible lograr su red doméstica desde el exterior. Con nuestro servicio &lt;strong>DNS dinámico&lt;/strong> (DDNS), le ofrecemos la posibilidad de operar sus aplicaciones estáticamente desde el exterior de forma móvil.&lt;/p>
 &lt;p>Así se presenta DynDNS un competidor de &lt;strong>&lt;a href="https://patojad.com.ar/post/2020/04/como-instalar-no-ip-en-linux/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 NO-IP
 &lt;/a> del cual hablamos hace unos dias&lt;/strong>&lt;/p>
 &lt;h2 id="cómo-utiliza-el-servicio-gratuito-dyndns">¿Cómo utiliza el servicio gratuito DynDNS?&lt;/h2>
@@ -7252,12 +7965,12 @@ NO-IP
 &lt;h1 id="mi-consejo">Mi consejo&lt;/h1>
 &lt;p>Si alguien busca mi consejo, lo encuentra&amp;hellip; Personalmente este sistema es util y uno de los mejores&amp;hellip; solo si tu router permite la asociacion directa. Siendo asi solo basta a ir a las opciones avanzadas, elegir en DDNS el servidor DynDNS y cologar usuario y contraseña y solo se ira actualizando a medida que el modem cambie la ip.&lt;/p></description></item><item><title>Como instalar NO-IP en Linux</title><link>https://patojad.com.ar/post/2020/04/como-instalar-no-ip-en-linux/</link><pubDate>Fri, 24 Apr 2020 09:48:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/04/como-instalar-no-ip-en-linux/</guid><description>&lt;p>No-IP ofrece servicios de DNS, correo electrónico, monitoreo de red y certificados SSL. El producto principal de No-IP son los &lt;strong>servicios dinámicos de DNS&lt;/strong> (&amp;ldquo;DDNS&amp;rdquo;). Los servicios DNS dinámicos básicos que usan un dominio propiedad de No-IP son de uso &lt;strong>gratuito siempre que la cuenta permanezca activa&lt;/strong>.&lt;/p>
 &lt;p>Las direcciones &lt;strong>&lt;a href="https://patojad.com.ar/post/2020/01/direcciones-ips-nuestra-huella-en-la-red/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 IP
 &lt;/a> dinámicas&lt;/strong> son comunes en las cuentas de banda ancha de &lt;strong>cable residencial&lt;/strong> o DSL. El servicio gratuito permite a los usuarios configurar entre &lt;strong>uno y tres nombres de host&lt;/strong> en un nombre de dominio proporcionado por No-IP. El nombre del host se resolverá en la dirección IP actual de la computadora de ese usuario.&lt;/p>
 &lt;h2 id="api-dns-dinámica">API DNS dinámica&lt;/h2>
 &lt;p>Un nombre de host &lt;strong>DNS dinámico&lt;/strong> está vinculado a la dirección &lt;a href="https://patojad.com.ar/post/2020/02/qu%c3%a9-hay-detr%c3%a1s-de-una-ip/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 IP dinámica
 &lt;/a> del usuario. Cada vez que &lt;strong>cambie la IP&lt;/strong>, un cliente DNS dinámico enviará una actualización a No-IP con la dirección IP actual y luego No-IP propagará el cambio de DNS a Internet en cuestión de segundos.&lt;/p>
 &lt;p>Para facilitar las actualizaciones de direcciones IP, No-IP tiene un protocolo abierto que permite a los desarrolladores de software y fabricantes de hardware comunicarse a través de HTTP para notificarles sobre un cambio de dirección IP.&lt;/p>
@@ -7556,12 +8269,12 @@ ISO task max realtime use......: 70 % -&amp;gt; 25 %
 &lt;/div>
 &lt;/div>&lt;h3 id="debian-y-fedora">Debian y Fedora&lt;/h3>
 &lt;p>Si bien los procesos de instalacion son diferentes ambos pueden descargar sus empaquetados desde el propio &lt;a href="https://github.com/OrancheloTeam/oranchelo-icon-theme/releases" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-github">&lt;/i>&amp;nbsp;
+&lt;i class="fab fa-github">&lt;/i>&amp;nbsp;
 git del proyecto
 &lt;/a>. Luego deben instalarlo y cada usuario sabra como hacerlo dado que ya conocen su sistema.&lt;/p>
 &lt;h3 id="desde-el-codigo-fuente">Desde el codigo Fuente&lt;/h3>
 &lt;p>Esta es la opcion mas linda para todos, es ejecutar un .sh tan simple que nos deja los iconos instalados y listos para usar. Este proceso es simple, descargamso el &lt;a href="https://github.com/OrancheloTeam/oranchelo-icon-theme" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-github">&lt;/i>&amp;nbsp;
+&lt;i class="fab fa-github">&lt;/i>&amp;nbsp;
 codigo fuente del proyecto
 &lt;/a>. Una vez que este deescargado abrimos una terminal en la carpeta del proyecto y ejecutamos el siguiente comando:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -7618,7 +8331,7 @@ Linus Torvalds
 &lt;img src="http://www.centrodeserviciosti.com.mx/wp-content/uploads/2018/02/proxmox4_webgui-1110x550.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
 &lt;/div>&lt;/p>
 &lt;p>Proxmox, a diferencia de otros, incluye una consola Web y herramienta de líneas de comando. También proporciona una API REST (que dicho sea de paso se puede testear con nuestra &lt;a href="https://rest.patojad.com.ar/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 restclient
 &lt;/a>) para herramientas de terceros. Es compatible con dos tipos de virtualización:&lt;/p>
 &lt;ul>
@@ -7647,7 +8360,7 @@ Wikipedia
 &lt;/ul>
 &lt;hr>
 &lt;p>Proxmox además de todo lo mencionado ya cuenta con mucha documentación. Y una comunidad muy activa. Dejamos también su &lt;a href="https://pve.proxmox.com/wiki/Main_Page" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 Wiki
 &lt;/a> una de las completas entre los proyectos de este alcance.&lt;/p></description></item><item><title>El Proyecto “ACCESSIBLE BINARY”</title><link>https://patojad.com.ar/post/2019/10/el-proyecto-accessible-binary/</link><pubDate>Wed, 16 Oct 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/10/el-proyecto-accessible-binary/</guid><description>&lt;p>&lt;strong>A grandes rasgos se presenta así de una manera global sin embargo cada parte implica otras subdivisiones, puesto que, el proyecto “ACCESSIBLE BINARY” es bastante ambicioso y complejo para ejecutarlo todo de una vez. De esta manera, como se está presentando ahora se hace de fácil comprensión para todo aquel que desee colaborar.&lt;/strong>&lt;/p>
 &lt;ul>
@@ -7682,7 +8395,7 @@ allowfullscreen>
 &lt;h4 id="privadas">Privadas:&lt;/h4>
 &lt;ul>
 &lt;li>&lt;a href="https://www.microsoft.com/es-es/Accessibility/windows" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://www.microsoft.com/es-es/Accessibility/windows
 &lt;/a>&lt;/li>
 &lt;/ul>
@@ -7758,7 +8471,7 @@ Equipo de Shadow
 &lt;img src="http://rudrab.github.io/Shadow/burn-in.gif" alt="" loading="lazy" class="img-fluid blog-content-img" />
 &lt;/div>&lt;/p>
 &lt;p>Su equipo o mejor dicho su usuario creador nos da la posibilidad de realizar la petición de nuevos iconos. Si bien no nos asegura poder implementar todo lo que pidamos el promete hacer todo lo posible por tratar de expandir el theme de iconos. Esto podemos hacerlo a través de su GitHub, en su repositorio agregando un &lt;a href="https://github.com/rudrab/Shadow/issues" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-github">&lt;/i>&amp;nbsp;
+&lt;i class="fab fa-github">&lt;/i>&amp;nbsp;
 Issus
 &lt;/a> con la etiqueta &amp;ldquo;Icon request&amp;rdquo;&lt;/p>
 &lt;h2 id="instalacion">Instalacion&lt;/h2>
@@ -7824,7 +8537,7 @@ href='https://www.gnome-look.org/content/show.php/Shadow?content=170398'>
 Genome Look
 &lt;/a>
 &lt;/div></description></item><item><title>VoidLinux por José</title><link>https://patojad.com.ar/post/2019/09/voidlinux-por-jos%C3%A9/</link><pubDate>Mon, 02 Sep 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/09/voidlinux-por-jos%C3%A9/</guid><description>&lt;p>Hoy les hablaré un poco sobre una distribución muy subvalorada a mi parecer, una distribución Linux que mucha gente ni siquiera habrá nombrado mencionar y muchos menos la conocen siquiera. Hoy les voy a hablar sobra la magnífica &lt;a href="https://www.voidlinux.org" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 Void Linux
 &lt;/a>.&lt;/p>
 &lt;p>Void Linux es una distribución de Linux absolutamente independiente, construida sobre Scratch – por lo que es un desarrollo totalmente original. Fue creada por el español Juan Romero Pardines y su primera versión fue lanzada en el año 2008. Utiliza un gestor de paquetes único también, denominado XBPS (X Binary Package System) el cual también fue diseñado e implementado desde cero. XBPS es un sistema de paquetes con licencia libre BSD con ciertas similitudes con pacman en su sintaxis y al igual que pacman es muy rápido.&lt;/p>
@@ -7835,14 +8548,14 @@ Void Linux
 &lt;p>Void Linux es una distribución “rolling release”, que se distribuye en distintas .isos (32 y 64 bits) con una gran variedad de entornos de escritorio disponibles: hay imágenes .isos con: Cinnamon, LXQT, LXDE, MATE, XFCE y Enlightenment. También hay disponibles .isos sin entornos de escritorios disponibles, para quienes quieran armar un sistema a su medida.&lt;/p>
 &lt;p>Otra de las mejores cualidades de Void Linux, es que utiliza Runit cómo su init, siendo una notable excepción al pésimo init de moda adoptado por la mayoría de las distribuciones hoy en día. Runit es un sistema mucho mas simple y mucho mas rápido que el tristemente famoso SystemD. De hecho, cuando probé la distribución me sorprendió lo veloz que iba el sistema y la velocidad de inicio (arrancando varios servicios del sistema en paralelo) y apagado (en todos los casos, superior al init desarrollado por Red Hat). Ojalá otras distribuciones adoptaran este init, es excelente sin dudas.&lt;/p>
 &lt;p>![](&lt;a href="https://i2.wp.com/itsfoss.com/wp-content/uploads/2019/04/Void-Linux-Neofetch.png?resize=800%2C562&amp;amp;ssl=1%22" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://i2.wp.com/itsfoss.com/wp-content/uploads/2019/04/Void-Linux-Neofetch.png?resize=800%2C562&amp;ssl=1"
 &lt;/a> &amp;gt;}}&lt;/p>
 &lt;p>La instalación de Void Linux, me hace recordar a la mejor distribución que existe en la faz de la Tierra (opinión personal, claro). A la venerable Slackware. Todo se realiza en la terminal, no existen los instaladores gráficos en Void (nada de Calamares, Ubiquity u otros). Simplemente, se abre la terminal y se escribe sudo void-installer (la contraseña es voidlinux) y se van siguiendo los pasos en el orden que aparecen en la pantalla. No es complicada de instalar, pero recomiendo hacerlo siguiendo los innumerables tutoriales que se encuentran en toda la web tanto en páginas web cómo en videos que existen en YouTube.&lt;/p>
 &lt;p>Void Linux fue la distribución pionera en la implementación de LibreSSL el cual es desarrollado por la gente de OpenBSD, sustituyendo a OpenSSL – es un fork del mismo, (recuerdan el desagradable episodio de inseguridad Heartbleed).&lt;/p>
 &lt;p>Si todo lo que les he comentado en el presente artículo, les ha gustado… Recomiendo que le den una oportunidad y descarguen una imagen Live de la distro y la prueben. También otra particularidad mas que presenta Void Linux, es que cuando vayan a descargar la distro se van a topar con 2 tipos de imágenes: están las imágenes comunes las que contienen la biblioteca estándar en GNU/Linux (Biblioteca GNU C) proporcionada por GLIBC (cómo lo hacen todas las distribuciones Linux) y están las imágenes con MUSL la cual es otra biblioteca C mas estándar por llamarlo de alguna manera a la que se vincularán muchos programas FOSS. MUSL es más liviano y rápido que GLIBC, pero puede ser incompatible con cierto software que no está escrito estrictamente para el estándar C. El GLIBC es más grande y generalmente más lento, pero permite y puede acomodar software que no está escrito correctamente en el estándar C debido a su implementación más indulgente.&lt;/p>
 &lt;p>![](&lt;a href="https://i0.wp.com/techpadi.com/wp-content/uploads/2018/12/b7u0z2j3rloz.png?fit=1366%2C768%22" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://i0.wp.com/techpadi.com/wp-content/uploads/2018/12/b7u0z2j3rloz.png?fit=1366%2C768"
 &lt;/a> &amp;gt;}}&lt;/p>
 &lt;div class="text-center">
@@ -7955,7 +8668,7 @@ web
 &lt;h2 id="sonidos-y-código">Sonidos y Código.&lt;/h2>
 &lt;h3 id="sonidos">Sonidos.&lt;/h3>
 &lt;p>Veníamos de &lt;a href="https://patojad.com.ar/post/2019/02/m%c3%basica-y-desarrollo-1/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 aquí
 &lt;/a>.
 Había quedado como tema de continuación, la reproducción de audio en entornos GNU/Linux&lt;/p>
@@ -7998,7 +8711,7 @@ Que no tenga una interface gráfica por defecto acorde a la ceremonia &lt;em>VLC
 Una reseña breve de mi paso por este mundo escuchando cosas que canta el Querido Pingüino.&lt;/p>
 &lt;h1 id="antes-que-me-olvide">Antes que me olvide&lt;/h1>
 &lt;p>&lt;a href="https://t.me/PatoJADCommunity" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-paper-plane">&lt;/i>&amp;nbsp;
+&lt;i class="fab fa-telegram">&lt;/i>&amp;nbsp;
 Aqui
 &lt;/a> nos juntamos cuando tenemos tiempo, charlamos sobre la vida, las cacharras y algún que otro detalle mientras escuchamos la música que a &lt;em>caduno&lt;/em> le gusta usando por supuesto, el Reproductor Multimedia que se tenga instalado.&lt;/p></description></item><item><title>Alternativa a Krunner</title><link>https://patojad.com.ar/post/2019/03/alternativa-a-krunner/</link><pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/03/alternativa-a-krunner/</guid><description>&lt;p>&lt;div class="text-center">
 &lt;img src="https://www.kdeblog.com/wp-content/uploads/2010/05/krunner-main-image.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
@@ -8019,7 +8732,7 @@ Me paso después de mucho tiempo de usarlo que otras distros me resultaban vuelt
 &lt;img src="https://i.postimg.cc/x8T20ZKY/photo-2019-03-21-09-36-17.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
 &lt;/div>&lt;/p>
 &lt;p>Para instalarlo debemos descargar el instalador correspondiente de su &lt;a href="https://ulauncher.io/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 página
 &lt;/a> (deb, rpm o aur) y seguir con el proceso de instalación que recomiendan en la página.&lt;/p>
 &lt;p>Es recomendable entrar a la configuración y seleccionar la opción para que inicie con el sistema operativo para ahorrarnos un paso.&lt;/p>
@@ -8108,7 +8821,7 @@ Tanto el origen como destino pueden ser dispositivos (lectora de CD o DVD, disco
 &lt;li>Comprobar antes de ejecutar cualquier linea de comandos con esta segunda sintaxis, que tenemos instalado en el sistema el paquete pv, o instalarlo si no lo tuviéramos: ambas cosas con Synaptic.&lt;/li>
 &lt;/ul>
 &lt;p>Si necesitas mas informacion sobre este comando podemos usar &lt;a href="https://patojad.com.ar/post/2019/01/man-tu-manual-para-linux/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 MAN siguiendo nuestro tuto
 &lt;/a>&lt;/p>
 &lt;p>Fuente: desdelinux&lt;/p></description></item><item><title>Mi experiencia con los Tiling Window Managers</title><link>https://patojad.com.ar/post/2019/02/mi-experiencia-con-los-tiling-window-managers/</link><pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/02/mi-experiencia-con-los-tiling-window-managers/</guid><description>&lt;p>Este post quizá sea un poco largo, pero quiero contarles mi experiencia y opiniones con algunos Tiling Window Manager, espero que le sirva a alguien que desee probarlos para decidirse, o si nunca han probado un &lt;em>Tiling Window Manager&lt;/em>, para que se animen a instalarlos. Al ser Window Managers son mucho menos intrusivos que los Entornos de Escritorios y se pueden instalar y desinstalar sin problemas.&lt;/p>
@@ -8122,7 +8835,7 @@ MAN siguiendo nuestro tuto
 &lt;/ul>
 &lt;h2 id="i3">i3&lt;/h2>
 &lt;p>Quizá &lt;a href="https://i3wm.org/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 i3wm
 &lt;/a> sea el &lt;em>Tiling Window Manager&lt;/em> más famoso y el más amigable para los principiantes. Fue el primero que usé ya que instalé &lt;em>Manjaro i3&lt;/em>. &lt;strong>i3&lt;/strong> se configura mediante un archivo de texto, su documentación es muy buena y amplia (aunque en Inglés) y permite crear &amp;ldquo;layouts&amp;rdquo; tan complejas como se desee, algunas configuraciones rayando en lo ridículo.&lt;/p>
 &lt;p>&lt;div class="text-center">
@@ -8130,16 +8843,16 @@ i3wm
 &lt;/div>&lt;/p>
 &lt;p>Su manera de acomodar las ventanas es dinámica, es decir, tú tienes que indicarle a &lt;strong>i3&lt;/strong> la orientación en que se dividirá el nodo, si vertical u horizontal (por defecto, se abren horizontal), algo que a mi casi no me gustó, ya que nunca le indicaba donde abrir la siguiente ventana y tenía 4 o 5 ventanas abiertas en horizontal, lo que las volvía imposibles de leer e inútiles. Viene con un panel llamado &lt;em>i3bar&lt;/em>, que rápidamente cambié por &lt;strong>polybar&lt;/strong> y opciones interesantes, como configurar &amp;ldquo;modos&amp;rdquo; con atajos de teclado especiales (similar a &lt;em>VIM&lt;/em>).&lt;/p>
 &lt;p>Es un buen WM, muy bien documentado, aunque carece de &amp;ldquo;layouts&amp;rdquo; automáticas y para tener algunas configuraciones de apariencia es necesario usar un &lt;em>fork de &lt;strong>i3&lt;/strong>&lt;/em> llamado &lt;a href="https://github.com/Airblader/i3" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-github">&lt;/i>&amp;nbsp;
+&lt;i class="fab fa-github">&lt;/i>&amp;nbsp;
 i3-gaps
 &lt;/a>, que añade separaciones entre ventanas (gaps) y otras opciones que esperarías tener en el proyecto original.&lt;/p>
 &lt;h2 id="bspwm">Bspwm&lt;/h2>
 &lt;p>&lt;a href="https://github.com/baskerville/bspwm" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-github">&lt;/i>&amp;nbsp;
+&lt;i class="fab fa-github">&lt;/i>&amp;nbsp;
 Bspwm
 &lt;/a> es el Window Manager en el que más tiempo he pasado y el que uso actualmente. &lt;strong>Bspwm&lt;/strong> solo se encarga de mostrar ventanas, quien se encarga de controlarlas es un módulo llamado &lt;code>bspc&lt;/code>, es decir que podemos enviar órdenes a &lt;code>bspwm&lt;/code> (mover ventanas, cerrar ventanas, cambiar tamaño de los bordes, etc.) con comandos en terminal.&lt;/p>
 &lt;p>&lt;strong>Bspwm&lt;/strong> se configura en 2 partes: un script de bash (&lt;code>bspwmrc&lt;/code>) donde indicamos algunas reglas y configuraciones de ventanas, y la aplicación que deseemos usar para configurar atajos de teclado, aunque, como viene recomendado en la página de &lt;strong>Bspwm&lt;/strong>, la mayoría usa &lt;a href="https://github.com/baskerville/sxhkd" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-github">&lt;/i>&amp;nbsp;
+&lt;i class="fab fa-github">&lt;/i>&amp;nbsp;
 sxhkd
 &lt;/a>, pero podemos usar la que queramos, como &lt;em>obkey&lt;/em> o la herramienta de algún Entorno de Escritorio. Las ventanas se abren como &amp;ldquo;hojas de un arbol binario&amp;rdquo;, es decir, al abrir una ventana, la última ventana abierta se divide en 2, ya sea vertical u horizontal, para ir formando una espiral, también se pueden preseleccionar donde queremos que se abra la nueva ventana, similar a &lt;em>i3&lt;/em>, aunque en mi opinión, tiene un acomodo de ventanas manual más poderoso, al poder elegir la proporción en la que queremos se divida la ventana.&lt;/p>
 &lt;p>&lt;div class="text-center">
@@ -8151,7 +8864,7 @@ sxhkd
 &lt;img src="https://i.postimg.cc/1z2D79cZ/awesome.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
 &lt;/div>&lt;/p>
 &lt;p>&lt;a href="https://awesomewm.org/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 Awesome
 &lt;/a> es un WM desarrollado en &lt;em>Lua&lt;/em>. Tiene mucha mejor integración con el ratón que los demás y es posible usarlo como un WM flotante, como &lt;em>openbox&lt;/em>, incluso viene con bordes y botones de cerrar y minimizar, bandeja de notificaciones, temas, menú de ventanas abiertas y lanzador de aplicaciones.&lt;/p>
 &lt;p>Viene con un conjunto de &amp;ldquo;layouts&amp;rdquo; preseleccionadas y podemos elegir cuales usar, entre ellas las de otros WM como &lt;em>Bspwm&lt;/em> y &lt;em>Xmonad&lt;/em>, sin embargo, no tiene modo manual para colocar ventanas como si lo tienen &lt;em>Bspwm&lt;/em> o &lt;em>i3&lt;/em>. Posee un panel integrado llamado &lt;em>wiibar&lt;/em>, totalmente personalizable desde su archivo de configuración, y existen muchos módulos (widgets) que podemos agregar o podemos desarrollar los propios.&lt;/p>
@@ -8162,10 +8875,10 @@ Awesome
 &lt;img src="https://i.postimg.cc/hvbxGVFS/qtile.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
 &lt;/div>&lt;/p>
 &lt;p>La verdad que usé este Gestor de Ventanas solo porque &lt;a href="https://www.youtube.com/channel/UCVls1GmFKf6WlTraIb_IaJg" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 DistroTube
 &lt;/a> habla maravillas de él. &lt;a href="http://www.qtile.org/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 Qtile
 &lt;/a> está escrito y configurado en &lt;em>python&lt;/em>, un lenguaje que tampoco manejo, pero que es súper fácil de interpretar y puedes empezar a modificar y a entender como funcionan las cosas simplemente estudiando el código (a diferencia de &lt;em>Lua&lt;/em> que es mucho más caótico).&lt;/p>
 &lt;p>Al igual que &lt;em>Awesome&lt;/em> viene con un panel totalmente configurable y posee un conjunto de &amp;ldquo;layouts&amp;rdquo; predefinidas, con la posibilidad de crear las propias en &lt;em>python&lt;/em>, además cada configuración de ventanas es personalizable, y se pueden tener diferentes bordes para cada una. Un problema que noté en &lt;strong>Qtile&lt;/strong> es que si hay un error en la configuración muy grave (ejemplo, no hay escritorios configurados), se niega a iniciar, obligandote a ir a otro WM para arreglar el problema o a la consola, mientras que otros como &lt;em>i3&lt;/em> o &lt;em>Awesome&lt;/em> inician con una notificación de error y cargan la configuración predeterminada.&lt;/p>
@@ -8174,13 +8887,13 @@ Qtile
 &lt;ul>
 &lt;li>
 &lt;p>&lt;a href="https://xmonad.org/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 Xmonad
 &lt;/a>: Está configurado en &lt;em>Haskell&lt;/em> (otro lenguaje poco usado), su manera de mostrar las ventanas por defecto me gusta bastante, al mostrar una principal y las demás en cascada al lado (esta configuración se conoce como &lt;em>MonadTall&lt;/em> o &lt;em>Master-Slave&lt;/em>) y es posible crear las propias en &lt;em>Haskell&lt;/em>. Al igual que &lt;em>bspwm&lt;/em>, no posee panel pero la mayoría suele usar &lt;em>xmobar&lt;/em> y es el utilizado en la documentación oficial para ejemplos.&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;a href="https://dwm.suckless.org/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 Dwm
 &lt;/a>: Un producto del proyecto &lt;em>suckless&lt;/em>, y como tal, carece de archivo de configuración, para cualquier modificación hay que editar el archivo &lt;em>config.h&lt;/em> encontrado en su código fuente y recopilar esto cada vez que se desee hacer una modificación. Carece de varias opciones (algunas que esperarías tener) debido a que quieren mantenerlo libre de sobrecargas innecesarias (bloated). Como &lt;em>Awesome&lt;/em>, viene con varias &amp;ldquo;layouts&amp;rdquo; predefinidas, un panel configurable y hay muchos parches que añaden funcionalidades extra.&lt;/p>
 &lt;/li>
@@ -8193,7 +8906,7 @@ Dwm
 &lt;h3 id="sonidos">Sonidos.&lt;/h3>
 &lt;p>Cita el antiquísimo lema: &lt;em>La Música es el poncho del Alma.&lt;/em>&lt;/p>
 &lt;p>Cita un escrito contemporáneo alojado en las pampas del saber con &lt;em>quizá&lt;/em>, el mayor raconto de Parroquianos Visitantes (&lt;a href="https://es.wikipedia.org/wiki/M%C3%BAsica" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 Wikipedia
 &lt;/a>), que el arte de las &lt;em>musas&lt;/em> no es otra cosa que:&lt;/p>
 &lt;ul>
@@ -8235,7 +8948,7 @@ Sin dejar de mencionar a los cientos de miles que también escribieron su cuota 
 Clavando los &lt;em>garfios&lt;/em> en el teclado para escribir esta entrada y Uds. leyendo frente a la pantalla.&lt;/p>
 &lt;p>Hombre o Mujer que lee estas líneas, has de saber que existe en la web, un lugar donde se alojan sonidos compuestos por Anónimos. Gente tan creíble y de todos los días como Vos y como Yo.&lt;/p>
 &lt;p>El sitio web en cuestión se hace llamar &lt;em>&lt;a href="https://musicforprogramming.net/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 musicforprogramming
 &lt;/a>&lt;/em>.&lt;/p>
 &lt;p>&lt;div class="text-center">
@@ -8245,7 +8958,7 @@ musicforprogramming
 &lt;br>
 Aunque ya se sabe que sobre gustos no hay ni habrá nada escrito, comparto sobre la existencia de este sitial, ya que a los sets de Música aquí alojados los escucho cada vez que llevo a cabo una tarea rutinaria en la &lt;em>cacharra&lt;/em>.&lt;/p>
 &lt;p>Dicen los Pibes de &lt;em>&lt;a href="https://musicforprogramming.net/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 musicforprogramming
 &lt;/a>&lt;/em> acerca de su gestión:&lt;/p>
 &lt;p>&lt;div class="text-center">
@@ -8288,7 +9001,7 @@ musicforprogramming
 &lt;/div>&lt;/p>
 &lt;p>En una próxima Entrada, vamos a echarle un ojo a la reproducción de estos -y otros- audios en estas &lt;em>cacharras&lt;/em>.&lt;/p>
 &lt;p>Por si te querés pegar una vuelta, &lt;a href="https://t.me/PatoJADCommunity" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-paper-plane">&lt;/i>&amp;nbsp;
+&lt;i class="fab fa-telegram">&lt;/i>&amp;nbsp;
 aqui
 &lt;/a> nos juntamos todos los dias.&lt;/p>
 &lt;p>Nos leeremos luego.&lt;/p></description></item><item><title>Uniform +</title><link>https://patojad.com.ar/post/2019/02/uniform-/</link><pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/02/uniform-/</guid><description>&lt;h2 id="uniform-">Uniform +(+)&lt;/h2>
@@ -8351,7 +9064,7 @@ Para ejercer nuestra libertad no existe solo GNU/Linux, tenemos muchas alternati
 &lt;p>&lt;div class="text-center">
 &lt;img src="https://i.postimg.cc/d0tTypFb/privacidad-patojad.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
 &lt;/div>&lt;/p></description></item><item><title>Poner las paginas de man en español</title><link>https://patojad.com.ar/post/2019/01/poner-las-paginas-de-man-en-espa%C3%B1ol/</link><pubDate>Tue, 15 Jan 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/01/poner-las-paginas-de-man-en-espa%C3%B1ol/</guid><description>&lt;p>Ya hablamos de man y podes verlo &lt;a href="https://patojad.com.ar/post/2019/01/man-tu-manual-para-linux/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 aquí
 &lt;/a>. Sin embargo muchas personas no tienen dominio del Inglés o simplemente no quieren estar traduciendo todo constantemente. Para esas personas les traigo una forma de poner las páginas de man en Español, antes de iniciar con esto debo aclarar que solo estará en Español lo que tiene una traducción. Puede que algunas cosas no dispongan este idioma y lo veamos en Inglés. En dicho caso se puede colaborar con la traducción.&lt;/p>
 &lt;h2 id="video">Video&lt;/h2>
@@ -8509,7 +9222,7 @@ allowfullscreen>
 &lt;/tbody>
 &lt;/table>
 &lt;p>No te llevas bien con Inglés, no te preocupes &lt;a href="https://patojad.com.ar/post/2019/01/poner-las-paginas-de-man-en-espa%c3%b1ol/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 aquí
 &lt;/a> podes ver como traducirlo al español!&lt;/p></description></item><item><title>¿Antivirus en Linux?</title><link>https://patojad.com.ar/post/2019/01/antivirus-en-linux/</link><pubDate>Mon, 07 Jan 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/01/antivirus-en-linux/</guid><description>&lt;p>En GNU/Linux, como en cualquier Sistema Operativo la seguridad es importante y es importante mencionar que no existe sistema que este excluido de estos &amp;ldquo;virus&amp;rdquo; por lo cual siempre debemos mantenernos atentos a lo que realizamos con nuestros ordenadores.&lt;/p>
 &lt;blockquote>
@@ -8733,7 +9446,7 @@ Descargar
 &lt;/div></description></item><item><title>RunScape</title><link>https://patojad.com.ar/post/2018/12/runscape/</link><pubDate>Tue, 11 Dec 2018 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2018/12/runscape/</guid><description>&lt;h2 id="elige-tu-lucha">Elige tu Lucha&lt;/h2>
 &lt;p>El combate de RuneScape es emocionante y desafiante, con muchas opciones y capacidades diferentes para elegir. Hay disponibles miles de combinaciones de armaduras y armas, y los jugadores más fuertes son aquellos que se preparan bien para la batalla. Los jugadores pueden tratar de derrotar a cientos de NPC diferentes a medida que avanzan en su aventura o pueden participar en combates con otros jugadores en áreas específicas de PvP. Sigue leyendo para descubrir por qué Combat es una parte tan importante del juego de RuneScape.&lt;/p>
 &lt;p>![](&lt;a href="https://images.ctfassets.net/ra5kw4ubxdsf/5VDo7YuJQo3KdqQDvSUdvp/e639ecc171bd6c4de47392202b7e633c/RS3_Device_Tablet_450x615.webp?q=75&amp;amp;w=680%22" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://images.ctfassets.net/ra5kw4ubxdsf/5VDo7YuJQo3KdqQDvSUdvp/e639ecc171bd6c4de47392202b7e633c/RS3_Device_Tablet_450x615.webp?q=75&amp;w=680"
 &lt;/a> &amp;gt;}}&lt;/p>
 &lt;h2 id="evolución-del-combate">Evolución del combate&lt;/h2>

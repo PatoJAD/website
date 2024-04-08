@@ -1,4 +1,548 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>arch on PatoJAD</title><link>https://patojad.com.ar/tags/arch/</link><description>Recent content in arch on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Wed, 15 Nov 2023 12:02:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/arch/index.xml" rel="self" type="application/rss+xml"/><item><title>Instalación de Wine en GNU/Linux para Ejecutar Aplicaciones Windows</title><link>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</link><pubDate>Wed, 15 Nov 2023 12:02:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</guid><description>&lt;p>La compatibilidad entre sistemas operativos es esencial, y Wine, una herramienta de código abierto, facilita la ejecución de aplicaciones Windows en entornos GNU/Linux. En esta guía, exploraremos qué es Wine, cómo instalarlo en distintas distribuciones y dónde se instalan las aplicaciones. ¡Descubre cómo ampliar las posibilidades de tu sistema operativo!&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Arch on PatoJAD</title><link>https://patojad.com.ar/tags/arch/</link><description>Recent content in Arch on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Fri, 15 Mar 2024 18:34:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/arch/index.xml" rel="self" type="application/rss+xml"/><item><title>Explorando SystemD en el Mundo Linux: Críticas, Realidades y Controversias</title><link>https://patojad.com.ar/post/2024/03/explorando-systemd-en-el-mundo-linux-cr%C3%ADticas-realidades-y-controversias/</link><pubDate>Fri, 15 Mar 2024 18:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/03/explorando-systemd-en-el-mundo-linux-cr%C3%ADticas-realidades-y-controversias/</guid><description>&lt;p>En el vasto y diverso ecosistema de Linux, cada componente del sistema es objeto de discusión y opinión, y el sistema de inicio no es la excepción. &lt;strong>SystemD&lt;/strong> ha sido un tema de controversia dentro de la comunidad, generando críticas y debates en línea. En este artículo, profundizaremos en qué es &lt;strong>SystemD&lt;/strong>, su evolución, y las razones detrás de las críticas que ha enfrentado.&lt;/p>
+&lt;p>Ya escribi algunos articulos planteando los problemas de &lt;strong>SystemD&lt;/strong> y las alternativas que existen, pero en esta ocasión quiero profundizar en el tema y explicar las razones de la resistencia que ha enfrentado &lt;strong>SystemD&lt;/strong>. Y la explicacion de las cosas buenas que tiene, porque no todo es malo.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2020/06/systemd-solucion-o-problema/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+SystemD ¿Solucion o Problema?
+&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2020/07/systemd-no-es-el-problema-respuesta-a-zatiel/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+¿SystemD no es el problema? Respuesta a Zatiel
+&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="desentrañando-systemd-y-su-rol-como-sistema-de-inicio">Desentrañando SystemD y su Rol como Sistema de Inicio&lt;/h2>
+&lt;p>En el corazón de todos los sistemas basados en Linux se encuentra un sistema de inicio, el primer proceso que entra en acción después de arrancar el sistema operativo. Este proceso trabaja en segundo plano, gestionando servicios y procesos esenciales. En este contexto, &lt;strong>SystemD&lt;/strong> se presenta como un sistema de inicio predominante en muchas distribuciones de Linux.&lt;/p>
+&lt;p>Iniciado en 2010 bajo el liderazgo de &lt;strong>Red Hat&lt;/strong> y &lt;strong>Leonard Puttering&lt;/strong>, &lt;strong>SystemD&lt;/strong> nació con la intención de reemplazar soluciones existentes como &lt;strong>SysV&lt;/strong> y &lt;strong>Upstart&lt;/strong>. Su enfoque principal era mejorar el rendimiento del sistema, acelerar los tiempos de arranque y reducir el consumo de recursos. Rápidamente, se convirtió en el sistema de inicio predeterminado para distros populares como &lt;em>Fedora&lt;/em>, &lt;em>Arch Linux&lt;/em>, &lt;em>Debian&lt;/em> y &lt;em>Ubuntu&lt;/em>, entre otras.&lt;/p>
+&lt;p>A pesar de su adopción generalizada, algunas distribuciones, como &lt;em>Alpine Linux&lt;/em>, &lt;em>MX Linux&lt;/em>, &lt;em>&lt;a href="https://patojad.com.ar/post/2019/09/voidlinux-por-jos%c3%a9/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Void Linux
+&lt;/a>&lt;/em>, &lt;em>&lt;a href="https://patojad.com.ar/post/2020/08/artix-linux/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Artix
+&lt;/a>&lt;/em>, &lt;em>&lt;a href="https://patojad.com.ar/post/2020/06/instalcion-milagros/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+MilagOS
+&lt;/a>&lt;/em> y otras, han optado por no adoptar &lt;strong>SystemD&lt;/strong>.&lt;/p>
+&lt;h2 id="explorando-las-razones-de-la-resistencia">Explorando las Razones de la Resistencia&lt;/h2>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/crIeSArnZfo?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h3 id="el-argumento-del-bloat">El Argumento del &amp;ldquo;Bloat&amp;rdquo;&lt;/h3>
+&lt;p>Un argumento recurrente contra &lt;strong>SystemD&lt;/strong> es su expansión progresiva hacia funciones que tradicionalmente eran gestionadas por servicios individuales. Esta acumulación de características ha llevado a críticas sobre su conformidad con la filosofía &lt;strong>UNIX&lt;/strong>, que aboga por la simplicidad y la especialización de funciones.&lt;/p>
+&lt;p>Aunque &lt;strong>SystemD&lt;/strong> mantiene su modularidad (recordemos qeu son varios mini-binarios especificos), su crecimiento ha llevado a la percepción de ser una solución monolítica. Además, su actualización periódica y la adición de nuevas funciones pueden traducirse en un mayor uso de espacio y recursos, lo que preocupa a aquellos que buscan eficiencia (hablando en kb de recursos).&lt;/p>
+&lt;h3 id="dependencia-omnipresente-y-restricciones-de-opciones">Dependencia Omnipresente y Restricciones de Opciones&lt;/h3>
+&lt;p>&lt;strong>SystemD&lt;/strong> se ha vuelto tan integral en muchos aspectos del sistema que su ausencia puede limitar la funcionalidad de otros componentes. Servicios como el inicio de sesión gráfico o la gestión de conexiones de red a menudo dependen de componentes de &lt;strong>SystemD&lt;/strong>. Aunque es posible prescindir de él, las distribuciones que optan por no implementarlo deben buscar, proporcionar y mantener alternativas.&lt;/p>
+&lt;p>No podemos culpar a los desarrolladres de las aplicaciones por usar el set de herramientas que les provee &lt;strong>SystemD&lt;/strong>. Sin embargo, esto puede ser un problema para aquellos que buscan una mayor diversidad de opciones. Aun asi, hay que entender que estos set de herramienta facilitan y simplifican el trabajo de los desarrolladores, permitiendoles enfocarse en la funcionalidad de sus aplicaciones.&lt;/p>
+&lt;h3 id="red-hat-como-dueño-de-systemd">Red Hat como &amp;ldquo;Dueño&amp;rdquo; de SystemD&lt;/h3>
+&lt;p>Otra crítica común se dirige al hecho de que &lt;strong>SystemD&lt;/strong> es un proyecto de &lt;strong>Red Hat&lt;/strong>. Aunque comenzó como un proyecto de esta compañía, actualmente propiedad de IBM, algunas voces expresan preocupación sobre el control que una entidad única puede tener sobre la dirección del sistema de inicio en Linux. Las recientes transformaciones en la gestión de la comunidad por parte de &lt;strong>Red Hat&lt;/strong> han aumentado estas preocupaciones.&lt;/p>
+&lt;p>Aun asi, &lt;strong>SystemD&lt;/strong> es un proyecto de código abierto, y su desarrollo está abierto a la participación de la comunidad. Además, la adopción de &lt;strong>SystemD&lt;/strong> por parte de otras distribuciones, como Debian y Ubuntu, ha ayudado a mitigar estas preocupaciones dado que en la actualidad es un proyecto que va mas alla de &lt;strong>Red Hat&lt;/strong>.&lt;/p>
+&lt;h3 id="restricción-de-opciones-y-seguridad-del-sistema">Restricción de Opciones y Seguridad del Sistema&lt;/h3>
+&lt;p>&lt;strong>SystemD&lt;/strong> ha sido señalado como un factor que contribuye a la uniformidad en los sistemas Linux, restringiendo la diversidad de opciones. También se argumenta que su presencia crea un riesgo de seguridad, al ser un objetivo único para posibles ataques.&lt;/p>
+&lt;p>Sin embargo, defensores de &lt;strong>SystemD&lt;/strong> contrarrestan estas preocupaciones destacando su integración con el kernel de Linux y su eficiencia. Aseguran que, aunque puede haber un riesgo potencial debido a su ubicuidad, la confianza en un proyecto bien mantenido y ampliamente utilizado puede superar estos desafíos. Y es una realidad que &lt;strong>SystemD&lt;/strong> es un proyecto bien mantenido y ampliamente utilizado con un desarrollo activo.&lt;/p>
+&lt;h2 id="conclusión">Conclusión&lt;/h2>
+&lt;p>En resumen, las críticas hacia &lt;strong>SystemD&lt;/strong> abordan aspectos que van desde la filosofía &lt;strong>UNIX&lt;/strong> hasta preocupaciones sobre dependencias y seguridad. Aunque se presentan alternativas viables, la elección de utilizar &lt;strong>SystemD&lt;/strong> o no a menudo se reduce a la conveniencia, eficiencia y preferencias de cada usuario.&lt;/p></description></item><item><title>Instalar grafica NVIDIA integrada en Arch Linux</title><link>https://patojad.com.ar/post/2024/02/instalar-grafica-nvidia-integrada-en-arch-linux/</link><pubDate>Tue, 20 Feb 2024 14:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/02/instalar-grafica-nvidia-integrada-en-arch-linux/</guid><description>&lt;p>Hola! Les comparto el método que encontré para hacer funcionar mi gráfica nvidia integrada con 10 años de antigüedad usando drivers privativo y Optimus Manager!&lt;/p>
+&lt;blockquote>
+&lt;p>Ej.: mi gráfica es NVIDIA GeForge GTX770M y la versión compatible es la nvidia-470xx)&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="detectando-tipo-de-controladores-de-video">Detectando tipo de controladores de video:&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">lspci &lt;span class="p">|&lt;/span> grep VGA
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>en mi caso responde: &lt;code>00:02.0 VGA compatible controller: Intel Corporation 4th Gen Core Processor Integrated Graphics Controller (rev 06)&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">lspci -k &lt;span class="p">|&lt;/span> grep VGA -A &lt;span class="m">2&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>en mi caso responde:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">00:02.0 VGA compatible controller: Intel Corporation 4th Gen Core Processor Integrated Graphics Controller (rev 06)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Subsystem: Toshiba Corporation 4th Gen Core Processor Integrated Graphics Controller
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Kernel driver in use: i915
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="instalando-controlador-de-codigo-abieto-de-intel">Instalando controlador de Codigo abieto de Intel:&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S xf86-video-intel intel-ucode
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="detectar-nvidia">Detectar Nvidia:&lt;/h3>
+&lt;ul>
+&lt;li>Ver DRIVERS de VIDEO instalados:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">xrandr --listproviders
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Ver paquetes NVIDIA instalados:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Ss nvidia
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Ver paquete NVIDIA SETTINGS instalado:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Ss nvidia-settings
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="desinstalando-versiones-anteriores">Desinstalando versiones anteriores:&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Rns nombredelpaquete
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>ej.:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Rns nvidia-340xx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="detectar-driver-compatible-con-la-gráfica-nvidia">Detectar Driver compatible con la gráfica NVIDIA:&lt;/h2>
+&lt;p>Hay que considerar dos factores de compatibilidad: &lt;strong>Versión nvidia&lt;/strong> y el &lt;strong>Kernel&lt;/strong>&lt;/p>
+&lt;h3 id="ver-lista-de-compatibilidad">Ver lista de compatibilidad:&lt;/h3>
+&lt;ul>
+&lt;li>Entrar a la &lt;a href="https://www.nvidia.com/en-us/drivers/unix/legacy-gpu/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+siguiente página
+&lt;/a> y buscar tu modelo de nvidia dentro de la lista para saber con
+que versión es compatible.&lt;/li>
+&lt;/ul>
+&lt;h4 id="nvidia-según-el-kernel">Nvidia según el kernel:&lt;/h4>
+&lt;ul>
+&lt;li>kernel linux → nvidia&lt;/li>
+&lt;li>linux-lts → nvidia-lts&lt;/li>
+&lt;li>todos los kernel (construye dinámicamente los módulos del kernel) → nvidia-dkms&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>ej: en mi caso como el modelo de la nvidia es viejo debo usar por compatibilidad el kernetl lts pero con nvidia-dkms&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="pasos-previos-a-la-instalación">Pasos previos a la instalación:&lt;/h2>
+&lt;ul>
+&lt;li>Habilitar Multilib para ejecutar aplicaciones 32 bits en sist. de 64 bits:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo nano /etc/pacman.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>(para habilitar hay que descomentar las dos lineas siguientes, borrar # y guardar)
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="line">&lt;span class="cl">&lt;span class="k">[multilib]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Include&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">/etc/pacman.d/mirrorlist&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Para guardar cambios: Ctrol + o (letra), Para confirmar: enter, Para salir: Ctrol + x&lt;/li>
+&lt;li>Entrar al archivo sddm para editarlo (en el caso de que se use kde) con el siguiente comando:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo nano /etc/sddm.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Agregar # a las dos líneas que estan debajo de [X11]:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="line">&lt;span class="cl">&lt;span class="k">[X11]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># DisplayCommand&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># DisplayStopCommand&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Ctrl + o
+Enter
+Ctrol + X&lt;/li>
+&lt;/ul>
+&lt;h3 id="borrar-archivos-que-esten-dentro-de-la-carpeta-x11-para-que-no-interfieran">Borrar archivos que esten dentro de la carpeta X11 para que no interfieran:&lt;/h3>
+&lt;ul>
+&lt;li>Ir a la carpeta: &lt;code>/etc/X11/&lt;/code>&lt;/li>
+&lt;li>Ver si hay archivos xorg fuera de las carpetas.&lt;/li>
+&lt;li>Si hay archivos xorg: los vamos a borrar de la siguiente manera:
+&lt;ul>
+&lt;li>Hacer Click derecho y seleccionar abrir terminal aqui&lt;/li>
+&lt;li>Para Borrar los archivos y dejar las carpetas
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo rm xorg.conf
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo mv xorg.conf xorg.conf0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo rm xorg.conf.nvidia-xconfig-original
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="instalar-controlador-privativo-de-nvidia">Instalar controlador privativo de Nvidia:&lt;/h2>
+&lt;h3 id="nvidia-para-kernel-linux-última-versión">Nvidia para kernel linux (última versión)&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S nvidia nvidia-utils
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="nvidia-para-kernel-linux-lts-para-nvidia-viejas-es-mejor-no-usar-lts">Nvidia para kernel linux-lts: (para nvidia viejas es mejor no usar lts)&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S nvidia-lts
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="nvidia-para-kernel-linux-zen-sirve-para-todos-los-kernel-dkms">Nvidia para kernel linux-zen: (sirve para todos los kernel) dkms&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S nvidia-dkms
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>ej: en mi caso compatible con GeForge GTX770M&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S nvidia-470xx-dkms
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yay -S nvidia-470xx-utils
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yay -S lib32-nvidia-470xx-utils
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yay -S lib32-opencl-nvidia-470xx
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yay -S opencl-nvidia-470xx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>En una linea todos los paquetes dkms para la versión 470xx:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S nvidia-470xx-dkms nvidia-470xx-utils lib32-nvidia-470xx-utils lib32-opencl-nvidia-470xx opencl-nvidia-470xx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="instalar-mhwd">Instalar MhWd:&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">$ yay -S mhwd-nvidia-versión
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>ej: en mi caso compatible 470xx&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S mhwd-nvidia-470xx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="instalar-nvidia-settings">Instalar Nvidia Settings:&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S nvidia-settings
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>ej.: Compatible 470xx:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S nvidia-470xx-settings
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="instalar-bbswithc">Instalar bbswithc&lt;/h2>
+&lt;h3 id="para-kernel-linux">Para kernel linux:&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S bbswitch
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="para-kernel-linux-zen-o-si-usamos-las-nvidia-dkms">Para kernel linux-Zen o si usamos las nvidia-dkms:&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S bbswitch-dkms
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="instalar-optimus-manager">Instalar Optimus Manager:&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S optimus-manager optimus-manager-qt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Actualizar:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Syyu
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Verificar el estado de Optimus Manager:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">systemctl status optimus-manager.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Para parar el proceso apretar: q&lt;/p>
+&lt;p>Reiniciar:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">reboot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="configurar-optimus-manager">Configurar Optimus Manager:&lt;/h3>
+&lt;ul>
+&lt;li>Ir al Menú de aplicaciones y ejecutar Optimus manager&lt;/li>
+&lt;li>Va aparecer un icono en la barra.&lt;/li>
+&lt;li>Hacer Click derecho sobre el ícono de Optimus manager de la barra y entrar a Configuración.
+&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/ZYdrnpxr/image.png" alt="Optimus Manager" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>
+&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/Gmh8FyGg/image.png" alt="Optimus Manager" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>
+&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/VkGSDkFf/image.png" alt="Optimus Manager" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>
+&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/FKYYqXPj/image.png" alt="Optimus Manager" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>
+&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/ZqXWzsgX/image.png" alt="Optimus Manager" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>
+&lt;div class="alert alert-warning col-12" style="position:relative;">
+&lt;div class="info-box-content container">
+&lt;div class="row">
+&lt;div class="col-2 text-center">
+&lt;span class="fa fa-warning fa-5x">&lt;/span>
+&lt;/div>
+&lt;div class="col-10">
+&lt;p class="no-margin">OJO: INICIAR SESIÓN CON X11 (Xorg de KDE) porque optimus manager no es compatible con wayland&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/li>
+&lt;li>Reiniciar el sistema:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">reboot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="comprobar-si-funciona-nvidia">Comprobar si funciona Nvidia:&lt;/h3>
+&lt;ul>
+&lt;li>Abrir la consola y poner el siguiente comando:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">optimus-manager --print-mode
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>ej: en mi caso responde:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Current GPU mode : nvidia
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Poner el siguiente comando:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">glxgears -info
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Se abre la siguiente ventana:
+&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/c1BLFJsp/image.png" alt="glxgears" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/li>
+&lt;li>Cerrar la ventana chicha y se frena el proceso.&lt;/li>
+&lt;li>Subir por la consola hasta donde se puso el comando para ver el resultado.
+Ej: en mi caso dio:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Running synchronized to the vertical refresh. The framerate should be
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">approximately the same as the monitor refresh rate.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">GL_RENDERER = NVIDIA GeForce GTX 770M/PCIe/SSE2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">GL_VERSION = 4.6.0 NVIDIA 470.223.02
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">GL_VENDOR = NVIDIA Corporation
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="configurar-nvidia-settings">CONFIGURAR NVIDIA SETTINGS&lt;/h3>
+&lt;ul>
+&lt;li>Entrar al Menu de apliciones y abrir Nvidia X Server Settings&lt;/li>
+&lt;li>Entrar a “OpenGL Settings”&lt;/li>
+&lt;li>En la solapa Image Settings:&lt;/li>
+&lt;li>Poner la configuración deseada:
+High Performance (mejor rendimiento, elijo esta)
+High Quality (mejor calidad)&lt;/li>
+&lt;/ul>
+&lt;h3 id="instalar-el-controlador-gwe-controla-las-gpu-nvidia">INSTALAR EL CONTROLADOR GWE: controla las GPU NVIDIA&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S gwe
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Únete como Beta Tester y Ayuda a Mejorar Arch Linux</title><link>https://patojad.com.ar/post/2024/02/%C3%BAnete-como-beta-tester-y-ayuda-a-mejorar-arch-linux/</link><pubDate>Fri, 16 Feb 2024 10:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/02/%C3%BAnete-como-beta-tester-y-ayuda-a-mejorar-arch-linux/</guid><description>&lt;p>¿Eres un usuario apasionado de &lt;strong>Arch Linux&lt;/strong> y te encantaría contribuir a su mejora? ¡Esta es tu oportunidad! &lt;strong>Arch Linux&lt;/strong> está en busca de Beta Testers que deseen probar nuevas versiones de aplicaciones y bibliotecas antes de su lanzamiento oficial al público.&lt;/p>
+&lt;p>Los Beta Testers desempeñan un papel crucial en la mejora de la estabilidad y calidad de &lt;strong>Arch Linux&lt;/strong>. Gracias a su arduo trabajo, la distribución ha experimentado mejoras significativas en los últimos años.&lt;/p>
+&lt;h2 id="qué-es-un-beta-tester">¿Qué es un Beta Tester?&lt;/h2>
+&lt;p>Un Beta Tester es un usuario que prueba una versión de software antes de su lanzamiento oficial. Su tarea consiste en detectar errores y problemas que puedan surgir, con el objetivo de garantizar una experiencia de usuario óptima.&lt;/p>
+&lt;h2 id="el-anuncio">El Anuncio&lt;/h2>
+&lt;p>El anuncio original fue publicado en Reddit por &lt;a href="https://www.reddit.com/user/Antiz1996/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fab fa-reddit-alien">&lt;/i>&amp;nbsp;
+u/Antiz1996 (Robin Candau)
+&lt;/a>, miembro del equipo de testing de Arch. En el anuncio, se invita a los usuarios a unirse al equipo de pruebas oficial de &lt;strong>Arch Linux&lt;/strong>.&lt;/p>
+&lt;blockquote>
+&lt;p>Hola,&lt;/p>
+&lt;p>Esperamos que hayan tenido un buen comienzo en el nuevo año 2024. Con el nuevo año suelen venir nuevas resoluciones. Si no tiene ninguno hasta ahora, tenemos uno para usted: ¿Qué pasaría si decidiera brindarle a Arch un poco de ayuda con las actualizaciones del paquete de prueba este año? 😃&lt;/p>
+&lt;p>Arch utiliza &lt;a href="https://wiki.archlinux.org/title/Official_repositories#Testing_repositories" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+repositorios de prueba
+&lt;/a> como un búfer para las actualizaciones de paquetes principales/críticos (o cualquier otra actualización de paquetes que se beneficiaría de ser probada primero) antes de ingresar a los repositorios estables.&lt;/p>
+&lt;p>Probar estas actualizaciones de paquetes nos ayuda a detectar más errores por adelantado y garantiza actualizaciones impecables para los repositorios estables, ¡y ahí es donde usted puede ayudar!&lt;/p>
+&lt;p>Al unirse al &lt;a href="https://wiki.archlinux.org/title/Arch_Testing_Team" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+equipo de pruebas oficial de Arch Linux
+&lt;/a>, tendrá la posibilidad de &amp;ldquo;aprobar&amp;rdquo; paquetes durante las pruebas después de garantizar su corrección (o &lt;a href="https://wiki.archlinux.org/title/Bug_reporting_guidelines" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+informar un error
+&lt;/a> de otro modo). Esto ayuda a los mantenedores de paquetes de Arch a detectar posibles errores por adelantado y ayuda a sacar paquetes de los repositorios de prueba de manera más rápida y eficiente.&lt;/p>
+&lt;p>No necesariamente buscamos pruebas en profundidad. Verificar que un programa se inicia correctamente y que eres capaz de realizar tu rutina habitual con él ya es una buena prueba por sí sola. También puede consultar las &lt;a href="https://wiki.archlinux.org/title/Arch_Testing_Team#Guidelines" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+pautas generales de prueba
+&lt;/a>.&lt;/p>
+&lt;p>Esta es una forma muy eficaz y bastante sencilla de contribuir a Arch Linux. Cuantos más probadores tengamos, más confiables serán las actualizaciones de paquetes.&lt;/p>
+&lt;p>¡Esperamos ver a algunos de ustedes allí! 😉&lt;/p>
+&lt;/blockquote>
+&lt;p>Podes ver el anuncio original en &lt;a href="https://www.reddit.com/r/archlinux/comments/1aniloc/join_the_arch_testing_team_call_for_participation/?share_id=ix0fdh7Xw1cmkqPFbaAC0&amp;amp;utm_content=1&amp;amp;utm_medium=android_app&amp;amp;utm_name=androidcss&amp;amp;utm_source=share&amp;amp;utm_term=1" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fab fa-reddit-alien">&lt;/i>&amp;nbsp;
+Reddit
+&lt;/a>.&lt;/p>
+&lt;h2 id="cómo-aplicar">¿Cómo Aplicar?&lt;/h2>
+&lt;p>Para convertirte en un tester oficial de Arch, simplemente contacta a &lt;a href="https://archlinux.org/people/developers/#bluewind" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+Florian Pritz
+&lt;/a> a través de &lt;a href="mailto:bluewind@xinu.at" >
+&lt;i class="fas fa-envelope">&lt;/i>&amp;nbsp;
+correo electrónico
+&lt;/a> y solicita una cuenta de verificador.&lt;/p>
+&lt;p>Una vez que obtengas tu cuenta de verificador, podrás acceder a la &lt;a href="https://archlinux.org/devel" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+archweb
+&lt;/a> y encontrarás una pestaña llamada &amp;ldquo;signoffs&amp;rdquo;. En esta sección, podrás ver una lista de paquetes que necesitan al menos dos firmas de aprobación (signoffs).&lt;/p>
+&lt;p>Prueba los paquetes listados localmente y, si funcionan correctamente, puedes firmarlos presionando el botón &amp;ldquo;signoff&amp;rdquo; en el paquete respectivo.&lt;/p>
+&lt;p>¡Únete hoy mismo y contribuye al crecimiento y desarrollo de &lt;strong>Arch Linux&lt;/strong>!&lt;/p></description></item><item><title>Instalación de Wine en GNU/Linux para Ejecutar Aplicaciones Windows</title><link>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</link><pubDate>Wed, 15 Nov 2023 12:02:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</guid><description>&lt;p>La compatibilidad entre sistemas operativos es esencial, y Wine, una herramienta de código abierto, facilita la ejecución de aplicaciones Windows en entornos GNU/Linux. En esta guía, exploraremos qué es Wine, cómo instalarlo en distintas distribuciones y dónde se instalan las aplicaciones. ¡Descubre cómo ampliar las posibilidades de tu sistema operativo!&lt;/p>
 &lt;h2 id="qué-es-wine">¿Qué es Wine?&lt;/h2>
 &lt;p>Wine, que significa &amp;ldquo;Wine Is Not an Emulator&amp;rdquo; (Wine no es un emulador), es una capa de compatibilidad que permite ejecutar aplicaciones diseñadas para Microsoft Windows en sistemas operativos basados en Unix, como GNU/Linux. No es una máquina virtual ni emula un entorno Windows completo; en cambio, traduce llamadas de sistema de Windows a llamadas de sistema compatibles con Unix.&lt;/p>
 &lt;h2 id="por-qué-usar-wine">¿Por qué usar Wine?&lt;/h2>
@@ -441,7 +985,7 @@ allowfullscreen>
 &lt;/div>
 &lt;/div>&lt;hr>
 &lt;p>Fuente: &lt;a href="https://www.mongodb.com/docs/manual/administration/install-on-linux/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://www.mongodb.com/docs/manual/administration/install-on-linux/
 &lt;/a>&lt;/p>
 &lt;div class="text-center">
@@ -608,19 +1152,19 @@ allowfullscreen>
 &lt;/div></description></item><item><title>Agregar Repositorio de SteamOS a Arch</title><link>https://patojad.com.ar/post/2022/09/agregar-repositorio-de-steamos-a-arch/</link><pubDate>Tue, 13 Sep 2022 11:48:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/09/agregar-repositorio-de-steamos-a-arch/</guid><description>&lt;p>Vamos a agregar los repositorios de SteamOS (Holo y jupiter) a nuestra distribución de Arch Linux favorita. Esto puede sernos útil para poder acceder a sus apps, configuraciones y personalizaciones.&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://steamdeck-packages.steamos.cloud/archlinux-mirror/jupiter/os/x86_64/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-steam">&lt;/i>&amp;nbsp;
+&lt;i class="fab fa-steam">&lt;/i>&amp;nbsp;
 Repositorio Jupiter
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://steamdeck-packages.steamos.cloud/archlinux-mirror/holo/os/x86_64/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-steam">&lt;/i>&amp;nbsp;
+&lt;i class="fab fa-steam">&lt;/i>&amp;nbsp;
 Repositorio Holo
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://steamdeck-packages.steamos.cloud/archlinux-mirror/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-steam">&lt;/i>&amp;nbsp;
+&lt;i class="fab fa-steam">&lt;/i>&amp;nbsp;
 Todos los Repositorios
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://steamdeck-packages.steamos.cloud/archlinux-mirror/iso/latest/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-steam">&lt;/i>&amp;nbsp;
+&lt;i class="fab fa-steam">&lt;/i>&amp;nbsp;
 Ultimas ISO
 &lt;/a>&lt;/li>
 &lt;/ul>
@@ -769,18 +1313,18 @@ allowfullscreen>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div></description></item><item><title>Instalar PARU y YAY</title><link>https://patojad.com.ar/post/2022/01/instalar-paru-y-yay/</link><pubDate>Thu, 27 Jan 2022 15:12:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/01/instalar-paru-y-yay/</guid><description>&lt;p>Ya hablamos con anterioridad sobre &lt;a href="https://patojad.com.ar/aplicaciones/2022/01/paru-vs-yay-cual-elegir/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 PARU y YAY
 &lt;/a>. En esa oportunidad di mi opinión sobre cuál deberíamos elegir, aunque esto siempre es a gusto y placer de la persona que lo utilice. Por eso en esta oportunidad vamos a ver la manera más simple de instalar ambas aplicaciones.&lt;/p>
 &lt;h3 id="requisitos-previos">Requisitos previos&lt;/h3>
 &lt;p>Para poder realizar la instalación tenemos unos requisitos previos para que todo salga mas que bien, te dejo a continuación ambos links que explicaran como hacer esto (El primero no es obligatorio pero está bueno saber cual elegir antes de instalar alguno)&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://patojad.com.ar/aplicaciones/2022/01/paru-vs-yay-cual-elegir/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Paru VS YAY ¿Cual elegir?
 &lt;/a> (Opcional)&lt;/li>
 &lt;li>&lt;a href="https://patojad.com.ar/post/2022/01/instalar-chaotic-aur/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Instalar Chaotic AUR
 &lt;/a> (Obligatorio)&lt;/li>
 &lt;/ul>
@@ -870,7 +1414,7 @@ allowfullscreen>
 &lt;/div>
 &lt;ul>
 &lt;li>La mayoría de los paquetes disponibles en este repositorio se crean automáticamente a partir de su paquete fuente AUR respectivo. Sin embargo, hay algunas excepciones, consulte &lt;a href="https://github.com/chaotic-aur/packages" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-github">&lt;/i>&amp;nbsp;
+&lt;i class="fab fa-github">&lt;/i>&amp;nbsp;
 https://github.com/chaotic-aur/packages
 &lt;/a> para averiguar cuáles.&lt;/li>
 &lt;li>El clúster de construcción principal es un nodo en el centro de datos de UFSCars que está alojado en San Carlos, San Paulo, Brazil.&lt;/li>
@@ -1137,7 +1681,7 @@ allowfullscreen>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item><item><title>Activar Descargas paralelas en Pacman</title><link>https://patojad.com.ar/post/2021/07/activar-descargas-paralelas-en-pacman/</link><pubDate>Thu, 15 Jul 2021 09:51:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/07/activar-descargas-paralelas-en-pacman/</guid><description>&lt;p>Como mencionamos &lt;a href="https://patojad.com.ar/post/2021/06/lleg%c3%b3-pacman-v6-y-pamac-qued%c3%b3-anonadado/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 hace un tiempo llegó pacman 6
 &lt;/a>, y la primera impresión para algunos no fue buena porque pamac no estaba a la altura ni estaba preparado para esto. Sin embargo ya está todo solucionado y podemos comenzar a sacarle el mejor provecho a esto. En esta oportunidad vamos a hablar de una nueva opción que seguro queremos tener habilitada en nuestra distro…&lt;/p>
 &lt;h2 id="descargas-en-paralelo">Descargas en paralelo&lt;/h2>
@@ -1506,11 +2050,11 @@ Descargar linuxbrowser
 &lt;p>Si venis por Artix o cualquier distro de Arch te recomiendo que veas de antemano las instalaciones y configuraciones de las que hago uso en el video y doy por sabido estas son&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://patojad.com.ar/post/2021/03/activar-multilib-artix/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Multilib
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://patojad.com.ar/post/2020/10/instalar-yay-en-artix-linux/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 yay
 &lt;/a>&lt;/li>
 &lt;/ul>
@@ -1561,21 +2105,21 @@ allowfullscreen>
 &lt;tr>
 &lt;td>Debian 8 (Jessie)&lt;/td>
 &lt;td>deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://dl.winehq.org/wine-builds/debian/
 &lt;/a> jessie main&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>Debian 9 (Stretch)&lt;/td>
 &lt;td>deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://dl.winehq.org/wine-builds/debian/
 &lt;/a> stretch main&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>Debian 10 (currently Testing) (Buster)&lt;/td>
 &lt;td>deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://dl.winehq.org/wine-builds/debian/
 &lt;/a> buster main&lt;/td>
 &lt;/tr>
@@ -1626,14 +2170,14 @@ https://dl.winehq.org/wine-builds/debian/
 &lt;tr>
 &lt;td>Fedora 29&lt;/td>
 &lt;td>dnf config-manager &amp;ndash;add-repo &lt;a href="https://dl.winehq.org/wine-builds/fedora/29/winehq.repo" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://dl.winehq.org/wine-builds/fedora/29/winehq.repo
 &lt;/a>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>Fedora 30&lt;/td>
 &lt;td>dnf config-manager &amp;ndash;add-repo &lt;a href="https://dl.winehq.org/wine-builds/fedora/30/winehq.repo" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://dl.winehq.org/wine-builds/fedora/30/winehq.repo
 &lt;/a>&lt;/td>
 &lt;/tr>
@@ -1663,7 +2207,7 @@ https://dl.winehq.org/wine-builds/fedora/30/winehq.repo
 &lt;/tbody>
 &lt;/table>
 &lt;p>Para otras distribuciones o BDS o MacOS revisar en su &lt;a href="https://wiki.winehq.org/Download" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 sitio oficial
 &lt;/a>&lt;/p>
 &lt;h3 id="arch">Arch&lt;/h3>
@@ -1816,7 +2360,7 @@ Reporte del BUG
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div></description></item><item><title>Controlar tu Celular por Wi-Fi</title><link>https://patojad.com.ar/post/2020/12/controlar-tu-celular-por-wi-fi/</link><pubDate>Mon, 21 Dec 2020 12:44:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/12/controlar-tu-celular-por-wi-fi/</guid><description>&lt;p>Anteriormente hablamos de &lt;a href="https://patojad.com.ar/posts/2020/11/scrcpy/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 como utilizar nuestro celular con android desde nuestra PC
 &lt;/a>, aunque en este tutorial solo hablamos de como usarlo cuando nuestro celular esta conectado via USB. Sin embargo este método puede no ser el más cómodo en todos los casos y por eso un miembro de la comunidad nos facilitó el método para poder usarlo de la misma forma pero vía Wi-Fi. Es importante recalcar que &lt;strong>tanto la PC como el dispositivo móvil tienen que estar en la misma red Wi-Fi.&lt;/strong>&lt;/p>
 &lt;h2 id="usarlo-por-wi-fi">Usarlo por Wi-Fi&lt;/h2>
@@ -1895,7 +2439,7 @@ como utilizar nuestro celular con android desde nuestra PC
 &lt;img src="https://i.postimg.cc/7YTnTH5B/Captura-de-pantalla-de-2020-11-13-09-15-56.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
 &lt;/div>&lt;/p>
 &lt;p>Una vez que tenemos el dispositivo conectado correctamente (Sugiero mantener la ip estática para evitar tener que reconectar cuando nuestro dispositivo se reconecte a la red) También recuerden que es estrictamente necesario verificar la &lt;a href="https://patojad.com.ar/aplicaciones/2020/11/scrcpy/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 instalación que vimos en la publicación anterior
 &lt;/a>. Si todo lo anterior está OK vamos a poder usar el comando:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -2115,7 +2659,7 @@ Descargar para MacOS
 &lt;/div>
 &lt;hr>
 &lt;p>Recorda &lt;strong>apoyarnos&lt;/strong> en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p></description></item><item><title>StreamLabels en Arch Linux</title><link>https://patojad.com.ar/post/2020/12/streamlabels-en-arch-linux/</link><pubDate>Wed, 09 Dec 2020 08:44:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/12/streamlabels-en-arch-linux/</guid><description>&lt;p>Hace un tiempo hablamos de &lt;a href="https://patojad.com.ar/aplicaciones/2020/11/streamlabs-en-linux/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 StreamLabs
 &lt;/a> y de como este nos puede servir para realizar streamings en GNU/Linux. También hablamos de su herramienta Stream Labels la cual tiene como disponible un .deb para que lo utilicemos en linux. Lamentablemente los .deb solo funcionan en distribuciones basadas en Debian/Ubuntu y eso no suele ser compatible con todos los que intentamos realizar Streaming dado que los que jugamos sabemos que el mejor rendimiento está en Arch Linux.&lt;/p>
 &lt;h2 id="una-explicación-no-basta">Una explicación no basta&lt;/h2>
@@ -2123,7 +2667,7 @@ StreamLabs
 &lt;img src="https://i.postimg.cc/W4mRQDLy/image.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
 &lt;/div>&lt;/p>
 &lt;p>Si bien en aquel &lt;a href="https://patojad.com.ar/aplicaciones/2020/11/streamlabs-en-linux/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 artículo
 &lt;/a> explique cómo debería realizarse la conversión para utilizarlo en Arch no creo que todo el mundo tenga que ponerse a ver estas cosas. Por lo cual decidí subirlo a AUR para que todo aquel que desee utilizarlo pueda hacerlo sin ningún problema. por lo cual, a partir de hoy si queremos utilizarlo basta con un solo comando para utilizarlo.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -2932,7 +3476,7 @@ Unite a nuestra comunidad
 &lt;p>Recorda &lt;strong>apoyarnos&lt;/strong> en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p></description></item><item><title>Pacman conflicto de Archivos al Actualizar</title><link>https://patojad.com.ar/post/2020/11/pacman-conflicto-de-archivos-al-actualizar/</link><pubDate>Tue, 03 Nov 2020 08:40:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/11/pacman-conflicto-de-archivos-al-actualizar/</guid><description>&lt;p>Dentro de todas las distribuciones basadas en Arch Linux siempre existe la posibilidad de tener errores al actualizar, mas que nada cuando se juntan muchas actualizaciones por periodos realmente largos. En estos casos las posibilidades de errores aumentan y es preciso buscar una solución.&lt;/p>
 &lt;h2 id="el-caso-de-artix-linux">El caso de Artix Linux&lt;/h2>
 &lt;p>Artix es una distribución muy buena de la que &lt;a href="https://patojad.com.ar/post/2020/08/artix-linux/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 ya hablamos antes
 &lt;/a>, incluso en el canal de youtube le dedique un saga, un poco corta, a la cual el dia de hoy sumo un video mas. Los sabores oficiales de artix, al dia de la fecha, tienen este problema de actualizaciones acumuladas, el cual da el error:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -2958,7 +3502,7 @@ allowfullscreen>
 &lt;p>Si te gusto no te olvides de apoyarme suscribiendote y dándole un “Me Gusta” ¡No cuesta nada pero vale mucho!&lt;/p>
 &lt;h2 id="lo-utilizado">Lo utilizado&lt;/h2>
 &lt;p>Si bien como se aclara en el video podemos usar &lt;a href="https://patojad.com.ar/post/2020/09/manipulando-archivos-y-directorios/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 comodines
 &lt;/a>. En este caso vamos a dejar el comando específico y cada uno lo modifica de la forma que crea conveniente. El patrón a seguir es el siguiente:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -3271,7 +3815,7 @@ pacman -S light-locker accountsservice
 &lt;/code>&lt;/pre>
 &lt;h4 id="instalar-gnomeflashback">Instalar GNOME/Flashback&lt;/h4>
 &lt;p>![](&lt;a href="https://external-preview.redd.it/38qPd6ZJGLQXB2HtQ6iL2ZEvOw-Dsg0VM05FOTc8O7I.png?auto=webp&amp;amp;s=bab6f84634f388e1abc83e14c954f94fe34b150d%22" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://external-preview.redd.it/38qPd6ZJGLQXB2HtQ6iL2ZEvOw-Dsg0VM05FOTc8O7I.png?auto=webp&amp;s=bab6f84634f388e1abc83e14c954f94fe34b150d"
 &lt;/a> &amp;gt;}}&lt;/p>
 &lt;p>435MiB/RAM aproximadamente, el diseño del escritorio y la tecnología subyacente es similar a GNOME 2. No utiliza la aceleración 3D en absoluto, por lo que generalmente es más rápido y requiere menos CPU&lt;/p>

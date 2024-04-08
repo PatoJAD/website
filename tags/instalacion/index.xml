@@ -1,4 +1,517 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>instalacion on PatoJAD</title><link>https://patojad.com.ar/tags/instalacion/</link><description>Recent content in instalacion on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Wed, 15 Nov 2023 12:02:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/instalacion/index.xml" rel="self" type="application/rss+xml"/><item><title>Instalación de Wine en GNU/Linux para Ejecutar Aplicaciones Windows</title><link>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</link><pubDate>Wed, 15 Nov 2023 12:02:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</guid><description>&lt;p>La compatibilidad entre sistemas operativos es esencial, y Wine, una herramienta de código abierto, facilita la ejecución de aplicaciones Windows en entornos GNU/Linux. En esta guía, exploraremos qué es Wine, cómo instalarlo en distintas distribuciones y dónde se instalan las aplicaciones. ¡Descubre cómo ampliar las posibilidades de tu sistema operativo!&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Instalacion on PatoJAD</title><link>https://patojad.com.ar/tags/instalacion/</link><description>Recent content in Instalacion on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 20 Feb 2024 14:34:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/instalacion/index.xml" rel="self" type="application/rss+xml"/><item><title>Instalar grafica NVIDIA integrada en Arch Linux</title><link>https://patojad.com.ar/post/2024/02/instalar-grafica-nvidia-integrada-en-arch-linux/</link><pubDate>Tue, 20 Feb 2024 14:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/02/instalar-grafica-nvidia-integrada-en-arch-linux/</guid><description>&lt;p>Hola! Les comparto el método que encontré para hacer funcionar mi gráfica nvidia integrada con 10 años de antigüedad usando drivers privativo y Optimus Manager!&lt;/p>
+&lt;blockquote>
+&lt;p>Ej.: mi gráfica es NVIDIA GeForge GTX770M y la versión compatible es la nvidia-470xx)&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="detectando-tipo-de-controladores-de-video">Detectando tipo de controladores de video:&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">lspci &lt;span class="p">|&lt;/span> grep VGA
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>en mi caso responde: &lt;code>00:02.0 VGA compatible controller: Intel Corporation 4th Gen Core Processor Integrated Graphics Controller (rev 06)&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">lspci -k &lt;span class="p">|&lt;/span> grep VGA -A &lt;span class="m">2&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>en mi caso responde:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">00:02.0 VGA compatible controller: Intel Corporation 4th Gen Core Processor Integrated Graphics Controller (rev 06)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Subsystem: Toshiba Corporation 4th Gen Core Processor Integrated Graphics Controller
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Kernel driver in use: i915
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="instalando-controlador-de-codigo-abieto-de-intel">Instalando controlador de Codigo abieto de Intel:&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S xf86-video-intel intel-ucode
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="detectar-nvidia">Detectar Nvidia:&lt;/h3>
+&lt;ul>
+&lt;li>Ver DRIVERS de VIDEO instalados:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">xrandr --listproviders
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Ver paquetes NVIDIA instalados:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Ss nvidia
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Ver paquete NVIDIA SETTINGS instalado:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Ss nvidia-settings
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="desinstalando-versiones-anteriores">Desinstalando versiones anteriores:&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Rns nombredelpaquete
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>ej.:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Rns nvidia-340xx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="detectar-driver-compatible-con-la-gráfica-nvidia">Detectar Driver compatible con la gráfica NVIDIA:&lt;/h2>
+&lt;p>Hay que considerar dos factores de compatibilidad: &lt;strong>Versión nvidia&lt;/strong> y el &lt;strong>Kernel&lt;/strong>&lt;/p>
+&lt;h3 id="ver-lista-de-compatibilidad">Ver lista de compatibilidad:&lt;/h3>
+&lt;ul>
+&lt;li>Entrar a la &lt;a href="https://www.nvidia.com/en-us/drivers/unix/legacy-gpu/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+siguiente página
+&lt;/a> y buscar tu modelo de nvidia dentro de la lista para saber con
+que versión es compatible.&lt;/li>
+&lt;/ul>
+&lt;h4 id="nvidia-según-el-kernel">Nvidia según el kernel:&lt;/h4>
+&lt;ul>
+&lt;li>kernel linux → nvidia&lt;/li>
+&lt;li>linux-lts → nvidia-lts&lt;/li>
+&lt;li>todos los kernel (construye dinámicamente los módulos del kernel) → nvidia-dkms&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>ej: en mi caso como el modelo de la nvidia es viejo debo usar por compatibilidad el kernetl lts pero con nvidia-dkms&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="pasos-previos-a-la-instalación">Pasos previos a la instalación:&lt;/h2>
+&lt;ul>
+&lt;li>Habilitar Multilib para ejecutar aplicaciones 32 bits en sist. de 64 bits:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo nano /etc/pacman.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>(para habilitar hay que descomentar las dos lineas siguientes, borrar # y guardar)
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="line">&lt;span class="cl">&lt;span class="k">[multilib]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Include&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">/etc/pacman.d/mirrorlist&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Para guardar cambios: Ctrol + o (letra), Para confirmar: enter, Para salir: Ctrol + x&lt;/li>
+&lt;li>Entrar al archivo sddm para editarlo (en el caso de que se use kde) con el siguiente comando:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo nano /etc/sddm.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Agregar # a las dos líneas que estan debajo de [X11]:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="line">&lt;span class="cl">&lt;span class="k">[X11]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># DisplayCommand&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># DisplayStopCommand&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Ctrl + o
+Enter
+Ctrol + X&lt;/li>
+&lt;/ul>
+&lt;h3 id="borrar-archivos-que-esten-dentro-de-la-carpeta-x11-para-que-no-interfieran">Borrar archivos que esten dentro de la carpeta X11 para que no interfieran:&lt;/h3>
+&lt;ul>
+&lt;li>Ir a la carpeta: &lt;code>/etc/X11/&lt;/code>&lt;/li>
+&lt;li>Ver si hay archivos xorg fuera de las carpetas.&lt;/li>
+&lt;li>Si hay archivos xorg: los vamos a borrar de la siguiente manera:
+&lt;ul>
+&lt;li>Hacer Click derecho y seleccionar abrir terminal aqui&lt;/li>
+&lt;li>Para Borrar los archivos y dejar las carpetas
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo rm xorg.conf
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo mv xorg.conf xorg.conf0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo rm xorg.conf.nvidia-xconfig-original
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="instalar-controlador-privativo-de-nvidia">Instalar controlador privativo de Nvidia:&lt;/h2>
+&lt;h3 id="nvidia-para-kernel-linux-última-versión">Nvidia para kernel linux (última versión)&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S nvidia nvidia-utils
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="nvidia-para-kernel-linux-lts-para-nvidia-viejas-es-mejor-no-usar-lts">Nvidia para kernel linux-lts: (para nvidia viejas es mejor no usar lts)&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S nvidia-lts
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="nvidia-para-kernel-linux-zen-sirve-para-todos-los-kernel-dkms">Nvidia para kernel linux-zen: (sirve para todos los kernel) dkms&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S nvidia-dkms
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>ej: en mi caso compatible con GeForge GTX770M&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S nvidia-470xx-dkms
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yay -S nvidia-470xx-utils
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yay -S lib32-nvidia-470xx-utils
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yay -S lib32-opencl-nvidia-470xx
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yay -S opencl-nvidia-470xx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>En una linea todos los paquetes dkms para la versión 470xx:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S nvidia-470xx-dkms nvidia-470xx-utils lib32-nvidia-470xx-utils lib32-opencl-nvidia-470xx opencl-nvidia-470xx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="instalar-mhwd">Instalar MhWd:&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">$ yay -S mhwd-nvidia-versión
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>ej: en mi caso compatible 470xx&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S mhwd-nvidia-470xx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="instalar-nvidia-settings">Instalar Nvidia Settings:&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S nvidia-settings
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>ej.: Compatible 470xx:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S nvidia-470xx-settings
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="instalar-bbswithc">Instalar bbswithc&lt;/h2>
+&lt;h3 id="para-kernel-linux">Para kernel linux:&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S bbswitch
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="para-kernel-linux-zen-o-si-usamos-las-nvidia-dkms">Para kernel linux-Zen o si usamos las nvidia-dkms:&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S bbswitch-dkms
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="instalar-optimus-manager">Instalar Optimus Manager:&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S optimus-manager optimus-manager-qt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Actualizar:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Syyu
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Verificar el estado de Optimus Manager:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">systemctl status optimus-manager.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Para parar el proceso apretar: q&lt;/p>
+&lt;p>Reiniciar:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">reboot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="configurar-optimus-manager">Configurar Optimus Manager:&lt;/h3>
+&lt;ul>
+&lt;li>Ir al Menú de aplicaciones y ejecutar Optimus manager&lt;/li>
+&lt;li>Va aparecer un icono en la barra.&lt;/li>
+&lt;li>Hacer Click derecho sobre el ícono de Optimus manager de la barra y entrar a Configuración.
+&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/ZYdrnpxr/image.png" alt="Optimus Manager" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>
+&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/Gmh8FyGg/image.png" alt="Optimus Manager" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>
+&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/VkGSDkFf/image.png" alt="Optimus Manager" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>
+&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/FKYYqXPj/image.png" alt="Optimus Manager" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>
+&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/ZqXWzsgX/image.png" alt="Optimus Manager" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>
+&lt;div class="alert alert-warning col-12" style="position:relative;">
+&lt;div class="info-box-content container">
+&lt;div class="row">
+&lt;div class="col-2 text-center">
+&lt;span class="fa fa-warning fa-5x">&lt;/span>
+&lt;/div>
+&lt;div class="col-10">
+&lt;p class="no-margin">OJO: INICIAR SESIÓN CON X11 (Xorg de KDE) porque optimus manager no es compatible con wayland&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/li>
+&lt;li>Reiniciar el sistema:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">reboot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="comprobar-si-funciona-nvidia">Comprobar si funciona Nvidia:&lt;/h3>
+&lt;ul>
+&lt;li>Abrir la consola y poner el siguiente comando:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">optimus-manager --print-mode
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>ej: en mi caso responde:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Current GPU mode : nvidia
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Poner el siguiente comando:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">glxgears -info
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Se abre la siguiente ventana:
+&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/c1BLFJsp/image.png" alt="glxgears" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/li>
+&lt;li>Cerrar la ventana chicha y se frena el proceso.&lt;/li>
+&lt;li>Subir por la consola hasta donde se puso el comando para ver el resultado.
+Ej: en mi caso dio:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Running synchronized to the vertical refresh. The framerate should be
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">approximately the same as the monitor refresh rate.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">GL_RENDERER = NVIDIA GeForce GTX 770M/PCIe/SSE2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">GL_VERSION = 4.6.0 NVIDIA 470.223.02
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">GL_VENDOR = NVIDIA Corporation
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="configurar-nvidia-settings">CONFIGURAR NVIDIA SETTINGS&lt;/h3>
+&lt;ul>
+&lt;li>Entrar al Menu de apliciones y abrir Nvidia X Server Settings&lt;/li>
+&lt;li>Entrar a “OpenGL Settings”&lt;/li>
+&lt;li>En la solapa Image Settings:&lt;/li>
+&lt;li>Poner la configuración deseada:
+High Performance (mejor rendimiento, elijo esta)
+High Quality (mejor calidad)&lt;/li>
+&lt;/ul>
+&lt;h3 id="instalar-el-controlador-gwe-controla-las-gpu-nvidia">INSTALAR EL CONTROLADOR GWE: controla las GPU NVIDIA&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S gwe
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Guía Completa para Instalar y Utilizar Timeshift en Linux</title><link>https://patojad.com.ar/post/2024/01/gu%C3%ADa-completa-para-instalar-y-utilizar-timeshift-en-linux/</link><pubDate>Tue, 09 Jan 2024 10:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/01/gu%C3%ADa-completa-para-instalar-y-utilizar-timeshift-en-linux/</guid><description>&lt;p>La gestión de copias de seguridad es esencial para cualquier usuario de Linux que desee mantener la integridad de su sistema operativo. En este artículo, exploraremos &lt;strong>Timeshift&lt;/strong>, una poderosa herramienta de respaldo para Linux, respondiendo preguntas clave y proporcionando instrucciones detalladas para su instalación en diversas distribuciones.&lt;/p>
+&lt;hr>
+&lt;h2 id="qué-es-timeshift-de-linux">¿Qué es Timeshift de Linux?&lt;/h2>
+&lt;p>&lt;strong>Timeshift&lt;/strong> es una herramienta de respaldo para sistemas operativos basados en Linux que permite realizar instantáneas del sistema en un momento específico. Estas instantáneas se pueden utilizar para restaurar el sistema a ese estado particular en caso de fallos o problemas. &lt;strong>Timeshift&lt;/strong> utiliza tecnologías como &lt;strong>rsync&lt;/strong> y &lt;strong>Btrfs&lt;/strong> para crear y gestionar estas instantáneas.&lt;/p>
+&lt;hr>
+&lt;h2 id="qué-diferencia-hay-entre-rsync-y-timeshift">¿Qué diferencia hay entre rsync y Timeshift?&lt;/h2>
+&lt;p>Aunque &lt;strong>rsync&lt;/strong> y &lt;strong>Timeshift&lt;/strong> comparten la capacidad de realizar copias de seguridad, difieren en su enfoque. &lt;strong>Rsync&lt;/strong> es una herramienta de sincronización de archivos, mientras que &lt;strong>Timeshift&lt;/strong> va más allá al capturar el estado completo del sistema en un momento dado. &lt;strong>Timeshift&lt;/strong> simplifica el proceso de restauración del sistema a un estado anterior mediante la gestión eficiente de instantáneas.&lt;/p>
+&lt;hr>
+&lt;h2 id="timeshift-es-una-herramienta-de-respaldo">¿Timeshift es una herramienta de respaldo?&lt;/h2>
+&lt;p>Sí, &lt;strong>Timeshift&lt;/strong> se clasifica como una herramienta de respaldo, pero va más allá de simplemente copiar archivos. Al crear instantáneas del sistema, &lt;strong>Timeshift&lt;/strong> permite restaurar todo el estado del sistema, incluyendo archivos del sistema, configuraciones y aplicaciones instaladas, proporcionando una solución integral para la gestión de copias de seguridad.&lt;/p>
+&lt;hr>
+&lt;h2 id="timeshift-funciona-en-ubuntu">¿Timeshift funciona en Ubuntu?&lt;/h2>
+&lt;p>&lt;strong>Timeshift&lt;/strong> es compatible con varias distribuciones de Linux, incluyendo &lt;strong>Ubuntu&lt;/strong>. Su versatilidad y capacidad de adaptación a diferentes sistemas hacen que sea una opción sólida para usuarios de Ubuntu, o cualquier distribucion, que buscan una solución de respaldo confiable.&lt;/p>
+&lt;hr>
+&lt;h2 id="instalación-de-timeshift-en-distintas-distribuciones">Instalación de Timeshift en Distintas Distribuciones:&lt;/h2>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/24c3O_uj0E4?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;p>A continuación, te presentamos cómo instalar &lt;strong>Timeshift&lt;/strong> en algunas de las distribuciones de Linux más populares:&lt;/p>
+&lt;h3 id="ubuntu--debian">Ubuntu / Debian&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt-get update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get install timeshift
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="arch-linux">Arch Linux&lt;/h3>
+&lt;p>En este caso diferimos del video ya que en el mismo se instala desde AUR con algunos complementos adicionales que simplifican y automatizan su uso y en este caso lo haremos desde los repositorios oficiales.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo pacman -S timeshift
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="fedora">Fedora&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install timeshift
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="opensuse">openSUSE:&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo zypper install timeshift
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="conclusión">Conclusión&lt;/h2>
+&lt;p>&lt;strong>Timeshift&lt;/strong> emerge como una herramienta esencial para la gestión de copias de seguridad en sistemas Linux. Su capacidad para crear instantáneas del sistema y simplificar la restauración lo convierte en una opción valiosa. Al seguir nuestras instrucciones, puedes instalar y comenzar a utilizar Timeshift en tu distribución de Linux preferida, asegurando la estabilidad y seguridad de tu sistema.&lt;/p></description></item><item><title>Instalación de Wine en GNU/Linux para Ejecutar Aplicaciones Windows</title><link>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</link><pubDate>Wed, 15 Nov 2023 12:02:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</guid><description>&lt;p>La compatibilidad entre sistemas operativos es esencial, y Wine, una herramienta de código abierto, facilita la ejecución de aplicaciones Windows en entornos GNU/Linux. En esta guía, exploraremos qué es Wine, cómo instalarlo en distintas distribuciones y dónde se instalan las aplicaciones. ¡Descubre cómo ampliar las posibilidades de tu sistema operativo!&lt;/p>
 &lt;h2 id="qué-es-wine">¿Qué es Wine?&lt;/h2>
 &lt;p>Wine, que significa &amp;ldquo;Wine Is Not an Emulator&amp;rdquo; (Wine no es un emulador), es una capa de compatibilidad que permite ejecutar aplicaciones diseñadas para Microsoft Windows en sistemas operativos basados en Unix, como GNU/Linux. No es una máquina virtual ni emula un entorno Windows completo; en cambio, traduce llamadas de sistema de Windows a llamadas de sistema compatibles con Unix.&lt;/p>
 &lt;h2 id="por-qué-usar-wine">¿Por qué usar Wine?&lt;/h2>
@@ -100,12 +613,12 @@ allowfullscreen>
 &lt;/iframe>
 &lt;/div>
 &lt;p>A continuación, se detallan los pasos para actualizar aaPanel a la última versión en caso de querer hacerlo desde la terminal conectadose al servidor por &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 SSH
 &lt;/a>:&lt;/p>
 &lt;h3 id="acceder-al-servidor">Acceder al Servidor&lt;/h3>
 &lt;p>Inicia sesión en tu servidor a través de &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 SSH
 &lt;/a> utilizando un cliente como PuTTY (en el caso de estar en Windows) o la terminal en sistemas Unix o Unix-Like como Linux.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -164,7 +677,7 @@ allowfullscreen>
 &lt;/div>&lt;/p>
 &lt;hr>
 &lt;p>&lt;a href="https://www.aapanel.com/new/feature.html#shop" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 Fuente
 &lt;/a>&lt;/p></description></item><item><title>Instalar aaPanel</title><link>https://patojad.com.ar/post/2023/06/instalar-aapanel/</link><pubDate>Wed, 21 Jun 2023 11:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/06/instalar-aapanel/</guid><description>&lt;p>aaPanel es un software que mejora la eficiencia de la gestión de servidores admite más de 100 funciones, como LEMP/LNMP/monitor/FTP/base de datos con un solo clic Después de más de 80 iteraciones, es completamente funcional y seguro, y ha sido aprobado e instalado por millones de usuarios en todo el mundo.&lt;/p>
 &lt;h2 id="caracteristicas">Caracteristicas&lt;/h2>
@@ -218,7 +731,7 @@ Demo
 &lt;/ul>
 &lt;hr>
 &lt;p>&lt;a href="https://www.aapanel.com/new/pricing.html" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 Mas información
 &lt;/a>&lt;/p>
 &lt;h2 id="instalacion">Instalacion&lt;/h2>
@@ -283,10 +796,10 @@ allowfullscreen>
 &lt;/div>
 &lt;hr>
 &lt;p>&lt;a href="https://www.aapanel.com/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 Fuente
 &lt;/a>&lt;/p></description></item><item><title>Como instalar MongoDB en MacOS</title><link>https://patojad.com.ar/post/2023/05/como-instalar-mongodb-en-macos/</link><pubDate>Fri, 05 May 2023 13:45:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/05/como-instalar-mongodb-en-macos/</guid><description>&lt;p>Vamos a ver como realizar la instalacion de &lt;strong>MongoDB&lt;/strong> en MacOS. Recuerda que para esto debes tener instalado primero &lt;a href="https://patojad.com.ar/post/2023/02/como-instalar-brew-en-macos/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Homebrew
 &lt;/a>.&lt;/p>
 &lt;h2 id="video">Video&lt;/h2>
@@ -300,7 +813,7 @@ allowfullscreen>
 &lt;/div>
 &lt;h2 id="comandos">Comandos&lt;/h2>
 &lt;p>Los siguientes comandos podes usarlos en tu terminal (Recorda tener instalado &lt;a href="https://patojad.com.ar/post/2023/02/como-instalar-brew-en-macos/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Homebrew
 &lt;/a>):&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -338,7 +851,7 @@ Homebrew
 &lt;/ul>
 &lt;hr>
 &lt;p>Fuente: &lt;a href="https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
 &lt;/a>&lt;/p></description></item><item><title>Error Boost.Python en el proceso Bootloader - Huayra</title><link>https://patojad.com.ar/post/2023/03/error-boost.python-en-el-proceso-bootloader-huayra/</link><pubDate>Mon, 20 Mar 2023 08:47:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/03/error-boost.python-en-el-proceso-bootloader-huayra/</guid><description>&lt;p>Desde que arme el video de de la review de &lt;strong>Huayra&lt;/strong> y su instalación (el cual pueden ver acá abajo) muchos comentarios me llegaban con &lt;strong>problemas de instalación&lt;/strong>, y el último fue la semana pasada de la mano de un miembro de la comunidad llamado &lt;strong>Nicolas Ojeda&lt;/strong> (al que le mando un fuerte saludo) con el cual indagando un rato (como otras veces en la comunidad) llegamos a la clara solución y la idea es dejar documentada esta solución para personas que tengan el mismo error con esta, o cualquier otra, distribución.&lt;/p>
 &lt;div class="ratio ratio-16x9 embed-video">
@@ -538,18 +1051,18 @@ allowfullscreen>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item><item><title>Instalar PARU y YAY</title><link>https://patojad.com.ar/post/2022/01/instalar-paru-y-yay/</link><pubDate>Thu, 27 Jan 2022 15:12:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/01/instalar-paru-y-yay/</guid><description>&lt;p>Ya hablamos con anterioridad sobre &lt;a href="https://patojad.com.ar/aplicaciones/2022/01/paru-vs-yay-cual-elegir/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 PARU y YAY
 &lt;/a>. En esa oportunidad di mi opinión sobre cuál deberíamos elegir, aunque esto siempre es a gusto y placer de la persona que lo utilice. Por eso en esta oportunidad vamos a ver la manera más simple de instalar ambas aplicaciones.&lt;/p>
 &lt;h3 id="requisitos-previos">Requisitos previos&lt;/h3>
 &lt;p>Para poder realizar la instalación tenemos unos requisitos previos para que todo salga mas que bien, te dejo a continuación ambos links que explicaran como hacer esto (El primero no es obligatorio pero está bueno saber cual elegir antes de instalar alguno)&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://patojad.com.ar/aplicaciones/2022/01/paru-vs-yay-cual-elegir/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Paru VS YAY ¿Cual elegir?
 &lt;/a> (Opcional)&lt;/li>
 &lt;li>&lt;a href="https://patojad.com.ar/post/2022/01/instalar-chaotic-aur/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Instalar Chaotic AUR
 &lt;/a> (Obligatorio)&lt;/li>
 &lt;/ul>
@@ -639,7 +1152,7 @@ allowfullscreen>
 &lt;/div>
 &lt;ul>
 &lt;li>La mayoría de los paquetes disponibles en este repositorio se crean automáticamente a partir de su paquete fuente AUR respectivo. Sin embargo, hay algunas excepciones, consulte &lt;a href="https://github.com/chaotic-aur/packages" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-github">&lt;/i>&amp;nbsp;
+&lt;i class="fab fa-github">&lt;/i>&amp;nbsp;
 https://github.com/chaotic-aur/packages
 &lt;/a> para averiguar cuáles.&lt;/li>
 &lt;li>El clúster de construcción principal es un nodo en el centro de datos de UFSCars que está alojado en San Carlos, San Paulo, Brazil.&lt;/li>
@@ -1308,7 +1821,7 @@ allowfullscreen>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div></description></item><item><title>Manjaro WebDad</title><link>https://patojad.com.ar/post/2021/02/manjaro-webdad/</link><pubDate>Fri, 26 Feb 2021 08:53:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/02/manjaro-webdad/</guid><description>&lt;p>Hace ya un tiempo di mi opinión sobre &lt;a href="https://patojad.com.ar/instalaciones/2020/11/ubuntu-web-remix/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Ubuntu web
 &lt;/a>, y en los recientes días, con el aumento del uso de ChromeOS parece ser que esta distro es una excelente idea. Sin embargo, por otro camino diferente existe un joven que desarrolló un escritorio que lo podríamos definir como &amp;ldquo;Lo que Ubuntu Web no pudo&amp;rdquo; dado que es aún más embebible con esta idea.&lt;/p>
 &lt;h2 id="manjaro-webdad">Manjaro WebDad&lt;/h2>
@@ -1326,18 +1839,18 @@ allowfullscreen>
 &lt;img src="https://raw.githubusercontent.com/codesardine/Jadesktop/master/jade.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
 &lt;/div>&lt;/p>
 &lt;p>JADE nos ofrece un launcher que corre nativamente en su desktop, el mismo es &lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 HTML
 &lt;/a> y es realmente muy fluido y no consume tantos recursos como, por ejemplo, &lt;a href="https://patojad.com.ar/aplicaciones/2020/05/ulauncher/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 ulanucher
 &lt;/a> o &lt;a href="https://patojad.com.ar/aplicaciones/2020/05/cerebro/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 cerebro
 &lt;/a> que son dos grandes launchers.&lt;/p>
 &lt;h3 id="fondos-en-movimiento">Fondos en movimiento&lt;/h3>
 &lt;p>Adicional a esto también nos ofrece los tan populares fondos en movimiento que muchos agregan con apps como Komorebi. Pero nuevamente lo hace desde una etiqueta &lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 HTML
 &lt;/a> lo cual es mucho menos costoso que desarrollar una app que lo haga.&lt;/p>
 &lt;h3 id="altamente-personalizable">Altamente personalizable.&lt;/h3>
@@ -1345,7 +1858,7 @@ HTML
 &lt;img src="https://i.postimg.cc/MGMv0q6W/Captura-de-pantalla-de-2020-11-20-15-52-06.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
 &lt;/div>&lt;/p>
 &lt;p>Este Escritorio, al estar desarrollado en &lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 HTML
 &lt;/a> (En lo que a su interfaz respecta) permitiría que cualquiera con un buen conocimiento en este lenguaje de etiquetas lo personalice al máximo obteniendo increíbles resultados&lt;/p></description></item><item><title>Guia para instalar Arch</title><link>https://patojad.com.ar/post/2020/10/guia-para-instalar-arch/</link><pubDate>Tue, 13 Oct 2020 10:46:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/10/guia-para-instalar-arch/</guid><description>&lt;p>Siempre hablamos de esta distribución tan maravillosa y en esta oportunidad vamos a aprovechar que un usuario nos dejó una guía tan específica y tan perfecta que vamos a proceder con la instalación de Arch linux. Con esta guía solo basta seguir paso a paso.&lt;/p>
 &lt;h4 id="atención-esta-guia-solo-sirve-para-instalarlo-sobre-disco-duro-y-no-sobre-ssd">Atención esta guia solo sirve para instalarlo sobre Disco Duro y no sobre SSD&lt;/h4>
@@ -1550,7 +2063,7 @@ pacman -S light-locker accountsservice
 &lt;/code>&lt;/pre>
 &lt;h4 id="instalar-gnomeflashback">Instalar GNOME/Flashback&lt;/h4>
 &lt;p>![](&lt;a href="https://external-preview.redd.it/38qPd6ZJGLQXB2HtQ6iL2ZEvOw-Dsg0VM05FOTc8O7I.png?auto=webp&amp;amp;s=bab6f84634f388e1abc83e14c954f94fe34b150d%22" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://external-preview.redd.it/38qPd6ZJGLQXB2HtQ6iL2ZEvOw-Dsg0VM05FOTc8O7I.png?auto=webp&amp;s=bab6f84634f388e1abc83e14c954f94fe34b150d"
 &lt;/a> &amp;gt;}}&lt;/p>
 &lt;p>435MiB/RAM aproximadamente, el diseño del escritorio y la tecnología subyacente es similar a GNOME 2. No utiliza la aceleración 3D en absoluto, por lo que generalmente es más rápido y requiere menos CPU&lt;/p>

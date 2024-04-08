@@ -1,16 +1,58 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>seguridad on PatoJAD</title><link>https://patojad.com.ar/tags/seguridad/</link><description>Recent content in seguridad on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Wed, 25 Oct 2023 12:11:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/seguridad/index.xml" rel="self" type="application/rss+xml"/><item><title>Cómo Importar tus Claves SSH: Una Guía para DevOps</title><link>https://patojad.com.ar/post/2023/10/c%C3%B3mo-importar-tus-claves-ssh-una-gu%C3%ADa-para-devops/</link><pubDate>Wed, 25 Oct 2023 12:11:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/10/c%C3%B3mo-importar-tus-claves-ssh-una-gu%C3%ADa-para-devops/</guid><description>&lt;p>Es común que los desarrolladores y DevOps tengan múltiples aspectos vinculados a sus claves &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Seguridad on PatoJAD</title><link>https://patojad.com.ar/tags/seguridad/</link><description>Recent content in Seguridad on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Mon, 25 Mar 2024 12:34:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/seguridad/index.xml" rel="self" type="application/rss+xml"/><item><title>Formatos de Empaquetado en Linux: Nativos, Flatpak, Snap y AppImage</title><link>https://patojad.com.ar/post/2024/03/formatos-de-empaquetado-en-linux-nativos-flatpak-snap-y-appimage/</link><pubDate>Mon, 25 Mar 2024 12:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/03/formatos-de-empaquetado-en-linux-nativos-flatpak-snap-y-appimage/</guid><description>&lt;p>En el tradicional formato de empaquetado de Linux, tenemos &lt;strong>DEB&lt;/strong> (para debian, ubuntu y derivadas), &lt;strong>RPM&lt;/strong> (para redhat, fedora y derivadas) y otras variantes. Más recientemente, se han añadido &lt;strong>Flatpak&lt;/strong>, &lt;strong>Snap&lt;/strong> e &lt;strong>AppImage&lt;/strong>, lo que ha generado una gran variedad de formatos con diferentes características, ventajas y limitaciones. En este análisis, exploraremos el rendimiento de cada formato y las funciones que faltan en cada uno.&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/1zGKcj92PcQ?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="nativas">Nativas&lt;/h2>
+&lt;p>Generalmente no son compatibles entre distintas distribuciones, no implementan ningún modelo de seguridad o espacio aislado específico y se distribuyen a través de repositorios, ya sean oficiales o de terceros. Estos paquetes pueden contener bibliotecas o aplicaciones y todas las bibliotecas se comparten entre aplicaciones, lo que ahorra espacio y evita bibliotecas duplicadas. Sin embargo, esto también significa que una aplicación que necesita una biblioteca más nueva podría no funcionar en una distribución más antigua.&lt;/p>
+&lt;h2 id="flatpak">Flatpak&lt;/h2>
+&lt;p>Generalmente agregan además de sus paquetes regulares, son agnósticos de la distribución en sí, por lo que si su distro admite el &lt;strong>Flatpak&lt;/strong>, puede ejecutar exactamente el mismo paquete que cualquier otra distribución. El desarrollador empaqueta su aplicación una vez y se ejecuta en todo, no es necesario duplicar el trabajo de empaquetado. Los &lt;strong>Flatpak&lt;/strong> tienen un empaquetado &amp;ldquo;sandbox&amp;rdquo;, lo que significa que ofrecen menos agujeros de seguridad para posibles atacantes y, al mismo tiempo, comparten una gran cantidad de bibliotecas a través de tiempos de ejecución. Algunos &lt;strong>Flatpak&lt;/strong> contienen muchas bibliotecas en las que confían muchas aplicaciones. También pueden enviar sus propias bibliotecas en el paquete, lo que significa que pueden usar más espacio con el tiempo. Los &lt;strong>Flatpak&lt;/strong> se distribuyen principalmente a través de Flathub y repositorios en línea, pero usted también puede crear su propio repositorio ya que todo es de código abierto.&lt;/p>
+&lt;h2 id="snap">Snap&lt;/h2>
+&lt;p>Los &lt;strong>Snaps&lt;/strong> son básicamente el mismo concepto que los &lt;strong>Flatpak&lt;/strong>, pero para Ubuntu. Hay algunas diferencias técnicas con los &lt;strong>Flatpak&lt;/strong>, especialmente con respecto a cómo se abren y montan las aplicaciones en el sistema, pero funcionan de la misma manera. De esta manera, tiene tiempos de ejecución que incluyen bibliotecas necesarias para múltiples aplicaciones y luego las aplicaciones que pueden usar estos tiempos de ejecución se pueden aislar, pero no es obligatorio, por lo que algunas no lo son y se distribuyen exclusivamente a través de la tienda de Snap administrada por Canonical y ese específico. El back-end no es de código abierto. Los &lt;strong>Snaps&lt;/strong> se empaquetan una vez y cualquier distribución puede usar el mismo Snap siempre que admita el formato. Otra gran diferencia es que los &lt;strong>Snaps&lt;/strong> son adecuados no solo para aplicaciones gráficas sino también para programas de línea de comandos, aplicaciones del lado del servidor o incluso el kernel, el entorno de escritorio, el cargador de arranque o los controladores.&lt;/p>
+&lt;h2 id="appimage">AppImage&lt;/h2>
+&lt;p>Son un formato más portátil similar a lo que hace &lt;strong>MacOS&lt;/strong>: toda la aplicación se envía dentro de un solo archivo con la mayoría, si no todas, sus bibliotecas. Esto significa que puede copiar y pegar aplicaciones desde un sistema a otro y se ejecutan en cualquier distribución que tenga acceso a fuse, que es lo que usan las imágenes de la aplicación para ejecutar las imágenes de la aplicación. A diferencia de las anteriores, no se ejecutan en un sandbox, aunque puedes hacerlo manualmente con algo como Fire Jail y, a veces, dependen de las bibliotecas del sistema que distribución se envía como paquetes regulares. Esto significa que ciertas imágenes de aplicaciones pueden no funcionar en ciertos sistemas que no tienen la biblioteca requerida; generalmente se distribuyen desde el sitio web de los desarrolladores o desde la aplicación App Image Hub. Las imágenes no crean automáticamente entradas en su sistema. menú a menos que use un demonio específico que se ejecuta en segundo plano.&lt;/p>
+&lt;h2 id="puntos-de-referencia-de-rendimiento">Puntos de referencia de rendimiento&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/Z5xcr9pK/image.png" alt="PC de pruebas" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Las pruebas de rendimiento se llevaron a cabo en una máquina virtual Ubuntu 23.04 con 16 GB de RAM y un procesador Intel Core i7 de 13.a generación. Se instalaron aplicaciones en todos los formatos de empaquetado, y se midió el tiempo de apertura inicial y las ejecuciones posteriores. Los resultados mostraron diferencias en el tiempo de inicio y el rendimiento en pruebas como Velocímetro y Jetstream Benchmark.&lt;/p>
+&lt;ul>
+&lt;li>16 GB de RAM&lt;/li>
+&lt;li>Procesador Intel Core i7 de 13.a generación&lt;/li>
+&lt;li>Renderizado por hardware&lt;/li>
+&lt;li>Ubuntu 23.04&lt;/li>
+&lt;li>Maquina virtual&lt;/li>
+&lt;/ul>
+&lt;p>Recordemos que esto no pretende ser una maquina real sino un punto para una comparación de rendimiento entre los distintos formatos de empaquetado.&lt;/p>
+&lt;h3 id="resultados">Resultados&lt;/h3>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/Dzfc52PQ/image.png" alt="Resultados 1" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>
+&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/RCJLgpKY/image.png" alt="Resultados 2" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;h2 id="sandbox">Sandbox&lt;/h2>
+&lt;p>Los formatos de empaquetado como &lt;strong>Flatpaks&lt;/strong> y &lt;strong>Snaps&lt;/strong> utilizan entornos de sandbox para proporcionar aislamiento y seguridad a las aplicaciones. Sin embargo, esto puede afectar el rendimiento y la compatibilidad con ciertas características, como la mensajería nativa. El Sandbox no es 100% a prueba de balas. Nada lo es, pero es interesante limitar a qué puede acceder la aplicación, todo esto se administra a través de permisos de aplicaciones, de manera muy similar a lo que encontraría en las aplicaciones de Android o iOS, puede otorgar permisos a las aplicaciones para acceder a archivos y carpetas específicos o servicios y componentes específicos del sistema, todo esto generalmente se maneja a través de portales de escritorio que significa que la aplicación realmente no accede al archivo o a la carpeta, abre un portal que es lo que accede al recurso requerido y lo pasa a la aplicación.&lt;/p>
+&lt;p>Esto es similar a cómo los navegadores web ejecutan cada pestaña en un proceso separado al que no se puede acceder. el hilo principal del navegador o las otras pestañas, los paquetes regulares no están protegidos de forma predeterminada, se instalan en el sistema de archivos y requieren privilegios de root para instalarse, lo que significa que si el paquete tiene algunos scripts maliciosos posteriores a la instalación que ejecuta, le ha dado rienda suelta sobre su sistema y cualquier aplicación que haya instalado a través de paquetes pueden acceder a cualquier cosa que su usuario pueda acceder a su directorio completo de home, por ejemplo, u otros archivos de configuración de aplicaciones.&lt;/p>
+&lt;h2 id="funciones-faltantes">Funciones faltantes&lt;/h2>
+&lt;p>Cada formato de empaquetado tiene limitaciones y funciones faltantes. Por ejemplo, los paquetes &lt;strong>Flatpak&lt;/strong> y Snap carecen de compatibilidad con la mensajería nativa, lo que puede afectar su utilidad en ciertos casos de uso. Además, el soporte para el tema del sistema puede ser imperfecto en algunos formatos, lo que puede afectar la integración visual con el entorno del usuario.&lt;/p>
+&lt;h2 id="conclusión">Conclusión&lt;/h2>
+&lt;p>A pesar de las diferencias y limitaciones, todos los formatos de empaquetado ofrecen una experiencia similar en la ejecución de aplicaciones en Linux. La elección del formato adecuado puede depender de factores como la seguridad, la portabilidad y las características específicas requeridas por el usuario. Si bien la unificación hacia un formato de empaquetado único podría simplificar la experiencia para los usuarios principiantes, actualmente cada formato tiene su lugar en el ecosistema de Linux.&lt;/p></description></item><item><title>Cómo Importar tus Claves SSH: Una Guía para DevOps</title><link>https://patojad.com.ar/post/2023/10/c%C3%B3mo-importar-tus-claves-ssh-una-gu%C3%ADa-para-devops/</link><pubDate>Wed, 25 Oct 2023 12:11:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/10/c%C3%B3mo-importar-tus-claves-ssh-una-gu%C3%ADa-para-devops/</guid><description>&lt;p>Es común que los desarrolladores y DevOps tengan múltiples aspectos vinculados a sus claves &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 SSH
 &lt;/a>, desde el acceso a servidores hasta repositorios. Por lo tanto, es de vital importancia tener una copia de seguridad de tus claves &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 SSH
 &lt;/a>. En este artículo, te mostraré cómo importar tu copia de seguridad, evitando la tediosa tarea de crear una nueva clave y darla de alta en todos tus sistemas y servidores.&lt;/p>
 &lt;h2 id="dónde-se-almacenan-las-claves-ssh">¿Dónde se Almacenan las Claves SSH?&lt;/h2>
 &lt;p>El lugar donde se almacenan las claves &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 SSH
 &lt;/a> varía según el sistema operativo que utilices. En mi caso, uso Linux, y las claves se guardan en la carpeta &lt;code>~/.ssh/&lt;/code>. Esta carpeta contiene tanto las claves públicas como las privadas, así como archivos de configuración para &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 SSH
 &lt;/a>. Si estás en Windows, las claves se guardan en &lt;code>C:\Users\USERNAME\.ssh\&lt;/code>. En el caso de macOS, las claves se encuentran en la carpeta &lt;code>~/.ssh/&lt;/code>, similar a Linux.&lt;/p>
 &lt;h2 id="cómo-importar-una-clave-ssh">¿Cómo Importar una Clave SSH?&lt;/h2>
@@ -22,7 +64,7 @@ allowfullscreen>
 &lt;/iframe>
 &lt;/div>
 &lt;p>Para importar una clave &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 SSH
 &lt;/a>, el primer paso es copiar tanto la clave pública como la privada a la carpeta correspondiente en tu sistema operativo: &lt;code>~/.ssh/&lt;/code> para Linux y &lt;code>C:\Users\USERNAME\.ssh\&lt;/code> para Windows. Una vez que las claves estén en la carpeta, debes otorgar los permisos adecuados a la clave privada. Esto se logra ejecutando el siguiente comando:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -82,7 +124,7 @@ SSH
 &lt;/li>
 &lt;/ul>
 &lt;p>En resumen, las &lt;strong>Claves SSH&lt;/strong> son fundamentales en la seguridad de la comunicación y el acceso a sistemas remotos. Ofrecen una forma segura de autenticación y cifrado, lo que protege tus datos y sistemas contra posibles amenazas. Ya sea que seas un administrador de sistemas, un desarrollador o simplemente un usuario preocupado por la seguridad, comprender y utilizar las &lt;strong>Claves SSH&lt;/strong> es esencial en el mundo digital actual.&lt;/p></description></item><item><title>5 Verdades Malinterpretadas sobre Node.js que Debes Conocer en el Futuro</title><link>https://patojad.com.ar/post/2023/09/5-verdades-malinterpretadas-sobre-node.js-que-debes-conocer-en-el-futuro/</link><pubDate>Fri, 01 Sep 2023 10:13:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/09/5-verdades-malinterpretadas-sobre-node.js-que-debes-conocer-en-el-futuro/</guid><description>&lt;p>Ya hablamos con anterioridad sobre &lt;a href="https://patojad.com.ar/post/2023/08/por-qu%c3%a9-node.js-se-volvi%c3%b3-tan-popular-para-el-desarrollo-backend/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 ¿Por qué Node.js se volvió tan popular para el desarrollo backend?
 &lt;/a> y seguimos revisando el mismo articulo de P. Rehan en el que nos explica, tambien, &lt;strong>&amp;ldquo;5 Verdades Malinterpretadas sobre Node.js que Debes Conocer en el Futuro&amp;rdquo;&lt;/strong>.&lt;/p>
 &lt;p>Cada &lt;em>&amp;ldquo;niño prodigio&amp;rdquo;&lt;/em> viene acompañado de una nube de conceptos erróneos, y Node.js no es una excepción. Aquí te presentamos cinco malentendidos frecuentes sobre &lt;strong>Node.js&lt;/strong> &lt;em>(que debes conocer para evitar caer en la trampa de la desinformación)&lt;/em>:&lt;/p>
@@ -105,7 +147,7 @@ SSH
 &lt;/ul>
 &lt;hr>
 &lt;p>&lt;a href="https://pinjarirehan.medium.com/why-node-js-is-the-ultimate-game-changer-for-backend-development-26415839bbe2" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 Fuente
 &lt;/a>&lt;/p></description></item><item><title>Cómo Actualizar aaPanel y Mantener tu Servidor Web al Día</title><link>https://patojad.com.ar/post/2023/08/c%C3%B3mo-actualizar-aapanel-y-mantener-tu-servidor-web-al-d%C3%ADa/</link><pubDate>Wed, 30 Aug 2023 11:23:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/08/c%C3%B3mo-actualizar-aapanel-y-mantener-tu-servidor-web-al-d%C3%ADa/</guid><description>&lt;p>Mantener tu servidor web actualizado es esencial para garantizar su rendimiento, seguridad y funcionalidad. En este artículo, aprenderás cómo actualizar &lt;strong>aaPanel&lt;/strong>, una herramienta de panel de control que simplifica la administración de servidores web, y te proporciona una guía paso a paso para llevar a cabo este proceso.&lt;/p>
 &lt;h2 id="qué-es-aapanel">¿Qué es aaPanel?&lt;/h2>
@@ -127,12 +169,12 @@ allowfullscreen>
 &lt;/iframe>
 &lt;/div>
 &lt;p>A continuación, se detallan los pasos para actualizar aaPanel a la última versión en caso de querer hacerlo desde la terminal conectadose al servidor por &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 SSH
 &lt;/a>:&lt;/p>
 &lt;h3 id="acceder-al-servidor">Acceder al Servidor&lt;/h3>
 &lt;p>Inicia sesión en tu servidor a través de &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 SSH
 &lt;/a> utilizando un cliente como PuTTY (en el caso de estar en Windows) o la terminal en sistemas Unix o Unix-Like como Linux.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -174,15 +216,15 @@ SSH
 &lt;p>El primer paso es instalar aaPanel en tu servidor. Asegúrate de tener acceso a un servidor compatible con los requisitos de aaPanel, como &lt;strong>Debian&lt;/strong>, &lt;strong>Ubuntu&lt;/strong> o &lt;strong>CentOS&lt;/strong>. Una vez que hayas instalado el sistema operativo, puedes instalar aaPanel siguiendo los pasos detallados en el siguiente artículo:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://patojad.com.ar/post/2023/06/instalar-aapanel/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Instalar aaPanel
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://patojad.com.ar/post/2023/07/abrir-puertos-aapanel/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Abrir puertos aaPanel
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://patojad.com.ar/post/2023/07/primer-ingreso-a-aapanel/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Primer ingreso a aaPanel
 &lt;/a>&lt;/li>
 &lt;/ul>
@@ -220,15 +262,15 @@ allowfullscreen>
 &lt;p>Para comenzar, asegúrate de haber instalado &lt;strong>aaPanel&lt;/strong> en tu servidor, siguiendo los pasos detallados en los siguientes articulos:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://patojad.com.ar/post/2023/06/instalar-aapanel/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Instalar aaPanel
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://patojad.com.ar/post/2023/07/abrir-puertos-aapanel/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Abrir puertos aaPanel
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://patojad.com.ar/post/2023/07/primer-ingreso-a-aapanel/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Primer ingreso a aaPanel
 &lt;/a>&lt;/li>
 &lt;/ul>
@@ -255,10 +297,10 @@ allowfullscreen>
 &lt;li>Una vez que hayas creado el sitio estático, podrás acceder a la configuración detallada.&lt;/li>
 &lt;li>Utiliza las opciones disponibles para personalizar aspectos como las reglas de reescritura, la protección de directorios y la gestión de acceso.&lt;/li>
 &lt;li>Añade cualquier archivo necesario para tu sitio estático, como &lt;strong>&lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 HTML
 &lt;/a>&lt;/strong>, &lt;strong>&lt;a href="https://patojad.com.ar/post/2023/08/descubriendo-el-mundo-de-css/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 CSS
 &lt;/a>&lt;/strong>, y archivos de imágenes en la ubicación designada.&lt;/li>
 &lt;/ul>
@@ -456,7 +498,7 @@ allowfullscreen>
 &lt;/ul>
 &lt;h2 id="entre-lo-bueno-y-lo-malo">Entre lo bueno y lo malo&lt;/h2>
 &lt;p>Cada exploit existente o cada app que es utilizada para realizar pruebas de seguridad está disponible para quien la quiera usar. Indiferentemente de si sos un Hacker Chino (y cuando hablamos de hacker lo hacemos de verdad no de gente que usa Kali para lo cual te recomiendo leer &lt;a href="https://patojad.com.ar/posts/2020/09/que-es-un-hacker/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 ¿qué es un hacker?
 &lt;/a>), un empleado de seguridad defensiva, o un ciberdelincuente de la DeepWeb. Lo cual hace que el trabajo, al ser mayormente colaborativo, se vea reflejado para todos los “bandos”.&lt;/p>
 &lt;h2 id="qué-es-vulnerability-research">¿Qué es Vulnerability Research?&lt;/h2>
@@ -529,7 +571,7 @@ allowfullscreen>
 &lt;p>Hoy en día no somos muchos quienes seguimos usando el email activamente (La mayoría solo tiene uno porque es requisito para registrarse) Pero aun así muchos caen en estas trampas que apelan al apuro y al poco recaudo de las personas. Tomate un tiempo y chequea las cosas solo eso basta…&lt;/p>
 &lt;h2 id="error-5-denuncia-si-eres-víctima-de-un-ciberdelito">ERROR 5: ¡Denuncia si eres víctima de un ciberdelito!&lt;/h2>
 &lt;p>![](&lt;a href="https://i1.wp.com/aldiaargentina.microjuris.com/wp-content/uploads/2020/06/shutterstock_1354181000-1.jpg?fit=800%2C421&amp;amp;ssl=1%22" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://i1.wp.com/aldiaargentina.microjuris.com/wp-content/uploads/2020/06/shutterstock_1354181000-1.jpg?fit=800%2C421&amp;ssl=1"
 &lt;/a> &amp;gt;}}&lt;/p>
 &lt;blockquote>
@@ -558,7 +600,7 @@ https://i1.wp.com/aldiaargentina.microjuris.com/wp-content/uploads/2020/06/shutt
 &lt;p>No sé si es peor que esto siga pasando o que también pase en grandes empresas… Esta clase de cosas puede hacer que nuestro wifi quede inaccesible lo cual es realmente molesto… Siempre se deben cambiar las contraseñas por defecto (Se los digo yo que deje la contraseña del wifi que venía en el equipo)&lt;/p>
 &lt;hr>
 &lt;p>Recorda &lt;strong>apoyarnos&lt;/strong> en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p></description></item><item><title>¿Antivirus?¿Es Necesario? Rectificación</title><link>https://patojad.com.ar/post/2020/09/antiviruses-necesario-rectificaci%C3%B3n/</link><pubDate>Wed, 30 Sep 2020 09:40:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/09/antiviruses-necesario-rectificaci%C3%B3n/</guid><description>&lt;p>Con anterioridad hablamos ya sobre este &lt;a href="https://patojad.com.ar/posts/2019/01/antivirus-en-linux/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 tema en esta publicación
 &lt;/a>, la cual te recomiendo leer de antemano para comprender un poco la rectificación que quiero realizar sobre dicho tema.&lt;/p>
 &lt;p>Sin embargo, como ya veremos, esta publicación les faltaban marcar algunos detalles que desde mi punto son realmente importantes, por lo cual creo que es correcto que cuando una persona se equivoca intente enmendar su error y esta es una forma de hacerlo.&lt;/p>
@@ -581,7 +623,7 @@ allowfullscreen>
 &lt;h2 id="de-dónde-viene">¿De dónde viene?&lt;/h2>
 &lt;p>Más allá de las miles de historia que uno pueda encontrar rondando por internet es preciso ir a los primeros lugares donde se puede evidenciar. Esta palabra se comenzó a utilizar por el MIT dentro del ámbito de la telefonía.&lt;/p>
 &lt;p>![](&lt;a href="https://hopp.typepad.com/.a/6a00e553da444b8834019aff6e7bbe970d-pi%22" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://hopp.typepad.com/.a/6a00e553da444b8834019aff6e7bbe970d-pi"
 &lt;/a> &amp;gt;}}&lt;/p>
 &lt;p>Luego de esto se comenzó a utilizar mucho más y fue “expandiendo” su significado hasta el punto donde ahora se desconoce en gran mayoría.&lt;/p>
@@ -624,7 +666,7 @@ title="Video de Youtube"
 allowfullscreen>
 &lt;/iframe>
 &lt;/div></description></item><item><title>Evaluaciones de Seguridad</title><link>https://patojad.com.ar/post/2020/09/evaluaciones-de-seguridad/</link><pubDate>Sat, 12 Sep 2020 09:24:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/09/evaluaciones-de-seguridad/</guid><description>&lt;p>&lt;strong>ATENCION: Antes de seguir te recomiendo que te pases por la &lt;a href="https://patojad.com.ar/post/2020/09/que-es-la-seguridad-inform%c3%a1tica/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 siguiente pulbicacion
 &lt;/a> dado que damos esto por entendido&lt;/strong>&lt;/p>
 &lt;p>Las evaluaciones de seguridad deben tener una periodicidad regular que permite mantener una correlación de la los datos en los cuales se puedan obtener resultados, por ejemplo aquellas personas que sacan fotos todos los meses a sus bebés para luego ver el crecimiento… De nada serviría tener una foto de un dia, la otra del otro dia y la otra dentro de 10 años. Para poder ver correctamente el crecimiento debemos mantener un periodo regular de imágenes.&lt;/p>
@@ -705,39 +747,39 @@ Ir al Canal de Fede
 &lt;h2 id="las-publicaciones">Las publicaciones&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://patojad.com.ar/posts/2020/01/direcciones-ips-nuestra-huella-en-la-red/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Direcciones IP: Nuestra Huella en la Red
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://patojad.com.ar/posts/2020/02/qu%c3%a9-hay-detr%c3%a1s-de-una-ip/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 ¿Qué hay detrás de una IP?
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://patojad.com.ar/posts/2020/02/servidor-ftp-qu%c3%a9-es-instalando-nuestro-propio-servidor/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Servidor FTP qué es, instalando nuestro propio servidor
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://patojad.com.ar/posts/2020/02/comandos-ftp/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Comandos FTP
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://patojad.com.ar/posts/2020/02/ftp-problemas-de-conexion-port-y-pasv/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 FTP problemas de conexion, PORT y PASV
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://patojad.com.ar/post/2020/02/ingenieria-social-informatica/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Ingenieria social informatica
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://patojad.com.ar/posts/2020/02/que-es-la-virtualizacion/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 ¿Qué es la Virtualización?
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://patojad.com.ar/posts/2020/04/el-papel-de-javascript-en-la-seguridad/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 El papel de Javascript en la seguridad
 &lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://patojad.com.ar/posts/2020/04/servidor-proxy.-oculta-tu-identidad/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 Servidor proxy. Oculta tu identidad
 &lt;/a>&lt;/li>
 &lt;/ul>
@@ -746,7 +788,7 @@ Servidor proxy. Oculta tu identidad
 &lt;p>En este mundo es importante estar al día con los datos y las actualizaciones, por lo cual te dejamos un bonus que es realmente interesante para todos los usuarios centrados en la seguridad&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://patojad.com.ar/posts/2020/03/http/3-una-internet-mas-rapida/" >
-&lt;i class="fa fa-reply">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
 HTTP/3 ¿Una internet mas rapida?
 &lt;/a>&lt;/li>
 &lt;/ul>
@@ -804,7 +846,7 @@ Hola encantado de formar parte de esta comunidad &amp;lt;script&amp;gt; codigoqu
 &lt;h2 id="por-qué-necesitamos-la-virtualización-como-pentesters">¿Por qué necesitamos la virtualización como pentesters?&lt;/h2>
 &lt;p>En primer lugar vamos a necesitar vitualizar servidores para poder trabajarlos sin hacer cambios en nuestro equipo. Si nosotros pretendemos instalar cada servicio o porgrama en nuestro PC conseguiríamos que finalmente fuera lento e insostenible para trabajar. En cambio si nosotros instalamos el software que queremos en una máquina virtual nuestro pc no se resentirá, podremos trabajarlo como si lo estuvieramos instalando en un ordenador de pruebas sin comprometer la seguridad de nuestro equipo. Algo que a nosotros como pentesters debería ser una prioridad.&lt;/p>
 &lt;p>![](&lt;a href="https://lh3.googleusercontent.com/proxy/LxCYzwleqBmVFo4TXyqQ9Qa89B30L07--55TmGLLKlkBtGrGHAkxoWKDioNhh_jYpXT7LL7L7F3dTErXZvKa0XzP4-wnZCpBh7A9I6LCCW8dWn2MjO9JA7niVwV2CTMzaKWSIPV_4c0o8BK7Wo8VeA%22" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://lh3.googleusercontent.com/proxy/LxCYzwleqBmVFo4TXyqQ9Qa89B30L07--55TmGLLKlkBtGrGHAkxoWKDioNhh_jYpXT7LL7L7F3dTErXZvKa0XzP4-wnZCpBh7A9I6LCCW8dWn2MjO9JA7niVwV2CTMzaKWSIPV_4c0o8BK7Wo8VeA"
 &lt;/a> &amp;gt;}}&lt;/p>
 &lt;p>Otra razón de peso para trabajar con máquinas virtuales en el entorno de intrusiones es que podremos instalarnos distribuciones de pentesting &amp;ldquo;profesional&amp;rdquo; como lo es Kali Linux (a fines practivos de esta saga es muy util) sin necesidad de instalarlo directamente en nuestro PC obligándonos a modificar el sistema de arranque. Aunque como pentester lo normal es que lo tengas instalado sin virtualizar, para empezar, y ver cómo trabajan estas distribuciones para pentester lo ideal es virtualizarlas, familiarizarse con su uso y finalmente acabar instalándola como sistema operativo arrancable.&lt;/p>
@@ -837,7 +879,7 @@ allowfullscreen>
 &lt;/iframe>
 &lt;/div>
 &lt;p>Para ayudarnos en esta asignatura pendiente, tenemos a nuestra disposición el portal &lt;a href="https://concienciat.gva.es" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 concienciat
 &lt;/a>. El objetivo de la plataforma es mejorar las habilidades y conocimientos de la sociedad en materia de ciberseguridad, siempre desde un punto de vista práctico y con transferencia directa de los conocimientos adquiridos a la vida personal y laboral de cada individuo.&lt;/p>
 &lt;div class="ratio ratio-16x9 embed-video">
@@ -848,19 +890,33 @@ allowfullscreen>
 &lt;/iframe>
 &lt;/div>
 &lt;p>Nuestros compañeros de CSIRT-CV han preparado un &amp;ldquo;&lt;a href="https://concienciat.gva.es/infografias/dia-de-internet-segura-pdf-interactivo/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 pdf interactivo
 &lt;/a>&amp;rdquo; para este día tan especial, donde os será muy fácil acceder a los diferentes contenidos que podéis encontrar en su web &amp;ldquo;concienciaT&amp;rdquo;, y así mejorar tus hábitos en el uso de las tecnologías y podran sentirse cada vez más seguros.&lt;/p>
 &lt;p>&lt;div class="text-center">
 &lt;img src="https://concienciat.gva.es/wp-content/uploads/2020/02/infog_dia_internet_segura_interactivo_cas.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
 &lt;/div>&lt;/p>
-&lt;p>Desde PatoJAD les recomendamos a todos revisar este PDF porque siempre tenemos algo para aprender y recuerden que siempre es importante la seguridad de cada uno, no nos demos el lujo de exponernos!&lt;/p></description></item><item><title>¿Que es proxmox?</title><link>https://patojad.com.ar/post/2019/11/que-es-proxmox/</link><pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/11/que-es-proxmox/</guid><description>&lt;h2 id="proxmox-virtual-environment">Proxmox Virtual Environment&lt;/h2>
+&lt;p>Desde PatoJAD les recomendamos a todos revisar este PDF porque siempre tenemos algo para aprender y recuerden que siempre es importante la seguridad de cada uno, no nos demos el lujo de exponernos!&lt;/p></description></item><item><title>POLÍTICA DE PRIVACIDAD</title><link>https://patojad.com.ar/privacity/</link><pubDate>Wed, 18 Dec 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/privacity/</guid><description>&lt;p>El presente Política de Privacidad establece los términos en que PatoJAD usa y protege la información que es proporcionada por sus usuarios al momento de utilizar su sitio web. Esta comunidad está comprometida con la seguridad de los datos de sus usuarios. Cuando le pedimos llenar los campos de información personal con la cual usted pueda ser identificado, lo hacemos asegurando que sólo se empleará de acuerdo con los términos de este documento. Sin embargo esta Política de Privacidad puede cambiar con el tiempo o ser actualizada por lo que le recomendamos y enfatizamos revisar continuamente esta página para asegurarse que está de acuerdo con dichos cambios.&lt;/p>
+&lt;h2 id="información-que-es-recogida">Información que es recogida&lt;/h2>
+&lt;p>Nuestro sitio web podrá recoger información personal por ejemplo: Nombre, información de contacto como su dirección de correo electrónica e información demográfica. Así mismo cuando sea necesario podrá ser requerida información específica para procesar algún pedido o realizar una entrega o facturación.&lt;/p>
+&lt;h2 id="uso-de-la-información-recogida">Uso de la información recogida&lt;/h2>
+&lt;p>Nuestro sitio web emplea la información con el fin de proporcionar el mejor servicio posible, particularmente para mantener un registro de usuarios, de pedidos en caso que aplique, y mejorar nuestros productos y servicios. Es posible que sean enviados correos electrónicos periódicamente a través de nuestro sitio con ofertas especiales, nuevos productos y otra información publicitaria que consideremos relevante para usted o que pueda brindarle algún beneficio, estos correos electrónicos serán enviados a la dirección que usted proporcione y podrán ser cancelados en cualquier momento.&lt;/p>
+&lt;p>PatoJAD está altamente comprometido para cumplir con el compromiso de mantener su información segura. Usamos los sistemas más avanzados y los actualizamos constantemente para asegurarnos que no exista ningún acceso no autorizado.&lt;/p>
+&lt;h2 id="cookies">Cookies&lt;/h2>
+&lt;p>Una cookie se refiere a un fichero que es enviado con la finalidad de solicitar permiso para almacenarse en su ordenador, al aceptar dicho fichero se crea y la cookie sirve entonces para tener información respecto al tráfico web, y también facilita las futuras visitas a una web recurrente. Otra función que tienen las cookies es que con ellas las web pueden reconocerte individualmente y por tanto brindarte el mejor servicio personalizado de su web.&lt;/p>
+&lt;p>Nuestro sitio web emplea las cookies para poder identificar las páginas que son visitadas y su frecuencia. Esta información es empleada únicamente para análisis estadístico y después la información se elimina de forma permanente. Usted puede eliminar las cookies en cualquier momento desde su ordenador. Sin embargo las cookies ayudan a proporcionar un mejor servicio de los sitios web, estás no dan acceso a información de su ordenador ni de usted, a menos de que usted así lo quiera y la proporcione directamente, . Usted puede aceptar o negar el uso de cookies, sin embargo la mayoría de navegadores aceptan cookies automáticamente pues sirve para tener un mejor servicio web. También usted puede cambiar la configuración de su ordenador para declinar las cookies. Si se declinan es posible que no pueda utilizar algunos de nuestros servicios.&lt;/p>
+&lt;h2 id="enlaces-a-terceros">Enlaces a Terceros&lt;/h2>
+&lt;p>Este sitio web pudiera contener en laces a otros sitios que pudieran ser de su interés. Una vez que usted de clic en estos enlaces y abandone nuestra página, ya no tenemos control sobre al sitio al que es redirigido y por lo tanto no somos responsables de los términos o privacidad ni de la protección de sus datos en esos otros sitios terceros. Dichos sitios están sujetos a sus propias políticas de privacidad por lo cual es recomendable que los consulte para confirmar que usted está de acuerdo con estas.&lt;/p>
+&lt;h2 id="control-de-su-información-personal">Control de su información personal&lt;/h2>
+&lt;p>En cualquier momento usted puede restringir la recopilación o el uso de la información personal que es proporcionada a nuestro sitio web. Cada vez que se le solicite rellenar un formulario, como el de alta de usuario, puede marcar o desmarcar la opción de recibir información por correo electrónico. En caso de que haya marcado la opción de recibir nuestro boletín o publicidad usted puede cancelarla en cualquier momento.&lt;/p>
+&lt;p>Esta comunidad no venderá, cederá ni distribuirá la información personal que es recopilada sin su consentimiento, salvo que sea requerido por un juez con un orden judicial.&lt;/p>
+&lt;p>PatoJAD Se reserva el derecho de cambiar los términos de la presente Política de Privacidad en cualquier momento.&lt;/p></description></item><item><title>¿Que es proxmox?</title><link>https://patojad.com.ar/post/2019/11/que-es-proxmox/</link><pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/11/que-es-proxmox/</guid><description>&lt;h2 id="proxmox-virtual-environment">Proxmox Virtual Environment&lt;/h2>
 &lt;p>Proxmox Virtual Environment (También conocido como ProxmoxVE) es un entorno de virtualización de servidores de Código Abierto distribuido bajo la licencia GPL. Es, más bien, una distribución de GNU/Linux basados en nada más ni nada menos que la madre de todas las distros Debian, pero con la simple diferencia que su Kernel fue cambiado por una versión modificada del kernel de RHEL una distro enfocada en la nube y servidores.&lt;/p>
 &lt;p>&lt;div class="text-center">
 &lt;img src="http://www.centrodeserviciosti.com.mx/wp-content/uploads/2018/02/proxmox4_webgui-1110x550.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
 &lt;/div>&lt;/p>
 &lt;p>Proxmox, a diferencia de otros, incluye una consola Web y herramienta de líneas de comando. También proporciona una API REST (que dicho sea de paso se puede testear con nuestra &lt;a href="https://rest.patojad.com.ar/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 restclient
 &lt;/a>) para herramientas de terceros. Es compatible con dos tipos de virtualización:&lt;/p>
 &lt;ul>
@@ -889,7 +945,7 @@ Wikipedia
 &lt;/ul>
 &lt;hr>
 &lt;p>Proxmox además de todo lo mencionado ya cuenta con mucha documentación. Y una comunidad muy activa. Dejamos también su &lt;a href="https://pve.proxmox.com/wiki/Main_Page" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 Wiki
 &lt;/a> una de las completas entre los proyectos de este alcance.&lt;/p></description></item><item><title>La bomba zip</title><link>https://patojad.com.ar/post/2019/09/la-bomba-zip/</link><pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/09/la-bomba-zip/</guid><description>&lt;blockquote>
 &lt;p>Un archivo comprimido de 46 MB que explota hasta alcanzar los 4.5 petabytes, la bomba ZIP más potente creada hasta ahora&lt;/p>
@@ -902,7 +958,7 @@ genbeta
 &lt;h2 id="estructura-de-un-archivo-zip">Estructura de un archivo ZIP&lt;/h2>
 &lt;p>Un archivo zip es, básicamente, un archivo central que referencia a los otros archivos&lt;/p>
 &lt;p>![](&lt;a href="https://www.bamsoftware.com/hacks/zipbomb/normal.svg%22" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 https://www.bamsoftware.com/hacks/zipbomb/normal.svg"
 &lt;/a> &amp;gt;}}&lt;/p>
 &lt;p>El directorio central está al final del archivo zip. Es una lista de encabezados que contiene metadatos para un solo archivo, como su nombre de archivo y suma de verificación CRC-32, y un puntero hacia atrás a un encabezado de archivo local. Un encabezado de directorio central tiene 46 bytes de longitud, más la longitud del nombre del archivo.&lt;/p>
@@ -952,7 +1008,7 @@ href='https://www.bamsoftware.com/hacks/zipbomb/zbxl.zip'>
 &lt;img src="https://wwwhatsnew.com/wp-content/uploads/2019/03/Facebook-1905890_1280-.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
 &lt;/div>&lt;/p>
 &lt;p>Como podemos ver ya se encuentra solucionado el problema en sí, sin embargo, nos deja la duda de si es posible que se filtren otras claves y obtengamos aplicaciones falsas con su firma. Si te ingresa saber más sobre esto te dejamos el articulo detallado con la información técnica en detalle de lo ocurrido en el siguiente &lt;a href="https://www.androidpolice.com/2019/08/29/cryptographic-key-used-to-sign-one-of-facebooks-android-apps-compromised/" target="_blank" rel="noopener noreferrer" >
-&lt;i class="fa fa-external-link">&lt;/i>&amp;nbsp;
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
 Link
 &lt;/a>&lt;/p></description></item><item><title>¿Antivirus en Linux?</title><link>https://patojad.com.ar/post/2019/01/antivirus-en-linux/</link><pubDate>Mon, 07 Jan 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/01/antivirus-en-linux/</guid><description>&lt;p>En GNU/Linux, como en cualquier Sistema Operativo la seguridad es importante y es importante mencionar que no existe sistema que este excluido de estos &amp;ldquo;virus&amp;rdquo; por lo cual siempre debemos mantenernos atentos a lo que realizamos con nuestros ordenadores.&lt;/p>
 &lt;blockquote>
