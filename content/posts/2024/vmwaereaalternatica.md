@@ -1,6 +1,6 @@
 ---
 title: De VMware a una Infraestructura alternativa
-date: "2024-04-06 10:34:00.00"
+date: "2024-04-08 10:24:00.00"
 description: Descubre por qué muchas empresas están migrando de VMware a soluciones alternativas y cómo enfrentar este cambio en la infraestructura de TI.
 type: post
 tags:
