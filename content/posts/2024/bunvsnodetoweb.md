@@ -1,6 +1,6 @@
 ---
 title: "Bun o Node.js en 2024: ¿Cuál es la mejor opción para desarrollo web?"
-date: "2024-04-08 10:24:00.00"
+date: "2024-04-10 09:04:00.00"
 description: ¿Deberías cambiar de Node.js a Bun en 2024? Descubre las diferencias clave entre estas herramientas de desarrollo web y decide cuál se adapta mejor a tus necesidades.
 type: post
 tags:
