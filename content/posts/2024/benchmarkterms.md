@@ -1,6 +1,6 @@
 ---
 title: "Benchmark: Emuladores de terminal en MacOS y GNU/Linux"
-date: "2024-04-18 16:34:00.00"
+date: "2024-04-19 11:13:00.00"
 description: Revisa esta exhaustiva comparativa en MacOS y GNU/Linux. Conoce cómo medimos el consumo de energía, la latencia del teclado a la pantalla y el procesamiento de datos para encontrar el mejor emulador de terminal.
 type: post
 tags:
