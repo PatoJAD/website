@@ -41,7 +41,7 @@ tags:
     ]
 type: 'post'
 categories: ['Redes']
-img: 'https://www.cloudflare.com/static/d78b38d36bc84f3ca7aa24265e14f381/cloudflare_email_routing.png'
+img: 'https://i.postimg.cc/bvtdDKh6/cloudflare.webp'
 authors: ['PatoJAD']
 ---
 
