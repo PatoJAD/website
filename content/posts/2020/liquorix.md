@@ -15,29 +15,30 @@ Liquorixes un Kernel que se encuentra modificado (a nivel configuraciones) que n
 
 -   Sintoniza el kernel para la capacidad de respuesta a costa del rendimiento y el uso de energía.
 
-          --- Virtual Memory Subsystem ---------------------------
+    ```log
+    --- Virtual Memory Subsystem ---------------------------
 
-          Mem dirty before bg writeback..:  10 %  ->  20 %
-          Mem dirty before sync writeback:  20 %  ->  50 %
+    Mem dirty before bg writeback..:  10 %  ->  20 %
+    Mem dirty before sync writeback:  20 %  ->  50 %
 
-          --- Block Layer ----------------------------------------
+    --- Block Layer ----------------------------------------
 
-          Block Layer Queue Depth........: 128    -> 512
-          Default MQ scheduler......: mq-deadline -> bfq
+    Block Layer Queue Depth........: 128    -> 512
+    Default MQ scheduler......: mq-deadline -> bfq
 
-          --- CPU Scheduler (CFS) --------------------------------
+    --- CPU Scheduler (CFS) --------------------------------
 
-          Scheduling latency.............:   6    ->   3    ms
-          Minimal granularity............:   0.75 ->   0.3  ms
-          Wakeup granularity.............:   1    ->   0.5  ms
-          CPU migration cost.............:   0.5  ->   0.25 ms
-          Bandwidth slice size...........:   5    ->   3    ms
+    Scheduling latency.............:   6    ->   3    ms
+    Minimal granularity............:   0.75 ->   0.3  ms
+    Wakeup granularity.............:   1    ->   0.5  ms
+    CPU migration cost.............:   0.5  ->   0.25 ms
+    Bandwidth slice size...........:   5    ->   3    ms
 
-          --- CPU Scheduler (MuQSS) ------------------------------
+    --- CPU Scheduler (MuQSS) ------------------------------
 
-          Scheduling interval............:   6    ->   2    ms
-          ISO task max realtime use......:  70 %  ->  25 %
-
+    Scheduling interval............:   6    ->   2    ms
+    ISO task max realtime use......:  70 %  ->  25 %
+    ```
 -   Programador de proceso justo para juegos, multimedia y cargas en tiempo real.
 -   Tiempos de espera de alta resolución para la programación precisa de tareas de baja fluctuación. IRQs y RCU roscados para reducir la fluctuación de fase causada por tics periódicos a 250Hz.
 -   Implementación de RCU para sistemas en tiempo real.
@@ -56,21 +57,29 @@ Lo primero que debemos hacer es agregar los repositorios de Liquorix a nuestra d
 
 ### Debian
 
-    codename="$(find /etc/apt -type f -name '*.list' | xargs grep -E '^deb' | awk '{print $3}' | grep -Eo '^[a-z]+' | sort | uniq -c | sort -n | tail -n1 | grep -Eo '[a-z]+$')" && sudo apt-get update && sudo apt-get install apt-transport-https && echo -e "deb http://liquorix.net/debian $codename main\ndeb-src http://liquorix.net/debian $codename main\n\n# Mirrors:\n#\n# Unit193 - France\n# deb http://mirror.unit193.net/liquorix $codename main\n# deb-src http://mirror.unit193.net/liquorix $codename main" | sudo tee /etc/apt/sources.list.d/liquorix.list && curl https://liquorix.net/linux-liquorix.pub | sudo apt-key add - && sudo apt-get update
+```bash
+codename="$(find /etc/apt -type f -name '*.list' | xargs grep -E '^deb' | awk '{print $3}' | grep -Eo '^[a-z]+' | sort | uniq -c | sort -n | tail -n1 | grep -Eo '[a-z]+$')" && sudo apt-get update && sudo apt-get install apt-transport-https && echo -e "deb http://liquorix.net/debian $codename main\ndeb-src http://liquorix.net/debian $codename main\n\n# Mirrors:\n#\n# Unit193 - France\n# deb http://mirror.unit193.net/liquorix $codename main\n# deb-src http://mirror.unit193.net/liquorix $codename main" | sudo tee /etc/apt/sources.list.d/liquorix.list && curl https://liquorix.net/linux-liquorix.pub | sudo apt-key add - && sudo apt-get update
+```
 
 ### Deepin
 
-    codename="stable" && sudo apt-get update && sudo apt-get install apt-transport-https && echo -e "deb http://liquorix.net/debian $codename main\ndeb-src http://liquorix.net/debian $codename main\n\n# Mirrors:\n#\n# Unit193 - France\n# deb http://mirror.unit193.net/liquorix $codename main\n# deb-src http://mirror.unit193.net/liquorix $codename main" | sudo tee /etc/apt/sources.list.d/liquorix.list && curl https://liquorix.net/linux-liquorix.pub | sudo apt-key add - && sudo apt-get update
+```bash
+codename="stable" && sudo apt-get update && sudo apt-get install apt-transport-https && echo -e "deb http://liquorix.net/debian $codename main\ndeb-src http://liquorix.net/debian $codename main\n\n# Mirrors:\n#\n# Unit193 - France\n# deb http://mirror.unit193.net/liquorix $codename main\n# deb-src http://mirror.unit193.net/liquorix $codename main" | sudo tee /etc/apt/sources.list.d/liquorix.list && curl https://liquorix.net/linux-liquorix.pub | sudo apt-key add - && sudo apt-get update
+```
 
 ### Ubuntu
 
-    sudo add-apt-repository ppa:damentz/liquorix && sudo apt-get update
+```bash
+sudo add-apt-repository ppa:damentz/liquorix && sudo apt-get update
+```
 
 Una ves que los agregamos y nos aseguramos de tener la distribucion correctamente actualizada procedemos a instalar esta version del kernel
 (Les recomiendo guardar bien el nombre de los binarios por si hay errores poder volverlo atras con facilidad desde las opciones avanzadas)
 
 ### Debian, Deepin y Ubuntu
 
-    sudo apt-get install linux-image-liquorix-amd64 linux-headers-liquorix-amd64
+```bash
+sudo apt-get install linux-image-liquorix-amd64 linux-headers-liquorix-amd64
+```
 
 Una ves instalado correctamente solo reiniciamos y ya tenemos el nuevo kernel funcionando
