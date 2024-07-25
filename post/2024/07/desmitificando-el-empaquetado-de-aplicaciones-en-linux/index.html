@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="es"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<meta name="description" content="Explora los diferentes formatos de empaquetado en Linux, como DEB, RPM, Flatpak, Snap y AppImage, y sus características, ventajas y limitaciones. Compara el rendimiento y las funciones de cada formato." property="og:description" />
+
+	
+	
+
+	<title>Desmitificando el empaquetado de aplicaciones en Linux</title>
+
+	<meta name="robots" content="index, follow" />
+
+	
+	<meta name="google-site-verification" content="AB62lAN6bYFzpeZoN7yIodQqshuK3E4R7qQYEsq8T4Y" />
+
+	
+	<meta name="msvalidate.01" content="8A4FD3C15526528D48C910421066EC92" />
+
+	
+	<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" />
+
+	
+	<link rel="icon" type="image/png" href='http://localhost:1313/img/icon.jpg' />
+
+	
+	<link rel="canonical" href="http://localhost:1313/post/2024/07/desmitificando-el-empaquetado-de-aplicaciones-en-linux/" />
+
+	
+
+
+
+
+
+
+<link rel="stylesheet" href="http://localhost:1313/css/vendor.min.43c300c6ba5c83bcaf2cfe1274353c72c4db3061f59cdbc872569d1ba99e9350a5aaf57d172aef1b7e28faa97287171dba85ee88b0a9b53692634fb8e16f2dbc.css" />
+<script>(function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5S85CVQ');</script>
+
+<script src="https://kit.fontawesome.com/02f5a0ef7c.js" crossorigin="anonymous"></script><meta name="application-name" content="PatoJAD Blog" />
+
+<meta name="apple-mobile-web-app-title" content="PatoJAD Blog">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#03a9f4" />
+<meta name="generator" content="HugoCMS" />
+<meta name="rating" content="General" />
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<meta name="skype_toolbar" content="skype_toolbar_parser_compatible">
+
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+
+<meta name="x5-orientation" content="landscape/portrait">
+
+<meta name="x5-fullscreen" content="true">
+
+<meta name="x5-page-mode" content="app">
+
+<meta name="screen-orientation" content="landscape/portrait">
+
+<meta name="full-screen" content="yes">
+
+<meta name="imagemode" content="force">
+
+<meta name="browsermode" content="application">
+
+<meta name="layoutmode" content="fitscreen">
+
+<meta name="wap-font-scale" content="no">
+<meta property="fb:app_id" content="1087627025048583">
+
+<meta name="keywords"
+    content="linux,debian,ubuntu,redhat,fedora,flatpak,snap,appimage,paquetes,empaquetado,rendimiento,sandbox,seguridad,bibliotecas,distribuciones,flathub,repositorios,aplicaciones,formato,sistema,entorno,deb,rpm,ventajas,limitaciones,formato de empaquetado,informatica,blog,tecnologia,patojad,webmaster,sysadmin,programacion,actualidad" />
+
+
+<meta property="og:description" content="Explora los diferentes formatos de empaquetado en Linux, como DEB, RPM, Flatpak, Snap y AppImage, y sus características, ventajas y limitaciones. Compara el rendimiento y las funciones de cada formato." />
+
+<meta name="twitter:description" content="Explora los diferentes formatos de empaquetado en Linux, como DEB, RPM, Flatpak, Snap y AppImage, y sus características, ventajas y limitaciones. Compara el rendimiento y las funciones de cada formato." />
+<meta name="subject" content="Explora los diferentes formatos de empaquetado en Linux, como DEB, RPM, Flatpak, Snap y AppImage, y sus características, ventajas y limitaciones. Compara el rendimiento y las funciones de cada formato." />
+
+<meta name="description" itemprop="description" content="Explora los diferentes formatos de empaquetado en Linux, como DEB, RPM, Flatpak, Snap y AppImage, y sus características, ventajas y limitaciones. Compara el rendimiento y las funciones de cada formato.">
+
+
+<meta property="og:url" content="http://localhost:1313/post/2024/07/desmitificando-el-empaquetado-de-aplicaciones-en-linux/" />
+
+<meta property="og:site_name" content="PatoJAD" />
+
+<meta property="og:type" content="article" />
+
+<meta property="article:section" content="Posts" /><meta property="article:tag" content="linux" /><meta property="article:tag" content="debian" /><meta property="article:tag" content="ubuntu" /><meta property="article:tag" content="redhat" /><meta property="article:tag" content="fedora" /><meta property="article:tag" content="flatpak" /><meta property="article:tag" content="snap" /><meta property="article:tag" content="appimage" /><meta property="article:tag" content="paquetes" /><meta property="article:tag" content="empaquetado" /><meta property="article:tag" content="rendimiento" /><meta property="article:tag" content="sandbox" /><meta property="article:tag" content="seguridad" /><meta property="article:tag" content="bibliotecas" /><meta property="article:tag" content="distribuciones" /><meta property="article:tag" content="flathub" /><meta property="article:tag" content="repositorios" /><meta property="article:tag" content="aplicaciones" /><meta property="article:tag" content="formato" /><meta property="article:tag" content="sistema" /><meta property="article:tag" content="entorno" /><meta property="article:tag" content="deb" /><meta property="article:tag" content="rpm" /><meta property="article:tag" content="ventajas" /><meta property="article:tag" content="limitaciones" /><meta property="article:tag" content="formato de empaquetado" /><meta property="article:published_time" content='2024-07-24T12:34:00&#43;00:00' /><meta property="article:modified_time" content='2024-07-24T12:34:00&#43;00:00' /><meta name="twitter:site" content="@PatoJADOficial" />
+<meta name="twitter:creator" content="@PatoJADOficial" />
+<meta name="twitter:title" content="Desmitificando el empaquetado de aplicaciones en Linux" />
+
+<meta property="og:title" content="Desmitificando el empaquetado de aplicaciones en Linux" />
+
+<meta itemprop="name" content="Desmitificando el empaquetado de aplicaciones en Linux">
+
+<meta property="og:image" content="https://i.postimg.cc/k9G1Vf6K/packages.webp" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://i.postimg.cc/k9G1Vf6K/packages.webp" />
+<meta itemprop="image" property="image" content="https://i.postimg.cc/k9G1Vf6K/packages.webp">
+<meta name="ocs-site-verification" content="a5e3afcef7360a66c1b061fecc169ef1" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="googlebot" content="index,follow" />
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/localhost:1313\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Desmitificando el empaquetado de aplicaciones en Linux",
+    "headline" : "Desmitificando el empaquetado de aplicaciones en Linux",
+    
+    "description" : "Explora los diferentes formatos de empaquetado en Linux, como DEB, RPM, Flatpak, Snap y AppImage, y sus características, ventajas y limitaciones. Compara el rendimiento y las funciones de cada formato.",
+    "inLanguage" : "es",
+    "author" : "PatoJAD",
+    "creator" : "PatoJAD",
+    "publisher": "PatoJAD",
+    "accountablePerson" : "PatoJAD",
+    "copyrightHolder" : "PatoJAD",
+    "copyrightYear" : "2024",
+    "datePublished": "2024-07-24 12:34:00 \u002b0000 UTC",
+    "dateModified" : "2024-07-24 12:34:00 \u002b0000 UTC",
+    "url" : "http:\/\/localhost:1313\/post\/2024\/07\/desmitificando-el-empaquetado-de-aplicaciones-en-linux\/",
+    "wordCount" : "508",
+    "keywords" : [ "linux","debian","ubuntu","redhat","fedora","flatpak","snap","appimage","paquetes","empaquetado","rendimiento","sandbox","seguridad","bibliotecas","distribuciones","flathub","repositorios","aplicaciones","formato","sistema","entorno","deb","rpm","ventajas","limitaciones","formato de empaquetado","Blog" ]
+}
+</script></head><body>
+		<div class="preloader" style="opacity: 0; display: none">
+			<div class="loader">
+				<div class="spinner">
+					<div class="spinner-container">
+						<div class="spinner-rotator">
+							<div class="spinner-left">
+								<div class="spinner-circle"></div>
+							</div>
+							<div class="spinner-right">
+								<div class="spinner-circle"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5S85CVQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<header class="header bg-white navbar-area">
+	<div class="container-fluid">
+		<div class="row align-items-center">
+			<div class="col-lg-12">
+				<nav class="navbar navbar-expand-lg">
+					<a class="navbar-brand" href="http://localhost:1313/" alt="Home" aria-label="Go To Home"><svg
+  class="logo"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:svg="http://www.w3.org/2000/svg"
+  xmlns="http://www.w3.org/2000/svg"
+  height='54px'
+  viewBox="0 0 650 210"
+  version="1.1"
+  id="svg8206"
+  style="enable-background:new"
+  inkscape:export-xdpi="4.7625003"
+  inkscape:export-ydpi="4.7625003">
+  <defs
+    class="logo"
+    id="defs8200" />
+  <g
+    class="logo"
+    style="opacity:1"
+    transform="translate(0,-87)"
+    id="layer1"
+    inkscape:groupmode="layer"
+    inkscape:label="Capa 1">
+    <g
+      class="logo"
+      id="text9029"
+      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:138.81045532px;line-height:1.25;font-family:Umpush;-inkscape-font-specification:Umpush;letter-spacing:0px;word-spacing:0px;display:inline;fill-opacity:1;stroke:none;stroke-width:7.43627453"
+      transform="scale(0.68369136,1.4626483)"
+      aria-label="JAD" />
+    <g
+      class="logo"
+      id="g8404"
+      transform="translate(6.9703581e-6,91.805359)" />
+    <path
+      class="logo"
+      d="m 88.365354,271.58998 c -3.145738,-1.12653 -6.015936,-3.9879 -6.868825,-6.8477 -0.410391,-1.37606 -0.95368,-5.32664 -0.966788,-7.03009 -0.02768,-3.59707 -2.018712,-7.03011 -4.0772,-7.03011 -1.004565,0 -2.144227,1.00279 -2.96419,2.6082 -0.626058,1.22574 -0.665651,1.54463 -0.599397,4.82749 0.04097,2.03025 -0.05985,4.00161 -0.238694,4.66691 -0.875737,3.25787 -5.076931,5.44254 -8.330286,4.33185 -3.164952,-1.08049 -6.145836,-4.25325 -6.886015,-7.32925 -0.830727,-3.4523 -1.227668,-12.40774 -0.702215,-15.84275 1.085105,-7.09359 2.268607,-11.10166 4.736937,-16.04222 1.685394,-3.37344 3.348405,-5.59273 6.748822,-9.0063 4.600366,-4.61814 8.907805,-7.29256 14.469692,-8.98397 2.412818,-0.73376 4.473949,-0.97678 8.24685,-0.97235 4.698376,0.005 7.416894,0.59049 9.560595,2.05727 1.86643,1.27707 2.57431,2.15484 3.21104,3.98173 0.72883,2.09115 0.3441,6.87945 -0.82657,10.28687 -2.28332,6.64605 -3.968602,17.53517 -3.968602,25.6423 0,3.05976 0.690227,12.33844 0.948977,12.75712 0.06919,0.11194 -0.0025,0.89768 -0.159363,1.74609 -0.494679,2.67595 -1.946179,4.67174 -4.249837,5.84341 -1.635619,0.83191 -5.224207,1.00183 -7.084931,0.3355 z m -6.938975,-30.31483 c 4.121018,-2.79479 5.046553,-10.5937 1.538945,-12.96772 -2.89672,-1.96053 -6.825838,1.30746 -7.866469,6.54285 -0.374934,1.8863 -0.146739,3.52125 0.739394,5.29754 1.060523,2.12588 3.415293,2.60091 5.58813,1.12733 z m 33.437041,29.58599 c -4.19364,-1.22356 -7.20015,-4.45611 -8.20637,-8.82334 -1.3914,-6.03902 -1.39771,-16.71259 -0.0152,-25.8215 1.44019,-9.48929 4.09173,-17.51055 8.90786,-26.94746 0.96099,-1.883 1.63281,-3.59597 1.62137,-3.8059 -0.0251,-0.46199 -0.14788,-0.63305 -0.48248,-0.93959 -1.51794,-1.39059 -20.137655,-2.06915 -28.323202,-1.03217 -4.286718,0.54306 -9.694269,1.56647 -11.381562,2.15402 -2.800462,0.97519 -4.531113,0.28229 -3.632975,-1.45452 0.635192,-1.22832 6.443814,-7.12748 9.471572,-9.61919 9.1946,-7.56679 17.364547,-11.50394 29.769667,-12.49373 3.17967,-0.25371 6.00789,-0.22693 7.84883,0.046 9.40547,1.39441 20.07136,2.17083 28.22112,0.4245 2.00478,-0.44585 5.98915,-1.91112 8.15112,-2.99762 5.74019,-2.88473 8.7476,-5.76461 13.2814,-12.71819 2.35452,-3.61118 3.4517,-4.6912 4.49998,-4.42969 2.08446,0.51999 7.59036,6.42761 10.35013,11.10527 1.26466,2.14353 3.9098,7.68312 4.50842,9.44177 1.76948,5.19842 2.05858,7.93705 1.06352,10.07492 -2.05477,4.41464 -10.76339,9.4851 -20.22561,11.77603 -7.97868,1.93173 -12.386,2.41453 -22.66169,2.48242 -9.44625,0.0624 -8.5066,-0.22302 -10.24169,3.11107 -3.90336,7.50054 -7.04322,17.35145 -8.44596,26.49807 -0.86527,5.64204 -0.82325,13.89123 -0.21914,24.30056 0.0985,1.69741 -0.14547,2.92831 -0.38147,3.72749 -0.67964,2.30178 -2.79564,4.94757 -5.57555,5.78417 -3.44791,1.07763 -6.48194,0.57098 -7.90204,0.15664 z m 27.03885,-5.6126 c -2.85033,-0.77151 -5.36111,-2.33736 -7.05392,-5.70761 -2.72906,-5.5556 -0.001,-21.70586 2.10449,-28.86759 0.37674,-1.26407 0.74596,-2.63439 0.8205,-3.04519 0.0745,-0.41078 0.24315,-0.81341 0.37471,-0.89471 0.13157,-0.0813 0.23922,-0.33084 0.23922,-0.55451 0,-0.77828 1.72918,-3.98506 3.03095,-5.62092 1.32482,-1.66483 3.99716,-3.89935 5.48628,-4.58746 2.28811,-1.05729 2.86074,-1.27245 4.73181,-1.7779 1.19537,-0.32292 4.13306,-0.71825 7.15566,-0.96293 5.2942,-0.42858 8.09368,-0.76773 10.08162,-1.22135 3.90908,-0.89202 4.18627,-0.96771 7.50328,-2.04883 1.18969,-0.38776 2.90125,-0.76765 3.80345,-0.84419 6.37659,-0.54099 11.8847,4.61849 10.66671,9.99157 -1.00638,4.43975 -3.14835,10.28929 -5.27496,14.4055 -1.40475,2.71899 -3.70323,6.56544 -4.52411,7.57097 -0.24276,0.29738 -1.20522,1.51408 -2.13879,2.7038 -4.51862,5.75836 -11.84095,11.77528 -19.36694,15.91424 -1.52593,0.83919 -2.82186,1.5258 -2.87983,1.5258 -0.0579,0 -1.1491,0.4867 -2.42471,1.08155 -1.2756,0.59487 -2.38409,1.08157 -2.46328,1.08157 -0.0792,0 -0.65978,0.23616 -1.29019,0.5248 -3.27263,1.4984 -6.25835,1.96229 -8.58191,1.33339 z m 13.39491,-20.41313 c 3.37325,-1.7559 6.69435,-4.22222 9.59313,-7.12401 2.62636,-2.62911 5.49692,-6.62075 5.49692,-7.4325 0,-0.18908 -0.0759,-0.6644 -0.38416,-1.05624 -0.53692,-0.68256 -0.67086,-0.71244 -3.19501,-0.71244 -1.44903,0 -3.35658,0.12256 -4.239,0.27232 -5.16638,0.8769 -6.18185,1.23729 -7.66477,2.72021 -1.08383,1.08382 -1.4737,1.88744 -1.89322,3.90238 -0.18577,0.89228 -0.44145,2.10904 -0.56817,2.7039 -0.12672,0.59485 -0.38585,2.34318 -0.5759,3.88518 -0.22043,1.82103 -0.40351,2.72872 0.28263,3.31228 0.59767,0.50831 0.97267,0.66104 3.14755,-0.47108 z M 47.693851,256.83659 c -8.494114,-7.75688 -13.729708,-17.60335 -15.448606,-29.05382 -0.454046,-3.02465 -0.516884,-10.18795 -0.112019,-12.76983 0.712144,-4.5414 1.258653,-6.84826 2.471437,-10.43209 0.816693,-2.41336 2.403962,-6.11985 2.970567,-6.93665 0.273823,-0.39474 0.49786,-0.77545 0.49786,-0.84601 0,-0.18597 1.608296,-2.81017 2.687329,-4.38483 2.507943,-3.65988 6.477476,-7.82052 10.316996,-10.81369 0.952516,-0.74256 2.38239,-1.95766 3.177495,-2.70021 3.602811,-3.3647 2.979057,-4.68602 -3.806659,-8.06376 -7.514265,-3.74042 -11.551795,-6.45398 -15.661667,-10.52594 -3.609115,-3.57583 -4.951673,-5.4251 -6.236208,-8.58988 -1.004091,-2.24855 -1.000577,-5.22957 -0.239754,-7.49295 0.750966,-2.05455 1.559863,-3.08871 2.984287,-3.88979 3.362698,-1.89116 7.157578,-1.45877 12.840154,-0.32043 2.15915,0.28933 5.609653,-0.92259 7.598534,-2.66885 1.170604,-1.02781 2.093615,-2.3527 3.644359,-5.23114 1.638856,-3.04199 4.287977,-6.80161 6.211118,-8.8148 4.922669,-5.15316 11.474745,-8.77044 19.095102,-10.54206 3.549941,-0.82531 10.802686,-1.01799 14.362897,-0.38157 10.189377,1.82144 19.526207,7.98113 25.038217,16.51822 1.11051,1.71997 1.80514,3.07632 3.29361,6.43121 2.47253,5.57287 3.12516,14.58665 1.51965,20.98877 -1.30166,5.19053 -3.97128,9.6647 -8.39435,14.0686 -4.78561,4.76486 -9.50437,7.31042 -17.760519,9.58103 -4.575774,1.25843 -7.208844,2.08286 -7.525728,2.35635 -0.141279,0.12194 -0.41432,0.2217 -0.606764,0.2217 -0.504666,0 -5.320791,2.3668 -7.383217,3.62836 -5.434804,3.32437 -12.581781,9.89335 -16.961593,15.58989 -11.280431,14.67168 -16.288997,30.62378 -15.019998,47.83812 0.191852,2.60248 0.455334,5.46183 0.585518,6.35412 0.182285,1.24937 0.149465,1.76219 -0.142768,2.2307 -0.697543,1.11832 -1.643343,0.79903 -3.99528,-1.34877 z m 49.373858,-94.70723 c 7.112831,-1.46018 12.156371,-7.52865 12.151141,-14.62047 -0.003,-4.46566 -1.34041,-7.69042 -4.47627,-10.79556 -3.77402,-3.73706 -10.320881,-5.4351 -11.853848,-3.60985 -0.58405,0.90035 -0.177292,1.88166 0.155801,2.97428 0.991738,3.25313 1.371221,6.63206 1.010517,8.9976 -0.484755,4.16695 -1.993664,8.19779 -4.496528,11.60017 -1.515336,2.01584 -1.632239,3.34006 -0.396742,4.49418 1.345237,1.25665 4.558986,1.64674 7.905929,0.95965 z"
+      style="display:inline;opacity:1;fill-opacity:0.98994978;stroke-width:0.27038851" />
+    <g
+      class="logo"
+      aria-label="JAD"
+      style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:219.1693573px;line-height:1.25;font-family:Umpush;-inkscape-font-specification:'Umpush Bold';letter-spacing:0px;word-spacing:0px;fill-opacity:0.99215686;stroke:none;stroke-width:11.74121666"
+      id="text8473"
+      transform="matrix(1.0219408,0,0,1.0219408,2.6930762,-4.212931)">
+      <path
+        class="logo"
+        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Umpush;-inkscape-font-specification:'Umpush Bold';fill-opacity:0.99215686;stroke-width:45.34990311"
+        d="M 979.77344,99.791582 V 120.66406 H 1168.6738 V 99.791582 Z m 465.74806,-0.707107 -10.4531,21.579585 h 105.2285 l -10.4531,-21.579585 z m 395.1582,-1.06066 v 22.640245 h 358.9922 C 2150.4586,105.00645 2096.4916,98.175344 2049.418,98.023815 Z M 979.77344,143.3418 v 36.17773 H 1168.6738 V 143.3418 Z m 446.24026,0 -14.4453,36.17773 h 152.2285 l -14.4453,-36.17773 z m 414.666,0 v 36.17773 h 440.4121 c -5.7317,-6.67733 -11.9979,-13.11314 -18.8008,-19.30859 -6.5341,-6.05894 -13.5322,-11.68084 -20.9883,-16.86914 z m -771.209,58.85547 V 238.375 h 99.2031 v -36.17773 z m 333.041,0 -14.4453,36.17773 h 199.2324 l -14.4453,-36.17773 z m 438.168,0 V 238.375 h 99.2031 v -36.17773 z m 298.4219,0 c 20.0764,8.6851 37.4569,20.7463 52.1464,36.17773 h 125.0137 c -4.604,-11.47244 -9.9148,-22.2356 -15.9433,-32.2832 -0.7841,-1.30671 -1.5918,-2.60332 -2.4102,-3.89453 z m -1069.6309,58.85351 v 36.17774 h 99.2031 v -36.17774 z m 309.541,0 -14.4472,36.17774 h 104.9375 l 14.4003,-36.17774 z m 112.4492,0 14.4004,36.17774 h 104.9375 l -14.4453,-36.17774 z m 349.2188,0 v 36.17774 h 99.2031 v -36.17774 z m 368.7832,0 c 7.2945,10.98702 13.3795,23.04605 18.2539,36.17774 h 105.6348 c -2.3777,-12.00806 -5.384,-23.92531 -9.0586,-35.74805 -0.043,-0.14399 -0.088,-0.28589 -0.1309,-0.42969 z m -1139.9922,58.85547 v 36.17773 h 99.2031 v -36.17773 z m 286.0391,0 -14.4473,36.17773 h 105.0098 l 14.4023,-36.17773 z m 159.3789,0 14.4023,36.17773 h 105.0098 l -14.4453,-36.17773 z m 325.791,0 v 36.17773 h 99.2031 v -36.17773 z m 393.9863,0 c 2.8161,11.38159 4.8685,23.43999 6.1543,36.17773 h 99.8145 c -0.6892,-11.32106 -1.727,-22.18962 -3.1153,-32.60156 -0.1413,-1.19384 -0.3109,-2.38412 -0.4648,-3.57617 z m -1165.1953,58.85547 v 36.17578 h 99.2031 v -36.17578 z m 262.5371,0 -14.4453,36.17578 h 105.082 l 14.4004,-36.17578 z m 206.3106,0 14.4004,36.17578 h 105.0839 l -14.4453,-36.17578 z m 302.3613,0 v 36.17578 h 99.2031 v -36.17578 z m 401.6035,0 c 0.1069,3.57314 0.168,7.18759 0.168,10.85547 0,8.67896 -0.3106,17.11344 -0.9141,25.32031 h 99.6133 c 0.3289,-7.86587 0.5039,-15.8853 0.5039,-24.08008 0,-4.08915 -0.054,-8.10843 -0.1328,-12.0957 z m -1172.8125,58.85351 v 36.17774 h 99.2031 v -36.17774 z m 239.0371,0 -14.4473,36.17774 h 387.2422 l -14.4453,-36.17774 z m 532.1719,0 v 36.17774 h 99.2031 v -36.17774 z m 398.3301,0 c -1.9214,12.69022 -4.6484,24.75001 -8.1836,36.17774 h 104.2832 c 1.9852,-11.605 3.511,-23.66826 4.5918,-36.17774 z M 1069.4707,496.4707 v 2.6836 c 0,11.98528 -0.7268,23.14661 -2.1738,33.49414 h 100.4804 c 0.592,-8.7569 0.8965,-17.8474 0.8965,-27.29492 v -8.88282 z m 215.5352,0 -14.4473,36.17774 h 105.0273 l 7.1075,-17.78711 h 209.9785 l 7.1074,17.78711 h 105.0254 l -14.4453,-36.17774 z m 555.6738,0 v 36.17774 h 99.2031 V 496.4707 Z m 381.7207,0 c -5.7274,13.0216 -12.6936,25.07572 -20.875,36.17774 h 118.3223 c 1.9882,-5.6093 3.8896,-11.38869 5.6855,-17.375 1.8187,-6.1091 3.4695,-12.3859 4.9805,-18.80274 z m -1384.81642,9.29688 c 0,9.29953 0.29548,18.25192 0.86719,26.88086 H 939.4082 c -1.3288,-8.32999 -2.20403,-17.28847 -2.62109,-26.88086 z m 3.12696,49.55664 c 1.7587,12.93174 4.26274,24.98942 7.50781,36.17773 h 117.35742 c -1.33368,-1.23408 -2.66474,-2.51609 -3.98828,-3.89257 -6.8891,-7.44023 -12.53825,-18.1865 -16.94727,-32.24024 -0.005,-0.0148 -0.009,-0.0301 -0.0137,-0.0449 z m 221.87696,0 c -2.3454,8.266 -5.2775,15.87048 -8.8242,22.77734 -2.665,5.11944 -5.716,9.58367 -9.1485,13.40039 h 113.2754 c 3.2765,-11.18872 5.8098,-23.24546 7.5918,-36.17773 z m 198.916,0 -14.4453,36.17773 h 105.0137 l 14.455,-36.17773 z m 347.334,0 14.4551,36.17773 h 105.0117 l -14.4453,-36.17773 z m 231.8418,0 v 36.17773 h 99.2031 v -36.17773 z m 341.0371,0 c -16.8467,16.19713 -36.5253,28.25263 -59.0254,36.17773 h 168.2793 c 7.2867,-10.75175 13.9068,-22.81111 19.8594,-36.17773 z M 856.32812,614.17969 c 5.94559,13.71741 13.30224,25.78009 22.07813,36.17773 h 249.04885 c 8.8423,-10.39769 16.2571,-22.46021 22.2539,-36.17773 z m 381.67388,0 -14.4454,36.17773 h 105 l 14.4551,-36.17773 z m 394.3515,0 14.4531,36.17773 h 105 l -14.4453,-36.17773 z m 208.3262,0 v 36.17773 h 389.1289 c 16.1636,-10.2453 30.5801,-22.29981 43.2363,-36.17773 z m -937.16408,58.85547 c 25.56492,17.44312 58.55567,20.16732 98.99218,20.16732 40.6979,0 73.9101,-2.72342 99.6563,-20.16732 z m 310.98438,0 -8.3066,20.80468 h 104.9902 l 8.3125,-20.80468 z m 441.3672,0 8.3125,20.80468 h 104.9902 l -8.3066,-20.80468 z m 184.8125,0 v 20.80468 h 218.6601 c 30.0365,0 57.8668,-2.61783 83.4942,-7.85351 14.2233,-3.02625 28.3209,-7.34927 42.2949,-12.95117 z"
+        transform="matrix(0.2589028,0,0,0.2589028,-0.02100113,89.254576)"
+        id="path8499"
+        inkscape:connector-curvature="0"
+        sodipodi:nodetypes="cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccsccscccccccccccccccccccccccsccscccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccsccccccccccccccsccc" />
+    </g>
+    <g
+      class="logo"
+      id="g9268"
+      transform="translate(2.6716143,-3.8748433e-5)" />
+    <g
+      class="logo"
+      id="g9363">
+      <path
+        class="logo"
+        style="opacity:1;fill-opacity:0.99215686;stroke:none;stroke-width:161.85066223;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+        d="m 333.53906,97.761719 c -1.39782,0 -2.52344,1.123659 -2.52344,2.521481 10e-6,1.39783 1.12562,2.52344 2.52344,2.52344 H 1970.0664 c 1.3978,0 2.5234,-1.12561 2.5234,-2.52344 0,-1.397822 -1.1256,-2.521481 -2.5234,-2.521481 z m 103.46289,60.000001 c -1.39782,0 -2.52343,1.12366 -2.52343,2.52148 0,1.39783 1.12561,2.52344 2.52343,2.52344 H 1970.0664 c 1.3978,0 2.5234,-1.12561 2.5234,-2.52344 0,-1.39782 -1.1256,-2.52148 -2.5234,-2.52148 z m 26.60352,59.04883 c -1.39783,0 -2.52344,1.12561 -2.52344,2.52343 0,1.39783 1.12561,2.52344 2.52344,2.52344 H 2212.4629 c 1.3978,0 2.5234,-1.12561 2.5234,-2.52344 0,-1.39782 -1.1256,-2.52343 -2.5234,-2.52343 z m -26.60352,59.04883 c -1.39782,-10e-6 -2.52343,1.12561 -2.52343,2.52343 0,1.39783 1.12561,2.52344 2.52343,2.52344 H 2261.2363 c 1.3979,0 2.5235,-1.12561 2.5235,-2.52344 0,-1.39782 -1.1256,-2.52343 -2.5235,-2.52343 z m 232.05078,59.05078 c -1.39782,0 -2.52343,1.12366 -2.52343,2.52148 0,1.39783 1.12561,2.52344 2.52343,2.52344 H 2276.0176 c 1.3978,0 2.5234,-1.12561 2.5234,-2.52344 0,-1.39782 -1.1256,-2.52148 -2.5234,-2.52148 z m 23.64844,59.04882 c -1.39782,0 -2.52344,1.12562 -2.52344,2.52344 0,1.39783 1.12562,2.52344 2.52344,2.52344 H 2281.9297 c 1.3978,0 2.5234,-1.12561 2.5234,-2.52344 0,-1.39782 -1.1256,-2.52344 -2.5234,-2.52344 z m -187.71094,59.04883 c -1.39782,0 -2.52343,1.12561 -2.52343,2.52344 0,1.39783 1.12561,2.52344 2.52343,2.52344 H 2284.8848 c 1.3978,0 2.5234,-1.12561 2.5234,-2.52344 0,-1.39783 -1.1256,-2.52344 -2.5234,-2.52344 z m 189.1875,59.05078 c -1.39782,0 -2.52343,1.12366 -2.52343,2.52149 0,1.39782 1.12561,2.52344 2.52343,2.52344 H 2253.8477 c 1.3978,0 2.5234,-1.12562 2.5234,-2.52344 0,-1.39783 -1.1256,-2.52149 -2.5234,-2.52149 z m -35.47265,59.04883 c -1.39783,0 -2.52344,1.12561 -2.52344,2.52344 0,1.39782 1.12561,2.52344 2.52344,2.52344 H 2202.1172 c 1.3978,0 2.5215,-1.12562 2.5215,-2.52344 0,-1.39783 -1.1237,-2.52344 -2.5215,-2.52344 z m -88.68164,59.04883 c -1.39783,0 -2.52344,1.12561 -2.52344,2.52344 0,1.39782 1.12561,2.52343 2.52344,2.52343 H 1970.0664 c 1.3978,0 2.5234,-1.12561 2.5234,-2.52343 0,-1.39783 -1.1256,-2.52344 -2.5234,-2.52344 z m -116.76367,58.59961 c -1.39783,0 -2.52344,1.12561 -2.52344,2.52344 0,1.39782 1.12561,2.52343 2.52344,2.52343 H 1947.8965 c 1.3978,0 2.5215,-1.12561 2.5215,-2.52343 0,-1.39783 -1.1237,-2.52344 -2.5215,-2.52344 z"
+        transform="matrix(0.26458333,0,0,0.26458333,0,87)"
+        id="rect8461"
+        inkscape:connector-curvature="0" />
+    </g>
+  </g>
+</svg>
+</a>
+					<button class="navbar-toggler ms-auto me-auto" type="button" data-bs-toggle="collapse"
+						data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+						<em class="fas fa-bars"></em>
+					</button>
+					<div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+						<ul id="nav" class="navbar-nav ms-auto me-auto">
+							 
+							<li class="nav-item">
+								<a class="page-scroll" title="Inicio" href="http://localhost:1313/" >
+									<span>Inicio</span>
+								</a>
+							</li>
+							  
+							<li class="nav-item">
+								<a class="page-scroll" title="Blog" href="http://localhost:1313/posts" >
+									<span>Blog</span>
+								</a>
+							</li>
+							  
+							<li class="nav-item">
+								<a class="page-scroll dd-menu collapsed" href="javascript:void(0)"
+									data-bs-toggle="collapse" data-bs-target="#Sobre"
+									aria-controls="navbarSupportedContent" aria-expanded="false"
+									aria-label="Toggle navigation">Sobre</a>
+								<ul class="sub-menu collapse" id="Sobre">
+									
+									<li class="nav-item">
+										<a title="Sobre Mi" href="https://joaquindecima.gitlab.io/" target="_blank" >Sobre Mi</a>
+									</li>
+									
+									<li class="nav-item">
+										<a title="Sobre PatoJAD" href="http://localhost:1313/about" >Sobre PatoJAD</a>
+									</li>
+									
+								</ul>
+							</li>
+							  
+							<li class="nav-item">
+								<a class="page-scroll" title="Contacto" href="http://localhost:1313/contact" >
+									<span>Contacto</span>
+								</a>
+							</li>
+							  
+							<li class="nav-item">
+								<a class="page-scroll" title="Agradecimientos" href="http://localhost:1313/gratitude" >
+									<span>Agradecimientos</span>
+								</a>
+							</li>
+							 
+						</ul>
+					</div>
+					<div class="nav-item" id="dark-mode-toggle">
+	<em class="fas fa-moon"></em> <em class="fas fa-sun"></em>
+</div>
+
+				</nav>
+			</div>
+		</div>
+	</div>
+</header><div id="content">
+
+<section class="page-banner-section pt-75 pb-75 img-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="banner-content">
+          <h2 class="text-white">Desmitificando el empaquetado de aplicaciones en Linux</h2>
+          <div class="page-breadcrumb">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">Explora los diferentes formatos de empaquetado en Linux, como DEB, RPM, Flatpak, Snap y AppImage, y sus características, ventajas y limitaciones. Compara el rendimiento y las funciones de cada formato.</li>
+              </ol>
+            </nav>
+          </div>
+          <div class="page-breadcrumb">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item" aria-current="page"><a href="http://localhost:1313/">PatoJAD</a></li>
+                <li class="breadcrumb-item" aria-current="page"><a href="http://localhost:1313/posts/">Blog</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Desmitificando el empaquetado de aplicaciones en Linux</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><section class="blog-section pt-130">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-8 col-lg-7">
+				<div class="left-side-wrapper mb-60">
+					<div class="single-blog blog-style-2 mb-60">
+						<div class="blog-img blog-img-2">
+							<img src="https://i.postimg.cc/k9G1Vf6K/packages.webp" alt="Desmitificando el empaquetado de aplicaciones en Linux" title="Desmitificando el empaquetado de aplicaciones en Linux" loading="lazy" />
+						</div>
+						<div class="blog-content">
+							<div class="head-info row">
+								<div class="col-6">
+									<ul>
+										<li>
+											<span class="date-meta">
+												<em class="fa fa-calendar" aria-hidden="true"></em>
+												
+												 
+												
+												
+												
+												
+												
+
+												Miércoles 24 de Julio de 2024
+											</span>
+										</li>
+										<li>
+											<time>
+												<em class="fa fa-clock-o" aria-hidden="true"></em> 3
+												min de
+												lectura
+											</time>
+										</li>
+									</ul>
+								</div>
+								<div class="col-6">
+									
+									<div class="article-category">
+										
+										<a href="http://localhost:1313/categories/linux/" 
+											style="background-color: #f2cf61; color: #fff;" >
+											GNU/Linux
+										</a>
+										
+										<a href="http://localhost:1313/categories/aplicaciones/" 
+											style="background-color: #ff5050; color: #fff;" >
+											Aplicaciones
+										</a>
+										
+										<a href="http://localhost:1313/categories/seguridad/" 
+											style="background-color: #f1bd62; color: #fff;" >
+											Seguridad
+										</a>
+										
+									</div>
+									
+								</div>
+							</div>
+
+							<h1 class="text-center" style="margin-top: 10px;">Desmitificando el empaquetado de aplicaciones en Linux</h1>
+							<p>El empaquetado de aplicaciones en Linux es un tema que ha generado mucho debate en la comunidad. Algunos defienden el uso de paquetes de distribuidores, mientras que otros prefieren el empaquetado de terceros como Flatpak o Snap. En este vídeo, vamos a desmitificar algunos conceptos erróneos sobre la seguridad y el empaquetado de aplicaciones en Linux.</p>
+<h2 id="verificación-de-aplicaciones">Verificación de aplicaciones</h2>
+<p>La verificación de aplicaciones es un proceso que garantiza que la aplicación que se descarga y se instala proviene directamente del desarrollador y no ha sido modificada por un tercero. Esto es especialmente importante en Linux, donde cualquier persona puede crear un paquete y distribuirlo. Sin embargo, la verificación de aplicaciones no garantiza que la aplicación sea segura o libre de vulnerabilidades.
+Por ejemplo, la biblioteca XZ fue hackeada y contenía una backdoor. Aunque la aplicación fue verificada, todavía contenía el código malicioso. Otro ejemplo es el caso de KeePassXC, donde el mantenedor de la versión de Debian decidió eliminar algunas características sin el consentimiento del desarrollador original.</p>
+<h2 id="empaquetado-de-distribuidores">Empaquetado de distribuidores</h2>
+<p>El empaquetado de distribuidores no es necesariamente más seguro que el empaquetado de terceros. Los mantenedores de paquetes pueden no ser desarrolladores y no realizar revisiones de seguridad del código. Además, los paquetes de distribuidores pueden contener versiones antiguas de bibliotecas que no han sido actualizadas con las últimas correcciones de seguridad.
+Por ejemplo, la vulnerabilidad de log4j afectó a muchas distribuciones de Linux, incluyendo a Debian y Ubuntu. Aunque los paquetes de distribuidores fueron actualizados, todavía había versiones antiguas de la biblioteca que no habían sido parcheadas.</p>
+<h2 id="sandbox">Sandbox</h2>
+<p>El sandbox es un sistema de permisos que limita lo que una aplicación puede hacer en el sistema. Sin embargo, no garantiza que la aplicación sea segura. Un ejemplo de esto es el caso de las aplicaciones de criptomonedas que fueron hackeadas en el Snap Store. A pesar de que estas aplicaciones estaban sandboxeadas, todavía podían acceder a la conexión a internet y realizar acciones maliciosas.
+Otro ejemplo es el caso de Flatpak, que permite a las aplicaciones acceder a la carpeta de documentos del usuario sin restricciones. Aunque el sandbox de Flatpak es más estricto que el de Snap, todavía hay riesgos de seguridad asociados con el uso de aplicaciones sandboxeadas.</p>
+<h2 id="dependencias">Dependencias</h2>
+<p>Las dependencias en el empaquetado de aplicaciones pueden ser un problema. Los paquetes de distribuidores no siempre están actualizados, y los paquetes de terceros pueden contener versiones antiguas de bibliotecas. Esto puede llevar a vulnerabilidades de seguridad y problemas de compatibilidad.
+Por ejemplo, la biblioteca OpenSSL es una dependencia común en muchas aplicaciones. Sin embargo, las versiones antiguas de OpenSSL contienen vulnerabilidades de seguridad que pueden ser explotadas por atacantes. Si una aplicación utiliza una versión antigua de OpenSSL, puede ser vulnerable a ataques, incluso si el paquete ha sido verificado.</p>
+<h2 id="conclusión">Conclusión</h2>
+<p>En conclusión, la seguridad del empaquetado de aplicaciones en Linux depende de muchos factores. Es importante recordar que los usuarios son responsables de verificar la seguridad de las aplicaciones que instalan. También es importante elegir fuentes de paquetes confiables y mantener las aplicaciones actualizadas.</p>
+
+
+							<div class="share-section">
+    <a class="share fb" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fpost%2f2024%2f07%2fdesmitificando-el-empaquetado-de-aplicaciones-en-linux%2f&t=Desmitificando%20el%20empaquetado%20de%20aplicaciones%20en%20Linux"
+        data-action="share/whatsapp/share">
+        <em class="fa fa-facebook"></em> Facebook
+    </a>
+    <a class="share tw" href="http://twitter.com/share?text=Explora%20los%20diferentes%20formatos%20de%20empaquetado%20en%20Linux%2c%20como%20DEB%2c%20RPM%2c%20Flatpak%2c%20Snap%20y%20AppImage%2c%20y%20sus%20caracter%c3%adsticas%2c%20ventajas%20y%20limitaciones.%20Compara%20el%20rendimiento%20y%20las%20funciones%20de%20cada%20formato.&url=http%3a%2f%2flocalhost%3a1313%2fpost%2f2024%2f07%2fdesmitificando-el-empaquetado-de-aplicaciones-en-linux%2f"
+        data-action="share/whatsapp/share">
+        <em class="fa fa-twitter"></em> Twitter
+    </a>
+    <a class="share tw" href="https://t.me/share/url?text=Explora%20los%20diferentes%20formatos%20de%20empaquetado%20en%20Linux%2c%20como%20DEB%2c%20RPM%2c%20Flatpak%2c%20Snap%20y%20AppImage%2c%20y%20sus%20caracter%c3%adsticas%2c%20ventajas%20y%20limitaciones.%20Compara%20el%20rendimiento%20y%20las%20funciones%20de%20cada%20formato.&url=http%3a%2f%2flocalhost%3a1313%2fpost%2f2024%2f07%2fdesmitificando-el-empaquetado-de-aplicaciones-en-linux%2f"
+        data-action="share/whatsapp/share">
+        <em class="fa fa-paper-plane"></em> Telegram
+    </a>
+    <a class="share wp" href="whatsapp://send?text=Explora%20los%20diferentes%20formatos%20de%20empaquetado%20en%20Linux%2c%20como%20DEB%2c%20RPM%2c%20Flatpak%2c%20Snap%20y%20AppImage%2c%20y%20sus%20caracter%c3%adsticas%2c%20ventajas%20y%20limitaciones.%20Compara%20el%20rendimiento%20y%20las%20funciones%20de%20cada%20formato.%20http%3a%2f%2flocalhost%3a1313%2fpost%2f2024%2f07%2fdesmitificando-el-empaquetado-de-aplicaciones-en-linux%2f"
+        data-action="share/whatsapp/share">
+        <em class="fa fa-whatsapp"></em> WhatsApp
+    </a>
+</div>
+						</div>
+					</div> 
+<div class="related-post mb-30">
+    <h4 class="mb-40">Contenido Relacionado</h4>
+
+    <div class="tns-outer" id="tns1-ow">
+        <div id="tns1-mw" class="tns-ovh">
+            <div class="tns-inner " id="tns1-iw">
+                <div class="row gf  related-content-carousel tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal"
+                    id="tns1" style="transform: translate3d(-57.1429%, 0px, 0px); transition-duration: 0s;">
+                     <div class="col-md-6 col-lg-12 col-xl-6 tns-item tns-slide-cloned">
+  <div class="single-blog mb-40" aria-hidden="true" tabindex="-1">
+    <div class="blog-img">
+      <a href="http://localhost:1313/post/2024/03/formatos-de-empaquetado-en-linux-nativos-flatpak-snap-y-appimage/">
+
+        
+        
+        
+        
+        
+        <img src="http://localhost:1313/packages_17499749146468099747_hu7a8f7e4b3bb19cd234863968fc2c1e3b_45884_500x0_resize_q75_h2_box_2.webp" alt="/packages_17499749146468099747.webp" title="/packages_17499749146468099747.webp" loading="lazy" />
+        
+        
+        
+
+      </a>
+      <span class="date-meta">
+        
+         
+        
+        
+        
+        
+        
+
+        Lunes 25 de Marzo de 2024
+      </span>
+    </div>
+    <div class="blog-content">
+      <h4><a href="http://localhost:1313/post/2024/03/formatos-de-empaquetado-en-linux-nativos-flatpak-snap-y-appimage/">Formatos de Empaquetado en Linux: Nativos, Flatpak, Snap y AppImage</a></h4>
+      <p>Explora los diferentes formatos de empaquetado en Linux, como DEB, RPM, Flatpak, Snap y AppImage, y sus características, ventajas y limitaciones. Compara el rendimiento y las funciones de cada formato.</p>
+
+      
+      <div class="article-category">
+        
+        <a href="http://localhost:1313/categories/linux/" 
+          style="background-color: #f2cf61; color: #fff;" >
+          GNU/Linux
+        </a>
+        
+        <a href="http://localhost:1313/categories/aplicaciones/" 
+          style="background-color: #ff5050; color: #fff;" >
+          Aplicaciones
+        </a>
+        
+        <a href="http://localhost:1313/categories/seguridad/" 
+          style="background-color: #f1bd62; color: #fff;" >
+          Seguridad
+        </a>
+        
+      </div>
+      
+
+      <div class="content-card-footer">
+        <time class="me-auto">
+          <em class="fa fa-clock-o" aria-hidden="true"></em> 6 min de lectura
+        </time>
+        <a href="http://localhost:1313/post/2024/03/formatos-de-empaquetado-en-linux-nativos-flatpak-snap-y-appimage/" class="theme-btn ms-auto">
+          Leer <em class="fa fa-arrow-right" aria-hidden="true"></em>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>  <div class="col-md-6 col-lg-12 col-xl-6 tns-item tns-slide-cloned">
+  <div class="single-blog mb-40" aria-hidden="true" tabindex="-1">
+    <div class="blog-img">
+      <a href="http://localhost:1313/post/2024/03/explorando-systemd-en-el-mundo-linux-cr%C3%ADticas-realidades-y-controversias/">
+
+        
+        
+        
+        
+        
+        <img src="http://localhost:1313/systemd_12196084258204778100_hu6f65154a46a4e5de3978704913042404_26050_500x0_resize_q75_h2_box_2.webp" alt="/systemd_12196084258204778100.webp" title="/systemd_12196084258204778100.webp" loading="lazy" />
+        
+        
+        
+
+      </a>
+      <span class="date-meta">
+        
+         
+        
+        
+        
+        
+        
+
+        Viernes 15 de Marzo de 2024
+      </span>
+    </div>
+    <div class="blog-content">
+      <h4><a href="http://localhost:1313/post/2024/03/explorando-systemd-en-el-mundo-linux-cr%C3%ADticas-realidades-y-controversias/">Explorando SystemD en el Mundo Linux: Críticas, Realidades y Controversias</a></h4>
+      <p>Explora SystemD en el mundo Linux, sus críticas y realidades. Descubre por qué algunos usuarios eligen alternativas y las controversias en torno a este sistema de inicio.</p>
+
+      
+      <div class="article-category">
+        
+        <a href="http://localhost:1313/categories/linux/" 
+          style="background-color: #f2cf61; color: #fff;" >
+          GNU/Linux
+        </a>
+        
+        <a href="http://localhost:1313/categories/aplicaciones/" 
+          style="background-color: #ff5050; color: #fff;" >
+          Aplicaciones
+        </a>
+        
+        <a href="http://localhost:1313/categories/seguridad/" 
+          style="background-color: #f1bd62; color: #fff;" >
+          Seguridad
+        </a>
+        
+      </div>
+      
+
+      <div class="content-card-footer">
+        <time class="me-auto">
+          <em class="fa fa-clock-o" aria-hidden="true"></em> 4 min de lectura
+        </time>
+        <a href="http://localhost:1313/post/2024/03/explorando-systemd-en-el-mundo-linux-cr%C3%ADticas-realidades-y-controversias/" class="theme-btn ms-auto">
+          Leer <em class="fa fa-arrow-right" aria-hidden="true"></em>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>  <div class="col-md-6 col-lg-12 col-xl-6 tns-item tns-slide-cloned">
+  <div class="single-blog mb-40" aria-hidden="true" tabindex="-1">
+    <div class="blog-img">
+      <a href="http://localhost:1313/post/2021/04/obteniendo-.deb-de-apps-instaladas/">
+
+        
+        
+        
+        
+        
+        <img src="http://localhost:1313/image_15300783002113515040_hu5baee3acd9ceea0580b0ca5136e2b240_1159463_500x0_resize_box_3.png" alt="/image_15300783002113515040.png" title="/image_15300783002113515040.png" loading="lazy" />
+        
+        
+        
+
+      </a>
+      <span class="date-meta">
+        
+         
+        
+        
+        
+        
+        
+
+        Viernes 23 de Abril de 2021
+      </span>
+    </div>
+    <div class="blog-content">
+      <h4><a href="http://localhost:1313/post/2021/04/obteniendo-.deb-de-apps-instaladas/">Obteniendo .deb de apps instaladas</a></h4>
+      <p>Como recuperar un .deb de una app instalada</p>
+
+      
+      <div class="article-category">
+        
+        <a href="http://localhost:1313/categories/linux/" 
+          style="background-color: #f2cf61; color: #fff;" >
+          GNU/Linux
+        </a>
+        
+        <a href="http://localhost:1313/categories/aplicaciones/" 
+          style="background-color: #ff5050; color: #fff;" >
+          Aplicaciones
+        </a>
+        
+      </div>
+      
+
+      <div class="content-card-footer">
+        <time class="me-auto">
+          <em class="fa fa-clock-o" aria-hidden="true"></em> 1 min de lectura
+        </time>
+        <a href="http://localhost:1313/post/2021/04/obteniendo-.deb-de-apps-instaladas/" class="theme-btn ms-auto">
+          Leer <em class="fa fa-arrow-right" aria-hidden="true"></em>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>  <div class="col-md-6 col-lg-12 col-xl-6 tns-item tns-slide-cloned">
+  <div class="single-blog mb-40" aria-hidden="true" tabindex="-1">
+    <div class="blog-img">
+      <a href="http://localhost:1313/post/2020/12/como-instalar-hamachi/">
+
+        
+        
+        
+        
+        
+        <img src="http://localhost:1313/image_4541020292577126937_hu3b4429aff3f9567330b27cc6c152e172_827651_500x0_resize_box_3.png" alt="/image_4541020292577126937.png" title="/image_4541020292577126937.png" loading="lazy" />
+        
+        
+        
+
+      </a>
+      <span class="date-meta">
+        
+         
+        
+        
+        
+        
+        
+
+        Viernes 11 de Diciembre de 2020
+      </span>
+    </div>
+    <div class="blog-content">
+      <h4><a href="http://localhost:1313/post/2020/12/como-instalar-hamachi/">¿Como instalar Hamachi?</a></h4>
+      <p>Una app que nos permite generar una red privada virtual, de esta forma podemos compartir recursos, jugar en “LAN”, y muchas cosas mas...</p>
+
+      
+      <div class="article-category">
+        
+        <a href="http://localhost:1313/categories/aplicaciones/" 
+          style="background-color: #ff5050; color: #fff;" >
+          Aplicaciones
+        </a>
+        
+        <a href="http://localhost:1313/categories/linux/" 
+          style="background-color: #f2cf61; color: #fff;" >
+          GNU/Linux
+        </a>
+        
+        <a href="http://localhost:1313/categories/windows/" 
+          style="background-color: #00bcf2; color: #fff;" >
+          Windows
+        </a>
+        
+        <a href="http://localhost:1313/categories/macos/" 
+          style="background-color: #c6e9fa; color: #777;" >
+          MacOS
+        </a>
+        
+      </div>
+      
+
+      <div class="content-card-footer">
+        <time class="me-auto">
+          <em class="fa fa-clock-o" aria-hidden="true"></em> 3 min de lectura
+        </time>
+        <a href="http://localhost:1313/post/2020/12/como-instalar-hamachi/" class="theme-btn ms-auto">
+          Leer <em class="fa fa-arrow-right" aria-hidden="true"></em>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>  <div class="col-md-6 col-lg-12 col-xl-6 tns-item tns-slide-cloned">
+  <div class="single-blog mb-40" aria-hidden="true" tabindex="-1">
+    <div class="blog-img">
+      <a href="http://localhost:1313/post/2024/05/exportando-claves-gpg-protegiendo-tu-informaci%C3%B3n-en-cualquier-sistema-operativo/">
+
+        
+        
+        
+        
+        
+        <img src="http://localhost:1313/exportgpg_474184293034045939_hue8d68e2a55f230936738250bd8f919e4_19064_500x0_resize_q75_h2_box_2.webp" alt="/exportgpg_474184293034045939.webp" title="/exportgpg_474184293034045939.webp" loading="lazy" />
+        
+        
+        
+
+      </a>
+      <span class="date-meta">
+        
+         
+        
+        
+        
+        
+        
+
+        Miércoles 15 de Mayo de 2024
+      </span>
+    </div>
+    <div class="blog-content">
+      <h4><a href="http://localhost:1313/post/2024/05/exportando-claves-gpg-protegiendo-tu-informaci%C3%B3n-en-cualquier-sistema-operativo/">Exportando Claves GPG: Protegiendo tu información en cualquier sistema operativo</a></h4>
+      <p>Aprende a exportar tus claves GPG para respaldarlas y usarlas en diferentes dispositivos o sistemas operativos.</p>
+
+      
+      <div class="article-category">
+        
+        <a href="http://localhost:1313/categories/linux/" 
+          style="background-color: #f2cf61; color: #fff;" >
+          GNU/Linux
+        </a>
+        
+        <a href="http://localhost:1313/categories/macos/" 
+          style="background-color: #c6e9fa; color: #777;" >
+          MacOS
+        </a>
+        
+        <a href="http://localhost:1313/categories/windows/" 
+          style="background-color: #00bcf2; color: #fff;" >
+          Windows
+        </a>
+        
+        <a href="http://localhost:1313/categories/programacion/" 
+          style="background-color: #4463b9; color: #fff;" >
+          Programación
+        </a>
+        
+        <a href="http://localhost:1313/categories/seguridad/" 
+          style="background-color: #f1bd62; color: #fff;" >
+          Seguridad
+        </a>
+        
+        <a href="http://localhost:1313/categories/redes/" 
+          style="background-color: #e3e6eb; color: #777;" >
+          Redes
+        </a>
+        
+      </div>
+      
+
+      <div class="content-card-footer">
+        <time class="me-auto">
+          <em class="fa fa-clock-o" aria-hidden="true"></em> 3 min de lectura
+        </time>
+        <a href="http://localhost:1313/post/2024/05/exportando-claves-gpg-protegiendo-tu-informaci%C3%B3n-en-cualquier-sistema-operativo/" class="theme-btn ms-auto">
+          Leer <em class="fa fa-arrow-right" aria-hidden="true"></em>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>  <div class="col-md-6 col-lg-12 col-xl-6 tns-item tns-slide-cloned">
+  <div class="single-blog mb-40" aria-hidden="true" tabindex="-1">
+    <div class="blog-img">
+      <a href="http://localhost:1313/post/2024/01/gu%C3%ADa-completa-para-instalar-y-utilizar-timeshift-en-linux/">
+
+        
+        
+        
+        
+        
+        <img src="http://localhost:1313/timeshift_16626848787219228314_hud619b589ccd53dce3d38d8d1b8868662_40868_500x0_resize_q75_h2_box_2.webp" alt="/timeshift_16626848787219228314.webp" title="/timeshift_16626848787219228314.webp" loading="lazy" />
+        
+        
+        
+
+      </a>
+      <span class="date-meta">
+        
+         
+        
+        
+        
+        
+        
+
+        Martes 9 de Enero de 2024
+      </span>
+    </div>
+    <div class="blog-content">
+      <h4><a href="http://localhost:1313/post/2024/01/gu%C3%ADa-completa-para-instalar-y-utilizar-timeshift-en-linux/">Guía Completa para Instalar y Utilizar Timeshift en Linux</a></h4>
+      <p>Descubre cómo Timeshift simplifica la gestión de copias de seguridad en Linux. Sigue nuestra guía paso a paso para la instalación en Ubuntu, Arch Linux, Fedora y openSUSE.</p>
+
+      
+      <div class="article-category">
+        
+        <a href="http://localhost:1313/categories/linux/" 
+          style="background-color: #f2cf61; color: #fff;" >
+          GNU/Linux
+        </a>
+        
+        <a href="http://localhost:1313/categories/aplicaciones/" 
+          style="background-color: #ff5050; color: #fff;" >
+          Aplicaciones
+        </a>
+        
+      </div>
+      
+
+      <div class="content-card-footer">
+        <time class="me-auto">
+          <em class="fa fa-clock-o" aria-hidden="true"></em> 2 min de lectura
+        </time>
+        <a href="http://localhost:1313/post/2024/01/gu%C3%ADa-completa-para-instalar-y-utilizar-timeshift-en-linux/" class="theme-btn ms-auto">
+          Leer <em class="fa fa-arrow-right" aria-hidden="true"></em>
+        </a>
+      </div>
+    </div>
+  </div>
+</div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+<script>
+    tns({
+        container: '.related-content-carousel',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 15,
+        nav: false,
+        controls: false,
+
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 1,
+            },
+            768: {
+                items: 1,
+            },
+            992: {
+                items: 2,
+            },
+        },
+    });
+</script>
+  
+
+					<div class="comment-form-wrapper ms-0 row team-section" style="margin-bottom: 50px">
+						<div class="col-xl-4 col-lg-4 col-md-6">
+							<div class="single-team text-center mb-40">
+								<div class="team-img">
+									<img src="https://joaquindecima.gitlab.io/img/profile.webp" alt="PatoJAD" title="PatoJAD" loading="lazy" />
+								</div>
+								<div class="team-info">
+									<h4>PatoJAD</h4>
+									<span>Arquitecto de Software</span>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-8 col-lg-8 col-md-6">
+							<h4 class="mb-40 text-center">Autor</h4>
+							<p><p>Sobre mi no hay mucho para decir, me dedico a desarrollar en una empresa de telecomunicaciones, utilizo GNU/Linux desde el 2.012 y hace años que es mi Sistema Operativo main. Soy una persona que busca crecer profesionalmente sin dejar de divertirse y hacer lo que me gusta. Siempre digo que cuando un proyecto sale es importante agradecer, por lo cual les recomiendo a todos leer la seccion Agradecimientos en la cual me tomé un tiempito para poder agradecer a todos y cada uno de los que hicieron posible todo esto.</p>
+</p>
+						</div>
+					</div>
+					 
+
+
+				</div>
+			</div><div class="col-xl-4 col-lg-5 sidebar">
+	<div class="sidebar-wrapper sidebar-single mb-60"><div class="sidebar-box search-form-box mb-30">
+  <form action="http://localhost:1313/search/" class="search-form" >
+    <input type="text" name="keyword" required placeholder="Buscar...">
+    <button type="submit" name="Buscar" alt="Buscar" title="Buscar"><em class="fas fa-magnifying-glass"></em></button>
+  </form>
+</div><div class="sidebar-box tags-box mb-30">
+	<h4 class="text-center">Contenido</h4>
+
+	<div class="widget--toc"><nav id="TableOfContents">
+  <ol>
+    <li><a href="#verificación-de-aplicaciones">Verificación de aplicaciones</a></li>
+    <li><a href="#empaquetado-de-distribuidores">Empaquetado de distribuidores</a></li>
+    <li><a href="#sandbox">Sandbox</a></li>
+    <li><a href="#dependencias">Dependencias</a></li>
+    <li><a href="#conclusión">Conclusión</a></li>
+  </ol>
+</nav></div>
+</div>
+
+		<div class="sidebar-box mb-30">
+  <h4>Redes Sociales</h4>
+  <p class="text-center social">
+    
+    <a href="https://t.me/PatoJADCommunity" alt="Comunidad Telegram" aria-label="Comunidad Telegram" class="donate-link" rel="noopener" target="_blank">
+      
+      <em class="fab fa-telegram"></em>
+      
+    </a>
+    
+    <a href="https://www.youtube.com/channel/UCta4Iy4TzMx8Xo0pwpkbWgg" alt="Youtube" aria-label="Youtube" class="donate-link" rel="noopener" target="_blank">
+      
+      <em class="fab fa-youtube"></em>
+      
+    </a>
+    
+    <a href="https://www.instagram.com/patojadoficial/" alt="Instagram" aria-label="Instagram" class="donate-link" rel="noopener" target="_blank">
+      
+      <em class="fab fa-instagram"></em>
+      
+    </a>
+    
+    <a href="https://mastodon.social/@PatoJAD" alt="Mastodon" aria-label="Mastodon" class="donate-link" rel="noopener" target="_blank">
+      
+      <em class="fab fa-mastodon"></em>
+      
+    </a>
+    
+    <a href="https://t.me/PatoJADBlog" alt="Canal Telegram" aria-label="Canal Telegram" class="donate-link" rel="noopener" target="_blank">
+      
+      <em class="fas fa-bullhorn"></em>
+      
+    </a>
+    
+    <a href="https://twitter.com/PatoJADOficial" alt="Twitter" aria-label="Twitter" class="donate-link" rel="noopener" target="_blank">
+      
+      <em class="fab fa-twitter"></em>
+      
+    </a>
+    
+    <a href="https://www.facebook.com/PatoJAD/" alt="Facebook" aria-label="Facebook" class="donate-link" rel="noopener" target="_blank">
+      
+      <em class="fab fa-facebook"></em>
+      
+    </a>
+    
+    <a href="https://odysee.com/@PatoJAD:d?&amp;sunset=lbrytv" alt="odysee" aria-label="odysee" class="donate-link" rel="noopener" target="_blank">
+      
+      <em class="fab fa-odysee"></em>
+      
+    </a>
+    
+    <a href="https://steamcommunity.com/id/joaquindecima/" alt="Steam" aria-label="Steam" class="donate-link" rel="noopener" target="_blank">
+      
+      <em class="fab fa-steam"></em>
+      
+    </a>
+    
+    <a href="https://www.twitch.tv/patojad" alt="Twitch" aria-label="Twitch" class="donate-link" rel="noopener" target="_blank">
+      
+      <em class="fab fa-twitch"></em>
+      
+    </a>
+    
+    <a href="https://linkedin.com/in/joaquindecima" alt="Linkedin" aria-label="Linkedin" class="donate-link" rel="noopener" target="_blank">
+      
+      <em class="fab fa-linkedin"></em>
+      
+    </a>
+    
+    <a href="https://github.com/JoaquinDecima" alt="GitHub" aria-label="GitHub" class="donate-link" rel="noopener" target="_blank">
+      
+      <em class="fab fa-github"></em>
+      
+    </a>
+    
+    <a href="https://gitlab.com/joaquindecima" alt="GitLab" aria-label="GitLab" class="donate-link" rel="noopener" target="_blank">
+      
+      <em class="fab fa-gitlab"></em>
+      
+    </a>
+    
+    <a href="https://www.tiktok.com/@patojadoficial" alt="TikTok" aria-label="TikTok" class="donate-link" rel="noopener" target="_blank">
+      
+      <em class="fab fa-tiktok"></em>
+      
+    </a>
+    
+    <a href="https://whatsapp.com/channel/0029VaJ9UV9FnSzBSJLZxg3A" alt="WhatsApp" aria-label="WhatsApp" class="donate-link" rel="noopener" target="_blank">
+      
+      <em class="fab fa-whatsapp"></em>
+      
+    </a>
+    
+  </p>
+
+</div>
+
+	</div>
+</div></div>
+	</div>
+</section>
+
+</div><footer class="footer pt-100">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-6 col-lg-6 col-md-12">
+				<div class="footer-widget mb-60 ">
+					<a href="http://localhost:1313/" class="logo mb-30" title="Home" alt="Home" name="Home"><svg
+  class="logo"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:svg="http://www.w3.org/2000/svg"
+  xmlns="http://www.w3.org/2000/svg"
+  height='90px'
+  viewBox="0 0 650 210"
+  version="1.1"
+  id="svg8206"
+  style="enable-background:new"
+  inkscape:export-xdpi="4.7625003"
+  inkscape:export-ydpi="4.7625003">
+  <defs
+    class="logo"
+    id="defs8200" />
+  <g
+    class="logo"
+    style="opacity:1"
+    transform="translate(0,-87)"
+    id="layer1"
+    inkscape:groupmode="layer"
+    inkscape:label="Capa 1">
+    <g
+      class="logo"
+      id="text9029"
+      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:138.81045532px;line-height:1.25;font-family:Umpush;-inkscape-font-specification:Umpush;letter-spacing:0px;word-spacing:0px;display:inline;fill-opacity:1;stroke:none;stroke-width:7.43627453"
+      transform="scale(0.68369136,1.4626483)"
+      aria-label="JAD" />
+    <g
+      class="logo"
+      id="g8404"
+      transform="translate(6.9703581e-6,91.805359)" />
+    <path
+      class="logo"
+      d="m 88.365354,271.58998 c -3.145738,-1.12653 -6.015936,-3.9879 -6.868825,-6.8477 -0.410391,-1.37606 -0.95368,-5.32664 -0.966788,-7.03009 -0.02768,-3.59707 -2.018712,-7.03011 -4.0772,-7.03011 -1.004565,0 -2.144227,1.00279 -2.96419,2.6082 -0.626058,1.22574 -0.665651,1.54463 -0.599397,4.82749 0.04097,2.03025 -0.05985,4.00161 -0.238694,4.66691 -0.875737,3.25787 -5.076931,5.44254 -8.330286,4.33185 -3.164952,-1.08049 -6.145836,-4.25325 -6.886015,-7.32925 -0.830727,-3.4523 -1.227668,-12.40774 -0.702215,-15.84275 1.085105,-7.09359 2.268607,-11.10166 4.736937,-16.04222 1.685394,-3.37344 3.348405,-5.59273 6.748822,-9.0063 4.600366,-4.61814 8.907805,-7.29256 14.469692,-8.98397 2.412818,-0.73376 4.473949,-0.97678 8.24685,-0.97235 4.698376,0.005 7.416894,0.59049 9.560595,2.05727 1.86643,1.27707 2.57431,2.15484 3.21104,3.98173 0.72883,2.09115 0.3441,6.87945 -0.82657,10.28687 -2.28332,6.64605 -3.968602,17.53517 -3.968602,25.6423 0,3.05976 0.690227,12.33844 0.948977,12.75712 0.06919,0.11194 -0.0025,0.89768 -0.159363,1.74609 -0.494679,2.67595 -1.946179,4.67174 -4.249837,5.84341 -1.635619,0.83191 -5.224207,1.00183 -7.084931,0.3355 z m -6.938975,-30.31483 c 4.121018,-2.79479 5.046553,-10.5937 1.538945,-12.96772 -2.89672,-1.96053 -6.825838,1.30746 -7.866469,6.54285 -0.374934,1.8863 -0.146739,3.52125 0.739394,5.29754 1.060523,2.12588 3.415293,2.60091 5.58813,1.12733 z m 33.437041,29.58599 c -4.19364,-1.22356 -7.20015,-4.45611 -8.20637,-8.82334 -1.3914,-6.03902 -1.39771,-16.71259 -0.0152,-25.8215 1.44019,-9.48929 4.09173,-17.51055 8.90786,-26.94746 0.96099,-1.883 1.63281,-3.59597 1.62137,-3.8059 -0.0251,-0.46199 -0.14788,-0.63305 -0.48248,-0.93959 -1.51794,-1.39059 -20.137655,-2.06915 -28.323202,-1.03217 -4.286718,0.54306 -9.694269,1.56647 -11.381562,2.15402 -2.800462,0.97519 -4.531113,0.28229 -3.632975,-1.45452 0.635192,-1.22832 6.443814,-7.12748 9.471572,-9.61919 9.1946,-7.56679 17.364547,-11.50394 29.769667,-12.49373 3.17967,-0.25371 6.00789,-0.22693 7.84883,0.046 9.40547,1.39441 20.07136,2.17083 28.22112,0.4245 2.00478,-0.44585 5.98915,-1.91112 8.15112,-2.99762 5.74019,-2.88473 8.7476,-5.76461 13.2814,-12.71819 2.35452,-3.61118 3.4517,-4.6912 4.49998,-4.42969 2.08446,0.51999 7.59036,6.42761 10.35013,11.10527 1.26466,2.14353 3.9098,7.68312 4.50842,9.44177 1.76948,5.19842 2.05858,7.93705 1.06352,10.07492 -2.05477,4.41464 -10.76339,9.4851 -20.22561,11.77603 -7.97868,1.93173 -12.386,2.41453 -22.66169,2.48242 -9.44625,0.0624 -8.5066,-0.22302 -10.24169,3.11107 -3.90336,7.50054 -7.04322,17.35145 -8.44596,26.49807 -0.86527,5.64204 -0.82325,13.89123 -0.21914,24.30056 0.0985,1.69741 -0.14547,2.92831 -0.38147,3.72749 -0.67964,2.30178 -2.79564,4.94757 -5.57555,5.78417 -3.44791,1.07763 -6.48194,0.57098 -7.90204,0.15664 z m 27.03885,-5.6126 c -2.85033,-0.77151 -5.36111,-2.33736 -7.05392,-5.70761 -2.72906,-5.5556 -0.001,-21.70586 2.10449,-28.86759 0.37674,-1.26407 0.74596,-2.63439 0.8205,-3.04519 0.0745,-0.41078 0.24315,-0.81341 0.37471,-0.89471 0.13157,-0.0813 0.23922,-0.33084 0.23922,-0.55451 0,-0.77828 1.72918,-3.98506 3.03095,-5.62092 1.32482,-1.66483 3.99716,-3.89935 5.48628,-4.58746 2.28811,-1.05729 2.86074,-1.27245 4.73181,-1.7779 1.19537,-0.32292 4.13306,-0.71825 7.15566,-0.96293 5.2942,-0.42858 8.09368,-0.76773 10.08162,-1.22135 3.90908,-0.89202 4.18627,-0.96771 7.50328,-2.04883 1.18969,-0.38776 2.90125,-0.76765 3.80345,-0.84419 6.37659,-0.54099 11.8847,4.61849 10.66671,9.99157 -1.00638,4.43975 -3.14835,10.28929 -5.27496,14.4055 -1.40475,2.71899 -3.70323,6.56544 -4.52411,7.57097 -0.24276,0.29738 -1.20522,1.51408 -2.13879,2.7038 -4.51862,5.75836 -11.84095,11.77528 -19.36694,15.91424 -1.52593,0.83919 -2.82186,1.5258 -2.87983,1.5258 -0.0579,0 -1.1491,0.4867 -2.42471,1.08155 -1.2756,0.59487 -2.38409,1.08157 -2.46328,1.08157 -0.0792,0 -0.65978,0.23616 -1.29019,0.5248 -3.27263,1.4984 -6.25835,1.96229 -8.58191,1.33339 z m 13.39491,-20.41313 c 3.37325,-1.7559 6.69435,-4.22222 9.59313,-7.12401 2.62636,-2.62911 5.49692,-6.62075 5.49692,-7.4325 0,-0.18908 -0.0759,-0.6644 -0.38416,-1.05624 -0.53692,-0.68256 -0.67086,-0.71244 -3.19501,-0.71244 -1.44903,0 -3.35658,0.12256 -4.239,0.27232 -5.16638,0.8769 -6.18185,1.23729 -7.66477,2.72021 -1.08383,1.08382 -1.4737,1.88744 -1.89322,3.90238 -0.18577,0.89228 -0.44145,2.10904 -0.56817,2.7039 -0.12672,0.59485 -0.38585,2.34318 -0.5759,3.88518 -0.22043,1.82103 -0.40351,2.72872 0.28263,3.31228 0.59767,0.50831 0.97267,0.66104 3.14755,-0.47108 z M 47.693851,256.83659 c -8.494114,-7.75688 -13.729708,-17.60335 -15.448606,-29.05382 -0.454046,-3.02465 -0.516884,-10.18795 -0.112019,-12.76983 0.712144,-4.5414 1.258653,-6.84826 2.471437,-10.43209 0.816693,-2.41336 2.403962,-6.11985 2.970567,-6.93665 0.273823,-0.39474 0.49786,-0.77545 0.49786,-0.84601 0,-0.18597 1.608296,-2.81017 2.687329,-4.38483 2.507943,-3.65988 6.477476,-7.82052 10.316996,-10.81369 0.952516,-0.74256 2.38239,-1.95766 3.177495,-2.70021 3.602811,-3.3647 2.979057,-4.68602 -3.806659,-8.06376 -7.514265,-3.74042 -11.551795,-6.45398 -15.661667,-10.52594 -3.609115,-3.57583 -4.951673,-5.4251 -6.236208,-8.58988 -1.004091,-2.24855 -1.000577,-5.22957 -0.239754,-7.49295 0.750966,-2.05455 1.559863,-3.08871 2.984287,-3.88979 3.362698,-1.89116 7.157578,-1.45877 12.840154,-0.32043 2.15915,0.28933 5.609653,-0.92259 7.598534,-2.66885 1.170604,-1.02781 2.093615,-2.3527 3.644359,-5.23114 1.638856,-3.04199 4.287977,-6.80161 6.211118,-8.8148 4.922669,-5.15316 11.474745,-8.77044 19.095102,-10.54206 3.549941,-0.82531 10.802686,-1.01799 14.362897,-0.38157 10.189377,1.82144 19.526207,7.98113 25.038217,16.51822 1.11051,1.71997 1.80514,3.07632 3.29361,6.43121 2.47253,5.57287 3.12516,14.58665 1.51965,20.98877 -1.30166,5.19053 -3.97128,9.6647 -8.39435,14.0686 -4.78561,4.76486 -9.50437,7.31042 -17.760519,9.58103 -4.575774,1.25843 -7.208844,2.08286 -7.525728,2.35635 -0.141279,0.12194 -0.41432,0.2217 -0.606764,0.2217 -0.504666,0 -5.320791,2.3668 -7.383217,3.62836 -5.434804,3.32437 -12.581781,9.89335 -16.961593,15.58989 -11.280431,14.67168 -16.288997,30.62378 -15.019998,47.83812 0.191852,2.60248 0.455334,5.46183 0.585518,6.35412 0.182285,1.24937 0.149465,1.76219 -0.142768,2.2307 -0.697543,1.11832 -1.643343,0.79903 -3.99528,-1.34877 z m 49.373858,-94.70723 c 7.112831,-1.46018 12.156371,-7.52865 12.151141,-14.62047 -0.003,-4.46566 -1.34041,-7.69042 -4.47627,-10.79556 -3.77402,-3.73706 -10.320881,-5.4351 -11.853848,-3.60985 -0.58405,0.90035 -0.177292,1.88166 0.155801,2.97428 0.991738,3.25313 1.371221,6.63206 1.010517,8.9976 -0.484755,4.16695 -1.993664,8.19779 -4.496528,11.60017 -1.515336,2.01584 -1.632239,3.34006 -0.396742,4.49418 1.345237,1.25665 4.558986,1.64674 7.905929,0.95965 z"
+      style="display:inline;opacity:1;fill-opacity:0.98994978;stroke-width:0.27038851" />
+    <g
+      class="logo"
+      aria-label="JAD"
+      style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:219.1693573px;line-height:1.25;font-family:Umpush;-inkscape-font-specification:'Umpush Bold';letter-spacing:0px;word-spacing:0px;fill-opacity:0.99215686;stroke:none;stroke-width:11.74121666"
+      id="text8473"
+      transform="matrix(1.0219408,0,0,1.0219408,2.6930762,-4.212931)">
+      <path
+        class="logo"
+        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Umpush;-inkscape-font-specification:'Umpush Bold';fill-opacity:0.99215686;stroke-width:45.34990311"
+        d="M 979.77344,99.791582 V 120.66406 H 1168.6738 V 99.791582 Z m 465.74806,-0.707107 -10.4531,21.579585 h 105.2285 l -10.4531,-21.579585 z m 395.1582,-1.06066 v 22.640245 h 358.9922 C 2150.4586,105.00645 2096.4916,98.175344 2049.418,98.023815 Z M 979.77344,143.3418 v 36.17773 H 1168.6738 V 143.3418 Z m 446.24026,0 -14.4453,36.17773 h 152.2285 l -14.4453,-36.17773 z m 414.666,0 v 36.17773 h 440.4121 c -5.7317,-6.67733 -11.9979,-13.11314 -18.8008,-19.30859 -6.5341,-6.05894 -13.5322,-11.68084 -20.9883,-16.86914 z m -771.209,58.85547 V 238.375 h 99.2031 v -36.17773 z m 333.041,0 -14.4453,36.17773 h 199.2324 l -14.4453,-36.17773 z m 438.168,0 V 238.375 h 99.2031 v -36.17773 z m 298.4219,0 c 20.0764,8.6851 37.4569,20.7463 52.1464,36.17773 h 125.0137 c -4.604,-11.47244 -9.9148,-22.2356 -15.9433,-32.2832 -0.7841,-1.30671 -1.5918,-2.60332 -2.4102,-3.89453 z m -1069.6309,58.85351 v 36.17774 h 99.2031 v -36.17774 z m 309.541,0 -14.4472,36.17774 h 104.9375 l 14.4003,-36.17774 z m 112.4492,0 14.4004,36.17774 h 104.9375 l -14.4453,-36.17774 z m 349.2188,0 v 36.17774 h 99.2031 v -36.17774 z m 368.7832,0 c 7.2945,10.98702 13.3795,23.04605 18.2539,36.17774 h 105.6348 c -2.3777,-12.00806 -5.384,-23.92531 -9.0586,-35.74805 -0.043,-0.14399 -0.088,-0.28589 -0.1309,-0.42969 z m -1139.9922,58.85547 v 36.17773 h 99.2031 v -36.17773 z m 286.0391,0 -14.4473,36.17773 h 105.0098 l 14.4023,-36.17773 z m 159.3789,0 14.4023,36.17773 h 105.0098 l -14.4453,-36.17773 z m 325.791,0 v 36.17773 h 99.2031 v -36.17773 z m 393.9863,0 c 2.8161,11.38159 4.8685,23.43999 6.1543,36.17773 h 99.8145 c -0.6892,-11.32106 -1.727,-22.18962 -3.1153,-32.60156 -0.1413,-1.19384 -0.3109,-2.38412 -0.4648,-3.57617 z m -1165.1953,58.85547 v 36.17578 h 99.2031 v -36.17578 z m 262.5371,0 -14.4453,36.17578 h 105.082 l 14.4004,-36.17578 z m 206.3106,0 14.4004,36.17578 h 105.0839 l -14.4453,-36.17578 z m 302.3613,0 v 36.17578 h 99.2031 v -36.17578 z m 401.6035,0 c 0.1069,3.57314 0.168,7.18759 0.168,10.85547 0,8.67896 -0.3106,17.11344 -0.9141,25.32031 h 99.6133 c 0.3289,-7.86587 0.5039,-15.8853 0.5039,-24.08008 0,-4.08915 -0.054,-8.10843 -0.1328,-12.0957 z m -1172.8125,58.85351 v 36.17774 h 99.2031 v -36.17774 z m 239.0371,0 -14.4473,36.17774 h 387.2422 l -14.4453,-36.17774 z m 532.1719,0 v 36.17774 h 99.2031 v -36.17774 z m 398.3301,0 c -1.9214,12.69022 -4.6484,24.75001 -8.1836,36.17774 h 104.2832 c 1.9852,-11.605 3.511,-23.66826 4.5918,-36.17774 z M 1069.4707,496.4707 v 2.6836 c 0,11.98528 -0.7268,23.14661 -2.1738,33.49414 h 100.4804 c 0.592,-8.7569 0.8965,-17.8474 0.8965,-27.29492 v -8.88282 z m 215.5352,0 -14.4473,36.17774 h 105.0273 l 7.1075,-17.78711 h 209.9785 l 7.1074,17.78711 h 105.0254 l -14.4453,-36.17774 z m 555.6738,0 v 36.17774 h 99.2031 V 496.4707 Z m 381.7207,0 c -5.7274,13.0216 -12.6936,25.07572 -20.875,36.17774 h 118.3223 c 1.9882,-5.6093 3.8896,-11.38869 5.6855,-17.375 1.8187,-6.1091 3.4695,-12.3859 4.9805,-18.80274 z m -1384.81642,9.29688 c 0,9.29953 0.29548,18.25192 0.86719,26.88086 H 939.4082 c -1.3288,-8.32999 -2.20403,-17.28847 -2.62109,-26.88086 z m 3.12696,49.55664 c 1.7587,12.93174 4.26274,24.98942 7.50781,36.17773 h 117.35742 c -1.33368,-1.23408 -2.66474,-2.51609 -3.98828,-3.89257 -6.8891,-7.44023 -12.53825,-18.1865 -16.94727,-32.24024 -0.005,-0.0148 -0.009,-0.0301 -0.0137,-0.0449 z m 221.87696,0 c -2.3454,8.266 -5.2775,15.87048 -8.8242,22.77734 -2.665,5.11944 -5.716,9.58367 -9.1485,13.40039 h 113.2754 c 3.2765,-11.18872 5.8098,-23.24546 7.5918,-36.17773 z m 198.916,0 -14.4453,36.17773 h 105.0137 l 14.455,-36.17773 z m 347.334,0 14.4551,36.17773 h 105.0117 l -14.4453,-36.17773 z m 231.8418,0 v 36.17773 h 99.2031 v -36.17773 z m 341.0371,0 c -16.8467,16.19713 -36.5253,28.25263 -59.0254,36.17773 h 168.2793 c 7.2867,-10.75175 13.9068,-22.81111 19.8594,-36.17773 z M 856.32812,614.17969 c 5.94559,13.71741 13.30224,25.78009 22.07813,36.17773 h 249.04885 c 8.8423,-10.39769 16.2571,-22.46021 22.2539,-36.17773 z m 381.67388,0 -14.4454,36.17773 h 105 l 14.4551,-36.17773 z m 394.3515,0 14.4531,36.17773 h 105 l -14.4453,-36.17773 z m 208.3262,0 v 36.17773 h 389.1289 c 16.1636,-10.2453 30.5801,-22.29981 43.2363,-36.17773 z m -937.16408,58.85547 c 25.56492,17.44312 58.55567,20.16732 98.99218,20.16732 40.6979,0 73.9101,-2.72342 99.6563,-20.16732 z m 310.98438,0 -8.3066,20.80468 h 104.9902 l 8.3125,-20.80468 z m 441.3672,0 8.3125,20.80468 h 104.9902 l -8.3066,-20.80468 z m 184.8125,0 v 20.80468 h 218.6601 c 30.0365,0 57.8668,-2.61783 83.4942,-7.85351 14.2233,-3.02625 28.3209,-7.34927 42.2949,-12.95117 z"
+        transform="matrix(0.2589028,0,0,0.2589028,-0.02100113,89.254576)"
+        id="path8499"
+        inkscape:connector-curvature="0"
+        sodipodi:nodetypes="cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccsccscccccccccccccccccccccccsccscccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccsccccccccccccccsccc" />
+    </g>
+    <g
+      class="logo"
+      id="g9268"
+      transform="translate(2.6716143,-3.8748433e-5)" />
+    <g
+      class="logo"
+      id="g9363">
+      <path
+        class="logo"
+        style="opacity:1;fill-opacity:0.99215686;stroke:none;stroke-width:161.85066223;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+        d="m 333.53906,97.761719 c -1.39782,0 -2.52344,1.123659 -2.52344,2.521481 10e-6,1.39783 1.12562,2.52344 2.52344,2.52344 H 1970.0664 c 1.3978,0 2.5234,-1.12561 2.5234,-2.52344 0,-1.397822 -1.1256,-2.521481 -2.5234,-2.521481 z m 103.46289,60.000001 c -1.39782,0 -2.52343,1.12366 -2.52343,2.52148 0,1.39783 1.12561,2.52344 2.52343,2.52344 H 1970.0664 c 1.3978,0 2.5234,-1.12561 2.5234,-2.52344 0,-1.39782 -1.1256,-2.52148 -2.5234,-2.52148 z m 26.60352,59.04883 c -1.39783,0 -2.52344,1.12561 -2.52344,2.52343 0,1.39783 1.12561,2.52344 2.52344,2.52344 H 2212.4629 c 1.3978,0 2.5234,-1.12561 2.5234,-2.52344 0,-1.39782 -1.1256,-2.52343 -2.5234,-2.52343 z m -26.60352,59.04883 c -1.39782,-10e-6 -2.52343,1.12561 -2.52343,2.52343 0,1.39783 1.12561,2.52344 2.52343,2.52344 H 2261.2363 c 1.3979,0 2.5235,-1.12561 2.5235,-2.52344 0,-1.39782 -1.1256,-2.52343 -2.5235,-2.52343 z m 232.05078,59.05078 c -1.39782,0 -2.52343,1.12366 -2.52343,2.52148 0,1.39783 1.12561,2.52344 2.52343,2.52344 H 2276.0176 c 1.3978,0 2.5234,-1.12561 2.5234,-2.52344 0,-1.39782 -1.1256,-2.52148 -2.5234,-2.52148 z m 23.64844,59.04882 c -1.39782,0 -2.52344,1.12562 -2.52344,2.52344 0,1.39783 1.12562,2.52344 2.52344,2.52344 H 2281.9297 c 1.3978,0 2.5234,-1.12561 2.5234,-2.52344 0,-1.39782 -1.1256,-2.52344 -2.5234,-2.52344 z m -187.71094,59.04883 c -1.39782,0 -2.52343,1.12561 -2.52343,2.52344 0,1.39783 1.12561,2.52344 2.52343,2.52344 H 2284.8848 c 1.3978,0 2.5234,-1.12561 2.5234,-2.52344 0,-1.39783 -1.1256,-2.52344 -2.5234,-2.52344 z m 189.1875,59.05078 c -1.39782,0 -2.52343,1.12366 -2.52343,2.52149 0,1.39782 1.12561,2.52344 2.52343,2.52344 H 2253.8477 c 1.3978,0 2.5234,-1.12562 2.5234,-2.52344 0,-1.39783 -1.1256,-2.52149 -2.5234,-2.52149 z m -35.47265,59.04883 c -1.39783,0 -2.52344,1.12561 -2.52344,2.52344 0,1.39782 1.12561,2.52344 2.52344,2.52344 H 2202.1172 c 1.3978,0 2.5215,-1.12562 2.5215,-2.52344 0,-1.39783 -1.1237,-2.52344 -2.5215,-2.52344 z m -88.68164,59.04883 c -1.39783,0 -2.52344,1.12561 -2.52344,2.52344 0,1.39782 1.12561,2.52343 2.52344,2.52343 H 1970.0664 c 1.3978,0 2.5234,-1.12561 2.5234,-2.52343 0,-1.39783 -1.1256,-2.52344 -2.5234,-2.52344 z m -116.76367,58.59961 c -1.39783,0 -2.52344,1.12561 -2.52344,2.52344 0,1.39782 1.12561,2.52343 2.52344,2.52343 H 1947.8965 c 1.3978,0 2.5215,-1.12561 2.5215,-2.52343 0,-1.39783 -1.1237,-2.52344 -2.5215,-2.52344 z"
+        transform="matrix(0.26458333,0,0,0.26458333,0,87)"
+        id="rect8461"
+        inkscape:connector-curvature="0" />
+    </g>
+  </g>
+</svg>
+</a>
+					<p class="mb-30 footer-desc pt-40">
+						El proyecto PatoJAD desprendió de LatinLinux y busca
+						conformar una comunidad. Donde todos son libres de
+						compartir sus publicaciones y contenidos. La idea
+						principal de la comunidad es generar contenido y dar un
+						espacio para dar a conocer nuestra opinión o proyectos.
+					</p>
+				</div>
+			</div>
+			<div class="col-xl-3 col-lg-3 col-md-6 text-center">
+				<div class="footer-widget mb-60 ">
+					<ul class="list-group">
+						<li class="list-group-item">
+							<a href="https://rest.patojad.com.ar/" title="Rest API" target="_blank">
+								<span class="label">Rest Client</span>
+							</a>
+						</li>
+						<li class="list-group-item">
+							<a href="https://ytplayer.patojad.com.ar/" title="YTPlayer" target="_blank">
+								<span class="label">YTPlayer</span>
+							</a>
+						</li>
+						<li class="list-group-item">
+							<a href="https://telegram.patojad.com.ar/" title="Telegram Instancia" target="_blank">
+								<span class="label">Telegram</span>
+							</a>
+						</li>
+						<li class="list-group-item">
+							<a href="https://jugamos.patojad.com.ar/" title="Countdown" target="_blank">
+								<span class="label">Jugamos</span>
+							</a>
+						</li>
+						<li class="list-group-item">
+							<a href="https://live.patojad.com.ar/" title="Lives de PatoJAD" target="_blank">
+								<span class="label">Live PatoJAD</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-xl-3 col-lg-3 col-md-6 text-center">
+				<div class="footer-widget mb-60 	animation-delay: 0.6s;
+						animation-name: fadeInUp;
+					">
+					<ul class="list-group">
+						<li class="list-group-item">
+							<a href="https://compartelibre.patojad.com.ar/" title="Comparte Libre" target="_blank">
+								<span class="label">Comparte Libre</span>
+							</a>
+						</li>
+						<li class="list-group-item">
+							<a href="https://pensamientos.patojad.com.ar/" title="Blog Instrospectivo" target="_blank">
+								<span class="label">Pensamientos</span>
+							</a>
+						</li>
+						<li class="list-group-item">
+							<a href="https://mediastodon.patojad.com.ar/" title="Mediastodon" target="_blank">
+								<span class="label">Mediastodon</span>
+							</a>
+						</li>
+						<li class="list-group-item">
+							<a href="https://streamtools.patojad.com.ar/" title="Stream Tools" target="_blank">
+								<span class="label">Stream Tools</span>
+							</a>
+						</li>
+						<li class="list-group-item">
+							<a href="https://qrgenerator.vasak.net.ar/" title="QR Generator" target="_blank">
+								<span class="label">QR Generator</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="copyright-area">
+			<div class="row align-items-center">
+				<div class="col-lg-6 col-md-12"><div class="footer-social-links">
+    <ul class="d-flex">
+        
+        <li>
+            <a href="https://t.me/PatoJADCommunity" alt="Comunidad Telegram" aria-label="Comunidad Telegram" title="Comunidad Telegram" class="donate-link"
+                rel="noopener" target="_blank">
+                
+                <em class="fab fa-telegram"></em>
+                
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://www.youtube.com/channel/UCta4Iy4TzMx8Xo0pwpkbWgg" alt="Youtube" aria-label="Youtube" title="Youtube" class="donate-link"
+                rel="noopener" target="_blank">
+                
+                <em class="fab fa-youtube"></em>
+                
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://www.instagram.com/patojadoficial/" alt="Instagram" aria-label="Instagram" title="Instagram" class="donate-link"
+                rel="noopener" target="_blank">
+                
+                <em class="fab fa-instagram"></em>
+                
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://twitter.com/PatoJADOficial" alt="Twitter" aria-label="Twitter" title="Twitter" class="donate-link"
+                rel="noopener" target="_blank">
+                
+                <em class="fab fa-twitter"></em>
+                
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://www.facebook.com/PatoJAD/" alt="Facebook" aria-label="Facebook" title="Facebook" class="donate-link"
+                rel="noopener" target="_blank">
+                
+                <em class="fab fa-facebook"></em>
+                
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://www.twitch.tv/patojad" alt="Twitch" aria-label="Twitch" title="Twitch" class="donate-link"
+                rel="noopener" target="_blank">
+                
+                <em class="fab fa-twitch"></em>
+                
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://www.tiktok.com/@patojadoficial" alt="TikTok" aria-label="TikTok" title="TikTok" class="donate-link"
+                rel="noopener" target="_blank">
+                
+                <em class="fab fa-tiktok"></em>
+                
+            </a>
+        </li>
+        
+        <li>
+            <a href="https://whatsapp.com/channel/0029VaJ9UV9FnSzBSJLZxg3A" alt="WhatsApp" aria-label="WhatsApp" title="WhatsApp" class="donate-link"
+                rel="noopener" target="_blank">
+                
+                <em class="fab fa-whatsapp"></em>
+                
+            </a>
+        </li>
+        
+    </ul>
+</div></div>
+				<div class="col-lg-6 col-md-12">
+					<p>
+						Diseño creado por
+						<a href="https://vasak.net.ar" rel="nofollow" aria-label="Got to Vasak Group">Vasak Group</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<a href="#" class="scroll-top" alt="Scroll to Top" aria-label="Scroll To Top">
+	<em class="fa fa-arrow-up" aria-hidden="true"></em>
+</a>
+
+
+
+
+<script async src="http://localhost:1313/js/vendor.min.4020b04ff9e7a36fa633f09ef8b72c02c74dc6a1252e4d86a9163ae2e010a3bd83c66be5d3a9e75e91fc4b01f6fe3bf8abe58311686d324077fd0f109795acd5.js"></script>
+
+
+<script>
+	function loadScript(a){
+		var b=document.getElementsByTagName("head")[0],
+		c=document.createElement("script");
+		c.type="text/javascript",
+		c.src="https://tracker.metricool.com/resources/be.js",
+		c.onreadystatechange=a,
+		c.onload=a,
+		b.appendChild(c)
+		}
+		
+		loadScript(function(){
+			beTracker.t({hash:"84604e10d6bc15fe3a0351ac81fb78b3"})
+		});
+</script>
+
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(function(OneSignal) {
+    OneSignal.init({
+      appId: "52e5b1be-b7d6-4099-af80-fbd6ba25970b",
+    });
+  });
+</script></body>
+</html>
