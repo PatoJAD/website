@@ -27,7 +27,7 @@ tags:
         'programas',
     ]
 categories: ['Linux', 'Programacion', 'Redes', 'Seguridad']
-img: 'https://i.postimg.cc/wv7NcXCS/Captura-de-Pantalla-2022-05-03-a-la-s-13-02-07.png'
+img: 'https://www.adslzone.net/app/uploads-adslzone.net/2020/07/LINUX.jpg'
 authors: ['PatoJAD']
 ---
 

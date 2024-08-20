@@ -5,7 +5,7 @@ description: 'Solucion para el subproceso dpkg-deb --control devolvió el códig
 type: 'post'
 tags: ['error', 'subproceso', 'error', 'codigo', 'dpkg', 'deb', 'control']
 categories: ['Linux']
-img: 'https://imgur.com/Qwlf1.png'
+img: 'https://i.postimg.cc/zXsxPNLm/dpkgerror.webp'
 authors: ['PatoJAD']
 ---
 

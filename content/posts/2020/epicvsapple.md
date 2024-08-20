@@ -15,7 +15,7 @@ tags:
         'unreal',
     ]
 categories: ['Noticias']
-img: 'https://cdn.earlygame.com/uploads/images/_1200x675_crop_center-center_none/epic-vs-apple-fortnite-legal-battle-explained.jpg'
+img: 'https://info.payproglobal.com/hubfs/header_epic-games-vs-apple.png'
 authors: ['PatoJAD']
 ---
 
