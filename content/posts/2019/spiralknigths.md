@@ -16,7 +16,7 @@ tags:
         'windows',
     ]
 categories: ['Juegos', 'Windows', 'Linux', 'MacOS']
-img: 'https://wiki.spiralknights.com/es/images/b/bd/SpiralKnights_News_44-big.png'
+img: 'https://pbs.twimg.com/media/GB0Ok8XXQAAUZzj?format=jpg&name=large'
 authors: ['PatoJAD']
 ---
 
