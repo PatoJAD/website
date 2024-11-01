@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Prompt on PatoJAD</title><link>https://patojad.com.ar/tags/prompt/</link><description>Recent content in Prompt on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Thu, 12 Oct 2023 12:22:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/prompt/index.xml" rel="self" type="application/rss+xml"/><item><title>Mi terminal ZSH + PowerLevel10K</title><link>https://patojad.com.ar/post/2023/10/mi-terminal-zsh--powerlevel10k/</link><pubDate>Thu, 12 Oct 2023 12:22:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/10/mi-terminal-zsh--powerlevel10k/</guid><description>&lt;p>Muchos me preguntaron sobre mi terminal en videos anteriores, en esta oportunidad quiero explicar como llegar a tener una terminal como la que uso yo, y específicamente, porque tener una terminal así.&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/performance.gif" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Dentro de mi profesión como developer es importante la velocidad y simplicidad de tareas cotidianas y una de esas es el uso de la terminal, la terminal la uso todo el dia y para prácticamente todo, por lo cual requiero una terminal que pueda personalizar para que se acomode y obviamente me simplifique todo lo que pueda…&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/DvcA_iFov54?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="zsh-un-shell-diferente">ZSH un shell diferente&lt;/h2>
+&lt;p>ZSH (Z shell) es una terminal (o mejor dicho shell) para uso interactivo que nos permitirá ser más eficientes cuando estemos delante de la consola. Esta Shell nos permite interpretar, además de comandos, scripts lo cual puede volverse extremadamente útil. Y entre sus ventajas podemos enumerar:&lt;/p>
+&lt;ul>
+&lt;li>Eficiencia&lt;/li>
+&lt;li>Completado de tabulador mejorado (para los que usamos tab con frecuencia esto es lo que mas me enamoro)&lt;/li>
+&lt;li>Expansión de nombres de fichero mejorada&lt;/li>
+&lt;li>Manejo de arrays mejorado&lt;/li>
+&lt;li>Totalmente personalizable (a los fanáticos de la belleza esto les va a encantar)&lt;/li>
+&lt;/ul>
+&lt;p>La instalación es muy simple porque viene en los repositorios de la mayoría de las distros de linux. Lo cual nos permite hacerlo de una manera muy simple:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># debian/ubuntu&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install zsh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># archlinux&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo pacman -S zsh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Si queremos definir este shell como shell por defecto (de esta forma al abrir la terminal iniciará este shell y no bash que suele ser el shell por defecto de la mayoría de las distros) ejecutamos el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">chsh -s &lt;span class="sb">`&lt;/span>which zsh&lt;span class="sb">`&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Sin embargo por sí solo puede ser un poco engorroso de configurar y puede llevarnos demasiado tiempo, pero como vivimos en el mundo del Software Libre y de la gente que no se queda quieta, podemos encontrar unas &lt;strong>vitaminas&lt;/strong>.&lt;/p>
+&lt;h2 id="oh-my-zsh-al-rescate">Oh My ZSH al rescate&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://www.ivaylopavlov.com/wp-content/uploads/2017/04/Screenshot-2017-04-30-00.43.48.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Es un framework desarrollado por la comunidad para gestionar la configuración de ZSH. El cual viene a simplificar la tarea personalizar y añadir plugins y configurarlo a gusto, esto puede llegar a ser realmente muy útil y por supuesto simple de instalar, para iniciar debemos instalar sus dependencias:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># debian/ubuntu&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install git-core curl
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># archlinux&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo pacman -S git curl
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>y a continuación instalamos directamente desde su git.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sh -c &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>De esta forma se instalará este “aditivo” que permitirá configurarlo a nuestro gusto!&lt;/p>
+&lt;h2 id="powerlevel-10k">PowerLevel 10k&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/prompt-styles-high-contrast.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Esto ya es 100% decicion mia, es un theme que me gusto y que suma un valor agregado con datos que muchas veces pueden ser interesantes que pueden leer en su documentación dentro de los cuales puedo resaltar:&lt;/p>
+&lt;ul>
+&lt;li>Tiempo de ejecución de script&lt;/li>
+&lt;li>Status de git&lt;/li>
+&lt;li>hora de comando&lt;/li>
+&lt;/ul>
+&lt;p>Para instalarlos voy a indicar el paso a paso, no es obligatorio seguirlo así dado que algunos pasos son opcionales pero la verdad recomiendo hacerlo así para obtener una buena integración y performance… Iniciamos instalando las siguientes fonts y poniendo en nuestra terminal la font por defecto &lt;em>Meslo Nerd Font&lt;/em>&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='MesloLGS NF Regular'
+rel="noopener"
+href='https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf'>
+MesloLGS NF Regular
+&lt;/a>
+&lt;/div>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='MesloLGS NF Bold'
+rel="noopener"
+href='https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf'>
+MesloLGS NF Bold
+&lt;/a>
+&lt;/div>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='MesloLGS NF Italic'
+rel="noopener"
+href='https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf'>
+MesloLGS NF Italic
+&lt;/a>
+&lt;/div>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='MesloLGS NF Bold Italic'
+rel="noopener"
+href='https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf'>
+MesloLGS NF Bold Italic
+&lt;/a>
+&lt;/div>
+&lt;p>Luego desde la terminal descargamos el theme de PowerLevel10k desde su repositorio oficial:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">git clone --depth&lt;span class="o">=&lt;/span>&lt;span class="m">1&lt;/span> https://github.com/romkatv/powerlevel10k.git &lt;span class="si">${&lt;/span>&lt;span class="nv">ZSH_CUSTOM&lt;/span>&lt;span class="k">:-&lt;/span>&lt;span class="nv">$HOME&lt;/span>&lt;span class="p">/.oh-my-zsh/custom&lt;/span>&lt;span class="si">}&lt;/span>/themes/powerlevel10k
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Por último queda modificar el archivo de configuracion para que inicie este theme, para hacerlo en este caso lo explicare con nano pero pueden usar el editor que quieran:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">nano ~/.zshrc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>ahi buscamos la linea que tenga lo siguiente&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="line">&lt;span class="cl">&lt;span class="na">ZSH_THEME&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;...&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Donde los puntos suspensivos &lt;em>(&amp;hellip;)&lt;/em> son cualquier texto. y lo remplazamos por la siguiente linea&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="line">&lt;span class="cl">&lt;span class="na">ZSH_THEME&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;powerlevel10k/powerlevel10k&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Ahora reiniciamos la terminal y nos abrira una configuracion paso a paso donde vamos a ir eligiendo entre ejemplos como se vera la terminal, las primeras preguntas son si vemos los iconos y luego nos mostrará opciones (casi siempre del 1 al 4) donde iremos estableciendo la visualización…&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/configuration-wizard.gif" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>En el caso de que no nos guste como quedo o queramos cambiarlo siempre se puede ejecutar el comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">p10k configure
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Que permitirá reconfigurar el theme nuevamente para dejarlo a nuestro gusto&amp;hellip; No te olvides de comentarnos que te parece y dejarnos la foto de tu terminal recien configurada! Te esperamos en Telegram&lt;/p></description></item></channel></rss>

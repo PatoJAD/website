@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dpkg on PatoJAD</title><link>https://patojad.com.ar/tags/dpkg/</link><description>Recent content in Dpkg on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Fri, 23 Apr 2021 10:31:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/dpkg/index.xml" rel="self" type="application/rss+xml"/><item><title>Obteniendo .deb de apps instaladas</title><link>https://patojad.com.ar/post/2021/04/obteniendo-.deb-de-apps-instaladas/</link><pubDate>Fri, 23 Apr 2021 10:31:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/04/obteniendo-.deb-de-apps-instaladas/</guid><description>&lt;p>Es común que muchas veces encontremos en alguna distro una app que sea única de esta distro y nos gusta mucho. En esta oportunidad vamos a portear o a recuperar los instalados en las distribuciones basadas en Debian/Ubuntu.&lt;/p>
+&lt;h2 id="instalando-repack">Instalando repack&lt;/h2>
+&lt;p>Lo primero es instalar las dependencias o mejor dicho las app necesaria para poder rearmar los paquetes .deb para poder llevarlos a otras distros. Esto lo vamos a instalar de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt-get install dpkg-repack
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="usando-repack">Usando Repack&lt;/h2>
+&lt;p>Realmente es muy simple, repack nos permite generar .deb desde paquetes ya instalados, lo cual nos permite acceder a cualquier app instalada esté o no en el repositorio. Si se instaló con un deb podemos volver a generar el deb&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dpkg-repack nombre-de-la-app
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Cómo instalar paquetes DEB usando dpkg</title><link>https://patojad.com.ar/post/2020/05/c%C3%B3mo-instalar-paquetes-deb-usando-dpkg/</link><pubDate>Wed, 20 May 2020 06:40:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/05/c%C3%B3mo-instalar-paquetes-deb-usando-dpkg/</guid><description>&lt;p>Anteriormente hablamos de &lt;a href="https://patojad.com.ar/post/2020/04/como-crear-un-deb-con-dpkg/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+cómo crear paquetes .deb
+&lt;/a> en Debian, Ubuntu o derivadas utilizando el gestor de paquetes dpkg, sin embargo hoy llego el dia de dar un pequeño paso hacia atrás y ver como se instala utilizando el mismo gestor.&lt;/p>
+&lt;p>Antes de iniciar quiero agradecer a Julio por brindar la información y obviamente a la autora de todo esto que es nada más ni nada menos que Gabriela González.&lt;/p>
+&lt;p>Explicamos cómo utilizar las opciones del gestor de paquetes de Debian, para instalar y desinstalar archivos .deb en Ubuntu, Debian o derivados&lt;/p>
+&lt;p>Los usuarios estas distribuciones la tienen muy fácil hace rato, instalar cualquier programa es un paseo por el parque gracias al centro de software. Poco a poco muchas otras distros van implementando este tipo de tiendas de aplicaciones para que el usuario pueda descargar lo que quiera de la manera más sencilla posible. Esto también ha permitido que muchos desarrolladores pongan en venta sus aplicaciones de pago y de esta manera obtener algo a cambio de su trabajo, y sin preocuparse por conseguir un medio de distribución que llegue a todos los usuarios.&lt;/p>
+&lt;p>Muchos programas no se encuentran en el centro de software, así que a veces es bueno recurrir a la terminal para instalarlos&lt;/p>
+&lt;p>&lt;strong>Existen muchos paquetes y aplicaciones que no están disponibles en el centro de software&lt;/strong>, muchos de los cuales requieren el uso de la terminal para añadir un repositorio y poder descargarlos. Otros en cambio, como por ejemplo Google Chrome, hay que bajarlos como un paquete DEB para poder usarlo en Debian/Ubuntu y derivados. Este paquete DEB se puede instalar con el centro de software, haciendo doble clic sobre el. Si ya lo has hecho, probablemente más de una vez, seguro has notado que el proceso es un poquito lento, que el centro de software más deuna vez se «queda pegado», y además puedes hasta sentir lag en el sistema, y un retraso en la respuesta de las aplicaciones que estás ejecutando en ese momento, es caótico.&lt;/p>
+&lt;h2 id="instalar-paquetes-deb-usando-dpkg">INSTALAR PAQUETES DEB USANDO DPKG&lt;/h2>
+&lt;p>dpkg es el programa base para manejar paquetes .deb.Con dpkg puedes instalar, remover y obtener información sobre cualquier paquete .deb. Pero, se debe ver a dpkg como una herramienta de sistema que trabaja en conjunto con apt-get. Si una dependencia &lt;strong>no se satisface&lt;/strong>, dpkg fallará, por el contrario, herramientas como apt-get crearán una lista de dependencias para instalar todo tan automáticamente como sea posible. Es decir, con dpkg instalamos paquetes .deb que ya descargamos, porque dpkg &lt;strong>no descarga nada&lt;/strong>.&lt;/p>
+&lt;p>Para &lt;strong>instalar&lt;/strong> paquetes con dpkg usamos la opción -i o -install, ejemplo:&lt;/p>
+&lt;pre>&lt;code>dpkg -i paquete.deb
+&lt;/code>&lt;/pre>
+&lt;p>Para &lt;strong>verificar&lt;/strong> que un paquete se ha instalado podemos escribir en la terminal:&lt;/p>
+&lt;pre>&lt;code>dpkg -l | grep 'chrome'
+&lt;/code>&lt;/pre>
+&lt;p>Entre las comillas colocamos una palabra clave para buscar elpaquete, en este caso quiero verificar si se instaló Chrome. Si la terminal arroja una lista y antes del paquete muestra «ii» quiere decir que está instalado&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/mDS9KHDP/image.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Para &lt;strong>desinstalar&lt;/strong> un paquete utilizando dpkg utilizamos la opción -r o -remove, ejemplo:&lt;/p>
+&lt;pre>&lt;code>dpkg -r paquete.deb
+&lt;/code>&lt;/pre>
+&lt;p>Si queremos &lt;strong>purgar&lt;/strong> la isntalaición, es decir borrar todos los rastros del programa, utilizamos -P:&lt;/p>
+&lt;pre>&lt;code>dpkg -P paquete.deb
+&lt;/code>&lt;/pre>
+&lt;p>Si quieren conocer más a fondo esta herramienta, pueden leer el manual de Debian sobre la &lt;a href="https://debian-handbook.info/browse/es-ES/stable/sect.manipulating-packages-with-dpkg.html" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+manipulación de paquetes con dpkg
+&lt;/a>.&lt;/p>
+&lt;hr>
+&lt;p>Recorda &lt;strong>apoyarnos&lt;/strong> en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p></description></item><item><title>Subproceso dpkg devolvió el código de salida de error</title><link>https://patojad.com.ar/post/2020/04/subproceso-dpkg-devolvi%C3%B3-el-c%C3%B3digo-de-salida-de-error/</link><pubDate>Thu, 30 Apr 2020 09:26:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/04/subproceso-dpkg-devolvi%C3%B3-el-c%C3%B3digo-de-salida-de-error/</guid><description>&lt;p>Es comun que durante las actualizaciones de version a version, o la instalacion de un paquete que no este en nuestros repositorios tengamos algun error en dpkg. Vamos a estar viendo una serie de soluciones a los errores mas comunes&amp;hellip;&lt;/p>
+&lt;h2 id="error-1">Error 1&lt;/h2>
+&lt;p>Los paquetes tienen archivos que se &lt;strong>sobrescriben&lt;/strong>. Los paquetes tienen &lt;strong>dependencias sin resolver&lt;/strong>. Hay conflictos entre los paquetes. Un paquete no puede ser eliminado o modificado por dpkg. Solucion:&lt;/p>
+&lt;pre>&lt;code>sudo echo &amp;quot;force-all&amp;quot; &amp;gt;/etc/dpkg/dpkg.cfg
+sudo apt-get -f install
+&lt;/code>&lt;/pre>
+&lt;h2 id="error-2">Error 2&lt;/h2>
+&lt;p>Instalación de un &lt;strong>paquete dañado&lt;/strong>, vuelvo a intentar instalar y aptitude dice que &lt;strong>ya está instalado&lt;/strong>! Solución:&lt;/p>
+&lt;pre>&lt;code>sudo apt-get remove paquete_dañado
+sudo apt-get update
+sudo apt-get clean
+sudo apt-get --reinstall install paquete
+&lt;/code>&lt;/pre>
+&lt;h2 id="error-3">Error 3&lt;/h2>
+&lt;p>Error de verificación de las &lt;strong>llaves públicas GPG&lt;/strong>(NO_PUBKEY)… Error muy comun de firmas de paquetes o repositorios. Solución:&lt;/p>
+&lt;pre>&lt;code>sudo apt-get update
+&lt;/code>&lt;/pre>
+&lt;p>Buscamos y copiamos el número de error que aparece en negrita.&lt;/p>
+&lt;pre>&lt;code>The following signatures couldn't be verified because the public key is not available: NO_PUBKEY **010908312D230C5F**
+There is no public key available for the following key IDs:**010908312D230C5F**
+&lt;/code>&lt;/pre>
+&lt;p>Y luego ejecutamos el siguiente comando remplazando el id por el respectivo al de su errores&lt;/p>
+&lt;pre>&lt;code>gpg --keyserver keyserver.ubuntu.com --recv **010908312D230C5F**
+gpg --export --armor **010908312D230C5F** | sudo apt-key add -
+sudo apt-get update
+&lt;/code>&lt;/pre>
+&lt;p>Puede que el &lt;em>keyserver no tengla la clave&lt;/em>, hay que buscar el respectivo a su distro de ser asi&amp;hellip;&lt;/p>
+&lt;h2 id="error-4">Error 4&lt;/h2>
+&lt;p>El &lt;strong>subproceso post-installation script devolvió el código de salida de error&lt;/strong> (cualquier error). Se encontraron errores al procesar: (nombre_paquete). Solución:&lt;/p>
+&lt;p>Determinamos el nombre del paquete que causó el error, por ejemplo, en el registro de a continuación, se muestra en negrita el nombre del paquete que causó el problema (xosview)&lt;/p>
+&lt;pre>&lt;code>newaliases: warning: valid_hostname: numeric hostname: 69522
+newaliases: fatal: bad parameter value: 69522
+dpkg: error processing xosview (–configure):
+subprocess post-installation script returned error exit status 75
+Errors were encountered while processing: **xosview**
+&lt;/code>&lt;/pre>
+&lt;p>Después de haber determinado el nombre del paquete, ejecutamos los siguientes comandos cambiando la palabra &lt;strong>xosview&lt;/strong> por el nombre del paquete que causó el problema en nuestro caso:&lt;/p>
+&lt;pre>&lt;code>sudo rm -f /var/lib/dpkg/info/xosview.post*
+sudo rm -f /var/lib/dpkg/info/xosview.pre*
+sudo apt-get -f install
+&lt;/code>&lt;/pre>
+&lt;h2 id="error-5">Error 5&lt;/h2>
+&lt;p>Error mientras se &lt;strong>elimina un paquete&lt;/strong>. Solución:&lt;/p>
+&lt;pre>&lt;code>sudo rm -f /var/lib/dpkg/info/paquete_defectuoso.post*
+sudo rm -f /var/lib/dpkg/info/paquete_defectuoso.pre*
+sudo apt-get remove paquete_defectuoso
+&lt;/code>&lt;/pre>
+&lt;h2 id="error-6">Error 6&lt;/h2>
+&lt;p>Error en &lt;strong>/var/lib/dpkg/status&lt;/strong>. Solución:&lt;/p>
+&lt;p>Normalmente se soluciona así:&lt;/p>
+&lt;pre>&lt;code>sudo cp /var/lib/dpkg/status-old /var/lib/dpkg/status
+&lt;/code>&lt;/pre>
+&lt;p>Si esto no soluciona el problema, ver &lt;strong>Error 7&lt;/strong>.&lt;/p>
+&lt;h2 id="error-7">Error 7&lt;/h2>
+&lt;p>Persiste el problema anterior o problema con apt-get que contiene muchos repositorios o &lt;strong>Error out of room&lt;/strong>. Solución:&lt;/p>
+&lt;p>El problema puede parecerse a esto:&lt;/p>
+&lt;pre>&lt;code>E: Dynamic MMap ran out of room
+&lt;/code>&lt;/pre>
+&lt;p>Editamos el archivo apt.conf (recuerden cambiar gedit por el editor que tengan ustedes)&lt;/p>
+&lt;pre>&lt;code>sudo gedit /etc/apt/apt.conf
+&lt;/code>&lt;/pre>
+&lt;p>Modificamos el &lt;strong>tamaño de la caché&lt;/strong>.&lt;/p>
+&lt;pre>&lt;code>Apt::Cache-Limit “8388604″;
+&lt;/code>&lt;/pre>
+&lt;h2 id="error-8">Error 8&lt;/h2>
+&lt;p>Durante la descarga algunos archivos &lt;strong>no se encuentran disponibles&lt;/strong>. Solución:&lt;/p>
+&lt;pre>&lt;code>sudo apt-get update
+&lt;/code>&lt;/pre>
+&lt;p>Si el problema persiste después de volver a intentar instalar los paquetes, revisa el archivo /etc/apt/sources.list.&lt;/p></description></item><item><title>¿Como crear un deb con dpkg?</title><link>https://patojad.com.ar/post/2020/04/como-crear-un-deb-con-dpkg/</link><pubDate>Thu, 02 Apr 2020 10:14:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/04/como-crear-un-deb-con-dpkg/</guid><description>&lt;p>Existen muchas formas de crear un instalable .deb para nuestros sistemas. En este caso vamos a ver uno de los metodos, probablemente el mas simple de todos y uno de los mas utiles por su practicidad.&lt;/p>
+&lt;h2 id="como-funciona">¿Como funciona?&lt;/h2>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/mHqRbo1A5MM?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;p>Como se puede apreciar en el video lo que debemos hacer es organizar las carpetas de nuestro programa como si estuvieramso en el directorio raiz (en el caso practico en la carpeta deb tomamos como si fuera raiz para posicionar todos los archivos en la pocicion que deben quedar post intalacion)&lt;/p>
+&lt;p>Luego debemos crear el directorio DEBIAN en &amp;ldquo;nuestro root&amp;rdquo; y dentro de el crear el archivo control, el cual podemos hacerlo de la siguiente forma:&lt;/p>
+&lt;pre>&lt;code>mkdir DEBIAN
+cd DEBIAN
+vim control
+&lt;/code>&lt;/pre>
+&lt;p>(En el ultimo punto podemos usar vim, vi, pluma, gedit, deepin-editor o el que querramos para que nos quede comodo editar el archivo). Inmediatamente despues basta con agregar lo siguiente personalizando los datos claramente:&lt;/p>
+&lt;pre>&lt;code>Package: lynxos-gtk-theme
+Priority: optional
+Section: graphics
+Maintainer: PatoJAD &amp;lt;jdecima@disroot.org&amp;gt;
+Architecture: amd64
+Version: 0.0.4
+Depends: lynxos-icons-theme, lynxos-wallpapers
+Description: Tema de GTK para LynxOS
+LynxOS un thema GTK integrado con su trabajo en el escritorio
+&lt;/code>&lt;/pre>
+&lt;p>Recorda que en el video se explica mucho mejor como funcionan los campos. Realmente es importante completarlos bien para evitar errores futuros. En la ultima linea (la descripcion larga) es importante dejar el espacio como inicio de linea.&lt;/p>
+&lt;p>Despeus de esto basta con ejecutar el comando dpkg que empaqueta el archivo dejando listo nuestro instalador de la siguiente forma:&lt;/p>
+&lt;pre>&lt;code>dpkg -b ./ ../lynxos-gtk-theme-0.0.4_amd64.deb
+&lt;/code>&lt;/pre>
+&lt;p>Donde dpkg -b recibe 2 parametos el 1 es el directorio que tomamoscomo raiz para crear nuestro deb (en el caso practico deb) y el 2 donde queremos que quede el deb con el respectivo nombre.&lt;/p></description></item></channel></rss>

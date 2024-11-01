@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dev on PatoJAD</title><link>https://patojad.com.ar/tags/dev/</link><description>Recent content in Dev on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 03 May 2022 13:18:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/dev/index.xml" rel="self" type="application/rss+xml"/><item><title>¿La mejor distro para la gente de sistemas?</title><link>https://patojad.com.ar/post/2022/05/la-mejor-distro-para-la-gente-de-sistemas/</link><pubDate>Tue, 03 May 2022 13:18:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/05/la-mejor-distro-para-la-gente-de-sistemas/</guid><description>&lt;p>Esta es una pregunta que me hicieron muchas veces compañeros de la facultad apoyándose en mi “fanatismo” sobre linux. Sin embargo siempre fui dando respuestas diferentes dependiendo del estadio de mi vida en el que estaba. Sin embargo, después de mucho camino transitado forme un pensamiento más centrado en la experiencia.&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/tEWDS29KvBM?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;p>¿Vos qué pensas? Si estás en sistemas ¿Que distro usas?¿Por qué?&lt;/p></description></item><item><title>¿El mejor sistema para programar?</title><link>https://patojad.com.ar/post/2022/02/el-mejor-sistema-para-programar/</link><pubDate>Fri, 11 Feb 2022 11:56:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/02/el-mejor-sistema-para-programar/</guid><description>&lt;p>En esta oportunidad vamos a hablar sobre esta pregunta que me han hecho muchas veces. Si bien soy un usuario recurrente de GNU/Linux voy a ser lo más imparcial. De todas formas queda sobreentendido que es mi opinión en base a mi experiencia. Pero como aclaró durante todo el video donde doy mi opinión &lt;strong>SE PUEDE PROGRAMAR EN CUALQUIER SISTEMA OPERATIVO&lt;/strong>&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/JVytOtBPKDI?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;hr>
+&lt;p>Recorda apoyarnos en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona como vos.&lt;/p></description></item><item><title>Redirección algunos usos</title><link>https://patojad.com.ar/post/2020/10/redirecci%C3%B3n-algunos-usos/</link><pubDate>Thu, 29 Oct 2020 09:04:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/10/redirecci%C3%B3n-algunos-usos/</guid><description>&lt;p>Seguimos con el tema de la terminal y las salidas de las mismas. Te recomiendo personalmente leer la publicación anterior para poder aprovechar al máximo esta información.&lt;/p>
+&lt;h2 id="eliminando-salidas-innecesarias">Eliminando salidas innecesarias&lt;/h2>
+&lt;p>Algunas veces “el silencio es oro”, y no queremos la salida de un comando, sólo queremos ignorarla. Esto se aplica particularmente a los mensajes de estado y de error. El sistema proporciona una forma de hacerlo redireccionando la salida a un archivo especial llamado “dev/null” (del cual hablamos anteriormente). Este archivo es un dispositivo del sistema llamado un cubo de bits (bit bucket) que acepta entradas y no hace nada con ellas. Para suprimir los mensajes de error de un comando, hacemos esto:&lt;/p>
+&lt;pre>&lt;code>ls -l /bin/usr 2&amp;gt; /dev/null
+&lt;/code>&lt;/pre>
+&lt;h2 id="devnull-en-la-cultura-unix">/dev/null en la cultura Unix&lt;/h2>
+&lt;p>El cubo de bits es un antiguo concepto de Unix y, debido a su universalidad, ha aparecido en muchas partes de la cultura Unix. Cuando alguien dice que está enviando tus comentarios a /dev/null, ahora ya sabes lo que significa.&lt;/p>
+&lt;h2 id="redireccionando-la-entrada-estándar">Redireccionando la entrada estándar&lt;/h2>
+&lt;p>Hasta ahora, no hemos encontrado ningún comando que haga uso de la entrada estándar en la saga de publicaciones sobre la terminal (en realidad sí lo hemos hecho, pero revelaremos la sorpresa un poco más adelante), así que necesitamos presentar uno.&lt;/p>
+&lt;h2 id="cat--concatenando-archivos">cat – Concatenando archivos&lt;/h2>
+&lt;p>El comando cat lee uno o más archivos y los copia a la salida estándar de la siguiente forma:&lt;/p>
+&lt;pre>&lt;code>cat [archivo...]
+&lt;/code>&lt;/pre>
+&lt;p>En la mayoría de los casos, puedes usarlo para mostrar archivos sin paginar, por ejemplo:&lt;/p>
+&lt;pre>&lt;code>cat ls-output.txt
+&lt;/code>&lt;/pre>
+&lt;p>Mostrará el contenido del archivo ls-output.txt. cat a menudo se usa para mostrar archivos de texto cortos. Como cat puede aceptar más de un archivo como argumento, también se puede usar para unir archivos. Imagina que hemos descargado un gran archivo que ha sido dividido en múltiples partes (los archivos multimedia a menudo están divididos de esta forma en Usenet), y queremos unirlos de nuevo. Si los archivos se llamarán:&lt;/p>
+&lt;pre>&lt;code>movie.mpeg.001 movie.mpeg.002 ... movie.mpeg.099
+&lt;/code>&lt;/pre>
+&lt;p>podríamos unirlos de nuevo con este comando:&lt;/p>
+&lt;pre>&lt;code>cat movie.mpeg.0* &amp;gt; movie.mpeg
+&lt;/code>&lt;/pre>
+&lt;p>Como los comodines siempre expanden sus resultados en orden, los argumentos se distribuirán en el orden correcto.&lt;/p>
+&lt;p>Todo esto está muy bien, pero ¿qué tiene esto que ver con la entrada estándar? Nada todavía, pero probamos algo más. Qué pasa si usamos “cat” sin argumentos:&lt;/p>
+&lt;pre>&lt;code>cat
+&lt;/code>&lt;/pre>
+&lt;p>No ocurre nada, sólo se queda quieto como si se hubiera quedado colgado. Podría parecer eso, pero realmente está haciendo lo que se supone que debe hacer.&lt;/p>
+&lt;p>Si no le damos argumentos a cat, lee de la entrada estándar y como la entrada estándar está, por defecto, asignada al teclado, ¡está esperando a que tecleemos algo! Prueba a añadir el siguiente texto y pulsa Enter:&lt;/p>
+&lt;pre>&lt;code>cat
+PatoJAD mi blog favorito https://patojad.com.ar/
+&lt;/code>&lt;/pre>
+&lt;p>Ahora, pulsa Ctrl-d (es decir, mantén pulsada la tecla Ctrl y luego pulsa “d”) para decirle a cat que ha alcanzado el final del archivo (EOF – end of file) en la entrada estándar:&lt;/p>
+&lt;pre>&lt;code>cat
+PatoJAD mi blog favorito https://patojad.com.ar/
+&lt;/code>&lt;/pre>
+&lt;p>Obteniendo una salida similar a:&lt;/p>
+&lt;pre>&lt;code>PatoJAD mi blog favorito https://patojad.com.ar/
+&lt;/code>&lt;/pre>
+&lt;p>En ausencia de nombres de archivo como argumentos, cat copia la entrada estándar a la salida estándar, así que vemos nuestra línea de texto repetida. Podemos usar este comportamiento para crear archivos de texto cortos. Digamos que queremos crear un archivo llamado “lazy_dog.txt” conteniendo el texto de nuestro ejemplo. Podríamos hacer esto:&lt;/p>
+&lt;pre>&lt;code>cat &amp;gt; lazy_dog.txt
+PatoJAD mi blog favorito https://patojad.com.ar/
+&lt;/code>&lt;/pre>
+&lt;p>Escribe el comando seguido del texto que queremos colocar en el archivo. Recuerda pulsar Ctrl-d al final. Usando la línea de comandos, ¡hemos implementado el procesador de texto más tonto del mundo! Para ver nuestros resultados, podemos usar cat para copiar de nuevo el archivo a stdout:&lt;/p>
+&lt;pre>&lt;code>cat lazy_dog.txt
+PatoJAD mi blog favorito https://patojad.com.ar/
+&lt;/code>&lt;/pre>
+&lt;p>Ahora que sabemos cómo cat acepta la entrada estándar, además de nombres de archivo como argumentos, probemos redirigiendo la entrada estándar:&lt;/p>
+&lt;pre>&lt;code>cat &amp;lt; lazy_dog.txt
+PatoJAD mi blog favorito https://patojad.com.ar/
+&lt;/code>&lt;/pre>
+&lt;p>Usando el operador de redirección “&amp;lt;”, hemos cambiado el origen de la entrada estándar del teclado al archivo lazy_dog.txt. Vemos que el resultado es el mismo que pasarle un nombre de archivo como argumento. Esto no es particularmente útil en comparación con pasar un nombre de archivo como argumento, pero sirve para demostrar el uso de un archivo como fuente de la entrada estándar. Otros comandos hacen un mejor uso de la entrada estándar, como veremos pronto.&lt;/p>
+&lt;h2 id="tuberías-pipelines">Tuberías (Pipelines)&lt;/h2>
+&lt;p>La capacidad de los comandos de leer datos de la entrada estándar y mandarlos a la salida estándar la utiliza una característica del shell llamada tubería (pipeline). Usando el operador tubería “|” (la barra vertical), la salida estándar de un comando puede ser entubada o canalizada hacia la entrada estándar de otro:&lt;/p>
+&lt;pre>&lt;code>comando1 | comando2
+&lt;/code>&lt;/pre>
+&lt;p>Para demostrarlo plenamente, vamos a necesitar algunos comandos. ¿Recuerdas que dijimos que había uno que ya conocíamos que acepta entrada estándar? Es less. Podemos usar less para mostrar, página a página, la salida de cualquier comando que mande sus resultados a la salida estándar:&lt;/p>
+&lt;pre>&lt;code>ls -l /usr/bin | less
+&lt;/code>&lt;/pre>
+&lt;p>¡Esto es extremadamente útil! Usando esta técnica, podemos examinar convenientemente la salida de cualquier comando que produzca salida estándar.&lt;/p></description></item><item><title>Comandos que no tenes que probar</title><link>https://patojad.com.ar/post/2020/09/comandos-que-no-tenes-que-probar/</link><pubDate>Mon, 28 Sep 2020 09:02:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/09/comandos-que-no-tenes-que-probar/</guid><description>&lt;p>Navegando por la web, me encontre unas imagenes que creo que todo el user de linux querría ver, habla un poco de esos comandos que no deberíamos utilizar para jugar aunque suene tentador porque simplemente &lt;strong>Quieren ver el mundo arder&lt;/strong>&lt;/p>
+&lt;h2 id="eliminar-todo-de-forma-recursiva">Eliminar todo de forma recursiva&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/d0SP9yy7/image.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Este es probablemente el comando más popular en el ámbito de los &lt;em>trolls&lt;/em> de linux y si bien es popular nunca esta de mas entender bien cómo funciona y obviamente evitar el uso y la distribución de lo mismo. Este comando es el tan conocido:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo rm -rf /
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Si bien todos entendemos las consecuencias de este comando que es la pérdida total de los archivos de nuestro sistemas (desde la carpeta raíz) la explicación &lt;em>funcional&lt;/em> dada por el usuario que creó estas imágenes es:&lt;/p>
+&lt;blockquote>
+&lt;p>Con &lt;code>rm -rf&lt;/code> borramos todos los directorios y ficheros de manera recursiva. Añadiendo el parámetro &lt;code>/&lt;/code> le decimos que lo haga desde la raíz, por lo que eliminará todo lo que se encuentre por el camino.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="bomba-fork">Bomba Fork&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/tJQcrtCg/image.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>La sintaxis de este comando es algo realmente raro, y al fin de cuenta no es tan dañino este comando, si bien tilda la PC basta con un reinicio para poder seguir, sin embargo existen muchas formas de volverlo muy dañino, pero si estás tentado en probar alguno de la lista te diria que pruebes este aunque sea bajo tu propio riesgo. El comando &lt;em>raro&lt;/em> es:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">:&lt;span class="o">(){&lt;/span> :&lt;span class="p">|&lt;/span>: &lt;span class="p">&amp;amp;&lt;/span> &lt;span class="o">}&lt;/span>&lt;span class="p">;&lt;/span>:
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Y según el colega que realizó las imágenes podemos describir su función de la siguiente forma:&lt;/p>
+&lt;blockquote>
+&lt;p>Un comando un poco raro, ¿no? Este comando causa una muy posible caída del sistema al consumir todos los recursos disponibles de tu ordenador, ya que este proceso es generar otro proceso que se ejecute simultáneamente. Muchos procesos procesos que causan una denegación de servicio, lo más probable es que haga que tengas que reiniciar el sistema.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="mover-todo-a-la-nada">Mover todo a la nada&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/7ZYWQLDS/image.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Este comando es el punto intermedio entre los dos anteriores. Es más dañino que la &lt;strong>Bomba Fork&lt;/strong> por lo cual no recomiendo probarlo. Este comando es muy similar a uno que suele estar en los scripts para evitar borrar las cosas las mueven a este directorio. El comando en sí que debemos evitar es:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">mv ~ /dev/null
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Y nuestro colega define el funcionamiento de este comando de la siguiente forma:&lt;/p>
+&lt;blockquote>
+&lt;p>Con este comando, movemos todo el contenido de nuestra carpeta home (~) a la carpeta &lt;code>/dev/null&lt;/code>. Claramente no existe ninguna carpeta llamada así, por lo que perderemos todos nuestros documentos, imágenes, etc. Un lío que no nos conviene.&lt;/p>
+&lt;/blockquote>
+&lt;p>Desde ya quiero agradecer a &lt;strong>@nilo_tech&lt;/strong> por realizar esto que realizo y no se olviden de pasarse por sus redes sociales para agradecerles personalmente.&lt;/p></description></item></channel></rss>

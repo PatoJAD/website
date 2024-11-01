@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Shashlik on PatoJAD</title><link>https://patojad.com.ar/tags/shashlik/</link><description>Recent content in Shashlik on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Wed, 10 Jun 2020 09:52:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/shashlik/index.xml" rel="self" type="application/rss+xml"/><item><title>Anbox ¿La solución definitiva?</title><link>https://patojad.com.ar/post/2020/06/anbox-la-soluci%C3%B3n-definitiva/</link><pubDate>Wed, 10 Jun 2020 09:52:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/06/anbox-la-soluci%C3%B3n-definitiva/</guid><description>&lt;p>Parece que últimamente estoy haciendo saga de los mismos temas, pero esto suele pasar cuando uno investiga y busca nuevas alternativas, y hoy vamos a estar un poco cargaditos de críticas hacia ubuntu distro que yo no recomiendo pero admito que es muy buena para el target de usuarios al que apunta…&lt;/p>
+&lt;p>Ya ayer hablamos de Shashlik una app que nos permite ejecutar aplicaciones android en nuestro sistema operativo sin emularlo completamente, sin embargo esta aplicación se encuentra abandonada desde 2016, y si bien aún puede levantar aplicaciones sin problemas muchas veces lo ideal es mantenernos actualizados por seguridad y funcionalidad, por lo cual decidí traer su &lt;strong>equivalente actualizado&lt;/strong>.&lt;/p>
+&lt;p>Sin embargo de esta app hay cosas que no me gustan aunque entiendo su decisión y es ahí donde vamos a &lt;strong>bardear un poco&lt;/strong> a Ubuntu así que… Vamos a eso!&lt;/p>
+&lt;h2 id="sobre-la-app">Sobre la app&lt;/h2>
+&lt;p>Como dijimos anteriormente esta aplicación no utiliza QEMU ni ningún otro emulado para levantar una aplicación por lo cual mejora el rendimiento haciéndolo más &lt;strong>PERFORMANTE&lt;/strong> (Abrazo a todos los que me &lt;em>bardearon&lt;/em> de forma cariñosa por usar performante y les tengo que dar la derecha es una palabra que no existe pero que todo Linuxnauta entiende) Por lo cual lo vuelve una de las &lt;strong>mejores opciones&lt;/strong> porque sería una capa de compatibilidad (Como wine) que hace que nuestro sistema no baje el rendimiento bruscamente&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://c1.staticflickr.com/1/913/41527912900_68ce4a25d5_o.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Anbox es una solución &lt;strong>convergente&lt;/strong>. Funciona de igual forma en una computadora portátil y un teléfono móvil, siempre que ejecuten alguna variante de Linux, claramente. Sin ir muy lejos, los orígenes de esta iniciativa radica en &lt;strong>Ubuntu Touch&lt;/strong> por lo cual podemos ver hasta donde planean alcanzar la compatibilidad…&lt;/p>
+&lt;h2 id="su-lado-negativo-aprende-ubuntu">Su lado Negativo (Aprende Ubuntu)&lt;/h2>
+&lt;p>La instalación es directamente snap, esto es algo que no me agrada a simple vista dado que snap podría llegar reiterar librerias y demas sin ningun tipo de sentido al igual que sus hermanos como flatpack y demás…&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://cdn.lignux.com/wp-content/uploads/2018/07/anbox-1.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Sin embargo después de revisar cómo está implementado este increíble proyecto comprendí que es &lt;strong>realmente importante&lt;/strong> que esto sea así dado que necesita versiones muy específicas y una actualización podría llegar a rompernos todo y al ser una app tan delicada con una función tan importante (Piensen en un smart donde se use wpp laboralmente instalado en Anbox no debería romper nunca) por lo cual podemos decir que Anbox es &lt;strong>un buen ejemplo&lt;/strong> de cómo se debe usar snap&lt;/p>
+&lt;p>Ubuntu tomó la decisión de poner snap como defecto (Cosa que no quiero comentar mucho) Pero esto no está bueno porque desaprovechamos muchas cualidades de las bibliotecas compartidas. Está bien usar snap, pero en casos como los de Anbox.&lt;/p>
+&lt;h2 id="instalación">Instalación&lt;/h2>
+&lt;p>Ahora el repo de la comunidad no pudo hacer nada por nosotros pero si podemos explicarte paso a paso cómo hacer para tener una instalación simple y funcional… Por lo cual vamos a proceder a eso:&lt;/p>
+&lt;p>Debemos agregar un repositorio que es una &lt;strong>ppa&lt;/strong>, pero con el fin de hacer mas lindo el tuto vamos a agregarlo &lt;em>a mano&lt;/em> de la siguiente forma&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> deb http://ppa.launchpad.net/morphis/anbox-support/ubuntu bionic main &lt;span class="p">|&lt;/span> sudo tee /etc/apt/sources.list.d/anbox.list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Una vez que este agregado debemos agregar la &lt;strong>clave pública&lt;/strong> para poder acceder al repositorio y esto lo hacemos de la siguiente forma&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 21C6044A875B67B7
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Y teniendo esto ya estamos preparados para seguir con el siguiente paso! que es nada más ni nada menos que instalar &lt;strong>los módulos del kernel&lt;/strong>. Esto nos agrega 2 módulos que se actualizan automáticamente cuando se actualiza el kernel.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo apt install anbox-modules-dkms
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Después de instalar el paquete anbox-modules-dkms, debe cargar manualmente los módulos del kernel. &lt;em>La próxima vez que se inicie su sistema, se cargarán automáticamente&lt;/em>.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo modprobe ashmem_linux
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo modprobe binder_linux
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;div class="text-center">
+&lt;img src="https://vidatecno.net/wp-content/uploads/2019/05/como-ejecutar-aplicaciones-android-en-ubuntu-linux-con-anbox-1.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Ahora debería tener dos nuevos nodos en su directorio de sistemas /dev el cual podemos probar con el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">ls -1 /dev/&lt;span class="o">{&lt;/span>ashmem,binder&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Donde vamos a estar esperando una salida como la que vemos a continuación.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">/dev/ashmem
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/dev/binder
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>El segundo paso &lt;em>instalará el complemento Anbox&lt;/em> de la tienda y le dará todo lo que necesita para ejecutar la experiencia completa de Anbox. Instalar el complemento de Anbox es muy simple:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo snap install --devmode --beta anbox
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Por el momento, requerimos el uso de &amp;ndash;devmode ya que el complemento de Anbox aún no está completamente limitado. Se ha comenzado a trabajar con el proyecto snapd upstream para obtener soporte para el confinamiento completo. Como efecto secundario del uso de &amp;ndash;devmode, el ajuste &lt;strong>no se actualizará automáticamente&lt;/strong>. Para actualizar a una versión más nueva, puede ejecutar:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo snap refresh --beta --devmode anbox
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="instalar-aplicaciones">Instalar aplicaciones&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://instatecno.com/wp-content/uploads/2020/02/Anbox-700x400.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Ya teniendo instalado Anbox tenemos que instalar aplicaciones, o mejor dicho queremos por lo cual debemos proseguir de la siguiente forma. Requerimos tener el adb instalado si no lo tenes podes hacerlo asi:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo apt install android-tools-adb
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Anbox &lt;strong>no proporciona ninguna funcionalidad para obtener aplicaciones de Android&lt;/strong>. Necesitamos obtenerlos de una fuente en Internet. Una vez que tenga el paquete &lt;em>APK&lt;/em> para la aplicación, puede instalarlo en el contenedor de Android con el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">adb install aplicacion.apk
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Si el contenedor de Anbox aún &lt;em>no se está ejecutando&lt;/em>, podemos comenzar cargando la aplicación del administrador de aplicaciones:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">anbox.appmgr
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Shashlik más que un emulador</title><link>https://patojad.com.ar/post/2020/06/shashlik-m%C3%A1s-que-un-emulador/</link><pubDate>Tue, 09 Jun 2020 09:33:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/06/shashlik-m%C3%A1s-que-un-emulador/</guid><description>&lt;p>Shashlik es, básicamente, un conjunto de componentes de software que permite a los usuarios de Linux instalar y ejecutar APK de Android &lt;strong>directamente&lt;/strong> en su distribución GNU / Linux. Shashlik logra eso mediante el uso de una versión simplificada de Android &lt;strong>en lugar de emular una&lt;/strong>, que se anida dentro de la sesión del usuario al iniciar una aplicación de Android instalada.&lt;/p>
+&lt;p>Si bien el desarrollo de este prometedor proyecto &lt;strong>murio en 2016&lt;/strong> aun la version instalable funciona perfectamente con algunas apps (Por ejemplo la utilizo con una app de clima, lo que podriamos hacer es enumerar las apps que si funcionan entre toda la comunidad)&lt;/p>
+&lt;h2 id="instalando-shashlik">Instalando Shashlik&lt;/h2>
+&lt;p>la instalación es completamente sencilla gracias, nuevamente, al repo de la comunidad, basta con tenerlo instalado y ejecutar el simple comando:&lt;/p>
+&lt;pre>&lt;code>sudo apt install shashlik
+&lt;/code>&lt;/pre>
+&lt;p>Y en unos minutos tendremos instalado esta increíble app&amp;hellip;&lt;/p>
+&lt;h2 id="instalar-y-ejecutar-apk-de-android">Instalar y ejecutar APK de Android&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://www.howtoforge.com/images/how-to-install-and-run-android-apk-on-linux-with-shashlik/pic_4.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Después de instalar Shashlik, descarguamos la aplicación que deseamos ejecutar con Shashlik. Luego abrimos una terminal en la ubicación de los APK descargados y escribimos el siguiente comando para instalarlo en nuestro sistema:&lt;/p>
+&lt;pre>&lt;code>/opt/shashlik/bin/shashlik-install name-app.apk
+&lt;/code>&lt;/pre>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://www.howtoforge.com/images/how-to-install-and-run-android-apk-on-linux-with-shashlik/big/pic_2.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>(Las imágenes no son mías, a mi al terminar la instalación de una app, creo que la del clima, me devolvió un error sobre notificaciones y no se que mas, pero la app me abre genial y funciona, estimo que las notificaciones no funcionan pero no es relevante porque es de clima y lo veo cuando quiero&amp;hellip;)&lt;/p>
+&lt;hr>
+&lt;p>El siguiente paso es &lt;strong>ejecutar el APK&lt;/strong> escribiendo el siguiente comando en la misma sesión de terminal:&lt;/p>
+&lt;pre>&lt;code>/opt/shashlik/bin/shashlik-run splash.png name-app.apk
+&lt;/code>&lt;/pre>
+&lt;p>Una cosa importante a tener en cuenta en este punto es que durante la instalación, Shashlik ha creado y almacenado algunos archivos necesarios en &lt;code>/.local/share/shashlik&lt;/code>. Esos archivos incluyen el archivo de imagen PNG splash y el userdata.img. Al iniciar un APK, Shashlik busca el archivo que ha indicado en el comando. Entonces, si hay un splash.png correspondiente a una aplicación llamada test.apk, el comando se convierte en:&lt;/p>
+&lt;pre>&lt;code>/opt/shashlik/bin/shashlik-run splash test.apk
+&lt;/code>&lt;/pre>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://www.howtoforge.com/images/how-to-install-and-run-android-apk-on-linux-with-shashlik/pic_3.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;h2 id="el-menu">El Menu&lt;/h2>
+&lt;p>Para simplificar las cosas, debo señalar que los &lt;strong>APK están instalados en nuestro sistema&lt;/strong> con el comando que se mostró anteriormente, por lo que si los buscamos en el menú de aplicaciones, debemos encontrarlos y &lt;strong>ejecutarlos con un simple clic&lt;/strong>. Sin embargo, esto &lt;em>puede no funcionar bien&lt;/em> para todas las aplicaciones, pero si lo hace, es bastante útil. Cualquiera sea el caso, debe saber cómo ejecutarlo desde la terminal para obtener la información necesaria para resolver cualquier problema.&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://www.howtoforge.com/images/how-to-install-and-run-android-apk-on-linux-with-shashlik/pic_5.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Como actualmente &lt;strong>no hay una función de desinstalación implementada&lt;/strong>, podemos eliminar manualmente los archivos binarios instalados por Shashlik navegando a &lt;code>/.local/share/applications&lt;/code> y eliminando los archivos correspondientes. Esto debería eliminarlos del menú de aplicaciones.&lt;/p>
+&lt;h2 id="pantalla-lateral">Pantalla Lateral&lt;/h2>
+&lt;p>Como el software ni siquiera ha alcanzado su &lt;strong>primera versión estable&lt;/strong>, no se puede jugar con ninguna opción que pueda ser crítica para la experiencia del usuario con ciertas aplicaciones. El caso de configurar el emulador en el modo de pantalla horizontal es habitual, así que aquí está cómo hacerlo. Abrimos nuestro administrador de archivos como administrador y navegamos a &lt;code>/opt/shashlik/bin&lt;/code> ahi abrimos &lt;code>shashlik.run&lt;/code> con nuestro editor de texto favorito. Luego ubicamos el argumento &lt;code>-noskin&lt;/code> y lo remplazamos con &lt;code>-skin 480x320&lt;/code> o cualquier otra resolución en las proporciones estándar.&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://www.howtoforge.com/images/how-to-install-and-run-android-apk-on-linux-with-shashlik/pic_6.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;h2 id="conclusión">Conclusión&lt;/h2>
+&lt;p>Precisamente Shashlik no es el más estable y es triste que se haya dejado su desarrollo, sin embargo aun al dia de hoy &lt;strong>corre perfectamente muchas apps&lt;/strong> y es mucho más &lt;strong>performante&lt;/strong> que los emuladores en sí, el hecho de correr solo lo mínimo y no emular todo el sistema nos facilita muchas cosas.&lt;/p>
+&lt;p>Si dependemos o utilizamos algunas apps no muy complejas es altamente recomendable utilizarlo, ya que de esta manera podemos hacerlo aprovechando los recursos de nuestra máquina. Sin embargo no está de más tener otro emulador a mano…&lt;/p>
+&lt;p>Dejo un video de un juego que corre sin problemas para que vean que realmente está pulido aunque no tenga updates hace más de 3 años&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/9SC6c_ih_Ac?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div></description></item></channel></rss>

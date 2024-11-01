@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Importar Claves Ssh on PatoJAD</title><link>https://patojad.com.ar/tags/importar-claves-ssh/</link><description>Recent content in Importar Claves Ssh on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Wed, 25 Oct 2023 12:11:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/importar-claves-ssh/index.xml" rel="self" type="application/rss+xml"/><item><title>Cómo Importar tus Claves SSH: Una Guía para DevOps</title><link>https://patojad.com.ar/post/2023/10/c%C3%B3mo-importar-tus-claves-ssh-una-gu%C3%ADa-para-devops/</link><pubDate>Wed, 25 Oct 2023 12:11:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/10/c%C3%B3mo-importar-tus-claves-ssh-una-gu%C3%ADa-para-devops/</guid><description>&lt;p>Es común que los desarrolladores y DevOps tengan múltiples aspectos vinculados a sus claves &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+SSH
+&lt;/a>, desde el acceso a servidores hasta repositorios. Por lo tanto, es de vital importancia tener una copia de seguridad de tus claves &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+SSH
+&lt;/a>. En este artículo, te mostraré cómo importar tu copia de seguridad, evitando la tediosa tarea de crear una nueva clave y darla de alta en todos tus sistemas y servidores.&lt;/p>
+&lt;h2 id="dónde-se-almacenan-las-claves-ssh">¿Dónde se Almacenan las Claves SSH?&lt;/h2>
+&lt;p>El lugar donde se almacenan las claves &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+SSH
+&lt;/a> varía según el sistema operativo que utilices. En mi caso, uso Linux, y las claves se guardan en la carpeta &lt;code>~/.ssh/&lt;/code>. Esta carpeta contiene tanto las claves públicas como las privadas, así como archivos de configuración para &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+SSH
+&lt;/a>. Si estás en Windows, las claves se guardan en &lt;code>C:\Users\USERNAME\.ssh\&lt;/code>. En el caso de macOS, las claves se encuentran en la carpeta &lt;code>~/.ssh/&lt;/code>, similar a Linux.&lt;/p>
+&lt;h2 id="cómo-importar-una-clave-ssh">¿Cómo Importar una Clave SSH?&lt;/h2>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/l0XM6FHrrKk?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;p>Para importar una clave &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+SSH
+&lt;/a>, el primer paso es copiar tanto la clave pública como la privada a la carpeta correspondiente en tu sistema operativo: &lt;code>~/.ssh/&lt;/code> para Linux y &lt;code>C:\Users\USERNAME\.ssh\&lt;/code> para Windows. Una vez que las claves estén en la carpeta, debes otorgar los permisos adecuados a la clave privada. Esto se logra ejecutando el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">chmod &lt;span class="m">700&lt;/span> ~/.ssh/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">chmod &lt;span class="m">600&lt;/span> ~/.ssh/id_rsa
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">chmod &lt;span class="m">600&lt;/span> ~/.ssh/id_rsa.pub
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Con los permisos establecidos, el siguiente paso es agregar la clave al agente SSH. Esto se logra ejecutando el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">ssh-add ~/.ssh/id_rsa
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="alert alert-warning col-12" style="position:relative;">
+&lt;div class="info-box-content container">
+&lt;div class="row">
+&lt;div class="col-2 text-center">
+&lt;span class="fa fa-warning fa-5x">&lt;/span>
+&lt;/div>
+&lt;div class="col-10">
+&lt;p class="no-margin">En el video, el Agente SSH se actualiza automáticamente, por lo que este paso se omite en la guía.&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;p>Siguiendo estos pasos, habrás importado tu clave SSH de manera segura y eficiente, evitando la creación y alta manual en cada servidor y sistema al que necesitas acceder.&lt;/p></description></item></channel></rss>

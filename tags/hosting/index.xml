@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hosting on PatoJAD</title><link>https://patojad.com.ar/tags/hosting/</link><description>Recent content in Hosting on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Wed, 30 Aug 2023 11:23:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/hosting/index.xml" rel="self" type="application/rss+xml"/><item><title>Cómo Actualizar aaPanel y Mantener tu Servidor Web al Día</title><link>https://patojad.com.ar/post/2023/08/c%C3%B3mo-actualizar-aapanel-y-mantener-tu-servidor-web-al-d%C3%ADa/</link><pubDate>Wed, 30 Aug 2023 11:23:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/08/c%C3%B3mo-actualizar-aapanel-y-mantener-tu-servidor-web-al-d%C3%ADa/</guid><description>&lt;p>Mantener tu servidor web actualizado es esencial para garantizar su rendimiento, seguridad y funcionalidad. En este artículo, aprenderás cómo actualizar &lt;strong>aaPanel&lt;/strong>, una herramienta de panel de control que simplifica la administración de servidores web, y te proporciona una guía paso a paso para llevar a cabo este proceso.&lt;/p>
+&lt;h2 id="qué-es-aapanel">¿Qué es aaPanel?&lt;/h2>
+&lt;p>&lt;strong>aaPanel&lt;/strong> es un panel de control de hosting web gratuito y de código abierto que facilita la administración de servidores. Proporciona una interfaz gráfica intuitiva y amigable que permite a los usuarios gestionar servicios como &lt;strong>Apache&lt;/strong>, &lt;strong>Nginx&lt;/strong>, &lt;strong>PHP&lt;/strong>, bases de datos y más, sin necesidad de conocimientos técnicos avanzados.&lt;/p>
+&lt;h2 id="importancia-de-actualizar-aapanel">Importancia de Actualizar aaPanel&lt;/h2>
+&lt;p>La actualización regular de aaPanel es crucial por varias razones:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Seguridad:&lt;/strong> Las actualizaciones suelen incluir parches de seguridad que protegen tu servidor contra amenazas potenciales. Mantener aaPanel actualizado reduce la superficie de ataque y mantiene tus datos y aplicaciones seguros.&lt;/li>
+&lt;li>&lt;strong>Rendimiento:&lt;/strong> Las actualizaciones pueden mejorar el rendimiento de aaPanel al corregir errores, optimizar el código y agregar nuevas características que optimizan la eficiencia.&lt;/li>
+&lt;li>&lt;strong>Funcionalidad:&lt;/strong> Las versiones más recientes de aaPanel suelen ofrecer nuevas funciones y mejoras en la interfaz, lo que puede mejorar la experiencia de administración del servidor.&lt;/li>
+&lt;/ul>
+&lt;h2 id="pasos-para-actualizar-aapanel">Pasos para Actualizar aaPanel&lt;/h2>
+&lt;p>Si bien en el video se muestra como actualizar &lt;strong>aaPanel&lt;/strong> desde la interfaz web, en este articulo se muestra como hacerlo desde la terminal.&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/BeEUYGgzoJ4?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;p>A continuación, se detallan los pasos para actualizar aaPanel a la última versión en caso de querer hacerlo desde la terminal conectadose al servidor por &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+SSH
+&lt;/a>:&lt;/p>
+&lt;h3 id="acceder-al-servidor">Acceder al Servidor&lt;/h3>
+&lt;p>Inicia sesión en tu servidor a través de &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+SSH
+&lt;/a> utilizando un cliente como PuTTY (en el caso de estar en Windows) o la terminal en sistemas Unix o Unix-Like como Linux.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">ssh username@server_ip
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="respaldo-de-datos-opcional-pero-recomendado">Respaldo de Datos (Opcional pero Recomendado)&lt;/h3>
+&lt;p>Antes de actualizar, realiza una copia de seguridad de tus datos importantes, como archivos del sitio web y bases de datos, para evitar pérdidas accidentales. Si bien este paso es opcional, se recomienda encarecidamente realizar una copia de seguridad de tus datos antes de actualizar. Puedes utilizar el siguiente comando para crear una copia de seguridad de tu sitio web:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">tar -czvf backup.tar.gz /home/wwwroot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="actualización">Actualización&lt;/h3>
+&lt;p>Ejecuta el siguiente comando para ejecutar el script de actualización:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">service bt &lt;span class="m">16&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Sigue las instrucciones en pantalla para completar el proceso de actualización.&lt;/p>
+&lt;h3 id="verificación">Verificación&lt;/h3>
+&lt;p>Después de la actualización, verifica que &lt;strong>aaPanel&lt;/strong> esté funcionando correctamente accediendo a la interfaz de administración a través de tu navegador web.&lt;/p>
+&lt;h2 id="conclusión">Conclusión&lt;/h2>
+&lt;p>Mantener &lt;strong>aaPanel&lt;/strong> actualizado es esencial para garantizar la seguridad y el rendimiento de tu servidor web. Sigue estos pasos para realizar una actualización exitosa y asegúrate de respaldar tus datos antes de comenzar. Un &lt;strong>aaPanel&lt;/strong> actualizado no solo protege tu servidor de posibles amenazas, sino que también te permite acceder a nuevas características y mejoras en la administración de tu sitio web. ¡Mantén tu servidor al día y disfruta de un entorno en línea seguro y eficiente!&lt;/p></description></item></channel></rss>

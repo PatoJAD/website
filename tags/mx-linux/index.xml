@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mx Linux on PatoJAD</title><link>https://patojad.com.ar/tags/mx-linux/</link><description>Recent content in Mx Linux on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Fri, 15 Mar 2024 18:34:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/mx-linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Explorando SystemD en el Mundo Linux: Críticas, Realidades y Controversias</title><link>https://patojad.com.ar/post/2024/03/explorando-systemd-en-el-mundo-linux-cr%C3%ADticas-realidades-y-controversias/</link><pubDate>Fri, 15 Mar 2024 18:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/03/explorando-systemd-en-el-mundo-linux-cr%C3%ADticas-realidades-y-controversias/</guid><description>&lt;p>En el vasto y diverso ecosistema de Linux, cada componente del sistema es objeto de discusión y opinión, y el sistema de inicio no es la excepción. &lt;strong>SystemD&lt;/strong> ha sido un tema de controversia dentro de la comunidad, generando críticas y debates en línea. En este artículo, profundizaremos en qué es &lt;strong>SystemD&lt;/strong>, su evolución, y las razones detrás de las críticas que ha enfrentado.&lt;/p>
+&lt;p>Ya escribi algunos articulos planteando los problemas de &lt;strong>SystemD&lt;/strong> y las alternativas que existen, pero en esta ocasión quiero profundizar en el tema y explicar las razones de la resistencia que ha enfrentado &lt;strong>SystemD&lt;/strong>. Y la explicacion de las cosas buenas que tiene, porque no todo es malo.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2020/06/systemd-solucion-o-problema/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+SystemD ¿Solucion o Problema?
+&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2020/07/systemd-no-es-el-problema-respuesta-a-zatiel/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+¿SystemD no es el problema? Respuesta a Zatiel
+&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="desentrañando-systemd-y-su-rol-como-sistema-de-inicio">Desentrañando SystemD y su Rol como Sistema de Inicio&lt;/h2>
+&lt;p>En el corazón de todos los sistemas basados en Linux se encuentra un sistema de inicio, el primer proceso que entra en acción después de arrancar el sistema operativo. Este proceso trabaja en segundo plano, gestionando servicios y procesos esenciales. En este contexto, &lt;strong>SystemD&lt;/strong> se presenta como un sistema de inicio predominante en muchas distribuciones de Linux.&lt;/p>
+&lt;p>Iniciado en 2010 bajo el liderazgo de &lt;strong>Red Hat&lt;/strong> y &lt;strong>Leonard Puttering&lt;/strong>, &lt;strong>SystemD&lt;/strong> nació con la intención de reemplazar soluciones existentes como &lt;strong>SysV&lt;/strong> y &lt;strong>Upstart&lt;/strong>. Su enfoque principal era mejorar el rendimiento del sistema, acelerar los tiempos de arranque y reducir el consumo de recursos. Rápidamente, se convirtió en el sistema de inicio predeterminado para distros populares como &lt;em>Fedora&lt;/em>, &lt;em>Arch Linux&lt;/em>, &lt;em>Debian&lt;/em> y &lt;em>Ubuntu&lt;/em>, entre otras.&lt;/p>
+&lt;p>A pesar de su adopción generalizada, algunas distribuciones, como &lt;em>Alpine Linux&lt;/em>, &lt;em>MX Linux&lt;/em>, &lt;em>&lt;a href="https://patojad.com.ar/post/2019/09/voidlinux-por-jos%c3%a9/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Void Linux
+&lt;/a>&lt;/em>, &lt;em>&lt;a href="https://patojad.com.ar/post/2020/08/artix-linux/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Artix
+&lt;/a>&lt;/em>, &lt;em>&lt;a href="https://patojad.com.ar/post/2020/06/instalcion-milagros/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+MilagOS
+&lt;/a>&lt;/em> y otras, han optado por no adoptar &lt;strong>SystemD&lt;/strong>.&lt;/p>
+&lt;h2 id="explorando-las-razones-de-la-resistencia">Explorando las Razones de la Resistencia&lt;/h2>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/crIeSArnZfo?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h3 id="el-argumento-del-bloat">El Argumento del &amp;ldquo;Bloat&amp;rdquo;&lt;/h3>
+&lt;p>Un argumento recurrente contra &lt;strong>SystemD&lt;/strong> es su expansión progresiva hacia funciones que tradicionalmente eran gestionadas por servicios individuales. Esta acumulación de características ha llevado a críticas sobre su conformidad con la filosofía &lt;strong>UNIX&lt;/strong>, que aboga por la simplicidad y la especialización de funciones.&lt;/p>
+&lt;p>Aunque &lt;strong>SystemD&lt;/strong> mantiene su modularidad (recordemos qeu son varios mini-binarios especificos), su crecimiento ha llevado a la percepción de ser una solución monolítica. Además, su actualización periódica y la adición de nuevas funciones pueden traducirse en un mayor uso de espacio y recursos, lo que preocupa a aquellos que buscan eficiencia (hablando en kb de recursos).&lt;/p>
+&lt;h3 id="dependencia-omnipresente-y-restricciones-de-opciones">Dependencia Omnipresente y Restricciones de Opciones&lt;/h3>
+&lt;p>&lt;strong>SystemD&lt;/strong> se ha vuelto tan integral en muchos aspectos del sistema que su ausencia puede limitar la funcionalidad de otros componentes. Servicios como el inicio de sesión gráfico o la gestión de conexiones de red a menudo dependen de componentes de &lt;strong>SystemD&lt;/strong>. Aunque es posible prescindir de él, las distribuciones que optan por no implementarlo deben buscar, proporcionar y mantener alternativas.&lt;/p>
+&lt;p>No podemos culpar a los desarrolladres de las aplicaciones por usar el set de herramientas que les provee &lt;strong>SystemD&lt;/strong>. Sin embargo, esto puede ser un problema para aquellos que buscan una mayor diversidad de opciones. Aun asi, hay que entender que estos set de herramienta facilitan y simplifican el trabajo de los desarrolladores, permitiendoles enfocarse en la funcionalidad de sus aplicaciones.&lt;/p>
+&lt;h3 id="red-hat-como-dueño-de-systemd">Red Hat como &amp;ldquo;Dueño&amp;rdquo; de SystemD&lt;/h3>
+&lt;p>Otra crítica común se dirige al hecho de que &lt;strong>SystemD&lt;/strong> es un proyecto de &lt;strong>Red Hat&lt;/strong>. Aunque comenzó como un proyecto de esta compañía, actualmente propiedad de IBM, algunas voces expresan preocupación sobre el control que una entidad única puede tener sobre la dirección del sistema de inicio en Linux. Las recientes transformaciones en la gestión de la comunidad por parte de &lt;strong>Red Hat&lt;/strong> han aumentado estas preocupaciones.&lt;/p>
+&lt;p>Aun asi, &lt;strong>SystemD&lt;/strong> es un proyecto de código abierto, y su desarrollo está abierto a la participación de la comunidad. Además, la adopción de &lt;strong>SystemD&lt;/strong> por parte de otras distribuciones, como Debian y Ubuntu, ha ayudado a mitigar estas preocupaciones dado que en la actualidad es un proyecto que va mas alla de &lt;strong>Red Hat&lt;/strong>.&lt;/p>
+&lt;h3 id="restricción-de-opciones-y-seguridad-del-sistema">Restricción de Opciones y Seguridad del Sistema&lt;/h3>
+&lt;p>&lt;strong>SystemD&lt;/strong> ha sido señalado como un factor que contribuye a la uniformidad en los sistemas Linux, restringiendo la diversidad de opciones. También se argumenta que su presencia crea un riesgo de seguridad, al ser un objetivo único para posibles ataques.&lt;/p>
+&lt;p>Sin embargo, defensores de &lt;strong>SystemD&lt;/strong> contrarrestan estas preocupaciones destacando su integración con el kernel de Linux y su eficiencia. Aseguran que, aunque puede haber un riesgo potencial debido a su ubicuidad, la confianza en un proyecto bien mantenido y ampliamente utilizado puede superar estos desafíos. Y es una realidad que &lt;strong>SystemD&lt;/strong> es un proyecto bien mantenido y ampliamente utilizado con un desarrollo activo.&lt;/p>
+&lt;h2 id="conclusión">Conclusión&lt;/h2>
+&lt;p>En resumen, las críticas hacia &lt;strong>SystemD&lt;/strong> abordan aspectos que van desde la filosofía &lt;strong>UNIX&lt;/strong> hasta preocupaciones sobre dependencias y seguridad. Aunque se presentan alternativas viables, la elección de utilizar &lt;strong>SystemD&lt;/strong> o no a menudo se reduce a la conveniencia, eficiencia y preferencias de cada usuario.&lt;/p></description></item><item><title>Como instalar MongoDB en GNU/Linux</title><link>https://patojad.com.ar/post/2023/04/como-instalar-mongodb-en-gnu/linux/</link><pubDate>Wed, 19 Apr 2023 13:45:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/04/como-instalar-mongodb-en-gnu/linux/</guid><description>&lt;p>Vamos a ver como realizar la instalacion de &lt;strong>MongoDB&lt;/strong> en nuestra distribucion de GNU/Linux preferida.&lt;/p>
+&lt;h2 id="video">Video&lt;/h2>
+&lt;p>En el video sigo los pasos para la instalacion en cualquier distribucion base Arch linux que es la que utilizo yo, sin embargo en la parte de abajo dejare la forma de realizarlo en distintas distribuciones&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/tQk0Q8rBkHY?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="comando-para-arch-linux">Comando para Arch Linux&lt;/h2>
+&lt;p>En arch linux la instalacion es tan simple como podemos ver en el video utilizando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -Sy mongodb-bin
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="debian-y-derivadas-como-ubuntu">Debian y derivadas como ubuntu&lt;/h2>
+&lt;p>Debemos asegurarnos de tener &lt;code>gnupg&lt;/code> para poder instalar las llaves necesarias, podemos instalarlo de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo apt-get install gnupg
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>y una ves instalado procedemos a realizar la descarga e instalacion de las llaves de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">curl -fsSL https://pgp.mongodb.com/server-6.0.asc &lt;span class="p">|&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> sudo gpg -o /usr/share/keyrings/mongodb-server-6.0.gpg &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --dearmor
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>creamos el archivo &lt;code>/etc/apt/sources.list.d/mongodb-org-6.0.list&lt;/code> para agregar el repositorio, esto lo podemos hacer de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">nano /etc/apt/sources.list.d/mongodb-org-6.0.list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>guardamos y cerramos el archivo limpio para luego dentro agregar el repositorio segun corresponda.&lt;/p>
+&lt;h3 id="debian-10">Debian 10&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;deb [ signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] http://repo.mongodb.org/apt/debian buster/mongodb-org/6.0 main&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="debian-11">Debian 11&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;deb [ signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg] http://repo.mongodb.org/apt/debian bullseye/mongodb-org/6.0 main&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="ubuntu-184">Ubuntu 18.4&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/6.0 multiverse&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="ubuntu-204">Ubuntu 20.4&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="ubuntu-224">Ubuntu 22.4&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;p>Una vez creado el archivo procedemos a instalar el paquete de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo apt update &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> sudo apt install -y mongodb-org
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="rhel--centos--oracle--rocky--almalinux">RHEL / CentOS / Oracle / Rocky / AlmaLinux&lt;/h2>
+&lt;p>Vamos a crear el archivo &lt;code>/etc/yum.repos.d/mongodb-org-6.0.repo&lt;/code> que nos permitira agregar el repositorio para la instalacion y dentro vamos a agregar lo siguiente:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">[mongodb-org-6.0]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">name=MongoDB Repository
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">baseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/6.0/x86_64/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">gpgcheck=1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">enabled=1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">gpgkey=https://www.mongodb.org/static/pgp/server-6.0.asc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Una vez creado el archivo procedemos a instalar el paquete de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo yum install -y mongodb-org
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;p>Fuente: &lt;a href="https://www.mongodb.com/docs/manual/administration/install-on-linux/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://www.mongodb.com/docs/manual/administration/install-on-linux/
+&lt;/a>&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Debatir en el Foro'
+rel="noopener"
+href='https://community.vasak.net.ar/topic/52/como-instalar-mongodb-en-gnu-linux'>
+Debatir en el Foro
+&lt;/a>
+&lt;/div></description></item><item><title>Como instalar brew en GNU/Linux</title><link>https://patojad.com.ar/post/2023/01/como-instalar-brew-en-gnu/linux/</link><pubDate>Tue, 31 Jan 2023 08:47:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/01/como-instalar-brew-en-gnu/linux/</guid><description>&lt;p>Muchas veces tenemos que instalar dependencias o paquetes y en nuestros repositorios no se encuentran las últimas versiones. Si sos dev te suele pasar esto frecuentemente al preparar tu entorno de desarrollo, por lo cual te recomiendo usar brewhome un gestor de paquetes para GNU/Linux y MacOS que te permite gestionar muchas dependencias útiles para programar y otras que no necesariamente son para programar pero son muy útiles&lt;/p>
+&lt;h2 id="video">Video&lt;/h2>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/yExijeK0X3U?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="comandos">Comandos&lt;/h2>
+&lt;p>El comando utilizado en el video es el siguiente&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">/bin/bash -c &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Documentacion'
+rel="noopener"
+href='https://docs.brew.sh/'>
+Documentacion
+&lt;/a>
+&lt;/div>
+&lt;hr>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Discutir en el Foro'
+rel="noopener"
+href='https://community.vasak.net.ar/topic/11/como-instalar-brew-en-gnu-linux'>
+Discutir en el Foro
+&lt;/a>
+&lt;/div></description></item><item><title>Como Desfragmentar nuestro GNU/Linux</title><link>https://patojad.com.ar/post/2023/01/como-desfragmentar-nuestro-gnu/linux/</link><pubDate>Wed, 25 Jan 2023 08:47:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/01/como-desfragmentar-nuestro-gnu/linux/</guid><description>&lt;p>A lo largo y ancho de mi experiencia en múltiples ámbitos escuche que en &lt;strong>GNU/Linux&lt;/strong> no es necesario desfragmentar. La realidad es que si bien los índices de fragmentación son más bajos que en &lt;strong>Windows&lt;/strong> es realmente importante desfragmentar nuestro disco, más cuando interactuamos mucho (descargar, borrar, editar, subir) diferentes archivos y aún más si estos son pesados.&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/YE4HwerZuOA?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="e2fsprogs">e2fsprogs&lt;/h2>
+&lt;p>Para poder realizar esto tenemos muchas herramientas, hoy vamos a usar una que viene incluida en el paquete &lt;code>e2fsprogs&lt;/code> y que podemos instalar de la siguiente manera:&lt;/p>
+&lt;h3 id="arch-y-derivadas">Arch y derivadas&lt;/h3>
+&lt;p>Usando &lt;code>pacman&lt;/code> o usando &lt;code>yay&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">yay -Sy e2fsprogs
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo pacman -Sy e2fsprogs
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="debianubuntu-y-derivadas">Debian/Ubuntu y derivadas&lt;/h3>
+&lt;p>Podemos usar &lt;code>apt&lt;/code> o cualquier variante anterior a esta&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt install e2fsprogs
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt-get install e2fsprogs
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="fedora-y-familia">Fedora y familia&lt;/h3>
+&lt;p>Podemos usar tanto &lt;code>dnf&lt;/code> o &lt;code>yum&lt;/code> dependiendo la disponibilidad&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf -y install e2fsprogs
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo yum -y install e2fsprogs
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="desfragmentar">Desfragmentar&lt;/h2>
+&lt;p>Una vez que tengamos todo instalado basta con ejecutar el siguiente comando en una terminal. en el caso donde yo pongo &lt;code>/etc&lt;/code> debemos poner la ‘carpeta’ que queremos desfragmentar. y ahí podemos elegir, por ejemplo, &lt;code>/&lt;/code> el directorio raíz que desfragmentaría todo.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo e4defrag /etc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>

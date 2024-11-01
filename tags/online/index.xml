@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Online on PatoJAD</title><link>https://patojad.com.ar/tags/online/</link><description>Recent content in Online on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Wed, 25 Oct 2023 12:11:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/online/index.xml" rel="self" type="application/rss+xml"/><item><title>Cómo Importar tus Claves SSH: Una Guía para DevOps</title><link>https://patojad.com.ar/post/2023/10/c%C3%B3mo-importar-tus-claves-ssh-una-gu%C3%ADa-para-devops/</link><pubDate>Wed, 25 Oct 2023 12:11:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/10/c%C3%B3mo-importar-tus-claves-ssh-una-gu%C3%ADa-para-devops/</guid><description>&lt;p>Es común que los desarrolladores y DevOps tengan múltiples aspectos vinculados a sus claves &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+SSH
+&lt;/a>, desde el acceso a servidores hasta repositorios. Por lo tanto, es de vital importancia tener una copia de seguridad de tus claves &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+SSH
+&lt;/a>. En este artículo, te mostraré cómo importar tu copia de seguridad, evitando la tediosa tarea de crear una nueva clave y darla de alta en todos tus sistemas y servidores.&lt;/p>
+&lt;h2 id="dónde-se-almacenan-las-claves-ssh">¿Dónde se Almacenan las Claves SSH?&lt;/h2>
+&lt;p>El lugar donde se almacenan las claves &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+SSH
+&lt;/a> varía según el sistema operativo que utilices. En mi caso, uso Linux, y las claves se guardan en la carpeta &lt;code>~/.ssh/&lt;/code>. Esta carpeta contiene tanto las claves públicas como las privadas, así como archivos de configuración para &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+SSH
+&lt;/a>. Si estás en Windows, las claves se guardan en &lt;code>C:\Users\USERNAME\.ssh\&lt;/code>. En el caso de macOS, las claves se encuentran en la carpeta &lt;code>~/.ssh/&lt;/code>, similar a Linux.&lt;/p>
+&lt;h2 id="cómo-importar-una-clave-ssh">¿Cómo Importar una Clave SSH?&lt;/h2>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/l0XM6FHrrKk?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;p>Para importar una clave &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+SSH
+&lt;/a>, el primer paso es copiar tanto la clave pública como la privada a la carpeta correspondiente en tu sistema operativo: &lt;code>~/.ssh/&lt;/code> para Linux y &lt;code>C:\Users\USERNAME\.ssh\&lt;/code> para Windows. Una vez que las claves estén en la carpeta, debes otorgar los permisos adecuados a la clave privada. Esto se logra ejecutando el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">chmod &lt;span class="m">700&lt;/span> ~/.ssh/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">chmod &lt;span class="m">600&lt;/span> ~/.ssh/id_rsa
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">chmod &lt;span class="m">600&lt;/span> ~/.ssh/id_rsa.pub
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Con los permisos establecidos, el siguiente paso es agregar la clave al agente SSH. Esto se logra ejecutando el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">ssh-add ~/.ssh/id_rsa
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="alert alert-warning col-12" style="position:relative;">
+&lt;div class="info-box-content container">
+&lt;div class="row">
+&lt;div class="col-2 text-center">
+&lt;span class="fa fa-warning fa-5x">&lt;/span>
+&lt;/div>
+&lt;div class="col-10">
+&lt;p class="no-margin">En el video, el Agente SSH se actualiza automáticamente, por lo que este paso se omite en la guía.&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;p>Siguiendo estos pasos, habrás importado tu clave SSH de manera segura y eficiente, evitando la creación y alta manual en cada servidor y sistema al que necesitas acceder.&lt;/p></description></item><item><title>Claves SSH: Una Guía Completa para la Seguridad en Conexiones Remotas</title><link>https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%C3%ADa-completa-para-la-seguridad-en-conexiones-remotas/</link><pubDate>Tue, 24 Oct 2023 12:55:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%C3%ADa-completa-para-la-seguridad-en-conexiones-remotas/</guid><description>&lt;p>En el mundo de la informática y la seguridad en línea, las &lt;strong>Claves SSH&lt;/strong> son una parte fundamental de la protección de tus sistemas y datos. Si te has preguntado qué significa &lt;strong>SSH&lt;/strong>, para qué sirve una clave &lt;strong>SSH&lt;/strong> o cuáles son las ventajas de utilizar &lt;strong>SSH&lt;/strong>, estás en el lugar correcto. En este artículo, exploraremos en detalle todo lo que necesitas saber sobre las &lt;strong>Claves SSH&lt;/strong> y por qué son esenciales en el mundo de la seguridad en línea.&lt;/p>
+&lt;h2 id="qué-es-una-clave-ssh">¿Qué es una clave SSH?&lt;/h2>
+&lt;p>&lt;strong>SSH&lt;/strong> es la abreviatura de &lt;em>&amp;ldquo;Secure Shell&amp;rdquo;&lt;/em>. Se trata de un protocolo de red que permite a los usuarios acceder de forma segura a sistemas y datos a través de una conexión cifrada. Una &lt;em>&amp;ldquo;Clave SSH&amp;rdquo;&lt;/em> es una parte crucial de este protocolo y es utilizada para autenticar la identidad del usuario y cifrar la comunicación entre el cliente y el servidor. En resumen, una clave &lt;strong>SSH&lt;/strong> es una forma segura de autenticación que permite a un usuario acceder a un sistema o servidor de manera segura y encriptada.&lt;/p>
+&lt;h2 id="qué-significa-ssh">¿Qué significa SSH?&lt;/h2>
+&lt;p>&lt;strong>SSH&lt;/strong>, como se mencionó anteriormente, es la abreviatura de &lt;em>&amp;ldquo;Secure Shell&amp;rdquo;&lt;/em>. Es un protocolo de red que se utiliza para acceder a sistemas remotos de manera segura. La palabra &lt;em>&amp;ldquo;secure&amp;rdquo;&lt;/em> en &lt;strong>SSH&lt;/strong> es clave aquí, ya que resalta la importancia de la seguridad en la comunicación entre el cliente y el servidor. &lt;strong>SSH&lt;/strong> utiliza técnicas de cifrado para proteger la información transmitida, lo que lo convierte en una opción segura para la administración de sistemas y transferencia de datos.&lt;/p>
+&lt;h2 id="para-qué-sirve-una-clave-ssh">¿Para qué sirve una clave SSH?&lt;/h2>
+&lt;p>Las &lt;strong>claves SSH&lt;/strong> se utilizan principalmente para la autenticación y el cifrado de la comunicación entre un cliente y un servidor. Cuando un usuario se conecta a un servidor &lt;strong>SSH&lt;/strong>, el sistema verifica su identidad utilizando una clave &lt;strong>SSH&lt;/strong>. Esto proporciona un alto nivel de seguridad, ya que las &lt;strong>claves SSH&lt;/strong> son difíciles de adivinar o piratear. Además, una vez que la conexión está establecida, toda la comunicación entre el cliente y el servidor se cifra, lo que significa que cualquier dato transmitido, como contraseñas o archivos, está protegido contra posibles ataques de intermediarios maliciosos.&lt;/p>
+&lt;h2 id="cuál-es-la-ventaja-de-usar-ssh">¿Cuál es la ventaja de usar SSH?&lt;/h2>
+&lt;p>El uso de &lt;strong>SSH&lt;/strong> conlleva varias ventajas clave:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Seguridad:&lt;/strong> &lt;strong>SSH&lt;/strong> es altamente seguro debido a la autenticación de clave pública y al cifrado de extremo a extremo. Esto significa que tus datos y credenciales de acceso están protegidos contra amenazas de seguridad.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Autenticación sin contraseña:&lt;/strong> Las &lt;strong>claves SSH&lt;/strong> permiten la autenticación sin necesidad de ingresar una contraseña cada vez que te conectas. Esto no solo es más cómodo, sino que también elimina la necesidad de almacenar contraseñas en el servidor, lo que mejora la seguridad.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Acceso remoto seguro:&lt;/strong> &lt;strong>SSH&lt;/strong> permite a los administradores de sistemas y desarrolladores acceder a servidores y sistemas de manera segura desde cualquier ubicación, lo que facilita la administración y el mantenimiento de sistemas.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Transferencia de archivos segura:&lt;/strong> Además de la administración remota, &lt;strong>SSH&lt;/strong> también se utiliza para la transferencia de archivos segura, lo que lo convierte en una herramienta versátil para la administración de sistemas y el intercambio de datos.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>En resumen, las &lt;strong>Claves SSH&lt;/strong> son fundamentales en la seguridad de la comunicación y el acceso a sistemas remotos. Ofrecen una forma segura de autenticación y cifrado, lo que protege tus datos y sistemas contra posibles amenazas. Ya sea que seas un administrador de sistemas, un desarrollador o simplemente un usuario preocupado por la seguridad, comprender y utilizar las &lt;strong>Claves SSH&lt;/strong> es esencial en el mundo digital actual.&lt;/p></description></item><item><title>Pokemon Revolution Online</title><link>https://patojad.com.ar/post/2021/02/pokemon-revolution-online/</link><pubDate>Wed, 17 Feb 2021 08:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/02/pokemon-revolution-online/</guid><description>&lt;p>Todos algunas vez jugamos al pokemon de GBA, ya sea el Amarillo, El Rojo Fuejo, el Zafari o cualquier otro. Sin embargo este juego es muy &amp;ldquo;solitario&amp;rdquo; Y muchas veces preferimos jugarlo online con amigos. En esta oportunidad vamos a conocer un servidor que nos permite jugar a este mítico juego (Claramente con modificaciones y actualizaciones constantes) con otras personas, y también con amigos.&lt;/p>
+&lt;p>Pokemon Revolution Online viene siendo un Free to Play que soporta prácticamente una variedad de SO, desde MS Windows x86, x64, Mac, GNU/Linux y Android. Por supuesto nos interesa ¡Porque está disponible para el pingüinito!.&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/Cxs0Qyxd/maxresdefault-pokemon.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>En este juego, puedes viajar por cuatro regiones (Kanto, Johto, Hoenn y Sinnoh) siendo Kanto la inicial en todo caso. tras pasar a otra región tus pokémons serán retirados y empezarás de nuevo hasta lograr vencer la liga pokémon y así hasta acabar con las 3 ligas, pudiendo atrapar por el camino un máximo de 721 pokémons. Hay muchos desafíos, curiosidades y lo más importante: jugadores.&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Web'
+rel="noopener"
+href='https://pokemonrevolution.net/'>
+Web
+&lt;/a>
+&lt;/div>
+&lt;h2 id="conoce-a-tus-amigos">Conoce a tus amigos&lt;/h2>
+&lt;p>PRO ofrece muchas formas de desarrollar, mantener o crear nuevas amistades con una comunidad de más de 25.000 jugadores activos cada día. Existen muchos clanes o gremios creados por miembros de la comunidad dentro del juego, donde puedes unirte libremente, o ¡puedes crear uno propio!&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://pokemonrevolution.net/img/vermillion.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Actualmente hay 4 regiones principales dentro del juego, Kanto, Johto, Hoenn y Sinnoh, también existen numerosas áreas personalizadas que puedes explorar. Pruébate a ti mismo para convertirte en campeón regional y obtener los diferentes Pokémon Legendarios y Míticos que se esconden en el universo de PRO. Encontrarás muchas opciones de personalización disponibles como; ¡ropa, sombreros y monturas!&lt;/p>
+&lt;h2 id="pvp-competitivo">PvP Competitivo&lt;/h2>
+&lt;p>PRO ofrece una gran cantidad de opciones al final del juego para los entrenadores, con un ambiente PvP competitivo, construido en base al último formato Gen-7. Las batallas en PvP competitivo te darán acceso a una lista donde podrás luchar para estar entre el Top-25 de tu servidor, la lista mencionada es mensual. Cada batalla PvP que ganes te dará una pequeña recompensa y terminar entre el Top-25 de la lista puede darte recompensas increíbles, además de tener una posición importante, tendrás una invitación a un torneo exclusivo solo para los Top-25 entrenadores de ambos servidores, para obtener ¡muchos más premios!&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://pokemonrevolution.net/img/battle.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>¡También existen muchos jefes dentro del juego distribuidos entre múltiples regiones en los cuales podrás intentar superarlos en la mayor dificultad de batallas PvE! Cada jefe tiene composiciones diferentes con equipos de Pokémon únicos y requerimientos distintos, los cuales otorgarán ¡grandes recompensas si los derrotas!&lt;/p>
+&lt;h2 id="eventos-personalizados">Eventos Personalizados&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://pokemonrevolution.net/img/event.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>El equipo encargado del contenido de PRO está siempre trabajando para crear e implementar nuevas aventuras y áreas para que los jugadores accedan y exploren; ¡con mapas especiales y misiones únicas del universo de PRO! Además de actualizaciones y eventos de contenido base, PRO también ofrece muchos eventos oficiales organizados por el staff, y no oficiales organizados por jugadores para todo tipo de entrenadores; ¡amantes del PvP, cazadores, coleccionistas y más!&lt;/p>
+&lt;h2 id="descargas">Descargas&lt;/h2>
+&lt;p>Dejo a continuación el link de descarga por MediaFire (La versión de linux), también puedes ver todas las opciones en la página web. Y obviamente registrarte para comenzar tu Aventura Pokemon Online.&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Descarga por MediaFire'
+rel="noopener"
+href='https://www.mediafire.com/file/8lmzq2sz06trgq8/PROClient_linux.zip/file'>
+Descarga por MediaFire
+&lt;/a>
+&lt;/div></description></item><item><title>Traducir documentos online</title><link>https://patojad.com.ar/post/2020/05/traducir-documentos-online/</link><pubDate>Tue, 05 May 2020 09:38:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/05/traducir-documentos-online/</guid><description>&lt;p>Hasta ahora los métodos que me había encontrado para traducir un archivo tenían sus &lt;strong>inconvenientes&lt;/strong>, sin embargo hay que reconocer que se ha avanzado mucho en este sentido. El metodo que en esta ocacion les traigo parece ser que apunta en mucho a &lt;strong>eliminar esos inconvenientes&lt;/strong> que se presentaban.&lt;/p>
+&lt;p>Por ejemplo: el metodo de convertir el archivo de PDF a &lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+HTML
+&lt;/a>, representa una &lt;strong>perdida de formato&lt;/strong>.&lt;/p>
+&lt;p>Veamos que &lt;strong>importante&lt;/strong> es conservar el formato en un texto, por ejemplo si lo que estas manejando es un manual de cualquier programa, en el que los graficos son determinantes para poder aprender el uso de este de manera efectiva.&lt;/p>
+&lt;h2 id="verificar-el-archivo">Verificar el archivo&lt;/h2>
+&lt;p>Primero debemos &lt;strong>verificar&lt;/strong> que nuestro archivo &lt;strong>no este protegido&lt;/strong>, cosa que suele ocurrir en los PDF. esto se consigue abriendo nuestro archivo, realizando cualquier cambio y presionando las teclas de guardar. si nos envia un mensaje de only read entonces si esta protegido. Para desprotegerlo, en el caso de que este protegido, lo recomendable sera meter el archivo a una impresora virtual como &amp;ldquo;DoPdf&amp;rdquo;(free con anuncion), que la tratara como archivo nuevo y lo guardara sin restricciones.&lt;/p>
+&lt;h2 id="transformar">Transformar&lt;/h2>
+&lt;p>El sitio del que hablamos hoy solo acepta una pequeña lista de formatos, sin embargo podemos transformar los archivos a esos formatos. Personalmente recomiendo utilizar siempre PDF que no este protegido contra escrituras. Sin embargo pede traducir cualquiera de los siguientes formatos:&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/NjsBh7Zy/image.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;h2 id="finalmente-la-traduccion">Finalmente la Traduccion&lt;/h2>
+&lt;p>No es necesario explicar paso a paso basta con ingresar en la web que dejaremos a continuacion y darles el archivo para que lo traduzcan.. Lo impresionante es que no tiene limites pequeños es decir que podemos traducri lo que sea mientras que no les voltiemos el sistema&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Comenzar a traducir'
+rel="noopener"
+href='https://www.onlinedoctranslator.com/'>
+Comenzar a traducir
+&lt;/a>
+&lt;/div>
+&lt;p>Contanos ti experiencia en nuestro grupo de Telegram&lt;/p>
+&lt;h2 id="mas-info-sobre-el-sitio">Mas info sobre el sitio!&lt;/h2>
+&lt;p>Ellos dicen &amp;ldquo;Hacemos todo lo posible para hacer cosas geniales que las personas encuentran útiles. Todos los días, en todo el mundo, ayudamos a miles de personas a ahorrar su valioso tiempo mediante el uso de nuestras herramientas&amp;rdquo;&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>PDF-Word Convert&lt;/strong> Al instante convertir un PDF en formato de Word editable.&lt;/li>
+&lt;li>&lt;strong>Split a PDF&lt;/strong> Divida un archivo PDF grande y extraiga las páginas en varias partes más pequeñas.&lt;/li>
+&lt;li>&lt;strong>PDF a imagen&lt;/strong> Convierta instantáneamente las páginas de documentos PDF en archivos de imagen - en línea.&lt;/li>
+&lt;li>&lt;strong>Doc Word Counter&lt;/strong> Cuente el número real de palabras en su documento.&lt;/li>
+&lt;li>&lt;strong>Herramienta de imagen en línea&lt;/strong> Comprima cientos de imágenes hasta un 90% de tamaño de forma gratuita, sin límites&lt;/li>
+&lt;/ul></description></item><item><title>YTPlayer: un reproductor de YT Online</title><link>https://patojad.com.ar/post/2019/11/ytplayer-un-reproductor-de-yt-online/</link><pubDate>Wed, 27 Nov 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/11/ytplayer-un-reproductor-de-yt-online/</guid><description>&lt;p>YTPlayer es una WebApp creada con el fin de poder simplificar la reproducción de música mediante Youtube. Actualmente se encuentra en beta dado que es un proyecto que encontré en internet y lo actualicé.&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Probarlo'
+rel="noopener"
+href='https://YTPlayer.PatoJAD.com.ar'>
+Probarlo
+&lt;/a>
+&lt;/div>
+&lt;h2 id="que-ofrece">¿Que ofrece?&lt;/h2>
+&lt;ul>
+&lt;li>Crea Listas en la aplicación.&lt;/li>
+&lt;li>Búsqueda.&lt;/li>
+&lt;li>Exportar Listas&lt;/li>
+&lt;li>Importar Listas&lt;/li>
+&lt;li>Listas guardadas en el localStorage del equipo&lt;/li>
+&lt;/ul>
+&lt;h2 id="porque-usarlo">¿Porque usarlo?&lt;/h2>
+&lt;p>La aplicación facilita la generación de listas musicales y la reproducción de la misma, permite buscar mientras se reproduce (de esta forma es más simple buscar) y no refresca toda la página entre video y video, lo cual disminuye el tiempo de silencio entre canciones.&lt;/p>
+&lt;p>Esperamos tus opiniones para mejorarlo.&lt;/p></description></item><item><title>Spiral Knights</title><link>https://patojad.com.ar/post/2018/12/spiral-knights/</link><pubDate>Wed, 12 Dec 2018 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2018/12/spiral-knights/</guid><description>&lt;blockquote>
+&lt;p>Los Spiral Knights han despertado en un mundo desconocido. Sus reservas de equipo y su nave han sido saqueadas y su nave, el Skylark, no podrá recuperarse del accidente. Ahora deberán trabajar juntos para sobrevivir en una aventura que los llevará al núcleo mismo de este mundo.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="a-las-armas">¡A las armas!&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://media.spiralknights.com/v/20180726125121/images/about/take_up_arms.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Cradle es un planeta hostil lleno de toda clase de criaturas extrañas. Cualquier esperanza de supervivencia que tengas depende de tu habilidad de amasar un arsenal de armas y equipo que te de las opciones apropiadas para cualquier ambiente. ¡Como Spiral Knight tienes toda la libertad de personalizar y usar el arsenal de la manera que desees!&lt;/p>
+&lt;h2 id="únete-a-los-otros-caballeros-en-haven">Únete a los otros caballeros en Haven&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://media.spiralknights.com/v/20180726125121/images/about/haven.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Alguna vez un puesto minero, Haven sirve ahora como campamento base para el Cuartel General Spiral. Desde la seguridad de sus paredes, los caballeros pueden encontrar una gran variedad de artículos y servicios ofrecidos. ¡Todo, desde compar nuevas armas y equipo hasta crear poderosos artículos por medio de la alquimia está a tu alcance!&lt;/p>
+&lt;h2 id="explora-los-misterios-de-los-mecanismos">Explora los misterios de los Mecanismos&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://media.spiralknights.com/v/20180726125121/images/about/clockworks.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Más allá de Haven se despliegan los Mecanismos, un enorme complejo subterráneo lleno de piezas de mundos extraños, criaturas peligrosas y tesoros fabulosos. ¿Será que tu y tus compañeros responderán a su llamado a la aventura?&lt;/p>
+&lt;h2 id="domina-el-poder-del-arcade">Domina el poder del Arcade&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://media.spiralknights.com/v/20180726125121/images/about/arcade.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Lleno de extraños mecanismos alimentados por los Minerales que se han encontrado en los mundos más abajo, el Arcade de Haven es usado por los Spiral Knights para construir sus propias entradas que marcan caminos únicos a los Mecanismos subterráneos. (¡No existen dos gates iguales!)&lt;/p>
+&lt;h2 id="lleva-las-aventuras-hasta-el-core">¡Lleva las aventuras hasta el Core!&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://media.spiralknights.com/v/20180726125121/images/about/core.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>El Cuartel General de Spiral está recibiendo una fuerte señal de energía desde el centro del Core del planeta. ¿Eres lo suficientemente valiente para enfrentar los peligros que se encuentran entre los secretos de este misterioso nuevo mundo y tu?&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Web Oficial'
+rel="noopener"
+href='https://www.spiralknights.com/?locale=es'>
+Web Oficial
+&lt;/a>
+&lt;/div></description></item><item><title>RunScape</title><link>https://patojad.com.ar/post/2018/12/runscape/</link><pubDate>Tue, 11 Dec 2018 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2018/12/runscape/</guid><description>&lt;h2 id="elige-tu-lucha">Elige tu Lucha&lt;/h2>
+&lt;p>El combate de RuneScape es emocionante y desafiante, con muchas opciones y capacidades diferentes para elegir. Hay disponibles miles de combinaciones de armaduras y armas, y los jugadores más fuertes son aquellos que se preparan bien para la batalla. Los jugadores pueden tratar de derrotar a cientos de NPC diferentes a medida que avanzan en su aventura o pueden participar en combates con otros jugadores en áreas específicas de PvP. Sigue leyendo para descubrir por qué Combat es una parte tan importante del juego de RuneScape.&lt;/p>
+&lt;p>![](&lt;a href="https://images.ctfassets.net/ra5kw4ubxdsf/5VDo7YuJQo3KdqQDvSUdvp/e639ecc171bd6c4de47392202b7e633c/RS3_Device_Tablet_450x615.webp?q=75&amp;amp;w=680%22" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://images.ctfassets.net/ra5kw4ubxdsf/5VDo7YuJQo3KdqQDvSUdvp/e639ecc171bd6c4de47392202b7e633c/RS3_Device_Tablet_450x615.webp?q=75&amp;w=680"
+&lt;/a> &amp;gt;}}&lt;/p>
+&lt;h2 id="evolución-del-combate">Evolución del combate&lt;/h2>
+&lt;p>Un sistema de combate dinámico y moderno basado en las habilidades de hacer clic. Se puede jugar completamente de forma manual o semiautomatizada, y permite batallas emocionantes y visualmente impresionantes. Es una excelente forma de jugar en todos los niveles, y se recomienda encarecidamente para los desafiantes encuentros de jefes finales del juego. Hay tres tipos de habilidades:&lt;/p>
+&lt;ul>
+&lt;li>Básico: estas habilidades son rápidas, generalmente basadas en daños, que pueden generar adrenalina. La adrenalina se usa para realizar habilidades más avanzadas y más fuertes, como el umbral y el final.&lt;/li>
+&lt;li>Umbral: las habilidades de umbral hacen más daño que las habilidades básicas, pero también agotan el 15% de tu adrenalina cuando se lanzan. Las habilidades de umbral requieren 50% de adrenalina para usar.&lt;/li>
+&lt;li>Ultimate: estas son las habilidades más poderosas. La mayoría de estas habilidades borran completamente tu barra de adrenalina y no generan adrenalina.&lt;/li>
+&lt;/ul>
+&lt;p>La mayoría de las habilidades se desbloquean a medida que entrenas tus habilidades de combate, pero algunas se pueden obtener de otras maneras: como gotas de criaturas poderosas o al completar misiones.&lt;/p>
+&lt;p>También puedes elegir automatizar tus habilidades seleccionando Revolution como tu modo de combate&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Sitio Web'
+rel="noopener"
+href='https://play.runescape.com/'>
+Sitio Web
+&lt;/a>
+&lt;/div></description></item></channel></rss>

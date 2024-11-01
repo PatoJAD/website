@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Seguridad en Linea on PatoJAD</title><link>https://patojad.com.ar/tags/seguridad-en-linea/</link><description>Recent content in Seguridad en Linea on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Wed, 25 Oct 2023 12:11:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/seguridad-en-linea/index.xml" rel="self" type="application/rss+xml"/><item><title>Cómo Importar tus Claves SSH: Una Guía para DevOps</title><link>https://patojad.com.ar/post/2023/10/c%C3%B3mo-importar-tus-claves-ssh-una-gu%C3%ADa-para-devops/</link><pubDate>Wed, 25 Oct 2023 12:11:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/10/c%C3%B3mo-importar-tus-claves-ssh-una-gu%C3%ADa-para-devops/</guid><description>&lt;p>Es común que los desarrolladores y DevOps tengan múltiples aspectos vinculados a sus claves &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+SSH
+&lt;/a>, desde el acceso a servidores hasta repositorios. Por lo tanto, es de vital importancia tener una copia de seguridad de tus claves &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+SSH
+&lt;/a>. En este artículo, te mostraré cómo importar tu copia de seguridad, evitando la tediosa tarea de crear una nueva clave y darla de alta en todos tus sistemas y servidores.&lt;/p>
+&lt;h2 id="dónde-se-almacenan-las-claves-ssh">¿Dónde se Almacenan las Claves SSH?&lt;/h2>
+&lt;p>El lugar donde se almacenan las claves &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+SSH
+&lt;/a> varía según el sistema operativo que utilices. En mi caso, uso Linux, y las claves se guardan en la carpeta &lt;code>~/.ssh/&lt;/code>. Esta carpeta contiene tanto las claves públicas como las privadas, así como archivos de configuración para &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+SSH
+&lt;/a>. Si estás en Windows, las claves se guardan en &lt;code>C:\Users\USERNAME\.ssh\&lt;/code>. En el caso de macOS, las claves se encuentran en la carpeta &lt;code>~/.ssh/&lt;/code>, similar a Linux.&lt;/p>
+&lt;h2 id="cómo-importar-una-clave-ssh">¿Cómo Importar una Clave SSH?&lt;/h2>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/l0XM6FHrrKk?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;p>Para importar una clave &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+SSH
+&lt;/a>, el primer paso es copiar tanto la clave pública como la privada a la carpeta correspondiente en tu sistema operativo: &lt;code>~/.ssh/&lt;/code> para Linux y &lt;code>C:\Users\USERNAME\.ssh\&lt;/code> para Windows. Una vez que las claves estén en la carpeta, debes otorgar los permisos adecuados a la clave privada. Esto se logra ejecutando el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">chmod &lt;span class="m">700&lt;/span> ~/.ssh/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">chmod &lt;span class="m">600&lt;/span> ~/.ssh/id_rsa
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">chmod &lt;span class="m">600&lt;/span> ~/.ssh/id_rsa.pub
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Con los permisos establecidos, el siguiente paso es agregar la clave al agente SSH. Esto se logra ejecutando el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">ssh-add ~/.ssh/id_rsa
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="alert alert-warning col-12" style="position:relative;">
+&lt;div class="info-box-content container">
+&lt;div class="row">
+&lt;div class="col-2 text-center">
+&lt;span class="fa fa-warning fa-5x">&lt;/span>
+&lt;/div>
+&lt;div class="col-10">
+&lt;p class="no-margin">En el video, el Agente SSH se actualiza automáticamente, por lo que este paso se omite en la guía.&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;p>Siguiendo estos pasos, habrás importado tu clave SSH de manera segura y eficiente, evitando la creación y alta manual en cada servidor y sistema al que necesitas acceder.&lt;/p></description></item><item><title>Claves SSH: Una Guía Completa para la Seguridad en Conexiones Remotas</title><link>https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%C3%ADa-completa-para-la-seguridad-en-conexiones-remotas/</link><pubDate>Tue, 24 Oct 2023 12:55:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%C3%ADa-completa-para-la-seguridad-en-conexiones-remotas/</guid><description>&lt;p>En el mundo de la informática y la seguridad en línea, las &lt;strong>Claves SSH&lt;/strong> son una parte fundamental de la protección de tus sistemas y datos. Si te has preguntado qué significa &lt;strong>SSH&lt;/strong>, para qué sirve una clave &lt;strong>SSH&lt;/strong> o cuáles son las ventajas de utilizar &lt;strong>SSH&lt;/strong>, estás en el lugar correcto. En este artículo, exploraremos en detalle todo lo que necesitas saber sobre las &lt;strong>Claves SSH&lt;/strong> y por qué son esenciales en el mundo de la seguridad en línea.&lt;/p>
+&lt;h2 id="qué-es-una-clave-ssh">¿Qué es una clave SSH?&lt;/h2>
+&lt;p>&lt;strong>SSH&lt;/strong> es la abreviatura de &lt;em>&amp;ldquo;Secure Shell&amp;rdquo;&lt;/em>. Se trata de un protocolo de red que permite a los usuarios acceder de forma segura a sistemas y datos a través de una conexión cifrada. Una &lt;em>&amp;ldquo;Clave SSH&amp;rdquo;&lt;/em> es una parte crucial de este protocolo y es utilizada para autenticar la identidad del usuario y cifrar la comunicación entre el cliente y el servidor. En resumen, una clave &lt;strong>SSH&lt;/strong> es una forma segura de autenticación que permite a un usuario acceder a un sistema o servidor de manera segura y encriptada.&lt;/p>
+&lt;h2 id="qué-significa-ssh">¿Qué significa SSH?&lt;/h2>
+&lt;p>&lt;strong>SSH&lt;/strong>, como se mencionó anteriormente, es la abreviatura de &lt;em>&amp;ldquo;Secure Shell&amp;rdquo;&lt;/em>. Es un protocolo de red que se utiliza para acceder a sistemas remotos de manera segura. La palabra &lt;em>&amp;ldquo;secure&amp;rdquo;&lt;/em> en &lt;strong>SSH&lt;/strong> es clave aquí, ya que resalta la importancia de la seguridad en la comunicación entre el cliente y el servidor. &lt;strong>SSH&lt;/strong> utiliza técnicas de cifrado para proteger la información transmitida, lo que lo convierte en una opción segura para la administración de sistemas y transferencia de datos.&lt;/p>
+&lt;h2 id="para-qué-sirve-una-clave-ssh">¿Para qué sirve una clave SSH?&lt;/h2>
+&lt;p>Las &lt;strong>claves SSH&lt;/strong> se utilizan principalmente para la autenticación y el cifrado de la comunicación entre un cliente y un servidor. Cuando un usuario se conecta a un servidor &lt;strong>SSH&lt;/strong>, el sistema verifica su identidad utilizando una clave &lt;strong>SSH&lt;/strong>. Esto proporciona un alto nivel de seguridad, ya que las &lt;strong>claves SSH&lt;/strong> son difíciles de adivinar o piratear. Además, una vez que la conexión está establecida, toda la comunicación entre el cliente y el servidor se cifra, lo que significa que cualquier dato transmitido, como contraseñas o archivos, está protegido contra posibles ataques de intermediarios maliciosos.&lt;/p>
+&lt;h2 id="cuál-es-la-ventaja-de-usar-ssh">¿Cuál es la ventaja de usar SSH?&lt;/h2>
+&lt;p>El uso de &lt;strong>SSH&lt;/strong> conlleva varias ventajas clave:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Seguridad:&lt;/strong> &lt;strong>SSH&lt;/strong> es altamente seguro debido a la autenticación de clave pública y al cifrado de extremo a extremo. Esto significa que tus datos y credenciales de acceso están protegidos contra amenazas de seguridad.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Autenticación sin contraseña:&lt;/strong> Las &lt;strong>claves SSH&lt;/strong> permiten la autenticación sin necesidad de ingresar una contraseña cada vez que te conectas. Esto no solo es más cómodo, sino que también elimina la necesidad de almacenar contraseñas en el servidor, lo que mejora la seguridad.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Acceso remoto seguro:&lt;/strong> &lt;strong>SSH&lt;/strong> permite a los administradores de sistemas y desarrolladores acceder a servidores y sistemas de manera segura desde cualquier ubicación, lo que facilita la administración y el mantenimiento de sistemas.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Transferencia de archivos segura:&lt;/strong> Además de la administración remota, &lt;strong>SSH&lt;/strong> también se utiliza para la transferencia de archivos segura, lo que lo convierte en una herramienta versátil para la administración de sistemas y el intercambio de datos.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>En resumen, las &lt;strong>Claves SSH&lt;/strong> son fundamentales en la seguridad de la comunicación y el acceso a sistemas remotos. Ofrecen una forma segura de autenticación y cifrado, lo que protege tus datos y sistemas contra posibles amenazas. Ya sea que seas un administrador de sistemas, un desarrollador o simplemente un usuario preocupado por la seguridad, comprender y utilizar las &lt;strong>Claves SSH&lt;/strong> es esencial en el mundo digital actual.&lt;/p></description></item></channel></rss>

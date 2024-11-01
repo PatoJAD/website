@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Deb on PatoJAD</title><link>https://patojad.com.ar/tags/deb/</link><description>Recent content in Deb on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Thu, 25 Jul 2024 12:34:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/deb/index.xml" rel="self" type="application/rss+xml"/><item><title>Desmitificando la seguridad de los empaquetados de aplicaciones en Linux</title><link>https://patojad.com.ar/post/2024/07/desmitificando-la-seguridad-de-los-empaquetados-de-aplicaciones-en-linux/</link><pubDate>Thu, 25 Jul 2024 12:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/07/desmitificando-la-seguridad-de-los-empaquetados-de-aplicaciones-en-linux/</guid><description>&lt;p>El empaquetado de aplicaciones en Linux es un tema que ha generado mucho debate en la comunidad. Algunos defienden el uso de paquetes de distribuidores, mientras que otros prefieren el empaquetado de terceros como Flatpak o Snap. En este vídeo, vamos a desmitificar algunos conceptos erróneos sobre la seguridad y el empaquetado de aplicaciones en Linux.&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/TZc0ngDjY0A?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="verificación-de-aplicaciones">Verificación de aplicaciones&lt;/h2>
+&lt;p>La verificación de aplicaciones es un proceso que garantiza que la aplicación que se descarga y se instala proviene directamente del desarrollador y no ha sido modificada por un tercero. Esto es especialmente importante en Linux, donde cualquier persona puede crear un paquete y distribuirlo. Sin embargo, la verificación de aplicaciones no garantiza que la aplicación sea segura o libre de vulnerabilidades.
+Por ejemplo, la biblioteca XZ fue hackeada y contenía una backdoor. Aunque la aplicación fue verificada, todavía contenía el código malicioso. Otro ejemplo es el caso de KeePassXC, donde el mantenedor de la versión de Debian decidió eliminar algunas características sin el consentimiento del desarrollador original.&lt;/p>
+&lt;h2 id="empaquetado-de-distribuidores">Empaquetado de distribuidores&lt;/h2>
+&lt;p>El empaquetado de distribuidores no es necesariamente más seguro que el empaquetado de terceros. Los mantenedores de paquetes pueden no ser desarrolladores y no realizar revisiones de seguridad del código. Además, los paquetes de distribuidores pueden contener versiones antiguas de bibliotecas que no han sido actualizadas con las últimas correcciones de seguridad.
+Por ejemplo, la vulnerabilidad de log4j afectó a muchas distribuciones de Linux, incluyendo a Debian y Ubuntu. Aunque los paquetes de distribuidores fueron actualizados, todavía había versiones antiguas de la biblioteca que no habían sido parcheadas.&lt;/p>
+&lt;h2 id="sandbox">Sandbox&lt;/h2>
+&lt;p>El sandbox es un sistema de permisos que limita lo que una aplicación puede hacer en el sistema. Sin embargo, no garantiza que la aplicación sea segura. Un ejemplo de esto es el caso de las aplicaciones de criptomonedas que fueron hackeadas en el Snap Store. A pesar de que estas aplicaciones estaban sandboxeadas, todavía podían acceder a la conexión a internet y realizar acciones maliciosas.
+Otro ejemplo es el caso de Flatpak, que permite a las aplicaciones acceder a la carpeta de documentos del usuario sin restricciones. Aunque el sandbox de Flatpak es más estricto que el de Snap, todavía hay riesgos de seguridad asociados con el uso de aplicaciones sandboxeadas.&lt;/p>
+&lt;h2 id="dependencias">Dependencias&lt;/h2>
+&lt;p>Las dependencias en el empaquetado de aplicaciones pueden ser un problema. Los paquetes de distribuidores no siempre están actualizados, y los paquetes de terceros pueden contener versiones antiguas de bibliotecas. Esto puede llevar a vulnerabilidades de seguridad y problemas de compatibilidad.
+Por ejemplo, la biblioteca OpenSSL es una dependencia común en muchas aplicaciones. Sin embargo, las versiones antiguas de OpenSSL contienen vulnerabilidades de seguridad que pueden ser explotadas por atacantes. Si una aplicación utiliza una versión antigua de OpenSSL, puede ser vulnerable a ataques, incluso si el paquete ha sido verificado.&lt;/p>
+&lt;h2 id="conclusión">Conclusión&lt;/h2>
+&lt;p>En conclusión, la seguridad del empaquetado de aplicaciones en Linux depende de muchos factores. Es importante recordar que los usuarios son responsables de verificar la seguridad de las aplicaciones que instalan. También es importante elegir fuentes de paquetes confiables y mantener las aplicaciones actualizadas.&lt;/p></description></item><item><title>Formatos de Empaquetado en Linux: Nativos, Flatpak, Snap y AppImage</title><link>https://patojad.com.ar/post/2024/03/formatos-de-empaquetado-en-linux-nativos-flatpak-snap-y-appimage/</link><pubDate>Mon, 25 Mar 2024 12:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/03/formatos-de-empaquetado-en-linux-nativos-flatpak-snap-y-appimage/</guid><description>&lt;p>En el tradicional formato de empaquetado de Linux, tenemos &lt;strong>DEB&lt;/strong> (para debian, ubuntu y derivadas), &lt;strong>RPM&lt;/strong> (para redhat, fedora y derivadas) y otras variantes. Más recientemente, se han añadido &lt;strong>Flatpak&lt;/strong>, &lt;strong>Snap&lt;/strong> e &lt;strong>AppImage&lt;/strong>, lo que ha generado una gran variedad de formatos con diferentes características, ventajas y limitaciones. En este análisis, exploraremos el rendimiento de cada formato y las funciones que faltan en cada uno.&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/1zGKcj92PcQ?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="nativas">Nativas&lt;/h2>
+&lt;p>Generalmente no son compatibles entre distintas distribuciones, no implementan ningún modelo de seguridad o espacio aislado específico y se distribuyen a través de repositorios, ya sean oficiales o de terceros. Estos paquetes pueden contener bibliotecas o aplicaciones y todas las bibliotecas se comparten entre aplicaciones, lo que ahorra espacio y evita bibliotecas duplicadas. Sin embargo, esto también significa que una aplicación que necesita una biblioteca más nueva podría no funcionar en una distribución más antigua.&lt;/p>
+&lt;h2 id="flatpak">Flatpak&lt;/h2>
+&lt;p>Generalmente agregan además de sus paquetes regulares, son agnósticos de la distribución en sí, por lo que si su distro admite el &lt;strong>Flatpak&lt;/strong>, puede ejecutar exactamente el mismo paquete que cualquier otra distribución. El desarrollador empaqueta su aplicación una vez y se ejecuta en todo, no es necesario duplicar el trabajo de empaquetado. Los &lt;strong>Flatpak&lt;/strong> tienen un empaquetado &amp;ldquo;sandbox&amp;rdquo;, lo que significa que ofrecen menos agujeros de seguridad para posibles atacantes y, al mismo tiempo, comparten una gran cantidad de bibliotecas a través de tiempos de ejecución. Algunos &lt;strong>Flatpak&lt;/strong> contienen muchas bibliotecas en las que confían muchas aplicaciones. También pueden enviar sus propias bibliotecas en el paquete, lo que significa que pueden usar más espacio con el tiempo. Los &lt;strong>Flatpak&lt;/strong> se distribuyen principalmente a través de Flathub y repositorios en línea, pero usted también puede crear su propio repositorio ya que todo es de código abierto.&lt;/p>
+&lt;h2 id="snap">Snap&lt;/h2>
+&lt;p>Los &lt;strong>Snaps&lt;/strong> son básicamente el mismo concepto que los &lt;strong>Flatpak&lt;/strong>, pero para Ubuntu. Hay algunas diferencias técnicas con los &lt;strong>Flatpak&lt;/strong>, especialmente con respecto a cómo se abren y montan las aplicaciones en el sistema, pero funcionan de la misma manera. De esta manera, tiene tiempos de ejecución que incluyen bibliotecas necesarias para múltiples aplicaciones y luego las aplicaciones que pueden usar estos tiempos de ejecución se pueden aislar, pero no es obligatorio, por lo que algunas no lo son y se distribuyen exclusivamente a través de la tienda de Snap administrada por Canonical y ese específico. El back-end no es de código abierto. Los &lt;strong>Snaps&lt;/strong> se empaquetan una vez y cualquier distribución puede usar el mismo Snap siempre que admita el formato. Otra gran diferencia es que los &lt;strong>Snaps&lt;/strong> son adecuados no solo para aplicaciones gráficas sino también para programas de línea de comandos, aplicaciones del lado del servidor o incluso el kernel, el entorno de escritorio, el cargador de arranque o los controladores.&lt;/p>
+&lt;h2 id="appimage">AppImage&lt;/h2>
+&lt;p>Son un formato más portátil similar a lo que hace &lt;strong>MacOS&lt;/strong>: toda la aplicación se envía dentro de un solo archivo con la mayoría, si no todas, sus bibliotecas. Esto significa que puede copiar y pegar aplicaciones desde un sistema a otro y se ejecutan en cualquier distribución que tenga acceso a fuse, que es lo que usan las imágenes de la aplicación para ejecutar las imágenes de la aplicación. A diferencia de las anteriores, no se ejecutan en un sandbox, aunque puedes hacerlo manualmente con algo como Fire Jail y, a veces, dependen de las bibliotecas del sistema que distribución se envía como paquetes regulares. Esto significa que ciertas imágenes de aplicaciones pueden no funcionar en ciertos sistemas que no tienen la biblioteca requerida; generalmente se distribuyen desde el sitio web de los desarrolladores o desde la aplicación App Image Hub. Las imágenes no crean automáticamente entradas en su sistema. menú a menos que use un demonio específico que se ejecuta en segundo plano.&lt;/p>
+&lt;h2 id="puntos-de-referencia-de-rendimiento">Puntos de referencia de rendimiento&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/Z5xcr9pK/image.png" alt="PC de pruebas" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Las pruebas de rendimiento se llevaron a cabo en una máquina virtual Ubuntu 23.04 con 16 GB de RAM y un procesador Intel Core i7 de 13.a generación. Se instalaron aplicaciones en todos los formatos de empaquetado, y se midió el tiempo de apertura inicial y las ejecuciones posteriores. Los resultados mostraron diferencias en el tiempo de inicio y el rendimiento en pruebas como Velocímetro y Jetstream Benchmark.&lt;/p>
+&lt;ul>
+&lt;li>16 GB de RAM&lt;/li>
+&lt;li>Procesador Intel Core i7 de 13.a generación&lt;/li>
+&lt;li>Renderizado por hardware&lt;/li>
+&lt;li>Ubuntu 23.04&lt;/li>
+&lt;li>Maquina virtual&lt;/li>
+&lt;/ul>
+&lt;p>Recordemos que esto no pretende ser una maquina real sino un punto para una comparación de rendimiento entre los distintos formatos de empaquetado.&lt;/p>
+&lt;h3 id="resultados">Resultados&lt;/h3>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/Dzfc52PQ/image.png" alt="Resultados 1" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>
+&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/RCJLgpKY/image.png" alt="Resultados 2" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;h2 id="sandbox">Sandbox&lt;/h2>
+&lt;p>Los formatos de empaquetado como &lt;strong>Flatpaks&lt;/strong> y &lt;strong>Snaps&lt;/strong> utilizan entornos de sandbox para proporcionar aislamiento y seguridad a las aplicaciones. Sin embargo, esto puede afectar el rendimiento y la compatibilidad con ciertas características, como la mensajería nativa. El Sandbox no es 100% a prueba de balas. Nada lo es, pero es interesante limitar a qué puede acceder la aplicación, todo esto se administra a través de permisos de aplicaciones, de manera muy similar a lo que encontraría en las aplicaciones de Android o iOS, puede otorgar permisos a las aplicaciones para acceder a archivos y carpetas específicos o servicios y componentes específicos del sistema, todo esto generalmente se maneja a través de portales de escritorio que significa que la aplicación realmente no accede al archivo o a la carpeta, abre un portal que es lo que accede al recurso requerido y lo pasa a la aplicación.&lt;/p>
+&lt;p>Esto es similar a cómo los navegadores web ejecutan cada pestaña en un proceso separado al que no se puede acceder. el hilo principal del navegador o las otras pestañas, los paquetes regulares no están protegidos de forma predeterminada, se instalan en el sistema de archivos y requieren privilegios de root para instalarse, lo que significa que si el paquete tiene algunos scripts maliciosos posteriores a la instalación que ejecuta, le ha dado rienda suelta sobre su sistema y cualquier aplicación que haya instalado a través de paquetes pueden acceder a cualquier cosa que su usuario pueda acceder a su directorio completo de home, por ejemplo, u otros archivos de configuración de aplicaciones.&lt;/p>
+&lt;h2 id="funciones-faltantes">Funciones faltantes&lt;/h2>
+&lt;p>Cada formato de empaquetado tiene limitaciones y funciones faltantes. Por ejemplo, los paquetes &lt;strong>Flatpak&lt;/strong> y Snap carecen de compatibilidad con la mensajería nativa, lo que puede afectar su utilidad en ciertos casos de uso. Además, el soporte para el tema del sistema puede ser imperfecto en algunos formatos, lo que puede afectar la integración visual con el entorno del usuario.&lt;/p>
+&lt;h2 id="conclusión">Conclusión&lt;/h2>
+&lt;p>A pesar de las diferencias y limitaciones, todos los formatos de empaquetado ofrecen una experiencia similar en la ejecución de aplicaciones en Linux. La elección del formato adecuado puede depender de factores como la seguridad, la portabilidad y las características específicas requeridas por el usuario. Si bien la unificación hacia un formato de empaquetado único podría simplificar la experiencia para los usuarios principiantes, actualmente cada formato tiene su lugar en el ecosistema de Linux.&lt;/p></description></item><item><title>Obteniendo .deb de apps instaladas</title><link>https://patojad.com.ar/post/2021/04/obteniendo-.deb-de-apps-instaladas/</link><pubDate>Fri, 23 Apr 2021 10:31:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/04/obteniendo-.deb-de-apps-instaladas/</guid><description>&lt;p>Es común que muchas veces encontremos en alguna distro una app que sea única de esta distro y nos gusta mucho. En esta oportunidad vamos a portear o a recuperar los instalados en las distribuciones basadas en Debian/Ubuntu.&lt;/p>
+&lt;h2 id="instalando-repack">Instalando repack&lt;/h2>
+&lt;p>Lo primero es instalar las dependencias o mejor dicho las app necesaria para poder rearmar los paquetes .deb para poder llevarlos a otras distros. Esto lo vamos a instalar de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt-get install dpkg-repack
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="usando-repack">Usando Repack&lt;/h2>
+&lt;p>Realmente es muy simple, repack nos permite generar .deb desde paquetes ya instalados, lo cual nos permite acceder a cualquier app instalada esté o no en el repositorio. Si se instaló con un deb podemos volver a generar el deb&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dpkg-repack nombre-de-la-app
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>¿Como instalar Hamachi?</title><link>https://patojad.com.ar/post/2020/12/como-instalar-hamachi/</link><pubDate>Fri, 11 Dec 2020 09:13:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/12/como-instalar-hamachi/</guid><description>&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/2yhM8CmK/image.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Hamachi es una app que nos permite generar una red privada virtual, de esta forma podemos compartir recursos, jugar en “LAN”, y muchas cosas más con personas que no se encuentran en la misma red, o en el mismo país…&lt;/p>
+&lt;h2 id="debian-based">Debian Based&lt;/h2>
+&lt;p>Para instalarlo en cualquier debian based tenemos que descargar el .deb e instalarlo, a continuación dejo los comandos actualizados al dia de la fecha.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">wget https://www.vpn.net/installers/logmein-hamachi_2.1.0.203-1_amd64.deb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dpkg -i logmein-hamachi_2.1.0.203-1_amd64.deb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install -f
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>En el caso de que tengas una pc 32 bits, tranca palanca que estos ñatos tienen los 32 bits a manopla:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">wget https://www.vpn.net/installers/logmein-hamachi_2.1.0.203-1_i386.deb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dpkg -i logmein-hamachi_2.1.0.203-1_i386.deb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install -f
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="fedora-y-similares">Fedora (y Similares)&lt;/h2>
+&lt;p>También puede ser que tengas por ahi Fedora, CentOS o RHEL y quieras tener hamachi, no hay drama la instalación es asi de simple.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">wget https://www.vpn.net/installers/logmein-hamachi-2.1.0.203-1.x86_64.rpm
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo rpm –i logmein-hamachi-2.1.0.203-1.x86_64.rpm
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Y si tu pc es 32 bits seria algo asi:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">wget https://www.vpn.net/installers/logmein-hamachi-2.1.0.203-1.i486.rpm
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo rpm –i logmein-hamachi-2.1.0.203-1.i486.rpm
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="cualquier-otra-distro">Cualquier otra distro&lt;/h2>
+&lt;p>Existe una forma de instalarlo independientemente de la distro que estemos usando. Para esto debemos seguir los siguientes pasos:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">wget https://www.vpn.net/installers/logmein-hamachi-2.1.0.203-x64.tgz
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">tar -xvzf logmein-hamachi-2.1.0.203-x64.tgz
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> logmein-hamachi-2.1.0.203-x64
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">./install.sh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Y en el caso de tener un Linux con 32 Bits podemos hacerlo de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">wget https://www.vpn.net/installers/logmein-hamachi-2.1.0.203-x86.tgz
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">tar -xvzf logmein-hamachi-2.1.0.203-x86.tgz
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> logmein-hamachi-2.1.0.203-x86
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">./install.sh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="arm">ARM&lt;/h2>
+&lt;p>Existen unos compilados en BETA para esta arquitectura, a continuación dejo la web oficial de descarga donde no solo podrán obtener los ARM sino también podrán comprobar que la versión que puse sea la más actualizada.&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='ARM en Linux'
+rel="noopener"
+href='https://www.vpn.net/linux'>
+ARM en Linux
+&lt;/a>
+&lt;/div>
+&lt;h2 id="windows">Windows&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://imag.malavida.com/mvimgbig/download-fs/hamachi-1410-1.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>En el caso de que uses Windows bastará con descargar el archivo .msi (Que veran a continuacion) e instalarlo con un doble click. Es importante recalcar que la descarga es directamente de la página oficial, no está alojado por este blog ni ningún otro&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Descargar Para Windows'
+rel="noopener"
+href='https://secure.logmein.com/hamachi.msi'>
+Descargar Para Windows
+&lt;/a>
+&lt;/div>
+&lt;h2 id="macos">MacOS&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://images.sftcdn.net/images/t_app-cover-m,f_auto/p/2bea4bde-96d7-11e6-878e-00163ed833e7/2690128288/logmein-hamachi-screenshot.jpg" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>En el caso de usar el sistema de la manzanita me cuesta un poco más poder definir correctamente el procedimiento porque no uso este sistema pero si puedo facilitarte la descarga oficial de su sitio y de ahi calculo que no debe ser muy complejo&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Descargar para MacOS'
+rel="noopener"
+href='https://secure.logmein.com/LogMeInHamachi.zip'>
+Descargar para MacOS
+&lt;/a>
+&lt;/div>
+&lt;hr>
+&lt;p>Recorda &lt;strong>apoyarnos&lt;/strong> en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p></description></item><item><title>Crea tus .deb con Checkinstall</title><link>https://patojad.com.ar/post/2020/07/crea-tus-.deb-con-checkinstall/</link><pubDate>Tue, 14 Jul 2020 09:05:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/07/crea-tus-.deb-con-checkinstall/</guid><description>&lt;p>En esta oportunidad vamos a ver como generar un deb utilizando &lt;strong>checkinstall&lt;/strong> en el proceso de compilación. Esto es extremadamente útil para los usuarios que acostumbramos compilar algunas piezas de software que no se encuentran en deb, nos permite generar nuestros propios debs para simplificar el proceso a futuro&lt;/p>
+&lt;h2 id="recomendaciones">Recomendaciones&lt;/h2>
+&lt;p>Si bien no soy nadie para decir que hacer siempre recomiendo seguir un hilo para facilitar el aprendizaje… Por esto mismo recomiendo ver la publicación anterior y entender como funciona eso antes de seguir dado que esta oportunidad entiendo que esos conocimientos ya estan y avanzo un poco más rápido para evitar alargar el video (saben que me gusta conciso y útil)&lt;/p>
+&lt;h2 id="preparando-tu-equipo">Preparando tu equipo&lt;/h2>
+&lt;p>Claramente este proceso es un poco más complejo que lo vimos anteriormente usando dpkg, dado que ahora no solo vamos a empaquetar sino que también vamos a compilar. Recomiendo arrancar con programas realmente pequeños e ir aumentando la complejidad de a poco. En líneas generales vamos a tener 2 dependencias &lt;strong>siempre&lt;/strong> que las vamos a instalar así:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo apt install checkinstall make
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Uno es para compilar y el otro para generar el deb. Sin embargo siempre debemos leer la documentación del proyecto que queramos compilar para poder entender qué dependencias tiene adicionales a esta e instalarlas antes de iniciar el proceso y así evitar errores.&lt;/p>
+&lt;h2 id="generando-el-deb">Generando el deb&lt;/h2>
+&lt;p>En este caso no voy a explicar cómo compilar sino que voy a explicar como generar el deb por lo cual la compilación corre por cuenta de uno (leer la documentacion de git básicamente)&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/kcQvq4oDUgM?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="comandos">Comandos&lt;/h2>
+&lt;p>El único comando que nos importa o mejor dicho que le da relevancia al tutorial que vemos aquí que es simplemente el siguiente&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo checkinstall --install&lt;span class="o">=&lt;/span>no
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>El install=no puede omitirse si queremos que aparte de generar el deb se instale el programa en nuestra distro, sin embargo recomiendo evitarlo e instalarlo desde el deb que generamos para probar que funcione correctamente.&lt;/p>
+&lt;p>No te olvides de comentarnos qué te parece y preguntarnos tus dudas en nuestro canal de Telegram.&lt;/p></description></item><item><title>AdBlock Spotify</title><link>https://patojad.com.ar/post/2020/07/adblock-spotify/</link><pubDate>Tue, 07 Jul 2020 09:23:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/07/adblock-spotify/</guid><description>&lt;p>Muchos de nosotros usamos diferentes reproductores de música, y algunos de nosotros incluso usamos servicios de música online, en este caso vamos a hablar de una en específico: &lt;strong>Spotify&lt;/strong>, un servicio de música online que cuenta con una versión Free la cual nos permite escuchar música &lt;em>100% gratis&lt;/em> con unas publicidades que suelen ser tolerables al inicio pero cada vez son más invasivas&amp;hellip;&lt;/p>
+&lt;h2 id="una-comunidad-que-no-quiere-publicidad">Una comunidad que no quiere Publicidad&lt;/h2>
+&lt;p>La comunidad &lt;strong>no quiere publicidad&lt;/strong> cuando escucha música. Y como siempre la comunidad encuentra la forma de obtener lo que quiere. Y en esta solución que ofrecemos hoy es nada más ni nada menos que un filtro que bloquea la publicidad en el momento de su obtención.&lt;/p>
+&lt;h2 id="instalación">Instalación&lt;/h2>
+&lt;p>La instalación de este &lt;em>&amp;ldquo;complemento&amp;rdquo;&lt;/em> como nos marcan en su README se realiza mediante la compilación del mismo, lo cual suena realmente más difícil de lo que es, bastará con correr algunos comandos. Sin embargo, &lt;strong>nosotros armamos un deb&lt;/strong> para simplificar un poco la instalación. El mismo lo pueden descargar a continuación.&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Descargar en formato DEB'
+rel="noopener"
+href='https://www.mediafire.com/file/ag5vyxovkv53f15/spotify-adblock_1-PatoJAD_amd64.deb/file'>
+Descargar en formato DEB
+&lt;/a>
+&lt;/div>
+&lt;h2 id="cómo-utilizarlo">Cómo utilizarlo&lt;/h2>
+&lt;p>Se puede utilizar simplemente con la línea de comandos, o terminal, o shell. Recuerden que esto se utiliza teniendo instalado Spotify y desde la terminal lo podemos hacer con el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">LD_PRELOAD&lt;/span>&lt;span class="o">=&lt;/span>/usr/local/lib/spotify-adblock.so spotify
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Sin embargo, es molesto cada vez que queramos usarlo tener que ejecutar este comando por lo cual podemos, por única vez, armar este archivo que nos permite generar un lanzador en nuestro menú, que nos permite ejecutar todo esto desde un simple botón.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">nano ~/.local/share/applications/spotify-adblock.desktop
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Y dentro de ese archivo que creamos debemos poner lo siguiente.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="line">&lt;span class="cl">&lt;span class="k">[Desktop Entry]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Type&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">Application&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Name&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">Spotify (PatoJAD)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">GenericName&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">Music Player&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Icon&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">spotify-client&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">TryExec&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">spotify&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Exec&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">env LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify %U&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Terminal&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">false&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">MimeType&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">x-scheme-handler/spotify;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Categories&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">Audio;Music;Player;AudioVideo;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">StartupWMClass&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">spotify&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Es posible que ni bien después de crearlo no aparezca en el menú esto puede llegar a demorar unos minutos (Hasta que se refresque o se reinicie) sin embargo obtendremos dentro del menú un nuevo &amp;ldquo;Spotify&amp;rdquo; que inicia con el bloqueador de una&lt;/p></description></item><item><title>Cómo instalar paquetes DEB usando dpkg</title><link>https://patojad.com.ar/post/2020/05/c%C3%B3mo-instalar-paquetes-deb-usando-dpkg/</link><pubDate>Wed, 20 May 2020 06:40:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/05/c%C3%B3mo-instalar-paquetes-deb-usando-dpkg/</guid><description>&lt;p>Anteriormente hablamos de &lt;a href="https://patojad.com.ar/post/2020/04/como-crear-un-deb-con-dpkg/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+cómo crear paquetes .deb
+&lt;/a> en Debian, Ubuntu o derivadas utilizando el gestor de paquetes dpkg, sin embargo hoy llego el dia de dar un pequeño paso hacia atrás y ver como se instala utilizando el mismo gestor.&lt;/p>
+&lt;p>Antes de iniciar quiero agradecer a Julio por brindar la información y obviamente a la autora de todo esto que es nada más ni nada menos que Gabriela González.&lt;/p>
+&lt;p>Explicamos cómo utilizar las opciones del gestor de paquetes de Debian, para instalar y desinstalar archivos .deb en Ubuntu, Debian o derivados&lt;/p>
+&lt;p>Los usuarios estas distribuciones la tienen muy fácil hace rato, instalar cualquier programa es un paseo por el parque gracias al centro de software. Poco a poco muchas otras distros van implementando este tipo de tiendas de aplicaciones para que el usuario pueda descargar lo que quiera de la manera más sencilla posible. Esto también ha permitido que muchos desarrolladores pongan en venta sus aplicaciones de pago y de esta manera obtener algo a cambio de su trabajo, y sin preocuparse por conseguir un medio de distribución que llegue a todos los usuarios.&lt;/p>
+&lt;p>Muchos programas no se encuentran en el centro de software, así que a veces es bueno recurrir a la terminal para instalarlos&lt;/p>
+&lt;p>&lt;strong>Existen muchos paquetes y aplicaciones que no están disponibles en el centro de software&lt;/strong>, muchos de los cuales requieren el uso de la terminal para añadir un repositorio y poder descargarlos. Otros en cambio, como por ejemplo Google Chrome, hay que bajarlos como un paquete DEB para poder usarlo en Debian/Ubuntu y derivados. Este paquete DEB se puede instalar con el centro de software, haciendo doble clic sobre el. Si ya lo has hecho, probablemente más de una vez, seguro has notado que el proceso es un poquito lento, que el centro de software más deuna vez se «queda pegado», y además puedes hasta sentir lag en el sistema, y un retraso en la respuesta de las aplicaciones que estás ejecutando en ese momento, es caótico.&lt;/p>
+&lt;h2 id="instalar-paquetes-deb-usando-dpkg">INSTALAR PAQUETES DEB USANDO DPKG&lt;/h2>
+&lt;p>dpkg es el programa base para manejar paquetes .deb.Con dpkg puedes instalar, remover y obtener información sobre cualquier paquete .deb. Pero, se debe ver a dpkg como una herramienta de sistema que trabaja en conjunto con apt-get. Si una dependencia &lt;strong>no se satisface&lt;/strong>, dpkg fallará, por el contrario, herramientas como apt-get crearán una lista de dependencias para instalar todo tan automáticamente como sea posible. Es decir, con dpkg instalamos paquetes .deb que ya descargamos, porque dpkg &lt;strong>no descarga nada&lt;/strong>.&lt;/p>
+&lt;p>Para &lt;strong>instalar&lt;/strong> paquetes con dpkg usamos la opción -i o -install, ejemplo:&lt;/p>
+&lt;pre>&lt;code>dpkg -i paquete.deb
+&lt;/code>&lt;/pre>
+&lt;p>Para &lt;strong>verificar&lt;/strong> que un paquete se ha instalado podemos escribir en la terminal:&lt;/p>
+&lt;pre>&lt;code>dpkg -l | grep 'chrome'
+&lt;/code>&lt;/pre>
+&lt;p>Entre las comillas colocamos una palabra clave para buscar elpaquete, en este caso quiero verificar si se instaló Chrome. Si la terminal arroja una lista y antes del paquete muestra «ii» quiere decir que está instalado&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/mDS9KHDP/image.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Para &lt;strong>desinstalar&lt;/strong> un paquete utilizando dpkg utilizamos la opción -r o -remove, ejemplo:&lt;/p>
+&lt;pre>&lt;code>dpkg -r paquete.deb
+&lt;/code>&lt;/pre>
+&lt;p>Si queremos &lt;strong>purgar&lt;/strong> la isntalaición, es decir borrar todos los rastros del programa, utilizamos -P:&lt;/p>
+&lt;pre>&lt;code>dpkg -P paquete.deb
+&lt;/code>&lt;/pre>
+&lt;p>Si quieren conocer más a fondo esta herramienta, pueden leer el manual de Debian sobre la &lt;a href="https://debian-handbook.info/browse/es-ES/stable/sect.manipulating-packages-with-dpkg.html" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+manipulación de paquetes con dpkg
+&lt;/a>.&lt;/p>
+&lt;hr>
+&lt;p>Recorda &lt;strong>apoyarnos&lt;/strong> en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p></description></item><item><title>Subproceso dpkg devolvió el código de salida de error</title><link>https://patojad.com.ar/post/2020/04/subproceso-dpkg-devolvi%C3%B3-el-c%C3%B3digo-de-salida-de-error/</link><pubDate>Thu, 30 Apr 2020 09:26:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/04/subproceso-dpkg-devolvi%C3%B3-el-c%C3%B3digo-de-salida-de-error/</guid><description>&lt;p>Es comun que durante las actualizaciones de version a version, o la instalacion de un paquete que no este en nuestros repositorios tengamos algun error en dpkg. Vamos a estar viendo una serie de soluciones a los errores mas comunes&amp;hellip;&lt;/p>
+&lt;h2 id="error-1">Error 1&lt;/h2>
+&lt;p>Los paquetes tienen archivos que se &lt;strong>sobrescriben&lt;/strong>. Los paquetes tienen &lt;strong>dependencias sin resolver&lt;/strong>. Hay conflictos entre los paquetes. Un paquete no puede ser eliminado o modificado por dpkg. Solucion:&lt;/p>
+&lt;pre>&lt;code>sudo echo &amp;quot;force-all&amp;quot; &amp;gt;/etc/dpkg/dpkg.cfg
+sudo apt-get -f install
+&lt;/code>&lt;/pre>
+&lt;h2 id="error-2">Error 2&lt;/h2>
+&lt;p>Instalación de un &lt;strong>paquete dañado&lt;/strong>, vuelvo a intentar instalar y aptitude dice que &lt;strong>ya está instalado&lt;/strong>! Solución:&lt;/p>
+&lt;pre>&lt;code>sudo apt-get remove paquete_dañado
+sudo apt-get update
+sudo apt-get clean
+sudo apt-get --reinstall install paquete
+&lt;/code>&lt;/pre>
+&lt;h2 id="error-3">Error 3&lt;/h2>
+&lt;p>Error de verificación de las &lt;strong>llaves públicas GPG&lt;/strong>(NO_PUBKEY)… Error muy comun de firmas de paquetes o repositorios. Solución:&lt;/p>
+&lt;pre>&lt;code>sudo apt-get update
+&lt;/code>&lt;/pre>
+&lt;p>Buscamos y copiamos el número de error que aparece en negrita.&lt;/p>
+&lt;pre>&lt;code>The following signatures couldn't be verified because the public key is not available: NO_PUBKEY **010908312D230C5F**
+There is no public key available for the following key IDs:**010908312D230C5F**
+&lt;/code>&lt;/pre>
+&lt;p>Y luego ejecutamos el siguiente comando remplazando el id por el respectivo al de su errores&lt;/p>
+&lt;pre>&lt;code>gpg --keyserver keyserver.ubuntu.com --recv **010908312D230C5F**
+gpg --export --armor **010908312D230C5F** | sudo apt-key add -
+sudo apt-get update
+&lt;/code>&lt;/pre>
+&lt;p>Puede que el &lt;em>keyserver no tengla la clave&lt;/em>, hay que buscar el respectivo a su distro de ser asi&amp;hellip;&lt;/p>
+&lt;h2 id="error-4">Error 4&lt;/h2>
+&lt;p>El &lt;strong>subproceso post-installation script devolvió el código de salida de error&lt;/strong> (cualquier error). Se encontraron errores al procesar: (nombre_paquete). Solución:&lt;/p>
+&lt;p>Determinamos el nombre del paquete que causó el error, por ejemplo, en el registro de a continuación, se muestra en negrita el nombre del paquete que causó el problema (xosview)&lt;/p>
+&lt;pre>&lt;code>newaliases: warning: valid_hostname: numeric hostname: 69522
+newaliases: fatal: bad parameter value: 69522
+dpkg: error processing xosview (–configure):
+subprocess post-installation script returned error exit status 75
+Errors were encountered while processing: **xosview**
+&lt;/code>&lt;/pre>
+&lt;p>Después de haber determinado el nombre del paquete, ejecutamos los siguientes comandos cambiando la palabra &lt;strong>xosview&lt;/strong> por el nombre del paquete que causó el problema en nuestro caso:&lt;/p>
+&lt;pre>&lt;code>sudo rm -f /var/lib/dpkg/info/xosview.post*
+sudo rm -f /var/lib/dpkg/info/xosview.pre*
+sudo apt-get -f install
+&lt;/code>&lt;/pre>
+&lt;h2 id="error-5">Error 5&lt;/h2>
+&lt;p>Error mientras se &lt;strong>elimina un paquete&lt;/strong>. Solución:&lt;/p>
+&lt;pre>&lt;code>sudo rm -f /var/lib/dpkg/info/paquete_defectuoso.post*
+sudo rm -f /var/lib/dpkg/info/paquete_defectuoso.pre*
+sudo apt-get remove paquete_defectuoso
+&lt;/code>&lt;/pre>
+&lt;h2 id="error-6">Error 6&lt;/h2>
+&lt;p>Error en &lt;strong>/var/lib/dpkg/status&lt;/strong>. Solución:&lt;/p>
+&lt;p>Normalmente se soluciona así:&lt;/p>
+&lt;pre>&lt;code>sudo cp /var/lib/dpkg/status-old /var/lib/dpkg/status
+&lt;/code>&lt;/pre>
+&lt;p>Si esto no soluciona el problema, ver &lt;strong>Error 7&lt;/strong>.&lt;/p>
+&lt;h2 id="error-7">Error 7&lt;/h2>
+&lt;p>Persiste el problema anterior o problema con apt-get que contiene muchos repositorios o &lt;strong>Error out of room&lt;/strong>. Solución:&lt;/p>
+&lt;p>El problema puede parecerse a esto:&lt;/p>
+&lt;pre>&lt;code>E: Dynamic MMap ran out of room
+&lt;/code>&lt;/pre>
+&lt;p>Editamos el archivo apt.conf (recuerden cambiar gedit por el editor que tengan ustedes)&lt;/p>
+&lt;pre>&lt;code>sudo gedit /etc/apt/apt.conf
+&lt;/code>&lt;/pre>
+&lt;p>Modificamos el &lt;strong>tamaño de la caché&lt;/strong>.&lt;/p>
+&lt;pre>&lt;code>Apt::Cache-Limit “8388604″;
+&lt;/code>&lt;/pre>
+&lt;h2 id="error-8">Error 8&lt;/h2>
+&lt;p>Durante la descarga algunos archivos &lt;strong>no se encuentran disponibles&lt;/strong>. Solución:&lt;/p>
+&lt;pre>&lt;code>sudo apt-get update
+&lt;/code>&lt;/pre>
+&lt;p>Si el problema persiste después de volver a intentar instalar los paquetes, revisa el archivo /etc/apt/sources.list.&lt;/p></description></item><item><title>¿Como crear un deb con dpkg?</title><link>https://patojad.com.ar/post/2020/04/como-crear-un-deb-con-dpkg/</link><pubDate>Thu, 02 Apr 2020 10:14:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/04/como-crear-un-deb-con-dpkg/</guid><description>&lt;p>Existen muchas formas de crear un instalable .deb para nuestros sistemas. En este caso vamos a ver uno de los metodos, probablemente el mas simple de todos y uno de los mas utiles por su practicidad.&lt;/p>
+&lt;h2 id="como-funciona">¿Como funciona?&lt;/h2>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/mHqRbo1A5MM?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;p>Como se puede apreciar en el video lo que debemos hacer es organizar las carpetas de nuestro programa como si estuvieramso en el directorio raiz (en el caso practico en la carpeta deb tomamos como si fuera raiz para posicionar todos los archivos en la pocicion que deben quedar post intalacion)&lt;/p>
+&lt;p>Luego debemos crear el directorio DEBIAN en &amp;ldquo;nuestro root&amp;rdquo; y dentro de el crear el archivo control, el cual podemos hacerlo de la siguiente forma:&lt;/p>
+&lt;pre>&lt;code>mkdir DEBIAN
+cd DEBIAN
+vim control
+&lt;/code>&lt;/pre>
+&lt;p>(En el ultimo punto podemos usar vim, vi, pluma, gedit, deepin-editor o el que querramos para que nos quede comodo editar el archivo). Inmediatamente despues basta con agregar lo siguiente personalizando los datos claramente:&lt;/p>
+&lt;pre>&lt;code>Package: lynxos-gtk-theme
+Priority: optional
+Section: graphics
+Maintainer: PatoJAD &amp;lt;jdecima@disroot.org&amp;gt;
+Architecture: amd64
+Version: 0.0.4
+Depends: lynxos-icons-theme, lynxos-wallpapers
+Description: Tema de GTK para LynxOS
+LynxOS un thema GTK integrado con su trabajo en el escritorio
+&lt;/code>&lt;/pre>
+&lt;p>Recorda que en el video se explica mucho mejor como funcionan los campos. Realmente es importante completarlos bien para evitar errores futuros. En la ultima linea (la descripcion larga) es importante dejar el espacio como inicio de linea.&lt;/p>
+&lt;p>Despeus de esto basta con ejecutar el comando dpkg que empaqueta el archivo dejando listo nuestro instalador de la siguiente forma:&lt;/p>
+&lt;pre>&lt;code>dpkg -b ./ ../lynxos-gtk-theme-0.0.4_amd64.deb
+&lt;/code>&lt;/pre>
+&lt;p>Donde dpkg -b recibe 2 parametos el 1 es el directorio que tomamoscomo raiz para crear nuestro deb (en el caso practico deb) y el 2 donde queremos que quede el deb con el respectivo nombre.&lt;/p></description></item></channel></rss>

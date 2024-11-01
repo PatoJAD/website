@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>No on PatoJAD</title><link>https://patojad.com.ar/tags/no/</link><description>Recent content in No on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Fri, 26 Aug 2022 11:48:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/no/index.xml" rel="self" type="application/rss+xml"/><item><title>USB no me funciona... SOLUCION</title><link>https://patojad.com.ar/post/2022/08/usb-no-me-funciona...-solucion/</link><pubDate>Fri, 26 Aug 2022 11:48:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/08/usb-no-me-funciona...-solucion/</guid><description>&lt;p>Cuántas veces nos pasa que “de la nada” la pc no nos reconoce los USB (Ya sea pendrive, mouse, teclado, o lo que sea) Si bien la entrega de energía se cumple (Podemos ver la luz de periférico o incluso conectar un ventilador) No podes usar lo que esté conectado ni acceder a los datos.&lt;/p>
+&lt;p>Este problema se suele solucionar cuando reiniciamos la máquina, sin embargo eso puede ser tedioso, por lo cual a continuación te dejo un pequeño video en cual explico como poder solucionar esto para evitar el reinicio.&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/Pmjg4jWXuRI?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="código">Código&lt;/h2>
+&lt;p>Claramente es más cómodo poder copiar y pegar desde acá por lo cual dejo en orden los comandos que utilizamos en el video con una breve explicación:&lt;/p>
+&lt;p>Acá vamos a ver si se encuentra el autosuspend encendido, de ser asi el problema se estaría dando por el autosuspend (encendido seria que nos retonre &amp;gt;=1)&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">cat /sys/module/usbcore/parameters/autosuspend
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Abrimos el archivo de configuración del grub con sudo para actualizar la información.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo nano /etc/default/grub
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Buscamos la línea que se llame GRUB_CMDLINE_LINUX_DEFAULT si bien en mi caso se ve como a continuación, puede que se vea completamente diferente los parámetros que te figuran a vos pero eso no es problema solo basta agregar un parámetro más al final.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="line">&lt;span class="cl">&lt;span class="na">GRUB_CMDLINE_LINUX_DEFAULT&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;loglevel=3 nowatchdog nvme_load=YES&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Agregamos al final de la línea el siguiente parámetro usbcore.autosuspend=-1 que apagaría el autosuspend de los USB. Dejo a continuación como queda en mi caso&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="line">&lt;span class="cl">&lt;span class="na">GRUB_CMDLINE_LINUX_DEFAULT&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;loglevel=3 nowatchdog nvme_load=YES usbcore.autosuspend=-1&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Luego guardamos y cerramos (en el caso de usar nano ctrl+o y luego enter para guardar y ctrl+x para cerrar) Y procedemos a actualizar el grub&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo update-grub
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Puede que en tu distribución la actualización del grub se haga de otra forma, en mi caso aplica para arch y en el video podemos ver como instalo el paquete porque no lo tenía.&lt;/p></description></item></channel></rss>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Preload on PatoJAD</title><link>https://patojad.com.ar/tags/preload/</link><description>Recent content in Preload on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Thu, 03 Feb 2022 09:22:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/preload/index.xml" rel="self" type="application/rss+xml"/><item><title>Instalar Preload en Arch</title><link>https://patojad.com.ar/post/2022/02/instalar-preload-en-arch/</link><pubDate>Thu, 03 Feb 2022 09:22:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/02/instalar-preload-en-arch/</guid><description>&lt;p>Preload es una aplicación que toma estadísticas de nuestro uso de aplicaciones y precarga en memoria todas aquellas que más usamos al prender el equipo. Gracias a esto podemos ver una fluidez más amplia al abrir estas aplicaciones. Y a costa de esta fluidez nuestro sistema inicia con más memoria RAM ocupada. Muchos se debaten si esta técnica es útil o no y por eso te dejo primero un video con mi postura sobre esto.&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/HVCqSfdTdUs?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;p>Dejando aclarada mi postura de más está decir que cualquier postura con fundamentos es válida y si preferís no ocupar RAM te recomiendo que no instales &lt;strong>Preload&lt;/strong> aunque vas a perderte la fluidez adicional que esto nos da.&lt;/p>
+&lt;h2 id="video">Video&lt;/h2>
+&lt;p>En el siguiente video vemos como se realiza la instalación de preload (con yay en mi caso pero podes usar tu gestor favorito) y cómo habilitarlo en cualquier base &lt;strong>Arch&lt;/strong> con &lt;strong>SystemD&lt;/strong> y también en &lt;strong>Artix&lt;/strong> con &lt;strong>OpenRC&lt;/strong> (En esta oportunidad no use &lt;strong>Runit&lt;/strong> pero con una búsqueda simple podes adaptarlo)&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/6NoYA9Rtp2s?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="código">Código&lt;/h2>
+&lt;p>A continuación dejo los comandos utilizados para que sea más simple copiar y pegar…&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">yay -S preload
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="systemd">SystemD&lt;/h3>
+&lt;p>En el caso de usar distros con SystemD se habilita de la siguiente manera. Recuerda que esto nos pedirá la contraseña&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">systemctl &lt;span class="nb">enable&lt;/span> preload
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="openrc">OpenRC&lt;/h3>
+&lt;p>En el caso de estar en &lt;strong>Artix&lt;/strong> (con &lt;strong>OpenRC&lt;/strong>) debemos crear el archivo del demonio de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo nano /etc/init.d/preload
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Y dentro del archivo debemos poner lo siguiente:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#!/sbin/openrc-run&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">command&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;/usr/bin/preload&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">command_args&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;$PRELOAD_OPTS&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">command_args_foreground&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;--foreground&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Esto lo guardamos y a continuación le damos permisos al archivo para poder iniciar el proceso.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo chmod &lt;span class="m">777&lt;/span> /etc/init.d/preload
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="alert alert-warning col-12" style="position:relative;">
+&lt;div class="info-box-content container">
+&lt;div class="row">
+&lt;div class="col-2 text-center">
+&lt;span class="fa fa-warning fa-5x">&lt;/span>
+&lt;/div>
+&lt;div class="col-10">
+&lt;p class="no-margin">OJO no es recomendable usar 777 para los permisos de este archivo, es una mala practica que hago personalmente para hacer pruebas, lo ideal es ponerle el mismo permiso que tienen el resto de los archivos en el folder /etc/init.d&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;p>Y por último podemos inicializar el proceso de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo rc-service preload start
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>

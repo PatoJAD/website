@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Integracion on PatoJAD</title><link>https://patojad.com.ar/tags/integracion/</link><description>Recent content in Integracion on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Mon, 21 Dec 2020 12:44:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/integracion/index.xml" rel="self" type="application/rss+xml"/><item><title>Controlar tu Celular por Wi-Fi</title><link>https://patojad.com.ar/post/2020/12/controlar-tu-celular-por-wi-fi/</link><pubDate>Mon, 21 Dec 2020 12:44:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/12/controlar-tu-celular-por-wi-fi/</guid><description>&lt;p>Anteriormente hablamos de &lt;a href="https://patojad.com.ar/posts/2020/11/scrcpy/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+como utilizar nuestro celular con android desde nuestra PC
+&lt;/a>, aunque en este tutorial solo hablamos de como usarlo cuando nuestro celular esta conectado via USB. Sin embargo este método puede no ser el más cómodo en todos los casos y por eso un miembro de la comunidad nos facilitó el método para poder usarlo de la misma forma pero vía Wi-Fi. Es importante recalcar que &lt;strong>tanto la PC como el dispositivo móvil tienen que estar en la misma red Wi-Fi.&lt;/strong>&lt;/p>
+&lt;h2 id="usarlo-por-wi-fi">Usarlo por Wi-Fi&lt;/h2>
+&lt;p>Como dije de entrada este artículo le corresponde 100% a un usuario de la comunidad que me tiró un super mensaje para aclararme esto. Vale aclarar que esto está muy demorado ya que quise dejar pasar un tiempo para no ser tan repetitivo con los temas.&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/BZzC6LnL/Captura-de-pantalla-de-2020-11-13-08-49-00.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Para poder hacer eso es importante habilitar ADB para poder utilizarlo por Wi-Fi por eso vamos a dejar a continuación toda la información necesaria que fue facilitado por Javier.&lt;/p>
+&lt;h2 id="habilitando-adb-sobre-wifi-en-android">Habilitando ADB sobre Wifi en Android&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Paso 1:&lt;/strong> Habilite la depuración de USB (Configuración de Android&amp;gt; Opciones de desarrollador&amp;gt; Marque Habilitar depuración de USB). Si ya venías usando este paso no es necesario dado que ya está habilitado&lt;/li>
+&lt;li>&lt;strong>Paso 2:&lt;/strong> Conecte su dispositivo a la PC a través de USB. Si bien vamos a usarlo vía Wi-Fi es necesario configurarlo por cable.&lt;/li>
+&lt;li>&lt;strong>Paso 3:&lt;/strong> Abrimos la terminal teniendo ADB instalado y vamos a poner los siguientes comandos:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">adb tcpip &lt;span class="m">5555&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Esto te dará un resultado:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">restarting in TCP mode port: &lt;span class="m">5555&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>&lt;strong>Paso 4:&lt;/strong> Ahora encuentra la dirección IP de tu Android en Configuración&amp;gt; Wifi&amp;gt; Avanzado. Anote su dirección IP. En algunas versiones de Android se encuentra dentro de Preferencias de Wi-Fi.&lt;/li>
+&lt;li>&lt;strong>Paso 5:&lt;/strong> En terminal escribimos:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">adb connect &amp;lt;dirección IP&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Reemplazando &amp;lt;dirección IP&amp;gt; con la que apuntamos anteriormente. Esto te daría un resultado:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">connected to &amp;lt;dirección IP&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>&lt;strong>Paso 6:&lt;/strong> Ahora, para verificar si está conectado a ADB a través de WiFi, desconecte su dispositivo de USB y escriba:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">adb devices
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Esto debería darte un resultado:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">192.168.1.192:5555 device
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Has habilitado exitosamente la conexión a ADB a través de la red WiFi de tu Android.&lt;/p>
+&lt;h2 id="usando-scrcpy">Usando Scrcpy&lt;/h2>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/7YTnTH5B/Captura-de-pantalla-de-2020-11-13-09-15-56.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Una vez que tenemos el dispositivo conectado correctamente (Sugiero mantener la ip estática para evitar tener que reconectar cuando nuestro dispositivo se reconecte a la red) También recuerden que es estrictamente necesario verificar la &lt;a href="https://patojad.com.ar/aplicaciones/2020/11/scrcpy/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+instalación que vimos en la publicación anterior
+&lt;/a>. Si todo lo anterior está OK vamos a poder usar el comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">scrcpy
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Scrcpy</title><link>https://patojad.com.ar/post/2020/11/scrcpy/</link><pubDate>Fri, 13 Nov 2020 09:32:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/11/scrcpy/</guid><description>&lt;p>En lo personal soy una persona que dependo mucho de mi dispositivo celular para poder trabajar, ya que en el tengo apps relacionadas con 2FA y varios y realmente no es cómodo estar cambiando de dispositivo todo el tiempo, y más cuando olvidamos cargar el celular y no tiene la batería suficiente.&lt;/p>
+&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/BZzC6LnL/Captura-de-pantalla-de-2020-11-13-08-49-00.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>Esta aplicación que estamos mostrando hoy es una solución para la gente como yo, que les gusta dejar el Celular conectado por USB y seguirlo usando sin sacar las manos del teclado.&lt;/p>
+&lt;h2 id="instalación">Instalación&lt;/h2>
+&lt;p>Esta aplicación puede ser realmente útil dependiendo el usuario, por lo cual vamos a ir viendo el proceso de instalación para las diferentes distros.&lt;/p>
+&lt;h3 id="debianubuntu">Debian/Ubuntu&lt;/h3>
+&lt;p>En este caso vamos a encontrarlo en debian sid o testing y en ubuntu 20.04 (Antix lo tiene desde la versión 19) en adelante. De no tener estos repositorios lo más probable es que no lo encuentres para su uso. La instalación se hace mediante apt de la siguiente forma:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt install scrcpy
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="arch-y-derivadas">Arch y derivadas&lt;/h3>
+&lt;p>En este caso vamos a hacer uso de los repositorios de la comunidad conocidos como AUR en esta oportunidad vamos a tener las últimas versiones. Para esto vamos a hacer uso de YAY de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">yay -S scrcpy
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="otras-bases-y-distros">Otras bases y distros&lt;/h3>
+&lt;p>Podemos encontrar esta hermosa app en todas las distros de GNU/Linux pero puede que en algunos casos tengamos algún problema de dependencia, o simplemente el hecho de que queramos tener una versión actual nos puede empujar a cosas buenas (como instalar Arch) o cosas malas (como usar Snap). En fin, hay que saber que tenemos a disponibilidad el Snap para simplificar la instalación en diferentes distros.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">snap install scrcpy
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="windows">Windows&lt;/h3>
+&lt;p>En windows tenemos muchas posibilidades de instalarlo, como descargar el zip desde su git, sin embargo es importante mantener todo bien organizado y con buen funcionamiento, para lo cual recomiendo instalar Chocolatey&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cmd" data-lang="cmd">&lt;span class="line">&lt;span class="cl">choco install scrcpy
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">choco install adb
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="usando-la-app">Usando la app&lt;/h2>
+&lt;p>En mi caso al instalarlo por AUR no me creo ningun icono entre mis apps pero podía ejecutarlo simplemente por la terminal de la siguiente forma:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">scrcpy
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Luego cree mi propio icono en el menú, pero bastará con ejecutarlo y tener nuestro celular conectado por usb. Es importante recordar que el celular tiene que tener el modo desarrollador y el USB debug. Para chequearlo podemos ver que lo reconozca adb de la siguiente manera.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">adb devices
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;div class="text-center">
+&lt;img src="https://i.postimg.cc/7YTnTH5B/Captura-de-pantalla-de-2020-11-13-09-15-56.png" alt="" loading="lazy" class="img-fluid blog-content-img" />
+&lt;/div>&lt;/p>
+&lt;p>En caso de tener algún error o necesitar ayuda no te olvides que estamos disponibles en el grupo de Telegram para todos ustedes!&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Unite a nuestra comunidad'
+rel="noopener"
+href='https://t.me/PatoJADCommunity'>
+Unite a nuestra comunidad
+&lt;/a>
+&lt;/div>
+&lt;hr>
+&lt;p>Recorda &lt;strong>apoyarnos&lt;/strong> en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p></description></item></channel></rss>
