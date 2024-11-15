@@ -1,4 +1,69 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Config on PatoJAD</title><link>https://patojad.com.ar/tags/config/</link><description>Recent content in Config on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 27 Jun 2023 10:06:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/config/index.xml" rel="self" type="application/rss+xml"/><item><title>Como cambiar DNS de Windows 10</title><link>https://patojad.com.ar/post/2023/06/como-cambiar-dns-de-windows-10/</link><pubDate>Tue, 27 Jun 2023 10:06:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/06/como-cambiar-dns-de-windows-10/</guid><description>&lt;p>Cambiar los DNS de nuestro equipo es algo que deberiamos hacer siempre, ya que los DNS que nos provee nuestro ISP no son los mas rapidos y seguros. Por eso hoy vamos a ver como cambiar los DNS en Windows 10 y vamos a setear los de Cloudflare.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Config on PatoJAD</title><link>https://patojad.com.ar/tags/config/</link><description>Recent content in Config on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Fri, 15 Nov 2024 10:12:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/config/index.xml" rel="self" type="application/rss+xml"/><item><title>Un Guardián Digital para Tu Servidor Cloud</title><link>https://patojad.com.ar/post/2024/11/un-guardi%C3%A1n-digital-para-tu-servidor-cloud/</link><pubDate>Fri, 15 Nov 2024 10:12:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/11/un-guardi%C3%A1n-digital-para-tu-servidor-cloud/</guid><description>&lt;p>Hoy vamos a ver un poco mas sobre &lt;code>fail2ban&lt;/code> y como instalarlo en tu servidor cloud.&lt;/p>
+&lt;div class="ratio ratio-16x9 embed-video">
+&lt;iframe
+src='https://www.youtube.com/embed/X2MTJHLZka4?rel=0'
+title="Video de Youtube"
+allowfullscreen>
+&lt;/iframe>
+&lt;/div>
+&lt;h2 id="qué-es-fail2ban">¿Qué es Fail2ban?&lt;/h2>
+&lt;p>Fail2ban es una herramienta de seguridad que actúa como un vigilante digital para tu servidor cloud. Su función principal es bloquear automáticamente las direcciones IP que intentan acceder a tu servidor de forma repetida y fallida. Esto ayuda a prevenir ataques de fuerza bruta, donde los hackers intentan adivinar contraseñas.&lt;/p>
+&lt;h2 id="instalando-fail2ban">Instalando Fail2ban&lt;/h2>
+&lt;p>Para instalar Fail2ban en tu servidor, puedes utilizar el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt-get install fail2ban
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Una vez instalado, necesitarás configurar un archivo de configuración local:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo nano /etc/fail2ban/jail.local
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="configurando-fail2ban">Configurando Fail2ban&lt;/h2>
+&lt;p>Dentro del archivo de configuración, puedes personalizar varias opciones, como:&lt;/p>
+&lt;ul>
+&lt;li>ignoreip: Una lista de direcciones IP que no serán bloqueadas.&lt;/li>
+&lt;li>bantime: El tiempo durante el cual una IP bloqueada permanecerá inaccesible.&lt;/li>
+&lt;li>findtime: El período de tiempo en el que se cuentan los intentos fallidos.&lt;/li>
+&lt;li>maxretry: El número máximo de intentos fallidos permitidos antes de bloquear una IP.&lt;/li>
+&lt;li>También puedes configurar notificaciones por correo electrónico para recibir alertas sobre intentos de intrusión.&lt;/li>
+&lt;/ul>
+&lt;h2 id="habilitando-jails">Habilitando Jails&lt;/h2>
+&lt;p>Los &amp;ldquo;jails&amp;rdquo; son reglas específicas que Fail2ban aplica a diferentes servicios en tu servidor, como SSH, FTP, o servicios web. Puedes habilitar o deshabilitar los jails según tus necesidades.&lt;/p>
+&lt;h2 id="reiniciando-fail2ban">Reiniciando Fail2ban&lt;/h2>
+&lt;p>Una vez que hayas configurado los jails, reinicia el servicio de Fail2ban para aplicar los cambios:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl restart fail2ban.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="verificando-el-bloqueo-de-ip">Verificando el Bloqueo de IP&lt;/h2>
+&lt;p>Puedes verificar las direcciones IP bloqueadas utilizando el comando &lt;code>iptables -L&lt;/code>.&lt;/p>
+&lt;h2 id="desbloqueando-una-ip">Desbloqueando una IP&lt;/h2>
+&lt;p>Si necesitas desbloquear una IP que ha sido bloqueada por error, puedes utilizar el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo fail2ban-client &lt;span class="nb">set&lt;/span> &amp;lt;jail&amp;gt; unbanip &amp;lt;ip_address&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="conclusión">Conclusión&lt;/h2>
+&lt;p>Fail2ban es una herramienta poderosa que puede ayudar a proteger tu servidor cloud de ataques maliciosos. Con una configuración adecuada, puedes mejorar significativamente la seguridad de tu infraestructura en línea.&lt;/p></description></item><item><title>Como cambiar DNS de Windows 10</title><link>https://patojad.com.ar/post/2023/06/como-cambiar-dns-de-windows-10/</link><pubDate>Tue, 27 Jun 2023 10:06:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/06/como-cambiar-dns-de-windows-10/</guid><description>&lt;p>Cambiar los DNS de nuestro equipo es algo que deberiamos hacer siempre, ya que los DNS que nos provee nuestro ISP no son los mas rapidos y seguros. Por eso hoy vamos a ver como cambiar los DNS en Windows 10 y vamos a setear los de Cloudflare.&lt;/p>
 &lt;h2 id="qué-es-dns">¿Qué es DNS?&lt;/h2>
 &lt;p>El Sistema de nombres de dominio (DNS) es la guía telefónica de Internet. Mientras que las personas acceden a la información en línea a través de nombres de dominio como example.com, los ordenadores lo hacen utilizando direcciones del Protocolo de Internet (IP), cadenas únicas de caracteres alfanuméricos que se asignan a cada propiedad de Internet. El DNS traduce los nombres de dominio a direcciones IP para que los usuarios puedan acceder fácilmente a un sitio web sin tener que conocer su dirección IP.&lt;/p>
 &lt;p>&lt;div class="text-center">
