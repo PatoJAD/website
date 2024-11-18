@@ -1,50 +1,96 @@
-<header class="p-4 border-t-8 border-blue-500 bg-grey-200">
-      <div class="flex flex-warp mx-6 justify-between">
-            <div class="flex flex-warp p-10">
-                  <img class="h-32 w-32 rounded-full" src="https://joaquindecima.gitlab.io/img/profile.webp"
-                        alt="profile image">
-                  <div class="text-balance">
-                        <h1 class="font-bold text-3xl" id="name">Joaquin Decima</h1>
-                        <h2 class="font-bold text-2xl">Software Architect</h2>
-                        <ul class="social list-inline">
-                              <li class="list-inline-item"><a href="https://t.me/PatoJAD" title="Telegram"><i
-                                                class="fa-brands fa-telegram"
-                                                style="vertical-align: -webkit-baseline-middle;"></i></a></li>
-                              <li class="list-inline-item"><a
-                                          href="https://api.whatsapp.com/send?phone=541160109950&amp;text=Gracias%20por%20comunicarte.%20%C2%BFEn%20que%20puedo%20ayudarte%3F"
-                                          title="WhatsApp"><i class="fa-brands fa-whatsapp"
-                                                style="vertical-align: -webkit-baseline-middle;"></i></a></li>
-                              <li class="list-inline-item"><a href="https://twitter.com/PatoJADOficial"
-                                          title="Twitter"><i class="fa-brands fa-twitter"
-                                                style="vertical-align: -webkit-baseline-middle;"></i></a></li>
-                              <li class="list-inline-item"><a href="https://www.linkedin.com/in/joaquindecima/"
-                                          title="Linkedin"><i class="fa-brands fa-linkedin"
-                                                style="vertical-align: -webkit-baseline-middle;"></i></a></li>
-                              <li class="list-inline-item"><a href="https://github.com/joaquindecima" title="GitHub"><i
-                                                class="fa-brands fa-github-alt"
-                                                style="vertical-align: -webkit-baseline-middle;"></i></a></li>
-                              <li class="list-inline-item"><a href="https://gitlab.com/JoaquinDecima/" title="GitLab"><i
-                                                class="fa-brands fa-gitlab"
-                                                style="vertical-align: -webkit-baseline-middle;"></i></a></li>
-                              <li class="list-inline-item"><a href="mailto:jdecima@vasak.net.ar" title="Email"><i
-                                                class="fa fa-envelope"
-                                                style="vertical-align: -webkit-baseline-middle;"></i></a></li>
-                              <li class="list-inline-item"><a href="https://youtube.com/c/PatoJAD" title="Youtube"><i
-                                                class="fa-brands fa-youtube"
-                                                style="vertical-align: -webkit-baseline-middle;"></i></a></li>
-                              <li class="list-inline-item"><a href="https://youtube.com/c/PatoJAD" title="TikTok"><i
-                                                class="fa-brands fa-tiktok"
-                                                style="vertical-align: -webkit-baseline-middle;"></i></a></li>
-                        </ul>
+<section class="relative block h-500-px -mt-26 z-0">
+      <div class="absolute top-0 w-full bg-center bg-cover h-96" style="
+            background-image: url('https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2710&amp;q=80');
+          ">
+      </div>
+</section>
+<section class="relative pt-64">
+      <div class="container mx-auto px-4">
+            <div
+                  class="relative flex flex-col min-w-0 break-words bg-slate-200 dark:bg-slate-800 w-full mb-6 shadow-xl rounded-xl p-3">
+                  <div class="px-6">
+                        <div class="flex flex-wrap justify-center content-stretch items-center">
+                              <div class="w-auto p-4 flex content-center">
+                                    <img alt="..." src="https://joaquindecima.gitlab.io/img/profile.webp"
+                                          class="shadow-xl rounded-full h-auto align-middle border-none w-52">
+                              </div>
+                              <div class="flex-auto grow px-4 items-center">
+                                    <h3 class="text-4xl font-semibold leading-normal">
+                                          Joaquin A. Decima [Pato]
+                                    </h3>
+                                    <div class="text-sm leading-normal mt-0 mb-2 font-bold uppercase">
+                                          Software Architect - Developer
+                                    </div>
+                                    <div class="pt-3 mt-3">
+                                          {{ range .Site.Params.social.main }}
+                                          <a href="{{ .url }}" alt="{{ .name }}" aria-label="{{ .name }}"
+                                                class="rounded-full bg-slate-50 dark:bg-slate-600 p-3 me-2 mb-4"
+                                                rel="noopener" target="_blank">
+                                                {{ if strings.HasPrefix .params.icon "fa fa" }}
+                                                <em class="{{ .params.icon }}"></em>
+                                                {{ else }}
+                                                {{ partial "helper/icon" .params.icon }}
+                                                {{ end }}
+                                          </a>
+
+                                          {{ end }}
+                                    </div>
+                              </div>
+                              <div class="w-auto py-6 items-center">
+                                    <a href="https://t.me/patojad"
+                                          class="bg-blue-500 active:bg-blue-600 uppercase text-white font-bold hover:shadow-md shadow text-sm px-6 py-3 my-4 rounded-xl outline-none focus:outline-none m-auto"
+                                          type="button">
+                                          <i class="fa fa-paper-plane"></i>
+                                          CONTACTO
+                                    </a>
+                              </div>
+
+                        </div>
                   </div>
             </div>
-            <div class="col-12 col-md-auto">
-                  <div class="dark-mode-switch d-flex">
-                        <div class="form-check form-switch mx-auto mx-md-0"><input type="checkbox"
-                                    class="form-check-input me-2" id="darkSwitch"><label class="custom-control-label"
-                                    for="darkSwitch">Dark Mode</label></div>
-                  </div><a class="btn btn-cta-primary" href="https://t.me/patojad" target="_blank"><i
-                              class="fa fa-paper-plane"></i> Contacto</a>
-            </div>
       </div>
-</header>
+</section>
+
+<h3>Habilidades clave</h3>
+<ul>
+      <li>
+            <strong>Diseño de Arquitectura de Microservicios:</strong>
+            <ul>
+                  <li>Diseño de soluciones robustas bajo principios de
+                        arquitectura de microservicios.</li>
+                  <li>Definición y establecimiento de estándares de desarrollo
+                        para asegurar la calidad y consistencia
+                        del código.</li>
+                  <li>Acompañamiento y soporte a células de producto en la
+                        implementación y despliegue de soluciones en
+                        producción.</li>
+            </ul>
+      </li>
+      <li>
+            <strong>Desarrollo de Microservicios:</strong>
+            <ul>
+                  <li>Creación y puesta en marcha de microservicios con
+                        Node.js (TypeScript) utilizando frameworks como
+                        NestJS y Express.</li>
+                  <li>Participación activa en el diseño y estructuración de la
+                        arquitectura backend.</li>
+            </ul>
+      </li>
+</ul>
+<h3>Tecnologías dominadas:</h3>
+<ul>
+      <li><strong>Lenguajes y Frameworks:</strong> Node.js (TypeScript),
+            NestJS, Express</li>
+      <li><strong>Infraestructura y Plataformas:</strong> Linux, Azure, AWS
+      </li>
+      <li><strong>Herramientas de colaboración:</strong> Git, Jira, Confluence
+      </li>
+      <li><strong>Documentación y APIs:</strong> Swagger</li>
+      <li><strong>Bases de datos:</strong> MongoDB, Redis</li>
+</ul>
+<h3>Enfoque:</h3>
+<p>
+      Comprometido con la implementación de estándares modernos de desarrollo
+      y la entrega de soluciones optimizadas que
+      se adapten a las necesidades del negocio.
+</p>
