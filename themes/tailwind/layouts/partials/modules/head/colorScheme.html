@@ -3,7 +3,7 @@
 	const colorSchemeKey = 'StackColorScheme';
 
 	if (!localStorage.getItem(colorSchemeKey)) {
-		localStorage.setItem(colorSchemeKey, 'dark');
+		localStorage.setItem(colorSchemeKey, 'auto');
 	}
 
 	const changeScheme = () => {
@@ -27,15 +27,10 @@
 			colorSchemeItem == 'dark' ||
 			(colorSchemeItem === 'auto' && supportDarkMode)
 		) {
-			/**
-			 * Enable dark mode if:
-			 * 1. If dark mode is set already (in local storage)
-			 * 2. Auto mode & prefere color scheme is dark
-			 */
-			document.documentElement.classList.add('dark');
+			document.documentElement.dataset.scheme = 'dark';
 			document.getElementById('dark-mode-toggle').innerHTML = '<em class="fas fa-sun"></em>';
 		} else {
-			document.documentElement.classList.remove('dark');
+			document.documentElement.dataset.scheme = 'light';
 			document.getElementById('dark-mode-toggle').innerHTML = '<em class="fas fa-moon"></em>';
 		}
 	};
