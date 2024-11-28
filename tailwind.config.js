@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {},
   },
-  darkMode: 'class',
+  darkMode: ['selector', '[data-mode="dark"]'],
   plugins: [],
 }
 
