@@ -1,50 +1,27 @@
-<div class="col-md-6 col-lg-12 col-xl-6 tns-item tns-slide-cloned">
-  <div class="single-blog mb-40" aria-hidden="true" tabindex="-1">
-    <div class="blog-img">
-      <a href="{{ .RelPermalink }}">
-
-        {{ with .Params.img }}
-        {{ $imgurl := . }}
-        {{ with resources.GetRemote . }}
-        {{ with .Err }}
-        {{ errorf "Fail to get Image: %s" . }}
-        {{ warnf $imgurl }}
-        {{ else }}
-        {{ $thumb := .Resize "500x" }}
-        <img src="{{ $thumb.Permalink }}" alt="{{ .Title }}" title="{{ .Title }}" loading="lazy" />
-        {{ end }}
-        {{ else }}
-        {{ errorf "Unable to get remote image %s" . }}
-        {{ $img := resources.GetRemote "https://i.postimg.cc/0yN3Zrkd/imagenotfound.webp" }}
-        {{ $thumb := $img.Resize "500x" }}
-        <img src="{{ $thumb.Permalink }}" alt="{{ .Title }}" title="{{ .Title }}" loading="lazy" />
-        {{ end }}
-        {{ end }}
-
-      </a>
-      <span class="date-meta">
-        {{ $formattedDate := .Date.Format "Friday, March 3, 2006" }}
-        {{ $monthNumber := .Date.Month }} {{ $dayNumber := .Date.Weekday }}
-        {{ if eq site.Language.Lang "es" }}
-        {{ $monthNumber = index site.Data.meses (printf "%d"
-        .Date.Month) }}
-        {{ $dayNumber = index site.Data.dias (printf "%d" .Date.Weekday)
-        }}
-        {{ $formattedDate = delimit (slice $dayNumber (printf "%d" .Date.Day) "de" $monthNumber "de" (printf "%d"
-        .Date.Year)) " "}}
-        {{ end }}
-
-        {{ $formattedDate }}
-      </span>
-    </div>
-    <div class="blog-content">
-      <h4><a href="{{ .RelPermalink }}">{{ .Title }}</a></h4>
-      <p>{{ .Params.description }}</p>
+<article class="w-full rounded-xl grid grid-cols-1 md:grid-cols-3 p-8 bg-slate-200 dark:bg-slate-800 mb-6 shadow-xl">
+  <div class="w-full h-full min-h-48 rounded-xl bg-cover bg-no-repeat bg-center mb-6" style="background-image: url({{.Params.img}});"></div>
+  <div class="md:ml-6 w-full col-span-2">
+    <h2 class="font-bold text-xl text-amber-500 mb-6"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    <span class="mb-3">
+      {{ $formattedDate := .Date.Format "Friday, March 3, 2006" }}
+      {{ $monthNumber := .Date.Month }} {{ $dayNumber := .Date.Weekday }}
+      {{ if eq site.Language.Lang "es" }}
+      {{ $monthNumber = index site.Data.meses (printf "%d"
+      .Date.Month) }}
+      {{ $dayNumber = index site.Data.dias (printf "%d" .Date.Weekday)
+      }}
+      {{ $formattedDate = delimit (slice $dayNumber (printf "%d" .Date.Day) "de" $monthNumber "de" (printf "%d"
+      .Date.Year)) " "}}
+      {{ end }}
+    
+      {{ $formattedDate }}
+    </span>
+    <p>{{ .Params.description }}</p>
 
       {{ if .Params.categories }}
-      <div class="article-category">
+      <div class="mt-6">
         {{ range (.GetTerms "categories") }}
-        <a href="{{ .RelPermalink }}" {{ with .Params.style }}
+        <a href="{{ .RelPermalink }}" class="p-2 rounded-xl mr-2" {{ with .Params.style }}
           style="background-color: {{ .background }}; color: {{ .color }};" {{ end }}>
           {{ .LinkTitle }}
         </a>
@@ -52,14 +29,25 @@
       </div>
       {{ end }}
 
-      <div class="content-card-footer">
-        <time class="me-auto">
-          <em class="fa fa-clock-o" aria-hidden="true"></em> {{ .ReadingTime }} min de lectura
-        </time>
-        <a href="{{ .RelPermalink }}" class="theme-btn ms-auto">
+      <div class="flex flex-wrap justify-between mt-6">
+        <div><em class="fa fa-clock-o" aria-hidden="true"></em> {{ .ReadingTime }} min de lectura</div>
+        <a href="{{ .RelPermalink }}" class="bg-amber-500 p-2 mr-3 rounded-xl">
           Leer <em class="fa fa-arrow-right" aria-hidden="true"></em>
         </a>
       </div>
+  </div>
+  <div class="single-blog" aria-hidden="true" tabindex="-1">
+
+    <div class="blog-content">
+
+
+
+      <div class="content-card-footer">
+        <time class="me-auto">
+          
+        </time>
+        
+      </div>
     </div>
   </div>
-</div>
+</article>
