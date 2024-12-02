@@ -2,7 +2,8 @@
 title: "Pacman vs Apt: Una guía para cambiar de gestor de paquetes"
 date: "2024-08-20 10:04:00.00"
 description: Vamos a comparar APT y Pacman para que puedas elegir cuál se adapta mejor a tus necesidades y también para que puedas probar distintas distribuciones de linux.
-type: post
+type: video
+videoId: cEozTYclgCw
 tags:
   [
     arch,
@@ -41,8 +42,6 @@ authors: [PatoJAD]
 ---
 
 Si estás pensando en cambiar de distribución Linux, es probable que te hayas encontrado con dos gestores de paquetes muy populares: pacman y apt. Ambos herramientas te permiten instalar, actualizar y eliminar software en tu sistema, pero tienen enfoques y sintaxis diferentes. En este artículo, exploraremos las principales diferencias entre pacman y apt para ayudarte a tomar una decisión informada.
-
-{{< youtube id="cEozTYclgCw" >}}
 
 ## ¿Qué es un gestor de paquetes?
 
