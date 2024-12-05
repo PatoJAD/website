@@ -1,6 +1,7 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
+@import "syntax.css";
 
 body {
   @apply antialiased ease-linear transition-all duration-150 bg-slate-50 text-slate-900 dark:bg-slate-600 dark:text-white;
@@ -9,14 +10,63 @@ body {
   font-style: normal;
 }
 
+p {
+  @apply text-lg leading-relaxed my-4 text-lg;
+}
+
+ul {
+  @apply list-disc list-inside my-4 ml-4;
+}
+
+ol {
+  @apply list-decimal list-inside my-4 ml-6;
+}
+
 pre {
+  @apply p-4 overflow-x-auto;
+  font-family: "Fira Code", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+  display: block;
+  line-height: 1.428571429;
+  word-break: break-all;
+}
+
+code {
+  @apply inline-grid p-0;
+  color: unset;
+  border: none;
+  background: none;
+  padding-bottom: 15px;
   font-family: "Fira Code", monospace;
   font-optical-sizing: auto;
   font-style: normal;
 }
 
-p {
-  @apply text-lg leading-relaxed my-4 text-lg;
+code::before {
+  content: attr(data-lang);
+  position: absolute;
+  margin-top: -43px;
+  color: var(--bg-site);
+  margin-left: -30px;
+}
+
+pre,
+.chroma {
+  @apply bg-slate-50 text-slate-900 dark:bg-slate-600 dark:text-white overflow-y-auto;
+}
+
+.highlight {
+  @apply bg-slate-50 text-slate-900 dark:bg-slate-600 dark:text-white p-1 rounded-xl relative my-4 border-t-24 border-amber-500;
+}
+
+.highlight::before {
+  font: normal normal normal 14px/1 FontAwesome;
+  content: "\f121";
+  color: var(--bg-site);
+  position: absolute;
+  margin-top: -22px;
+  margin-left: 5px;
 }
 
 @import "components/markdown.css";
