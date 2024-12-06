@@ -4,4 +4,11 @@
   mermaid.initialize({ startOnLoad: true });
 </script>
 {{ end }}
-{{ partial "modules/footer/colorScheme.html" . }}
+
+{{ $fusejs := resources.GetRemote "https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" }}
+{{ $search := resources.Get "js/search.js" }}
+{{ $darkMode := resources.Get "js/darkmode.js" }}
+{{- $opts := dict "minify" hugo.IsProduction -}}
+
+{{ $fullscript := slice $fusejs $search $darkMode | resources.Concat "/js/vendor.js" | minify | fingerprint "sha512" }}
+<script async src="{{ $fullscript.RelPermalink }}"></script>
