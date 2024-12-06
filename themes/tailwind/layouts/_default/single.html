@@ -5,6 +5,7 @@
     <div id="information" class="col-span-2 w-full px-3 mb-4">
 
       {{ if eq .Params.type "video" }}
+      <h1 class="mb-4 text-amber-500 text-2xl">{{ .Title }}</h1>
       <iframe src='https://www.youtube.com/embed/{{ .Params.videoId }}?rel=0'
         class="w-full h-auto rounded-xl aspect-video mb-4" title="Video de Youtube" allowfullscreen>
       </iframe>
@@ -12,7 +13,7 @@
       {{ end }}
 
       <article class="bg-gray-100 dark:bg-gray-800 w-full mb-4 shadow-xl rounded-xl p-8">
-        <h1 class="mb-4 text-amber-500 text-5xl text-center">{{ .Title }}</h1>
+        {{ if eq .Params.type "post" }}<h1 class="mb-4 text-amber-500 text-5xl text-center">{{ .Title }}</h1>{{end}}
         {{ .Content }}
         {{ partial "components/widgets/social-share.html" . }}
       </article>
