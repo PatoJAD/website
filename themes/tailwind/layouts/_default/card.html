@@ -1,8 +1,7 @@
-<article class="w-full rounded-xl grid grid-cols-1 md:grid-cols-3 p-8 bg-gray-100 dark:bg-gray-800 mb-4 shadow-xl">
-  <div class="w-full h-full min-h-48 rounded-xl bg-cover bg-no-repeat bg-center mb-4" style="background-image: url({{.Params.img}});"></div>
-  <div class="md:ml-4 w-full col-span-2">
+<article class="w-full rounded-xl p-4 bg-cover bg-no-repeat bg-center mb-4 shadow-xl" style="background-image: url({{.Params.img}});">
+  <div class="w-full col-span-2 bg-gray-100 dark:bg-gray-800 rounded-xl opacity-90 p-4">
     <h2 class="font-bold text-xl text-amber-500 mb-4"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-    <span class="mb-3">
+    <span class="mb-3 text-gray-500">
       {{ $formattedDate := .Date.Format "Friday, March 3, 2006" }}
       {{ $monthNumber := .Date.Month }} {{ $dayNumber := .Date.Weekday }}
       {{ if eq site.Language.Lang "es" }}
@@ -30,7 +29,7 @@
       {{ end }}
 
       <div class="flex flex-wrap justify-between mt-4">
-        <div><em class="fa fa-clock-o" aria-hidden="true"></em> {{ .ReadingTime }} min de lectura</div>
+        <div class="text-gray-500"><em class="fa fa-clock-o" aria-hidden="true"></em> {{ .ReadingTime }} min de lectura</div>
         <a href="{{ .RelPermalink }}" class="bg-amber-500 p-2 mr-3 rounded-xl">
           Leer <em class="fa fa-arrow-right" aria-hidden="true"></em>
         </a>
