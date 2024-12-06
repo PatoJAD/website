@@ -2,7 +2,8 @@
 title: "Explorando las Diferentes Versiones del Kernel de Linux: Guía para Elegir el Adecuado"
 date: "2024-06-18 11:54:00.00"
 description: Este artículo explora las diferentes versiones del kernel de Linux, proporcionando una guía detallada para elegir el kernel adecuado según las necesidades específicas del usuario. Se describen varios tipos de kernels.
-type: post
+type: video
+videId: CJ75G3frzIw
 tags:
   [
     linux,
@@ -29,8 +30,6 @@ authors: [PatoJAD]
 ---
 
 En el mundo de Linux, el kernel es el corazón del sistema operativo, controlando todo el hardware y permitiendo que el software interactúe con él. Si bien existe un kernel oficial de Linux, existen diversas variantes que se adaptan a diferentes necesidades y casos de uso. En esta oportunidad, exploraremos las distintas versiones del kernel de Linux y te guiaremos para elegir la adecuada para tu sistema.
-
-{{< youtube id="CJ75G3frzIw" >}}
 
 Si bien veremos como comando rápido como instalarlo en Arch Linux estos kernels se pueden instalar fácilmente en cualquier distribución de linux.
 

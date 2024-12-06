@@ -2,7 +2,8 @@
 title: '¿Que es TypeScript? ¿En que se parece a JavaScript?'
 date: '2023-03-17 09:40:00'
 description: 'Hoy hablamos TypeScript el lenguaje azúcar sintactico de JavaScript para saber cuando usarlo, sus diferencias y sus viertudes.'
-type: 'post'
+type: 'video'
+videoID: '2mXT2VKqhgQ'
 tags:
     [
         'typescript',
@@ -30,8 +31,6 @@ authors: ['PatoJAD']
 ---
 
 **TypeScript** es un _subconjunto azúcar sintáctico_ de **JavaScript**. Básicamente es un código que transpila a **JavaScript** y tiene como fin formalizar un poco los lineamientos a la hora de desarrollar con este lenguaje.
-
-{{< youtube id="2mXT2VKqhgQ" >}}
 
 ## Principales diferencias
 

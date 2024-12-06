@@ -2,7 +2,8 @@
 title: "Cómo Generar una Clave GPG para Firmar Archivos"
 date: "2024-05-02 09:04:00.00"
 description: Aprende paso a paso cómo generar tu primera clave GPG y firmar archivos para garantizar su autenticidad e integridad. Instrucciones para Windows, macOS y Linux incluidas.
-type: post
+type: video
+videoID: O0FiOUfxNPs
 tags:
   [
     gpg,
@@ -48,8 +49,6 @@ La seguridad digital es una preocupación creciente en el mundo actual, especial
 **GPG**, o **GNU Privacy Guard**, es una herramienta de criptografía de código abierto que proporciona privacidad y autenticación a través del cifrado de datos y la firma digital. Su función principal es permitir a los usuarios firmar digitalmente archivos para garantizar su autenticidad e integridad. Esto significa que puedes estar seguro de que los archivos no han sido alterados y que provienen realmente de la persona o entidad que afirma haberlos creado.
 
 ## Generación de una Clave GPG en la Línea de Comandos
-
-{{< youtube id="O0FiOUfxNPs" >}}
 
 Para generar una clave **GPG**, simplemente sigue estos pasos ya sea Windows, MacOS o Linux:
 

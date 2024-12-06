@@ -2,7 +2,8 @@
 title: "Explorando SystemD en el Mundo Linux: Críticas, Realidades y Controversias"
 date: "2024-03-15 18:34:00.00"
 description: Explora SystemD en el mundo Linux, sus críticas y realidades. Descubre por qué algunos usuarios eligen alternativas y las controversias en torno a este sistema de inicio.
-type: post
+type: video
+videId: crIeSArnZfo
 tags:
   [
     systemd,
@@ -56,8 +57,6 @@ Iniciado en 2010 bajo el liderazgo de **Red Hat** y **Leonard Puttering**, **Sys
 A pesar de su adopción generalizada, algunas distribuciones, como _Alpine Linux_, _MX Linux_, _[Void Linux](/post/2019/09/voidlinux-por-josé/)_, _[Artix](/post/2020/08/artix-linux/)_, _[MilagOS](/post/2020/06/instalcion-milagros/)_ y otras, han optado por no adoptar **SystemD**.
 
 ## Explorando las Razones de la Resistencia
-
-{{< youtube id="crIeSArnZfo" >}}
 
 ### El Argumento del "Bloat"
 
