@@ -2,7 +2,8 @@
 title: "Benchmark: Emuladores de terminal en MacOS y GNU/Linux"
 date: "2024-04-19 11:13:00.00"
 description: Revisa esta exhaustiva comparativa en MacOS y GNU/Linux. Conoce cómo medimos el consumo de energía, la latencia del teclado a la pantalla y el procesamiento de datos para encontrar el mejor emulador de terminal.
-type: post
+type: video
+videoID: LxibfDJJ3S4
 tags:
   [
     rendimiento de emulador de terminal,
@@ -215,8 +216,6 @@ function toggleDataSeries(e) {
 </script>
 
 Medir el rendimiento del emulador de terminal es fundamental para los usuarios que buscan una experiencia fluida y eficiente. En este sentido, se centra en tres aspectos principales: el consumo de energía en tareas habituales, la latencia del teclado a la pantalla y el rendimiento al procesar grandes cantidades de datos.
-
-{{< youtube id="LxibfDJJ3S4" >}}
 
 Kitty tiene un "kitten" integrado para medir el rendimiento de transferencia. Funciona mediante la carga de grandes cantidades de datos de diferentes tipos en el dispositivo tty y midiendo qué tan rápido el terminal analiza y responde a ellos. Las mediciones a continuación se realizaron con la misma fuente, tamaño de fuente y tamaño de ventana para todos los terminales, y con la configuración predeterminada, en la misma computadora.
 

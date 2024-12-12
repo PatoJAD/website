@@ -1,0 +1,31 @@
+{{ if gt .Paginator.TotalPages 1 }}
+<div class="pagination">
+	<ul class="flex justify-center">
+		{{ $.Scratch.Set "hasPrevDots" false }} {{ $.Scratch.Set "hasNextDots"
+		false }} {{ range .Paginator.Pagers }} {{ if eq . $.Paginator }}
+		<li class="mx-1 flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 shadow-xl border border-amber-500 text-amber-500 p-0 text-sm transition duration-150 ease-in-out">
+			<a href="#" class="active" alt="This Page" aria-label="This Page">
+				{{- .PageNumber -}}
+			</a>
+		</li>
+		{{ else if or (or (eq . $.Paginator.First) (eq . $.Paginator.Prev)) (or
+		(eq . $.Paginator.Next) (eq . $.Paginator.Last )) }}
+		<li class="mx-1 flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 shadow-xl p-0 text-sm transition duration-150 ease-in-out">
+			<a href="{{ .URL }}" alt="Got to Page {{- .PageNumber -}}" aria-label="Got to Page {{- .PageNumber -}}"> {{-
+				.PageNumber -}} </a></li>
+		{{ else }} {{ if and (not ($.Scratch.Get "hasPrevDots")) (lt .PageNumber
+		$.Paginator.PageNumber) }} {{ $.Scratch.Set "hasPrevDots" true }}
+		<li class="mx-1 flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 shadow-xl p-0 text-sm text-amber-500 transition duration-150 ease-in-out">
+			<a href="{{ .URL }}" alt="Prev 2 pages" aria-label="Prev 2 pages"><em class="fa fa-arrow-left"
+					aria-hidden="true"></em></a>
+		</li>
+		{{ else if and (not ($.Scratch.Get "hasNextDots")) (gt .PageNumber
+		$.Paginator.PageNumber) }} {{ $.Scratch.Set "hasNextDots" true }}
+		<li class="mx-1 flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 shadow-xl p-0 text-sm text-amber-500 transition duration-150 ease-in-out">
+			<a href="{{ .URL }}" alt="Next 2 pages" aria-label="Next 2 pages"><em class="fa fa-arrow-right"
+					aria-hidden="true"></em></a>
+		</li>
+		{{ end }} {{ end }} {{ end }}
+	</ul>
+</div>
+{{ end }}

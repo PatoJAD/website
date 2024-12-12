@@ -2,7 +2,8 @@
 title: "Exportando Claves GPG: Protegiendo tu información en cualquier sistema operativo"
 date: "2024-05-15 11:13:00.00"
 description: Aprende a exportar tus claves GPG para respaldarlas y usarlas en diferentes dispositivos o sistemas operativos.
-type: post
+type: video
+videoID: YePvwCQ60C0
 tags:
   [
     GPG,
@@ -51,8 +52,6 @@ Exportar las claves GPG tiene varios beneficios:
 - **Colaboración:** Puedes compartir tu clave pública con otros usuarios para que puedan enviarte mensajes cifrados de forma segura.
 
 ## ¿Cómo exportar las claves GPG en diferentes sistemas operativos?
-
-{{< youtube id="YePvwCQ60C0" >}}
 
 El proceso de exportar las claves GPG varía ligeramente según el sistema operativo que estés utilizando. A continuación, se detallan los pasos generales para exportar las claves GPG en Windows, macOS y Linux:
 

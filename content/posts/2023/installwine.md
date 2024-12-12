@@ -2,7 +2,8 @@
 title: 'Instalación de Wine en GNU/Linux para Ejecutar Aplicaciones Windows'
 date: '2023-11-15 12:02:00'
 description: 'Descubre cómo instalar Wine en GNU/Linux para ejecutar aplicaciones Windows. Guía paso a paso para distintas distribuciones, y conoce dónde se instalan las aplicaciones con Wine. Optimiza tu sistema operativo para una mayor versatilidad.'
-type: 'post'
+type: 'video'
+videoId: '4ZtUmUqTAyg'
 tags:
     [
       'guia',
@@ -47,14 +48,6 @@ Wine es una herramienta muy útil para aquellos que necesitan ejecutar aplicacio
 * Ejecutar aplicaciones de diseño como Adobe Photoshop.
 * Ejecutar juegos de Windows.
 * Ejecutar aplicaciones de Windows que no tienen alternativas nativas en GNU/Linux.
-
-## Video
-
-En el video explico una forma de instalar Wine en Arch Linux y derivadas, sin embargo, en la parte inferior de este post vas a encontrar la instalación para otras distros de linux. También quiero resaltar que la forma de instalar en el video no es la única, hay otras formas de instalar Wine en Arch Linux y derivadas, pero esta es la que yo uso y me funciona. 
-
-{{< youtube id="4ZtUmUqTAyg" >}}
-
-En la documentacion del blog vamos a encontrar la otra forma de instalar Wine en Arch Linux y derivadas.
 
 ## ¿Cómo se instala Wine?
 

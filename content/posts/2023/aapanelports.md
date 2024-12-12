@@ -2,7 +2,8 @@
 title: Abrir puertos aaPanel
 date: '2023-07-07 11:54:00.00'
 description: Vamos a ver como abrir los puertos de aapanel en Debian, Ubuntu y Centos. De una forma simple y rapida.
-type: post
+type: video
+videoId: 841us_UDqJA
 tags: [aapanel, cpanel, panel, webserver, simple, ports, gratis, debian, ubuntu, centos, deepin, python, php, mysql, puertos, aapanel ports, abrir puertos, abrir puertos aapanel, configurar puertos, configurar puertos aapanel]
 categories: [Linux, Aplicaciones]
 img: https://i.postimg.cc/XNRRTBwn/aapanel.webp
@@ -27,12 +28,6 @@ Los puertos que tenemos que abrir son los siguientes:
 -   **3306** - MySQL // Si necesitas acceder desde fuera del servidor
 -   **8888** - phpMyAdmin
 -   **7800** - aaPanel
-
-## Video
-
-Dejo a continuacion el video donde explico como abrir los puertos en el servidor utilizando `ufw`.
-
-{{< youtube id="841us_UDqJA" >}}
 
 ## Comandos
 

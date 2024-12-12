@@ -2,7 +2,8 @@
 title: 'Poner las paginas de man en español'
 date: '2019-01-15'
 description: 'Hoy veamos como traducir tu manual para linux'
-type: 'post'
+type: 'video'
+videoId: 'nLNnuyBsxAg'
 tags:
     [
         'manual',
@@ -23,12 +24,6 @@ authors: ['PatoJAD']
 ---
 
 Ya hablamos de man y podes verlo [aquí](/post/2019/01/man-tu-manual-para-linux/). Sin embargo muchas personas no tienen dominio del Inglés o simplemente no quieren estar traduciendo todo constantemente. Para esas personas les traigo una forma de poner las páginas de man en Español, antes de iniciar con esto debo aclarar que solo estará en Español lo que tiene una traducción. Puede que algunas cosas no dispongan este idioma y lo veamos en Inglés. En dicho caso se puede colaborar con la traducción.
-
-## Video
-
-En esta oportunidad un video acompaña un poco esta guia/tutorial para poder simplificarla un poco.
-
-{{< youtube id="nLNnuyBsxAg" >}}
 
 ## Iniciemos
 

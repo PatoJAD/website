@@ -2,7 +2,8 @@
 title: "Formatos de Empaquetado en Linux: Nativos, Flatpak, Snap y AppImage"
 date: "2024-03-25 12:34:00.00"
 description: Explora los diferentes formatos de empaquetado en Linux, como DEB, RPM, Flatpak, Snap y AppImage, y sus características, ventajas y limitaciones. Compara el rendimiento y las funciones de cada formato.
-type: post
+type: video
+videId: 1zGKcj92PcQ
 tags:
   [
     linux,
@@ -38,8 +39,6 @@ authors: [PatoJAD]
 ---
 
 En el tradicional formato de empaquetado de Linux, tenemos **DEB** (para debian, ubuntu y derivadas), **RPM** (para redhat, fedora y derivadas) y otras variantes. Más recientemente, se han añadido **Flatpak**, **Snap** e **AppImage**, lo que ha generado una gran variedad de formatos con diferentes características, ventajas y limitaciones. En este análisis, exploraremos el rendimiento de cada formato y las funciones que faltan en cada uno.
-
-{{< youtube id="1zGKcj92PcQ" >}}
 
 ## Nativas
 

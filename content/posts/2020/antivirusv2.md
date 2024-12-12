@@ -17,7 +17,8 @@ tags:
         'crespo',
         'virus',
     ]
-type: 'post'
+type: 'video'
+videoId: 'bB3Nt5HFMCA'
 categories: ['Seguridad']
 img: 'https://www.softzone.es/app/uploads-softzone.es/2019/09/Elegir-antivirus.jpg'
 authors: ['PatoJAD']
@@ -26,14 +27,6 @@ authors: ['PatoJAD']
 Con anterioridad hablamos ya sobre este [tema en esta publicación](/posts/2019/01/antivirus-en-linux/), la cual te recomiendo leer de antemano para comprender un poco la rectificación que quiero realizar sobre dicho tema.
 
 Sin embargo, como ya veremos, esta publicación les faltaban marcar algunos detalles que desde mi punto son realmente importantes, por lo cual creo que es correcto que cuando una persona se equivoca intente enmendar su error y esta es una forma de hacerlo.
-
-## El video
-
-En esta oportunidad voy a utilizar un video para poder abarcar el tema de la necesidad de los antivirus, espero que te guste el video y te diviertas como yo me divertí mientras lo hacía...
-
-{{< youtube id="bB3Nt5HFMCA" >}}
-
-Como podemos ver este video toca algunos temas más a los que quería hacer mención en la parte escrita también
 
 ## Disculpas
 

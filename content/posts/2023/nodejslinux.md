@@ -2,7 +2,8 @@
 title: 'Install NodeJS en Linux con Homebrew'
 date: '2023-02-27 11:56:00'
 description: 'Vamos a ver una forma simple de instalar NodeJS (con NPM) en cuaqluier GNU/Linux sin importar tu gestor de paquetes usando Homebrew'
-type: 'post'
+type: 'video'
+videoId: 'wtGZngSiwn4'
 tags:
     [
         'linux',
@@ -34,10 +35,6 @@ Para poder realizar esto vamos a necesitar instalar previamente Homebrew, pero n
 {{< link url="/post/2023/01/como-instalar-brew-en-gnu/post/" text="Instalar Homebrew en GNU/Linux" >}}
 
 ## Instalandolo
-
-Ya teniendo homebrew instalado correctamente podemos proceder a instalarlo, para que puedas seguirlo paso a paso dejo el video a continuación:
-
-{{< youtube id="wtGZngSiwn4" >}}
 
 El comando utilizado para esta ocasión es el que dejaré a continuación. En caso de querer pegar en la terminal de linux se suele hacer con `ctrl`+`shift`+`v` sino podes utilizar el mouse con `click derecho` -> `pegar` dependiendo de tu terminal:
 

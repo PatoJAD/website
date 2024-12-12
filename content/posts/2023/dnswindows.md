@@ -2,7 +2,8 @@
 title: 'Como cambiar DNS de Windows 10'
 date: '2023-06-27 10:06:00'
 description: 'Vamos a ver una forma simple de modificar los DNS en Windows 10 y vamos a setear los de Cloudflare'
-type: 'post'
+type: 'video'
+videoId: 'hscNg112ll8'
 tags:
     [
         'windows',
@@ -35,10 +36,6 @@ El Sistema de nombres de dominio (DNS) es la guía telefónica de Internet. Mien
 Un solucionador de DNS es un tipo de servidor que gestiona la traducción "nombre a dirección", en la que una dirección IP se corresponde con un nombre de dominio y se envía de vuelta al ordenador que la solicitó. Los solucionadores de DNS también se conocen como solucionadores recursivos.
 
 Los equipos están configurados para hablar con solucionadores de DNS específicos, que se identifican por dirección IP. Generalmente, la configuración la gestiona el Proveedor de acceso a Internet (ISP) del usuario en conexiones desde el hogar o inalámbricas, y un administrador de red en las conexiones desde la oficina. Los usuarios también pueden cambiar manualmente el solucionador de DNS con el que pueden comunicarse sus ordenadores.
-
-## Video
-
-{{< youtube id="hscNg112ll8" >}}
 
 ## DNS de cloudflare
 

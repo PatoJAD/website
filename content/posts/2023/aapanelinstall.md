@@ -2,7 +2,8 @@
 title: Instalar aaPanel
 date: '2023-06-21 11:34:00.00'
 description: Veamos la forma correcta de instalar aapanel en Debian, Ubuntu y Centos. De una forma simple y rapida.
-type: post
+type: video
+videoId: nMUV835Yke8
 tags: [aapanel, cpanel, panel, webserver, simple, instalacion, gratis, debian, ubuntu, centos, deepin, python, php, mysql, aapanel install, aapanel install debian, aapanel install ubuntu, aapanel install centos]
 categories: [Linux, Aplicaciones]
 img: https://i.postimg.cc/XNRRTBwn/aapanel.webp
@@ -55,8 +56,6 @@ aaPanel es un software que mejora la eficiencia de la gestión de servidores adm
 [Mas información](https://www.aapanel.com/new/pricing.html)
 
 ## Instalacion
-
-{{< youtube id="nMUV835Yke8" >}}
 
 ### Comandos Utilizados
 

@@ -2,7 +2,8 @@
 title: "El misterio del WiFi: Cómo envían datos por el aire (sin magia)"
 date: "2024-08-03 10:34:00.00"
 description: Descubre cómo Timeshift simplifica la gestión de copias de seguridad en Linux. Sigue nuestra guía paso a paso para la instalación en Ubuntu, Arch Linux, Fedora y openSUSE.
-type: post
+type: video
+videoId: mCwgMuEeC9w
 tags:
   [
     wifi,
@@ -34,8 +35,6 @@ authors: [PatoJAD]
 ---
 
 En la era digital, el **WiFi** es como el aire que respiramos: omnipresente y esencial. Pero... *¿alguna vez te has preguntado cómo funciona este milagro de la tecnología? ¿Cómo es posible que nuestros dispositivos se conecten a internet sin cables?* En este artículo, desvelaremos el misterio del **WiFi** y explicaremos cómo envían datos por el aire sin magia.
-
-{{< youtube id="mCwgMuEeC9w" >}}
 
 ## Cómo funciona el **WiFi**
 

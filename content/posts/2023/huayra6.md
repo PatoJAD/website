@@ -2,7 +2,8 @@
 title: 'Llego Huayra 6'
 date: '2023-06-13 11:34:00.00'
 description: 'A pocos dias de la novedad de Debian 12, llega Huayra 6. Vamos a ver que novedades trae.'
-type: 'post'
+type: 'video'
+videoId: 'OeHOBLoZKhQ'
 tags:
     [
         'debian',
@@ -26,12 +27,6 @@ Llego **Huayra 6** con la grandeza de una escaloneta que trajo la copa del mundo
 > **Huayra GNU/Linux** es el primer sistema operativo libre desarrollado por el Estado Nacional (Argentino) que incluye una selección de software ideal para el trabajo en clase y mucho más. Con un escritorio liviano y ágil, realiza un uso óptimo de recursos y es seguro, sin necesidad de antivirus.
 
 ![](https://huayra.educar.gob.ar/wp-content/uploads/2023/03/fondo_Sacaloneta.png)
-
-## Video
-
-Video donde repasamos rapidamente la instalación y algunas de las novedades de **Huayra 6**
-
-{{< youtube id="OeHOBLoZKhQ" >}}
 
 ## Novedades
 

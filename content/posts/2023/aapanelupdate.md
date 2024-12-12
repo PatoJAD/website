@@ -2,7 +2,8 @@
 title: Cómo Actualizar aaPanel y Mantener tu Servidor Web al Día
 date: '2023-08-30 11:23:00.00'
 description: Aprende a actualizar aaPanel, el panel de control de hosting web, para mejorar la seguridad y el rendimiento de tu servidor. Sigue esta guía paso a paso para una actualización exitosa y sin complicaciones.
-type: post
+type: video
+videoId: BeEUYGgzoJ4
 tags: [ aaPanel, actualización, servidor web, panel de control, hosting, seguridad, rendimiento, actualización de software, administración de servidores,aapanel, cpanel, panel, webserver, simple, instalacion, gratis, debian, ubuntu, centos, deepin, python, php, mysql, actualizacion, update]
 categories: [Linux, Aplicaciones, Windows, MacOS]
 img: https://i.postimg.cc/nztSP49h/updateaapanel.webp
@@ -26,8 +27,6 @@ La actualización regular de aaPanel es crucial por varias razones:
 ## Pasos para Actualizar aaPanel
 
 Si bien en el video se muestra como actualizar **aaPanel** desde la interfaz web, en este articulo se muestra como hacerlo desde la terminal.
-
-{{< youtube id="BeEUYGgzoJ4" >}}
 
 A continuación, se detallan los pasos para actualizar aaPanel a la última versión en caso de querer hacerlo desde la terminal conectadose al servidor por [SSH](/post/2023/10/claves-ssh-una-guía-completa-para-la-seguridad-en-conexiones-remotas/):
 

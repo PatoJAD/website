@@ -2,7 +2,8 @@
 title: 'Pacman conflicto de Archivos al Actualizar'
 date: '2020-11-03 08:40:00'
 description: 'En esta oportunidad vamos a ver como instalar yay en Artix linux'
-type: 'post'
+type: 'video'
+videoId: 'NFpfYXY12NI'
 tags:
     [
         'arch',
@@ -33,14 +34,6 @@ nss: /usr/lib/p11-kit-trust.so existe en el sistema de archivos
 ```
 
 Este error puede pasarnos con cualquier librería o archivo y ahora vamos a darle una solución simple!
-
-## Video
-
-Claramente es mejor explicarlo y mostrarlo en vivo para entender qué funciona y como lo hace, por lo cual voy a dejar un video.
-
-{{< youtube id="NFpfYXY12NI" >}}
-
-Si te gusto no te olvides de apoyarme suscribiendote y dándole un “Me Gusta” ¡No cuesta nada pero vale mucho!
 
 ## Lo utilizado
 

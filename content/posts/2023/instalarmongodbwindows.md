@@ -2,7 +2,8 @@
 title: 'Como instalar MongoDB en Windows'
 date: '2023-06-05 10:45:00.00'
 description: 'Vamos a ver como instalar mongo (o MongoDB) en Windows.'
-type: 'post'
+type: 'video'
+videoId: 'jRX23FDGCW4'
 tags:
     [
         'mongo',
@@ -20,12 +21,6 @@ authors: ['PatoJAD']
 ---
 
 Vamos a ver como realizar la instalacion de **MongoDB** en Windows (ya sea 10 o 11) con winget desde nuestra terminal.
-
-## Video
-
-En el video sigo los pasos para la instalacion utilizando winget para realizar la instalacion.
-
-{{< youtube id="jRX23FDGCW4" >}}
 
 ## Comandos Utilizados
 

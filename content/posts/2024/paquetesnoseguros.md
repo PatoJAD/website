@@ -2,7 +2,8 @@
 title: "Desmitificando la seguridad de los empaquetados de aplicaciones en Linux"
 date: "2024-07-25 12:34:00.00"
 description: Explora los diferentes formatos de empaquetado en Linux, como DEB, RPM, Flatpak, Snap y AppImage, y sus características, ventajas y limitaciones. Compara el rendimiento y las funciones de cada formato.
-type: post
+type: video
+videId: TZc0ngDjY0A
 tags:
   [
     linux,
@@ -38,8 +39,6 @@ authors: [PatoJAD]
 ---
 
 El empaquetado de aplicaciones en Linux es un tema que ha generado mucho debate en la comunidad. Algunos defienden el uso de paquetes de distribuidores, mientras que otros prefieren el empaquetado de terceros como Flatpak o Snap. En este vídeo, vamos a desmitificar algunos conceptos erróneos sobre la seguridad y el empaquetado de aplicaciones en Linux.
-
-{{< youtube id="TZc0ngDjY0A" >}}
 
 ## Verificación de aplicaciones
 

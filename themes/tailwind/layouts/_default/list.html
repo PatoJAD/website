@@ -1,0 +1,24 @@
+{{ define "main" }}
+
+<div class="flex flex-col justify-center items-center px-6 max-w-[1400px] m-auto">
+  <div class="grid grid-cols-1 md:grid-cols-3 py-12 w-full">
+    <div id="information" class="col-span-2 w-full px-3 mb-4">
+      {{ $paginator := .Paginate .Data.Pages.ByDate.Reverse }}
+      {{ range $paginator.Pages }}
+      {{ .Render "card" }}
+      {{ end }}
+
+      {{- partial "components/pagination.html" . -}}
+    </div>
+    <div id="widgets" class="w-full px-3">
+      {{ partial "components/widgets/categories.html" . }}
+      {{ partial "components/widgets/social-network.html" . }}
+      {{ partial "components/widgets/donate.html" . }}
+      {{ partial "components/widgets/articlescant.html" . }}
+      {{ partial "components/widgets/tags.html" . }}
+      {{ partial "components/widgets/sponsors.html" . }}
+    </div>
+  </div>
+</div>
+
+{{ end }}

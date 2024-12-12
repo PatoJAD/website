@@ -2,7 +2,8 @@
 title: 'Artix Linux'
 date: '2020-08-11 09:01:00'
 description: 'Una hermosa distribución basada en Arch Linux sin SystemD y Altamente ligera'
-type: 'post'
+type: 'video'
+videoId: 'MabkJ5JmWt0'
 tags:
     [
         'systemd',
@@ -58,8 +59,6 @@ Viene con una instalación mínima lo cual nos permite de alguna forma elegir a 
 ![](https://i0.wp.com/entornosgnulinux.com/wp-content/uploads/2019/03/Calamarares.jpg)
 
 La instalación se realiza mediante gestor gráfico (si es que descargaste la iso con algun escritorio disponible) conocido como **calamares** uno de los más populares que existen hoy en dia.
-
-{{< youtube id="MabkJ5JmWt0" >}}
 
 Como la mayoría de las distros las instalaciones son una conjugación de siguientes y completar datos y ya podemos disfrutar de la distro. Te recomiendo descargarla y probarla, y si aceptas otro consejo recomiendo MATE como escritorio.
 

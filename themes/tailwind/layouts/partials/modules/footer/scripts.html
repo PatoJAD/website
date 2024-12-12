@@ -1,0 +1,18 @@
+{{ if .Store.Get "hasMermaid" }}
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
+{{ end }}
+
+{{ $fusejs := resources.GetRemote "https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" }}
+{{ $embla := resources.GetRemote "https://unpkg.com/embla-carousel/embla-carousel.umd.js" }}
+{{ $emblaAutoplay := resources.GetRemote "https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js" }}
+{{ $search := resources.Get "js/search.js" }}
+{{ $darkMode := resources.Get "js/darkmode.js" }}
+{{ $slides := resources.Get "js/slides.js" }}
+
+{{- $opts := dict "minify" hugo.IsProduction -}}
+
+{{ $fullscript := slice $fusejs $embla $emblaAutoplay $search $darkMode $slides | resources.Concat "/js/vendor.js" | minify | fingerprint "sha512" }}
+<script async src="{{ $fullscript.RelPermalink }}"></script>

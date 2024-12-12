@@ -2,7 +2,8 @@
 title: Guía Completa para Instalar y Utilizar Timeshift en Linux
 date: "2024-01-09 10:34:00.00"
 description: Descubre cómo Timeshift simplifica la gestión de copias de seguridad en Linux. Sigue nuestra guía paso a paso para la instalación en Ubuntu, Arch Linux, Fedora y openSUSE.
-type: post
+type: video
+videoId: 24c3O_uj0E4
 tags:
   [
     timeshift,
@@ -89,8 +90,6 @@ Sí, **Timeshift** se clasifica como una herramienta de respaldo, pero va más a
 ---
 
 ## Instalación de Timeshift en Distintas Distribuciones:
-
-{{< youtube id="24c3O_uj0E4" >}}
 
 A continuación, te presentamos cómo instalar **Timeshift** en algunas de las distribuciones de Linux más populares:
 
