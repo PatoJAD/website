@@ -2,7 +2,8 @@
 title: "Cómo instalar Bun.js en MacOS con Homebrew"
 date: "2024-11-01 10:24:00.00"
 description: Aprende a instalar Bun.js en MacOS de manera sencilla usando Homebrew. En este tutorial paso a paso, te explicamos cómo configurar Bun.js y exploramos otros métodos de instalación, junto con soluciones a problemas comunes.
-type: post
+type: video
+videoId: FIs82kc3XBU
 tags:
   [
     bun,
@@ -46,8 +47,6 @@ authors: [PatoJAD]
 
 Instalar **Bun.js** en MacOS puede hacerse de varias maneras, y en este artículo exploraremos cómo hacerlo con Homebrew, un gestor de paquetes que simplifica la instalación de herramientas en Mac. Aunque hay otros métodos, en mi caso he optado por usar Brew por preferencia personal, y en este tutorial te guiaré paso a paso en el proceso. Además, agregaré información básica sobre **Bun.js** y su utilidad, así como algunos consejos útiles para la instalación.
 
-{{< youtube id="FIs82kc3XBU" >}}
-
 ## ¿Qué es **Bun.js** y por qué usarlo?
 
 **Bun.js** es un runtime y gestor de paquetes todo en uno para JavaScript, desarrollado con el objetivo de ofrecer una alternativa ultrarrápida a Node.js y npm. Su principal ventaja es la velocidad, ya que está diseñado desde cero para mejorar el rendimiento en aplicaciones web y herramientas de desarrollo. Gracias a su enfoque optimizado en operaciones comunes, **Bun.js** resulta ideal para desarrolladores que buscan una alternativa a otros runtimes y desean mayor rapidez en sus aplicaciones.
@@ -85,11 +84,11 @@ Si ves la versión de **Bun.js** en pantalla, significa que la instalación fue 
 Aunque Brew es una opción rápida y práctica, existen otros métodos para instalar **Bun.js** en MacOS:
 
 - Instalación directa desde el script de Bun: Ejecuta el siguiente comando en la Terminal para una instalación rápida:
-  `zsh
+  ```zsh
   curl -fsSL https://bun.sh/install | bash
   # En caso de querer instalar una version específica
   curl -fsSL https://bun.sh/install | bash -s "bun-v1.0.0"
-  `
+  ```
   Este script se encargará de descargar e instalar **Bun.js** directamente desde su sitio oficial.
 
 ## Solución de problemas comunes

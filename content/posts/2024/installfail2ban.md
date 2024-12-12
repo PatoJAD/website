@@ -2,7 +2,8 @@
 title: "Un Guardián Digital para Tu Servidor Cloud"
 date: "2024-11-15 10:12:00.00"
 description: Fail2ban es una herramienta de seguridad que actúa como un vigilante digital para tu servidor cloud.
-type: post
+type: video
+videoId: X2MTJHLZka4
 tags:
   [
     linux,
@@ -32,8 +33,6 @@ authors: [PatoJAD]
 ---
 
 Hoy vamos a ver un poco mas sobre `fail2ban` y como instalarlo en tu servidor cloud.
-
-{{< youtube id="X2MTJHLZka4" >}}
 
 ## ¿Qué es Fail2ban?
 
