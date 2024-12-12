@@ -2,14 +2,13 @@
 title: '¿Es HTML un Lenguaje de Programación? Desmitificando su Naturaleza'
 date: '2023-09-08 11:26:00'
 description: Descubre por qué HTML no se considera un lenguaje de programación y comprende las diferencias clave entre los lenguajes de marcado y los lenguajes de programación. Exploraremos la función de HTML en la web y por qué no cumple con las características esenciales de un lenguaje de programación.
-type: post
+type: video
+videoId: 'AcbcYM5dGzw'
 tags: [HTML, lenguaje de marcas, páginas web, desarrollo web, etiquetas HTML, estructura web, lenguaje de marcado, lenguaje de marcado de hipertexto, HTML5, HTML4, HTML3, HTML2, HTML1, Lenguaje de Programación, Lenguaje de Marcado, Desarrollo Web, Diferencia, Programación Web, programacion web, desarrollo web, web, programcion, lenguaje]
 categories: [Programacion]
 img: https://i.postimg.cc/9z50z60H/htmlprogramacion.webp
 authors: [PatoJAD]
 ---
-
-{{< youtube id="AcbcYM5dGzw" >}}
 
 **[HTML](/post/2023/08/html-el-lenguaje-fundamental-de-la-web/)**, siglas de HyperText Markup Language (Lenguaje de Marcado de Hipertexto), es una de las tecnologías fundamentales en el mundo de la informática y la web. Sin embargo, a pesar de su papel crítico en la creación de páginas web y aplicaciones, no se clasifica como un lenguaje de programación. En este artículo, exploraremos qué tipo de lenguaje es **[HTML](/post/2023/08/html-el-lenguaje-fundamental-de-la-web/)**, qué implica ser un lenguaje de programación y por qué **[HTML](/post/2023/08/html-el-lenguaje-fundamental-de-la-web/)** no se considera uno.
 

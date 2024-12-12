@@ -2,7 +2,8 @@
 title: 'Error Boost.Python en el proceso Bootloader - Huayra'
 date: '2023-03-20 08:47:00.00'
 description: 'Vamos a ver como solucionar el error Boost.Python en el proceso Bootloader en huayra durante la instlacion'
-type: 'post'
+type: 'video'
+videoId: 't-Mx2ZaPTP4'
 tags:
     [
         'huayra',
@@ -30,8 +31,6 @@ authors: ['PatoJAD']
 ---
 
 Desde que arme el video de de la review de **Huayra** y su instalación (el cual pueden ver acá abajo) muchos comentarios me llegaban con **problemas de instalación**, y el último fue la semana pasada de la mano de un miembro de la comunidad llamado **Nicolas Ojeda** (al que le mando un fuerte saludo) con el cual indagando un rato (como otras veces en la comunidad) llegamos a la clara solución y la idea es dejar documentada esta solución para personas que tengan el mismo error con esta, o cualquier otra, distribución.
-
-{{< youtube id="t-Mx2ZaPTP4" >}}
 
 ## El error
 

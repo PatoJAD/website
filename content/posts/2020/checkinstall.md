@@ -2,7 +2,8 @@
 title: 'Crea tus .deb con Checkinstall'
 date: '2020-07-14 09:05:00'
 description: 'En esta oportunidad vamos a ver como generar un deb utilizando checkinstall en el proceso de compilación.'
-type: 'post'
+type: 'video'
+videoId: 'kcQvq4oDUgM'
 tags:
     [
         'deb',
@@ -39,8 +40,6 @@ Uno es para compilar y el otro para generar el deb. Sin embargo siempre debemos 
 ## Generando el deb
 
 En este caso no voy a explicar cómo compilar sino que voy a explicar como generar el deb por lo cual la compilación corre por cuenta de uno (leer la documentacion de git básicamente)
-
-{{< youtube id="kcQvq4oDUgM" >}}
 
 ## Comandos
 

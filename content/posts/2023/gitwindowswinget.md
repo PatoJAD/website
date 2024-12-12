@@ -2,7 +2,8 @@
 title: 'Install GIT en Windows con Winget'
 date: '2023-04-10 10:06:00'
 description: 'Vamos a ver una forma simple de instalar GIT en Windows 10 o 11 usando winget'
-type: 'post'
+type: 'video'
+videoId: 'LKnMeKqkjfk'
 tags:
     [
         'windows',
@@ -15,16 +16,12 @@ tags:
         'setup',
         'entorno',
     ]
-categories: ['Windows', 'Aplicaciones']
+categories: ['Windows', 'Aplicaciones', 'Programacion']
 img: 'https://i.postimg.cc/cJ7nmsqW/gitwin.png'
 authors: ['PatoJAD']
 ---
 
 hoy vamos a ver como instalar **git** en **Windows** utilizando _winget_ el gestor de paquetes de microsoft.
-
-## video
-
-{{< youtube id="LKnMeKqkjfk" >}}
 
 ## Comando
 

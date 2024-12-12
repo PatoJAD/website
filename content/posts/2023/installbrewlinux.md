@@ -2,7 +2,8 @@
 title: 'Como instalar brew en GNU/Linux'
 date: '2023-01-31 08:47:00.00'
 description: 'Vamos a ver como instalar brew (o brewhome) el gestor de paquetes para devs en nuestra distro.'
-type: 'post'
+type: 'video'
+videoId: 'yExijeK0X3U'
 tags:
     [
         'brew',
@@ -23,10 +24,6 @@ authors: ['PatoJAD']
 ---
 
 Muchas veces tenemos que instalar dependencias o paquetes y en nuestros repositorios no se encuentran las últimas versiones. Si sos dev te suele pasar esto frecuentemente al preparar tu entorno de desarrollo, por lo cual te recomiendo usar brewhome un gestor de paquetes para GNU/Linux y MacOS que te permite gestionar muchas dependencias útiles para programar y otras que no necesariamente son para programar pero son muy útiles
-
-## Video
-
-{{< youtube id="yExijeK0X3U" >}}
 
 ## Comandos
 

@@ -2,7 +2,8 @@
 title: Cómo Configurar un Sitio PHP en aaPanel
 date: '2023-08-18 08:01:00.00'
 description: Aprende a configurar un sitio PHP en aaPanel de manera sencilla y eficiente. Sigue esta guía paso a paso para optimizar tu proyecto web con consejos de seguridad y rendimiento.
-type: post
+type: video
+videoId: pdqHkX-lO5U
 tags: [aaPanel, PHP, configuración, sitio web, alojamiento web, panel de control, seguridad, rendimiento, guía, dinamico, tutorial, webserver, simple, gratis, debian, ubuntu, centos]
 categories: [Linux, Aplicaciones]
 img: https://i.postimg.cc/BnNyjjVY/aapaneldinamicsite.webp
@@ -26,8 +27,6 @@ El primer paso es instalar aaPanel en tu servidor. Asegúrate de tener acceso a 
 ## Agregar un Sitio Dinamico
 
 Una vez que aaPanel esté instalado, es hora de agregar tu dominio y configurar un sitio web PHP:
-
-{{< youtube id="pdqHkX-lO5U" >}}
 
 * Inicia sesión en aaPanel usando la URL y credenciales proporcionadas durante la instalación.
 * Navega a `Website` y haz clic en `Add Website`.

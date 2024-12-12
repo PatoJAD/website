@@ -2,7 +2,8 @@
 title: Cómo Iniciar en el Mundo de la Programación
 date: '2023-08-02 17:06:00'
 description: Guía para Principiantes sobre como iniciar en el mundo de la programación
-type: post
+type: video
+videoId: '734ZHYmB0g4'
 tags: [programacion para principiantes, iniciar en programacion, aprender a programar, guia para principiantes en programacion, fundamentos de programacion, lenguajes de programacion, desarrollo web, python, javascript, java, c#, html, css, recursos para aprender a programar, que se necesita para programar, editor de codigo, consejos para principiantes en programacion, por donde empezar en programacion, que estudiar primero para aprender a programar, que se necesita para programar]
 categories: [Programacion]
 img: https://i.postimg.cc/bvnJcQqk/aprenderaprogramar.webp
@@ -10,10 +11,6 @@ authors: [PatoJAD]
 ---
 
 El mundo de la programación es emocionante y lleno de oportunidades para aquellos que deseen sumergirse en él. Sin embargo, para los principiantes, puede parecer abrumador y confuso. En este artículo, exploraremos cómo iniciar en el mundo de la programación y responderemos a dos preguntas fundamentales: ¿Qué estudiar primero para aprender a programar? y ¿Qué se necesita para programar?
-
-## Video
-
-{{< youtube id="734ZHYmB0g4" >}}
 
 ## ¿Qué estudiar primero para aprender a programar?
 

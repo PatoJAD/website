@@ -2,7 +2,8 @@
 title: MacOS y Windows no pueden... Pero Linux si...
 date: "2023-12-27 10:09:00"
 description: "Explora las ventajas únicas de Linux en comparación con sus competidores, Windows y MacOS. Desde la portabilidad hasta la personalización de la interfaz, descubre cómo Linux se destaca en el mundo de la tecnología."
-type: "post"
+type: "video"
+videoId: "HtNYQqgPHqQ"
 tags:
   [
     Linux,
@@ -33,8 +34,6 @@ authors: ["PatoJAD"]
 ---
 
 En el universo tecnológico, Linux destaca por sus capacidades únicas que superan a sus competidores más grandes, Windows y MacOS. Antes de explorar estas diferencias, es importante destacar que no estamos proclamando la supremacía de un sistema sobre otro, simplemente queremos resaltar algunas de las ventajas del sistema que personalmente prefiero utilizar.
-
-{{< youtube id="HtNYQqgPHqQ" >}}
 
 ## Portabilidad: Un Mundo de Posibilidades
 

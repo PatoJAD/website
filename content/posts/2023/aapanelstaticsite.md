@@ -2,7 +2,8 @@
 title: Cómo Crear un Sitio Estático con aaPanel
 date: '2023-08-09 11:54:00.00'
 description: Aprende cómo crear un sitio estático de alto rendimiento utilizando aaPanel. Sigue nuestra guía detallada y aprovecha el tutorial para configurar y administrar tu sitio web estático de manera eficiente. Optimiza la velocidad y la seguridad de tu presencia en línea con aaPanel.
-type: post
+type: video
+videoId: emMSKFcQiYk
 tags: [aapanel, cpanel, panel, webserver, simple, gratis, debian, ubuntu, centos, sitio estático, configurar puertos, tutorial, guía, configuración, administración, servidor web, optimización, seguridad, rendimiento]
 categories: [Linux, Aplicaciones]
 img: https://i.postimg.cc/vm1gJ2v3/aapanelstaticsite.webp
@@ -26,8 +27,6 @@ Para comenzar, asegúrate de haber instalado **aaPanel** en tu servidor, siguien
 Una vez que hayas configurado **aaPanel**, estarás listo para crear tu sitio estático.
 
 ## Creación del Sitio Estático
-
-{{< youtube id="emMSKFcQiYk" >}}
 
 -   Inicia sesión en tu panel de control **aaPanel**.
 -   En la sección _Web_, selecciona _Sitios web_ y haz clic en _Agregar sitio web_.

@@ -2,7 +2,8 @@
 title: 'Como instalar MongoDB en MacOS'
 date: '2023-05-05 13:45:00.00'
 description: 'Vamos a ver como instalar mongo (o MongoDB) en MacOS. Para poder realizar nuestras pruebas locales.'
-type: 'post'
+type: 'video'
+videoId: 'wa6I0jlqrQM'
 tags:
     [
         'mongo',
@@ -28,12 +29,6 @@ authors: ['PatoJAD']
 ---
 
 Vamos a ver como realizar la instalacion de **MongoDB** en MacOS. Recuerda que para esto debes tener instalado primero [Homebrew](/post/2023/02/como-instalar-brew-en-macos/).
-
-## Video
-
-En el video sigo los pasos para la instalación de MongoDB en MacOS utilizando Homebrew. Sin embargo abajo te dejo los pasos a seguir para que puedas copiar y pegar en tu terminal.
-
-{{< youtube id="wa6I0jlqrQM" >}}
 
 ## Comandos
 
