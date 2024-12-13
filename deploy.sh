@@ -1,5 +1,6 @@
 #!/bin/bash
 
+rm -rf public
 # abort on errors
 set -e
 # build
