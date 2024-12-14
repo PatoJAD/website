@@ -19,7 +19,7 @@ tags:
     github pages,
   ]
 img: "https://i.postimg.cc/d3X3yPTS/patojad.png"
-technologies: ["HugoCMS", "GitHub", "HTML", "CSS", "JavaScript"]
+technologies: ["HugoCMS", "GitHub", "HTML", "CSS", "JavaScript", "Tailwind CSS"]
 authors: [PatoJAD]
 ---
 
