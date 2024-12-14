@@ -1,5 +1,14 @@
 <article class="w-full rounded-xl p-4 bg-cover bg-no-repeat bg-center mb-4 shadow-xl" style="background-image: url({{.Params.img}});">
-  <div class="w-full col-span-2 bg-gray-100 dark:bg-gray-800 rounded-xl opacity-90 p-4">
+  <div class="w-full col-span-2 bg-gray-100 dark:bg-gray-800 rounded-xl opacity-90 p-4 relative">
+    <div class="absolute top-0 right-0 p-2 bg-amber-500 text-white rounded-bl-xl rounded-tr-xl">
+      {{ if eq .Params.type "project" }}
+      <em class="fas fa-project-diagram" aria-hidden="true"></em>
+      {{ else if eq .Params.type "post" }}
+      <em class="fa fa-pencil" aria-hidden="true"></em>
+      {{ else if eq .Params.type "video" }}
+      <em class="fa fa-youtube-play" aria-hidden="true"></em>
+      {{ end }}
+    </div>
     <h2 class="font-bold text-xl text-amber-500 mb-4"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
     <span class="mb-3 text-gray-500">
       {{ $formattedDate := .Date.Format "Friday, March 3, 2006" }}
@@ -29,7 +38,19 @@
       {{ end }}
 
       <div class="flex flex-wrap justify-between mt-4">
+        {{ if eq .Params.type "project"}}
+        <div class="text-gray-500">
+          {{ $technologies := .Params.technologies }}
+          {{ range .Site.Params.technologies.main }}
+            {{ $usedTech := in $technologies .name }}
+            {{ if $usedTech}}
+            <span class="mr-2"><img src="{{ .image | safeURL }}" alt="{{ .name }}" class="me-1 mb-4 h-8 w-8 inline"></span>
+            {{ end }}
+          {{ end }}
+        </div>
+        {{ else}}
         <div class="text-gray-500"><em class="fa fa-clock-o" aria-hidden="true"></em> {{ .ReadingTime }} min de lectura</div>
+        {{ end}}
         <a href="{{ .RelPermalink }}" class="bg-amber-500 p-2 mr-3 rounded-xl">
           Leer <em class="fa fa-arrow-right" aria-hidden="true"></em>
         </a>
