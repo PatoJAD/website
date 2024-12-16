@@ -3,6 +3,8 @@ title: ResiLab - Sitio institucional de Farmaceutica
 date: 2022-05-12T00:00:00-05:00
 type: project
 description: "Sitio web institucional de la farmaceutica ResiLab, donde se publican servicios y proyectos de la empresa."
+status: "Finalizado"
+client: "ResiLab"
 tags:
   [
     "web",

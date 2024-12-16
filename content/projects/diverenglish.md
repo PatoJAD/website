@@ -3,6 +3,8 @@ title: "DiverEnglish - Sitio Web de Aprendizaje de Ingles"
 date: 2023-10-12T00:00:00-05:00
 type: project
 description: "Sitio web de aprendizaje de ingles, donde se publican articulos, videos y ejercicios para aprender ingles de manera facil y rapida."
+status: "Finalizado"
+client: "Waibi"
 tags:
   [
     "web",

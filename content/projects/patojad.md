@@ -3,6 +3,8 @@ title: "Sitio Web de PatoJAD (Blog) en HugoCMS"
 date: 2024-12-12T00:00:00-05:00
 type: project
 description: "Sitio web personal de PatoJAD, donde se publican articulos de tecnologia, programacion y otros temas."
+status: "Activo"
+client: "PatoJAD"
 tags:
   [
     "blog",

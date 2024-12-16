@@ -3,6 +3,8 @@ title: "Los Argentos, instalacion y configuracion de servidores"
 date: 2021-01-28T00:00:00-05:00
 type: project
 description: "Instalacion y configuracion de servidores para el proyecto Los Argentos, con el fin de mejorar la infraestructura del proyecto."
+status: "Finalizado"
+client: "Los Argentos"
 tags:
   [
     "servidores",

@@ -3,6 +3,8 @@ title: RedLinuxClick - Red Social de Linuxeros y Programadores
 date: 2022-10-17T00:00:00-05:00
 type: project
 description: "Red social de linuxeros y programadores, donde se juntan para compartir conocimientos, proyectos y experiencias."
+status: "Finalizado"
+client: "RedLinuxClick"
 tags:
   [
     "web",

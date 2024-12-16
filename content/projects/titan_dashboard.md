@@ -3,6 +3,8 @@ title: Titan Dashboard, un dashboard para administrar una casa de juegos
 date: 2024-12-14T00:00:00-05:00
 type: project
 description: "Dashboard para administrar una casa de juegos, con control de acceso, control de juegos, control de ventas y control de usuarios."
+status: "Finalizado"
+client: "Ferico V."
 tags:
   [
     "dashboard",

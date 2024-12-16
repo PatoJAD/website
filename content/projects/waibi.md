@@ -3,6 +3,8 @@ title: Waibi - Agencia de Marketing Digital
 date: 2023-08-23T00:00:00-05:00
 type: project
 description: "Sitio web de la agencia de marketing digital Waibi, donde se publican servicios y proyectos de la agencia."
+status: "Finalizado"
+client: "Waibi"
 tags:
   [
     "web",
