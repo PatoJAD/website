@@ -1,0 +1,36 @@
+<div class="bg-gray-100 dark:bg-gray-800 w-full mb-4 shadow-xl rounded-xl p-8">
+  <h3 class="font-bold text-2xl text-amber-500 mb-4">Informacion del Proyecto</h3>
+  <table>
+    <tbody>
+      <tr class="border-b-2 border-gray-300 dark:border-gray-700 p-2">
+        <td class="font-bold">Nombre del Proyecto</td>
+        <td>{{ .Params.title }}</td>
+      </tr>
+      <tr class="border-b-2 border-gray-300 dark:border-gray-700 p-2">
+        <td class="font-bold">Descripcion</td>
+        <td>{{ .Params.description }}</td>
+      </tr>
+      <tr class="border-b-2 border-gray-300 dark:border-gray-700 p-2">
+        <td class="font-bold">Cliente</td>
+        <td>{{ .Params.client }}</td>
+      </tr>
+      <tr class="border-b-2 border-gray-300 dark:border-gray-700 p-2">
+        <td class="font-bold">Estado</td>
+        <td>{{ .Params.status }}</td>
+      </tr>
+      <tr class="p-2">
+        <td class="font-bold">Tecnologias</td>
+        <td>
+          {{ $technologies := .Params.technologies }}
+          {{ range .Site.Params.technologies.main }}
+            {{ $usedTech := in $technologies .name }}
+            {{ if $usedTech}}
+              <span class="mr-2"><img src="{{ .image | safeURL }}" alt="{{ .name }}" class="me-1 mb-4 h-8 w-8 inline"></span>
+            {{ end }}
+          {{ end }}
+      </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
