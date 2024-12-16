@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gamer on PatoJAD</title><link>https://patojad.com.ar/tags/gamer/</link><description>Recent content in Gamer on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Thu, 27 May 2021 09:18:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/gamer/index.xml" rel="self" type="application/rss+xml"/><item><title>Instalar el Zen Kernel</title><link>https://patojad.com.ar/post/2021/05/instalar-el-zen-kernel/</link><pubDate>Thu, 27 May 2021 09:18:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/05/instalar-el-zen-kernel/</guid><description>&lt;p>Dentro del mundo de &lt;strong>GNU/Linux&lt;/strong> existe muchísimo software libre incluso &lt;strong>Linux&lt;/strong> el kernel de este sistema, y al ser libre cualquiera puede compilarlo y configurarlo como quiera, incluso publicarlo. En esta oportunidad vamos a ver cómo instalar un kernel modificado por la comunidad para mejorar el rendimiento bajo demanda, es un kernel muy bueno para quienes les gusta jugar, entre otras cosas.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/gkd80yH4/image.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="sobre-zen">
+Sobre Zen
+&lt;a href="#sobre-zen" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Zen es el kernel conocido como Liquorix compilado para Arch y este kernel presenta muchísimas mejoras entre las que podemos ver:&lt;/p>
+&lt;blockquote>
+&lt;p>Liquorix es un reemplazo del kernel de distribución creado con la mejor configuración y fuentes de kernel para cargas de trabajo de escritorio, multimedia y juegos.&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>&lt;strong>Zen Interactive Tuning:&lt;/strong> ajusta el kernel para mejorar la capacidad de respuesta a costa del rendimiento y el uso de energía.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">--- Virtual Memory Subsystem ---------------------------
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Mem dirty before &lt;span class="nb">bg&lt;/span> writeback..: &lt;span class="m">10&lt;/span> % -&amp;gt; &lt;span class="m">20&lt;/span> %
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Mem dirty before sync writeback: &lt;span class="m">20&lt;/span> % -&amp;gt; &lt;span class="m">50&lt;/span> %
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--- Block Layer ----------------------------------------
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Default MQ scheduler......: mq-deadline -&amp;gt; bfq
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--- CPU Scheduler &lt;span class="o">(&lt;/span>CFS&lt;span class="o">)&lt;/span> --------------------------------
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Scheduling latency.............: &lt;span class="m">6&lt;/span> -&amp;gt; &lt;span class="m">3&lt;/span> ms
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Minimal granularity............: 0.75 -&amp;gt; 0.3 ms
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Wakeup granularity.............: &lt;span class="m">1&lt;/span> -&amp;gt; 0.5 ms
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">CPU migration cost.............: 0.5 -&amp;gt; 0.25 ms
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Bandwidth slice size...........: &lt;span class="m">5&lt;/span> -&amp;gt; &lt;span class="m">3&lt;/span> ms
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--- CPU Scheduler &lt;span class="o">(&lt;/span>MuQSS&lt;span class="o">)&lt;/span> ------------------------------
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Scheduling interval............: &lt;span class="m">6&lt;/span> -&amp;gt; &lt;span class="m">4&lt;/span> ms
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ISO task max realtime use......: &lt;span class="m">70&lt;/span> % -&amp;gt; &lt;span class="m">25&lt;/span> %
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>&lt;strong>Programador de procesos MuQSS:&lt;/strong> programador de procesos justo para juegos, multimedia y cargas en tiempo real.&lt;/li>
+&lt;li>&lt;strong>Programación de alta resolución:&lt;/strong> tiempos de espera de alta resolución y frecuencia de tick de 1000 Hz para una programación precisa de tareas con baja fluctuación.&lt;/li>
+&lt;li>&lt;strong>RCU jerárquica basada en árboles no garantizada:&lt;/strong> implementación de RCU para sistemas en tiempo real.&lt;/li>
+&lt;li>&lt;strong>Prevención de kernel duro:&lt;/strong> Prevención de kernel más agresiva antes de requerir parches en tiempo real. Garantiza un sistema receptivo en escenarios de cargas de trabajo mixtas de alta intensidad.&lt;/li>
+&lt;li>&lt;strong>Budget Fair Queue:&lt;/strong> programador de disco adecuado optimizado para el uso de escritorio, alto rendimiento / baja latencia.&lt;/li>
+&lt;li>&lt;strong>Control de congestión TCP BBR2:&lt;/strong> Control de congestión rápido, maximiza el rendimiento, garantizando velocidades más altas que Cubic.&lt;/li>
+&lt;li>&lt;strong>Reemplazo directo del núcleo de distribución:&lt;/strong> configuración de estilo de distribución adecuada que admite la selección más amplia de hardware. Opciones de paravirtualización habilitadas para reducir la sobrecarga bajo virtualización.&lt;/li>
+&lt;li>&lt;strong>Depuración mínima:&lt;/strong> número mínimo de opciones de depuración habilitadas para aumentar el rendimiento del kernel.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalación">
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;iframe src='https://www.youtube.com/embed/OLiOcArU5fM?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;p>Primero debemos instalar el kernel, esto lo podemos hacer con pacman o con yay de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S linux-zen linux-zen-header
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S linux-zen linux-zen-header
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Si venís de distribuciones basadas en Debian ya intentaste reiniciar, pero como se demuestra en el video no funciona asi, por lo cual es necesario actualizar el GRUB.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo update-grub
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>

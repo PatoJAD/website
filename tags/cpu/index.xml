@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cpu on PatoJAD</title><link>https://patojad.com.ar/tags/cpu/</link><description>Recent content in Cpu on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Thu, 17 Sep 2020 08:50:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/cpu/index.xml" rel="self" type="application/rss+xml"/><item><title>Mejorar el Rendimiento de tu CPU</title><link>https://patojad.com.ar/post/2020/09/mejorar-el-rendimiento-de-tu-cpu/</link><pubDate>Thu, 17 Sep 2020 08:50:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/09/mejorar-el-rendimiento-de-tu-cpu/</guid><description>&lt;p>Ya con anterioridad hablamos de mejorar la performance de nuestra placa de video, algunos usuarios notaron más los cambios que otros, y en base a eso decidí terminar la segunda parte. Ya mejoramos el GPU (aunque sea integrado) Ahora nos toca el CPU. Al igual que el GPU lo ideal es eliminar lo que no sirve para optimizar todo tipos de llamada pero en este caso algunas distros pueden complicarnos más que otras.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="posibles-problemas">
+Posibles problemas
+&lt;a href="#posibles-problemas" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://www.sololinux.es/wp-content/uploads/2017/08/kernel-panic-sololinux-es-2.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Si usas Ubuntu o Debian suelen traer un kernel que se llama “generic” este kernel busca simplificar la vida de los teniendo como dependencias todos los controladores para evitar errores, sin embargo si pretendemos quedarnos con este kernel no vamos a poder seguir, en contraposición otras distros como arch y demás no suelen tener este problemas pero siempre existen kernels alternativos (zen, liquorix, etc).&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="cambiando-el-kernel">
+Cambiando el kernel
+&lt;a href="#cambiando-el-kernel" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://xanmod.org/index_files/xanmod_wallpaper.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>En mi caso de Debian o Ubuntu voy a recomendar Xanmod que si bien hay un &lt;a href="https://patojad.com.ar/post/2020/09/mejorar-el-rendimiento-de-tu-placa-de-video/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+tutorial de como instalarlo
+&lt;/a> quiero aprovechar esta oportunidad para mejorar ese tutorial.&lt;/p>
+&lt;pre>&lt;code>echo 'deb http://deb.xanmod.org releases main' | sudo tee /etc/apt/sources.list.d/xanmod-kernel.list &amp;amp;&amp;amp; wget -qO - https://dl.xanmod.org/gpg.key | sudo apt-key add -
+&lt;/code>&lt;/pre>
+&lt;p>Con este comando vamos agregar el &lt;strong>repositorio oficial&lt;/strong> de Xanmod a nuestra distro (recordemos que es siempre en bases Debian o Ubuntu) y además de esto agregamos las llaves para poder instalar el contenido de este repositorio. Luego de esto procedemos a actualizar y a instalar el kerner &lt;strong>Xenmod&lt;/strong> de la siguiente forma:&lt;/p>
+&lt;pre>&lt;code>sudo apt update &amp;amp;&amp;amp; sudo apt install linux-xanmod
+&lt;/code>&lt;/pre>
+&lt;p>Tiene diferentes variables donde podemos elegir el tipo de kernel que queremos instalar entre las cuales podemos ver:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>linux-xanmod&lt;/strong> Versión completa del kernel funcional&lt;/li>
+&lt;li>&lt;strong>linux-xanmod-edge&lt;/strong> Versión completa adelantada (puede generar algún error)&lt;/li>
+&lt;li>&lt;strong>linux-xanmod-lts&lt;/strong> Versión de soporte a largo plazo&lt;/li>
+&lt;li>&lt;strong>linux-xanmod-rt&lt;/strong> Versión RealTime (orientado a multimedia)&lt;/li>
+&lt;li>&lt;strong>linux-xanmod-edge-rt&lt;/strong> Versión RealTime adelantada (orientado a multimedia puede generar errores)&lt;/li>
+&lt;/ul>
+&lt;p>Una vez que tengamos instalado el kernel basta con reiniciar para poder iniciar el sistema con el nuevo kernel. Yo luego de reiniciar eliminar los kernels viejos (si comprobé que todo funciona ok) Pero son manías mías.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="mejorando-la-performance-del-cpu">
+Mejorando la performance del CPU
+&lt;a href="#mejorando-la-performance-del-cpu" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Bien, ahora lo que vamos a hacer es eliminar el controlador que no utilicemos para mejorar la performance de las llamadas como dije antes. Cuando hagamos esto &lt;strong>puede eliminar el kernel anterior&lt;/strong> si no lo hicimos nosotros, en caso de que el kernel funcione ok podemos proseguir.&lt;/p>
+&lt;p>En caso de tener un &lt;strong>Intel&lt;/strong> debemos ejecutar:&lt;/p>
+&lt;pre>&lt;code>sudo apt remove amd64-microcode
+&lt;/code>&lt;/pre>
+&lt;p>En caso de tener un procesador de &lt;strong>AMD&lt;/strong> debemos ejecutar:&lt;/p>
+&lt;pre>&lt;code>sudo apt remove intel-microcode
+&lt;/code>&lt;/pre></description></item></channel></rss>

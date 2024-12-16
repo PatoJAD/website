@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Snap on PatoJAD</title><link>https://patojad.com.ar/tags/snap/</link><description>Recent content in Snap on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Thu, 25 Jul 2024 12:34:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/snap/index.xml" rel="self" type="application/rss+xml"/><item><title>Desmitificando la seguridad de los empaquetados de aplicaciones en Linux</title><link>https://patojad.com.ar/post/2024/07/desmitificando-la-seguridad-de-los-empaquetados-de-aplicaciones-en-linux/</link><pubDate>Thu, 25 Jul 2024 12:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/07/desmitificando-la-seguridad-de-los-empaquetados-de-aplicaciones-en-linux/</guid><description>&lt;p>El empaquetado de aplicaciones en Linux es un tema que ha generado mucho debate en la comunidad. Algunos defienden el uso de paquetes de distribuidores, mientras que otros prefieren el empaquetado de terceros como Flatpak o Snap. En este vídeo, vamos a desmitificar algunos conceptos erróneos sobre la seguridad y el empaquetado de aplicaciones en Linux.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="verificación-de-aplicaciones">
+Verificación de aplicaciones
+&lt;a href="#verificaci%c3%b3n-de-aplicaciones" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>La verificación de aplicaciones es un proceso que garantiza que la aplicación que se descarga y se instala proviene directamente del desarrollador y no ha sido modificada por un tercero. Esto es especialmente importante en Linux, donde cualquier persona puede crear un paquete y distribuirlo. Sin embargo, la verificación de aplicaciones no garantiza que la aplicación sea segura o libre de vulnerabilidades.
+Por ejemplo, la biblioteca XZ fue hackeada y contenía una backdoor. Aunque la aplicación fue verificada, todavía contenía el código malicioso. Otro ejemplo es el caso de KeePassXC, donde el mantenedor de la versión de Debian decidió eliminar algunas características sin el consentimiento del desarrollador original.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="empaquetado-de-distribuidores">
+Empaquetado de distribuidores
+&lt;a href="#empaquetado-de-distribuidores" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>El empaquetado de distribuidores no es necesariamente más seguro que el empaquetado de terceros. Los mantenedores de paquetes pueden no ser desarrolladores y no realizar revisiones de seguridad del código. Además, los paquetes de distribuidores pueden contener versiones antiguas de bibliotecas que no han sido actualizadas con las últimas correcciones de seguridad.
+Por ejemplo, la vulnerabilidad de log4j afectó a muchas distribuciones de Linux, incluyendo a Debian y Ubuntu. Aunque los paquetes de distribuidores fueron actualizados, todavía había versiones antiguas de la biblioteca que no habían sido parcheadas.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="sandbox">
+Sandbox
+&lt;a href="#sandbox" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>El sandbox es un sistema de permisos que limita lo que una aplicación puede hacer en el sistema. Sin embargo, no garantiza que la aplicación sea segura. Un ejemplo de esto es el caso de las aplicaciones de criptomonedas que fueron hackeadas en el Snap Store. A pesar de que estas aplicaciones estaban sandboxeadas, todavía podían acceder a la conexión a internet y realizar acciones maliciosas.
+Otro ejemplo es el caso de Flatpak, que permite a las aplicaciones acceder a la carpeta de documentos del usuario sin restricciones. Aunque el sandbox de Flatpak es más estricto que el de Snap, todavía hay riesgos de seguridad asociados con el uso de aplicaciones sandboxeadas.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="dependencias">
+Dependencias
+&lt;a href="#dependencias" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Las dependencias en el empaquetado de aplicaciones pueden ser un problema. Los paquetes de distribuidores no siempre están actualizados, y los paquetes de terceros pueden contener versiones antiguas de bibliotecas. Esto puede llevar a vulnerabilidades de seguridad y problemas de compatibilidad.
+Por ejemplo, la biblioteca OpenSSL es una dependencia común en muchas aplicaciones. Sin embargo, las versiones antiguas de OpenSSL contienen vulnerabilidades de seguridad que pueden ser explotadas por atacantes. Si una aplicación utiliza una versión antigua de OpenSSL, puede ser vulnerable a ataques, incluso si el paquete ha sido verificado.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusión">
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>En conclusión, la seguridad del empaquetado de aplicaciones en Linux depende de muchos factores. Es importante recordar que los usuarios son responsables de verificar la seguridad de las aplicaciones que instalan. También es importante elegir fuentes de paquetes confiables y mantener las aplicaciones actualizadas.&lt;/p></description></item><item><title>Formatos de Empaquetado en Linux: Nativos, Flatpak, Snap y AppImage</title><link>https://patojad.com.ar/post/2024/03/formatos-de-empaquetado-en-linux-nativos-flatpak-snap-y-appimage/</link><pubDate>Mon, 25 Mar 2024 12:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/03/formatos-de-empaquetado-en-linux-nativos-flatpak-snap-y-appimage/</guid><description>&lt;p>En el tradicional formato de empaquetado de Linux, tenemos &lt;strong>DEB&lt;/strong> (para debian, ubuntu y derivadas), &lt;strong>RPM&lt;/strong> (para redhat, fedora y derivadas) y otras variantes. Más recientemente, se han añadido &lt;strong>Flatpak&lt;/strong>, &lt;strong>Snap&lt;/strong> e &lt;strong>AppImage&lt;/strong>, lo que ha generado una gran variedad de formatos con diferentes características, ventajas y limitaciones. En este análisis, exploraremos el rendimiento de cada formato y las funciones que faltan en cada uno.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="nativas">
+Nativas
+&lt;a href="#nativas" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Generalmente no son compatibles entre distintas distribuciones, no implementan ningún modelo de seguridad o espacio aislado específico y se distribuyen a través de repositorios, ya sean oficiales o de terceros. Estos paquetes pueden contener bibliotecas o aplicaciones y todas las bibliotecas se comparten entre aplicaciones, lo que ahorra espacio y evita bibliotecas duplicadas. Sin embargo, esto también significa que una aplicación que necesita una biblioteca más nueva podría no funcionar en una distribución más antigua.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="flatpak">
+Flatpak
+&lt;a href="#flatpak" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Generalmente agregan además de sus paquetes regulares, son agnósticos de la distribución en sí, por lo que si su distro admite el &lt;strong>Flatpak&lt;/strong>, puede ejecutar exactamente el mismo paquete que cualquier otra distribución. El desarrollador empaqueta su aplicación una vez y se ejecuta en todo, no es necesario duplicar el trabajo de empaquetado. Los &lt;strong>Flatpak&lt;/strong> tienen un empaquetado &amp;ldquo;sandbox&amp;rdquo;, lo que significa que ofrecen menos agujeros de seguridad para posibles atacantes y, al mismo tiempo, comparten una gran cantidad de bibliotecas a través de tiempos de ejecución. Algunos &lt;strong>Flatpak&lt;/strong> contienen muchas bibliotecas en las que confían muchas aplicaciones. También pueden enviar sus propias bibliotecas en el paquete, lo que significa que pueden usar más espacio con el tiempo. Los &lt;strong>Flatpak&lt;/strong> se distribuyen principalmente a través de Flathub y repositorios en línea, pero usted también puede crear su propio repositorio ya que todo es de código abierto.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="snap">
+Snap
+&lt;a href="#snap" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Los &lt;strong>Snaps&lt;/strong> son básicamente el mismo concepto que los &lt;strong>Flatpak&lt;/strong>, pero para Ubuntu. Hay algunas diferencias técnicas con los &lt;strong>Flatpak&lt;/strong>, especialmente con respecto a cómo se abren y montan las aplicaciones en el sistema, pero funcionan de la misma manera. De esta manera, tiene tiempos de ejecución que incluyen bibliotecas necesarias para múltiples aplicaciones y luego las aplicaciones que pueden usar estos tiempos de ejecución se pueden aislar, pero no es obligatorio, por lo que algunas no lo son y se distribuyen exclusivamente a través de la tienda de Snap administrada por Canonical y ese específico. El back-end no es de código abierto. Los &lt;strong>Snaps&lt;/strong> se empaquetan una vez y cualquier distribución puede usar el mismo Snap siempre que admita el formato. Otra gran diferencia es que los &lt;strong>Snaps&lt;/strong> son adecuados no solo para aplicaciones gráficas sino también para programas de línea de comandos, aplicaciones del lado del servidor o incluso el kernel, el entorno de escritorio, el cargador de arranque o los controladores.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="appimage">
+AppImage
+&lt;a href="#appimage" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Son un formato más portátil similar a lo que hace &lt;strong>MacOS&lt;/strong>: toda la aplicación se envía dentro de un solo archivo con la mayoría, si no todas, sus bibliotecas. Esto significa que puede copiar y pegar aplicaciones desde un sistema a otro y se ejecutan en cualquier distribución que tenga acceso a fuse, que es lo que usan las imágenes de la aplicación para ejecutar las imágenes de la aplicación. A diferencia de las anteriores, no se ejecutan en un sandbox, aunque puedes hacerlo manualmente con algo como Fire Jail y, a veces, dependen de las bibliotecas del sistema que distribución se envía como paquetes regulares. Esto significa que ciertas imágenes de aplicaciones pueden no funcionar en ciertos sistemas que no tienen la biblioteca requerida; generalmente se distribuyen desde el sitio web de los desarrolladores o desde la aplicación App Image Hub. Las imágenes no crean automáticamente entradas en su sistema. menú a menos que use un demonio específico que se ejecuta en segundo plano.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="puntos-de-referencia-de-rendimiento">
+Puntos de referencia de rendimiento
+&lt;a href="#puntos-de-referencia-de-rendimiento" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/Z5xcr9pK/image.png" alt="PC de pruebas" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Las pruebas de rendimiento se llevaron a cabo en una máquina virtual Ubuntu 23.04 con 16 GB de RAM y un procesador Intel Core i7 de 13.a generación. Se instalaron aplicaciones en todos los formatos de empaquetado, y se midió el tiempo de apertura inicial y las ejecuciones posteriores. Los resultados mostraron diferencias en el tiempo de inicio y el rendimiento en pruebas como Velocímetro y Jetstream Benchmark.&lt;/p>
+&lt;ul>
+&lt;li>16 GB de RAM&lt;/li>
+&lt;li>Procesador Intel Core i7 de 13.a generación&lt;/li>
+&lt;li>Renderizado por hardware&lt;/li>
+&lt;li>Ubuntu 23.04&lt;/li>
+&lt;li>Maquina virtual&lt;/li>
+&lt;/ul>
+&lt;p>Recordemos que esto no pretende ser una maquina real sino un punto para una comparación de rendimiento entre los distintos formatos de empaquetado.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="resultados">
+Resultados
+&lt;a href="#resultados" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/Dzfc52PQ/image.png" alt="Resultados 1" loading="lazy" class="rounded-xl" />
+&lt;/div>
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/RCJLgpKY/image.png" alt="Resultados 2" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="sandbox">
+Sandbox
+&lt;a href="#sandbox" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Los formatos de empaquetado como &lt;strong>Flatpaks&lt;/strong> y &lt;strong>Snaps&lt;/strong> utilizan entornos de sandbox para proporcionar aislamiento y seguridad a las aplicaciones. Sin embargo, esto puede afectar el rendimiento y la compatibilidad con ciertas características, como la mensajería nativa. El Sandbox no es 100% a prueba de balas. Nada lo es, pero es interesante limitar a qué puede acceder la aplicación, todo esto se administra a través de permisos de aplicaciones, de manera muy similar a lo que encontraría en las aplicaciones de Android o iOS, puede otorgar permisos a las aplicaciones para acceder a archivos y carpetas específicos o servicios y componentes específicos del sistema, todo esto generalmente se maneja a través de portales de escritorio que significa que la aplicación realmente no accede al archivo o a la carpeta, abre un portal que es lo que accede al recurso requerido y lo pasa a la aplicación.&lt;/p>
+&lt;p>Esto es similar a cómo los navegadores web ejecutan cada pestaña en un proceso separado al que no se puede acceder. el hilo principal del navegador o las otras pestañas, los paquetes regulares no están protegidos de forma predeterminada, se instalan en el sistema de archivos y requieren privilegios de root para instalarse, lo que significa que si el paquete tiene algunos scripts maliciosos posteriores a la instalación que ejecuta, le ha dado rienda suelta sobre su sistema y cualquier aplicación que haya instalado a través de paquetes pueden acceder a cualquier cosa que su usuario pueda acceder a su directorio completo de home, por ejemplo, u otros archivos de configuración de aplicaciones.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="funciones-faltantes">
+Funciones faltantes
+&lt;a href="#funciones-faltantes" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Cada formato de empaquetado tiene limitaciones y funciones faltantes. Por ejemplo, los paquetes &lt;strong>Flatpak&lt;/strong> y Snap carecen de compatibilidad con la mensajería nativa, lo que puede afectar su utilidad en ciertos casos de uso. Además, el soporte para el tema del sistema puede ser imperfecto en algunos formatos, lo que puede afectar la integración visual con el entorno del usuario.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusión">
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>A pesar de las diferencias y limitaciones, todos los formatos de empaquetado ofrecen una experiencia similar en la ejecución de aplicaciones en Linux. La elección del formato adecuado puede depender de factores como la seguridad, la portabilidad y las características específicas requeridas por el usuario. Si bien la unificación hacia un formato de empaquetado único podría simplificar la experiencia para los usuarios principiantes, actualmente cada formato tiene su lugar en el ecosistema de Linux.&lt;/p></description></item><item><title>MacOS ¿Se parece mas a GNU/Linux o a Windows?</title><link>https://patojad.com.ar/post/2022/06/macos-se-parece-mas-a-gnu/linux-o-a-windows/</link><pubDate>Tue, 07 Jun 2022 10:41:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/06/macos-se-parece-mas-a-gnu/linux-o-a-windows/</guid><description>&lt;p>Ya hace tiempo, me es más difícil crear contenido, a medida que aumentan las responsabilidades es mucho más difícil hacerse un tiempo para poder escribir o grabar. Sin embargo sigo con este método de tomar preguntas de diferentes lugares y responder o tomarla como disparador para hablar de algún tema. En este caso la pregunta es la siguiente:&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/pL5xYCPM/Screenshot-20220504-202955-Facebook-1.jpg" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="vídeo">
+Vídeo
+&lt;a href="#v%c3%addeo" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Sin embargo la respuesta puede llegar a ser un poco… “simple” por lo cual no solo muestro un poco como funciona el sistema de instalación y los paquetes en MacOS pero también aprovechamos para hablar de algunos temas interesantes para el mundo de linux.&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/K5UM_BoszTE?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;div class="alert alert-info col-12" style="position:relative;">
+&lt;div class="info-box-content container">
+&lt;div class="row">
+&lt;div class="col-2 text-center">
+&lt;span class="fa fa-info fa-5x">&lt;/span>
+&lt;/div>
+&lt;div class="col-10">
+&lt;p class="no-margin">Gracias por estar acá, si no es molestia te pido un ultimo favor mas, podrias unirte a la comunidad de telegram o apoyarme suscribiendote a youtube o a Odysee, es completamente gratis y vale muchisimo.&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="appimage-vs-flatpack-vs-snap">
+AppImage vs Flatpack vs Snap
+&lt;a href="#appimage-vs-flatpack-vs-snap" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Si bien esto se merece su propia publicación y probablemente lo tenga, de momento voy a dejar una lista con la comparación sobre estas 3 “tecnologías”&lt;/p>
+&lt;table class="w-full bg-gray-100 dark:bg-gray-900 rounded-xl my-4">
+&lt;thead>
+&lt;tr>
+&lt;th class="px-3 py-1" style="text-align: center">Característica&lt;/th>
+&lt;th class="px-3 py-1" style="text-align: center">AppImage&lt;/th>
+&lt;th class="px-3 py-1" style="text-align: center">Snap&lt;/th>
+&lt;th class="px-3 py-1" style="text-align: center">Flatpak&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Aplicaciones de escritorio&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Herramientas de terminal&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Servicios&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Aplicación correcta de temas&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Librerías y dependencias&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">En la propia imagen&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">En la propia imagen o con complementos&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Uso de runtimes de las librerías principales&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Soporte&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Ninguno&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Canonical&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Red Hat y otros&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Sin confinamiento&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Puede utilizar diferentes confinamientos&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No (solo AppArmor)&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No (solo Bubblewrap)&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Ejecutable&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No . Necesita instalación&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No . Necesita instalación&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Sin root&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No. Necesita root para instalar.&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No. Necesita root para instalar.&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Ejecutable desde comprimido&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Repositorio central&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">AppImageHub&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">SnapCraft&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">FlatHub&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Necesita repositorio&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Repositorios individuales&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Multiples versiones en paralelo&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Mecanismo de actualización&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">AppImageUpdate&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Repositorio&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Repositorio&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Actualizaciones incrementales&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Autoactualizaciones&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Aplicación en disco comprimida&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">LibreOffice 6.0.0&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">200 MB&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">200 MB&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">659 MB&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>Flatpack no siempre es un enemigo</title><link>https://patojad.com.ar/post/2021/02/flatpack-no-siempre-es-un-enemigo/</link><pubDate>Mon, 22 Feb 2021 10:12:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/02/flatpack-no-siempre-es-un-enemigo/</guid><description>&lt;p>Si bien muchas veces explique porque el uso de flatpack y gestores similares que empaquetan todas las librerías necesarias generando apps al mejor estilo MS-DOS no son recomendables. El hecho de que no prefiera usarlas no implica que sea un desertor de la misma, hoy pretendo explicar cuando, &lt;strong>desde mi punto de vista,&lt;/strong> es ideal el uso de este tipo de paqueterias.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://ubunlog.com/wp-content/uploads/2019/12/flatpak-cover.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="lo-estable-vs-lo-que-necesito">
+Lo estable vs lo que necesito
+&lt;a href="#lo-estable-vs-lo-que-necesito" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Antes de empezar con el tema que nos compete, lo ideal es explicar porque estos estilos de paquetería &lt;strong>SI&lt;/strong> pueden ser una idea genial. Muchas personas siempre buscan tener una distribución estable donde no tengan que preocuparse por actualizaciones y posibles rupturas del sistema. En ese caso el precio a pagar es ver novedades en la web como las de VLC y Audacious pero saber que hay que esperar mucho para poder siquiera probarlo. Esto se volvió un gran problema viendo lo estable que se fueron poniendo las distros Rolling que traen estas novedades siempre al N+1&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://blog.desdelinux.net/wp-content/uploads/2011/10/rolling.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="flatpack-y-sus-amigos-salvando-las-distros">
+Flatpack y sus amigos salvando las distros…
+&lt;a href="#flatpack-y-sus-amigos-salvando-las-distros" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Gracias a este sistema de paquetería muchas veces es más simple utilizar un flatpack o appimage que intentar compilar las apps y todas sus dependencias sin romper el OS Base. En estos casos (como audacious en Debian) Flatpack permite aprovechar la experiencia estable y ligera de debian probando aplicaciones más nuevas sin dañar el sistema.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://ubunlog.com/wp-content/uploads/2019/05/Eliminar-por-completo-Flatpak-Snap-Appimage.jpg" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="un-estándar-para-todas-las-distros">
+¿Un estándar para todas las distros?
+&lt;a href="#un-est%c3%a1ndar-para-todas-las-distros" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Esta idea es realmente paupérrima. Si bien puede que este tipo de paqueteria sea ideal para &lt;strong>SUPLIR algún defecto&lt;/strong> no implica que la distro deba moverse pura y exclusivamente en estos tipos de paqueterias. Lo ideal es seguir viéndolo como un complemento para salvar algunos posibles problemas y no como una solución mágica que, como otras, terminan atentando contra el hardware y la performance.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.redd.it/81vlrnefp8e41.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="tu-opinión">
+Tu opinión
+&lt;a href="#tu-opini%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Cual es tu opinión sobre este tipo de paqueterias, ¿Lo usas?¿Lo usarías? ¿Qué tiene de bueno y qué tiene de malo?&lt;/p></description></item><item><title>Controlar tu Celular por Wi-Fi</title><link>https://patojad.com.ar/post/2020/12/controlar-tu-celular-por-wi-fi/</link><pubDate>Mon, 21 Dec 2020 12:44:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/12/controlar-tu-celular-por-wi-fi/</guid><description>&lt;p>Anteriormente hablamos de &lt;a href="https://patojad.com.ar/posts/2020/11/scrcpy/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+como utilizar nuestro celular con android desde nuestra PC
+&lt;/a>, aunque en este tutorial solo hablamos de como usarlo cuando nuestro celular esta conectado via USB. Sin embargo este método puede no ser el más cómodo en todos los casos y por eso un miembro de la comunidad nos facilitó el método para poder usarlo de la misma forma pero vía Wi-Fi. Es importante recalcar que &lt;strong>tanto la PC como el dispositivo móvil tienen que estar en la misma red Wi-Fi.&lt;/strong>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="usarlo-por-wi-fi">
+Usarlo por Wi-Fi
+&lt;a href="#usarlo-por-wi-fi" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Como dije de entrada este artículo le corresponde 100% a un usuario de la comunidad que me tiró un super mensaje para aclararme esto. Vale aclarar que esto está muy demorado ya que quise dejar pasar un tiempo para no ser tan repetitivo con los temas.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/BZzC6LnL/Captura-de-pantalla-de-2020-11-13-08-49-00.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Para poder hacer eso es importante habilitar ADB para poder utilizarlo por Wi-Fi por eso vamos a dejar a continuación toda la información necesaria que fue facilitado por Javier.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="habilitando-adb-sobre-wifi-en-android">
+Habilitando ADB sobre Wifi en Android
+&lt;a href="#habilitando-adb-sobre-wifi-en-android" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;ul>
+&lt;li>&lt;strong>Paso 1:&lt;/strong> Habilite la depuración de USB (Configuración de Android&amp;gt; Opciones de desarrollador&amp;gt; Marque Habilitar depuración de USB). Si ya venías usando este paso no es necesario dado que ya está habilitado&lt;/li>
+&lt;li>&lt;strong>Paso 2:&lt;/strong> Conecte su dispositivo a la PC a través de USB. Si bien vamos a usarlo vía Wi-Fi es necesario configurarlo por cable.&lt;/li>
+&lt;li>&lt;strong>Paso 3:&lt;/strong> Abrimos la terminal teniendo ADB instalado y vamos a poner los siguientes comandos:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">adb tcpip &lt;span class="m">5555&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Esto te dará un resultado:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">restarting in TCP mode port: &lt;span class="m">5555&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>&lt;strong>Paso 4:&lt;/strong> Ahora encuentra la dirección IP de tu Android en Configuración&amp;gt; Wifi&amp;gt; Avanzado. Anote su dirección IP. En algunas versiones de Android se encuentra dentro de Preferencias de Wi-Fi.&lt;/li>
+&lt;li>&lt;strong>Paso 5:&lt;/strong> En terminal escribimos:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">adb connect &amp;lt;dirección IP&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Reemplazando &amp;lt;dirección IP&amp;gt; con la que apuntamos anteriormente. Esto te daría un resultado:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">connected to &amp;lt;dirección IP&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>&lt;strong>Paso 6:&lt;/strong> Ahora, para verificar si está conectado a ADB a través de WiFi, desconecte su dispositivo de USB y escriba:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">adb devices
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Esto debería darte un resultado:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">192.168.1.192:5555 device
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Has habilitado exitosamente la conexión a ADB a través de la red WiFi de tu Android.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="usando-scrcpy">
+Usando Scrcpy
+&lt;a href="#usando-scrcpy" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/7YTnTH5B/Captura-de-pantalla-de-2020-11-13-09-15-56.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Una vez que tenemos el dispositivo conectado correctamente (Sugiero mantener la ip estática para evitar tener que reconectar cuando nuestro dispositivo se reconecte a la red) También recuerden que es estrictamente necesario verificar la &lt;a href="https://patojad.com.ar/aplicaciones/2020/11/scrcpy/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+instalación que vimos en la publicación anterior
+&lt;/a>. Si todo lo anterior está OK vamos a poder usar el comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">scrcpy
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Scrcpy</title><link>https://patojad.com.ar/post/2020/11/scrcpy/</link><pubDate>Fri, 13 Nov 2020 09:32:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/11/scrcpy/</guid><description>&lt;p>En lo personal soy una persona que dependo mucho de mi dispositivo celular para poder trabajar, ya que en el tengo apps relacionadas con 2FA y varios y realmente no es cómodo estar cambiando de dispositivo todo el tiempo, y más cuando olvidamos cargar el celular y no tiene la batería suficiente.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/BZzC6LnL/Captura-de-pantalla-de-2020-11-13-08-49-00.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Esta aplicación que estamos mostrando hoy es una solución para la gente como yo, que les gusta dejar el Celular conectado por USB y seguirlo usando sin sacar las manos del teclado.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalación">
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Esta aplicación puede ser realmente útil dependiendo el usuario, por lo cual vamos a ir viendo el proceso de instalación para las diferentes distros.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="debianubuntu">
+Debian/Ubuntu
+&lt;a href="#debianubuntu" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>En este caso vamos a encontrarlo en debian sid o testing y en ubuntu 20.04 (Antix lo tiene desde la versión 19) en adelante. De no tener estos repositorios lo más probable es que no lo encuentres para su uso. La instalación se hace mediante apt de la siguiente forma:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt install scrcpy
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="arch-y-derivadas">
+Arch y derivadas
+&lt;a href="#arch-y-derivadas" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>En este caso vamos a hacer uso de los repositorios de la comunidad conocidos como AUR en esta oportunidad vamos a tener las últimas versiones. Para esto vamos a hacer uso de YAY de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">yay -S scrcpy
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="otras-bases-y-distros">
+Otras bases y distros
+&lt;a href="#otras-bases-y-distros" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Podemos encontrar esta hermosa app en todas las distros de GNU/Linux pero puede que en algunos casos tengamos algún problema de dependencia, o simplemente el hecho de que queramos tener una versión actual nos puede empujar a cosas buenas (como instalar Arch) o cosas malas (como usar Snap). En fin, hay que saber que tenemos a disponibilidad el Snap para simplificar la instalación en diferentes distros.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">snap install scrcpy
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="windows">
+Windows
+&lt;a href="#windows" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>En windows tenemos muchas posibilidades de instalarlo, como descargar el zip desde su git, sin embargo es importante mantener todo bien organizado y con buen funcionamiento, para lo cual recomiendo instalar Chocolatey&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cmd" data-lang="cmd">&lt;span class="line">&lt;span class="cl">choco install scrcpy
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">choco install adb
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="usando-la-app">
+Usando la app
+&lt;a href="#usando-la-app" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>En mi caso al instalarlo por AUR no me creo ningun icono entre mis apps pero podía ejecutarlo simplemente por la terminal de la siguiente forma:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">scrcpy
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Luego cree mi propio icono en el menú, pero bastará con ejecutarlo y tener nuestro celular conectado por usb. Es importante recordar que el celular tiene que tener el modo desarrollador y el USB debug. Para chequearlo podemos ver que lo reconozca adb de la siguiente manera.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">adb devices
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/7YTnTH5B/Captura-de-pantalla-de-2020-11-13-09-15-56.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>En caso de tener algún error o necesitar ayuda no te olvides que estamos disponibles en el grupo de Telegram para todos ustedes!&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Unite a nuestra comunidad'
+rel="noopener"
+href='https://t.me/PatoJADCommunity'>
+Unite a nuestra comunidad
+&lt;/a>
+&lt;/div>
+&lt;hr>
+&lt;p>Recorda &lt;strong>apoyarnos&lt;/strong> en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p></description></item></channel></rss>
