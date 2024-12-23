@@ -21,6 +21,8 @@ tags:
     server,
     ubuntu server,
     "22.04",
+    bash,
+    zsh,
   ]
 categories: [Linux, Programacion, Aplicaciones]
 img: https://i.postimg.cc/tJDt7yTf/dockerubuntu.webp
