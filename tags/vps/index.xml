@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Vps on PatoJAD</title><link>https://patojad.com.ar/tags/vps/</link><description>Recent content in Vps on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Fri, 15 Nov 2024 10:12:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/vps/index.xml" rel="self" type="application/rss+xml"/><item><title>Un Guardián Digital para Tu Servidor Cloud</title><link>https://patojad.com.ar/post/2024/11/un-guardi%C3%A1n-digital-para-tu-servidor-cloud/</link><pubDate>Fri, 15 Nov 2024 10:12:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/11/un-guardi%C3%A1n-digital-para-tu-servidor-cloud/</guid><description>&lt;p>Hoy vamos a ver un poco mas sobre &lt;code>fail2ban&lt;/code> y como instalarlo en tu servidor cloud.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-fail2ban">
+¿Qué es Fail2ban?
+&lt;a href="#qu%c3%a9-es-fail2ban" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Fail2ban es una herramienta de seguridad que actúa como un vigilante digital para tu servidor cloud. Su función principal es bloquear automáticamente las direcciones IP que intentan acceder a tu servidor de forma repetida y fallida. Esto ayuda a prevenir ataques de fuerza bruta, donde los hackers intentan adivinar contraseñas.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalando-fail2ban">
+Instalando Fail2ban
+&lt;a href="#instalando-fail2ban" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Para instalar Fail2ban en tu servidor, puedes utilizar el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt-get install fail2ban
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Una vez instalado, necesitarás configurar un archivo de configuración local:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo nano /etc/fail2ban/jail.local
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="configurando-fail2ban">
+Configurando Fail2ban
+&lt;a href="#configurando-fail2ban" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Dentro del archivo de configuración, puedes personalizar varias opciones, como:&lt;/p>
+&lt;ul>
+&lt;li>ignoreip: Una lista de direcciones IP que no serán bloqueadas.&lt;/li>
+&lt;li>bantime: El tiempo durante el cual una IP bloqueada permanecerá inaccesible.&lt;/li>
+&lt;li>findtime: El período de tiempo en el que se cuentan los intentos fallidos.&lt;/li>
+&lt;li>maxretry: El número máximo de intentos fallidos permitidos antes de bloquear una IP.&lt;/li>
+&lt;li>También puedes configurar notificaciones por correo electrónico para recibir alertas sobre intentos de intrusión.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="habilitando-jails">
+Habilitando Jails
+&lt;a href="#habilitando-jails" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Los &amp;ldquo;jails&amp;rdquo; son reglas específicas que Fail2ban aplica a diferentes servicios en tu servidor, como SSH, FTP, o servicios web. Puedes habilitar o deshabilitar los jails según tus necesidades.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="reiniciando-fail2ban">
+Reiniciando Fail2ban
+&lt;a href="#reiniciando-fail2ban" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Una vez que hayas configurado los jails, reinicia el servicio de Fail2ban para aplicar los cambios:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl restart fail2ban.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="verificando-el-bloqueo-de-ip">
+Verificando el Bloqueo de IP
+&lt;a href="#verificando-el-bloqueo-de-ip" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Puedes verificar las direcciones IP bloqueadas utilizando el comando &lt;code>iptables -L&lt;/code>.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="desbloqueando-una-ip">
+Desbloqueando una IP
+&lt;a href="#desbloqueando-una-ip" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Si necesitas desbloquear una IP que ha sido bloqueada por error, puedes utilizar el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo fail2ban-client &lt;span class="nb">set&lt;/span> &amp;lt;jail&amp;gt; unbanip &amp;lt;ip_address&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusión">
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Fail2ban es una herramienta poderosa que puede ayudar a proteger tu servidor cloud de ataques maliciosos. Con una configuración adecuada, puedes mejorar significativamente la seguridad de tu infraestructura en línea.&lt;/p></description></item><item><title>De VMware a una Infraestructura alternativa</title><link>https://patojad.com.ar/post/2024/04/de-vmware-a-una-infraestructura-alternativa/</link><pubDate>Mon, 08 Apr 2024 10:24:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/04/de-vmware-a-una-infraestructura-alternativa/</guid><description>&lt;p>Para proporcionar algo de contexto antes de profundizar en nuestro artículo, vale la pena recapitular brevemente la situación actual con &lt;strong>VMware&lt;/strong> y las razones por las que muchas empresas están migrando a soluciones alternativas (incluso de código abierto, como aquellas basadas en infraestructura Ubuntu).&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="por-qué-las-empresas-se-están-alejando-de-vmware">
+¿Por qué las empresas se están alejando de VMware?
+&lt;a href="#por-qu%c3%a9-las-empresas-se-est%c3%a1n-alejando-de-vmware" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;strong>VMware&lt;/strong> es un proveedor líder en el campo de la &lt;a href="https://patojad.com.ar/post/2020/02/que-es-la-virtualizacion/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+virtualización
+&lt;/a>, con aproximadamente el 45% de participación en el mercado. Muchas empresas han estado utilizando productos &lt;strong>VMware&lt;/strong> desde hace décadas, y si bien sus herramientas son familiares y ampliamente difusas, también son costosas ya que se basan en tecnología propietaria.&lt;/p>
+&lt;p>Con la adquisición de &lt;strong>VMware&lt;/strong> por parte de &lt;strong>Broadcom&lt;/strong>, las preocupaciones existentes relacionadas con los costos y la dependencia de un único proveedor ocupan un lugar destacado en la agenda de muchos usuarios empresariales. Siguiendo las anteriores adquisiciones como por ejemplo las de &lt;strong>CA Technologies&lt;/strong> y &lt;strong>Symantec&lt;/strong>, los clientes experimentaron un aumento de precios, reducción de la inversión en innovación o desarrollo y la reducción o limitación del soporte.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="cómo-seguir">
+¿Cómo seguir?
+&lt;a href="#c%c3%b3mo-seguir" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Con un escenario parecido, los clientes de &lt;strong>VMware&lt;/strong> temen que suceda lo mismo con la reciente adquisición. En una encuesta realizada a más de 300 usuarios empresariales de &lt;strong>VMware&lt;/strong> tras el anuncio de la adquisición, 451 Research encontró que el 40% de los encuestados se sienten inseguros después del trato. A la luz de estas preocupaciones, los actuales clientes de VMware ahora tienen varias opciones (afortunadamente).&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="seguir-usando-vmware">
+Seguir usando VMware
+&lt;a href="#seguir-usando-vmware" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>La primera opción es seguir usando &lt;strong>VMware&lt;/strong>. Evitando la necesidad de migrar y volver a capacitar o entrenar a los usuarios y personal técnico en general, esta opción ofrece estabilidad, pero sacrifica flexibilidad, además eventualmente puede traer como consecuencia un alto costo total de propiedad a la vez que presenta algunos riesgos comerciales debido a cambios o evoluciones de la oferta de servicios tras la compra.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="la-nube-pública">
+La Nube Pública
+&lt;a href="#la-nube-p%c3%bablica" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Otra opción es pasar a una nube pública o &lt;strong>Public Cloud&lt;/strong>. Estas plataformas dan a las empresas acceso a poderosas herramientas y a una arquitectura más moderna, pero a veces cuando se ejecuta con importantes cargas de trabajo y a largo plazo las nubes públicas pueden resultar muy costosas.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="kubevirt-y-kubernetes">
+Kubevirt y Kubernetes
+&lt;a href="#kubevirt-y-kubernetes" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>La siguiente alternativa es utilizar &lt;strong>Kubevirt&lt;/strong> para ejecutar temporalmente máquinas virtuales en &lt;strong>Kubernetes&lt;/strong>. Si bien esta puede ser una buena solución intermedia o temporal antes de transformar y rediseñar por completo las cargas de trabajo, no es viable a largo plazo. &lt;strong>Kubernetes&lt;/strong> está destinado a cargas de &lt;em>trabajo sin estado&lt;/em> (stateless), efímeras y escalables, pero aquellas cargas de trabajo que se ejecutan en las máquinas virtuales tradicionales tienen estado, son duraderas y difíciles de escalar, lo que convierte esta opción en algo poco práctico con el pasar del tiempo.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="migrar-a-una-solución-de-código-abierto">
+Migrar a una solución de código abierto
+&lt;a href="#migrar-a-una-soluci%c3%b3n-de-c%c3%b3digo-abierto" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>La opción final y, en muchos casos, la más convincente es migrar o mover los servicios hacia otras soluciones de &lt;a href="https://patojad.com.ar/post/2020/02/que-es-la-virtualizacion/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+virtualización
+&lt;/a> de infraestructura de código abierto con una empresa comercial que ofrezca una alternativa comercial (pero compatible con todos los estándares).&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="próximos-pasos">
+Próximos pasos
+&lt;a href="#pr%c3%b3ximos-pasos" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>En nuestro próximo artículo profundizaremos como &lt;strong>OpenStack&lt;/strong> puede convertirse en una válida opción para dejar atrás VMware.&lt;/p>
+&lt;p>Si tu carga de trabajo puede ser redimensionada puedes optar por un VPS en la Nube de alto rendimiento, muchos proveedores privados pueden ofrecerte una amplia variedad de servicios como por ejemplo la gente de &lt;a href="https://plataforma.vpsuniverse.net/aff.php?aff=25" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+VPSuniverse
+&lt;/a>.&lt;/p></description></item></channel></rss>

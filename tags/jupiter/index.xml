@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jupiter on PatoJAD</title><link>https://patojad.com.ar/tags/jupiter/</link><description>Recent content in Jupiter on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 13 Sep 2022 11:48:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/jupiter/index.xml" rel="self" type="application/rss+xml"/><item><title>Agregar Repositorio de SteamOS a Arch</title><link>https://patojad.com.ar/post/2022/09/agregar-repositorio-de-steamos-a-arch/</link><pubDate>Tue, 13 Sep 2022 11:48:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/09/agregar-repositorio-de-steamos-a-arch/</guid><description>&lt;p>Vamos a agregar los repositorios de SteamOS (Holo y jupiter) a nuestra distribución de Arch Linux favorita. Esto puede sernos útil para poder acceder a sus apps, configuraciones y personalizaciones.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://steamdeck-packages.steamos.cloud/archlinux-mirror/jupiter/os/x86_64/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fab fa-steam">&lt;/i>&amp;nbsp;
+Repositorio Jupiter
+&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://steamdeck-packages.steamos.cloud/archlinux-mirror/holo/os/x86_64/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fab fa-steam">&lt;/i>&amp;nbsp;
+Repositorio Holo
+&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://steamdeck-packages.steamos.cloud/archlinux-mirror/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fab fa-steam">&lt;/i>&amp;nbsp;
+Todos los Repositorios
+&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://steamdeck-packages.steamos.cloud/archlinux-mirror/iso/latest/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fab fa-steam">&lt;/i>&amp;nbsp;
+Ultimas ISO
+&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Antes que nada te dejo el link donde vas a poder ver los repositorios posibles y los paquetes que tiene cada uno de estos.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="video">
+Video
+&lt;a href="#video" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;iframe src='https://www.youtube.com/embed/dY6ISmFUlTY?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="comandos">
+Comandos
+&lt;a href="#comandos" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Lo primero que vamos a hacer es abrir nuestro &lt;code>pacman.conf&lt;/code> para poder agregar los repositorios, esto lo hacemos desde la terminal y como administrador para poder guardar los cambios de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo nano /etc/pacman.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Luego agregamos las siguientes 2 líneas al final del archivo. En mi caso estaban comentadas pero tu debes agregarlas (se pega con ctrl+shift+v)&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="line">&lt;span class="cl">&lt;span class="k">[jupiter]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Server&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">https://steamdeck-packages.steamos.cloud/archlinux-mirror/$repo/os/$arch&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">SigLevel&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">Never&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">[holo]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Server&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">https://steamdeck-packages.steamos.cloud/archlinux-mirror/$repo/os/$arch&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">SigLevel&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">Never&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Luego guardamos (ctrl+o y después enter) y cerramos, ya podemos actualizar para descargar la información de nuestros repositorios&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo pacman -Syyu
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Y ya podemos instalar desde los repositorios de SteamOS&lt;/p></description></item></channel></rss>

@@ -1,0 +1,1170 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tutorial on PatoJAD</title><link>https://patojad.com.ar/tags/tutorial/</link><description>Recent content in Tutorial on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Mon, 23 Dec 2024 19:18:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/tutorial/index.xml" rel="self" type="application/rss+xml"/><item><title>Cómo instalar Docker en Ubuntu 22.04</title><link>https://patojad.com.ar/post/2024/12/c%C3%B3mo-instalar-docker-en-ubuntu-22.04/</link><pubDate>Mon, 23 Dec 2024 19:18:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/12/c%C3%B3mo-instalar-docker-en-ubuntu-22.04/</guid><description>&lt;p>A continuacion dejo los pasos que seguimos en el video para instalar Docker en Ubuntu 22.04. El mismo procedimiento puede ser aplicado a otras versiones de Ubuntu y distribuciones basadas en Ubuntu.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="paso-1-actualizar-el-sistema">
+Paso 1: Actualizar el sistema
+&lt;a href="#paso-1-actualizar-el-sistema" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Antes de instalar Docker, es recomendable actualizar el sistema para asegurarse de que todos los paquetes estén al día. Para ello, ejecuta los siguientes comandos en la terminal:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt upgrade
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="paso-2-preparar-entorno">
+Paso 2: Preparar entorno
+&lt;a href="#paso-2-preparar-entorno" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Docker requiere algunas dependencias para funcionar correctamente. Puedes instalarlas ejecutando el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Add Docker&amp;#39;s official GPG key:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install ca-certificates curl
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo install -m &lt;span class="m">0755&lt;/span> -d /etc/apt/keyrings
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo chmod a+r /etc/apt/keyrings/docker.asc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Add the repository to Apt sources:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="s2">&amp;#34;deb [arch=&lt;/span>&lt;span class="k">$(&lt;/span>dpkg --print-architecture&lt;span class="k">)&lt;/span>&lt;span class="s2"> signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="s2"> &lt;/span>&lt;span class="k">$(&lt;/span>. /etc/os-release &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$VERSION_CODENAME&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">)&lt;/span>&lt;span class="s2"> stable&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> sudo tee /etc/apt/sources.list.d/docker.list &amp;gt; /dev/null
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt update
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="paso-3-instalar-docker">
+Paso 3: Instalar Docker
+&lt;a href="#paso-3-instalar-docker" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Una vez que hayas configurado el entorno, puedes instalar Docker en Ubuntu 22.04 con el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="paso-4-verificar-la-instalación">
+Paso 4: Verificar la instalación
+&lt;a href="#paso-4-verificar-la-instalaci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Para verificar que Docker se haya instalado correctamente, puedes ejecutar el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">docker --version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Un Guardián Digital para Tu Servidor Cloud</title><link>https://patojad.com.ar/post/2024/11/un-guardi%C3%A1n-digital-para-tu-servidor-cloud/</link><pubDate>Fri, 15 Nov 2024 10:12:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/11/un-guardi%C3%A1n-digital-para-tu-servidor-cloud/</guid><description>&lt;p>Hoy vamos a ver un poco mas sobre &lt;code>fail2ban&lt;/code> y como instalarlo en tu servidor cloud.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-fail2ban">
+¿Qué es Fail2ban?
+&lt;a href="#qu%c3%a9-es-fail2ban" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Fail2ban es una herramienta de seguridad que actúa como un vigilante digital para tu servidor cloud. Su función principal es bloquear automáticamente las direcciones IP que intentan acceder a tu servidor de forma repetida y fallida. Esto ayuda a prevenir ataques de fuerza bruta, donde los hackers intentan adivinar contraseñas.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalando-fail2ban">
+Instalando Fail2ban
+&lt;a href="#instalando-fail2ban" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Para instalar Fail2ban en tu servidor, puedes utilizar el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt-get install fail2ban
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Una vez instalado, necesitarás configurar un archivo de configuración local:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo nano /etc/fail2ban/jail.local
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="configurando-fail2ban">
+Configurando Fail2ban
+&lt;a href="#configurando-fail2ban" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Dentro del archivo de configuración, puedes personalizar varias opciones, como:&lt;/p>
+&lt;ul>
+&lt;li>ignoreip: Una lista de direcciones IP que no serán bloqueadas.&lt;/li>
+&lt;li>bantime: El tiempo durante el cual una IP bloqueada permanecerá inaccesible.&lt;/li>
+&lt;li>findtime: El período de tiempo en el que se cuentan los intentos fallidos.&lt;/li>
+&lt;li>maxretry: El número máximo de intentos fallidos permitidos antes de bloquear una IP.&lt;/li>
+&lt;li>También puedes configurar notificaciones por correo electrónico para recibir alertas sobre intentos de intrusión.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="habilitando-jails">
+Habilitando Jails
+&lt;a href="#habilitando-jails" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Los &amp;ldquo;jails&amp;rdquo; son reglas específicas que Fail2ban aplica a diferentes servicios en tu servidor, como SSH, FTP, o servicios web. Puedes habilitar o deshabilitar los jails según tus necesidades.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="reiniciando-fail2ban">
+Reiniciando Fail2ban
+&lt;a href="#reiniciando-fail2ban" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Una vez que hayas configurado los jails, reinicia el servicio de Fail2ban para aplicar los cambios:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl restart fail2ban.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="verificando-el-bloqueo-de-ip">
+Verificando el Bloqueo de IP
+&lt;a href="#verificando-el-bloqueo-de-ip" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Puedes verificar las direcciones IP bloqueadas utilizando el comando &lt;code>iptables -L&lt;/code>.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="desbloqueando-una-ip">
+Desbloqueando una IP
+&lt;a href="#desbloqueando-una-ip" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Si necesitas desbloquear una IP que ha sido bloqueada por error, puedes utilizar el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo fail2ban-client &lt;span class="nb">set&lt;/span> &amp;lt;jail&amp;gt; unbanip &amp;lt;ip_address&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusión">
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Fail2ban es una herramienta poderosa que puede ayudar a proteger tu servidor cloud de ataques maliciosos. Con una configuración adecuada, puedes mejorar significativamente la seguridad de tu infraestructura en línea.&lt;/p></description></item><item><title>Cómo instalar Bun.js en MacOS con Homebrew</title><link>https://patojad.com.ar/post/2024/11/c%C3%B3mo-instalar-bun.js-en-macos-con-homebrew/</link><pubDate>Fri, 01 Nov 2024 10:24:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/11/c%C3%B3mo-instalar-bun.js-en-macos-con-homebrew/</guid><description>&lt;p>Instalar &lt;strong>Bun.js&lt;/strong> en MacOS puede hacerse de varias maneras, y en este artículo exploraremos cómo hacerlo con Homebrew, un gestor de paquetes que simplifica la instalación de herramientas en Mac. Aunque hay otros métodos, en mi caso he optado por usar Brew por preferencia personal, y en este tutorial te guiaré paso a paso en el proceso. Además, agregaré información básica sobre &lt;strong>Bun.js&lt;/strong> y su utilidad, así como algunos consejos útiles para la instalación.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-bunjs-y-por-qué-usarlo">
+¿Qué es &lt;strong>Bun.js&lt;/strong> y por qué usarlo?
+&lt;a href="#qu%c3%a9-es-bunjs-y-por-qu%c3%a9-usarlo" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;strong>Bun.js&lt;/strong> es un runtime y gestor de paquetes todo en uno para JavaScript, desarrollado con el objetivo de ofrecer una alternativa ultrarrápida a Node.js y npm. Su principal ventaja es la velocidad, ya que está diseñado desde cero para mejorar el rendimiento en aplicaciones web y herramientas de desarrollo. Gracias a su enfoque optimizado en operaciones comunes, &lt;strong>Bun.js&lt;/strong> resulta ideal para desarrolladores que buscan una alternativa a otros runtimes y desean mayor rapidez en sus aplicaciones.&lt;/p>
+&lt;p>Para profundizar en &lt;strong>Bun.js&lt;/strong> y su ecosistema, pronto estaré publicando un artículo que detallará todas sus características y ventajas.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="requisitos-previos-instalar-homebrew">
+Requisitos previos: Instalar Homebrew
+&lt;a href="#requisitos-previos-instalar-homebrew" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Antes de comenzar con la instalación de &lt;strong>Bun.js&lt;/strong>, necesitarás tener Homebrew instalado en tu Mac. Si aún no lo tienes, puedes hacerlo siguiendo los pasos del tutorial que te dejo en este &lt;a href="https://patojad.com.ar/post/2023/02/como-instalar-brew-en-macos/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+enlace
+&lt;/a>. Homebrew es un gestor de paquetes para MacOS que facilita la instalación de software y herramientas en tu sistema. Una vez que lo tengas instalado, podrás instalar &lt;strong>Bun.js&lt;/strong> y otros paquetes con un simple comando en la terminal.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalación">
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>A continuación, te muestro cómo instalar &lt;strong>Bun.js&lt;/strong> en MacOS, para esto voy a dejarte los comandos que usamos en el video y otra opcion que tambien comentamos para que vos utilices la que creas mas conveniente.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="usando-homebrew">
+Usando Homebrew
+&lt;a href="#usando-homebrew" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Sigue estos pasos para instalar &lt;strong>Bun.js&lt;/strong> utilizando Homebrew:&lt;/p>
+&lt;ul>
+&lt;li>Abre la Terminal y ejecuta el siguiente comando para instalar &lt;strong>Bun.js&lt;/strong>:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">brew install bun
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>Para verificar que &lt;strong>Bun.js&lt;/strong> se haya instalado correctamente, utiliza el siguiente comando:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">bun --version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Si ves la versión de &lt;strong>Bun.js&lt;/strong> en pantalla, significa que la instalación fue exitosa.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="otros-métodos-para-instalar-bunjs-en-macos">
+Otros métodos para instalar &lt;strong>Bun.js&lt;/strong> en MacOS
+&lt;a href="#otros-m%c3%a9todos-para-instalar-bunjs-en-macos" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Aunque Brew es una opción rápida y práctica, existen otros métodos para instalar &lt;strong>Bun.js&lt;/strong> en MacOS:&lt;/p>
+&lt;ul>
+&lt;li>Instalación directa desde el script de Bun: Ejecuta el siguiente comando en la Terminal para una instalación rápida:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">curl -fsSL https://bun.sh/install &lt;span class="p">|&lt;/span> bash
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># En caso de querer instalar una version específica&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">curl -fsSL https://bun.sh/install &lt;span class="p">|&lt;/span> bash -s &lt;span class="s2">&amp;#34;bun-v1.0.0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Este script se encargará de descargar e instalar &lt;strong>Bun.js&lt;/strong> directamente desde su sitio oficial.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="solución-de-problemas-comunes">
+Solución de problemas comunes
+&lt;a href="#soluci%c3%b3n-de-problemas-comunes" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Es posible que te encuentres con algunos problemas durante la instalación. A continuación, presento algunos problemas comunes y cómo solucionarlos:&lt;/p>
+&lt;ul>
+&lt;li>Error al ejecutar comandos de Brew: Si Brew no está reconocido en tu Terminal, asegúrate de que está en tu PATH. Puedes añadirlo con:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;eval &amp;#34;$(/opt/homebrew/bin/brew shellenv)&amp;#34;&amp;#39;&lt;/span> &amp;gt;&amp;gt; ~/.zprofile
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">eval&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>/opt/homebrew/bin/brew shellenv&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Error de permisos: Si encuentras problemas de permisos, intenta ejecutar el comando con sudo, aunque esto no suele ser necesario en instalaciones estándar de Brew.
+&lt;ul>
+&lt;li>Comando ‘bun’ no encontrado después de la instalación: Si la Terminal no reconoce el comando bun después de instalarlo, intenta cerrar y reabrir la Terminal, o añade el PATH de &lt;strong>Bun.js&lt;/strong> manualmente:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">PATH&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;/opt/homebrew/bin:&lt;/span>&lt;span class="nv">$PATH&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusión">
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Instalar &lt;strong>Bun.js&lt;/strong> en MacOS con Homebrew es una manera sencilla y práctica para iniciarse con este potente runtime de JavaScript. No obstante, existen otros métodos de instalación, como el script directo o la descarga manual desde GitHub, que también puedes considerar según tus preferencias.&lt;/p>
+&lt;p>No olvides visitar el video en YouTube para ver el proceso en acción, y asegúrate de tener Brew correctamente configurado para evitar problemas. Espero que esta guía te haya resultado útil, ¡y te animo a explorar todo el potencial de &lt;strong>Bun.js&lt;/strong> en tus próximos proyectos de desarrollo!&lt;/p></description></item><item><title>Instalar grafica NVIDIA integrada en Arch Linux</title><link>https://patojad.com.ar/post/2024/02/instalar-grafica-nvidia-integrada-en-arch-linux/</link><pubDate>Tue, 20 Feb 2024 14:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/02/instalar-grafica-nvidia-integrada-en-arch-linux/</guid><description>&lt;p>Hola! Les comparto el método que encontré para hacer funcionar mi gráfica nvidia integrada con 10 años de antigüedad usando drivers privativo y Optimus Manager!&lt;/p>
+&lt;blockquote>
+&lt;p>Ej.: mi gráfica es NVIDIA GeForge GTX770M y la versión compatible es la nvidia-470xx)&lt;/p>
+&lt;/blockquote>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="detectando-tipo-de-controladores-de-video">
+Detectando tipo de controladores de video:
+&lt;a href="#detectando-tipo-de-controladores-de-video" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">lspci &lt;span class="p">|&lt;/span> grep VGA
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>en mi caso responde: &lt;code>00:02.0 VGA compatible controller: Intel Corporation 4th Gen Core Processor Integrated Graphics Controller (rev 06)&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">lspci -k &lt;span class="p">|&lt;/span> grep VGA -A &lt;span class="m">2&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>en mi caso responde:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">00:02.0 VGA compatible controller: Intel Corporation 4th Gen Core Processor Integrated Graphics Controller (rev 06)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Subsystem: Toshiba Corporation 4th Gen Core Processor Integrated Graphics Controller
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Kernel driver in use: i915
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="instalando-controlador-de-codigo-abieto-de-intel">
+Instalando controlador de Codigo abieto de Intel:
+&lt;a href="#instalando-controlador-de-codigo-abieto-de-intel" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S xf86-video-intel intel-ucode
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="detectar-nvidia">
+Detectar Nvidia:
+&lt;a href="#detectar-nvidia" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>Ver DRIVERS de VIDEO instalados:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">xrandr --listproviders
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Ver paquetes NVIDIA instalados:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Ss nvidia
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Ver paquete NVIDIA SETTINGS instalado:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Ss nvidia-settings
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="desinstalando-versiones-anteriores">
+Desinstalando versiones anteriores:
+&lt;a href="#desinstalando-versiones-anteriores" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Rns nombredelpaquete
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>ej.:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Rns nvidia-340xx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="detectar-driver-compatible-con-la-gráfica-nvidia">
+Detectar Driver compatible con la gráfica NVIDIA:
+&lt;a href="#detectar-driver-compatible-con-la-gr%c3%a1fica-nvidia" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Hay que considerar dos factores de compatibilidad: &lt;strong>Versión nvidia&lt;/strong> y el &lt;strong>Kernel&lt;/strong>&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="ver-lista-de-compatibilidad">
+Ver lista de compatibilidad:
+&lt;a href="#ver-lista-de-compatibilidad" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>Entrar a la &lt;a href="https://www.nvidia.com/en-us/drivers/unix/legacy-gpu/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+siguiente página
+&lt;/a> y buscar tu modelo de nvidia dentro de la lista para saber con
+que versión es compatible.&lt;/li>
+&lt;/ul>
+&lt;h4 class="text-gray-500 text-3xl my-6" id="nvidia-según-el-kernel">
+Nvidia según el kernel:
+&lt;a href="#nvidia-seg%c3%ban-el-kernel" class="text-gray-500">#&lt;/a>
+&lt;/h4>&lt;ul>
+&lt;li>kernel linux → nvidia&lt;/li>
+&lt;li>linux-lts → nvidia-lts&lt;/li>
+&lt;li>todos los kernel (construye dinámicamente los módulos del kernel) → nvidia-dkms&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>ej: en mi caso como el modelo de la nvidia es viejo debo usar por compatibilidad el kernetl lts pero con nvidia-dkms&lt;/p>
+&lt;/blockquote>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="pasos-previos-a-la-instalación">
+Pasos previos a la instalación:
+&lt;a href="#pasos-previos-a-la-instalaci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;ul>
+&lt;li>Habilitar Multilib para ejecutar aplicaciones 32 bits en sist. de 64 bits:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo nano /etc/pacman.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>(para habilitar hay que descomentar las dos lineas siguientes, borrar # y guardar)
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="line">&lt;span class="cl">&lt;span class="k">[multilib]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Include&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">/etc/pacman.d/mirrorlist&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Para guardar cambios: Ctrol + o (letra), Para confirmar: enter, Para salir: Ctrol + x&lt;/li>
+&lt;li>Entrar al archivo sddm para editarlo (en el caso de que se use kde) con el siguiente comando:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo nano /etc/sddm.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Agregar # a las dos líneas que estan debajo de [X11]:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="line">&lt;span class="cl">&lt;span class="k">[X11]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># DisplayCommand&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># DisplayStopCommand&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Ctrl + o
+Enter
+Ctrol + X&lt;/li>
+&lt;/ul>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="borrar-archivos-que-esten-dentro-de-la-carpeta-x11-para-que-no-interfieran">
+Borrar archivos que esten dentro de la carpeta X11 para que no interfieran:
+&lt;a href="#borrar-archivos-que-esten-dentro-de-la-carpeta-x11-para-que-no-interfieran" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>Ir a la carpeta: &lt;code>/etc/X11/&lt;/code>&lt;/li>
+&lt;li>Ver si hay archivos xorg fuera de las carpetas.&lt;/li>
+&lt;li>Si hay archivos xorg: los vamos a borrar de la siguiente manera:
+&lt;ul>
+&lt;li>Hacer Click derecho y seleccionar abrir terminal aqui&lt;/li>
+&lt;li>Para Borrar los archivos y dejar las carpetas
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo rm xorg.conf
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo mv xorg.conf xorg.conf0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo rm xorg.conf.nvidia-xconfig-original
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalar-controlador-privativo-de-nvidia">
+Instalar controlador privativo de Nvidia:
+&lt;a href="#instalar-controlador-privativo-de-nvidia" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="nvidia-para-kernel-linux-última-versión">
+Nvidia para kernel linux (última versión)
+&lt;a href="#nvidia-para-kernel-linux-%c3%baltima-versi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S nvidia nvidia-utils
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="nvidia-para-kernel-linux-lts-para-nvidia-viejas-es-mejor-no-usar-lts">
+Nvidia para kernel linux-lts: (para nvidia viejas es mejor no usar lts)
+&lt;a href="#nvidia-para-kernel-linux-lts-para-nvidia-viejas-es-mejor-no-usar-lts" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S nvidia-lts
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="nvidia-para-kernel-linux-zen-sirve-para-todos-los-kernel-dkms">
+Nvidia para kernel linux-zen: (sirve para todos los kernel) dkms
+&lt;a href="#nvidia-para-kernel-linux-zen-sirve-para-todos-los-kernel-dkms" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S nvidia-dkms
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>ej: en mi caso compatible con GeForge GTX770M&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S nvidia-470xx-dkms
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yay -S nvidia-470xx-utils
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yay -S lib32-nvidia-470xx-utils
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yay -S lib32-opencl-nvidia-470xx
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yay -S opencl-nvidia-470xx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>En una linea todos los paquetes dkms para la versión 470xx:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S nvidia-470xx-dkms nvidia-470xx-utils lib32-nvidia-470xx-utils lib32-opencl-nvidia-470xx opencl-nvidia-470xx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="instalar-mhwd">
+Instalar MhWd:
+&lt;a href="#instalar-mhwd" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">$ yay -S mhwd-nvidia-versión
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>ej: en mi caso compatible 470xx&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S mhwd-nvidia-470xx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="instalar-nvidia-settings">
+Instalar Nvidia Settings:
+&lt;a href="#instalar-nvidia-settings" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S nvidia-settings
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>ej.: Compatible 470xx:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S nvidia-470xx-settings
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="instalar-bbswithc">
+Instalar bbswithc
+&lt;a href="#instalar-bbswithc" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="para-kernel-linux">
+Para kernel linux:
+&lt;a href="#para-kernel-linux" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S bbswitch
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="para-kernel-linux-zen-o-si-usamos-las-nvidia-dkms">
+Para kernel linux-Zen o si usamos las nvidia-dkms:
+&lt;a href="#para-kernel-linux-zen-o-si-usamos-las-nvidia-dkms" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S bbswitch-dkms
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="instalar-optimus-manager">
+Instalar Optimus Manager:
+&lt;a href="#instalar-optimus-manager" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S optimus-manager optimus-manager-qt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Actualizar:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Syyu
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Verificar el estado de Optimus Manager:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">systemctl status optimus-manager.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Para parar el proceso apretar: q&lt;/p>
+&lt;p>Reiniciar:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">reboot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="configurar-optimus-manager">
+Configurar Optimus Manager:
+&lt;a href="#configurar-optimus-manager" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>Ir al Menú de aplicaciones y ejecutar Optimus manager&lt;/li>
+&lt;li>Va aparecer un icono en la barra.&lt;/li>
+&lt;li>Hacer Click derecho sobre el ícono de Optimus manager de la barra y entrar a Configuración.
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/ZYdrnpxr/image.png" alt="Optimus Manager" loading="lazy" class="rounded-xl" />
+&lt;/div>
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/Gmh8FyGg/image.png" alt="Optimus Manager" loading="lazy" class="rounded-xl" />
+&lt;/div>
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/VkGSDkFf/image.png" alt="Optimus Manager" loading="lazy" class="rounded-xl" />
+&lt;/div>
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/FKYYqXPj/image.png" alt="Optimus Manager" loading="lazy" class="rounded-xl" />
+&lt;/div>
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/ZqXWzsgX/image.png" alt="Optimus Manager" loading="lazy" class="rounded-xl" />
+&lt;/div>
+&lt;div class="alert alert-warning col-12" style="position:relative;">
+&lt;div class="info-box-content container">
+&lt;div class="row">
+&lt;div class="col-2 text-center">
+&lt;span class="fa fa-warning fa-5x">&lt;/span>
+&lt;/div>
+&lt;div class="col-10">
+&lt;p class="no-margin">OJO: INICIAR SESIÓN CON X11 (Xorg de KDE) porque optimus manager no es compatible con wayland&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/li>
+&lt;li>Reiniciar el sistema:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">reboot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="comprobar-si-funciona-nvidia">
+Comprobar si funciona Nvidia:
+&lt;a href="#comprobar-si-funciona-nvidia" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>Abrir la consola y poner el siguiente comando:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">optimus-manager --print-mode
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>ej: en mi caso responde:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Current GPU mode : nvidia
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Poner el siguiente comando:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">glxgears -info
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Se abre la siguiente ventana:
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/c1BLFJsp/image.png" alt="glxgears" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/li>
+&lt;li>Cerrar la ventana chicha y se frena el proceso.&lt;/li>
+&lt;li>Subir por la consola hasta donde se puso el comando para ver el resultado.
+Ej: en mi caso dio:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Running synchronized to the vertical refresh. The framerate should be
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">approximately the same as the monitor refresh rate.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">GL_RENDERER = NVIDIA GeForce GTX 770M/PCIe/SSE2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">GL_VERSION = 4.6.0 NVIDIA 470.223.02
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">GL_VENDOR = NVIDIA Corporation
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="configurar-nvidia-settings">
+CONFIGURAR NVIDIA SETTINGS
+&lt;a href="#configurar-nvidia-settings" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>Entrar al Menu de apliciones y abrir Nvidia X Server Settings&lt;/li>
+&lt;li>Entrar a “OpenGL Settings”&lt;/li>
+&lt;li>En la solapa Image Settings:&lt;/li>
+&lt;li>Poner la configuración deseada:
+High Performance (mejor rendimiento, elijo esta)
+High Quality (mejor calidad)&lt;/li>
+&lt;/ul>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="instalar-el-controlador-gwe-controla-las-gpu-nvidia">
+INSTALAR EL CONTROLADOR GWE: controla las GPU NVIDIA
+&lt;a href="#instalar-el-controlador-gwe-controla-las-gpu-nvidia" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S gwe
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Instalación de Wine en GNU/Linux para Ejecutar Aplicaciones Windows</title><link>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</link><pubDate>Wed, 15 Nov 2023 12:02:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</guid><description>&lt;p>La compatibilidad entre sistemas operativos es esencial, y Wine, una herramienta de código abierto, facilita la ejecución de aplicaciones Windows en entornos GNU/Linux. En esta guía, exploraremos qué es Wine, cómo instalarlo en distintas distribuciones y dónde se instalan las aplicaciones. ¡Descubre cómo ampliar las posibilidades de tu sistema operativo!&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-wine">
+¿Qué es Wine?
+&lt;a href="#qu%c3%a9-es-wine" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Wine, que significa &amp;ldquo;Wine Is Not an Emulator&amp;rdquo; (Wine no es un emulador), es una capa de compatibilidad que permite ejecutar aplicaciones diseñadas para Microsoft Windows en sistemas operativos basados en Unix, como GNU/Linux. No es una máquina virtual ni emula un entorno Windows completo; en cambio, traduce llamadas de sistema de Windows a llamadas de sistema compatibles con Unix.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="por-qué-usar-wine">
+¿Por qué usar Wine?
+&lt;a href="#por-qu%c3%a9-usar-wine" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Wine es una herramienta muy útil para aquellos que necesitan ejecutar aplicaciones Windows en entornos GNU/Linux. Algunos ejemplos de casos de uso incluyen:&lt;/p>
+&lt;ul>
+&lt;li>Ejecutar aplicaciones de productividad como Microsoft Office.&lt;/li>
+&lt;li>Ejecutar aplicaciones de diseño como Adobe Photoshop.&lt;/li>
+&lt;li>Ejecutar juegos de Windows.&lt;/li>
+&lt;li>Ejecutar aplicaciones de Windows que no tienen alternativas nativas en GNU/Linux.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="cómo-se-instala-wine">
+¿Cómo se instala Wine?
+&lt;a href="#c%c3%b3mo-se-instala-wine" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>La instalación de Wine varía según la distribución de GNU/Linux que estés utilizando. A continuación, se detallan los pasos para algunas distribuciones populares.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="debianubuntu">
+Debian/Ubuntu
+&lt;a href="#debianubuntu" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo dpkg --add-architecture i386
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install wine64 wine32
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="fedora">
+Fedora
+&lt;a href="#fedora" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo dnf install wine
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="arch-linux-y-derivadas-como-manjaro">
+Arch Linux (y derivadas como Manjaro):
+&lt;a href="#arch-linux-y-derivadas-como-manjaro" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S wine
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="opensuse">
+OpenSUSE:
+&lt;a href="#opensuse" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo zypper install wine
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="dónde-se-instalan-las-aplicaciones-con-wine">
+¿Dónde se instalan las aplicaciones con Wine?
+&lt;a href="#d%c3%b3nde-se-instalan-las-aplicaciones-con-wine" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Las aplicaciones instaladas con Wine se almacenan en un directorio llamado &lt;code>wineprefix&lt;/code>. Por defecto, se encuentra en el directorio de inicio del usuario en una carpeta oculta llamada &lt;code>.wine&lt;/code>. Dentro de este directorio, encontrarás una estructura similar a la de un sistema Windows estándar, con carpetas como &lt;code>Program Files&lt;/code> y &lt;code>Windows&lt;/code>.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="proceso-de-instalación-básico-de-una-aplicación-con-wine">
+Proceso de instalación básico de una aplicación con Wine
+&lt;a href="#proceso-de-instalaci%c3%b3n-b%c3%a1sico-de-una-aplicaci%c3%b3n-con-wine" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>Descarga el instalador de la aplicación Windows que deseas ejecutar.&lt;/li>
+&lt;li>Abre una terminal y navega hasta el directorio donde descargaste el instalador.&lt;/li>
+&lt;li>Ejecuta el siguiente comando:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">wine nombre_del_instalador.exe
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Sigue los pasos de instalación como lo harías en Windows.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusiones">
+Conclusiones
+&lt;a href="#conclusiones" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;strong>Wine&lt;/strong> es una herramienta invaluable para aquellos que necesitan ejecutar aplicaciones Windows en entornos GNU/Linux. Su capacidad para traducir llamadas de sistema y proporcionar un entorno de ejecución nativo es fundamental para mejorar la interoperabilidad entre diferentes sistemas operativos.&lt;/p></description></item><item><title>Cómo Configurar un Sitio PHP en aaPanel</title><link>https://patojad.com.ar/post/2023/08/c%C3%B3mo-configurar-un-sitio-php-en-aapanel/</link><pubDate>Fri, 18 Aug 2023 08:01:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/08/c%C3%B3mo-configurar-un-sitio-php-en-aapanel/</guid><description>&lt;p>En el vertiginoso mundo de la informática, la elección de una plataforma de alojamiento web sólida y eficiente es fundamental para el éxito de cualquier proyecto en línea. &lt;strong>aaPanel&lt;/strong>, una herramienta de panel de control gratuita y de código abierto, ha ganado popularidad por su capacidad para simplificar la administración de servidores y sitios web. En este artículo, te guiaré a través de los pasos para configurar un sitio &lt;strong>PHP&lt;/strong> en &lt;strong>aaPanel&lt;/strong>, maximizando así el rendimiento y la accesibilidad de tu proyecto web.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-aapanel">
+¿Qué es aaPanel?
+&lt;a href="#qu%c3%a9-es-aapanel" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;strong>aaPanel&lt;/strong> es un panel de control de hosting web gratuito y de código abierto que facilita la administración de servidores. Proporciona una interfaz gráfica intuitiva y amigable que permite a los usuarios gestionar servicios como &lt;strong>Apache&lt;/strong>, &lt;strong>Nginx&lt;/strong>, &lt;strong>PHP&lt;/strong>, bases de datos y más, sin necesidad de conocimientos técnicos avanzados.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalación-de-aapanel">
+Instalación de aaPanel
+&lt;a href="#instalaci%c3%b3n-de-aapanel" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>El primer paso es instalar aaPanel en tu servidor. Asegúrate de tener acceso a un servidor compatible con los requisitos de aaPanel, como &lt;strong>Debian&lt;/strong>, &lt;strong>Ubuntu&lt;/strong> o &lt;strong>CentOS&lt;/strong>. Una vez que hayas instalado el sistema operativo, puedes instalar aaPanel siguiendo los pasos detallados en el siguiente artículo:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2023/06/instalar-aapanel/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Instalar aaPanel
+&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2023/07/abrir-puertos-aapanel/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Abrir puertos aaPanel
+&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2023/07/primer-ingreso-a-aapanel/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Primer ingreso a aaPanel
+&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="agregar-un-sitio-dinamico">
+Agregar un Sitio Dinamico
+&lt;a href="#agregar-un-sitio-dinamico" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Una vez que aaPanel esté instalado, es hora de agregar tu dominio y configurar un sitio web PHP:&lt;/p>
+&lt;ul>
+&lt;li>Inicia sesión en aaPanel usando la URL y credenciales proporcionadas durante la instalación.&lt;/li>
+&lt;li>Navega a &lt;code>Website&lt;/code> y haz clic en &lt;code>Add Website&lt;/code>.&lt;/li>
+&lt;li>Ingresa los detalles de tu dominio, como el nombre del dominio y la ruta de la carpeta raíz del sitio (como se muestra en el video).&lt;/li>
+&lt;li>Selecciona &lt;code>PHP&lt;/code> como tipo de sitio web y elige la versión de &lt;strong>PHP&lt;/strong> deseada.&lt;/li>
+&lt;li>Selecciona si deseas habilitar &lt;strong>SSL&lt;/strong> para tu sitio web.&lt;/li>
+&lt;li>Selecciona si deseas habilitar &lt;strong>FTP&lt;/strong> para tu sitio web.&lt;/li>
+&lt;li>Selecciona si deseas crear una Base de Datos para tu sitio web.&lt;/li>
+&lt;li>Haz clic en &lt;code>Add Website&lt;/code> para completar el proceso.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="ajustes-avanzados-y-seguridad">
+Ajustes Avanzados y Seguridad
+&lt;a href="#ajustes-avanzados-y-seguridad" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Para optimizar aún más tu sitio PHP y garantizar su seguridad, considera implementar las siguientes medidas:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>SSL Certificate:&lt;/strong> Habilita un certificado SSL gratuito para cifrar las comunicaciones entre el navegador del usuario y el servidor.&lt;/li>
+&lt;li>&lt;strong>Firewall:&lt;/strong> Configura un firewall para proteger tu servidor contra amenazas cibernéticas.&lt;/li>
+&lt;li>&lt;strong>Backups:&lt;/strong> Establece una política de respaldo regular para asegurar que los datos estén protegidos.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusión">
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Configurar un sitio &lt;strong>PHP&lt;/strong> en &lt;strong>aaPanel&lt;/strong> puede parecer una tarea desafiante al principio, pero con la guía adecuada, es un proceso simplificado que mejora significativamente la administración y el rendimiento de tu proyecto web. Siguiendo los pasos mencionados en esta guía, estarás en camino de tener un sitio web en funcionamiento con todas las ventajas que ofrece &lt;strong>aaPanel&lt;/strong>. Mantén tu proyecto seguro, optimizado y accesible, y observa cómo crece y prospera en el competitivo mundo en línea.&lt;/p></description></item><item><title>Cómo Crear un Sitio Estático con aaPanel</title><link>https://patojad.com.ar/post/2023/08/c%C3%B3mo-crear-un-sitio-est%C3%A1tico-con-aapanel/</link><pubDate>Wed, 09 Aug 2023 11:54:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/08/c%C3%B3mo-crear-un-sitio-est%C3%A1tico-con-aapanel/</guid><description>&lt;p>En el mundo en constante evolución de la tecnología web, la creación de sitios estáticos se ha convertido en una opción popular para aquellos que buscan un enfoque simplificado y de alto rendimiento para su presencia en línea. A través del uso de herramientas como &lt;strong>aaPanel&lt;/strong>, puedes crear y administrar sitios estáticos de manera eficiente y efectiva. En esta guía paso a paso, te mostraremos cómo crear un sitio estático utilizando &lt;strong>aaPanel&lt;/strong>, aprovechando su potencial para alcanzar un sitio web rápido y seguro.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-aapanel">
+¿Qué es aaPanel?
+&lt;a href="#qu%c3%a9-es-aapanel" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;strong>aaPanel&lt;/strong> es un panel de control de hosting web gratuito y de código abierto que facilita la administración de servidores. Proporciona una interfaz gráfica intuitiva y amigable que permite a los usuarios gestionar servicios como &lt;strong>Apache&lt;/strong>, &lt;strong>Nginx&lt;/strong>, &lt;strong>PHP&lt;/strong>, bases de datos y más, sin necesidad de conocimientos técnicos avanzados.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="introducción-a-aapanel-y-preparación-del-entorno">
+Introducción a &lt;strong>aaPanel&lt;/strong> y Preparación del Entorno
+&lt;a href="#introducci%c3%b3n-a-aapanel-y-preparaci%c3%b3n-del-entorno" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Para comenzar, asegúrate de haber instalado &lt;strong>aaPanel&lt;/strong> en tu servidor, siguiendo los pasos detallados en los siguientes articulos:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2023/06/instalar-aapanel/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Instalar aaPanel
+&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2023/07/abrir-puertos-aapanel/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Abrir puertos aaPanel
+&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2023/07/primer-ingreso-a-aapanel/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Primer ingreso a aaPanel
+&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Una vez que hayas configurado &lt;strong>aaPanel&lt;/strong>, estarás listo para crear tu sitio estático.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="creación-del-sitio-estático">
+Creación del Sitio Estático
+&lt;a href="#creaci%c3%b3n-del-sitio-est%c3%a1tico" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;ul>
+&lt;li>Inicia sesión en tu panel de control &lt;strong>aaPanel&lt;/strong>.&lt;/li>
+&lt;li>En la sección &lt;em>Web&lt;/em>, selecciona &lt;em>Sitios web&lt;/em> y haz clic en &lt;em>Agregar sitio web&lt;/em>.&lt;/li>
+&lt;li>Completa la información requerida, como el nombre del dominio y la ubicación de los archivos.&lt;/li>
+&lt;li>Asegúrate de seleccionar &lt;em>Estático&lt;/em> como el tipo de sitio web.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="configuración-y-personalización">
+Configuración y Personalización
+&lt;a href="#configuraci%c3%b3n-y-personalizaci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/Tw7sKwbR/siteconfig.webp" alt="siteconfig.webp" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;ul>
+&lt;li>Una vez que hayas creado el sitio estático, podrás acceder a la configuración detallada.&lt;/li>
+&lt;li>Utiliza las opciones disponibles para personalizar aspectos como las reglas de reescritura, la protección de directorios y la gestión de acceso.&lt;/li>
+&lt;li>Añade cualquier archivo necesario para tu sitio estático, como &lt;strong>&lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+HTML
+&lt;/a>&lt;/strong>, &lt;strong>&lt;a href="https://patojad.com.ar/post/2023/08/descubriendo-el-mundo-de-css/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+CSS
+&lt;/a>&lt;/strong>, y archivos de imágenes en la ubicación designada.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="implementación-de-seguridad">
+Implementación de Seguridad
+&lt;a href="#implementaci%c3%b3n-de-seguridad" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/ZRKgY3C7/securityaapanel.webp" alt="securityaapanel.webp" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>En la sección &lt;em>Seguridad&lt;/em>, asegúrate de habilitar medidas de seguridad sólidas, como el firewall y la protección contra ataques DDoS.
+Considera la posibilidad de implementar un certificado SSL para garantizar la seguridad de la comunicación en tu sitio. Si bien el que mostramos en el video es suficiente para algunos sitios se recomienda utilizar uno privado.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="publicación-y-monitoreo">
+Publicación y Monitoreo
+&lt;a href="#publicaci%c3%b3n-y-monitoreo" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/wBkZdFTR/metricsaapanel.webp" alt="metricsaapanel.webp" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;ul>
+&lt;li>Una vez que hayas completado la configuración, haz clic en &lt;em>Guardar&lt;/em> para aplicar los cambios.&lt;/li>
+&lt;li>Sube tus archivos estáticos al directorio designado utilizando herramientas FTP o el administrador de archivos en &lt;strong>aaPanel&lt;/strong>.&lt;/li>
+&lt;li>Monitorea el rendimiento de tu sitio estático a través de las herramientas de monitoreo proporcionadas por &lt;strong>aaPanel&lt;/strong>.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusión">
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Crear un sitio estático con &lt;strong>aaPanel&lt;/strong> es un proceso simplificado que te brinda un sitio web rápido y seguro. Al seguir esta guía paso a paso y aprovechar el video tutorial, estarás en camino de lanzar tu propio sitio estático con éxito. Aprovecha la potencia de &lt;strong>aaPanel&lt;/strong> para simplificar la administración y lograr un rendimiento excepcional en tu presencia en línea. ¡Comienza hoy mismo y disfruta de los beneficios de un sitio web estático de alto rendimiento!&lt;/p></description></item><item><title>App Store de aaPanel</title><link>https://patojad.com.ar/post/2023/07/app-store-de-aapanel/</link><pubDate>Thu, 27 Jul 2023 11:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/07/app-store-de-aapanel/</guid><description>&lt;p>Ya vimos como realizar la instalacion de aaPanel y como abrir los puertos necesarios. Tambien realizamos el primer ingreso y la instalacion de LAMP o LNMP segun deseemos. Ahora veremos el appstore de aaPanel. Y realiamos instalaciones desde diferentes areas de modulos o complemento.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-aapanel">
+¿Qué es aaPanel?
+&lt;a href="#qu%c3%a9-es-aapanel" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;strong>aaPanel&lt;/strong> es un panel de control de hosting web gratuito y de código abierto que facilita la administración de servidores. Proporciona una interfaz gráfica intuitiva y amigable que permite a los usuarios gestionar servicios como &lt;strong>Apache&lt;/strong>, &lt;strong>Nginx&lt;/strong>, &lt;strong>PHP&lt;/strong>, bases de datos y más, sin necesidad de conocimientos técnicos avanzados.&lt;/p>
+&lt;p>En el video podemos apreciar y recorrer un poco mas la seccion de appstore de aapanel. En esta seccion podemos encontrar complementos para nuestro panel, como tambien para nuestros sitios web.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="imagenes">
+Imagenes
+&lt;a href="#imagenes" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/nrhLsCmh/aapanelstore1.webp" alt="aapanel" loading="lazy" class="rounded-xl" />
+&lt;/div>
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/5yK28b5q/aapanelstore2.webp" alt="aapanel" loading="lazy" class="rounded-xl" />
+&lt;/div>
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/76V6YgfR/aapanelstore3.webp" alt="aapanel" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;hr>
+&lt;p>&lt;a href="https://www.aapanel.com/new/feature.html#shop" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+Fuente
+&lt;/a>&lt;/p></description></item><item><title>¿Que es TypeScript? ¿En que se parece a JavaScript?</title><link>https://patojad.com.ar/post/2023/03/que-es-typescript-en-que-se-parece-a-javascript/</link><pubDate>Fri, 17 Mar 2023 09:40:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/03/que-es-typescript-en-que-se-parece-a-javascript/</guid><description>&lt;p>&lt;strong>TypeScript&lt;/strong> es un &lt;em>subconjunto azúcar sintáctico&lt;/em> de &lt;strong>JavaScript&lt;/strong>. Básicamente es un código que transpila a &lt;strong>JavaScript&lt;/strong> y tiene como fin formalizar un poco los lineamientos a la hora de desarrollar con este lenguaje.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="principales-diferencias">
+Principales diferencias
+&lt;a href="#principales-diferencias" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Podemos situar grandes diferencias entre estos lenguajes pero para eso debemos entender que al momento de ejecución ambos terminan siendo &lt;strong>JavaScript&lt;/strong>.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Objetos:&lt;/strong> Si bien en &lt;strong>JavaScript&lt;/strong> podemos usar objetos y clases no son su mayor fuerte, sin embargo en &lt;strong>TypeScript&lt;/strong> vamos a estar programando Orientado a Objetos y este puede ser un punto fuerte para elegir, si lo que vamos a estar haciendo va a ser en POO &lt;strong>TypeScript&lt;/strong> es una gran opción.&lt;/li>
+&lt;li>&lt;strong>Compilación:&lt;/strong> Mientras que &lt;strong>JavaScript&lt;/strong> es interpretado &lt;strong>TypeScript&lt;/strong> requiere un proceso de &lt;em>“compilación”&lt;/em> (o mejor dicho transpilación) donde el código de &lt;strong>TypeScript&lt;/strong> se convierte en código &lt;strong>JavaScript&lt;/strong> que luego será interpretado ya sea por el servidor o el cliente.&lt;/li>
+&lt;li>&lt;strong>Tipado:&lt;/strong> Una de las flexibilidades más grandes de &lt;strong>JavaScript&lt;/strong> es su tipado dinámico, sin embargo en &lt;strong>TypeScript&lt;/strong> vamos a tener un tipado estático y fuerte (que para ser sinceros podemos flexibilizar sin problemas) pero esto nos permite disminuir la cantidad de errores en tiempo de ejecución por el tipado.&lt;/li>
+&lt;li>&lt;strong>Curva de Aprendizaje:&lt;/strong> Si bien &lt;strong>TypeScript&lt;/strong> es un subconjunto azúcar sintáctico de &lt;strong>JavaScript&lt;/strong> este es un poco más complejo de aprender, según la comunidad, que &lt;strong>JavaScript&lt;/strong>.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="cual-elegir">
+¿Cual Elegir?
+&lt;a href="#cual-elegir" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Es difícil poder definir cuál es la mejor opción sin tener un contexto. Siempre la mejor opción va a depender de nuestro expertis en cada uno, las necesidades del proyecto y los framework que vamos a estar utilizando. De todas formas a las diferencias que marcamos arriba voy a sumar, una serie de reglas que utilizo yo para definir, estas son solo en base a mi experiencia:&lt;/p>
+&lt;ul>
+&lt;li>&lt;em>Tamaño del proyecto&lt;/em>, si el proyecto es pequeño y rápido, bastará con usar &lt;strong>JavaScript&lt;/strong>, sin embargo en proyectos medianos y grandes &lt;strong>TypeScript&lt;/strong> puede ser más cómodo a largo plazo y ahorrar algunos dolores de cabeza.&lt;/li>
+&lt;li>&lt;em>Cantidad de miembros&lt;/em>, si vamos a estar desarrollando nosotros solos &lt;strong>JavaScript&lt;/strong> puede resultar más práctico, pero si tenemos como objetivo que colaboren más personas &lt;strong>TypeScript&lt;/strong> puede ser muy bueno para manejar lineamientos similares y tener código más fácil de entender.&lt;/li>
+&lt;li>&lt;em>Compatibilidad&lt;/em>, puede que &lt;strong>TypeScript&lt;/strong> no sea compatible con nuestro proyecto o la forma de encararlo, es una prueba interesante para tener en cuenta a la hora de elegirlo.&lt;/li>
+&lt;/ul>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Comentar en el FORO'
+rel="noopener"
+href='https://community.vasak.net.ar/topic/14/que-es-typescript-en-que-se-parece-a-javascript'>
+Comentar en el FORO
+&lt;/a>
+&lt;/div></description></item><item><title>Instalar Chaotic AUR</title><link>https://patojad.com.ar/post/2022/01/instalar-chaotic-aur/</link><pubDate>Wed, 12 Jan 2022 09:45:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/01/instalar-chaotic-aur/</guid><description>&lt;p>Chaotic es un repositorio que busca traer los paquetes de AUR, o al menos los de mayor uso desde el punto de vista del creador, para administrarlos de forma simple con pacman. Sin tener que instalar los AUR ni configurarlos y mucho menos usar los AURHelpers. Estos son algunos de los detalles a tener en cuenta sobre Chaotic:&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/vZr3rN4_ZDc?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;ul>
+&lt;li>La mayoría de los paquetes disponibles en este repositorio se crean automáticamente a partir de su paquete fuente AUR respectivo. Sin embargo, hay algunas excepciones, consulte &lt;a href="https://github.com/chaotic-aur/packages" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fab fa-github">&lt;/i>&amp;nbsp;
+https://github.com/chaotic-aur/packages
+&lt;/a> para averiguar cuáles.&lt;/li>
+&lt;li>El clúster de construcción principal es un nodo en el centro de datos de UFSCars que está alojado en San Carlos, San Paulo, Brazil.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="comandos">
+Comandos
+&lt;a href="#comandos" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>En el video muestro como se realiza y que podemos ver el resultado dentro de nuestros repositorios en &lt;strong>pacman&lt;/strong> por esto mismo voy a dejar a continuación los comandos.&lt;/p>
+&lt;p>Instalación o descarga de las Key del repositorio para chequear los paquetes:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pacman-key --lsign-key FBA220DFC880C036
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Instalación de los paquetes con pacman (En el video los instalo por separado, sin embargo el comando de abajo los instala a los dos juntos)&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">pacman -U &lt;span class="s1">&amp;#39;https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Por último tenemos que agregar el repositorio en la configuración de pacman. Para esto debemos editarla con permisos de administrador, por ejemplo de la siguiente manera &lt;code>sudo nano /etc/pacman.conf&lt;/code> y agregamos lo siguiente en la sección de repositorios:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="line">&lt;span class="cl">&lt;span class="k">[chaotic-aur]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Include&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">/etc/pacman.d/chaotic-mirrorlist&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="recomendaciones">
+Recomendaciones
+&lt;a href="#recomendaciones" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Las siguientes recomendaciones son propias de los desarrolladores de &lt;strong>ChaoticAUR&lt;/strong> con alguna que otra modificación:&lt;/p>
+&lt;ul>
+&lt;li>Si sos usuario de powerpill y queres usarlo para realizar todas las descargas desde todos los mirrors se recomienda realizar la actualización de la siguiente manera:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo pacman -Sy &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> sudo powerpill -Su &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> paru -Su
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Asegúrese de insertar todos los espejos en su pacman.conf o use caotic-mirrorlist con todos ellos activos si usa powerpill.&lt;/li>
+&lt;li>Si está utilizando otros repositorios de terceros, le recomendamos que coloque Chaotic-AUR antes que ellos en &lt;code>/etc/pacman.conf&lt;/code>. Dado que actualizamos la mayoría de los paquetes cada hora y seguimos los &lt;code>PKGBUILD&lt;/code> de &lt;strong>AUR&lt;/strong>, este repositorio es más adecuado como primera opción al descargar paquetes.&lt;/li>
+&lt;li>Si necesita omitir la actualización de un paquete para usar las creadas localmente (por ejemplo, con optimizaciones nativas), puede agregar &lt;code>'IgnorePkg = ...'&lt;/code> a la sección del repositorio en &lt;code>/etc/pacman.conf&lt;/code>&lt;/li>
+&lt;li>Puede elegir el repositorio desde el que descargar un paquete de esta manera: &lt;code>pacman -S chaotic-aur/dxvk-mingw-git&lt;/code>. Algunos ayudantes de AUR también lo admiten, por ejemplo: &lt;code>paru -S aur/firefox-hg&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-warning col-12" style="position:relative;">
+&lt;div class="info-box-content container">
+&lt;div class="row">
+&lt;div class="col-2 text-center">
+&lt;span class="fa fa-warning fa-5x">&lt;/span>
+&lt;/div>
+&lt;div class="col-10">
+&lt;p class="no-margin">Debe tener habilitado el repositorio multilib.&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div></description></item><item><title>¿Como jugar Among Us en Linux?</title><link>https://patojad.com.ar/post/2020/09/como-jugar-among-us-en-linux/</link><pubDate>Wed, 02 Sep 2020 08:40:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/09/como-jugar-among-us-en-linux/</guid><description>&lt;p>En esta oportunidad vamos a comentar un poco sobre este hermoso que se está volviendo tan popular y vamos a comentar cómo podemos jugarlo en GNU/Linux con Proton. De más está decir que para este “tutorial” es requisito tenerlo comprado al juego que está aproximadamente $1 dólar.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="sobre-el-juego">
+Sobre el juego
+&lt;a href="#sobre-el-juego" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Es de mala educación no contar un poco sobre este juego antes, pero tampoco quiero ponerme a parafrasear de antemano así que vamos a dejar toda la data a manos de nuestro amigo Steam&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://cdn.cloudflare.steamstatic.com/steam/apps/945360/extras/steam_AboutBanner.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Juega con 4-10 jugadores en línea o vía WiFi local mientras intentas preparar tu nave espacial para la partida, pero ten cuidado, ya que uno o más jugadores aleatorios entre la Tripulación son impostores empeñados en matar a todos.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://cdn.cloudflare.steamstatic.com/steam/apps/945360/extras/steam_AboutCrew.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;ul>
+&lt;li>Gana completando tareas para preparar el barco o expulsando a todos los impostores.&lt;/li>
+&lt;li>Reacciona rápidamente para deshacer los sabotajes del impostor.&lt;/li>
+&lt;li>Consulta el mapa de administración y las cámaras de seguridad para controlar a otros compañeros de tripulación.&lt;/li>
+&lt;li>Informe cualquier cadáver de inmediato para comenzar a discutir quién es el supuesto impostor.&lt;/li>
+&lt;li>Llame a reuniones de emergencia para hablar sobre comportamientos sospechosos.&lt;/li>
+&lt;li>Vote para expulsar a los supuestos impostores.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://cdn.cloudflare.steamstatic.com/steam/apps/945360/extras/steam_AboutImpostor.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;ul>
+&lt;li>Mata a tus compañeros de tripulación y enmarca a los transeúntes.&lt;/li>
+&lt;li>Finge ejecutar tareas para mezclarte con los compañeros de tripulación.&lt;/li>
+&lt;li>Escóndete por las rejillas de ventilación para moverte rápidamente por el barco.&lt;/li>
+&lt;li>Usa sabotajes para causar caos y dividir a la tripulación.&lt;/li>
+&lt;li>Cierre las puertas para atrapar a las víctimas y matarlas en privado.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://cdn.cloudflare.steamstatic.com/steam/apps/945360/extras/steam_AboutMultiPlay.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="características">
+Características
+&lt;a href="#caracter%c3%adsticas" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;ul>
+&lt;li>Personalización: elige tu color y sombrero.&lt;/li>
+&lt;li>Muchas opciones de juego: agrega más impostores, más tareas y mucho más.&lt;/li>
+&lt;li>Encuentre rápidamente un juego en línea en la lista de anfitriones.&lt;/li>
+&lt;li>Chat de texto en el juego.&lt;/li>
+&lt;li>Integración rica en discordia.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="requisitos-del-sistema">
+Requisitos del sistema
+&lt;a href="#requisitos-del-sistema" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;ul>
+&lt;li>Procesador: SSE2 instruction set support&lt;/li>
+&lt;li>Memoria: 1 GB de RAM&lt;/li>
+&lt;li>Almacenamiento: 250 MB de espacio disponible&lt;/li>
+&lt;/ul>
+&lt;div class="text-center">
+&lt;iframe
+src='https://store.steampowered.com/widget/945360/'
+width="646"
+height="190"
+title="Juego en Steam"
+style="border-radius:20px;">
+&lt;/iframe>
+&lt;/div>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalación">
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Para poder jugarlo primero debemos tener habilitado la utilización de Proton con juegos no soportados oficialmente, para lo cual voy a dejar un paso a paso bastante simple para esto.&lt;/p>
+&lt;p>Lo primero que tenemos que hacer es ir a &lt;code>Steam -&amp;gt; Parametros&lt;/code> (Suponiendo que esta en español steam). Una vez ahí veremos una ventana de configuración donde iremos a la sección &lt;code>Steam Play&lt;/code> y veremos algo así:&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/jdySrDtB/Captura-de-pantalla-2020-09-01-22-44-31.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Ahí seleccionaremos &lt;em>Activar Steam Play para todos los demás títulos&lt;/em> con la versión de Protón más reciente (En el desplegable) Nos pedirá reiniciar una vez que hagamos esto.&lt;/p>
+&lt;p>Una vez que se haya reiniciado debemos buscar el juego en nuestra biblioteca y procedemos a instalarlo en unos pocos segundos (dado que el juego no pesa más de 250 mb)&lt;/p>
+&lt;p>Una vez que lo descargamos, y &lt;strong>ANTES&lt;/strong> de iniciarlo debemos agregar algunos parámetros para que funcione correctamente, para eso vamos a darle click derecho al juego y seleccionamos &lt;strong>Propiedades..&lt;/strong>&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/cH3V889S/Captura-de-pantalla-2020-09-01-22-51-14.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>En esta sección debemos ir a &lt;strong>Parámetros de lanzamiento&lt;/strong> y agregar tal cual el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">PROTON_NO_ESYNC&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">1&lt;/span> &lt;span class="nv">PROTON_USE_WINED3D&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">1&lt;/span> %command%
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Dando como resultado una pantalla así:&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/j2rB6dmJ/Captura-de-pantalla-2020-09-01-22-51-25.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Por último volvemos a reiniciar steam y ya podemos jugar tranquilamente, recomiendo traducir al español el juego si no tienes un gran dominio del inglés! Y si estas interesado en jugarlo no te olvides de meterte en nuestros grupos para que juguemos juntos!&lt;/p></description></item></channel></rss>

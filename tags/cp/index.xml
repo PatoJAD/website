@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cp on PatoJAD</title><link>https://patojad.com.ar/tags/cp/</link><description>Recent content in Cp on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Thu, 03 Sep 2020 10:12:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/cp/index.xml" rel="self" type="application/rss+xml"/><item><title>Manipulando archivos y directorios</title><link>https://patojad.com.ar/post/2020/09/manipulando-archivos-y-directorios/</link><pubDate>Thu, 03 Sep 2020 10:12:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/09/manipulando-archivos-y-directorios/</guid><description>&lt;p>Seguimos trabajando con la terminal, vamos despacio pero avanzamos firme, en esta oportunidad vamos a aumentar los comandos que vamos a ir usando en el dia a dia.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="comodines">
+Comodines
+&lt;a href="#comodines" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Antes de empezar a usar nuestros comandos, necesitamos hablar sobre una característica del shell que hace a estos comandos muy potentes. Como el shell utiliza mucho los nombres de archivo, ofrece caracteres especiales para ayudarnos a especificar rápidamente grupos de nombres de archivo. Estos caracteres especiales se llaman comodines (wildcards). Utilizar comodines (también conocido como globbing) te permite seleccionar nombres de archivo basados en patrones de caracteres. La siguiente tabla lista los comodines y lo que seleccionan:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>*&lt;/strong> Cualquier carácter&lt;/li>
+&lt;li>&lt;strong>?&lt;/strong> Cualquier carácter individual&lt;/li>
+&lt;li>&lt;strong>[caracteres]&lt;/strong> Cualquier carácter que sea miembro del grupo caracteres&lt;/li>
+&lt;li>&lt;strong>[!caracteres]&lt;/strong> Cualquier carácter que no sea miembro del grupo caracteres&lt;/li>
+&lt;li>&lt;strong>[[:clase:]]&lt;/strong> Cualquier carácter que sea miembro de la clase especificada&lt;/li>
+&lt;/ul>
+&lt;p>La lista las clases de caracteres más comúnmente usadas:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>[:alnum:]&lt;/strong> Cualquier carácter alfanumérico&lt;/li>
+&lt;li>&lt;strong>[:alpha:]&lt;/strong> Cualquier carácter alfabético&lt;/li>
+&lt;li>&lt;strong>[:digit:]&lt;/strong> Cualquier dígito numérico&lt;/li>
+&lt;li>&lt;strong>[:lower:]&lt;/strong> Cualquier letra minúscula&lt;/li>
+&lt;li>&lt;strong>[:upper:]&lt;/strong> Cualquier letra mayúscula&lt;/li>
+&lt;/ul>
+&lt;p>Utilizar comodines posibilita construir criterios de selección muy sofisticados para los nombres de archivos. Aquí tienes algunos ejemplos de patrones y qué indican:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>*&lt;/strong> Todos los archivos&lt;/li>
+&lt;li>&lt;strong>g*&lt;/strong> Todos los archivos que empiezan por &amp;ldquo;g&amp;rdquo;&lt;/li>
+&lt;li>&lt;strong>b*.txt&lt;/strong> Todos los archivos que empiecen por &amp;ldquo;b&amp;rdquo; seguido de cualquier carácter y terminados en &amp;ldquo;.txt&amp;rdquo;&lt;/li>
+&lt;li>&lt;strong>Data???&lt;/strong> Todos los archivos que empiezan por &amp;ldquo;Data&amp;rdquo; seguido de, exactamente, tres caracteres&lt;/li>
+&lt;li>&lt;strong>[abc]*&lt;/strong> Todos los archivos que empiezan por &amp;ldquo;a&amp;rdquo;, &amp;ldquo;b&amp;rdquo; o &amp;ldquo;c&amp;rdquo;&lt;/li>
+&lt;li>&lt;strong>BACKUP.[0-9][0-9][0-9]&lt;/strong> Todos los archivos que empiezan por &amp;ldquo;BACKUP.&amp;rdquo; seguido de, exactamente, tres números&lt;/li>
+&lt;li>&lt;strong>[[:upper:]]*&lt;/strong> Todos los archivos que empiezan por una letra mayúscula&lt;/li>
+&lt;li>&lt;strong>[![:digit:]]*&lt;/strong> Todos los archivos que no empiezan por un número&lt;/li>
+&lt;li>&lt;strong>*[[:lower:]123]&lt;/strong> Todos los archivos que terminan por una letra minúscula o por los números &amp;ldquo;1&amp;rdquo;, &amp;ldquo;2&amp;rdquo; o &amp;ldquo;3&amp;rdquo;&lt;/li>
+&lt;/ul>
+&lt;p>Los comodines pueden usarse con cualquier comando que acepte nombres de archivo como argumento, pero hablaremos más sobre ello más adelante.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="rangos-de-caracteres">
+Rangos de caracteres
+&lt;a href="#rangos-de-caracteres" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Si vienes de otros entornos tipo Unix o has estado leyendo otros libros sobre el asunto, puede que hayas encontrado las notaciones de rango de caracteres &lt;strong>[A -Z]&lt;/strong> o &lt;strong>[a &amp;ndash; z]&lt;/strong>. Son notaciones tradicionales de Unix y funcionaban en las versiones antiguas de Linux también. Pueden funcionar todavía, pero tienes que ser muy cuidadoso con ellas porque no producirán los resultados esperados a menos que estén adecuadamente configuradas. Por ahora, deberías evitar utilizarlas y usar las clases de caracteres en su lugar.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="mkdir----crear-directorios">
+mkdir &amp;ndash; Crear directorios
+&lt;a href="#mkdir----crear-directorios" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>El comando mkdir se utiliza para crear directorios. Funciona así:&lt;/p>
+&lt;pre>&lt;code>mkdir directorio...
+&lt;/code>&lt;/pre>
+&lt;p>&lt;strong>Una nota sobre la notación:&lt;/strong> Cuando tres puntos siguen a un argumento en la descripción de un comando (como el de arriba), significa que el argumento puede ser repetido, por lo tanto:&lt;/p>
+&lt;pre>&lt;code>mkdir dir1
+&lt;/code>&lt;/pre>
+&lt;p>crearía un único directorio llamado &amp;ldquo;dir1&amp;rdquo;, mientras&lt;/p>
+&lt;pre>&lt;code>mkdir dir1 dir2 dir3
+&lt;/code>&lt;/pre>
+&lt;p>crearía tres directorios llamados &amp;ldquo;dir1&amp;rdquo;, &amp;ldquo;dir2&amp;rdquo; y &amp;ldquo;dir3&amp;rdquo;.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="cp----copiar-archivos-y-directorios">
+cp &amp;ndash; Copiar archivos y directorios
+&lt;a href="#cp----copiar-archivos-y-directorios" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>El comando cp copia archivos o directorios. Puede usarse de dos formas diferentes:&lt;/p>
+&lt;pre>&lt;code>cp item1 item2
+&lt;/code>&lt;/pre>
+&lt;p>Para copiar el archivo o directorio &amp;ldquo;item1&amp;rdquo; al archivo o directorio &amp;ldquo;item2&amp;rdquo; y:&lt;/p>
+&lt;pre>&lt;code>cp item... directorio
+&lt;/code>&lt;/pre>
+&lt;p>para copiar múltiples elementos (tanto archivos como directorios) a un directorio.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="opciones-útiles-y-ejemplos">
+Opciones útiles y ejemplos
+&lt;a href="#opciones-%c3%batiles-y-ejemplos" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Aquí tenemos algunas de las opciones más usadas (la opción corta y la opción larga equivalente) para cp:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>-a, &amp;ndash;archive&lt;/strong> Copia los archivos y directorios y todos sus atributos, incluyendo propietarios y permisos. Normalmente, las copias toman los atributos por defecto del usuario que realiza la copia.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>-i, &amp;ndash;interactive&lt;/strong> Antes de sobrescribir un archivo existente, pide al usuario confirmación. Si esta opción no es especificada, cp sobrescribirá silenciosamente los archivos.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>-r, &amp;ndash;recursive&lt;/strong> Copia recursivamente los directorios y su contenido. Esta opción (o la opción -a) se requiere cuando se copian directorios.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>-u, &amp;ndash;update&lt;/strong> Cuando copiamos archivos de un directorio a otro, sólo copia archivos que, o no existan, o sean más nuevos que los archivos correspondientes existentes en el directorio de destino.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>-v, &amp;ndash;verbose&lt;/strong> Muestra mensajes informativos a medida que se realiza la copia.&lt;/p>
+&lt;p>cp archivo1 archivo2&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>Copia el archivo1 al archivo2. Si el archivo2 existe, se sobrescribe con el contenido del archivo1. Si el archivo2 no existe, se crea.&lt;/p>
+&lt;pre>&lt;code>cp -i archivo1 archivo2
+&lt;/code>&lt;/pre>
+&lt;p>Igual que el anterior, salvo que si el archivo2 existe, el usuario es preguntado antes de que sea sobrescrito.&lt;/p>
+&lt;pre>&lt;code>cp archivo1 archivo2 directorio1
+&lt;/code>&lt;/pre>
+&lt;p>Copia el archivo1 y el archivo2 en el directorio1. El directorio1 debe existir.&lt;/p>
+&lt;pre>&lt;code>cp directorio1/* directorio2
+&lt;/code>&lt;/pre>
+&lt;p>Usando un comodín, todos los archivos en directorio1 se copian a directorio2. directorio2 debe existir.&lt;/p>
+&lt;pre>&lt;code>cp -r directorio1 directorio2
+&lt;/code>&lt;/pre>
+&lt;p>Copia el contenido del directorio1 al directorio2. Si el directorio2 no existe, se crea y, después de la copia, contendrá los mismos elementos que el directorio1.
+Si el directorio2 existe, entonces el directorio1 (y su contenido) se copiará dentro de directorio2.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="mv----mover-y-renombrar-archivos">
+mv &amp;ndash; Mover y renombrar archivos
+&lt;a href="#mv----mover-y-renombrar-archivos" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>El comando mv tanto mueve como renombra archivos, dependiendo de cómo se use. En ambos casos, el nombre de archivo original no existirá tras la operación. mv se usa de forma muy parecida a cp:&lt;/p>
+&lt;pre>&lt;code>mv item1 item2
+&lt;/code>&lt;/pre>
+&lt;p>para mover o renombrar el archivo o directorio &amp;ldquo;item1&amp;rdquo; a &amp;ldquo;item2&amp;rdquo; o:&lt;/p>
+&lt;pre>&lt;code>mv item... directorio
+&lt;/code>&lt;/pre>
+&lt;p>para mover uno o más elementos de un directorio a otro.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="opciones-útiles-y-ejemplos-1">
+Opciones útiles y ejemplos
+&lt;a href="#opciones-%c3%batiles-y-ejemplos-1" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>mv comparte muchas de las mismas opciones que cp:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>-i, &amp;ndash;interactive&lt;/strong> Antes de sobrescribir un archivo existente, pide confirmación al usuario. Si esta opción no está especificada, mv sobrescribirá silenciosamente los archivos.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>-u, &amp;ndash;update&lt;/strong> Cuando movemos archivos de un directorio a otro, sólo mueve archivos que, o no existen, o son más nuevos que los archivos correspondientes existentes en el directorio de destino.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>-v, &amp;ndash;verbose&lt;/strong> Muestra mensajes informativos a medida que se realiza el movimiento.&lt;/p>
+&lt;p>mv archivo1 archivo2&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>Mueve el archivo1 al archivo2. Si el archivo2 existe, se sobrescribe con el contenido de archivo1. Si archivo2 no existe, se crea. En ambos casos, archivo1 deja de existir.&lt;/p>
+&lt;pre>&lt;code>mv -i archivo1 archivo2
+&lt;/code>&lt;/pre>
+&lt;p>Igual que el anterior, excepto que si el archivo2 existe, el usuario es preguntado antes de que sea sobrescrito.&lt;/p>
+&lt;pre>&lt;code>mv archivo1 archivo2 directorio1
+&lt;/code>&lt;/pre>
+&lt;p>Mueve archivo1 y archivo2 al directorio1. directorio1 tiene que existir previamente.&lt;/p>
+&lt;pre>&lt;code>mv directorio1 directorio2
+&lt;/code>&lt;/pre>
+&lt;p>Si el directorio2 no existe, crea el directorio2 y mueve el contenido de directorio1 dentro de directorio2 y borra el directorio1.
+Si directorio2 existe, mueve directorio1 (y su contenido) dentro del directorio2.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="rm----eliminar-archivos-y-directorios">
+rm &amp;ndash; Eliminar archivos y directorios
+&lt;a href="#rm----eliminar-archivos-y-directorios" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>El comando rm se utiliza para eliminar (borrar) archivos y directorios:&lt;/p>
+&lt;pre>&lt;code>rm elemento...
+&lt;/code>&lt;/pre>
+&lt;p>donde &amp;ldquo;elemento&amp;rdquo; es uno o más archivos o directorios.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="opciones-útiles-y-ejemplos-2">
+Opciones útiles y ejemplos
+&lt;a href="#opciones-%c3%batiles-y-ejemplos-2" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Aquí tienes algunas de las opciones más comunes de rm:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>-i, &amp;ndash;interactive&lt;/strong> Antes de borrar un archivo existente, pide la confirmación del usuario. Si esta opción no es especificada, rm borrará silenciosamente los archivos.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>-r, &amp;ndash;recursive&lt;/strong> Borra directorios recursivamente. Esto significa que si un directorio que estamos borrando contiene subirectorios, los borra también. Para borrar un directorio, esta opción debe ser especificada.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>-f, &amp;ndash;force&lt;/strong> Ignora archivos no existentes y no pregunta. Esto prevalece sobre la opción &amp;mdash;interactive.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>-v, &amp;ndash;verbose&lt;/strong> Muestra mensajes informativos a medida que se realiza el borrado.&lt;/p>
+&lt;p>rm archivo1&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>Borra el archivo1 silenciosamente&lt;/p>
+&lt;pre>&lt;code>rm -i archivo1
+&lt;/code>&lt;/pre>
+&lt;p>Igual que antes, excepto que pide confirmación al usuario antes de borrarlo.&lt;/p>
+&lt;pre>&lt;code>rm -r archivo1 directorio1
+&lt;/code>&lt;/pre>
+&lt;p>Borra el archivo1 y el directorio1 y su contenido&lt;/p>
+&lt;pre>&lt;code>rm -rf archivo1 directorio1
+&lt;/code>&lt;/pre>
+&lt;p>Igual que antes, excepto que si archivo1 o directorio1 no existen, rm continuará silenciosamente.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="ten-cuidado-con-rm">
+¡Ten cuidado con rm!
+&lt;a href="#ten-cuidado-con-rm" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Los sistemas operativos tipo Unix, por ejemplo Linux, no tienen un comando para restaurar archivos. Una vez que borras algo con rm, se ha ido. Linux asume que eres listo y sabes lo que haces.&lt;/p>
+&lt;p>Ten especial cuidado con los comodines. Piensa en este ejemplo clásico. Digamos que quieres borrar sólo los archivos &lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+HTML
+&lt;/a> en un directorio. Para hacerlo, escribes:&lt;/p>
+&lt;pre>&lt;code>rm *.html
+&lt;/code>&lt;/pre>
+&lt;p>lo cual es correcto, pero si accidentalmente dejas un espacio entre el &amp;ldquo;*&amp;rdquo; y el &amp;ldquo;.html&amp;rdquo; como aquí:&lt;/p>
+&lt;pre>&lt;code>rm * .html
+&lt;/code>&lt;/pre>
+&lt;p>el comando rm borrará todos los archivos en el directorio y luego se quejará de que no hay ningún archivo llamado &amp;ldquo;.html&amp;rdquo;.&lt;/p>
+&lt;p>&lt;strong>Aquí tienes un práctico consejo&lt;/strong>. Cada vez que uses comodines con rm (¡además de comprobar cuidadosamente tu escritura!), prueba el comodín primero con ls. Esto te permitirá ver los archivos que van a ser borrados. Entonces pulsa la tecla de la flecha hacia arriba para recuperar el comando y reemplaza el ls con rm.&lt;/p></description></item></channel></rss>

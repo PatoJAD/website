@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Estructura De Carpetas Vuejs on PatoJAD</title><link>https://patojad.com.ar/tags/estructura-de-carpetas-vuejs/</link><description>Recent content in Estructura De Carpetas Vuejs on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Thu, 02 Nov 2023 10:06:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/estructura-de-carpetas-vuejs/index.xml" rel="self" type="application/rss+xml"/><item><title>Cómo estructurar mi proyecto Vue.js</title><link>https://patojad.com.ar/post/2023/11/c%C3%B3mo-estructurar-mi-proyecto-vue.js/</link><pubDate>Thu, 02 Nov 2023 10:06:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/11/c%C3%B3mo-estructurar-mi-proyecto-vue.js/</guid><description>&lt;p>Cuando intento aprender algo nuevo, a menudo me enfrento a la pregunta de cómo estructurar mi proyecto. ¿Cuál es la mejor práctica para hacerlo? ¿Dónde debo colocar mis archivos para evitar el caos en el proyecto? Este artículo está dedicado principalmente a los desarrolladores que acaban de comenzar a aprender &lt;strong>Vue.js&lt;/strong>, pero también puede ser interesante para los veteranos de &lt;strong>Vue.js&lt;/strong> que deseen obtener una nueva perspectiva sobre este tema.&lt;/p>
+&lt;p>Comencemos desde cero con la instalación de un nuevo proyecto utilizando Vue CLI.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">vue create mi-asombrosa-app
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Después de la instalación, podrás ver la siguiente estructura de carpetas (esto también depende de las opciones que hayas seleccionado en Vue CLI; para este proyecto, he seleccionado todas las opciones posibles):&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">--public
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">----img
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">------icons
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">----favicon.ico
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">----index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">----robots.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--src
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">----assets
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">------logo.png
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">----components
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">------HelloWorld.vue
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">----router
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">------index.ts
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">----store
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">------index.ts
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">----views
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">------About.vue
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">------Home.vue
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">----App.vue
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">----main.ts
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">----registerServiceWorkers.ts
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">----shims-vue.d.ts
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--tests
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">----e2e
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">----unit
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--.browserslistrc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--.eslintrc.js
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--.gitignore
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--babel.config.js
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--cypress.json
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--jest.config.js
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--package.json
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--package-lock.json
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--README.md
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--tsconfig.json
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Esta es una estructura bastante estándar, pero no es adecuada para aplicaciones de tamaño medio o grande. Nos centraremos en la carpeta &amp;ldquo;src&amp;rdquo;, pero antes de continuar, echemos un vistazo rápido a otras carpetas.&lt;/p>
+&lt;p>La carpeta &lt;code>public&lt;/code> se utiliza si necesitas:&lt;/p>
+&lt;ul>
+&lt;li>Archivos con nombres especiales en la salida de compilación.&lt;/li>
+&lt;li>Referencias dinámicas para imágenes. (Aunque es mejor usar &lt;code>@/assets/&lt;/code> para esto).&lt;/li>
+&lt;li>Si la biblioteca es incompatible con Webpack.&lt;/li>
+&lt;li>Puedes encontrar más información sobre cómo utilizar la carpeta &lt;code>public&lt;/code> aquí.&lt;/li>
+&lt;li>&lt;code>tests/e2e&lt;/code> es para pruebas de extremo a extremo.&lt;/li>
+&lt;li>&lt;code>tests/unit&lt;/code> es para pruebas unitarias.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="estructura-de-la-carpeta-src">
+Estructura de la carpeta &lt;code>src&lt;/code>
+&lt;a href="#estructura-de-la-carpeta-src" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Ahora, empecemos a estructurar nuestra carpeta &amp;ldquo;src&amp;rdquo; en el nuevo proyecto. Aquí está la estructura que me gustaría presentar:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">src
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--assets
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--common
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--layouts
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--middlewares
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--modules
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--plugins
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--router
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--services
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--static
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--store
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--views
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Recorreremos todas las carpetas una por una y entenderemos por qué las necesitamos.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>assets&lt;/code>: En este directorio, almacenaremos todos los archivos de activos. Aquí queremos guardar fuentes, iconos, imágenes, estilos, etc.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>common&lt;/code>: Esta carpeta se utiliza para guardar archivos comunes. Por lo general, se puede dividir en múltiples carpetas internas: componentes, mezclas, directivas, etc., o archivos individuales, como &lt;code>funciones.ts&lt;/code>, &lt;code>helpers.ts&lt;/code>, &lt;code>constants.ts&lt;/code>, &lt;code>config.ts&lt;/code> y otros. La principal razón para poner un archivo en esta carpeta es utilizarlo en muchos lugares. Por ejemplo, dentro de &lt;code>src/common/components&lt;/code> puedes almacenar &lt;code>Button.vue&lt;/code>, un componente compartido utilizado en toda la aplicación. En &lt;code>helpers.ts&lt;/code>, puedes escribir una función común para usar en varios lugares.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>layouts&lt;/code>: Ya he abordado el problema de los diseños en uno de mis artículos anteriores. Puedes guardar los diseños de tu aplicación en este directorio. Por ejemplo: &lt;code>AppLayout.vue&lt;/code>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>middlewares&lt;/code>: Este directorio trabaja estrechamente con Vue Router. Puedes almacenar tus guards de navegación en esta carpeta. Aquí tienes un breve ejemplo de un middleware:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">export&lt;/span> &lt;span class="k">default&lt;/span> &lt;span class="kd">function&lt;/span> &lt;span class="nx">checkAuth&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">next&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">isAuthenticated&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">isAuthenticated&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">next&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span> &lt;span class="k">else&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">next&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/login&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>y úsalo dentro de Vue Router:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">import&lt;/span> &lt;span class="nx">Router&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s1">&amp;#39;vue-router&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">import&lt;/span> &lt;span class="nx">checkAuth&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s1">&amp;#39;../middlewares/checkAuth.js&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">const&lt;/span> &lt;span class="nx">isAuthenticated&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kc">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">const&lt;/span> &lt;span class="nx">router&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="k">new&lt;/span> &lt;span class="nx">Router&lt;/span>&lt;span class="p">({&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">routes&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">[],&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">mode&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;history&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">})&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">router&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">beforeEach&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="nx">to&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">from&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">next&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">checkAuth&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">next&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">isAuthenticated&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;code>modules&lt;/code>: Este es el núcleo de nuestra aplicación. Aquí almacenamos todos nuestros módulos, partes lógicamente separadas de nuestra aplicación. Te animo a que, dentro de cada módulo, crees:&lt;/p>
+&lt;ul>
+&lt;li>Una carpeta de componentes internos donde puedes guardar tus componentes Vue.&lt;/li>
+&lt;li>Una carpeta de pruebas (prefiero mantener todas las pruebas relacionadas en el módulo).&lt;/li>
+&lt;li>Un archivo &lt;code>store.ts&lt;/code> o un directorio &lt;code>store&lt;/code>, donde mantengas el módulo de Vuex (o Pinia). Por ejemplo, este es un ejemplo de un módulo de pedidos, donde almacenas todos los componentes relacionados con los pedidos en tu aplicación: lista de pedidos, detalles del pedido, etc. Módulo de Vuex de pedidos. Archivos relacionados adicionales. Puede verse así:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">src
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--modules
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">----orders
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">------__tests__
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">------components
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--------OrdersList.vue
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--------OrderDetails.vue
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">------store
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--------actions.ts
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--------getters.ts
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--------mutations.ts
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">--------state.ts
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">------helpers.ts
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">------types.ts
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>plugins&lt;/code>: En esta carpeta puedes crear y conectar todos tus plugins. Aquí tienes un ejemplo de conexión de un plugin en Vue 2:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">import&lt;/span> &lt;span class="nx">MyPlugin&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s1">&amp;#39;./myPlugin.ts&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">Vue&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">use&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">MyPlugin&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">someOption&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">true&lt;/span> &lt;span class="p">})&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>En Vue 3, conectarás tu plugin en &lt;code>main.ts&lt;/code>. Pero aún puedes crear tus plugins dentro de la carpeta &lt;code>plugins&lt;/code>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>services&lt;/code>: Esta carpeta es necesaria para almacenar tus servicios. Por ejemplo, puedes crear y guardar un servicio de conexiones API, un servicio de gestión de almacenamiento local, etc.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>static&lt;/code>: Por lo general, no necesitas esta carpeta. Puede usarse para guardar algunos datos ficticios.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>router&lt;/code>: Dentro de este directorio puedes almacenar todos los archivos relacionados con Vue Router. Puede ser solo &lt;code>index.ts&lt;/code> con el enrutador y las rutas en un solo lugar (en este caso, probablemente sea una buena idea almacenar este archivo en la raíz de &lt;code>src&lt;/code>). Yo prefiero separar el enrutador y las rutas en dos archivos diferentes para evitar confusiones.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>store&lt;/code>: Este es el directorio de Vuex donde puedes almacenar todos los archivos relacionados con Vuex. Dado que deseas separar tus módulos de Vuex, en esta carpeta debes almacenar el estado raíz, las acciones, las mutaciones y los getters, y conectar automáticamente todos los módulos de Vuex desde el directorio de módulos.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>views&lt;/code>: Esta es la segunda carpeta más importante de nuestra aplicación. Aquí almacenamos todos los puntos de entrada para las rutas de la aplicación. Por ejemplo, en tu aplicación puedes tener rutas como &lt;code>/home&lt;/code>, &lt;code>/about&lt;/code>, &lt;code>/orders&lt;/code>. Respectivamente, en la carpeta &lt;code>views&lt;/code> deberías tener &lt;code>Home.vue&lt;/code>, &lt;code>About.vue&lt;/code>, &lt;code>Orders.vue&lt;/code>.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>Podrías preguntarte por qué debemos separar vistas y módulos si podemos almacenarlos en el mismo lugar. Veo algunas ventajas en separarlos:&lt;/p>
+&lt;ul>
+&lt;li>Estructura de archivos más clara.&lt;/li>
+&lt;li>Te permite comprender rápidamente qué rutas tienes en la aplicación.&lt;/li>
+&lt;li>Facilita la comprensión de cuál archivo es la raíz de la página y dónde comienza a funcionar.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusiones">
+Conclusiones
+&lt;a href="#conclusiones" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>En este artículo, compartí mi enfoque para crear aplicaciones Vue basado en mi experiencia de trabajo en muchas aplicaciones Vue diferentes. Por supuesto, estas son solo sugerencias, y eres libre de usar todas, algunas o ninguna de ellas. Espero que este artículo ayude a algunos desarrolladores a estructurar sus proyectos de una manera nueva y les brinde más ideas.&lt;/p></description></item></channel></rss>
