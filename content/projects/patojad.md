@@ -27,6 +27,11 @@ authors: [PatoJAD]
 
 Este es el sitio web personal de PatoJAD, donde se publican articulos de tecnologia, programacion y otros temas. El sitio esta construido con HugoCMS y alojado en GitHub Pages.
 
+Archivos de proyecto:
+
+* [Sitio web del Proyecto](https://patojad.com.ar/)
+* [Repositorio en GitHub](https://github.com/PatoJAD/website/)
+
 ## Diciembre del 2024
 
 En esta actualizacion del blog, se realizo un rebranding completo del sitio web, se cambio el logo, los colores y se mejoro la tipografia. Ademas, se mejoro la velocidad de carga del sitio. Este cambio fue realizado para mejorar la experiencia de usuario dando una interfaz mas limpia y moderna. Ademas se modifica el entorno del sitio web para ser mas enfocado en PatoJAD, su contenido y sus servicios.
