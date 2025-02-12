@@ -4,7 +4,7 @@ date: 2020-10-03T00:00:00-05:00
 type: project
 description: "Sitio web que permite crear QR personalizados de una manera simple, rapida y completamente gratuita. Servicio ofrecido por Vasak Group."
 status: "Activo"
-client: "PatoJAD"
+client: "Vasak Group"
 tags:
   [
     "webapp",
@@ -23,7 +23,7 @@ tags:
     github,
     github pages,
   ]
-img: "https://i.postimg.cc/d3X3yPTS/patojad.png"
+img: "https://i.postimg.cc/L5p3KWhM/qrgenerator.png"
 technologies: ["Angular", "GitHub", "Bootstrap"]
 authors: [PatoJAD]
 ---
