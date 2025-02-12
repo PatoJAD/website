@@ -3,11 +3,16 @@
 <div class="flex flex-col justify-center items-center px-6 max-w-[1400px] m-auto">
   <div class="grid grid-cols-1 md:grid-cols-3 py-12 w-full">
     <div id="information" class="col-span-2 w-full px-3 mb-4">
+      <div class="flex flex-wrap justify-evenly">
       {{ $paginator := .Paginate .Data.Pages.ByDate.Reverse }}
       {{ range $paginator.Pages }}
+      {{ if eq .Type "project" }}
+      {{ .Render "project-card" }}
+      {{ else }}
       {{ .Render "card" }}
       {{ end }}
-
+      {{ end }}
+      </div>
       {{- partial "components/pagination.html" . -}}
     </div>
     <div id="widgets" class="w-full px-3">
