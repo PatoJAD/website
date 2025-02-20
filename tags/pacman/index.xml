@@ -1,0 +1,1086 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pacman on PatoJAD</title><link>https://patojad.com.ar/tags/pacman/</link><description>Recent content in Pacman on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 20 Aug 2024 10:04:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/pacman/index.xml" rel="self" type="application/rss+xml"/><item><title>Pacman vs Apt: Una guía para cambiar de gestor de paquetes</title><link>https://patojad.com.ar/post/2024/08/pacman-vs-apt-una-gu%C3%ADa-para-cambiar-de-gestor-de-paquetes/</link><pubDate>Tue, 20 Aug 2024 10:04:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/08/pacman-vs-apt-una-gu%C3%ADa-para-cambiar-de-gestor-de-paquetes/</guid><description>&lt;p>Si estás pensando en cambiar de distribución Linux, es probable que te hayas encontrado con dos gestores de paquetes muy populares: pacman y apt. Ambos herramientas te permiten instalar, actualizar y eliminar software en tu sistema, pero tienen enfoques y sintaxis diferentes. En este artículo, exploraremos las principales diferencias entre pacman y apt para ayudarte a tomar una decisión informada.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-un-gestor-de-paquetes">
+¿Qué es un gestor de paquetes?
+&lt;a href="#qu%c3%a9-es-un-gestor-de-paquetes" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Antes de adentrarnos en la comparación, es importante entender qué es un gestor de paquetes. Imagina una biblioteca de software, donde cada libro representa un programa. El gestor de paquetes es el bibliotecario que te ayuda a encontrar, tomar prestado y devolver los libros que necesitas.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="pacman-vs-apt-una-visión-general">
+Pacman vs. Apt: una visión general
+&lt;a href="#pacman-vs-apt-una-visi%c3%b3n-general" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;ul>
+&lt;li>&lt;strong>Pacman&lt;/strong>: El gestor de paquetes utilizado en Arch Linux y sus derivados. Se caracteriza por su enfoque minimalista y su base de datos de paquetes plana.&lt;/li>
+&lt;li>&lt;strong>Apt&lt;/strong>: El gestor de paquetes utilizado en Debian y sus derivados, como Ubuntu. Es conocido por su sistema de dependencias sofisticado y su gran cantidad de paquetes disponibles.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="diferencias-clave">
+Diferencias clave
+&lt;a href="#diferencias-clave" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Antes de entrar en materia, es importante tener en cuenta que tanto &lt;code>pacman&lt;/code> como &lt;code>apt&lt;/code> son excelentes gestores de paquetes, cada uno con sus propias fortalezas y debilidades. La elección entre ambos dependerá de tus preferencias personales y necesidades específicas. A continuación, exploraremos algunas de las diferencias clave entre ambos:&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="filosofía">
+Filosofía
+&lt;a href="#filosof%c3%ada" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>Pacman&lt;/strong>: Prioriza la simplicidad y la flexibilidad. Te da un mayor control sobre tu sistema, pero requiere una configuración inicial más detallada.&lt;/li>
+&lt;li>&lt;strong>Apt&lt;/strong>: Ofrece una experiencia más automatizada y orientada al usuario. Gestiona las dependencias de forma más estricta, lo que puede simplificar la instalación de software.&lt;/li>
+&lt;/ul>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="sintaxis-de-los-comandos">
+Sintaxis de los comandos
+&lt;a href="#sintaxis-de-los-comandos" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>Pacman&lt;/strong>: Utiliza una sintaxis más concisa y directa. Por ejemplo, para instalar un paquete, se usa &lt;code>sudo pacman -S nombre_del_paquete&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>Apt&lt;/strong>: Tiene una sintaxis más verbosa. Para instalar un paquete, se utiliza &lt;code>sudo apt install nombre_del_paquete&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="base-de-datos-de-paquetes">
+Base de datos de paquetes
+&lt;a href="#base-de-datos-de-paquetes" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>Pacman&lt;/strong>: Mantiene una base de datos plana, lo que facilita la gestión de paquetes.&lt;/li>
+&lt;li>&lt;strong>Apt&lt;/strong>: Utiliza una base de datos más compleja, con información sobre dependencias y conflictos.&lt;/li>
+&lt;/ul>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="actualizaciones">
+Actualizaciones
+&lt;a href="#actualizaciones" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>Pacman&lt;/strong>: Ofrece un sistema de actualizaciones más flexible, permitiéndote elegir qué paquetes actualizar.&lt;/li>
+&lt;li>&lt;strong>Apt&lt;/strong>: Realiza actualizaciones de forma más automatizada, pero puede ser más restrictivo.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="tabla-comparativa">
+Tabla comparativa
+&lt;a href="#tabla-comparativa" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;table class="w-full bg-gray-100 dark:bg-gray-900 rounded-xl my-4">
+&lt;thead>
+&lt;tr>
+&lt;th class="px-3 py-1">Característica&lt;/th>
+&lt;th class="px-3 py-1">Pacman&lt;/th>
+&lt;th class="px-3 py-1">Apt&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">Filosofía&lt;/td>
+&lt;td class="px-3 py-1">Minimalista, flexible&lt;/td>
+&lt;td class="px-3 py-1">Automatizado, orientado al usuario&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">Sintaxis&lt;/td>
+&lt;td class="px-3 py-1">Concisa&lt;/td>
+&lt;td class="px-3 py-1">Verbosa&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">Base de datos&lt;/td>
+&lt;td class="px-3 py-1">Plana&lt;/td>
+&lt;td class="px-3 py-1">Compleja&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">Actualizaciones&lt;/td>
+&lt;td class="px-3 py-1">Flexibles&lt;/td>
+&lt;td class="px-3 py-1">Automatizadas&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>&lt;h2 class="text-amber-500 text-3xl my-6" id="cuál-es-mejor">
+¿Cuál es mejor?
+&lt;a href="#cu%c3%a1l-es-mejor" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>La elección entre pacman y apt depende de tus preferencias y necesidades. Si buscas un mayor control sobre tu sistema y prefieres una configuración más manual, pacman puede ser una buena opción. Si prefieres una experiencia más automatizada y una gran cantidad de paquetes disponibles, apt es una excelente elección.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="ejemplos-prácticos">
+Ejemplos prácticos
+&lt;a href="#ejemplos-pr%c3%a1cticos" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;ul>
+&lt;li>Buscar paquetes:
+&lt;ul>
+&lt;li>Pacman:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">pacman -Ss firefox
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Apt:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">apt search firefox
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Buscar paquetes por descripción:
+&lt;ul>
+&lt;li>Pacman:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">pacman -F descripción_del_paquete
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Apt:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">apt-cache search descripción_del_paquete
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Instalar un paquete:
+&lt;ul>
+&lt;li>Pacman:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S firefox
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Apt:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo apt install firefox
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Actualizar el sistema:
+&lt;ul>
+&lt;li>Pacman:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Syu
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Apt:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo apt update &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> sudo apt upgrade
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Eliminar un paquete:
+&lt;ul>
+&lt;li>Pacman:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Rs firefox
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Apt:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo apt remove firefox
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Eliminar paquetes huérfanos:
+&lt;ul>
+&lt;li>Pacman:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Rns &lt;span class="k">$(&lt;/span>pacman -Qdtq&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Apt:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo apt autoremove
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Limpiar caché:
+&lt;ul>
+&lt;li>Pacman:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Sc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Apt:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo apt clean
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusión">
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Tanto &lt;code>pacman&lt;/code> como &lt;code>apt&lt;/code> son &lt;em>gestores de paquetes&lt;/em> excelentes, cada uno con sus propias fortalezas y debilidades. La mejor opción para ti dependerá de tus necesidades y preferencias personales. Al comprender las diferencias entre ambos, podrás elegir el gestor de paquetes que mejor se adapte a tu flujo de trabajo.&lt;/p></description></item><item><title>Instalación de Wine en GNU/Linux para Ejecutar Aplicaciones Windows</title><link>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</link><pubDate>Wed, 15 Nov 2023 12:02:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</guid><description>&lt;p>La compatibilidad entre sistemas operativos es esencial, y Wine, una herramienta de código abierto, facilita la ejecución de aplicaciones Windows en entornos GNU/Linux. En esta guía, exploraremos qué es Wine, cómo instalarlo en distintas distribuciones y dónde se instalan las aplicaciones. ¡Descubre cómo ampliar las posibilidades de tu sistema operativo!&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-wine">
+¿Qué es Wine?
+&lt;a href="#qu%c3%a9-es-wine" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Wine, que significa &amp;ldquo;Wine Is Not an Emulator&amp;rdquo; (Wine no es un emulador), es una capa de compatibilidad que permite ejecutar aplicaciones diseñadas para Microsoft Windows en sistemas operativos basados en Unix, como GNU/Linux. No es una máquina virtual ni emula un entorno Windows completo; en cambio, traduce llamadas de sistema de Windows a llamadas de sistema compatibles con Unix.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="por-qué-usar-wine">
+¿Por qué usar Wine?
+&lt;a href="#por-qu%c3%a9-usar-wine" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Wine es una herramienta muy útil para aquellos que necesitan ejecutar aplicaciones Windows en entornos GNU/Linux. Algunos ejemplos de casos de uso incluyen:&lt;/p>
+&lt;ul>
+&lt;li>Ejecutar aplicaciones de productividad como Microsoft Office.&lt;/li>
+&lt;li>Ejecutar aplicaciones de diseño como Adobe Photoshop.&lt;/li>
+&lt;li>Ejecutar juegos de Windows.&lt;/li>
+&lt;li>Ejecutar aplicaciones de Windows que no tienen alternativas nativas en GNU/Linux.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="cómo-se-instala-wine">
+¿Cómo se instala Wine?
+&lt;a href="#c%c3%b3mo-se-instala-wine" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>La instalación de Wine varía según la distribución de GNU/Linux que estés utilizando. A continuación, se detallan los pasos para algunas distribuciones populares.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="debianubuntu">
+Debian/Ubuntu
+&lt;a href="#debianubuntu" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo dpkg --add-architecture i386
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install wine64 wine32
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="fedora">
+Fedora
+&lt;a href="#fedora" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo dnf install wine
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="arch-linux-y-derivadas-como-manjaro">
+Arch Linux (y derivadas como Manjaro):
+&lt;a href="#arch-linux-y-derivadas-como-manjaro" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S wine
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="opensuse">
+OpenSUSE:
+&lt;a href="#opensuse" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo zypper install wine
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="dónde-se-instalan-las-aplicaciones-con-wine">
+¿Dónde se instalan las aplicaciones con Wine?
+&lt;a href="#d%c3%b3nde-se-instalan-las-aplicaciones-con-wine" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Las aplicaciones instaladas con Wine se almacenan en un directorio llamado &lt;code>wineprefix&lt;/code>. Por defecto, se encuentra en el directorio de inicio del usuario en una carpeta oculta llamada &lt;code>.wine&lt;/code>. Dentro de este directorio, encontrarás una estructura similar a la de un sistema Windows estándar, con carpetas como &lt;code>Program Files&lt;/code> y &lt;code>Windows&lt;/code>.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="proceso-de-instalación-básico-de-una-aplicación-con-wine">
+Proceso de instalación básico de una aplicación con Wine
+&lt;a href="#proceso-de-instalaci%c3%b3n-b%c3%a1sico-de-una-aplicaci%c3%b3n-con-wine" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>Descarga el instalador de la aplicación Windows que deseas ejecutar.&lt;/li>
+&lt;li>Abre una terminal y navega hasta el directorio donde descargaste el instalador.&lt;/li>
+&lt;li>Ejecuta el siguiente comando:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">wine nombre_del_instalador.exe
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Sigue los pasos de instalación como lo harías en Windows.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusiones">
+Conclusiones
+&lt;a href="#conclusiones" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;strong>Wine&lt;/strong> es una herramienta invaluable para aquellos que necesitan ejecutar aplicaciones Windows en entornos GNU/Linux. Su capacidad para traducir llamadas de sistema y proporcionar un entorno de ejecución nativo es fundamental para mejorar la interoperabilidad entre diferentes sistemas operativos.&lt;/p></description></item><item><title>Instalar Preload en Arch</title><link>https://patojad.com.ar/post/2022/02/instalar-preload-en-arch/</link><pubDate>Thu, 03 Feb 2022 09:22:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/02/instalar-preload-en-arch/</guid><description>&lt;p>Preload es una aplicación que toma estadísticas de nuestro uso de aplicaciones y precarga en memoria todas aquellas que más usamos al prender el equipo. Gracias a esto podemos ver una fluidez más amplia al abrir estas aplicaciones. Y a costa de esta fluidez nuestro sistema inicia con más memoria RAM ocupada. Muchos se debaten si esta técnica es útil o no y por eso te dejo primero un video con mi postura sobre esto.&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/HVCqSfdTdUs?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;p>Dejando aclarada mi postura de más está decir que cualquier postura con fundamentos es válida y si preferís no ocupar RAM te recomiendo que no instales &lt;strong>Preload&lt;/strong> aunque vas a perderte la fluidez adicional que esto nos da.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="video">
+Video
+&lt;a href="#video" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>En el siguiente video vemos como se realiza la instalación de preload (con yay en mi caso pero podes usar tu gestor favorito) y cómo habilitarlo en cualquier base &lt;strong>Arch&lt;/strong> con &lt;strong>SystemD&lt;/strong> y también en &lt;strong>Artix&lt;/strong> con &lt;strong>OpenRC&lt;/strong> (En esta oportunidad no use &lt;strong>Runit&lt;/strong> pero con una búsqueda simple podes adaptarlo)&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/6NoYA9Rtp2s?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="código">
+Código
+&lt;a href="#c%c3%b3digo" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>A continuación dejo los comandos utilizados para que sea más simple copiar y pegar…&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">yay -S preload
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="systemd">
+SystemD
+&lt;a href="#systemd" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>En el caso de usar distros con SystemD se habilita de la siguiente manera. Recuerda que esto nos pedirá la contraseña&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">systemctl &lt;span class="nb">enable&lt;/span> preload
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="openrc">
+OpenRC
+&lt;a href="#openrc" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>En el caso de estar en &lt;strong>Artix&lt;/strong> (con &lt;strong>OpenRC&lt;/strong>) debemos crear el archivo del demonio de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo nano /etc/init.d/preload
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Y dentro del archivo debemos poner lo siguiente:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#!/sbin/openrc-run&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">command&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;/usr/bin/preload&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">command_args&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;$PRELOAD_OPTS&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">command_args_foreground&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;--foreground&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Esto lo guardamos y a continuación le damos permisos al archivo para poder iniciar el proceso.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo chmod &lt;span class="m">777&lt;/span> /etc/init.d/preload
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="alert alert-warning col-12" style="position:relative;">
+&lt;div class="info-box-content container">
+&lt;div class="row">
+&lt;div class="col-2 text-center">
+&lt;span class="fa fa-warning fa-5x">&lt;/span>
+&lt;/div>
+&lt;div class="col-10">
+&lt;p class="no-margin">OJO no es recomendable usar 777 para los permisos de este archivo, es una mala practica que hago personalmente para hacer pruebas, lo ideal es ponerle el mismo permiso que tienen el resto de los archivos en el folder /etc/init.d&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;p>Y por último podemos inicializar el proceso de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo rc-service preload start
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Instalar PARU y YAY</title><link>https://patojad.com.ar/post/2022/01/instalar-paru-y-yay/</link><pubDate>Thu, 27 Jan 2022 15:12:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/01/instalar-paru-y-yay/</guid><description>&lt;p>Ya hablamos con anterioridad sobre &lt;a href="https://patojad.com.ar/aplicaciones/2022/01/paru-vs-yay-cual-elegir/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+PARU y YAY
+&lt;/a>. En esa oportunidad di mi opinión sobre cuál deberíamos elegir, aunque esto siempre es a gusto y placer de la persona que lo utilice. Por eso en esta oportunidad vamos a ver la manera más simple de instalar ambas aplicaciones.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="requisitos-previos">
+Requisitos previos
+&lt;a href="#requisitos-previos" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Para poder realizar la instalación tenemos unos requisitos previos para que todo salga mas que bien, te dejo a continuación ambos links que explicaran como hacer esto (El primero no es obligatorio pero está bueno saber cual elegir antes de instalar alguno)&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://patojad.com.ar/aplicaciones/2022/01/paru-vs-yay-cual-elegir/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Paru VS YAY ¿Cual elegir?
+&lt;/a> (Opcional)&lt;/li>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2022/01/instalar-chaotic-aur/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Instalar Chaotic AUR
+&lt;/a> (Obligatorio)&lt;/li>
+&lt;/ul>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="video">
+Video
+&lt;a href="#video" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Claramente siempre genero un pequeño video para poder ser un poco más gráfico, de todas formas en la parte inferior voy a dejar los comandos utilizados. Es muy importante tener los repositorios de chaotic para poder instalarlo de esta manera.&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/DF8IAz5WoXg?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;div class="alert alert-info col-12" style="position:relative;">
+&lt;div class="info-box-content container">
+&lt;div class="row">
+&lt;div class="col-2 text-center">
+&lt;span class="fa fa-info fa-5x">&lt;/span>
+&lt;/div>
+&lt;div class="col-10">
+&lt;p class="no-margin">Si el video te sirvió pegale una subscribirda al canal que es muchísimo apoyo y es totalmente gratuito.&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="comandos">
+Comandos
+&lt;a href="#comandos" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Para la instalación de yay:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Sy yay
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Para la instalación de paru:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Sy paru
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>En caso de que vayamos a instalar los 2 podemos hacerlo de una sola vez usando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Sy yay paru
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Para desinstalar yay:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Rs yay
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Para desinstalar paru:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Rs paru
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Para desinstalar ambos:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Rs yay paru
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Instalar Chaotic AUR</title><link>https://patojad.com.ar/post/2022/01/instalar-chaotic-aur/</link><pubDate>Wed, 12 Jan 2022 09:45:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/01/instalar-chaotic-aur/</guid><description>&lt;p>Chaotic es un repositorio que busca traer los paquetes de AUR, o al menos los de mayor uso desde el punto de vista del creador, para administrarlos de forma simple con pacman. Sin tener que instalar los AUR ni configurarlos y mucho menos usar los AURHelpers. Estos son algunos de los detalles a tener en cuenta sobre Chaotic:&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/vZr3rN4_ZDc?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;ul>
+&lt;li>La mayoría de los paquetes disponibles en este repositorio se crean automáticamente a partir de su paquete fuente AUR respectivo. Sin embargo, hay algunas excepciones, consulte &lt;a href="https://github.com/chaotic-aur/packages" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fab fa-github">&lt;/i>&amp;nbsp;
+https://github.com/chaotic-aur/packages
+&lt;/a> para averiguar cuáles.&lt;/li>
+&lt;li>El clúster de construcción principal es un nodo en el centro de datos de UFSCars que está alojado en San Carlos, San Paulo, Brazil.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="comandos">
+Comandos
+&lt;a href="#comandos" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>En el video muestro como se realiza y que podemos ver el resultado dentro de nuestros repositorios en &lt;strong>pacman&lt;/strong> por esto mismo voy a dejar a continuación los comandos.&lt;/p>
+&lt;p>Instalación o descarga de las Key del repositorio para chequear los paquetes:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pacman-key --lsign-key FBA220DFC880C036
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Instalación de los paquetes con pacman (En el video los instalo por separado, sin embargo el comando de abajo los instala a los dos juntos)&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">pacman -U &lt;span class="s1">&amp;#39;https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Por último tenemos que agregar el repositorio en la configuración de pacman. Para esto debemos editarla con permisos de administrador, por ejemplo de la siguiente manera &lt;code>sudo nano /etc/pacman.conf&lt;/code> y agregamos lo siguiente en la sección de repositorios:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="line">&lt;span class="cl">&lt;span class="k">[chaotic-aur]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Include&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">/etc/pacman.d/chaotic-mirrorlist&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="recomendaciones">
+Recomendaciones
+&lt;a href="#recomendaciones" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Las siguientes recomendaciones son propias de los desarrolladores de &lt;strong>ChaoticAUR&lt;/strong> con alguna que otra modificación:&lt;/p>
+&lt;ul>
+&lt;li>Si sos usuario de powerpill y queres usarlo para realizar todas las descargas desde todos los mirrors se recomienda realizar la actualización de la siguiente manera:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo pacman -Sy &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> sudo powerpill -Su &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> paru -Su
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Asegúrese de insertar todos los espejos en su pacman.conf o use caotic-mirrorlist con todos ellos activos si usa powerpill.&lt;/li>
+&lt;li>Si está utilizando otros repositorios de terceros, le recomendamos que coloque Chaotic-AUR antes que ellos en &lt;code>/etc/pacman.conf&lt;/code>. Dado que actualizamos la mayoría de los paquetes cada hora y seguimos los &lt;code>PKGBUILD&lt;/code> de &lt;strong>AUR&lt;/strong>, este repositorio es más adecuado como primera opción al descargar paquetes.&lt;/li>
+&lt;li>Si necesita omitir la actualización de un paquete para usar las creadas localmente (por ejemplo, con optimizaciones nativas), puede agregar &lt;code>'IgnorePkg = ...'&lt;/code> a la sección del repositorio en &lt;code>/etc/pacman.conf&lt;/code>&lt;/li>
+&lt;li>Puede elegir el repositorio desde el que descargar un paquete de esta manera: &lt;code>pacman -S chaotic-aur/dxvk-mingw-git&lt;/code>. Algunos ayudantes de AUR también lo admiten, por ejemplo: &lt;code>paru -S aur/firefox-hg&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-warning col-12" style="position:relative;">
+&lt;div class="info-box-content container">
+&lt;div class="row">
+&lt;div class="col-2 text-center">
+&lt;span class="fa fa-warning fa-5x">&lt;/span>
+&lt;/div>
+&lt;div class="col-10">
+&lt;p class="no-margin">Debe tener habilitado el repositorio multilib.&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div></description></item><item><title>Paru VS YAY ¿Cual elegir?</title><link>https://patojad.com.ar/post/2022/01/paru-vs-yay-cual-elegir/</link><pubDate>Mon, 03 Jan 2022 09:22:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/01/paru-vs-yay-cual-elegir/</guid><description>&lt;p>Es común que al utilizar cualquier distribución basada en Arch (Artix, endeavour, manjaro, etc) queramos usar los AUR dado que ahí disponemos de una cantidad de paquetes increíbles. Y a la hora de usarlo podemos elegir entre múltiples AUR Helpers. En esta oportunidad vamos a hablar de 2 de estos. El conocido YAY que lleva mucho tiempo con nosotros. Y el no tan nuevo PARU que llega con una propuesta interesante para los amantes de los AUR.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="comparación">
+Comparación
+&lt;a href="#comparaci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>YAY está escrito en GO un lenguaje de programación que tiene una fácil lectura y es extensible. Una gran ventaja es que su compilación es realmente rápida y muy simple. Toma como inspiración yaourt, apacman y pacmaur. Paru, en cambio, está escrito en Rust y toma como inspiración a YAY por lo cual es muy simple de migrar de uno a otro.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/xTvdwb1M/image.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Si bien YAY es mucho más popular y tiene una comunidad mucho más grande, actualmente paru es, por no mucho, más activo. Lo cual supone ser una ventaja, sin embargo, para los usuarios finales esto no afecta en gran cantidad. Sin embargo una de las diferencias que note es que paru es, efectivamente, más rápido que YAY. Lo cual es útil si tenemos equipos de pocos recursos. Sin embargo, en lo personal creo que yay tiene una sintaxis más feliz que paru. Es más simple y rápido escribir yay, incluso para autocompletar. Sin embargo, paru puede volverse un poco tosco y molesto.&lt;/p>
+&lt;table class="w-full bg-gray-100 dark:bg-gray-900 rounded-xl my-4">
+&lt;thead>
+&lt;tr>
+&lt;th class="px-3 py-1" style="text-align: center">&lt;/th>
+&lt;th class="px-3 py-1" style="text-align: center">Codigo Fuente&lt;/th>
+&lt;th class="px-3 py-1" style="text-align: center">Revision de Archivos&lt;/th>
+&lt;th class="px-3 py-1" style="text-align: center">Diff&lt;/th>
+&lt;th class="px-3 py-1" style="text-align: center">GIT&lt;/th>
+&lt;th class="px-3 py-1" style="text-align: center">Shells&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Paru&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">GO&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">bash, fish, zsh&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">YAY&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Rust&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">bash, fish, zsh&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>&lt;h3 class="text-gray-500 text-3xl my-6" id="mi-opinión">
+Mi Opinión
+&lt;a href="#mi-opini%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Personalmente le veo mucho potencial a paru, pero no ofrece nada muy diferente a otros. Y siento la sintaxis un tanto incómoda, sin embargo, es recomendable para equipos que son bastantes lentos porque en esa circunstancia es muy provechoso el tiempo que optimiza y nos permite aprovechar mejor los recursos.&lt;/p>
+&lt;p>Yo me voy a quedar con yay, al menos de momento pero me gustaría saber tu opinion y analisis sobre estas dos apps&lt;/p></description></item><item><title>Activar Descargas paralelas en Pacman</title><link>https://patojad.com.ar/post/2021/07/activar-descargas-paralelas-en-pacman/</link><pubDate>Thu, 15 Jul 2021 09:51:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/07/activar-descargas-paralelas-en-pacman/</guid><description>&lt;p>Como mencionamos &lt;a href="https://patojad.com.ar/post/2021/06/lleg%c3%b3-pacman-v6-y-pamac-qued%c3%b3-anonadado/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+hace un tiempo llegó pacman 6
+&lt;/a>, y la primera impresión para algunos no fue buena porque pamac no estaba a la altura ni estaba preparado para esto. Sin embargo ya está todo solucionado y podemos comenzar a sacarle el mejor provecho a esto. En esta oportunidad vamos a hablar de una nueva opción que seguro queremos tener habilitada en nuestra distro…&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="descargas-en-paralelo">
+Descargas en paralelo
+&lt;a href="#descargas-en-paralelo" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Claramente sabemos que son las descargas en paralelo y algunos no nos percatamos de que pacman no descargaba simultáneamente los paquetes pero hoy te damos el paso a paso para que habilites la descarga en paralelo en tu distro base arch preferida…&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="cómo-hacerlo">
+Cómo hacerlo
+&lt;a href="#c%c3%b3mo-hacerlo" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Te dejo un video donde explico como realizar esto y claramente más abajo vas a poder ver los comandos utilizados:&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/xOeA9rx6HLA?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;p>Primero abrimos, como administrador, el archivo de configuración:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo nano /etc/pacman.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Luego, como explica en el video, agregamos la siguiente linea:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">ParallelDownloads&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="m">5&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Donde 5 representa la cantidad de descargas en paralelo que queremos tener, este número lo podemos variar dependiendo nuestra velocidad de internet y necesidades.&lt;/p></description></item><item><title>LLegó pacman v6 y pamac quedó anonadado</title><link>https://patojad.com.ar/post/2021/06/lleg%C3%B3-pacman-v6-y-pamac-qued%C3%B3-anonadado/</link><pubDate>Wed, 02 Jun 2021 09:10:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/06/lleg%C3%B3-pacman-v6-y-pamac-qued%C3%B3-anonadado/</guid><description>&lt;p>El día jueves 20 del mes de Mayo se liberó la versión Oficial de pacman 6 el cual viene repleta de novedades que ya podemos disfrutar en todas las distribuciones basadas en Arch.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="changelog">
+Changelog
+&lt;a href="#changelog" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/DwNCYM02/image.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Seguramente te estás preguntando qué cambio y aca te dejo la lista de cambios que impactaron en la versión V6:&lt;/p>
+&lt;ul>
+&lt;li>El descargador interno puede recuperar archivos en paralelo&lt;/li>
+&lt;li>Se agrega una barra de progreso adicional para rastrear la descarga total Progreso. Esto reemplaza la opción anterior TotalDownload.&lt;/li>
+&lt;li>Corregir las tasas de descarga que se vuelven negativas&lt;/li>
+&lt;li>Omitir servidores espejo con demasiados errores&lt;/li>
+&lt;li>Las firmas del paquete siempre se recuperan incluso si la firma es incrustado en la base de datos de repositorios o el paquete está en la caché&lt;/li>
+&lt;li>Las firmas de paquetes independientes que se encuentran en CacheDir se pueden usar para verificar los paquetes si la firma no está en la base de datos. También verificar las sumas de comprobación de los paquetes desde la base de datos del repositorio cuando se usa detached firmas.&lt;/li>
+&lt;li>Agregar soporte para múltiples valores de &lt;em>&amp;lsquo;Arquitectura&amp;rsquo;&lt;/em>&lt;/li>
+&lt;li>&lt;em>-Qkk&lt;/em> ahora valida las sumas de verificación de archivos además de la fecha / tamaño&lt;/li>
+&lt;li>El resumen de actualización en color ahora atenúa los números de versión para el contraste&lt;/li>
+&lt;li>Las interfaces libalpm ahora pueden proporcionar contexto a las devoluciones de llamada&lt;/li>
+&lt;li>Soporte xattr al extraer paquetes&lt;/li>
+&lt;li>Permitir la configuración &amp;ndash;noprogressbar en pacman.conf -&lt;/li>
+&lt;li>Corregir la alineación de salida para el texto traducido de CJK&lt;/li>
+&lt;li>Corrige los objetivos de lectura de stdin cuando se usa &lt;em>&amp;ndash;sysroot&lt;/em>&lt;/li>
+&lt;li>Corregir la eliminación de firmas para bases de datos existentes con &lt;em>-Sc&lt;/em>&lt;/li>
+&lt;li>Comprobar y prohibir la descarga de nombres de archivos duplicados&lt;/li>
+&lt;li>&lt;em>-Fx&lt;/em> ahora informa de un error por expresiones regulares no válidas&lt;/li>
+&lt;li>Eliminar el soporte para el sistema de compilación de autotools&lt;/li>
+&lt;li>Meson: compila correctamente los símbolos internos como ocultos&lt;/li>
+&lt;li>Meson: make -uninstalled.pc correcto&lt;/li>
+&lt;li>Corregir errores de compilación en sistemas como &lt;strong>FreeBSD&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>makepkg&lt;/strong>:
+&lt;ul>
+&lt;li>Agregar soporte de optimización de tiempo de enlace a makepkg&lt;/li>
+&lt;li>Agregar soporte para fuentes que usan el VCS fósil&lt;/li>
+&lt;li>Permitir especificar comandos de autenticación alternativos cuando ejecutando pacman como root&lt;/li>
+&lt;li>Soporte de descompresión zstd para fuentes&lt;/li>
+&lt;li>&lt;em>strip&lt;/em>: corrige la eliminación de atributos de archivo como xattr&lt;/li>
+&lt;li>Cambiar a CRC como suma de verificación de integridad predeterminada&lt;/li>
+&lt;li>Record &lt;em>$startdir&lt;/em> para compilaciones reproducibles&lt;/li>
+&lt;li>Registrar el nombre de la herramienta de orquestación de compilación para compilaciones reproducibles&lt;/li>
+&lt;li>Arreglar la firma de paquetes fuente&lt;/li>
+&lt;li>Agregar soporte de argumento opcional a parseopts&lt;/li>
+&lt;li>Reducir la dependencia del archivo para detectar archivos &lt;em>ELF&lt;/em>&lt;/li>
+&lt;li>Eliminar la dependencia de GNU sed&lt;/li>
+&lt;li>Evitar espacios en blanco finales en la salida &amp;ndash;printsrcinfo&lt;/li>
+&lt;li>&lt;em>libprovides&lt;/em>: no proporcione versiones tanto con versión como sin versión sonames&lt;/li>
+&lt;li>No &lt;em>distcc&lt;/em> de doble capa en ccache&lt;/li>
+&lt;li>Corregir la detección de nombres de archivos de origen para paquetes de depuración con &lt;em>gcc 11&lt;/em>&lt;/li>
+&lt;li>&lt;strong>strip&lt;/strong>: silencia las advertencias emitidas por readelf mientras detecta nombres de archivo de origen&lt;/li>
+&lt;li>Corregir el uso de espacios en el cambio de nombre del archivo fuente&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>pacman-key&lt;/strong>:
+&lt;ul>
+&lt;li>&lt;em>&amp;ndash;refresh-keys&lt;/em> consulta WKD antes del servidor de claves&lt;/li>
+&lt;li>Sea menos ruidoso al llenar el llavero&lt;/li>
+&lt;li>Advierte sobre el tiempo necesario para la generación de la clave maestra&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>repo-add&lt;/strong>:
+&lt;ul>
+&lt;li>Admite los mismos métodos de compresión que &lt;em>makepkg&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Finalización de &lt;em>zsh&lt;/em>: agregue soporte &lt;em>pacman-conf&lt;/em>&lt;/li>
+&lt;li>Varias actualizaciones de documentación&lt;/li>
+&lt;li>Después de una década y media de documentación prometedora de &lt;em>libalpm.3&lt;/em> &lt;strong>&amp;ldquo;una vez que logremos realizar una buena documentación de Doxygen&amp;rdquo;, ¡pasó!&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="pamac-no-pudo-soportar-la-emocion">
+Pamac no pudo soportar la emocion
+&lt;a href="#pamac-no-pudo-soportar-la-emocion" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Tantas novedades nos emociona a todos incluso a nuestro querido GUI pamac que desde que actualices a la versión 6 de pacman quedará tan emocionado que no volverá a abrir.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://c2.staticflickr.com/2/1739/40662649560_57b7477f00_o.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Lamentablemente toda esta actualización generó discompatibilidad con pamac y ya no podemos usar este gestor gráfico por un tiempo hasta que se actualice… Claramente que no va a actualizarse por sí solo por lo cual te dejamos un comando que vas a ir pegando en la terminal dia a dia hasta que entre la actualización se encuentre pamac&lt;/p>
+&lt;blockquote>
+&lt;p>ATENCIÓN: Si pamac lo instalaste desde aur tendrás que usar yay en vez de pacman para actualizar&lt;/p>&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">yay -Syu
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">pacman -Syu
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>¿Como instalar Wine?</title><link>https://patojad.com.ar/post/2021/04/como-instalar-wine/</link><pubDate>Fri, 16 Apr 2021 09:36:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/04/como-instalar-wine/</guid><description>&lt;p>Ya con anterioridad me consultaron de como instalar Wine en Artix, esto me llevó a armar el video y obviamente siempre a explicar mi perspectiva o punto de vista sobre el uso de wine. En esta oportunidad el video es específico de distros basadas en Arch. Sin embargo, en la parte inferior van a poder encontrar la instalación para otras distros de linux.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="pre-requisitos">
+Pre requisitos
+&lt;a href="#pre-requisitos" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Si venis por Artix o cualquier distro de Arch te recomiendo que veas de antemano las instalaciones y configuraciones de las que hago uso en el video y doy por sabido estas son&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2021/03/activar-multilib-artix/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Multilib
+&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2020/10/instalar-yay-en-artix-linux/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+yay
+&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="video">
+Video
+&lt;a href="#video" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Como siempre disfruto mucho de armar videos y dejar mi opinion asi que sin rodeos los dejo con el video&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/47A2KBLgj6I?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalar-winehq">
+Instalar WineHQ
+&lt;a href="#instalar-winehq" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://linuxhint.com/wp-content/uploads/2020/06/1-12.jpg" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Lo primero que debemos hacer es instalar WineHQ en nuestra distribución, para esto debemos agregar las librerías y ejecutar la instalación.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="debian">
+Debian
+&lt;a href="#debian" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Habilitamos los 32 bits&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo dpkg --add-architecture i386
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Descargamos e instalamos a Key&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">wget -nc https://dl.winehq.org/wine-builds/winehq.key
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-key add winehq.key
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Agregamos el repositorio dependiendo de nuestra versión&lt;/p>
+&lt;table class="w-full bg-gray-100 dark:bg-gray-900 rounded-xl my-4">
+&lt;thead>
+&lt;tr>
+&lt;th class="px-3 py-1">Version&lt;/th>
+&lt;th class="px-3 py-1">Agregar a /etc/apt/sources.list:&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">Debian 8 (Jessie)&lt;/td>
+&lt;td class="px-3 py-1">deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://dl.winehq.org/wine-builds/debian/
+&lt;/a> jessie main&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">Debian 9 (Stretch)&lt;/td>
+&lt;td class="px-3 py-1">deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://dl.winehq.org/wine-builds/debian/
+&lt;/a> stretch main&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">Debian 10 (currently Testing) (Buster)&lt;/td>
+&lt;td class="px-3 py-1">deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://dl.winehq.org/wine-builds/debian/
+&lt;/a> buster main&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>&lt;p>Actualizamos el Sistema&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo apt update
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Instalamos uno de los paquetes&lt;/p>
+&lt;table class="w-full bg-gray-100 dark:bg-gray-900 rounded-xl my-4">
+&lt;thead>
+&lt;tr>
+&lt;th class="px-3 py-1">version&lt;/th>
+&lt;th class="px-3 py-1">comando&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">Stable branch&lt;/td>
+&lt;td class="px-3 py-1">sudo apt install &amp;ndash;install-recommends winehq-stable&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">Development branch&lt;/td>
+&lt;td class="px-3 py-1">sudo apt install &amp;ndash;install-recommends winehq-devel&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">Staging branch&lt;/td>
+&lt;td class="px-3 py-1">sudo apt install &amp;ndash;install-recommends winehq-staging&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>&lt;h3 class="text-gray-500 text-3xl my-6" id="fedora">
+Fedora
+&lt;a href="#fedora" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Agregamos los repositories&lt;/p>
+&lt;table class="w-full bg-gray-100 dark:bg-gray-900 rounded-xl my-4">
+&lt;thead>
+&lt;tr>
+&lt;th class="px-3 py-1">version&lt;/th>
+&lt;th class="px-3 py-1">comando&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">Fedora 29&lt;/td>
+&lt;td class="px-3 py-1">dnf config-manager &amp;ndash;add-repo &lt;a href="https://dl.winehq.org/wine-builds/fedora/29/winehq.repo" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://dl.winehq.org/wine-builds/fedora/29/winehq.repo
+&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">Fedora 30&lt;/td>
+&lt;td class="px-3 py-1">dnf config-manager &amp;ndash;add-repo &lt;a href="https://dl.winehq.org/wine-builds/fedora/30/winehq.repo" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://dl.winehq.org/wine-builds/fedora/30/winehq.repo
+&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>&lt;p>E instalamos la version que deseamos&lt;/p>
+&lt;table class="w-full bg-gray-100 dark:bg-gray-900 rounded-xl my-4">
+&lt;thead>
+&lt;tr>
+&lt;th class="px-3 py-1">version&lt;/th>
+&lt;th class="px-3 py-1">comando&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">Stable branch&lt;/td>
+&lt;td class="px-3 py-1">dnf install winehq-stable&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">Development branch&lt;/td>
+&lt;td class="px-3 py-1">dnf install winehq-devel&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">Staging branch&lt;/td>
+&lt;td class="px-3 py-1">dnf install winehq-staging&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>&lt;p>Para otras distribuciones o BDS o MacOS revisar en su &lt;a href="https://wiki.winehq.org/Download" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+sitio oficial
+&lt;/a>&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="arch">
+Arch
+&lt;a href="#arch" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Si estás en una distro basada en arch lo que recomiendo es instalar wine-staging que es, personalmente la instalación que me dio un mejor rendimiento. En mi caso lo hice con yay pero puedes hacerlo directamente con pacman&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S wine-staging
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Activar Multilib Artix</title><link>https://patojad.com.ar/post/2021/03/activar-multilib-artix/</link><pubDate>Wed, 24 Mar 2021 17:03:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/03/activar-multilib-artix/</guid><description>&lt;p>En esta oportunidad volvemos con un tutorial orientado a Artix Linux o mejor dicho a Arch en general. Si bien puede que los usuarios más habituales esto lo tengan incorporado. Puede que los usuarios nuevos no lo sepan o ignoren esto por lo cual quería dejar un video conciso.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="el-video">
+El Video
+&lt;a href="#el-video" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Como estoy intentando actualizarse con los videos estoy intentando ser conciso y dar la información sin divagar mucho.&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/OusBLacPkPA?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="adicional">
+Adicional
+&lt;a href="#adicional" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Les dejo los comandos que utilizo en el video y que es lo que hacen. Esto es util si no estas acostumbrado a escribir comandos en la terminal:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo pacman -Si multilib
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Sirve para averiguar si se encuentra habilitado o no el repositorio.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo cat /etc/pacman.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Imprime en pantalla la configuración del archivo localizado en /etc/pacman.conf&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo nano /etc/pacman.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Permite editar el archivo de configuracion&lt;/p></description></item><item><title>Pacman conflicto de Archivos al Actualizar</title><link>https://patojad.com.ar/post/2020/11/pacman-conflicto-de-archivos-al-actualizar/</link><pubDate>Tue, 03 Nov 2020 08:40:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/11/pacman-conflicto-de-archivos-al-actualizar/</guid><description>&lt;p>Dentro de todas las distribuciones basadas en Arch Linux siempre existe la posibilidad de tener errores al actualizar, mas que nada cuando se juntan muchas actualizaciones por periodos realmente largos. En estos casos las posibilidades de errores aumentan y es preciso buscar una solución.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="el-caso-de-artix-linux">
+El caso de Artix Linux
+&lt;a href="#el-caso-de-artix-linux" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Artix es una distribución muy buena de la que &lt;a href="https://patojad.com.ar/post/2020/08/artix-linux/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+ya hablamos antes
+&lt;/a>, incluso en el canal de youtube le dedique un saga, un poco corta, a la cual el dia de hoy sumo un video mas. Los sabores oficiales de artix, al dia de la fecha, tienen este problema de actualizaciones acumuladas, el cual da el error:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">error: no se pudo realizar la operación &lt;span class="o">(&lt;/span>archivos en conflicto&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">nss: /usr/lib/p11-kit-trust.so existe en el sistema de archivos
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Este error puede pasarnos con cualquier librería o archivo y ahora vamos a darle una solución simple!&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="lo-utilizado">
+Lo utilizado
+&lt;a href="#lo-utilizado" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Si bien como se aclara en el video podemos usar &lt;a href="https://patojad.com.ar/post/2020/09/manipulando-archivos-y-directorios/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+comodines
+&lt;/a>. En este caso vamos a dejar el comando específico y cada uno lo modifica de la forma que crea conveniente. El patrón a seguir es el siguiente:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">error: no se pudo realizar la operación &lt;span class="o">(&lt;/span>archivos en conflicto&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">nss: x existe en el sistema de archivos
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Para el error que figura arriba el comando es:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Syu --overwrite x
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="alert alert-warning col-12" style="position:relative;">
+&lt;div class="info-box-content container">
+&lt;div class="row">
+&lt;div class="col-2 text-center">
+&lt;span class="fa fa-warning fa-5x">&lt;/span>
+&lt;/div>
+&lt;div class="col-10">
+&lt;p class="no-margin">**ATENCIÓN:** En mi caso uso -Syu porque estoy actualizando, pero lo mismo seria si estamos instalando un paquete&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S nombreDelPaquete --overwrite x
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Ahora les dejo el caso específico del video para que vean como seria esto implementado.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">error: no se pudo realizar la operación &lt;span class="o">(&lt;/span>archivos en conflicto&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">nss: /usr/lib/p11-kit-trust.so existe en el sistema de archivos
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Y la solución (para la actualización) es:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl"> sudo pacman -Syu --overwrite /usr/lib/p11-kit-trust.so
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>

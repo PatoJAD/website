@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Duck on PatoJAD</title><link>https://patojad.com.ar/tags/duck/</link><description>Recent content in Duck on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 02 Jun 2020 12:17:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/duck/index.xml" rel="self" type="application/rss+xml"/><item><title>¿Que es DuckDNS? ¿Como lo instalo?</title><link>https://patojad.com.ar/post/2020/06/que-es-duckdns-como-lo-instalo/</link><pubDate>Tue, 02 Jun 2020 12:17:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/06/que-es-duckdns-como-lo-instalo/</guid><description>&lt;p>Ya hablamos anteriormente sobre dyndns y noip y como se sabe no puede faltar ningun Pato en esta familia. Por lo cual te traemos DuckDNS otro DNS Gratuito pero mas cariñoso!!!&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="cómo-es-esto-gratis">
+¿Cómo es esto gratis?
+&lt;a href="#c%c3%b3mo-es-esto-gratis" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Hemos creado un servicio que hemos querido para nosotros y creemos que es &lt;strong>gratuito o lo más barato posible&lt;/strong> para cubrir los costos de funcionamiento, nuestro intento es alojar y ejecutar el servicio con un desembolso casi nulo, excluyendo nuestro tiempo.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-datos-guardas">
+¿Qué datos guardas?
+&lt;a href="#qu%c3%a9-datos-guardas" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>La respuesta simple es: &lt;strong>lo menos posible&lt;/strong>. Además de los registros de datos que se utilizan para facilitar y monitorear nuestros servicios, solo almacenamos su dirección de correo electrónico, ip, token, dominios y, por supuesto, sus ips de destino.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalar-gui-para-linux">
+Instalar GUI para linux
+&lt;a href="#instalar-gui-para-linux" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Muchos queremos actualizar la ip para mantener siempre al dia los datos y para eso &lt;strong>DuckDNS nos ofrece una GUI simple&lt;/strong> de instalar que nos mantiene actualizados. Para esto debemos instalar primero una serie de dependecias (En este caso vamos a usar apt pero tu puedes instalarlo con tu gestor de paquetes)&lt;/p>
+&lt;pre>&lt;code>sudo apt-get install zenity cron curl
+&lt;/code>&lt;/pre>
+&lt;p>Para el siguiento paso n ecesitamos descargar el Script de la GUI el cual podemos hacerlo desde el siguiente link&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Descargar Script'
+rel="noopener"
+href='https://www.duckdns.org/scripts/duck-setup-gui.sh'>
+Descargar Script
+&lt;/a>
+&lt;/div>
+&lt;p>Una ves descargado ya solo queda darle los permisos necesarios para ejecutar y obviamente ejecutarlo (Los siguientes comandos se ejecutan dentro de la carpeta donde se descargo el archivo)&lt;/p>
+&lt;pre>&lt;code>chmod +x duck-setup-gui.sh
+./duck-setup-gui.sh
+&lt;/code>&lt;/pre>
+&lt;p>Agregamos nuestro dominio&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://www.duckdns.org/img/linux-gui-01.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>El token que obtuvimos en la WEB&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://www.duckdns.org/img/linux-gui-02.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Ahora habrá un archivo de registro y un script de shell (que puede probar manualmente) instalado en algo como&lt;/p>
+&lt;pre>&lt;code>~/duckdns/duck.log
+~/duckdns/duck.sh
+&lt;/code>&lt;/pre>
+&lt;p>El script de shell se habrá agregado a un cron que se llama cada 5 minutos como su usuario, puede ver esto con&lt;/p>
+&lt;pre>&lt;code>crontab -l
+&lt;/code>&lt;/pre>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="puedo-escribir-mi-propia-actualización">
+¿Puedo escribir mi propia actualización?
+&lt;a href="#puedo-escribir-mi-propia-actualizaci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Sí, puedes hacer esto en http o https. puede separar los dominios por comas si desea actualizar más de uno, el parámetro ip es opcional, si lo deja en blanco detectaremos su ip de puerta de enlace&lt;/p>
+&lt;pre>&lt;code>https://www.duckdns.org/update?domains={YOURVALUE}&amp;amp;token={YOURVALUE}[&amp;amp;ip={YOURVALUE}font&amp;gt;[&amp;amp;ipv6={YOURVALUE}font&amp;gt;[&amp;amp;verbose=truefont&amp;gt;[&amp;amp;clear=true]
+&lt;/code>&lt;/pre>
+&lt;p>La URL de actualización se puede solicitar en HTTPS o HTTP. Se recomienda que siempre use HTTPS. Ofrecen servicios HTTP para usuarios desafortunados que tienen HTTPS bloqueado.&lt;/p>
+&lt;ul>
+&lt;li>El dominio puede ser un dominio único o una lista de dominios separados por comas.&lt;/li>
+&lt;li>El dominio no necesita incluir la parte .duckdns.org de su dominio, solo el subnombre.&lt;/li>
+&lt;li>Si no especifica la dirección IP, se detectará; esto solo funciona para las direcciones IPv4&lt;/li>
+&lt;li>Puede poner una dirección IPv4 o una dirección IPv6 en el parámetro ip.&lt;/li>
+&lt;li>Si desea actualizar AMBOS registros IPv4 e IPv6 a la vez, entonces puede usar el parámetro opcional ipv6&lt;/li>
+&lt;li>Para borrar ambos registros, use el parámetro opcional clear=true&lt;/li>
+&lt;/ul>
+&lt;p>Una buena respuesta normal es&lt;/p>
+&lt;pre>&lt;code>Okay
+&lt;/code>&lt;/pre>
+&lt;p>Una mala respuesta normal es&lt;/p>
+&lt;pre>&lt;code>KO
+&lt;/code>&lt;/pre>
+&lt;p>si agrega el parámetro &amp;amp; verbose = true a su solicitud, entonces las respuestas OK tienen más información&lt;/p>
+&lt;pre>&lt;code>Okay
+127.0.0.2 [La dirección IP actual para su actualización - puede estar en blanco]
+2002: DB7 :: 21f: 5bff: febf: ce22: 8a2e [La dirección IPV6 actual para su actualización - puede estar en blanco]
+ACTUALIZADO [ACTUALIZADO o SIN CAMBIO]
+&lt;/code>&lt;/pre>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="experimental--mac-os-x-linux-solaris-no-oficial">
+EXPERIMENTAL – Mac OS X, Linux, Solaris (No oficial)
+&lt;a href="#experimental--mac-os-x-linux-solaris-no-oficial" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Tambien existe una alternativa en JAVA que procura ser mas simple pero no la utilice nunca, tampoco la probe dado que &lt;strong>no es oficial&lt;/strong> pero vale marcarlo y dejarlo.&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Descargar JAR'
+rel="noopener"
+href='http://etx.ca/downloads/duckdns.jar'>
+Descargar JAR
+&lt;/a>
+&lt;/div>
+&lt;p>Esto podemos ejecutarlo desde la siguiente manera en nuestra terminal:&lt;/p>
+&lt;pre>&lt;code>java -jar duckdnsupdater.jar
+&lt;/code>&lt;/pre>
+&lt;p>Recordemos que &lt;strong>debemos tener Java Instalado&lt;/strong> en nuestra PC&lt;/p></description></item></channel></rss>

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Config on PatoJAD</title><link>https://patojad.com.ar/tags/config/</link><description>Recent content in Config on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Fri, 15 Nov 2024 10:12:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/config/index.xml" rel="self" type="application/rss+xml"/><item><title>Un Guardián Digital para Tu Servidor Cloud</title><link>https://patojad.com.ar/post/2024/11/un-guardi%C3%A1n-digital-para-tu-servidor-cloud/</link><pubDate>Fri, 15 Nov 2024 10:12:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/11/un-guardi%C3%A1n-digital-para-tu-servidor-cloud/</guid><description>&lt;p>Hoy vamos a ver un poco mas sobre &lt;code>fail2ban&lt;/code> y como instalarlo en tu servidor cloud.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-fail2ban">
+¿Qué es Fail2ban?
+&lt;a href="#qu%c3%a9-es-fail2ban" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Fail2ban es una herramienta de seguridad que actúa como un vigilante digital para tu servidor cloud. Su función principal es bloquear automáticamente las direcciones IP que intentan acceder a tu servidor de forma repetida y fallida. Esto ayuda a prevenir ataques de fuerza bruta, donde los hackers intentan adivinar contraseñas.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalando-fail2ban">
+Instalando Fail2ban
+&lt;a href="#instalando-fail2ban" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Para instalar Fail2ban en tu servidor, puedes utilizar el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt-get install fail2ban
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Una vez instalado, necesitarás configurar un archivo de configuración local:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo nano /etc/fail2ban/jail.local
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="configurando-fail2ban">
+Configurando Fail2ban
+&lt;a href="#configurando-fail2ban" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Dentro del archivo de configuración, puedes personalizar varias opciones, como:&lt;/p>
+&lt;ul>
+&lt;li>ignoreip: Una lista de direcciones IP que no serán bloqueadas.&lt;/li>
+&lt;li>bantime: El tiempo durante el cual una IP bloqueada permanecerá inaccesible.&lt;/li>
+&lt;li>findtime: El período de tiempo en el que se cuentan los intentos fallidos.&lt;/li>
+&lt;li>maxretry: El número máximo de intentos fallidos permitidos antes de bloquear una IP.&lt;/li>
+&lt;li>También puedes configurar notificaciones por correo electrónico para recibir alertas sobre intentos de intrusión.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="habilitando-jails">
+Habilitando Jails
+&lt;a href="#habilitando-jails" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Los &amp;ldquo;jails&amp;rdquo; son reglas específicas que Fail2ban aplica a diferentes servicios en tu servidor, como SSH, FTP, o servicios web. Puedes habilitar o deshabilitar los jails según tus necesidades.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="reiniciando-fail2ban">
+Reiniciando Fail2ban
+&lt;a href="#reiniciando-fail2ban" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Una vez que hayas configurado los jails, reinicia el servicio de Fail2ban para aplicar los cambios:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl restart fail2ban.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="verificando-el-bloqueo-de-ip">
+Verificando el Bloqueo de IP
+&lt;a href="#verificando-el-bloqueo-de-ip" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Puedes verificar las direcciones IP bloqueadas utilizando el comando &lt;code>iptables -L&lt;/code>.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="desbloqueando-una-ip">
+Desbloqueando una IP
+&lt;a href="#desbloqueando-una-ip" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Si necesitas desbloquear una IP que ha sido bloqueada por error, puedes utilizar el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo fail2ban-client &lt;span class="nb">set&lt;/span> &amp;lt;jail&amp;gt; unbanip &amp;lt;ip_address&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusión">
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Fail2ban es una herramienta poderosa que puede ayudar a proteger tu servidor cloud de ataques maliciosos. Con una configuración adecuada, puedes mejorar significativamente la seguridad de tu infraestructura en línea.&lt;/p></description></item><item><title>Como cambiar DNS de Windows 10</title><link>https://patojad.com.ar/post/2023/06/como-cambiar-dns-de-windows-10/</link><pubDate>Tue, 27 Jun 2023 10:06:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/06/como-cambiar-dns-de-windows-10/</guid><description>&lt;p>Cambiar los DNS de nuestro equipo es algo que deberiamos hacer siempre, ya que los DNS que nos provee nuestro ISP no son los mas rapidos y seguros. Por eso hoy vamos a ver como cambiar los DNS en Windows 10 y vamos a setear los de Cloudflare.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-dns">
+¿Qué es DNS?
+&lt;a href="#qu%c3%a9-es-dns" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>El Sistema de nombres de dominio (DNS) es la guía telefónica de Internet. Mientras que las personas acceden a la información en línea a través de nombres de dominio como example.com, los ordenadores lo hacen utilizando direcciones del Protocolo de Internet (IP), cadenas únicas de caracteres alfanuméricos que se asignan a cada propiedad de Internet. El DNS traduce los nombres de dominio a direcciones IP para que los usuarios puedan acceder fácilmente a un sitio web sin tener que conocer su dirección IP.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://www.cloudflare.com/img/learning/dns/what-is-1.1.1.1/dns-lookup.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="qué-es-un-solucionador-de-dns">
+¿Qué es un solucionador de DNS?
+&lt;a href="#qu%c3%a9-es-un-solucionador-de-dns" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Un solucionador de DNS es un tipo de servidor que gestiona la traducción &amp;ldquo;nombre a dirección&amp;rdquo;, en la que una dirección IP se corresponde con un nombre de dominio y se envía de vuelta al ordenador que la solicitó. Los solucionadores de DNS también se conocen como solucionadores recursivos.&lt;/p>
+&lt;p>Los equipos están configurados para hablar con solucionadores de DNS específicos, que se identifican por dirección IP. Generalmente, la configuración la gestiona el Proveedor de acceso a Internet (ISP) del usuario en conexiones desde el hogar o inalámbricas, y un administrador de red en las conexiones desde la oficina. Los usuarios también pueden cambiar manualmente el solucionador de DNS con el que pueden comunicarse sus ordenadores.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="dns-de-cloudflare">
+DNS de cloudflare
+&lt;a href="#dns-de-cloudflare" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Cloudflare tiene dos DNS publicos que son los mas rapidos y seguros del mundo hasta el momento&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="qué-hace-que-1111-sea-más-seguro-que-otros-servicios-de-dns-públicos">
+¿Qué hace que 1.1.1.1 sea más seguro que otros servicios de DNS públicos?
+&lt;a href="#qu%c3%a9-hace-que-1111-sea-m%c3%a1s-seguro-que-otros-servicios-de-dns-p%c3%bablicos" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Algunos servicios de DNS son compatibles con DNSSEC. Aunque se trata de una buena práctica de seguridad, no protege las consultas de los usuarios de las propias empresas de DNS. Muchas de estas empresas recopilan datos de sus clientes de DNS para utilizarlos con fines comerciales, como la venta a anunciantes.&lt;/p>
+&lt;p>En cambio, &lt;code>1.1.1.1&lt;/code> no hace minería de datos de los usuarios. Los registros se guardan durante 24 horas con el fin de eliminar errores y a continuación se purgan.&lt;/p>
+&lt;p>&lt;code>1.1.1.1&lt;/code> también ofrece funciones de seguridad que no están disponibles en muchos otros servicios públicos de DNS, como la minimización del nombre de consulta. La minimización del nombre de consulta mejora la privacidad al incluir en cada consulta solo el mínimo de información necesaria para ese paso del proceso de resolución.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="qué-convierte-a-1111-en-el-servicio-de-dns-recursivo-más-rápido">
+¿Qué convierte a 1.1.1.1 en el servicio de DNS recursivo más rápido?
+&lt;a href="#qu%c3%a9-convierte-a-1111-en-el-servicio-de-dns-recursivo-m%c3%a1s-r%c3%a1pido" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>La potencia de la red de Cloudflare da a &lt;code>1.1.1.1&lt;/code> una ventaja natural en lo referente a entregar consultas de DNS rápidas. Ya que está integrado en la red de Cloudflare, que abarca 300 ciudades del mundo, los usuarios de cualquier parte del mundo obtienen una respuesta rápida de &lt;code>1.1.1.1&lt;/code>.&lt;/p>
+&lt;p>Además, los centros de datos de la red tienen acceso a los millones de propiedades de Internet de la plataforma de Cloudflare, lo que hace que las consultas de esos dominios sean extremadamente rápidas. En general, el supervisor independiente de DNS DNSPerf clasifica &lt;code>1.1.1.1&lt;/code> como el servicio de DNS más rápido del mundo:&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://www.cloudflare.com/img/learning/dns/what-is-1.1.1.1/query-speed.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="pasos-a-seguir">
+Pasos a seguir
+&lt;a href="#pasos-a-seguir" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;ul>
+&lt;li>Abrimos el menu de inicio y vamos a &lt;code>Configuracion&lt;/code>&lt;/li>
+&lt;li>Luego vamos a &lt;code>Red e Internet&lt;/code> y seleccionamos &lt;code>Cambiar opciones del adaptador&lt;/code>&lt;/li>
+&lt;li>Seleccionamos la red que estamos usando y hacemos click derecho y seleccionamos &lt;code>Propiedades&lt;/code>&lt;/li>
+&lt;li>Seleccionamos &lt;code>Protocolo de Internet version 4 (TCP/IPv4)&lt;/code> y hacemos click en &lt;code>Propiedades&lt;/code>&lt;/li>
+&lt;li>Seleccionamos &lt;code>Usar las siguientes direcciones de servidor DNS&lt;/code> y en &lt;code>Servidor DNS preferido&lt;/code> ponemos:
+&lt;ul>
+&lt;li>Para usar el generico de Cloudflare:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-batch" data-lang="batch">&lt;span class="line">&lt;span class="cl">1.1.1.1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">1.0.0.1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Para usar el Bloqueo de Maleware de Cloudflare (Para Familias):
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-batch" data-lang="batch">&lt;span class="line">&lt;span class="cl">1.1.1.2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">1.0.0.2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Para usar el Bloqueo de Maleware y contenidos de Adultos de Cloudflare (Para Familias):
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-batch" data-lang="batch">&lt;span class="line">&lt;span class="cl">1.1.1.3
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">1.0.0.3
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Hacemos click en &lt;code>Aceptar&lt;/code> y listo&lt;/li>
+&lt;/ul>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="sumando-ipv6">
+Sumando IPv6
+&lt;a href="#sumando-ipv6" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>Seleccionamos &lt;code>Protocolo de Internet version 6 (TCP/IPv6)&lt;/code> y hacemos click en &lt;code>Propiedades&lt;/code>&lt;/li>
+&lt;li>Seleccionamos &lt;code>Usar las siguientes direcciones de servidor DNS&lt;/code> y en &lt;code>Servidor DNS preferido&lt;/code> ponemos:
+&lt;ul>
+&lt;li>Para usar el generico de Cloudflare:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-batch" data-lang="batch">&lt;span class="line">&lt;span class="cl">2606:4700:4700::1111
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2606:4700:4700::1001
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Para usar el Bloqueo de Maleware de Cloudflare (Para Familias):
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-batch" data-lang="batch">&lt;span class="line">&lt;span class="cl">2606:4700:4700::1112
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2606:4700:4700::1002
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Para usar el Bloqueo de Maleware y contenidos de Adultos de Cloudflare (Para Familias):
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-batch" data-lang="batch">&lt;span class="line">&lt;span class="cl">2606:4700:4700::1113
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2606:4700:4700::1003
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Hacemos click en &lt;code>Aceptar&lt;/code> y listo&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>Fuente: &lt;a href="https://developers.cloudflare.com/1.1.1.1/setup/windows/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://developers.cloudflare.com/1.1.1.1/setup/windows/
+&lt;/a>&lt;/p></description></item></channel></rss>
