@@ -1,7 +1,7 @@
 ---
 title: "Bun vs Node.js: ¿Cuál Es Mejor Para Backend en 2025? 🤔"
 date: "2025-02-20 10:32:00.00"
-description: ¿Quieres control total sobre tu sistema operativo? Arch Linux es la distribución perfecta para usuarios intermedios y avanzados que buscan personalización y rendimiento.
+description: ¿Estás buscando el mejor entorno de ejecución para tu backend en JavaScript? En este video, comparo Bun y Node.js , dos de las opciones más populares para desarrollo backend en 2024. Analizamos rendimiento, compatibilidad y facilidad de uso, además de crear un servidor básico con ambos. ¡Descubre cuál es la mejor opción para tus proyectos!
 type: video
 videoId: jfH2V3u02gE
 tags:
