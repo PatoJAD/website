@@ -28,6 +28,13 @@ technologies: ["Laravel", "GitHub", "Vue.js", "PHP", "MySQL", "Bootstrap", "Tail
 
 Se realizan mejoras en un dashboard para administrar una casa de juegos, con control de acceso, control de juegos, control de ventas y control de usuarios. El dashboard esta construido con Laravel y Vue.js.
 
+## Febrero del 2025
+
+Se realizan las siguientes mejoras en el dashboard:
+
+* Se agrega chat en tiempo real para soporte tecnico.
+* Se corrigen errores en filtros de busqueda.
+
 ## Diciembre del 2024
 
 Se realizan las siguientes mejoras en el dashboard:
