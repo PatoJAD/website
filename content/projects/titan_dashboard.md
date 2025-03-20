@@ -34,6 +34,8 @@ Se realizan las siguientes mejoras en el dashboard:
 
 * Se agrega chat en tiempo real para soporte tecnico.
 * Se corrigen errores en filtros de busqueda.
+* Se Mejora la performance del sitio en areas de busqueda y filtado.
+* Se limpian rutas innecesarias.
 
 ## Diciembre del 2024
 
