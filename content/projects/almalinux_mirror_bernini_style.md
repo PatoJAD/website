@@ -1,5 +1,5 @@
 ---
-title: Mirror de Almalinux para Bernini.DEV
+title: Theme NGINX para Bernini.DEV
 date: 2025-03-20T00:00:00-05:00
 type: project
 description: "Se crea un mirror de Almalinux para Bernini.DEV, con el objetivo de tener una copia para mejorar la velocidad de descarga y actualización de servidores y accesible para todos."
