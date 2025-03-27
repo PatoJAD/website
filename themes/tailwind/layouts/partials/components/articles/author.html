@@ -1,0 +1,17 @@
+{{ $pages :=
+.Site.Pages.ByPublishDate.Reverse }} {{ range
+.Params.authors }} {{ range where (where $pages "Type"
+"authors") ".Params.name" . }}
+
+<div class="bg-gray-100 dark:bg-gray-800 rounded-xl flex flex-row overflow-hidden">
+  <div class="p-4 sm:w-1/2 sm:p-8 lg:w-3/5">
+    <h3 class="text-xl font-bold md:text-2xl lg:text-4xl">{{ .Params.name }}</h3>
+    <p class="text-lg">{{ .Params.descriptionp }}</p>
+    <p class="max-w-md" style="font-size: 14px !important;">{{ .Params.description }}</p>
+  </div>
+  <div class="order-first ml-auto w-full bg-gray-700 sm:order-none h-auto sm:w-1/2 lg:w-2/5">
+    <img class="h-full w-full object-cover" src="{{ .Params.photo }}" alt="{{ .Params.name }}"
+      title="{{ .Params.name }}" loading="lazy" />
+  </div>
+</div>
+{{ end }} {{ end }}
