@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ddns on PatoJAD</title><link>https://patojad.com.ar/tags/ddns/</link><description>Recent content in Ddns on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 02 Jun 2020 12:17:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/ddns/index.xml" rel="self" type="application/rss+xml"/><item><title>¿Que es DuckDNS? ¿Como lo instalo?</title><link>https://patojad.com.ar/post/2020/06/que-es-duckdns-como-lo-instalo/</link><pubDate>Tue, 02 Jun 2020 12:17:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/06/que-es-duckdns-como-lo-instalo/</guid><description>&lt;p>Ya hablamos anteriormente sobre dyndns y noip y como se sabe no puede faltar ningun Pato en esta familia. Por lo cual te traemos DuckDNS otro DNS Gratuito pero mas cariñoso!!!&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="cómo-es-esto-gratis">
+¿Cómo es esto gratis?
+&lt;a href="#c%c3%b3mo-es-esto-gratis" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Hemos creado un servicio que hemos querido para nosotros y creemos que es &lt;strong>gratuito o lo más barato posible&lt;/strong> para cubrir los costos de funcionamiento, nuestro intento es alojar y ejecutar el servicio con un desembolso casi nulo, excluyendo nuestro tiempo.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-datos-guardas">
+¿Qué datos guardas?
+&lt;a href="#qu%c3%a9-datos-guardas" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>La respuesta simple es: &lt;strong>lo menos posible&lt;/strong>. Además de los registros de datos que se utilizan para facilitar y monitorear nuestros servicios, solo almacenamos su dirección de correo electrónico, ip, token, dominios y, por supuesto, sus ips de destino.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalar-gui-para-linux">
+Instalar GUI para linux
+&lt;a href="#instalar-gui-para-linux" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Muchos queremos actualizar la ip para mantener siempre al dia los datos y para eso &lt;strong>DuckDNS nos ofrece una GUI simple&lt;/strong> de instalar que nos mantiene actualizados. Para esto debemos instalar primero una serie de dependecias (En este caso vamos a usar apt pero tu puedes instalarlo con tu gestor de paquetes)&lt;/p>
+&lt;pre>&lt;code>sudo apt-get install zenity cron curl
+&lt;/code>&lt;/pre>
+&lt;p>Para el siguiento paso n ecesitamos descargar el Script de la GUI el cual podemos hacerlo desde el siguiente link&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Descargar Script'
+rel="noopener"
+href='https://www.duckdns.org/scripts/duck-setup-gui.sh'>
+Descargar Script
+&lt;/a>
+&lt;/div>
+&lt;p>Una ves descargado ya solo queda darle los permisos necesarios para ejecutar y obviamente ejecutarlo (Los siguientes comandos se ejecutan dentro de la carpeta donde se descargo el archivo)&lt;/p>
+&lt;pre>&lt;code>chmod +x duck-setup-gui.sh
+./duck-setup-gui.sh
+&lt;/code>&lt;/pre>
+&lt;p>Agregamos nuestro dominio&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://www.duckdns.org/img/linux-gui-01.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>El token que obtuvimos en la WEB&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://www.duckdns.org/img/linux-gui-02.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Ahora habrá un archivo de registro y un script de shell (que puede probar manualmente) instalado en algo como&lt;/p>
+&lt;pre>&lt;code>~/duckdns/duck.log
+~/duckdns/duck.sh
+&lt;/code>&lt;/pre>
+&lt;p>El script de shell se habrá agregado a un cron que se llama cada 5 minutos como su usuario, puede ver esto con&lt;/p>
+&lt;pre>&lt;code>crontab -l
+&lt;/code>&lt;/pre>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="puedo-escribir-mi-propia-actualización">
+¿Puedo escribir mi propia actualización?
+&lt;a href="#puedo-escribir-mi-propia-actualizaci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Sí, puedes hacer esto en http o https. puede separar los dominios por comas si desea actualizar más de uno, el parámetro ip es opcional, si lo deja en blanco detectaremos su ip de puerta de enlace&lt;/p>
+&lt;pre>&lt;code>https://www.duckdns.org/update?domains={YOURVALUE}&amp;amp;token={YOURVALUE}[&amp;amp;ip={YOURVALUE}font&amp;gt;[&amp;amp;ipv6={YOURVALUE}font&amp;gt;[&amp;amp;verbose=truefont&amp;gt;[&amp;amp;clear=true]
+&lt;/code>&lt;/pre>
+&lt;p>La URL de actualización se puede solicitar en HTTPS o HTTP. Se recomienda que siempre use HTTPS. Ofrecen servicios HTTP para usuarios desafortunados que tienen HTTPS bloqueado.&lt;/p>
+&lt;ul>
+&lt;li>El dominio puede ser un dominio único o una lista de dominios separados por comas.&lt;/li>
+&lt;li>El dominio no necesita incluir la parte .duckdns.org de su dominio, solo el subnombre.&lt;/li>
+&lt;li>Si no especifica la dirección IP, se detectará; esto solo funciona para las direcciones IPv4&lt;/li>
+&lt;li>Puede poner una dirección IPv4 o una dirección IPv6 en el parámetro ip.&lt;/li>
+&lt;li>Si desea actualizar AMBOS registros IPv4 e IPv6 a la vez, entonces puede usar el parámetro opcional ipv6&lt;/li>
+&lt;li>Para borrar ambos registros, use el parámetro opcional clear=true&lt;/li>
+&lt;/ul>
+&lt;p>Una buena respuesta normal es&lt;/p>
+&lt;pre>&lt;code>Okay
+&lt;/code>&lt;/pre>
+&lt;p>Una mala respuesta normal es&lt;/p>
+&lt;pre>&lt;code>KO
+&lt;/code>&lt;/pre>
+&lt;p>si agrega el parámetro &amp;amp; verbose = true a su solicitud, entonces las respuestas OK tienen más información&lt;/p>
+&lt;pre>&lt;code>Okay
+127.0.0.2 [La dirección IP actual para su actualización - puede estar en blanco]
+2002: DB7 :: 21f: 5bff: febf: ce22: 8a2e [La dirección IPV6 actual para su actualización - puede estar en blanco]
+ACTUALIZADO [ACTUALIZADO o SIN CAMBIO]
+&lt;/code>&lt;/pre>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="experimental--mac-os-x-linux-solaris-no-oficial">
+EXPERIMENTAL – Mac OS X, Linux, Solaris (No oficial)
+&lt;a href="#experimental--mac-os-x-linux-solaris-no-oficial" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Tambien existe una alternativa en JAVA que procura ser mas simple pero no la utilice nunca, tampoco la probe dado que &lt;strong>no es oficial&lt;/strong> pero vale marcarlo y dejarlo.&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Descargar JAR'
+rel="noopener"
+href='http://etx.ca/downloads/duckdns.jar'>
+Descargar JAR
+&lt;/a>
+&lt;/div>
+&lt;p>Esto podemos ejecutarlo desde la siguiente manera en nuestra terminal:&lt;/p>
+&lt;pre>&lt;code>java -jar duckdnsupdater.jar
+&lt;/code>&lt;/pre>
+&lt;p>Recordemos que &lt;strong>debemos tener Java Instalado&lt;/strong> en nuestra PC&lt;/p></description></item><item><title>¿Que es DynDNS? ¿Como lo instalo?</title><link>https://patojad.com.ar/post/2020/04/que-es-dyndns-como-lo-instalo/</link><pubDate>Tue, 28 Apr 2020 09:17:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/04/que-es-dyndns-como-lo-instalo/</guid><description>&lt;p>¿Quieres ser el &lt;strong>servidor principal&lt;/strong> y ejecutar tu &lt;strong>propio servidor doméstico&lt;/strong> o una cámara IP y lograrlo de forma &lt;strong>externa&lt;/strong>?&lt;/p>
+&lt;p>El problema es el &lt;strong>cambio de la dirección IP&lt;/strong> (dinámicamente) de su línea de internet. Esto significa que es imposible lograr su red doméstica desde el exterior. Con nuestro servicio &lt;strong>DNS dinámico&lt;/strong> (DDNS), le ofrecemos la posibilidad de operar sus aplicaciones estáticamente desde el exterior de forma móvil.&lt;/p>
+&lt;p>Así se presenta DynDNS un competidor de &lt;strong>&lt;a href="https://patojad.com.ar/post/2020/04/como-instalar-no-ip-en-linux/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+NO-IP
+&lt;/a> del cual hablamos hace unos dias&lt;/strong>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="cómo-utiliza-el-servicio-gratuito-dyndns">
+¿Cómo utiliza el servicio gratuito DynDNS?
+&lt;a href="#c%c3%b3mo-utiliza-el-servicio-gratuito-dyndns" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Puede usar el servicio DDNS de diferentes maneras:&lt;/p>
+&lt;ul>
+&lt;li>Con un &lt;strong>enrutador&lt;/strong> que admita las actualizaciones dinámicas (proveedor DynDNS [definido por el usuario])&lt;/li>
+&lt;li>Sin software adicional con actualización manual desde el menú de la cuenta&lt;/li>
+&lt;li>Con un Firefox y recargue cada (5 minutos)&lt;/li>
+&lt;li>Con su &lt;strong>Updater-Tool&lt;/strong> [para Windows, Linux, MAC y otros sistemas operativos (Java)] &lt;em>DE PAGO&lt;/em>&lt;/li>
+&lt;li>Realice un escaneo de puertos para examinar qué puertos están bloqueados o liberados&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="actualización-en-tiempo-real">
+Actualización en tiempo real
+&lt;a href="#actualizaci%c3%b3n-en-tiempo-real" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Vea en su cuenta DynDNS (DDCLIENT) si su dirección IP se actualizó y cuándo, en tiempo real.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://dyndnss.net/eng/up.gif" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="cuánto-cuesta-el-servicio-de-dns-dinámico">
+¿Cuánto cuesta el servicio de DNS dinámico?
+&lt;a href="#cu%c3%a1nto-cuesta-el-servicio-de-dns-din%c3%a1mico" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>El servicio DynDNS (DDNS) es de hasta 3 dominios Dyn completamente gratis (cuenta gratuita). Los usuarios Premium pueden crear por 9,90 $ únicos hasta 100 urls y reenvío de dominios.&lt;/p>
+&lt;h1 class="text-gray-500 text-3xl my-6" id="mi-consejo">
+Mi consejo
+&lt;a href="#mi-consejo" class="text-gray-500">#&lt;/a>
+&lt;/h1>&lt;p>Si alguien busca mi consejo, lo encuentra&amp;hellip; Personalmente este sistema es util y uno de los mejores&amp;hellip; solo si tu router permite la asociacion directa. Siendo asi solo basta a ir a las opciones avanzadas, elegir en DDNS el servidor DynDNS y cologar usuario y contraseña y solo se ira actualizando a medida que el modem cambie la ip.&lt;/p></description></item><item><title>Como instalar NO-IP en Linux</title><link>https://patojad.com.ar/post/2020/04/como-instalar-no-ip-en-linux/</link><pubDate>Fri, 24 Apr 2020 09:48:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/04/como-instalar-no-ip-en-linux/</guid><description>&lt;p>No-IP ofrece servicios de DNS, correo electrónico, monitoreo de red y certificados SSL. El producto principal de No-IP son los &lt;strong>servicios dinámicos de DNS&lt;/strong> (&amp;ldquo;DDNS&amp;rdquo;). Los servicios DNS dinámicos básicos que usan un dominio propiedad de No-IP son de uso &lt;strong>gratuito siempre que la cuenta permanezca activa&lt;/strong>.&lt;/p>
+&lt;p>Las direcciones &lt;strong>&lt;a href="https://patojad.com.ar/post/2020/01/direcciones-ips-nuestra-huella-en-la-red/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+IP
+&lt;/a> dinámicas&lt;/strong> son comunes en las cuentas de banda ancha de &lt;strong>cable residencial&lt;/strong> o DSL. El servicio gratuito permite a los usuarios configurar entre &lt;strong>uno y tres nombres de host&lt;/strong> en un nombre de dominio proporcionado por No-IP. El nombre del host se resolverá en la dirección IP actual de la computadora de ese usuario.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="api-dns-dinámica">
+API DNS dinámica
+&lt;a href="#api-dns-din%c3%a1mica" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Un nombre de host &lt;strong>DNS dinámico&lt;/strong> está vinculado a la dirección &lt;a href="https://patojad.com.ar/post/2020/02/qu%c3%a9-hay-detr%c3%a1s-de-una-ip/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+IP dinámica
+&lt;/a> del usuario. Cada vez que &lt;strong>cambie la IP&lt;/strong>, un cliente DNS dinámico enviará una actualización a No-IP con la dirección IP actual y luego No-IP propagará el cambio de DNS a Internet en cuestión de segundos.&lt;/p>
+&lt;p>Para facilitar las actualizaciones de direcciones IP, No-IP tiene un protocolo abierto que permite a los desarrolladores de software y fabricantes de hardware comunicarse a través de HTTP para notificarles sobre un cambio de dirección IP.&lt;/p>
+&lt;p>Muchos fabricantes de enrutadores brindan soporte integrado para el protocolo DNS dinámico de No-IP, por ejemplo, Asus, D-Link, Dovado, Edimax, SonicWall, SMC, y TP-Link .&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="como-instalarlo">
+Como instalarlo
+&lt;a href="#como-instalarlo" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Una vez que haya abierto la ventana de su Terminal, inicie sesión como usuario &amp;ldquo;root&amp;rdquo;. Es necesario para poder realizar la Instalacion&lt;/p>
+&lt;pre>&lt;code>sudo -s
+&lt;/code>&lt;/pre>
+&lt;p>antes de instalarlo debemos asegurarnos de instalar algunas &lt;strong>dependecias&lt;/strong> (la instalacion se realiza mediante make install de un precompilado) por lo cual de momento no puedo generar el deb.&lt;/p>
+&lt;pre>&lt;code>sudo apt install gcc make
+&lt;/code>&lt;/pre>
+&lt;p>Luego podemos realizar la descarga e instalacion correspondiente de la siguiente forma&lt;/p>
+&lt;pre>&lt;code>cd /usr/local/src/
+wget http://www.noip.com/client/post/noip-duc-linux.tar.gz
+tar xf noip-duc-linux.tar.gz
+cd noip-2.1.9-1/
+make install
+&lt;/code>&lt;/pre>
+&lt;p>Ahora iniciara la instalacion para lo cual nos pedirá que inicie sesión con su nombre de usuario y contraseña de cuenta No-IP.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="configurar-el-cliente">
+Configurar el cliente
+&lt;a href="#configurar-el-cliente" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Como root nuevamente (o con sudo) emita el siguiente comando:&lt;/p>
+&lt;pre>&lt;code>/usr/local/bin/noip2 -C
+&lt;/code>&lt;/pre>
+&lt;p>(guión C mayúscula, esto creará el archivo de configuración predeterminado)&lt;/p>
+&lt;p>Luego nos va a pedir nuestro nombre de usuario y contraseña NO-IP, así como los nombres de host que deseamos actualizar. Hay que tener cuidado, una de las preguntas es &amp;ldquo;¿Desea actualizar TODOS los hosts&amp;rdquo;. Si respondemos incorrectamente, esto podría afectar a los nombres de host en nuestra cuenta que apuntan a otras ubicaciones.&lt;/p>
+&lt;p>Ahora que el cliente está instalado y configurado, solo necesitamos iniciarlo. Simplemente con este comando final para iniciar el cliente en segundo plano:&lt;/p>
+&lt;pre>&lt;code>/usr/local/bin/noip2
+&lt;/code>&lt;/pre>
+&lt;p>Ya con esto tenemos nuestro cliente de NO-IP actualizando la IP constantemente. Sin embargo, si tenes algun problema te esperamos en nuestro grupo para debatir.&lt;/p></description></item></channel></rss>

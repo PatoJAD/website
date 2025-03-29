@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Estilo on PatoJAD</title><link>https://patojad.com.ar/categories/estilo/</link><description>Recent content in Estilo on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Thu, 12 Oct 2023 12:22:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/categories/estilo/index.xml" rel="self" type="application/rss+xml"/><item><title>Mi terminal ZSH + PowerLevel10K</title><link>https://patojad.com.ar/post/2023/10/mi-terminal-zsh--powerlevel10k/</link><pubDate>Thu, 12 Oct 2023 12:22:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/10/mi-terminal-zsh--powerlevel10k/</guid><description>&lt;p>Muchos me preguntaron sobre mi terminal en videos anteriores, en esta oportunidad quiero explicar como llegar a tener una terminal como la que uso yo, y específicamente, porque tener una terminal así.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/performance.gif" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Dentro de mi profesión como developer es importante la velocidad y simplicidad de tareas cotidianas y una de esas es el uso de la terminal, la terminal la uso todo el dia y para prácticamente todo, por lo cual requiero una terminal que pueda personalizar para que se acomode y obviamente me simplifique todo lo que pueda…&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/DvcA_iFov54?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="zsh-un-shell-diferente">
+ZSH un shell diferente
+&lt;a href="#zsh-un-shell-diferente" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>ZSH (Z shell) es una terminal (o mejor dicho shell) para uso interactivo que nos permitirá ser más eficientes cuando estemos delante de la consola. Esta Shell nos permite interpretar, además de comandos, scripts lo cual puede volverse extremadamente útil. Y entre sus ventajas podemos enumerar:&lt;/p>
+&lt;ul>
+&lt;li>Eficiencia&lt;/li>
+&lt;li>Completado de tabulador mejorado (para los que usamos tab con frecuencia esto es lo que mas me enamoro)&lt;/li>
+&lt;li>Expansión de nombres de fichero mejorada&lt;/li>
+&lt;li>Manejo de arrays mejorado&lt;/li>
+&lt;li>Totalmente personalizable (a los fanáticos de la belleza esto les va a encantar)&lt;/li>
+&lt;/ul>
+&lt;p>La instalación es muy simple porque viene en los repositorios de la mayoría de las distros de linux. Lo cual nos permite hacerlo de una manera muy simple:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># debian/ubuntu&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install zsh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># archlinux&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo pacman -S zsh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Si queremos definir este shell como shell por defecto (de esta forma al abrir la terminal iniciará este shell y no bash que suele ser el shell por defecto de la mayoría de las distros) ejecutamos el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">chsh -s &lt;span class="sb">`&lt;/span>which zsh&lt;span class="sb">`&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Sin embargo por sí solo puede ser un poco engorroso de configurar y puede llevarnos demasiado tiempo, pero como vivimos en el mundo del Software Libre y de la gente que no se queda quieta, podemos encontrar unas &lt;strong>vitaminas&lt;/strong>.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="oh-my-zsh-al-rescate">
+Oh My ZSH al rescate
+&lt;a href="#oh-my-zsh-al-rescate" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://www.ivaylopavlov.com/wp-content/uploads/2017/04/Screenshot-2017-04-30-00.43.48.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Es un framework desarrollado por la comunidad para gestionar la configuración de ZSH. El cual viene a simplificar la tarea personalizar y añadir plugins y configurarlo a gusto, esto puede llegar a ser realmente muy útil y por supuesto simple de instalar, para iniciar debemos instalar sus dependencias:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># debian/ubuntu&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install git-core curl
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># archlinux&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo pacman -S git curl
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>y a continuación instalamos directamente desde su git.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sh -c &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>De esta forma se instalará este “aditivo” que permitirá configurarlo a nuestro gusto!&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="powerlevel-10k">
+PowerLevel 10k
+&lt;a href="#powerlevel-10k" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/prompt-styles-high-contrast.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Esto ya es 100% decicion mia, es un theme que me gusto y que suma un valor agregado con datos que muchas veces pueden ser interesantes que pueden leer en su documentación dentro de los cuales puedo resaltar:&lt;/p>
+&lt;ul>
+&lt;li>Tiempo de ejecución de script&lt;/li>
+&lt;li>Status de git&lt;/li>
+&lt;li>hora de comando&lt;/li>
+&lt;/ul>
+&lt;p>Para instalarlos voy a indicar el paso a paso, no es obligatorio seguirlo así dado que algunos pasos son opcionales pero la verdad recomiendo hacerlo así para obtener una buena integración y performance… Iniciamos instalando las siguientes fonts y poniendo en nuestra terminal la font por defecto &lt;em>Meslo Nerd Font&lt;/em>&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='MesloLGS NF Regular'
+rel="noopener"
+href='https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf'>
+MesloLGS NF Regular
+&lt;/a>
+&lt;/div>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='MesloLGS NF Bold'
+rel="noopener"
+href='https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf'>
+MesloLGS NF Bold
+&lt;/a>
+&lt;/div>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='MesloLGS NF Italic'
+rel="noopener"
+href='https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf'>
+MesloLGS NF Italic
+&lt;/a>
+&lt;/div>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='MesloLGS NF Bold Italic'
+rel="noopener"
+href='https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf'>
+MesloLGS NF Bold Italic
+&lt;/a>
+&lt;/div>
+&lt;p>Luego desde la terminal descargamos el theme de PowerLevel10k desde su repositorio oficial:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">git clone --depth&lt;span class="o">=&lt;/span>&lt;span class="m">1&lt;/span> https://github.com/romkatv/powerlevel10k.git &lt;span class="si">${&lt;/span>&lt;span class="nv">ZSH_CUSTOM&lt;/span>&lt;span class="k">:-&lt;/span>&lt;span class="nv">$HOME&lt;/span>&lt;span class="p">/.oh-my-zsh/custom&lt;/span>&lt;span class="si">}&lt;/span>/themes/powerlevel10k
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Por último queda modificar el archivo de configuracion para que inicie este theme, para hacerlo en este caso lo explicare con nano pero pueden usar el editor que quieran:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">nano ~/.zshrc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>ahi buscamos la linea que tenga lo siguiente&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="line">&lt;span class="cl">&lt;span class="na">ZSH_THEME&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;...&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Donde los puntos suspensivos &lt;em>(&amp;hellip;)&lt;/em> son cualquier texto. y lo remplazamos por la siguiente linea&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="line">&lt;span class="cl">&lt;span class="na">ZSH_THEME&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;powerlevel10k/powerlevel10k&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Ahora reiniciamos la terminal y nos abrira una configuracion paso a paso donde vamos a ir eligiendo entre ejemplos como se vera la terminal, las primeras preguntas son si vemos los iconos y luego nos mostrará opciones (casi siempre del 1 al 4) donde iremos estableciendo la visualización…&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/configuration-wizard.gif" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>En el caso de que no nos guste como quedo o queramos cambiarlo siempre se puede ejecutar el comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">p10k configure
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Que permitirá reconfigurar el theme nuevamente para dejarlo a nuestro gusto&amp;hellip; No te olvides de comentarnos que te parece y dejarnos la foto de tu terminal recien configurada! Te esperamos en Telegram&lt;/p></description></item><item><title>Orchis un tema que deberías probar</title><link>https://patojad.com.ar/post/2020/10/orchis-un-tema-que-deber%C3%ADas-probar/</link><pubDate>Wed, 14 Oct 2020 09:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/10/orchis-un-tema-que-deber%C3%ADas-probar/</guid><description>&lt;p>Muchos usuarios ven la hermosura de &lt;strong>Deepin&lt;/strong> que es una de sus mayores características, sin embargo con el tiempo el escritorios se volvió algo más pesado y lleno de bugs cosa que al inicio nunca tuvo.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://cdn.pling.com/img/e/1/7/8/5db3f807359d6d2756f42a8b2f0c5ee68675.jpg" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Y si va a ser pesado y lleno de bugs, que mejor que sea muy personalizable y eso &lt;strong>Deepin&lt;/strong> no lo tiene, por lo cual para usar algo asi prefiero usar &lt;strong>Gnome&lt;/strong> (Si Julio prefiero Gnome). Si bien ya había aclarado que ya no amo a Gnome lo prefiero antes que a deepin y todo gracias a este theme que te da todo lo que deepin promete.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="sobre-el-theme">
+Sobre el Theme
+&lt;a href="#sobre-el-theme" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://cdn.pling.com/img/1/c/d/3/72594833735c550d62bef0e175f4c76b37f0.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Este hermoso theme pretende ir a los bordes redondeados dando un acabado más estético. Si bien muchos dicen que con estos bordes se desaprovechan partes de las aplicaciones te invito a revisarlos y ver si el acabado lo vale.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://cdn.pling.com/img/f/f/5/1/2aed73fa0629038e7807e7f3efd918cb87c4.jpg" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Si bien la realidad no es reemplazo de deepin en si, creo que como resultado final es muy acertado e incluso mejor porque permite integrar muchas otras apps obteniendo un resultado final mucho más embebido y generando un sistema más uniforme.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://cdn.pling.com/img/c/b/9/e/9e27ec29bdda41fade42b218561e5c5cc66b014f2cd0851beed285dc6bbad05a19a5.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>En lo personal es raro que esté recomendado usar Gnome antes que Deepin pero la verdad DDE se volvió tan pesado y tosco, con tan poca posibilidad de personalización que es preferible armar scripts para Gnome que usar DDE. Incluso Gnome nos da mucho más juego a la hora de poner plugins o cualquier tipo de complementos, obteniendo así un resultado final mucho más adaptable de lo que podríamos obtener con DDE.&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Descargar Theme'
+rel="noopener"
+href='https://www.gnome-look.org/p/1357889/'>
+Descargar Theme
+&lt;/a>
+&lt;/div></description></item><item><title>TaskBarX Windows</title><link>https://patojad.com.ar/post/2020/10/taskbarx-windows/</link><pubDate>Mon, 05 Oct 2020 11:29:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/10/taskbarx-windows/</guid><description>&lt;p>Nuestra idea es ir a por la tecnología en general. Y en este caso vamos a hablar de &lt;strong>Windows&lt;/strong>, y un poco de como cambiar su estilo. Si bien esto no genera un &lt;strong>SUPER&lt;/strong> cambio, nos permite darle un estilo un tanto más llamativo y desde mi punto de vista cambia muchísimo.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://chrisandriessen.nl/images/Mockup.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;blockquote>
+&lt;p>TaskbarX le permite controlar la posición de los iconos de la barra de tareas. TaskbarX le dará una sensación original de dock de Windows. Los íconos se moverán al centro oa la posición dada por el usuario cuando se agregue o elimine un ícono de la barra de tareas. Se le dará la opción de elegir entre una variedad de animaciones diferentes y cambiar sus velocidades. Las animaciones se pueden desactivar si no le gustan las animaciones y desea que se muevan en un instante. La posición central también se puede cambiar para llevar sus iconos más hacia la izquierda o hacia la derecha según la posición central. Actualmente, todas las configuraciones de la barra de tareas son compatibles, incluida la barra de tareas vertical. Y barras de tareas ilimitadas :)&lt;/p>&lt;/blockquote>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="un-dock-en-windows">
+¿Un Dock en Windows?
+&lt;a href="#un-dock-en-windows" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://www.deskmodder.de/blog/wp-content/uploads/2019/06/falconx-icons-in-der-taskleiste-zentrieren-windows-10-001.jpg" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Esta app, que no es más que una UI que edita registros, nos permite darle un toque más estético a nuestro Windows, en base a eso nos permite agregar animaciones, blur, centrado de iconos, entre otras cosas. Esto deja un resultado que cambia en gran medida nuestro Escritorio.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="descargar">
+Descargar
+&lt;a href="#descargar" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Actualmente este programita se encuentra en la version 1.6.1.0 y podemos descargarlo desde su &lt;a href="https://chrisandriessen.nl/taskbarx" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+página oficial
+&lt;/a> o mas simple desde el siguiente enlace&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Descargar'
+rel="noopener"
+href='https://github.com/ChrisAnd1998/TaskbarX/releases/download/1.6.1.0/TaskbarX_1.6.1.0.zip'>
+Descargar
+&lt;/a>
+&lt;/div></description></item><item><title>Blurredfox un tema moderno para Firefox</title><link>https://patojad.com.ar/post/2020/09/blurredfox-un-tema-moderno-para-firefox/</link><pubDate>Fri, 04 Sep 2020 09:33:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/09/blurredfox-un-tema-moderno-para-firefox/</guid><description>&lt;p>En esta oportunidad quiero compartir un theme para nuestro firefox que nos permitirá darle un mejor estilo para lucirlo en nuestros viernes de escritorios.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/NF7ZXbyv/image.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="requisitos">
+Requisitos
+&lt;a href="#requisitos" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;ul>
+&lt;li>El último Firefox&lt;/li>
+&lt;li>Compositor con soporte para desenfoque &lt;em>(opcional)&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;em>En caso de que el compositor no soporte blur, nosotros veremos el theme totalmente transparente, en este caso podemos elegir colores&amp;hellip;&lt;/em>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="notas">
+Notas
+&lt;a href="#notas" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>En este caso el desarrollador nos deja unas notas recomendando el uso de awesome y “the glorius dotfiles” para unificar todo esto&amp;hellip;&lt;/p>
+&lt;ul>
+&lt;li>100% trabajando en linux.&lt;/li>
+&lt;li>No probado en macOS.&lt;/li>
+&lt;li>La transparencia está rota en Windows 10 (tiene fallas gráficas como parpadeo). El esquema de color sólido puede funcionar.&lt;/li>
+&lt;li>No, la barra de título vertical no está incluida.&lt;/li>
+&lt;li>Cambie a Linux, luego use AwesomeWM para lograr esta gloria.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="notas-antes-de-ejecutar-el-script">
+Notas antes de ejecutar el script:
+&lt;a href="#notas-antes-de-ejecutar-el-script" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;ul>
+&lt;li>Si tiene varias compilaciones de Firefox, el script aún se ejecutará sin problemas. Solo asegúrate de pasar tu compilación de Firefox de destino.&lt;/li>
+&lt;li>Si usted o su compilación de Firefox tienen un perfil múltiple, el script devolverá un error. ¡Asegúrate de tener solo uno!&lt;/li>
+&lt;li>Es recomendable comprobar primero el script antes de ejecutarlo.&lt;/li>
+&lt;li>Necesitas bash para ejecutarlo.&lt;/li>
+&lt;li>Si tiene una carpeta de Chrome existente, el script hará una copia de seguridad en el directorio de su perfil.&lt;/li>
+&lt;li>El script moverá un archivo llamado user.js que contiene todas las preferencias necesarias para que funcione blurfox. Se hará una copia de seguridad del existente.&lt;/li>
+&lt;li>Si el script de instalación no funciona, no dude en enviar un issue o Pull request al git del proyecto.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalacion">
+Instalacion
+&lt;a href="#instalacion" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>En esta oportunidad voy a hablar solo de la instalación en GNU/Linux sin embargo puedes encontrar la instalación en otros sistemas operativos en su propio git.&lt;/p>
+&lt;p>Ejecute el siguiente script. Si está utilizando una compilación diferente como nightly, beta, etc., asegúrese de reemplazar el &amp;rsquo;estable&amp;rsquo; con la compilación de Firefox que está usando. Si se deja vacío, se establecerá de forma predeterminada en estable.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Available parameters:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># stable - Firefox Stable Build&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># dev - Firefox Developer Edition&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># beta - Firefox Beta&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># nightly - Firefox Nightly&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># esr - Firefox Extended Support Release&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Examples:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Stable build&amp;#39;s profile&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">curl -fsSL https://raw.githubusercontent.com/manilarome/blurredfox/script/install.sh &lt;span class="p">|&lt;/span> bash -s -- stable
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Nightly build&amp;#39;s profile&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">curl -fsSL https://raw.githubusercontent.com/manilarome/blurredfox/script/install.sh &lt;span class="p">|&lt;/span> bash -s -- nightly
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Después del mensaje de confirmación de que el tema se instaló correctamente, abra Firefox. Cambie el esquema de colores en:&lt;/p>
+&lt;p>&lt;code>Open Menu -&amp;gt; Customize -&amp;gt; Change colorscheme&lt;/code>&lt;/p>
+&lt;p>En caso de que esto no funcione no te des por vencido puedes intentarlo manualmente col guia realizada por el propio desarrollador y esto lo puedes ver en su git.&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Repositorio y Guia'
+rel="noopener"
+href='https://github.com/manilarome/blurredfox'>
+Repositorio y Guia
+&lt;/a>
+&lt;/div>
+&lt;hr>
+&lt;p>Recorda &lt;strong>apoyarnos&lt;/strong> en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p></description></item><item><title>Los WM, el caso de Awesome</title><link>https://patojad.com.ar/post/2020/08/los-wm-el-caso-de-awesome/</link><pubDate>Thu, 20 Aug 2020 09:33:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/08/los-wm-el-caso-de-awesome/</guid><description>&lt;p>Muchas veces hablamos de que escritorio es mejor y esas peleas que claramente no tienen ningún tipo de sentido más que disfrutar de “bardear” (Término argentino para &lt;em>insultar&lt;/em>) a algún amigo por el escritorio que usar, aprovechó la oportunidad para bardear a &lt;strong>Julio&lt;/strong> por usar Gnome…&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://wiki.manjaro.org/images/8/8f/Awesome-wm-18.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Sin embargo los que estamos en la tecnología hace un tiempo nos vamos &lt;strong>limpiando de fanatismos&lt;/strong> y entendemos que cada cosa tiene su función y para cada uno lo mejor es lo que le sirve y por eso estamos dispuestos a ver lo bueno en todos lados (Menos en Gnome porque lo usa Julio)&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="windows-manager">
+Windows Manager
+&lt;a href="#windows-manager" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>En esta oportunidad la idea es darse un tiempo para entender sobre porque existen y cual es su función.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.redd.it/hid11qhbgkf21.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Muchos eligen sus escritorios por lo visual, sin embargo otros buscan productividad. Los WM (asi los llamaré desde ahora) están pensados para mejorar la productividad y la eficiencia optimizados en su mayoría para el uso puro y exclusivo del teclado.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.redd.it/okveie39rngy.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Estos son muy apreciados por programadores o por las personas que se acostumbran a hacer todo con el teclado muy rápido.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="algo-más">
+Algo más
+&lt;a href="#algo-m%c3%a1s" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.redd.it/szwemaesfu031.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Además de ser rápidos y performantes son muy personalizables lo cual lo vuelven perfectos para aquellos que les gusta acomodar los equipos para que se adapten a uno. Y esto se puede volver una particularidad que lo haga deseados por aquellos que deseen la personalización extrema. Incluso a quienes busquen un estilo 100% armado por ellos.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="bueno-bonito-y-barato">
+Bueno, Bonito y Barato
+&lt;a href="#bueno-bonito-y-barato" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/gnawesome.webp" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/lockscreen.webp" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Además de ser muy rápido y eficiente es muy personalizable y se pueden lograr cosas estéticamente mucho más lindas que los DE que conocemos actualmente…&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/big.webp" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/linear.webp" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Por lo cual podemos afirmar que la parte estética si bien no viene pulida de fabrica no es un limitante en estos WM&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/surreal.webp" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/exit-screen.webp" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p></description></item><item><title>¿Porque ya no amo Gnome?</title><link>https://patojad.com.ar/post/2020/07/porque-ya-no-amo-gnome/</link><pubDate>Fri, 31 Jul 2020 12:02:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/07/porque-ya-no-amo-gnome/</guid><description>&lt;p>Cuando inicie en el mundo linux lo hice con MATE un hermoso escritorio Argentino, sin embargo luego conocí Gnome quien fue tal vez el escritorio que mas ame en ese momento (incluso KDE no me gustaba)&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://huayra.conectarigualdad.gob.ar/img/screens/3.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Sin embargo como ya muchos me conocen hoy en dia intento evitar Gnome desktop y hoy voy a hablar un poco más sobre esto!&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="del-odio-al-amor-kde">
+Del odio al amor (KDE)
+&lt;a href="#del-odio-al-amor-kde" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://kde.org/content/home/kde-main.jpg" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Como mencione antes KDE fue un escritorio que no me gusto para nada al inicio, por lo cual lo evite muchísimo tiempo. Pero debemos admitir que KDE hizo un enorme trabajo para mejorar y hoy es un escritorio completo, lindo, personalizable, fluido y liviano (seamos realista es muy liviano para todo lo que ofrece)&lt;/p>
+&lt;p>Este escritorio se &amp;ldquo;arruinó&amp;rdquo; con la versión 4 pero aprendieron de sus errores y plasma nos dieron uno de los mejores escritorios de la actualidad. Y con eso su comunidad creció mucho y se ganó un gran lugar entre los desktop elegidos&amp;hellip;&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="del-amor-al-odio-gnome">
+Del amor al odio (Gnome)
+&lt;a href="#del-amor-al-odio-gnome" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://ubunlog.com/wp-content/uploads/2019/03/gnome-3.32-nuevos-iconos-830x467.jpg" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Sin embargo gnome tomó el camino opuesto&amp;hellip; Si bien se supone que intentan mejorar dia a dia cada versión no deja de ser más de lo mismo. El consumo de ram (si bien no es mucho para los equipos actuales) es muy elevado para ser solo un escritorio. Incluso más sabiendo que la gran parte de la personalización son de plugins externos y no nativos como por ejemplo KDE&lt;/p>
+&lt;p>Sin embargo eso no quiere decir que no lo recomiende o no lo use, creo que Gnome tiene un gran camino por delante y puede hacer grandes cosas, simplemente debería volver a escuchar a la comunidad y no tanto a las empresas&amp;hellip;&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="mi-recomendación">
+Mi recomendación
+&lt;a href="#mi-recomendaci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Sabemos que siempre las recomendaciones tiene que ver con lo que uno quiere o le gusta, y no suelen ser muy objetivas pero voy a ir intentando que no se noten los fanatismos&amp;hellip;&lt;/p>
+&lt;p>Si te gusta el blur y las transparencias entonces KDE es tu mejor opción, tiende a ser mucho más fácil de lograr estos efectos y las comunidades vienen trabajando mucho por estas cosas, también tiene un ecosistema mucho más completo e integrado, en particular esta bueno para ofrecerles a quienes arrancan y quieren todo configurado&amp;hellip;&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.ytimg.com/vi/86ro5Q0Fi34/maxresdefault.jpg" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Si te gusta la integración de apps de 3ros entonces te recomiendo Gnome, la mayorías de las apps están hechas con GTK y gracias a esto es fácil de integrar las apps de terceros con los themes que pongamos e instalamos. También es más fácil de editar los temas porque basta con saber un poco de &lt;a href="https://patojad.com.ar/post/2023/08/descubriendo-el-mundo-de-css/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+CSS
+&lt;/a> (sin embargo te recomiendo ir sobrado de recursos para evitar que se pegue, 8gb de ram por ejemplo y un procesador que no sea tan viejo)&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.redd.it/uk9uihckcsd41.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Si vos queres algo altamente liviano y fluido entonces mate es tu mejor opción, se integra con la casi todos los themes de gnome y es muy rápido. En lo personal creo que me gusta porque fue mi primer escritorio&amp;hellip;&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.imgur.com/Q5L9GDc.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p></description></item><item><title>Mainte un Conky diferente</title><link>https://patojad.com.ar/post/2020/07/mainte-un-conky-diferente/</link><pubDate>Fri, 10 Jul 2020 13:15:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/07/mainte-un-conky-diferente/</guid><description>&lt;p>En esta oportunidad vamos a hablar de un Conky en especial aprovechemos el viernes de escritorio para recomendar un conky que realmente permita lucir realmente nuestro escritorio.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="mainte-un-conky-diferente">
+Mainte un conky diferente
+&lt;a href="#mainte-un-conky-diferente" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Mainte es un conky que muestra una información útil de nuestro equipo y lo hace de una forma muy estética. Este conky fue pensado para un caso muy específico, sin embargo, gracias a todo el desarrollo hoy se puede utilizar para todos los equipos y todas las distros así que sin más preámbulos vamos a ir a como instalar esta distro.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://camo.githubusercontent.com/d679002e85fe798a3b6787abc59d87ac0bc742c1/68747470733a2f2f692e6962622e636f2f52486371464c782f53637265656e73686f742d32303139313230322d3232333131382e706e67" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalación">
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>En primer lugar, abra el terminal e instalar conky si no lo tienes, y adicionalmente a eso un conky manager (en mi caso voy a utilizar conky-manager2 del repositorio de la comunidad) mediante el comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo apt install conky conky-manager2 libgee-0.8-2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Una vez instalado debemos descargar el theme mainte para poder ponerlo en nuestro escritorio y eso lo hacemos desde el siguiente link&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Descargar Mainte'
+rel="noopener"
+href='https://github.com/gvoze32/Mainte/releases/tag/v3.0'>
+Descargar Mainte
+&lt;/a>
+&lt;/div>
+&lt;p>Una vez descargado debemos extraer toda la carpeta y copiarla en /home/$USER/.conky (configure el archivo oculto como visible en su administrador de archivos porque la carpeta está oculta)&lt;/p>
+&lt;p>Una vez realizado esto basta con iniciar el conky manager y activar los dos conky de Mainte para poder verlo de la siguiente forma&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.ibb.co/pKD0qLw/Screenshot-20200710-130504.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Y poder mostrar un ViernesDeEscritorio así…&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.ibb.co/w6VJh6Q/Screenshot-20200710-130523.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p></description></item><item><title>Tilling en kwin (Deepin)</title><link>https://patojad.com.ar/post/2020/06/tilling-en-kwin-deepin/</link><pubDate>Mon, 08 Jun 2020 08:45:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/06/tilling-en-kwin-deepin/</guid><description>&lt;p>En esta oportunidad vamos a estar &lt;strong>configurando nuestro desktop&lt;/strong> para que se acomode en forma de grilla o como todos conocemos con el nombre de tilling. y en esta oportunidad vamos a hacerlo con nuestro Deepin.&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/rGom75QA_HA?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;p>Para iniciar entendamos que este “tutorial” funciona en cualquier distro con kwin es decir que funciona con kde y en este caso lo vamos a hacer con &lt;strong>Deepin&lt;/strong>.&lt;/p>
+&lt;h1 class="text-gray-500 text-3xl my-6" id="instalando-lo-necesario">
+Instalando lo necesario
+&lt;a href="#instalando-lo-necesario" class="text-gray-500">#&lt;/a>
+&lt;/h1>&lt;p>Para arrancar tenemos que instalar (como explica el video) las configuraciones de KDE que son las que nos permite modificar o personalizar, en este caso, kwin. Recordemos que si vamos a hacerlo en KDE este paso no es necesario y puede seguir con el siguiente. En el caso de deepin debemos instalarlo y lo hacemos de la siguiente forma:&lt;/p>
+&lt;pre>&lt;code>sudo apt update &amp;amp;&amp;amp; sudo apt install systemsettings
+&lt;/code>&lt;/pre>
+&lt;h1 class="text-gray-500 text-3xl my-6" id="configurando-kwin">
+Configurando Kwin
+&lt;a href="#configurando-kwin" class="text-gray-500">#&lt;/a>
+&lt;/h1>&lt;p>Una vez instalado vamos a abrir la configuración y nos dirigimos a la parte de gestión de ventana y de ahí a la sección de guiones de KWin.&lt;/p>
+&lt;p>Ahí vamos a Obtener nuevos guiones y buscamos “tilling” y vamos a instalarlo (Para ver la opción precisa verifiquen en el video) y luego podemos activarlo.&lt;/p></description></item><item><title>PlasmApple</title><link>https://patojad.com.ar/post/2020/05/plasmapple/</link><pubDate>Mon, 11 May 2020 09:22:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/05/plasmapple/</guid><description>&lt;p>Este es un proyecto libre sin fines de Lucro, esta dedicado para aquellos que les gusta GNU/linux y lo que es el entorno Mac, ya que como muchos sabemos en Youtube la mayoría de vídeos que hay para personalizar están en ingles, y yo para innovar lo único que necesitaran es descargar el archivo y otras cosas sin necesidad de configurar.&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/JX3bh0XgTSE?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;p>Quiero mencionar también que el bajo de calidad no se pudo arreglar por más que lo intente mi PC no logra resistir las animaciones y este tipo de calidad, aún así por buscar traerles el mejor contenido me di la tarea de hacerlo de esta manera, cualquier cosa respecto a lo que es la calidad así como tips para evitar el &amp;ldquo;lag&amp;rdquo; en los vídeos con gusto la miraré.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="cosas-nuevas">
+Cosas nuevas&amp;hellip;
+&lt;a href="#cosas-nuevas" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;ul>
+&lt;li>Implementación de la tipografía San Francisco para Linux&lt;/li>
+&lt;li>Bajo el consumo (siempre y cuando desactiven los programas que se ejecutan cuando prendes el PC entre ejemplos para mencionar Spotify, Discord y Steam)&lt;/li>
+&lt;li>Una pequeña separacion tanto arriba como abajo con los iconos que se encuentran en el panel superior&lt;/li>
+&lt;li>Se eliminaron muchas Apps que habían por defecto en el Dock de Abajo para aprovechar el espacio para que ustedes después puedan agregar sus lanzadores (Navegadores, programas como Steam, juegos, y otras cosas) ademas que en diferentes resoluciones se ve algo grande, así que es para no ocupar mucho espacio y se ve ha feo.&lt;/li>
+&lt;li>Se mostró las animaciones que serán opcionales si gustas activar&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="mi-opinion">
+Mi Opinion
+&lt;a href="#mi-opinion" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Existen muchos usuarios que aman el estilo del desktop de MacOS X (Seamos realista por mas que en linux existan miles de cosas mejores iOS tiene un entorno hermoso y a algunos les puede gustar y a otros no, en mi caso no&amp;hellip;) Y este usario nos trae a nosotros la posibilidad de poner nuestro desktop como el sistema de la manzana.&lt;/p>
+&lt;p>Muchos usuarios critican que imiten entornos de otros sistemas (MacOS o Win) Sin embargo es importante tener posibilidades&amp;hellip;&lt;/p>
+&lt;p>Contanos tu experiencia en nuestro grupo y apoyanos en nuestras redes sociales.&lt;/p></description></item><item><title>Komorebi</title><link>https://patojad.com.ar/post/2020/03/komorebi/</link><pubDate>Fri, 20 Mar 2020 09:07:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/03/komorebi/</guid><description>&lt;p>Komorebi es un bonito e impresionante gestor de wallpapers para cualquier distro Linux, es de código abierto y fué desarrollado en Vala por Abraham Masri.&lt;/p>
+&lt;p>La herramienta cuenta con fondos personalizables que pueden ser configurados de diversas maneras y en cualquier momento, psoee múltiples fondos pantallas (animados, estáticos, degradados entre otros), los mismos son enriquecidos con diversas opciones que la herramienta nos ofrece.&lt;/p>
+&lt;p>Este gestor de wallpapers nos permite añadir a nuestro fondo las estadísticas de nuestro sistema (uso de memoria ram, disco,…), añadir un estilo dark, fecha y hora, optimizar el rendimiento de fondos, entre otras excelentes funcionalidades.&lt;/p>
+&lt;p>Su panel es muy sencillo de usar y los efectos de los fondos simplemente son geniales.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="cómo-instalar-komorebi">
+Cómo instalar komorebi
+&lt;a href="#c%c3%b3mo-instalar-komorebi" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>La instalacion es muy sencilla, para instalarlo en cualquier distribucion (realizando la compilacion a mano) es muy sencilla.&lt;/p>
+&lt;p>Primero instalamos las dependecias del proyecto (eso varia dependiendo de la base y el sistema de paquetesque tenga nuestra distro) pero los paquetes a instalar son libgtop2-dev, libgtk-3-dev, cmake, y valac&lt;/p>
+&lt;p>Despues de esto debemos correr los siguientes comandos los cuales ire explicando su funcionamiento. El primer comando nos permite clonar el proyecto de Git (su version en Master) y nos pociciona en la carpeta para poder seguir:&lt;/p>
+&lt;pre>&lt;code>git clone https://github.com/iabem97/komorebi.git
+cd komorebi
+&lt;/code>&lt;/pre>
+&lt;p>Creamos la carpeta build dentro del proyecto y nos pocicionamos dentro, esto nos sirve para poder compilar sin ensuciar el codigo fuente.&lt;/p>
+&lt;pre>&lt;code>mkdir build &amp;amp;&amp;amp; cd build
+&lt;/code>&lt;/pre>
+&lt;p>Este comando ejecuta la compilacion y la instalacion del proyecto, esto recordemos que no varia entre distribuciones:&lt;/p>
+&lt;pre>&lt;code>cmake .. &amp;amp;&amp;amp; sudo make install &amp;amp;&amp;amp; ./komorebi
+&lt;/code>&lt;/pre></description></item><item><title>Oranchelo</title><link>https://patojad.com.ar/post/2019/12/oranchelo/</link><pubDate>Mon, 09 Dec 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/12/oranchelo/</guid><description>&lt;h2 class="text-amber-500 text-3xl my-6" id="oranchelo">
+Oranchelo
+&lt;a href="#oranchelo" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Oranchelo es un tema de iconos de diseño plano para XFCE4 basado en Super Flat Remix e inspirado en &amp;ldquo;Corny icons&amp;rdquo; de Patryk Goworowski. Si bien su destino es XFCE tras probarlo en otros desktops pudimos ver que se adaptan bien, a ser sincero es uno de los mejores que vi en Desktops nuevos como Deepin. Su uso es simple para cualquier distro gracias a su propio instalador que trae en su repositorio de git&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://2.bp.blogspot.com/-IHBM65dQ7yo/V7k0DL0NX_I/AAAAAAAAHvk/4lPzxcDtnJUQ8weAzBIo_P5xTIeWYiuyQCEw/s1920/oranchelo-2.jpg" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalacion">
+Instalacion
+&lt;a href="#instalacion" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="ubuntu-o-derivados">
+Ubuntu o derivados
+&lt;a href="#ubuntu-o-derivados" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>La instalacion se realiza mediante PPA, por lo cual no sirve para Debian y relacionados dado que las PPA solo funcionan en Ubuntu y sus derivados&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo add-apt-repository ppa:oranchelo/oranchelo-icon-theme
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get install oranchelo-icon-theme
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="arch-y-derivados">
+Arch y derivados
+&lt;a href="#arch-y-derivados" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Dentro de Arch el metodo de instalacion es simple mediante AUR&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -Sy oranchelo-icon-theme-git
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="debian-y-fedora">
+Debian y Fedora
+&lt;a href="#debian-y-fedora" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Si bien los procesos de instalacion son diferentes ambos pueden descargar sus empaquetados desde el propio &lt;a href="https://github.com/OrancheloTeam/oranchelo-icon-theme/releases" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fab fa-github">&lt;/i>&amp;nbsp;
+git del proyecto
+&lt;/a>. Luego deben instalarlo y cada usuario sabra como hacerlo dado que ya conocen su sistema.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="desde-el-codigo-fuente">
+Desde el codigo Fuente
+&lt;a href="#desde-el-codigo-fuente" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Esta es la opcion mas linda para todos, es ejecutar un .sh tan simple que nos deja los iconos instalados y listos para usar. Este proceso es simple, descargamso el &lt;a href="https://github.com/OrancheloTeam/oranchelo-icon-theme" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fab fa-github">&lt;/i>&amp;nbsp;
+codigo fuente del proyecto
+&lt;/a>. Una vez que este deescargado abrimos una terminal en la carpeta del proyecto y ejecutamos el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">./oranchelo-installer.sh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="100-manual">
+100% Manual
+&lt;a href="#100-manual" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>La opción más simple, aunque debo admitir que para mí es la menos recomendable es la instalación 100% manual. Para esto debemos descargar el código fuente mencionado con anterioridad y copiar las carpetas Oranchelo y Oranchelo-green en &lt;code>/usr/share/icons&lt;/code> o &lt;code>~.local/share/icons&lt;/code> para que solo el usuario actual pueda usarlos.&lt;/p></description></item><item><title>Shadow</title><link>https://patojad.com.ar/post/2019/09/shadow/</link><pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/09/shadow/</guid><description>&lt;blockquote>
+&lt;p>Cambia la forma en que miras tu escritorio. Obtenga un tema de iconos cuidadosamente diseñado, brillante y limpio para Gnome Desktop.&lt;/p>
+&lt;p style="text-align: right;">
+Equipo de Shadow
+&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://images.pling.com/img/00/00/32/82/41/1012532/2d5d5eb053c500f8cb4cdc9234db648c456d4c8568e06daf16772f1f9c6e55e21045.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Como ellos afirman son iconos cuidadosamente diseñado y pensados para generar un sutil pero notable cambio a nuestro escritorio. Sin embargo, si bien fueron diseñados para Gnome todos aquellos que utilizamos KDE tenemos la oportunidad de probarlos con un hermoso acabado final.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="nueva-solicitud-de-icono">
+Nueva solicitud de icono
+&lt;a href="#nueva-solicitud-de-icono" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="http://rudrab.github.io/Shadow/burn-in.gif" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Su equipo o mejor dicho su usuario creador nos da la posibilidad de realizar la petición de nuevos iconos. Si bien no nos asegura poder implementar todo lo que pidamos el promete hacer todo lo posible por tratar de expandir el theme de iconos. Esto podemos hacerlo a través de su GitHub, en su repositorio agregando un &lt;a href="https://github.com/rudrab/Shadow/issues" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fab fa-github">&lt;/i>&amp;nbsp;
+Issus
+&lt;/a> con la etiqueta &amp;ldquo;Icon request&amp;rdquo;&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalacion">
+Instalacion
+&lt;a href="#instalacion" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>La instalacion la podemos hacer desde sus dos fuentes de descarga&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="github">
+GitHub
+&lt;a href="#github" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>La primera vez debermos realizarlo asi:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">mkdir -p ~/.icons
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> ~/.icons
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git clone https://github.com/rudrab/Shadow.git
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Luego podemos actualizarlo de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> ~/.icons/Shadow
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git pull
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='GitHub'
+rel="noopener"
+href='https://github.com/rudrab/Shadow'>
+GitHub
+&lt;/a>
+&lt;/div>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="gnome-look">
+Gnome Look
+&lt;a href="#gnome-look" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Lo descargamos desde Gnome look&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> ~/.icons
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkdir -p shadow
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> shadow
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">tar -Jxvf &amp;lt;Your download path&amp;gt;/shadow&amp;lt;version&amp;gt;.tar.xz
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Genome Look'
+rel="noopener"
+href='https://www.gnome-look.org/content/show.php/Shadow?content=170398'>
+Genome Look
+&lt;/a>
+&lt;/div></description></item><item><title>Uniform +</title><link>https://patojad.com.ar/post/2019/02/uniform-/</link><pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/02/uniform-/</guid><description>&lt;h2 class="text-amber-500 text-3xl my-6" id="uniform-">
+Uniform +(+)
+&lt;a href="#uniform-" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Les traigo una gama de iconos que modifiqué levemente para mejorar su integración (Probado en Deepin) y que la verdad, ¡Me resultan muy lindos!. Estos íconos me acompañan casi de distribución a distribución dado que siempre logran darle un gran cambio.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/y8g7Z3jG/demostra-patojad.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>La instalación es muy básica (aún asi mas adelante haré un paso a paso para aquellas personas que nunca hayan agregado íconos a mano), por ahora basta con dejar la carpeta en &lt;code>~/.icons&lt;/code> para que luego podamos elegir el pack.&lt;/p>
+&lt;div class="text-center">
+&lt;a
+class="theme-btn"
+target="_blank"
+title='Descarga'
+rel="noopener"
+href='https://www.mediafire.com/file/ccz6k727wwznaue/Uniform_Pato_LatinLinux.tar.gz/file'>
+Descarga
+&lt;/a>
+&lt;/div>
+&lt;p>¡Comentanos que te parecieron!&lt;/p></description></item></channel></rss>

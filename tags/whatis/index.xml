@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Whatis on PatoJAD</title><link>https://patojad.com.ar/tags/whatis/</link><description>Recent content in Whatis on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 22 Sep 2020 10:02:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/whatis/index.xml" rel="self" type="application/rss+xml"/><item><title>Obteniendo información de comandos</title><link>https://patojad.com.ar/post/2020/09/obteniendo-informaci%C3%B3n-de-comandos/</link><pubDate>Tue, 22 Sep 2020 10:02:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/09/obteniendo-informaci%C3%B3n-de-comandos/</guid><description>&lt;p>En esta oportunidad vamos a obtener más información sobre los comandos que podemos encontrar en nuestro Shell. Para esto vamos utilizar las herramientas que nos ofrecen con este fin.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="help--ofrece-ayuda-sobre-los-shell-builtins">
+&lt;strong>help&lt;/strong> – Ofrece ayuda sobre los shell builtins
+&lt;a href="#help--ofrece-ayuda-sobre-los-shell-builtins" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>bash tiene una ayuda integrada disponible para cada shell builtin. Para usarla, escribimos “help” seguido del nombre del shell builtin. Por ejemplo:&lt;/p>
+&lt;pre>&lt;code>help cd
+&lt;/code>&lt;/pre>
+&lt;p>Que genera una salida como la siguiente&lt;/p>
+&lt;pre>&lt;code>cd: cd [-L|[-P [-e]]] [dir]
+Change the shell working directory.
+Change the current directory to DIR. The default DIR is the value of the HOME shell variable.
+The variable CDPATH defines the search path for the directory containing DIR. Alternative directory names in CDPATH are separated by a colon (:). A null directory name is the same as the current directory. If DIR begins with a slash (/), then CDPATH is not used.
+If the directory is not found, and the shell option `cdable_vars' is set, the word is assumed to be a variable name. If that variable has a value, its value is used for DIR.
+Options:
+-L force symbolic links to be followed
+-P use the physical directory structure without following symbolic links
+-e if the -P option is supplied, and the current working directory cannot be determined successfully, exit with a non-zero status
+The default is to follow symbolic links, as if `-L' were specified.
+Exit Status:
+Returns 0 if the directory is changed, and if $PWD is set successfully when -P is used; non-zero otherwise.
+&lt;/code>&lt;/pre>
+&lt;p>&lt;strong>Una nota sobre la notación:&lt;/strong> Cuando aparecen corchetes en la descripción de la sintaxis de un comando, indican opciones adicionales. Una barra vertical indica que son elementos excluyentes entre ellos.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="--muestra-información-de-uso">
+&lt;strong>&amp;ndash;help&lt;/strong> – Muestra información de uso
+&lt;a href="#--muestra-informaci%c3%b3n-de-uso" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/zvjB480Z/image.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Muchos programas ejecutables soportan una opción “&amp;ndash;help” que muestra una descripción de la sintaxis y las opciones soportadas por el comando. Por ejemplo:&lt;/p>
+&lt;pre>&lt;code>mkdir --help
+&lt;/code>&lt;/pre>
+&lt;p>Que genera una salida como la siguiente&lt;/p>
+&lt;pre>&lt;code>Usage: mkdir [OPTION] DIRECTORY...
+Create the DIRECTORY(ies), if they do not already exist.
+-Z, --context=CONTEXT (SELinux) set security context to CONTEXT Mandatory arguments to long options are mandatory for short options too.
+-m, --mode=MODE set file mode (as in chmod), not a=rwx – umask
+-p, --parents no error if existing, make parent directories as needed
+-v, --verbose print a message for each created directory
+--help display this help and exit
+--version output version information and exit
+Report bugs to &amp;lt;bug-coreutils@gnu.org&amp;gt;.
+&lt;/code>&lt;/pre>
+&lt;p>Algunos programas no soportan la opción “&amp;ndash;help”, pero es importante probarlos de todas formas. A menudo el resultado es un error que revelará la misma información de uso.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="man--muestra-el-manual-de-un-programa">
+&lt;strong>man&lt;/strong> – Muestra el manual de un programa
+&lt;a href="#man--muestra-el-manual-de-un-programa" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>La mayoría de los programas ejecutables pensados para usarse en la línea de comandos proveen un documento llamado manual page o man page. Se usa un programa de paginación especial llamado man para verlos. Se usa así:&lt;/p>
+&lt;pre>&lt;code>man programa
+&lt;/code>&lt;/pre>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/G2jdmzYv/image.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Donde “programa” es el nombre del comando que queremos ver. Las man pages varían algo en formato pero generalmente contienen un título, una sinopsis de la sintaxis del comando, una descripción del propósito del comando y una lista y descripción de cada opción del comando. Las man pages, de todas formas, no suelen incluir ejemplos, y están pensadas como una referencia, no como un tutorial. Como ejemplo, probaremos a ver la man page para el comando ls:&lt;/p>
+&lt;pre>&lt;code>man ls
+&lt;/code>&lt;/pre>
+&lt;p>En la mayoría de los sistemas Linux, man usa less para mostrar la man page, así que todos los comandos de less que nos son familiares funcionan cuando está mostrado la página.&lt;/p>
+&lt;p>&lt;strong>Si quieres saber más sobre man te dejo &lt;a href="https://patojad.com.ar/post/2019/01/man-tu-manual-para-linux/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+un articulo
+&lt;/a> para leer&lt;/strong>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="apropos--muestra-comandos-apropiados">
+&lt;strong>apropos&lt;/strong> – Muestra comandos apropiados
+&lt;a href="#apropos--muestra-comandos-apropiados" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/ZYGzz1XX/image.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>También es posible buscar en el listado de las man pages posibles coincidencias basadas en un término de búsqueda. Es muy tosco pero a veces ayuda. Aquí tienes un ejemplo de una búsqueda en las man pages utilizando el término de búsqueda “floppy”:&lt;/p>
+&lt;pre>&lt;code>apropos floppy
+&lt;/code>&lt;/pre>
+&lt;p>Generando una salida como:&lt;/p>
+&lt;pre>&lt;code>create_floppy_devices (8) - udev callout to create all possible floppy device based on the CMOS type
+fdformat (8) - Low-level formats a floppy disk
+floppy (8) - format floppy disks
+gfloppy (1) - a simple floppy formatter for the GNOME
+mbadblocks (1) - tests a floppy disk, and marks the bad blocks in the FAT
+mformat (1) - add an MSDOS filesystem to a low-level formatted floppy disk
+&lt;/code>&lt;/pre>
+&lt;p>El primer campo de cada línea es el nombre de la man page, el segundo campo muestra la sección. Fíjate que el comando man con la opción “-k” ofrece exactamente la misma función que apropos.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="whatis--muestra-una-descripción-muy-breve-de-un-comando">
+&lt;strong>whatis&lt;/strong> – Muestra una descripción muy breve de un comando
+&lt;a href="#whatis--muestra-una-descripci%c3%b3n-muy-breve-de-un-comando" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/bwvTCv3P/image.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>El programa whatis muestra el nombre y una descripción de una línea de una man page coincidente con una palabra especificada:&lt;/p>
+&lt;pre>&lt;code>whatis ls
+&lt;/code>&lt;/pre>
+&lt;p>Y genera una salida muy simple como la siguiente!&lt;/p>
+&lt;pre>&lt;code>ls (1) - list directory contents
+&lt;/code>&lt;/pre>
+&lt;hr>
+&lt;p>Recorda &lt;strong>apoyarnos&lt;/strong> en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p></description></item></channel></rss>

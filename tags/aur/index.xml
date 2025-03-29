@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Aur on PatoJAD</title><link>https://patojad.com.ar/tags/aur/</link><description>Recent content in Aur on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Thu, 03 Feb 2022 09:22:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/aur/index.xml" rel="self" type="application/rss+xml"/><item><title>Instalar Preload en Arch</title><link>https://patojad.com.ar/post/2022/02/instalar-preload-en-arch/</link><pubDate>Thu, 03 Feb 2022 09:22:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/02/instalar-preload-en-arch/</guid><description>&lt;p>Preload es una aplicación que toma estadísticas de nuestro uso de aplicaciones y precarga en memoria todas aquellas que más usamos al prender el equipo. Gracias a esto podemos ver una fluidez más amplia al abrir estas aplicaciones. Y a costa de esta fluidez nuestro sistema inicia con más memoria RAM ocupada. Muchos se debaten si esta técnica es útil o no y por eso te dejo primero un video con mi postura sobre esto.&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/HVCqSfdTdUs?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;p>Dejando aclarada mi postura de más está decir que cualquier postura con fundamentos es válida y si preferís no ocupar RAM te recomiendo que no instales &lt;strong>Preload&lt;/strong> aunque vas a perderte la fluidez adicional que esto nos da.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="video">
+Video
+&lt;a href="#video" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>En el siguiente video vemos como se realiza la instalación de preload (con yay en mi caso pero podes usar tu gestor favorito) y cómo habilitarlo en cualquier base &lt;strong>Arch&lt;/strong> con &lt;strong>SystemD&lt;/strong> y también en &lt;strong>Artix&lt;/strong> con &lt;strong>OpenRC&lt;/strong> (En esta oportunidad no use &lt;strong>Runit&lt;/strong> pero con una búsqueda simple podes adaptarlo)&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/6NoYA9Rtp2s?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="código">
+Código
+&lt;a href="#c%c3%b3digo" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>A continuación dejo los comandos utilizados para que sea más simple copiar y pegar…&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">yay -S preload
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="systemd">
+SystemD
+&lt;a href="#systemd" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>En el caso de usar distros con SystemD se habilita de la siguiente manera. Recuerda que esto nos pedirá la contraseña&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">systemctl &lt;span class="nb">enable&lt;/span> preload
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="openrc">
+OpenRC
+&lt;a href="#openrc" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>En el caso de estar en &lt;strong>Artix&lt;/strong> (con &lt;strong>OpenRC&lt;/strong>) debemos crear el archivo del demonio de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo nano /etc/init.d/preload
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Y dentro del archivo debemos poner lo siguiente:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#!/sbin/openrc-run&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">command&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;/usr/bin/preload&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">command_args&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;$PRELOAD_OPTS&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">command_args_foreground&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;--foreground&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Esto lo guardamos y a continuación le damos permisos al archivo para poder iniciar el proceso.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo chmod &lt;span class="m">777&lt;/span> /etc/init.d/preload
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="alert alert-warning col-12" style="position:relative;">
+&lt;div class="info-box-content container">
+&lt;div class="row">
+&lt;div class="col-2 text-center">
+&lt;span class="fa fa-warning fa-5x">&lt;/span>
+&lt;/div>
+&lt;div class="col-10">
+&lt;p class="no-margin">OJO no es recomendable usar 777 para los permisos de este archivo, es una mala practica que hago personalmente para hacer pruebas, lo ideal es ponerle el mismo permiso que tienen el resto de los archivos en el folder /etc/init.d&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;p>Y por último podemos inicializar el proceso de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo rc-service preload start
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Instalar PARU y YAY</title><link>https://patojad.com.ar/post/2022/01/instalar-paru-y-yay/</link><pubDate>Thu, 27 Jan 2022 15:12:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/01/instalar-paru-y-yay/</guid><description>&lt;p>Ya hablamos con anterioridad sobre &lt;a href="https://patojad.com.ar/aplicaciones/2022/01/paru-vs-yay-cual-elegir/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+PARU y YAY
+&lt;/a>. En esa oportunidad di mi opinión sobre cuál deberíamos elegir, aunque esto siempre es a gusto y placer de la persona que lo utilice. Por eso en esta oportunidad vamos a ver la manera más simple de instalar ambas aplicaciones.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="requisitos-previos">
+Requisitos previos
+&lt;a href="#requisitos-previos" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Para poder realizar la instalación tenemos unos requisitos previos para que todo salga mas que bien, te dejo a continuación ambos links que explicaran como hacer esto (El primero no es obligatorio pero está bueno saber cual elegir antes de instalar alguno)&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://patojad.com.ar/aplicaciones/2022/01/paru-vs-yay-cual-elegir/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Paru VS YAY ¿Cual elegir?
+&lt;/a> (Opcional)&lt;/li>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2022/01/instalar-chaotic-aur/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Instalar Chaotic AUR
+&lt;/a> (Obligatorio)&lt;/li>
+&lt;/ul>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="video">
+Video
+&lt;a href="#video" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Claramente siempre genero un pequeño video para poder ser un poco más gráfico, de todas formas en la parte inferior voy a dejar los comandos utilizados. Es muy importante tener los repositorios de chaotic para poder instalarlo de esta manera.&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/DF8IAz5WoXg?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between">
+&lt;span class="fa fa-info fa-5x p-3">&lt;/span>
+&lt;p class="no-margin">Si el video te sirvió pegale una subscribirda al canal que es muchísimo apoyo y es totalmente gratuito.&lt;/p>
+&lt;/div>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="comandos">
+Comandos
+&lt;a href="#comandos" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Para la instalación de yay:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Sy yay
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Para la instalación de paru:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Sy paru
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>En caso de que vayamos a instalar los 2 podemos hacerlo de una sola vez usando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Sy yay paru
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Para desinstalar yay:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Rs yay
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Para desinstalar paru:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Rs paru
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Para desinstalar ambos:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Rs yay paru
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Instalar Chaotic AUR</title><link>https://patojad.com.ar/post/2022/01/instalar-chaotic-aur/</link><pubDate>Wed, 12 Jan 2022 09:45:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/01/instalar-chaotic-aur/</guid><description>&lt;p>Chaotic es un repositorio que busca traer los paquetes de AUR, o al menos los de mayor uso desde el punto de vista del creador, para administrarlos de forma simple con pacman. Sin tener que instalar los AUR ni configurarlos y mucho menos usar los AURHelpers. Estos son algunos de los detalles a tener en cuenta sobre Chaotic:&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/vZr3rN4_ZDc?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;ul>
+&lt;li>La mayoría de los paquetes disponibles en este repositorio se crean automáticamente a partir de su paquete fuente AUR respectivo. Sin embargo, hay algunas excepciones, consulte &lt;a href="https://github.com/chaotic-aur/packages" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fab fa-github">&lt;/i>&amp;nbsp;
+https://github.com/chaotic-aur/packages
+&lt;/a> para averiguar cuáles.&lt;/li>
+&lt;li>El clúster de construcción principal es un nodo en el centro de datos de UFSCars que está alojado en San Carlos, San Paulo, Brazil.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="comandos">
+Comandos
+&lt;a href="#comandos" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>En el video muestro como se realiza y que podemos ver el resultado dentro de nuestros repositorios en &lt;strong>pacman&lt;/strong> por esto mismo voy a dejar a continuación los comandos.&lt;/p>
+&lt;p>Instalación o descarga de las Key del repositorio para chequear los paquetes:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pacman-key --lsign-key FBA220DFC880C036
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Instalación de los paquetes con pacman (En el video los instalo por separado, sin embargo el comando de abajo los instala a los dos juntos)&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">pacman -U &lt;span class="s1">&amp;#39;https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Por último tenemos que agregar el repositorio en la configuración de pacman. Para esto debemos editarla con permisos de administrador, por ejemplo de la siguiente manera &lt;code>sudo nano /etc/pacman.conf&lt;/code> y agregamos lo siguiente en la sección de repositorios:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="line">&lt;span class="cl">&lt;span class="k">[chaotic-aur]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Include&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">/etc/pacman.d/chaotic-mirrorlist&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="recomendaciones">
+Recomendaciones
+&lt;a href="#recomendaciones" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Las siguientes recomendaciones son propias de los desarrolladores de &lt;strong>ChaoticAUR&lt;/strong> con alguna que otra modificación:&lt;/p>
+&lt;ul>
+&lt;li>Si sos usuario de powerpill y queres usarlo para realizar todas las descargas desde todos los mirrors se recomienda realizar la actualización de la siguiente manera:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo pacman -Sy &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> sudo powerpill -Su &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> paru -Su
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Asegúrese de insertar todos los espejos en su pacman.conf o use caotic-mirrorlist con todos ellos activos si usa powerpill.&lt;/li>
+&lt;li>Si está utilizando otros repositorios de terceros, le recomendamos que coloque Chaotic-AUR antes que ellos en &lt;code>/etc/pacman.conf&lt;/code>. Dado que actualizamos la mayoría de los paquetes cada hora y seguimos los &lt;code>PKGBUILD&lt;/code> de &lt;strong>AUR&lt;/strong>, este repositorio es más adecuado como primera opción al descargar paquetes.&lt;/li>
+&lt;li>Si necesita omitir la actualización de un paquete para usar las creadas localmente (por ejemplo, con optimizaciones nativas), puede agregar &lt;code>'IgnorePkg = ...'&lt;/code> a la sección del repositorio en &lt;code>/etc/pacman.conf&lt;/code>&lt;/li>
+&lt;li>Puede elegir el repositorio desde el que descargar un paquete de esta manera: &lt;code>pacman -S chaotic-aur/dxvk-mingw-git&lt;/code>. Algunos ayudantes de AUR también lo admiten, por ejemplo: &lt;code>paru -S aur/firefox-hg&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-warning col-12" style="position:relative;">
+&lt;div class="info-box-content container">
+&lt;div class="row">
+&lt;div class="col-2 text-center">
+&lt;span class="fa fa-warning fa-5x">&lt;/span>
+&lt;/div>
+&lt;div class="col-10">
+&lt;p class="no-margin">Debe tener habilitado el repositorio multilib.&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div></description></item><item><title>Paru VS YAY ¿Cual elegir?</title><link>https://patojad.com.ar/post/2022/01/paru-vs-yay-cual-elegir/</link><pubDate>Mon, 03 Jan 2022 09:22:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/01/paru-vs-yay-cual-elegir/</guid><description>&lt;p>Es común que al utilizar cualquier distribución basada en Arch (Artix, endeavour, manjaro, etc) queramos usar los AUR dado que ahí disponemos de una cantidad de paquetes increíbles. Y a la hora de usarlo podemos elegir entre múltiples AUR Helpers. En esta oportunidad vamos a hablar de 2 de estos. El conocido YAY que lleva mucho tiempo con nosotros. Y el no tan nuevo PARU que llega con una propuesta interesante para los amantes de los AUR.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="comparación">
+Comparación
+&lt;a href="#comparaci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>YAY está escrito en GO un lenguaje de programación que tiene una fácil lectura y es extensible. Una gran ventaja es que su compilación es realmente rápida y muy simple. Toma como inspiración yaourt, apacman y pacmaur. Paru, en cambio, está escrito en Rust y toma como inspiración a YAY por lo cual es muy simple de migrar de uno a otro.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/xTvdwb1M/image.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Si bien YAY es mucho más popular y tiene una comunidad mucho más grande, actualmente paru es, por no mucho, más activo. Lo cual supone ser una ventaja, sin embargo, para los usuarios finales esto no afecta en gran cantidad. Sin embargo una de las diferencias que note es que paru es, efectivamente, más rápido que YAY. Lo cual es útil si tenemos equipos de pocos recursos. Sin embargo, en lo personal creo que yay tiene una sintaxis más feliz que paru. Es más simple y rápido escribir yay, incluso para autocompletar. Sin embargo, paru puede volverse un poco tosco y molesto.&lt;/p>
+&lt;table class="w-full bg-gray-100 dark:bg-gray-900 rounded-xl my-4">
+&lt;thead>
+&lt;tr>
+&lt;th class="px-3 py-1" style="text-align: center">&lt;/th>
+&lt;th class="px-3 py-1" style="text-align: center">Codigo Fuente&lt;/th>
+&lt;th class="px-3 py-1" style="text-align: center">Revision de Archivos&lt;/th>
+&lt;th class="px-3 py-1" style="text-align: center">Diff&lt;/th>
+&lt;th class="px-3 py-1" style="text-align: center">GIT&lt;/th>
+&lt;th class="px-3 py-1" style="text-align: center">Shells&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Paru&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">GO&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">bash, fish, zsh&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">YAY&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Rust&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">bash, fish, zsh&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>&lt;h3 class="text-gray-500 text-3xl my-6" id="mi-opinión">
+Mi Opinión
+&lt;a href="#mi-opini%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Personalmente le veo mucho potencial a paru, pero no ofrece nada muy diferente a otros. Y siento la sintaxis un tanto incómoda, sin embargo, es recomendable para equipos que son bastantes lentos porque en esa circunstancia es muy provechoso el tiempo que optimiza y nos permite aprovechar mejor los recursos.&lt;/p>
+&lt;p>Yo me voy a quedar con yay, al menos de momento pero me gustaría saber tu opinion y analisis sobre estas dos apps&lt;/p></description></item><item><title>Instalar YAY en Artix Linux</title><link>https://patojad.com.ar/post/2020/10/instalar-yay-en-artix-linux/</link><pubDate>Tue, 06 Oct 2020 10:43:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/10/instalar-yay-en-artix-linux/</guid><description>&lt;p>En base a lo que pide Pipe en esta oportunidad vamos a seguir con Artix esta hermosa distro que es realmente performante. Para esta oportunidad vamos a ver como instalar yay en esta magnífica distro. Por lo cual voy a dejar un corto video donde explico todo y obviamente todo esto va a estar a lo largo de la publicación.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="el-video">
+El Video
+&lt;a href="#el-video" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Espero que les guste el video, y no se olviden de apoyar y suscribirse al canal para motivar el progreso.&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/w-XxsaqPBZU?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalación">
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Para la instalación debemos ejecutar la siguiente línea de comandos que es lo que realizó durante el video. De esta forma podemos copiar y pegar&lt;/p>
+&lt;pre>&lt;code>sudo pacman -Sy
+sudo pacman -S git base-devel
+cd /tmp
+rm -rf yay 2&amp;gt; /dev/null
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+&lt;/code>&lt;/pre>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="adicional">
+Adicional
+&lt;a href="#adicional" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Para activar la salida colorida en pacman y, por extensión, en yay, como recalqué en el video se puede usar este comando:&lt;/p>
+&lt;pre>&lt;code>sudo sed -i '/^#Color/s/^#//' /etc/pacman.conf
+&lt;/code>&lt;/pre>
+&lt;p>Ya teniendo todo ok debemos eliminar aurman de la siguiente manera&amp;hellip;&lt;/p>
+&lt;pre>&lt;code>sudo pacman -R aurman
+&lt;/code>&lt;/pre></description></item></channel></rss>

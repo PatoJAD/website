@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sysadmin on PatoJAD</title><link>https://patojad.com.ar/tags/sysadmin/</link><description>Recent content in Sysadmin on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Fri, 15 Nov 2024 10:12:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/sysadmin/index.xml" rel="self" type="application/rss+xml"/><item><title>Un Guardián Digital para Tu Servidor Cloud</title><link>https://patojad.com.ar/post/2024/11/un-guardi%C3%A1n-digital-para-tu-servidor-cloud/</link><pubDate>Fri, 15 Nov 2024 10:12:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/11/un-guardi%C3%A1n-digital-para-tu-servidor-cloud/</guid><description>&lt;p>Hoy vamos a ver un poco mas sobre &lt;code>fail2ban&lt;/code> y como instalarlo en tu servidor cloud.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-fail2ban">
+¿Qué es Fail2ban?
+&lt;a href="#qu%c3%a9-es-fail2ban" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Fail2ban es una herramienta de seguridad que actúa como un vigilante digital para tu servidor cloud. Su función principal es bloquear automáticamente las direcciones IP que intentan acceder a tu servidor de forma repetida y fallida. Esto ayuda a prevenir ataques de fuerza bruta, donde los hackers intentan adivinar contraseñas.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalando-fail2ban">
+Instalando Fail2ban
+&lt;a href="#instalando-fail2ban" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Para instalar Fail2ban en tu servidor, puedes utilizar el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt-get install fail2ban
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Una vez instalado, necesitarás configurar un archivo de configuración local:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo nano /etc/fail2ban/jail.local
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="configurando-fail2ban">
+Configurando Fail2ban
+&lt;a href="#configurando-fail2ban" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Dentro del archivo de configuración, puedes personalizar varias opciones, como:&lt;/p>
+&lt;ul>
+&lt;li>ignoreip: Una lista de direcciones IP que no serán bloqueadas.&lt;/li>
+&lt;li>bantime: El tiempo durante el cual una IP bloqueada permanecerá inaccesible.&lt;/li>
+&lt;li>findtime: El período de tiempo en el que se cuentan los intentos fallidos.&lt;/li>
+&lt;li>maxretry: El número máximo de intentos fallidos permitidos antes de bloquear una IP.&lt;/li>
+&lt;li>También puedes configurar notificaciones por correo electrónico para recibir alertas sobre intentos de intrusión.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="habilitando-jails">
+Habilitando Jails
+&lt;a href="#habilitando-jails" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Los &amp;ldquo;jails&amp;rdquo; son reglas específicas que Fail2ban aplica a diferentes servicios en tu servidor, como SSH, FTP, o servicios web. Puedes habilitar o deshabilitar los jails según tus necesidades.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="reiniciando-fail2ban">
+Reiniciando Fail2ban
+&lt;a href="#reiniciando-fail2ban" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Una vez que hayas configurado los jails, reinicia el servicio de Fail2ban para aplicar los cambios:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl restart fail2ban.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="verificando-el-bloqueo-de-ip">
+Verificando el Bloqueo de IP
+&lt;a href="#verificando-el-bloqueo-de-ip" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Puedes verificar las direcciones IP bloqueadas utilizando el comando &lt;code>iptables -L&lt;/code>.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="desbloqueando-una-ip">
+Desbloqueando una IP
+&lt;a href="#desbloqueando-una-ip" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Si necesitas desbloquear una IP que ha sido bloqueada por error, puedes utilizar el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo fail2ban-client &lt;span class="nb">set&lt;/span> &amp;lt;jail&amp;gt; unbanip &amp;lt;ip_address&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusión">
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Fail2ban es una herramienta poderosa que puede ayudar a proteger tu servidor cloud de ataques maliciosos. Con una configuración adecuada, puedes mejorar significativamente la seguridad de tu infraestructura en línea.&lt;/p></description></item><item><title>¿La mejor distro para la gente de sistemas?</title><link>https://patojad.com.ar/post/2022/05/la-mejor-distro-para-la-gente-de-sistemas/</link><pubDate>Tue, 03 May 2022 13:18:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/05/la-mejor-distro-para-la-gente-de-sistemas/</guid><description>&lt;p>Esta es una pregunta que me hicieron muchas veces compañeros de la facultad apoyándose en mi “fanatismo” sobre linux. Sin embargo siempre fui dando respuestas diferentes dependiendo del estadio de mi vida en el que estaba. Sin embargo, después de mucho camino transitado forme un pensamiento más centrado en la experiencia.&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/tEWDS29KvBM?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;p>¿Vos qué pensas? Si estás en sistemas ¿Que distro usas?¿Por qué?&lt;/p></description></item><item><title>Que es la Virtualizacion</title><link>https://patojad.com.ar/post/2020/02/que-es-la-virtualizacion/</link><pubDate>Tue, 18 Feb 2020 08:21:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/02/que-es-la-virtualizacion/</guid><description>&lt;p>La virtualización de servidores, sistemas operativos y redes juega un papel fundamental tanto para los administradores de sistemas como para los expertos en seguridad informática. Para los primeros, los administradores de sistemas, les brinda una herramienta perfecta para separar unos servicios de otros y ganar en seguridad, ya que si un &amp;ldquo;hacker&amp;rdquo; compromete un servicio no tendrá acceso a todo el sistema.&lt;/p>
+&lt;p>Desde el punto del vista del &amp;ldquo;hacking ético&amp;rdquo; esta herramienta nos dará la posibilidad de crear entornos virtuales para poder hacer nuestras pruebas. Otra de las ventajas de la virtualización es que si quieres probar un sistema operativo antes de decidir si instalarlo en tu disco duro modificando el sistema de arranque podrás instalarlo sin necesidad de hacer ningún cambio en tu PC, tal y como si fuera un programa más.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-la-virtualización">
+¿Qué es la virtualización?
+&lt;a href="#qu%c3%a9-es-la-virtualizaci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://blog.desdelinux.net/wp-content/uploads/2019/01/virtualbox-virtualizacion-importancia-blog-desdelinux-830x531.jpg" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>La virtualización consiste en términos generales en emular mediante algún programa o sistema un hardware sobre el que montar un servicio, servidor o red. De esta forma se crea lo que conocemos como una máquina virtual. Así, con un solo ordenador tu puedes crear varias máquinas virtuales e instalar en cada una de ellas el software (ya sea un windows, una distribución de Linux, o MacOS) que necesites para trabajar. Esto es realmente interesante no solo para el usuario que se dedica de forma profesional a la informática sino para todos los usuarios.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="por-qué-necesitamos-la-virtualización-como-pentesters">
+¿Por qué necesitamos la virtualización como pentesters?
+&lt;a href="#por-qu%c3%a9-necesitamos-la-virtualizaci%c3%b3n-como-pentesters" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>En primer lugar vamos a necesitar vitualizar servidores para poder trabajarlos sin hacer cambios en nuestro equipo. Si nosotros pretendemos instalar cada servicio o porgrama en nuestro PC conseguiríamos que finalmente fuera lento e insostenible para trabajar. En cambio si nosotros instalamos el software que queremos en una máquina virtual nuestro pc no se resentirá, podremos trabajarlo como si lo estuvieramos instalando en un ordenador de pruebas sin comprometer la seguridad de nuestro equipo. Algo que a nosotros como pentesters debería ser una prioridad.&lt;/p>
+&lt;p>![](&lt;a href="https://lh3.googleusercontent.com/proxy/LxCYzwleqBmVFo4TXyqQ9Qa89B30L07--55TmGLLKlkBtGrGHAkxoWKDioNhh_jYpXT7LL7L7F3dTErXZvKa0XzP4-wnZCpBh7A9I6LCCW8dWn2MjO9JA7niVwV2CTMzaKWSIPV_4c0o8BK7Wo8VeA%22" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://lh3.googleusercontent.com/proxy/LxCYzwleqBmVFo4TXyqQ9Qa89B30L07--55TmGLLKlkBtGrGHAkxoWKDioNhh_jYpXT7LL7L7F3dTErXZvKa0XzP4-wnZCpBh7A9I6LCCW8dWn2MjO9JA7niVwV2CTMzaKWSIPV_4c0o8BK7Wo8VeA"
+&lt;/a> &amp;gt;}}&lt;/p>
+&lt;p>Otra razón de peso para trabajar con máquinas virtuales en el entorno de intrusiones es que podremos instalarnos distribuciones de pentesting &amp;ldquo;profesional&amp;rdquo; como lo es Kali Linux (a fines practivos de esta saga es muy util) sin necesidad de instalarlo directamente en nuestro PC obligándonos a modificar el sistema de arranque. Aunque como pentester lo normal es que lo tengas instalado sin virtualizar, para empezar, y ver cómo trabajan estas distribuciones para pentester lo ideal es virtualizarlas, familiarizarse con su uso y finalmente acabar instalándola como sistema operativo arrancable.&lt;/p>
+&lt;blockquote>
+&lt;p>ATENCION: Recuerden que a ducha distribucion no es recomendada, si nosotros buscamos aprender mas sobre todas las herramientas de intrusiones y demas es importante que aprendamos a compilar el codigo y no aceptemos binarios agenos, un buen &amp;ldquo;hacker&amp;rdquo; (notaran que esta palabra la pongo entre comillas porque me da gracia el mal uso que le estamos dando) siempre tiene sus propias herramientas bien seguras&lt;/p>&lt;/blockquote>
+&lt;p>También te pasará en multitud de ocasiones que quedrás auditar un programa en una versión concreta, en un entorno concreto. Gracias a la virtualización podrás crear ese entorno en tu PC y realizar todas las pruebas de pentesting que consideres necesarias realizar para finalmente aplicarlas en el entorno real si fuera necesario.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="ventajas-de-la-virtualización-para-administradores">
+Ventajas de la virtualización para administradores
+&lt;a href="#ventajas-de-la-virtualizaci%c3%b3n-para-administradores" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Como administrador de sistemas o redes trabajar virtualizando servidores, aplicaciones o servicios es una estrategía que cada día se está poniendo en práctica con más énfasis. Los beneficios de la virtualización para los administradores se pueden dividir en estos grupos:&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://www.letscloud.io/blog/wp-content/uploads/2019/07/tools-of-sys-admin.jpg" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>SEGURIDAD&lt;/strong>. Supongamos que necesitas instalar un servidor LAMP (Linux, Apache, MySQL, PHP, esto es un servidor para montar páginas web) y un servidor de archivos puede optar por dos opciones. Instalar en un único servidor ambos servicios, LAMP y servicio para compartir archivos. Todo te funcionaría bien, ¿pero que ocurriría si un hacker encontrara una vulnerabilidad en tu web y pudiera tomar el control del servidor? Que no solo tendría acceso a los archivos de tu web, sino que también a todos los archivos que tienes compartidos, con lo cual desde un fallo en la web se ha comprometido todos los archivos de tue empresa.
+En cambio si se hubiera escogido una solución virutalizada se habría podido crear en el serivodor 2 máquinas virtuales. En la primera se instalaría el servidor LAMP, y en la segunda se instalaría el servidor de archivos. En este escenario el hacker que consiga encontrar una vulnerabilidad en la web solo tendría acceso a la máquina virtual que aloja el servidor LAMP. Y aunque habría conseguido comprometer tu web los archivos de tu empresa aún segurían aislados y seguros. Es por este motivo por el que para muchos admnistradores la solución ideal es crear una máquina virtual por cada servicio que tenga un riesgo medio/alto de ser vulnerado.&lt;/li>
+&lt;li>&lt;strong>BACKUPS&lt;/strong>. La mayoría de los servicios que utilizamos hoy en día disponen de mecanismos para hacer copias de seguridad y poder restaurarlas en caso de fallos. Pero también es cierto que las copias de seguridad a veces no son completas, contienen datos pero no guardan configuraciones o perfiles específicos. Si utilizamos máqunias virtuales, nosotros podemos programar en el servidor de forma automática que cada día haga una copia de la máquina virtual, de modo que si queremos restaurar una copia de seguridad bastará con arrancar la máquina que tenemos copiada y funcionará sin tener que tomar ninguna medida más.&lt;/li>
+&lt;li>&lt;strong>PROTECCIÓN CONTRA ERRORES HARDWARE&lt;/strong>. Uno de los problemas que más daño pueden crear a un administrador de sistemas es que falle un componente crítico del servidor, la placa base por ejemplo. Si esto ocurre y hay que sustituir este elemento habrá que reinstalar todo el sistema operativo, configurarlo, instalar los programas, configurarlos y cargar las copias de seguridad para poder seguir trabajando. Todo esto tiene un coste en tiempo y esfuerzo bastante alto. Sin embargo si estamos trabajando con máquinas virtuales si falla el servidor podremos sustituirlo, copiarle las máquinas virtuales y arrancarlas. Esta solución no te llevará ni una décima parte de tiempo que si tuvieras que reconfigurarlo todo.&lt;/li>
+&lt;li>&lt;strong>MIGRACIÓN DE SERVIDORES SIN RECONFIGURACIONES&lt;/strong>. Aplicando lo dicho en el punto anterior te puedes dar cuenta de que si tu servidor se queda pequeño y necesitas uno mas grande tan solo necesitas conectarlo pasarle las máquinas virtuales y empezar a trabajar, sin necesidad de reconfigurar todo lo que tenías hecho en el servidor antiguo.&lt;/li>
+&lt;li>&lt;strong>REALIZAR PRUEBAS SIN RIESGO&lt;/strong>. Una de las características más interesantes de la virtualización es que podemos hacer &amp;ldquo;puntos de retorno&amp;rdquo; o &amp;ldquo;Snapshots&amp;rdquo;. Esto significa que si nosotros estamos dudando sobre si instalar un programa o no, podemos crear un punto de retorno &amp;ldquo;snapshot&amp;rdquo;, instalar lo que necesitemos y si detectamos alguna incompatibilidad y creemos que lo mejor habría sido no instalarlo podemos volver al punto de retorno y la máquina virtual volverá al estado en el que hicimos el snapshot, sin quedar ningún rastro de todo lo que hayamos hecho tras el punto de retorno.&lt;/li>
+&lt;/ol>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="en-el-dia-a-dia">
+En el dia a dia
+&lt;a href="#en-el-dia-a-dia" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Otro punto extra que nos ofrecen las máquinas virtuales es que como nos permiten virtualizar cualquier sistema operativo podemos tener un sistema operativo en el que no aparezcan datos sobre nosotros, no aparezca nuestro nombre real, y no hayamos introducido ningún dato personal nuestro. Con este sistema operativo &amp;ldquo;neutro&amp;rdquo; nosotros podemos navegar por internet sin dejar rastro de nuestro nombre.&lt;/p>
+&lt;p>En lo personal tambien lo utilizo para probar software que desarrollo o modifico sin afectar mi sistema base.&lt;/p>
+&lt;p>Por útimo y no menos importante a nosotros como usuarios de la red y programas a veces nos encontramos que no estamos seguros si algún programa trae malware incrustado, sospechamos quizá por la procedencia que el programa no está limpio, lo necesitamos y no sabemos que hacer. Si lo instalamos en nuestro ordenador tal cual corremos el riesgo de que quede infectado por el malware que traiga, si no lo instalamos no podemos hacer uso del programa. En este punto las máquinas virtuales también nos pueden resultar de gran ayuda ya que podemos instalar el programa dentro de la máquina virtual, analizar si traía malware y decidir si instalaro en nuestro sistema operativo de trabajo o dejarlo virtualizado.&lt;/p></description></item></channel></rss>
