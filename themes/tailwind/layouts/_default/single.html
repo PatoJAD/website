@@ -21,17 +21,11 @@
         {{ partial "components/widgets/social-share.html" . }}
       </article>
       {{ partial "components/articles/author.html" . }}
+      {{ if site.Config.Services.Disqus.Shortname }}
       <div class="rounded-xl bg-gray-100 dark:bg-gray-800 p-4 mt-4 flex content-center justify-center">
-        <div id="disqus_thread"></div>
-        <script>
-          (function () { // DON'T EDIT BELOW THIS LINE
-            var d = document, s = d.createElement('script');
-            s.src = 'https://https-patojad-gitlab-io-blog.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-          })();
-        </script>
+        {{ template "_internal/disqus.html" . }}
       </div>
+      {{ end }}
     </div>
     {{ partial "components/articles/lateralbar.html" . }}
   </div>
