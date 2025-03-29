@@ -25,11 +25,13 @@ const setScheme = () => {
     colorSchemeItem == 'dark' ||
     (colorSchemeItem === 'auto' && supportDarkMode)
   ) {
+    document.documentElement.classList.add('dark')
     document.documentElement.dataset.scheme = 'dark';
     document.documentElement.style.colorScheme = 'dark';
     document.body.style.colorScheme = 'dark';
     document.getElementById('dark-mode-toggle').innerHTML = '<em class="fas fa-sun"></em>';
   } else {
+    document.documentElement.classList.remove('dark')
     document.documentElement.dataset.scheme = 'light';
     document.documentElement.style.colorScheme = 'light';
     document.body.style.colorScheme = 'light';
