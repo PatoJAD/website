@@ -1,6 +1,6 @@
 ---
 name: Carla Di Mar
-descriptionp: Linuxera activa y proactiva.
+descriptionp: Linuxera activa y proactiva
 photo: https://i.postimg.cc/YCV6j0gG/carladimar.webp
 title: Carla Di Mar - Linuxera activa y proactiva.
 img: https://i.postimg.cc/YCV6j0gG/carladimar.webp
