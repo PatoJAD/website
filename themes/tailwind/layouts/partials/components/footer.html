@@ -1,6 +1,14 @@
 <div class="p-3">
   <!--dark mode - text and icons-->
   <footer class="p-8 text-gray-800 dark:text-gray-50 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-lg font-medium">
+    <div class="flex flex-wrap p-2 justify-center content-center">
+      {{ range .Site.Menus.footer }}
+      <a href="{{ .URL | relLangURL }}" {{ if eq .Params.newtab true }}target="_blank" {{ end }} title="{{- .Name -}} "
+        class="px-2 py-1 mx-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-900 hover:text-amber-500 text-sm rounded-xl flex content-center items-center">
+        <span class="mx-1 hidden md:block"> {{- .Name -}} </span>
+      </a>
+      {{ end }}
+    </div>
     <div class="flex flex-wrap justify-between">
       <div>
         {{ range .Site.Params.footer.social }}
