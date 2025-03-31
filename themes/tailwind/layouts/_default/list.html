@@ -4,25 +4,14 @@
   <div class="grid grid-cols-1 md:grid-cols-3 py-12 w-full">
     <div id="information" class="col-span-2 w-full px-3 mb-4">
       <div class="flex flex-wrap justify-evenly">
-      {{ $paginator := .Paginate .Data.Pages.ByDate.Reverse }}
-      {{ range $paginator.Pages }}
-      {{ if eq .Type "project" }}
-      {{ .Render "project-card" }}
-      {{ else }}
-      {{ .Render "card" }}
-      {{ end }}
-      {{ end }}
+        {{ $paginator := .Paginate .Data.Pages.ByDate.Reverse }}
+        {{ range $paginator.Pages }}
+        {{ .Render "card" }}
+        {{ end }}
       </div>
       {{- partial "components/pagination.html" . -}}
     </div>
-    <div id="widgets" class="w-full px-3">
-      {{ partial "components/widgets/categories.html" . }}
-      {{ partial "components/widgets/social-network.html" . }}
-      {{ partial "components/widgets/donate.html" . }}
-      {{ partial "components/widgets/articlescant.html" . }}
-      {{ partial "components/widgets/tags.html" . }}
-      {{ partial "components/widgets/sponsors.html" . }}
-    </div>
+    {{- partial "components/lateralbar.html" . -}}
   </div>
 </div>
 
