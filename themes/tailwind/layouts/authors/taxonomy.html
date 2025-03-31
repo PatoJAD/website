@@ -1,0 +1,40 @@
+{{ define "main" }}
+
+<div class="flex flex-col justify-center items-center px-6 max-w-[1400px] m-auto">
+  <div class="grid grid-cols-1 py-12 w-full">
+    <div id="information" class="w-full px-3 mb-4">
+      <div class="flex flex-wrap justify-evenly">
+        {{ range .Data.Terms.ByCount }}
+        <div class="relative mt-16 mb-32 max-w-sm mx-auto w-full">
+          <div class="rounded-xl overflow-hidden shadow-md bg-gray-100 dark:bg-gray-800">
+            <div class="absolute -mt-20 w-full flex justify-center">
+              <div class="h-32 w-32">
+                <img src="{{ .Page.Params.photo }}" class="rounded-full object-cover h-full w-full shadow-md" />
+              </div>
+            </div>
+            <div class="px-6 mt-16">
+              <h1 class="font-bold text-3xl text-center mb-1 text-amber-500">{{ .Page.Params.name }}</h1>
+              <p class="text-sm text-center opacity-50">{{ .Page.Params.descriptionp }}</p>
+              <div class="w-full flex justify-center pt-5 pb-5">
+                <div class="text-center">
+                  <span class="text-5xl">
+                    {{ .WeightedPages.Count }}
+                  </span>
+                  <p class="text-lg">{{ if eq .WeightedPages.Count 1 }}
+                  Articulo Redactado
+                  {{ else }} 
+                  Articulos Redactados
+                  {{ end }}</p>
+                </div>
+                  
+              </div>
+            </div>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</div>
+
+{{ end }}
