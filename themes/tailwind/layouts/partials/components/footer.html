@@ -1,30 +1,50 @@
 <div class="p-3">
   <!--dark mode - text and icons-->
   <footer class="p-8 text-gray-800 dark:text-gray-50 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-lg font-medium">
-    <div class="flex flex-wrap p-2 justify-center content-center">
-      {{ range .Site.Menus.footer }}
-      <a href="{{ .URL | relLangURL }}" {{ if eq .Params.newtab true }}target="_blank" {{ end }} title="{{- .Name -}} "
-        class="px-2 py-1 mx-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-900 hover:text-amber-500 text-sm rounded-xl flex content-center items-center">
-        <span class="mx-1 hidden md:block"> {{- .Name -}} </span>
-      </a>
-      {{ end }}
-    </div>
-    <div class="flex flex-wrap justify-between">
-      <div>
-        {{ range .Site.Params.footer.social }}
-        <a href="{{ .url }}" alt="{{ .name }}" aria-label="{{ .name }}"
-          class="rounded-full bg-gray-200 dark:bg-gray-900 p-3 me-2 mb-4 hover:text-amber-500" rel="noopener"
-          target="_blank">
-          {{ if strings.HasPrefix .params.icon "fa fa" }}
-          <em class="{{ .params.icon }}"></em>
-          {{ else }}
-          {{ partial "helper/icon" .params.icon }}
-          {{ end }}
-        </a>
+    <div class="py-10 px-4 sm:px-6 flex justify-between mx-auto">
 
-        {{ end }}
+      <div class="p-5 w-3/12 border-r border-gray-500">
+        <div class="text-sm uppercase text-amber-500 font-bold">Menu</div>
+        <ul>
+          {{ range .Site.Menus.footer }}
+          <li class="my-2">
+            <a href="{{ .URL | relLangURL }}" {{ if eq .Params.newtab true }}target="_blank" {{ end }}
+              title="{{- .Name -}} " class="hover:text-amber-500"> {{- .Name -}}
+            </a>
+          </li>
+          {{ end }}
+        </ul>
       </div>
-      <div>Creado por <a href="https://vasak.net.ar" target="_blank" class="text-amber-500">Vasak Group</a></div>
+
+      <div class="p-5 w-6/12 border-r border-gray-500 text-center">
+        <h3 class="font-bold text-xl text-amber-500 mb-4">PatoJAD Community</h3>
+        <p class="text-gray-500 text-sm mb-10">¡Únete a PatoJAD Community y sé parte de un espacio dedicado a la tecnología, programación, informática y el mundo de
+        GNU/Linux! Aquí compartimos conocimientos, proyectos y experiencias para aprender juntos. No importa si eres
+        principiante o experto, tu participación es clave para construir una comunidad activa y colaborativa. ¡Te esperamos!
+        🚀💻</p>
+      </div>
+
+      <div class="p-5 w-3/12">
+        <div class="text-sm uppercase text-amber-500 font-bold">Contacto</div>
+        <p>
+          {{ range .Site.Params.footer.social }}
+          <a href="{{ .url }}" alt="{{ .name }}" aria-label="{{ .name }}"
+            class="rounded-full bg-gray-200 dark:bg-gray-900 p-3 me-2 mb-4 hover:text-amber-500" rel="noopener"
+            target="_blank">
+            {{ if strings.HasPrefix .params.icon "fa fa" }}
+            <em class="{{ .params.icon }}"></em>
+            {{ else }}
+            {{ partial "helper/icon" .params.icon }}
+            {{ end }}
+          </a>
+          {{ end }}
+        </p>
+      </div>
+
+    </div>
+    <div class="flex m-auto text-sm flex-col items-center border-t border-gray-500">
+      <div class="my-5">Creado por <a href="https://vasak.net.ar" target="_blank" class="text-amber-500">Vasak Group</a>
+      </div>
     </div>
   </footer>
 </div>
