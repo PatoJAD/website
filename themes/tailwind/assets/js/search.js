@@ -160,8 +160,8 @@ function executeQuery(term) {
       var linkconfig = value.item.externalUrl ? 'target="_blank" rel="noopener" href="' + value.item.externalUrl + '"' : 'href="' + value.item.permalink + '"';
       resultsHTML =
         resultsHTML +
-        `<div class="mb-2 bg-cover bg-center bg-no-repeat p-3 rounded-xl" style="background-image: url(${value.item.img});" id="result-${key}">
-          <a class="flex items-center px-3 py-2 rounded-md appearance-none bg-gray-200 dark:bg-gray-900 focus:outline-dotted focus:outline-transparent focus:outline-2 opacity-80" 
+        `<div class="mb-2 bg-cover bg-center bg-no-repeat p-3 rounded-2xl" style="background-image: url(${value.item.img});" id="result-${key}">
+          <a class="flex items-center px-3 py-2 rounded-2xl appearance-none bg-gray-200 dark:bg-gray-900 focus:outline-dotted focus:outline-transparent focus:outline-2 opacity-80" 
           ${linkconfig} tabindex="0">
             <div class="grow">
               <div class="-mb-1 text-lg font-bold text-amber-500">
