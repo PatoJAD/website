@@ -83,4 +83,4 @@ De esta forma Angel nos anunciaba las siguientes actualizaciones las cuales publ
 
 Te invitamos a conocer esto y todas las opciones increíbles que contiene esta hermosa red social registrándote y conociéndola por tu propia cuenta.
 
-{{< link url="https://redlinuxclick.ml/" text="Registrarme" >}}
+[Registrarme](https://redlinuxclick.ml/)

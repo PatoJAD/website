@@ -27,4 +27,4 @@ La mayoría de las habilidades se desbloquean a medida que entrenas tus habilida
 
 También puedes elegir automatizar tus habilidades seleccionando Revolution como tu modo de combate
 
-{{< link url="https://play.runescape.com/" text="Sitio Web">}}
+[Sitio Web](https://play.runescape.com/)

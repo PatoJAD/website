@@ -27,7 +27,7 @@ sudo apt install conky conky-manager2 libgee-0.8-2
 
 Una vez instalado debemos descargar el theme mainte para poder ponerlo en nuestro escritorio y eso lo hacemos desde el siguiente link
 
-{{< link url="https://github.com/gvoze32/Mainte/releases/tag/v3.0" text="Descargar Mainte" >}}
+[Descargar Mainte](https://github.com/gvoze32/Mainte/releases/tag/v3.0)
 
 Una vez descargado debemos extraer toda la carpeta y copiarla en /home/$USER/.conky (configure el archivo oculto como visible en su administrador de archivos porque la carpeta está oculta)
 

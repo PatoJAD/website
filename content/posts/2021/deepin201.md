@@ -61,7 +61,7 @@ Si queres actualizar para disfrutar de la nueva versión ya podes hacerlo por la
 
 ![](https://i.postimg.cc/htV2KKGF/image.png)
 
-{{< link text="Descargar Script" url="https://wws.lanzous.com/ikMmqjmhtif" >}}
+[Descargar Script](https://wws.lanzous.com/ikMmqjmhtif)
 
 ## Descargar
 
@@ -69,15 +69,15 @@ Si no tenes deepin y queres descargar la v20.1 para ver su novedades puedes desc
 
 ![](https://i.postimg.cc/v8pT5yGS/image.png)
 
-{{< link text="Descargar Oficial" url="http://cdimage.deepin.com/releases/20.1/deepin-desktop-community-1010-amd64.iso" >}}
+[Descargar Oficial](http://cdimage.deepin.com/releases/20.1/deepin-desktop-community-1010-amd64.iso)
 
-{{< link text="Descargar OSDN" url="https://osdn.net/projects/deepin/storage/20.1_1010/deepin-desktop-community-1010-amd64.iso" >}}
+[Descargar OSDN](https://osdn.net/projects/deepin/storage/20.1_1010/deepin-desktop-community-1010-amd64.iso)
 
-{{< link text="Descargar SourceForge" url="https://sourceforge.net/projects/deepin/files/20.1/deepin-desktop-community-1010-amd64.iso" >}}
+[Descargar SourceForge](https://sourceforge.net/projects/deepin/files/20.1/deepin-desktop-community-1010-amd64.iso)
 
-{{< link text="Descargar Google Drive" url="https://drive.google.com/drive/folders/1KKgXS24v2ty5pUbo-qbn9IePtTzblGzr?usp=sharing" >}}
+[Descargar Google Drive](https://drive.google.com/drive/folders/1KKgXS24v2ty5pUbo-qbn9IePtTzblGzr?usp=sharing)
 
-{{< link text="Descargar BT (MF)" url="https://www.mediafire.com/folder/e2ohh529vlmcj/deepin_20.1(1010)" >}}
+[Descargar BT (MF)](https://www.mediafire.com/folder/e2ohh529vlmcj/deepin_20.1(1010))
 
 ---
 

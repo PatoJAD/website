@@ -28,7 +28,7 @@ authors: ['PatoJAD']
 
 Lo primero que debemos hacer es ir al sitio de cuentas de google en la parte de seguridad, al cual podemos acceder desde el siguiente link
 
-{{< link url="https://myaccount.google.com/security" text="Google Account Security">}}
+[Google Account Security](https://myaccount.google.com/security)
 
 Una vez ahí vamos a dirigirnos a la parte de **Iniciar sesión en Google**. y entramos en **contraseñas de aplicaciones**.
 

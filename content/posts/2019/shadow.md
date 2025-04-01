@@ -56,7 +56,7 @@ cd ~/.icons/Shadow
 git pull
 ```
 
-{{< link text="GitHub" url="https://github.com/rudrab/Shadow" >}}
+[GitHub](https://github.com/rudrab/Shadow)
 
 ### Gnome Look
 
@@ -69,4 +69,4 @@ cd shadow
 tar -Jxvf <Your download path>/shadow<version>.tar.xz
 ```
 
-{{< link text="Genome Look" url="https://www.gnome-look.org/content/show.php/Shadow?content=170398" >}}
+[Genome Look](https://www.gnome-look.org/content/show.php/Shadow?content=170398)

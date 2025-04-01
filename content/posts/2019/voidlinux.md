@@ -48,8 +48,8 @@ Si todo lo que les he comentado en el presente artículo, les ha gustado… Reco
 
 ![](https://i0.wp.com/techpadi.com/wp-content/uploads/2018/12/b7u0z2j3rloz.png?fit=1366%2C768" >}}
 
-{{< link url="www.voidlinux.org/download/" text="Descargar" >}}
+[Descargar](www.voidlinux.org/download/)
 
-<center class="text-white"> Al final de la mencionada página, van a encontrar varios mirrors de descargas.</center>
+<center> Al final de la mencionada página, van a encontrar varios mirrors de descargas.</center>
 
 Muy bien, esto ha sido todo por el momento. Como ya se habrán dado cuenta, no es obviamente una distribución Linux para todo el mundo, pero quienes busquen un sistema rápido, sin hinchazón de programas, muy novedoso y fiable, quizás Void Linux es lo que han estado buscando. Se los recomiendo. Hasta la próxima colegas….

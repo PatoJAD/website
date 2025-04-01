@@ -73,4 +73,4 @@ PROTON_USE_WINED3D=1 %command%
 
 Por último volvemos a reiniciar steam y ya podemos jugar tranquilamente, recomiendo traducir al español el juego si no tienes un gran dominio del inglés! Y si estas interesado en jugarlo no te olvides de meterte en nuestros grupos para que juguemos juntos!
 
-{{< link text="Discord" url="https://discord.gg/n8XtgN3" >}}
+[Discord](https://discord.gg/n8XtgN3)

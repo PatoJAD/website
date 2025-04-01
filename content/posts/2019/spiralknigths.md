@@ -52,4 +52,4 @@ Lleno de extraños mecanismos alimentados por los Minerales que se han encontrad
 
 El Cuartel General de Spiral está recibiendo una fuerte señal de energía desde el centro del Core del planeta. ¿Eres lo suficientemente valiente para enfrentar los peligros que se encuentran entre los secretos de este misterioso nuevo mundo y tu?
 
-{{< link url="https://www.spiralknights.com/?locale=es" text="Web Oficial" >}}
+[Web Oficial](https://www.spiralknights.com/?locale=es)

@@ -69,7 +69,7 @@ Después del mensaje de confirmación de que el tema se instaló correctamente, 
 
 En caso de que esto no funcione no te des por vencido puedes intentarlo manualmente col guia realizada por el propio desarrollador y esto lo puedes ver en su git.
 
-{{< link text="Repositorio y Guia" url="https://github.com/manilarome/blurredfox" >}}
+[Repositorio y Guia](https://github.com/manilarome/blurredfox)
 
 ---
 

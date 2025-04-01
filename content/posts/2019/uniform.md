@@ -31,6 +31,6 @@ Les traigo una gama de iconos que modifiqué levemente para mejorar su integraci
 
 La instalación es muy básica (aún asi mas adelante haré un paso a paso para aquellas personas que nunca hayan agregado íconos a mano), por ahora basta con dejar la carpeta en `~/.icons` para que luego podamos elegir el pack.
 
-{{< link url="https://www.mediafire.com/file/ccz6k727wwznaue/Uniform_Pato_LatinLinux.tar.gz/file" text="Descarga" >}}
+[Descarga](https://www.mediafire.com/file/ccz6k727wwznaue/Uniform_Pato_LatinLinux.tar.gz/file)
 
 ¡Comentanos que te parecieron!

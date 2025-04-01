@@ -29,7 +29,7 @@ authors: ['PatoJAD']
 
 YTPlayer es una WebApp creada con el fin de poder simplificar la reproducción de música mediante Youtube. Actualmente se encuentra en beta dado que es un proyecto que encontré en internet y lo actualicé.
 
-{{< link url="https://YTPlayer.PatoJAD.com.ar" text="Probarlo" >}}
+[Probarlo](https://YTPlayer.PatoJAD.com.ar)
 
 ## ¿Que ofrece?
 

@@ -26,4 +26,4 @@ eDEX-UI es una aplicación de escritorio de pantalla completa que se asemeja a u
 
 A continuación dejo el link del AppImage compilado por mi para que lo puedan probar en sus sistemas.
 
-{{< link url="https://www.mediafire.com/file/b52tmfjif1dimj2/eDEX-UI+Linux+%28x86_64%29.AppImage" text="Descargar" >}}
+[Descargar](https://www.mediafire.com/file/b52tmfjif1dimj2/eDEX-UI+Linux+%28x86_64%29.AppImage)

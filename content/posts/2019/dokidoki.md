@@ -65,10 +65,10 @@ El juego va tomando dinámica a medida que vamos eligiendo y vamos viendo cómo 
 
 {{< youtube id="EDEBtGg2VaA" >}}
 
-{{< link text="Steam" url="https://store.steampowered.com/app/698780/Doki_Doki_Literature_Club/" >}}
+[Steam](https://store.steampowered.com/app/698780/Doki_Doki_Literature_Club/)
 
-{{< link text="itch.io" url="https://teamsalvato.itch.io/ddlc" >}}
+[itch.io](https://teamsalvato.itch.io/ddlc)
 
-{{< link text="web" url="https://ddlc.moe/" >}}
+[web](https://ddlc.moe/)
 
 Dentro de itch.io podemos encontrar la versión para Linux la cual se adecua claramente a nuestro grupo de lectores y por supuesto la que yo use. No te olvides de contarnos que te pareció el juego

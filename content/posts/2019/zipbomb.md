@@ -46,8 +46,8 @@ Esta descripción del formato zip omite muchos detalles que no son necesarios pa
 
 Aquí ofrecemos la descarga de 3 archivos que David dejo en su blog que son 3 bombas zip donde podemos ver su peso comprimido y su peso luego de la “explosión” o descompresión. De antemano no recomiendo utilizarlos para otra cosa que no sean fines científicos y obviamente sobre entornos controlados.
 
-{{< link text="42 kB	→	5.5 GB" url="https://www.bamsoftware.com/hacks/zipbomb/zbsm.zip" >}}
+[42 kB	→	5.5 GB](https://www.bamsoftware.com/hacks/zipbomb/zbsm.zip)
 
-{{< link text="10 MB	→	281 TB" url="https://www.bamsoftware.com/hacks/zipbomb/zblg.zip" >}}
+[10 MB	→	281 TB](https://www.bamsoftware.com/hacks/zipbomb/zblg.zip)
 
-{{< link text="46 MB	→	4.5 PB (Zip64, less compatible)" url="https://www.bamsoftware.com/hacks/zipbomb/zbxl.zip" >}}
+[46 MB	→	4.5 PB (Zip64, less compatible)](https://www.bamsoftware.com/hacks/zipbomb/zbxl.zip)

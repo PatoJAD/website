@@ -32,7 +32,7 @@ El proyecto se divide en microservicios, y tanto el panel de administración com
 
 No está 100% listo, pero está disponible y puede ser útil en este momento para uso básico, tiene un entorno de desarrollo y scripts de producción, usando pm2. La próxima semana con docker y compose, y pronto también helm chart.
 
-{{< link text="Demo" url=" https://greenpress.herokuapp.com/" >}}
+[Demo](https://greenpress.herokuapp.com/)
 
 > Estaría más que feliz de obtener cualquier tipo de ayuda, contribuciones de código, errores, sugerencias, o incluso que lo usarán para ustedes mismos. Realmente funciona y es gratis.
 >
@@ -63,4 +63,4 @@ Este proyecto procura poder ofrecer una solución a WP un tanto más renovada te
     -   Selector de categoría de usuario para elementos de menús.
     -   Mejora UX, también compatible para uso móvil.
 
-{{< link text="Proyecto" url="https://github.com/greenpress" >}}
+[Proyecto](https://github.com/greenpress)

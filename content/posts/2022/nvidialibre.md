@@ -42,11 +42,11 @@ Esto de una forma u otra se fue olvidando al pasar el tiempo. Y la emoción de a
 
 Así se anuncia en su propio git la versión actual que es la 515.43.04
 
-{{< link text="Ir al GIT" url="https://github.com/NVIDIA/open-gpu-kernel-modules" >}}
+[Ir al GIT](https://github.com/NVIDIA/open-gpu-kernel-modules)
 
 También podemos ver su anuncio oficial (realizado el 11 de mayo) Donde nos dan mucha más información sobre su instalación, sus funcionalidades, su contribución, etc.
 
-{{< link text="Ir al Blog de NVIDIA" url="https://developer.nvidia.com/blog/nvidia-releases-open-source-gpu-kernel-modules/" >}}
+[Ir al Blog de NVIDIA](https://developer.nvidia.com/blog/nvidia-releases-open-source-gpu-kernel-modules/)
 
 ## Vídeo
 

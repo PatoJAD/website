@@ -19,7 +19,7 @@ La comunidad **no quiere publicidad** cuando escucha música. Y como siempre la 
 
 La instalación de este _"complemento"_ como nos marcan en su README se realiza mediante la compilación del mismo, lo cual suena realmente más difícil de lo que es, bastará con correr algunos comandos. Sin embargo, **nosotros armamos un deb** para simplificar un poco la instalación. El mismo lo pueden descargar a continuación.
 
-{{< link url="https://www.mediafire.com/file/ag5vyxovkv53f15/spotify-adblock_1-PatoJAD_amd64.deb/file" text="Descargar en formato DEB" >}}
+[Descargar en formato DEB](https://www.mediafire.com/file/ag5vyxovkv53f15/spotify-adblock_1-PatoJAD_amd64.deb/file)
 
 ## Cómo utilizarlo
 

@@ -41,15 +41,15 @@ Por ahora mi experiencia es pobre, no llegue a indagar a fondo, sin embargo lo u
 
 Si bien no le dedique la cantidad de horas que quería, no aguantaba las ganas de escribir sobre esto, y eso se debe a que si lo recomiendo, tanto para creadores como para usuarios, el registro es completamente simple y rápido por lo cual no hay problemas, y siempre está bueno tener ese lugar donde podes subir esos videos que Youtube no te deja… Para arrancar te quiero dejar mi referido para que te registres… No se bien en qué me beneficia a mi pero se que no te perjudica en nada, sin embargo si no queres el referido más abajo te voy a dejar links sin referido…
 
-{{< link url="https://lbry.tv/$/invite/@PatoJAD:d" text="Registrarme" >}}
+[Registrarme](https://lbry.tv/$/invite/@PatoJAD:d)
 
 ## ¿Que puedo ver?
 
 En particular todavía no tengo tanto para recomendar en español, sin embargo voy a dejarte 2 canales que no podes perderte ni por casualidad (Si, uno es el mio...). Pero más allá de esto encontré muchísimo contenido en base al entretenimiento o la música que me contentaron… Y mucho contenido (en inglés) que vale la pena…
 
-{{< link url="https://lbry.tv/@PatoJAD:d" text="Mi Canal" >}}
+[Mi Canal](https://lbry.tv/@PatoJAD:d)
 
-{{< link url="https://lbry.tv/@SePuedeJugarConLinux:9" text="Se Puede Jugar Con Linux" >}}
+[Se Puede Jugar Con Linux](https://lbry.tv/@SePuedeJugarConLinux:9)
 
 ## Para cerrar
 

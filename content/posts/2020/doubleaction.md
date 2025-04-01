@@ -64,7 +64,7 @@ Double Action es una batalla real sin límites intercalados con objetivos para s
 
 Si estas interesado en jugarlo no te olvides de meterte en nuestros grupos para que juguemos juntos! Podemos incluso hacer algun Stream
 
-{{< link text="Discord" url="https://discord.gg/n8XtgN3" >}}
+[Discord](https://discord.gg/n8XtgN3)
 
 ---
 

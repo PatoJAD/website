@@ -102,13 +102,13 @@ Esto ya es 100% decicion mia, es un theme que me gusto y que suma un valor agreg
 
 Para instalarlos voy a indicar el paso a paso, no es obligatorio seguirlo así dado que algunos pasos son opcionales pero la verdad recomiendo hacerlo así para obtener una buena integración y performance… Iniciamos instalando las siguientes fonts y poniendo en nuestra terminal la font por defecto _Meslo Nerd Font_
 
-{{< link text="MesloLGS NF Regular" url="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf" >}}
+[MesloLGS NF Regular](https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf)
 
-{{< link text="MesloLGS NF Bold" url="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf" >}}
+[MesloLGS NF Bold](https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf)
 
-{{< link text="MesloLGS NF Italic" url="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf" >}}
+[MesloLGS NF Italic](https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf)
 
-{{< link text="MesloLGS NF Bold Italic" url="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf" >}}
+[MesloLGS NF Bold Italic](https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf)
 
 Luego desde la terminal descargamos el theme de PowerLevel10k desde su repositorio oficial:
 
