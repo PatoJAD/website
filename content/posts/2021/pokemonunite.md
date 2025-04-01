@@ -38,7 +38,7 @@ Aúna fuerzas y avasalla a tus rivales en el primer juego de combates por equipo
 
 ![](https://assets.pokemon.com/assets/cms2-es-es/img/video-games/video-games/pokemon_unite/screenshots/06.jpg)
 
-{{< link url="https://play.google.com/store/apps/details?id=jp.pokemon.pokemonunite&hl=es_AR&gl=US" text="Ver en la Play Store" >}}
+[Ver en la Play Store](https://play.google.com/store/apps/details?id=jp.pokemon.pokemonunite&hl=es_AR&gl=US)
 
 ### Características clave:
 
@@ -50,4 +50,4 @@ Aúna fuerzas y avasalla a tus rivales en el primer juego de combates por equipo
 -   **LA COMUNICACIÓN ES ESENCIAL:** Incluso los Entrenadores más experimentados reconocen lo importante que es la comunicación para el éxito de su equipo. Utiliza el chat rápido, las alertas y (por primera vez en un título de Pokémon) el chat de voz para que tus compañeros y tú estéis siempre en la misma onda.
 -   **JUEGO MULTIPLATAFORMA:** Participa en Combates Unite contra Entrenadores de todo el mundo en la consola Nintendo SwitchTM o en un dispositivo móvil compatible gracias a su función multiplataforma. Los jugadores podrán usar su cuenta del Club de Entrenadores Pokémon o su cuenta Nintendo tanto en su Nintendo Switch como en su dispositivo móvil para mantener su progreso sincronizado en ambos dispositivos.
 
-{{< link url="https://unite.pokemon.com/es-mx/" text="Ver en la Web" >}}
+[Ver en la Web](https://unite.pokemon.com/es-mx/)

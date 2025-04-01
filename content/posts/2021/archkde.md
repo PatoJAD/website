@@ -53,4 +53,4 @@ Se me dio por revisar la paqueteria de arch, donde siempre encuentro soluciones 
 
 Así como el tiempo cura todas las heridas hay que esperar a que se actualice a la nueva versión donde este error este. Ya, en lo que a Arch respecta, hay un ticket cargado y hay alguien que está llevando y esperamos que pronto obtengamos la actualización que nos permita solventar este error.
 
-{{< link url="https://bugs.archlinux.org/index.php?do=details&action=details.addvote&task_id=69902" text="Reporte del BUG" >}}
+[Reporte del BUG](https://bugs.archlinux.org/index.php?do=details&action=details.addvote&task_id=69902)

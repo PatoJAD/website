@@ -29,7 +29,7 @@ Los investigadores de la firma de seguridad Bitdefender anunciaron el lanzamient
 
 **Paso 1:** Descargar la herramienta desde el sitio oficial de Bitdefender. La herramienta puede ser almacenada en cualquier ubicación de su equipo de cómputo. No se requiere de conexión a Internet activa.
 
-{{< link text="Descargar" url="https://labs.bitdefender.com/2020/08/wannaren-decryption-tool/" >}}
+[Descargar](https://labs.bitdefender.com/2020/08/wannaren-decryption-tool/)
 
 **Paso 2:** Ahora haga doble clic en el archivo ejecutable descargado de Bitdefender (almacenado como BDWannaRenDecryptor.exe). Deje que se ejecute haciendo clic en Sí en el indicador de UAC.
 

@@ -25,11 +25,11 @@ En esta oportunidad vamos a ver como instalar Huayra la mítica distribución de
 
 Huayra Linux, como la mayoría de las distribuciones de linux, nos permiten probar el live desde un USB o PenDrive y ejecutar la instalación fácilmente desde ahí adentro. Para poder generar un pendrive con la iso de Huayra podemos usar los métodos tradicionales, sin embargo huayra nos ofrece un hermoso tutorial el cual voy a dejar a continuación.
 
-{{< link url="https://huayra.educar.gob.ar/pendrive-de-arranque-huayra-gnu-linux/" text="Crear pendrive con Huayra">}}
+[Crear pendrive con Huayra](https://huayra.educar.gob.ar/pendrive-de-arranque-huayra-gnu-linux/)
 
 Claramente para este paso primero tenemos que descargar la ISO de Huayra y esto lo podemos hacer desde su página de descargas:
 
-{{< link url="https://huayra.educar.gob.ar/descargas/" text="Descargar Huayra">}}
+[Descargar Huayra](https://huayra.educar.gob.ar/descargas/)
 
 ## Instalación
 

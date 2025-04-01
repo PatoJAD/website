@@ -51,4 +51,4 @@ _Estas especificaciones ya no son precisas. Espere la versión Beta 2 para ver l
 -   VGA capable of 1366×768 screen resolution.
 -   Para esta versión beta, se recomienda tener una conexión a Internet activa para obtener las últimas actualizaciones de eXtern OS.
 
-{{< link text="Descargar" url="https://externos.io/latest/" >}}
+[Descargar](https://externos.io/latest/)

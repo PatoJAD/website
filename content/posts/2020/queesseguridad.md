@@ -31,4 +31,4 @@ Adicionalmente a esta introducción Fede nos deja otro excelente video donde pod
 
 Desde ya quiero agradecer a Fede por permitirme usar su contenido para poder explicar esto… Y si te gusta este estilo de videos, y sobre todo te gustan los libros te recomiendo pasarte por el canal de Fede y mirar esos “resumenes” de libros impecables que realiza…
 
-{{< link url="https://www.youtube.com/c/VisualAnanda" text="Ir al Canal de Fede" >}}
+[Ir al Canal de Fede](https://www.youtube.com/c/VisualAnanda)

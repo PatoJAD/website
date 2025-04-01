@@ -34,7 +34,7 @@ Antes que nada quiero aclarar que no podran encontrar los links de descarga en e
 
 Ya sabiendo esto lo siguiente es instalar **Yuzu** en nuestro sistema operativo. Para esto bastaria la documentacion de su sitio oficial:
 
-{{< link url="https://yuzu-emu.org/help/quickstart/" text="Instalación de Yuzu" >}}
+[Instalación de Yuzu](https://yuzu-emu.org/help/quickstart/)
 
 Sin embargo, en caso de ser necesario armare la guia para instalarlo en Windows, Linux y MacOS. Pero por ahora vamos a suponer que ya lo tenemos instalado.
 

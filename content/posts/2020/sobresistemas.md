@@ -27,7 +27,7 @@ Antes de empezar quiero recalcar que soy un ser humano como todos, y a medida qu
 
 Teniendo en cuenta todo esto recomiendo leer de antemano la publicación de los paralelismos entre Sistemas operativos y comidas (donde solo hablo de GNU/Linux, Windows y MacOS) para poder estar un poco en sintonía de apologías que pueda llegar a utilizar.
 
-{{< link url="/post/2019/01/paralelismo-entre-sistemas-operativos-y-comidas/" text="Paralelismo entre sistemas operativos y comidas" >}}
+[Paralelismo entre sistemas operativos y comidas](/post/2019/01/paralelismo-entre-sistemas-operativos-y-comidas/)
 
 ## ¿Que Sistema Operativo es Mejor?
 

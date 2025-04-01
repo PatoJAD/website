@@ -99,4 +99,4 @@ chmod +x MadVM.sh
 
 {{< info text="Las opciones para seleccionar los paquetes a instalar se ingresan con números (solo una selección por pregunta). El script pide clave de usuario que pueda ejecutar comandos a través de SUDO esta clave puede pedirse de vuelta si entre cada ejecución de SUDO transcurre demasiado tiempo." >}}
 
-{{< link url="https://gitlab.com/davidmauroweb/mad-void_mate" text="Ver en GitLab" >}}
+[Ver en GitLab](https://gitlab.com/davidmauroweb/mad-void_mate)

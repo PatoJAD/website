@@ -19,7 +19,7 @@ aaPanel es un software que mejora la eficiencia de la gestión de servidores adm
 -   **File Manager:** Un administrador de archivos conveniente y eficiente que admite carga, descarga, empaquetado, descompresión y edición y visualización de archivos.
 -   **App Store:** El software del servidor utilizado para la instalación se puede administrar fácilmente a través de la interfaz web.
 
-{{< link text="Demo" link="http://demo.aapanel.com/fdgi87jbn" >}}
+[Demo](http://demo.aapanel.com/fdgi87jbn)
 
 ## Planes
 

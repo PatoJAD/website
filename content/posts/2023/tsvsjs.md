@@ -49,4 +49,3 @@ Es difícil poder definir cuál es la mejor opción sin tener un contexto. Siemp
 -   _Cantidad de miembros_, si vamos a estar desarrollando nosotros solos **JavaScript** puede resultar más práctico, pero si tenemos como objetivo que colaboren más personas **TypeScript** puede ser muy bueno para manejar lineamientos similares y tener código más fácil de entender.
 -   _Compatibilidad_, puede que **TypeScript** no sea compatible con nuestro proyecto o la forma de encararlo, es una prueba interesante para tener en cuenta a la hora de elegirlo.
 
-{{< link text="Comentar en el FORO" url="https://community.vasak.net.ar/topic/14/que-es-typescript-en-que-se-parece-a-javascript" >}}

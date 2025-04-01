@@ -27,7 +27,7 @@ Muchos queremos actualizar la ip para mantener siempre al dia los datos y para e
 
 Para el siguiento paso n ecesitamos descargar el Script de la GUI el cual podemos hacerlo desde el siguiente link
 
-{{< link url="https://www.duckdns.org/scripts/duck-setup-gui.sh" text="Descargar Script" >}}
+[Descargar Script](https://www.duckdns.org/scripts/duck-setup-gui.sh)
 
 Una ves descargado ya solo queda darle los permisos necesarios para ejecutar y obviamente ejecutarlo (Los siguientes comandos se ejecutan dentro de la carpeta donde se descargo el archivo)
 
@@ -85,7 +85,7 @@ si agrega el parámetro & verbose = true a su solicitud, entonces las respuestas
 
 Tambien existe una alternativa en JAVA que procura ser mas simple pero no la utilice nunca, tampoco la probe dado que **no es oficial** pero vale marcarlo y dejarlo.
 
-{{< link url="http://etx.ca/downloads/duckdns.jar" text="Descargar JAR" >}}
+[Descargar JAR](http://etx.ca/downloads/duckdns.jar)
 
 Esto podemos ejecutarlo desde la siguiente manera en nuestra terminal:
 

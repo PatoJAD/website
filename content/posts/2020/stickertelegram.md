@@ -31,7 +31,7 @@ Y esto nos crea el archivo _nombredelaimagen512.png_ que tiene la medida perfect
 
 Para comenzar tenemos que **iniciar una conversación** con un bot que va a hacer casi todo por nosotros y para iniciarla te dejo aca abajo un hermoso botón!
 
-{{< link url="https://telegram.me/stickers" text="@stickers" >}}
+[@stickers](https://telegram.me/stickers)
 
 Una vez iniciada la conversación nos va mostrar toda la lista de opciones y comandos que utiliza. Pero nosotros sabemos que es lo que queremos hacer, para iniciar vamos a **crear un nuevo pack** de stickers enviando el siguiente comando
 
@@ -61,4 +61,4 @@ Y una vez enviado nos pedirá **el nombre Corto del Pack**, en nuestro caso vamo
 
 Y ya nos genero una url para compartir el sticker con quienes queramos y poder empezarlo a utilizar… Te dejo el pack que cree por _si queres usarlo_ y espero que te sirva y no te olvides de enviarnos los packs que hagas a [nuestro grupo de telegram](https://t.me/PatoJADCommunity)
 
-{{< link text="Stickers PatoJAD" url="https://t.me/addstickers/PatoJAD" >}}
+[Stickers PatoJAD](https://t.me/addstickers/PatoJAD)

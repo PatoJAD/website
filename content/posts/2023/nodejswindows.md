@@ -32,5 +32,3 @@ El comando utilizado para esta ocasión es el que dejaré a continuación. En ca
 ```bash
 winget install -e --id OpenJS.NodeJS
 ```
-
-{{< link url="https://community.vasak.net.ar/topic/48/install-nodejs-en-windows-con-winget" text="Responder en el foro" >}}

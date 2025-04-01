@@ -23,7 +23,7 @@ authors: ['PatoJAD']
 
 Lo primero obviamente es descargar la última versión disponible el cual lo podemos hacer desde el siguiente link
 
-{{< link url="https://github.com/bazukas/obs-linuxbrowser/releases" text="Descargar linuxbrowser" >}}
+[Descargar linuxbrowser](https://github.com/bazukas/obs-linuxbrowser/releases)
 
 Luego nos tenemos que asegurar de crear la carpeta de plugins de OBS para dejar el plugin ahí lo cual podemos hacerlo con el siguiente comando:
 

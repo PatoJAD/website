@@ -41,4 +41,4 @@ Si bien la realidad no es reemplazo de deepin en si, creo que como resultado fin
 
 En lo personal es raro que esté recomendado usar Gnome antes que Deepin pero la verdad DDE se volvió tan pesado y tosco, con tan poca posibilidad de personalización que es preferible armar scripts para Gnome que usar DDE. Incluso Gnome nos da mucho más juego a la hora de poner plugins o cualquier tipo de complementos, obteniendo así un resultado final mucho más adaptable de lo que podríamos obtener con DDE.
 
-{{< link url="https://www.gnome-look.org/p/1357889/" text="Descargar Theme" >}}
+[Descargar Theme](https://www.gnome-look.org/p/1357889/)

@@ -56,7 +56,7 @@ Si eres nuevo en el mundo del desarrollo web con **Vue.js**, es posible que aún
 
 **[PrimeVue](https://primevue.org/)** ofrece una variedad de componentes UI esenciales, como botones, formularios, tablas, gráficos y mucho más. Estos componentes están diseñados con un enfoque en la usabilidad, la accesibilidad y el rendimiento, lo que significa que puedes crear interfaces de usuario atractivas y funcionales sin tener que preocuparte por los detalles técnicos subyacentes.
 
-{{< link text="Documentación" url="https://primevue.org/setup/" >}}
+[Documentación](https://primevue.org/setup/)
 
 ## La importancia de PrimeVue en el ecosistema de Vue.js
 

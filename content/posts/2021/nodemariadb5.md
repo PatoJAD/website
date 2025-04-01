@@ -42,6 +42,6 @@ router.route('/user/:id').get(async (req, res) => {
 });
 ```
 
-{{< link text="Grupo de Telegram" url="https://t.me/PatoJADCommunity" >}}
+[Unite a nuestra comunidad](https://t.me/PatoJADCommunity)
 
 Si te sirvio no te olvides de apoyar. Compartir, una suscripción o un like no cuestan nada pero valen mucho...

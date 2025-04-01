@@ -30,4 +30,4 @@ De esta forma podemos usar mastdom como un banco de imágenes compartidas por ca
 
 Y asi podes buscar lo que quieras sin ningun tipo de restriccion en:
 
-{{< link url="https://mediastodon.patojad.com.ar/" text="Mediastodon" >}}
+[Mediastodon](https://mediastodon.patojad.com.ar/)

@@ -81,4 +81,4 @@ Tengas el sistema de contraseñas que tengas con este método pueden acceder a c
 
 ¿Vos usas un proxy para navegar?¿Que recomendacion le darias a alguien que quiere iniciar con esta practica? Contanos todo en nuestro grupo de Telegram!
 
-{{< link url="https://t.me/PatoJADCommunity" text="Unite" >}}
+[Unite a nuestra comunidad](https://t.me/PatoJADCommunity)

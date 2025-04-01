@@ -59,7 +59,7 @@ router.route('/user/update').post(async (req, res) => {
 
 Si te necesitas que te demos una mano o tienes alguna duda, podes encontrarnos en la comunidad de Telegram donde con mucha alegría te vamos a estar ayudando.
 
-{{< link text="Grupo de Telegram" url="https://t.me/PatoJADCommunity" >}}
+[Grupo de Telegram](https://t.me/PatoJADCommunity)
 
 Si te sirvio no te olvides de apoyar. Compartir, una suscripción o un like no cuestan nada pero valen mucho...
 
@@ -67,4 +67,4 @@ Si te sirvio no te olvides de apoyar. Compartir, una suscripción o un like no c
 
 Si sentís que el curso te sirvió y, queres apoyar aún más que con tu subscribirse al canal de youtube y en las redes sociales o simplemente quieres certificar puedes encontrarlo en Udemy. Lamentablemente no me permite ponerle menos precio, pero si te interesa el certificado no te olvides de seguirnos que vamos a estar ofreciendo gratis para que todos los que lo deseen puedan certificar.
 
-{{< link text="Curso en Udemy" url="https://www.udemy.com/course/patojad-webservice-nodejs-y-mariadb/?referralCode=817BCD02D2C08DEC01DE" >}}
+[Curso en Udemy](https://www.udemy.com/course/patojad-webservice-nodejs-y-mariadb/?referralCode=817BCD02D2C08DEC01DE)

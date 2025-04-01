@@ -34,7 +34,7 @@ Estas herramientas se hicieron pensando en OBS por lo cual necesitamos tener OBS
 
 ![](https://i.postimg.cc/BbyZ6Qq9/image.png)
 
-{{< link text="Stream Tools Docs" url="https://streamtools.patojad.com.ar/docs/" >}}
+[Stream Tools Docs](https://streamtools.patojad.com.ar/docs/)
 
 ## El uso
 

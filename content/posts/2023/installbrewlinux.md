@@ -33,8 +33,4 @@ El comando utilizado en el video es el siguiente
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-{{< link text="Documentacion" url="https://docs.brew.sh/" >}}
-
----
-
-{{< link text="Discutir en el Foro" url="https://community.vasak.net.ar/topic/11/como-instalar-brew-en-gnu-linux" >}}
+[Documentacion](https://docs.brew.sh/)

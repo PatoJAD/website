@@ -57,10 +57,10 @@ Me gustaría saber que cuento con tu apoyo para crear más y nuevos cursos, en c
 
 Replicamos el curso en Udemy para que puedan ser certificados, en caso de necesitarlo te dejamos el link. Entendemos que no todos tienen la posibilidad de pagar el curso o no tienen el deseo, por lo cual vamos a estar poniéndolo gratis en ciertas ocasiones para que todos puedan certificar sin necesidad de pagar.
 
-{{< link url="https://www.udemy.com/course/patojad-webservice-nodejs-y-mariadb/?referralCode=817BCD02D2C08DEC01DE" text="Curso en Udemy" >}}
+[Curso en Udemy](https://www.udemy.com/course/patojad-webservice-nodejs-y-mariadb/?referralCode=817BCD02D2C08DEC01DE)
 
 ---
 
 Si sentís que el curso te sirvió y, queres apoyar aún más que con tu subscribirse al canal de youtube y en las redes sociales o simplemente quieres certificar puedes encontrarlo en Udemy. Lamentablemente no me permite ponerle menos precio, pero si te interesa el certificado no te olvides de seguirnos que vamos a estar ofreciendo gratis para que todos los que lo deseen puedan certificar.
 
-{{< link text="Curso en Udemy](https://www.udemy.com/course/patojad-webservice-nodejs-y-mariadb/?referralCode=817BCD02D2C08DEC01DE" >}}
+[Curso en Udemy](https://www.udemy.com/course/patojad-webservice-nodejs-y-mariadb/?referralCode=817BCD02D2C08DEC01DE)

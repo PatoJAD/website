@@ -32,5 +32,3 @@ El comando utilizado para esta ocasión es el que dejaré a continuación. En ca
 ```bash
 winget install -e --id Microsoft.VisualStudioCode
 ```
-
-{{< link url="https://community.vasak.net.ar/topic/49/install-vs-code-en-windows-con-winget" text="Responder en el foro" >}}

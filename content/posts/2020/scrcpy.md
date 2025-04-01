@@ -80,7 +80,7 @@ adb devices
 
 En caso de tener algún error o necesitar ayuda no te olvides que estamos disponibles en el grupo de Telegram para todos ustedes!
 
-{{< link url="https://t.me/PatoJADCommunity" text="Unite a nuestra comunidad" >}}
+[Unite a nuestra comunidad](https://t.me/PatoJADCommunity)
 
 ---
 

@@ -97,7 +97,7 @@ Obtenemos una salida como la que vamos a ver a continuación con toda la informa
 
 Como comente voy a dejarles el git para quienes quieran compilarlo o modificar el código...
 
-{{< link url="https://github.com/sivel/speedtest-cli" text="Git del proyecto" >}}
+[Git del proyecto](https://github.com/sivel/speedtest-cli)
 
 ---
 

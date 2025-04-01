@@ -32,7 +32,7 @@ Vamos a ver como realizar la instalación de **NodeJS** de una forma muy simple 
 
 Para poder realizar esto vamos a necesitar instalar previamente Homebrew, pero no te preocupes, si no lo tenes te dejo a continuación un artículo donde te explico como instalarlo en tu distribución de GNU/Linux.
 
-{{< link url="/post/2023/01/como-instalar-brew-en-gnu/post/" text="Instalar Homebrew en GNU/Linux" >}}
+[Instalar Homebrew en GNU/Linux](/post/2023/01/como-instalar-brew-en-gnu/post/)
 
 ## Instalandolo
 
@@ -41,5 +41,3 @@ El comando utilizado para esta ocasión es el que dejaré a continuación. En ca
 ```shell
 brew install node
 ```
-
-{{< link url="https://community.vasak.net.ar/topic/13/install-nodejs-en-linux-con-homebrew" text="Responder en el foro" >}}

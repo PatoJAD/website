@@ -38,4 +38,4 @@ Si bien ya mencione que no es unico tambien quiero dejar en claro que desde mi p
 Es verdad que el artículo es el punto de vista del escritor, tal como este artículo es mi punto de vista. Por lo cual no estoy diciendo que este mal, todo lo contrario, es muy bueno porque incluso al final del artículo aclara que se puede hacer en todos los sistemas operativos (lo cual se contradice con el título, pero quien no puso un título amarillista alguna vez)
 Te invito a leer el artículo en cuestión y comentarme tu opinión.
 
-{{< link url="https://www.genbeta.com/windows/mi-funcion-favorita-windows-10-11-sigue-estar-linux-macos-asi-puedes-anadir-te-mejore-vida" text="Articulo" >}}
+[Articulo](https://www.genbeta.com/windows/mi-funcion-favorita-windows-10-11-sigue-estar-linux-macos-asi-puedes-anadir-te-mejore-vida)

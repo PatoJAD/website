@@ -28,7 +28,7 @@ Pokemon Revolution Online viene siendo un Free to Play que soporta prácticament
 
 En este juego, puedes viajar por cuatro regiones (Kanto, Johto, Hoenn y Sinnoh) siendo Kanto la inicial en todo caso. tras pasar a otra región tus pokémons serán retirados y empezarás de nuevo hasta lograr vencer la liga pokémon y así hasta acabar con las 3 ligas, pudiendo atrapar por el camino un máximo de 721 pokémons. Hay muchos desafíos, curiosidades y lo más importante: jugadores.
 
-{{< link url="https://pokemonrevolution.net/" text="Web" >}}
+[Web](https://pokemonrevolution.net/)
 
 ## Conoce a tus amigos
 
@@ -56,4 +56,4 @@ El equipo encargado del contenido de PRO está siempre trabajando para crear e i
 
 Dejo a continuación el link de descarga por MediaFire (La versión de linux), también puedes ver todas las opciones en la página web. Y obviamente registrarte para comenzar tu Aventura Pokemon Online.
 
-{{< link url="https://www.mediafire.com/file/8lmzq2sz06trgq8/PROClient_linux.zip/file" text="Descarga por MediaFire" >}}
+[Descarga por MediaFire](https://www.mediafire.com/file/8lmzq2sz06trgq8/PROClient_linux.zip/file)

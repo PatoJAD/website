@@ -53,7 +53,7 @@ sudo pacman -S swig espeak python
 
 Una vez que tengamos las dependencias instaladas debemos descargar el paquete y descomprimirlo, para descargarlo podemos hacerlo desde el siguiente link:
 
-{{< link url="https://github.com/openassistant/oa-core/archive/master.zip" text="Descargar OA" >}}
+[Descargar OA](https://github.com/openassistant/oa-core/archive/master.zip")
 
 Una ves que lo descomprimimos pasamos a la carpeta e instalamos las dependencias de python que necesita el proyecto, esto lo podemos hacer con el siguiente comando:
 
@@ -73,9 +73,9 @@ python -m oa
 
 Y ya estaría funcionando, para ver más sobre comandos o como agregar nuestros propios comandos por voz les dejo el link a su repo donde está la documentación.
 
-{{< link url="https://github.com/openassistant/oa-core" text="Mas Info" >}}
+[Mas Info](https://github.com/openassistant/oa-core)
 
-{{< link url="https://openassistant.org/" text="La Web" >}}
+[La Web](https://openassistant.org/)
 
 ## Tu opinión
 

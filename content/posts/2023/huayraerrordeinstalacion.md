@@ -46,8 +46,6 @@ Donde nos informa que hay un error a la hora de instalar el **bootloader**.Esto 
 
 Para poder solucionar este error de bootloader lo único que debemos hacer es utilizar otra aplicación para bootear el USB, en estos casos se usaba **unetbootin** o **rufus** pero generan este error. En la experiencia que generamos con este error sabemos que balena **etcher** es la mejor app para generar booteables para **Huayra Linux**. Tenemos la suerte de que esta app es multiplataforma.
 
-{{< link url="https://www.balena.io/etcher" text="Sitio de Etcher" >}}
+[Sitio de Etcher](https://www.balena.io/etcher)
 
 Espero que esto te haya servido y no te olvides de contar tu experiencia y por supuesto de unirte al foro y al grupo de telegram!
-
-{{< link url="https://www.balena.io/etcher" text="Responder en el Foro" >}}

@@ -11,7 +11,7 @@ authors: ['PatoJAD']
 
 El otro dia hable sobre el uso de sistemas **privativos** en universidades públicas y como esto podía ser limitantes para los estudiantes. Y el punto de vista no va pura y exclusivamente por el caso sino también a nivel general (no conocemos las realidades de todos los estudiantes).
 
-{{< link url="/post/2020/06/universidades-públicas-privativas/" text="Ver Publicacion" >}}
+[Ver Publicacion](/post/2020/06/universidades-públicas-privativas/)
 
 ## La gente Opina
 

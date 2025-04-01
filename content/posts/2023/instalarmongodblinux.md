@@ -124,4 +124,3 @@ sudo yum install -y mongodb-org
 
 Fuente: [https://www.mongodb.com/docs/manual/administration/install-on-linux/](https://www.mongodb.com/docs/manual/administration/install-on-linux/)
 
-{{< link url="https://community.vasak.net.ar/topic/52/como-instalar-mongodb-en-gnu-linux" text="Debatir en el Foro" >}}

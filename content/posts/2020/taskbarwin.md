@@ -37,4 +37,4 @@ Esta app, que no es más que una UI que edita registros, nos permite darle un to
 
 Actualmente este programita se encuentra en la version 1.6.1.0 y podemos descargarlo desde su [página oficial](https://chrisandriessen.nl/taskbarx) o mas simple desde el siguiente enlace
 
-{{< link url="https://github.com/ChrisAnd1998/TaskbarX/releases/download/1.6.1.0/TaskbarX_1.6.1.0.zip" text="Descargar" >}}
+[Descargar](https://github.com/ChrisAnd1998/TaskbarX/releases/download/1.6.1.0/TaskbarX_1.6.1.0.zip)

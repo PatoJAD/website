@@ -59,4 +59,4 @@ Finalmente, los jugadores pueden comprobar sus puntuaciones en la sección socia
 -   ¡Practica mucho! Es un gran juego pero requiere habilidad que sólo tendrás si practicas.
 -   ¡Registrate en la plataforma! Es interesante guardar tu progreso y conseguir monedas para personalizarte más.
 
-{{< link text="Jugar" url="https://krunker.io/" >}}
+[Jugar](https://krunker.io/)

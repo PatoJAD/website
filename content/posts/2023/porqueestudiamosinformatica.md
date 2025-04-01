@@ -55,7 +55,7 @@ Entre los hallazgos se encuentra que la oferta de carreras informáticas ha crec
 
 Aunque también hay que recalcar que las mujeres siguen siendo, en porcentaje, mucho menor que los hombres en estas carreras, y (opinión personal) puede tener que ver más con un tema social que con un tema de interés.
 
-{{< link text="Informe completo" url="https://program.ar/wp-content/uploads/2023/05/Por-que-estudiamos-informatica-Version-Completa.pdf" >}}
+[Informe completo](https://program.ar/wp-content/uploads/2023/05/Por-que-estudiamos-informatica-Version-Completa.pdf)
 
 ---
 

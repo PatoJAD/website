@@ -36,4 +36,4 @@ Vamos a dejar un poco de información importante para los usuarios de MilagrOS, 
 
 Quería recordar y agradecer, porque MilagrOS cuenta con el repositorio de la Comunidad PreInstalado, basta con activarlo para que se encuentre en funcionamiento… Muchas gracias por ese pequeño gran detalle!
 
-{{< link url="https://proyectotictac.org.ve/distros/MilagrOS/" text="Descargar MilagrOS" >}}
+[Descargar MilagrOS](https://proyectotictac.org.ve/distros/MilagrOS/)

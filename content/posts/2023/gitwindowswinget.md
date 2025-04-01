@@ -30,5 +30,3 @@ Para que sea mucho mas facil te dejo el comando para que puedas copiar y pegar e
 ```bash
 winget install -e --id Git.Git
 ```
-
-{{< link text="Comentar en el Foro" url="https://community.vasak.net.ar/topic/51/install-git-en-windows-con-winget" >}}

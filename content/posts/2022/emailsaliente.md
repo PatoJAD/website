@@ -70,7 +70,7 @@ Donde:
 
 {{< warning text="ATENCIÓN: En el caso de que tengas el doble factor activado, la contraseña deberá ser una nueva creada para este fin, lo cual veremos cómo hacerlo a continuación." >}}
 
-{{< link url="/aplicaciones/2022/07/crear-contraseña-para-apps-en-google/" text="Crear contraseña para apps en Google" >}}
+[Crear contraseña para apps en Google](/posts/2022/07/crear-contraseña-para-apps-en-google/)
 
 ---
 

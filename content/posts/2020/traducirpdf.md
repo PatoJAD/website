@@ -29,7 +29,7 @@ El sitio del que hablamos hoy solo acepta una pequeña lista de formatos, sin em
 
 No es necesario explicar paso a paso basta con ingresar en la web que dejaremos a continuacion y darles el archivo para que lo traduzcan.. Lo impresionante es que no tiene limites pequeños es decir que podemos traducri lo que sea mientras que no les voltiemos el sistema
 
-{{< link url="https://www.onlinedoctranslator.com/" text="Comenzar a traducir" >}}
+[Comenzar a traducir](https://www.onlinedoctranslator.com/)
 
 Contanos ti experiencia en nuestro grupo de Telegram
 

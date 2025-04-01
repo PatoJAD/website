@@ -31,7 +31,7 @@ En este momento vamos a ver como se instala postman en nuestro GNU/Linux, en est
 
 Lo primero que debemos hacer es descargar postman, en este caso vamos a descargar la última versión directamente de su sitio web. Pueden buscar cualquier versión, sin embargo recomendamos usar la versión oficial de su web.
 
-{{< link url="https://www.postman.com/downloads/" text="Descargar" >}}
+[Descargar](https://www.postman.com/downloads/)
 
 ## Instalación
 

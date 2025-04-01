@@ -88,7 +88,7 @@ cd logmein-hamachi-2.1.0.203-x86
 
 Existen unos compilados en BETA para esta arquitectura, a continuación dejo la web oficial de descarga donde no solo podrán obtener los ARM sino también podrán comprobar que la versión que puse sea la más actualizada.
 
-{{< link text="ARM en Linux" url="https://www.vpn.net/linux" >}}
+[ARM en Linux](https://www.vpn.net/linux)
 
 ## Windows
 
@@ -96,7 +96,7 @@ Existen unos compilados en BETA para esta arquitectura, a continuación dejo la 
 
 En el caso de que uses Windows bastará con descargar el archivo .msi (Que veran a continuacion) e instalarlo con un doble click. Es importante recalcar que la descarga es directamente de la página oficial, no está alojado por este blog ni ningún otro
 
-{{< link text="Descargar Para Windows" url="https://secure.logmein.com/hamachi.msi" >}}
+[Descargar Para Windows](https://secure.logmein.com/hamachi.msi)
 
 ## MacOS
 
@@ -104,7 +104,7 @@ En el caso de que uses Windows bastará con descargar el archivo .msi (Que veran
 
 En el caso de usar el sistema de la manzanita me cuesta un poco más poder definir correctamente el procedimiento porque no uso este sistema pero si puedo facilitarte la descarga oficial de su sitio y de ahi calculo que no debe ser muy complejo
 
-{{< link text="Descargar para MacOS" url="https://secure.logmein.com/LogMeInHamachi.zip" >}}
+[Descargar para MacOS](https://secure.logmein.com/LogMeInHamachi.zip)
 
 ---
 
