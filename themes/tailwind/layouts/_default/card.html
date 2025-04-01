@@ -1,15 +1,53 @@
-<article class="w-full rounded-xl p-4 bg-cover bg-no-repeat bg-center mb-4 shadow-xl" style="background-image: url({{.Params.img}});">
-  <div class="w-full col-span-2 bg-gray-100 dark:bg-gray-800 rounded-xl opacity-90 p-4 relative">
-    <div class="absolute top-0 right-0 p-2 bg-amber-500 text-white rounded-bl-xl rounded-tr-xl">
-      {{ if eq .Params.type "post" }}
-      <em class="fa fa-pencil" aria-hidden="true"></em>
-      {{ else if eq .Params.type "video" }}
-      <em class="fa fa-youtube-play" aria-hidden="true"></em>
+<article class="rounded-xl overflow-hidden flex flex-col mb-4 mx-auto bg-gray-100 dark:bg-gray-800 w-full">
+  <div class="sm:flex justify-between items-center pt-4 px-5">
+    <a href="{{ .RelPermalink }}"
+      class="sm:w-8/12 font-medium text-md inline-block hover:text-amber-500 transition duration-500 ease-in-out mb-2">
+      {{ .Title }}
+    </a>
+    <div class="sm:w-4/12 flex items-center justify-end sm:px-6 pb-4">
+      {{ $pages :=
+      .Site.Pages.ByPublishDate.Reverse }} {{ range
+      .Params.authors }} {{ range where (where $pages "Type"
+      "authors") ".Params.name" . }}
+      <a href="#"><img class="w-10 h-10 rounded-full mr-2" src="{{ .Params.photo }}"
+          alt="{{ .Params.name }}"></a>
+      <div class="text-xl">
+        <a href="#" class="font-medium leading-none hover:text-amber-500">
+          {{ .Params.name }}
+        </a>
+      </div>
+      {{ end }}{{ end }}
+
+    </div>
+  </div>
+
+  <div class="relative">
+    <a href="{{ .RelPermalink }}">
+      <img class="w-full" src="{{.Params.img}}" alt="{{ .Title }}">
+    </a>
+    {{ if .Params.categories }}
+    <div class="z-10 absolute bottom-0">
+      {{ range (.GetTerms "categories") }}
+      <a href="{{ .RelPermalink }}" class="z-10 relative text-xs left-0 px-6 m-2 py-2 sm:flex items-center rounded-2xl"
+        {{ with .Params.style }} style="background-color: {{ .background }}; color: {{ .color }};" {{ end }}>
+        <span class="text-lg">|</span>&nbsp;&nbsp;<span>{{ .LinkTitle }}</span>
+      </a>
       {{ end }}
     </div>
-    <h2 class="font-bold text-xl text-amber-500 mb-4"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-    <span class="mb-3 text-gray-500">
-      {{ $formattedDate := .Date.Format "Friday, March 3, 2006" }}
+    {{ end }}
+
+    <a href="{{ .RelPermalink }}"
+      class="hidden z-10 text-xs absolute bottom-0 right-0 bg-amber-500 px-6 m-2 py-2 text-white rounded-2xl transition duration-500 ease-in-out sm:flex items-center">
+      <span class="text-lg">|</span>&nbsp;&nbsp;<span>Leer Artículo</span>
+    </a>
+
+  </div>
+  <span href="#" class="p-5 text-xs font-regular opacity-55 mr-1 flex flex-row items-center">
+    <em class="fa fa-clock-o" aria-hidden="true"></em>
+    <span class="ml-1">{{ .ReadingTime }} min de lectura</span>
+    <samp class="ml-2 mr-2"></samp>
+    <em class="fa fa-calendar"></em>
+    <span class="ml-1">{{ $formattedDate := .Date.Format "Friday, March 3, 2006" }}
       {{ $monthNumber := .Date.Month }} {{ $dayNumber := .Date.Weekday }}
       {{ if eq site.Language.Lang "es" }}
       {{ $monthNumber = index site.Data.meses (printf "%d"
@@ -19,27 +57,8 @@
       {{ $formattedDate = delimit (slice $dayNumber (printf "%d" .Date.Day) "de" $monthNumber "de" (printf "%d"
       .Date.Year)) " "}}
       {{ end }}
-    
-      {{ $formattedDate }}
-    </span>
-    <p>{{ .Params.description }}</p>
 
-      {{ if .Params.categories }}
-      <div class="mt-4">
-        {{ range (.GetTerms "categories") }}
-        <a href="{{ .RelPermalink }}" class="p-2 rounded-xl mr-2" {{ with .Params.style }}
-          style="background-color: {{ .background }}; color: {{ .color }};" {{ end }}>
-          {{ .LinkTitle }}
-        </a>
-        {{ end }}
-      </div>
-      {{ end }}
+      {{ $formattedDate }}</span>
+  </span>
 
-      <div class="flex flex-wrap justify-between mt-4">
-        <div class="text-gray-500"><em class="fa fa-clock-o" aria-hidden="true"></em> {{ .ReadingTime }} min de lectura</div>
-        <a href="{{ .RelPermalink }}" class="bg-amber-500 p-2 mr-3 rounded-xl">
-          Leer <em class="fa fa-arrow-right" aria-hidden="true"></em>
-        </a>
-      </div>
-  </div>
 </article>
