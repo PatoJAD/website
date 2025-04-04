@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cursor on PatoJAD</title><link>https://patojad.com.ar/tags/cursor/</link><description>Recent content in Cursor on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Thu, 10 Dec 2020 10:50:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/cursor/index.xml" rel="self" type="application/rss+xml"/><item><title>Trucos para la terminal</title><link>https://patojad.com.ar/post/2020/12/trucos-para-la-terminal/</link><pubDate>Thu, 10 Dec 2020 10:50:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/12/trucos-para-la-terminal/</guid><description>&lt;p>Bash usa una biblioteca (una colección compartida de rutinas que pueden utilizar diferentes programas) llamada Readline para implementar la edición de la línea de comandos. Ya hemos visto algo de esto. Sabemos, por ejemplo, que las teclas de las flechas mueven el cursor, pero hay muchas más características. Piensa en ello como herramientas adicionales que podemos emplear en nuestro trabajo. No es importante aprenderlo todo sobre ellas, pero muchas son muy útiles. Cógelas y elígelas como quieras.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="movimiento-del-cursor">
+Movimiento del cursor
+&lt;a href="#movimiento-del-cursor" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>La siguiente lista muestra las teclas usadas para mover el cursor:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Ctrl-a&lt;/strong>: Mueve el cursor al principio de la línea.&lt;/li>
+&lt;li>&lt;strong>Ctrl-e&lt;/strong>: Mueve el cursor al final de la línea.&lt;/li>
+&lt;li>&lt;strong>Ctrl-f&lt;/strong>: Mueve el cursor un carácter hacia delante; igual que la flecha derecha.&lt;/li>
+&lt;li>&lt;strong>Ctrl-b&lt;/strong>: Mueve el cursor un carácter hacia atrás; igual que la flecha izquierda.&lt;/li>
+&lt;li>&lt;strong>Alt-f&lt;/strong>: Mueve el cursor hacia delante una palabra.&lt;/li>
+&lt;li>&lt;strong>Alt-b&lt;/strong>: Mueve el cursor hacia atrás una palabra.&lt;/li>
+&lt;li>&lt;strong>Ctrl-l&lt;/strong>: Borra la pantalla y mueve el cursor a la esquina superior izquierda. El comando clear hace lo mismo.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="modificando-el-texto">
+Modificando el texto
+&lt;a href="#modificando-el-texto" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>La lista a continuacion muestra los comandos de teclado que se usan para editar caracteres en la línea de comandos.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Ctrl -d&lt;/strong>: Borra un carácter en la localización del cursor&lt;/li>
+&lt;li>&lt;strong>Ctrl -t&lt;/strong>: Traspasa (intercambia) el carácter en la localización del cursor con el que le precede&lt;/li>
+&lt;li>&lt;strong>Alt -t&lt;/strong>: Traspasa la palabra en la localización del cursor con la que le precede&lt;/li>
+&lt;li>&lt;strong>Alt -l&lt;/strong>: Convierte los caracteres desde la localización del cursor hasta el final de la palabra a minúsculas&lt;/li>
+&lt;li>&lt;strong>Alt -u&lt;/strong>: Convierte los caracteres desde la localización del cursor hasta el final de la palabra a mayúsculas&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="la-meta-tecla">
+La Meta tecla
+&lt;a href="#la-meta-tecla" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Si te aventuras en la documentación Readline, que puedes encontrar en la sección READLINE de la man page de bash, encontrarás el término “meta key”. En los teclados modernos se asigna a la tecla Alt pero no siempre fue así.&lt;/p>
+&lt;p>Volviendo a los tiempos oscuros (antes de los Pcs pero después de Unix) no todo el mundo tenía su propio ordenador. Lo que podían tener era un dispositivo llamado terminal. Un terminal era un dispositivo de comunicación que contaba con una pantalla para mostrar texto y un teclado, y dentro la suficiente electrónica para mostrar caracteres de texto y mover el cursor. Estaba conectado (normalmente con un cable serie) a una computadora mayor o a la red de comunicación de una computadora mayor. Había muchas marcas diferentes de terminales y todas tenían configuraciones de pantalla y teclado diferentes. Como todas tendían al menos a entender ASCII, los desarrolladores de software querían escribir aplicaciones portables reducidas al mínimo común denominador. Los sistemas Unix tienen una forma muy elaborada de tratar con los terminales y sus pantallas. Como los desarrolladores de Readline no podían estar seguros de la presencia de una tecla de control extra, se inventaron una y la llamaron “meta”. Igual que la tecla Alt sirve como tecla meta en los teclados modernos, puedes también pulsar y soltar la tecla Esc para tener el mismo efecto que pulsando la tecla Alt si todavía estás usando un terminal (¡Lo que aún puedes hacer en Linux!).&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="completado">
+Completado
+&lt;a href="#completado" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Otra forma en que el shell puede ayudarte es mediante un mecanismo llamado completado. El completado ocurre cuando presionas la tecla tabulador mientras escribes un comando. Veamos como funciona. Dado un directorio home que aparece así:&lt;/p>
+&lt;pre>&lt;code>[VasakOS@PatoJAD ~]$ ls
+Desktop ls-output.txt Pictures Templates Videos
+Documents Music Public
+&lt;/code>&lt;/pre>
+&lt;p>Prueba escribiendo lo siguiente pero no pulses la tecla Enter:&lt;/p>
+&lt;pre>&lt;code>[VasakOS@PatoJAD ~]$ ls l
+&lt;/code>&lt;/pre>
+&lt;p>Ahora pulsa la tecla tabulador:&lt;/p>
+&lt;pre>&lt;code>[VasakOS@PatoJAD ~]$ ls ls-output.txt
+&lt;/code>&lt;/pre>
+&lt;p>¿Ves cómo el shell completa la línea por tí? Probemos otra vez. De nuevo, no pulses Enter:&lt;/p>
+&lt;pre>&lt;code>[VasakOS@PatoJAD ~]$ ls D
+&lt;/code>&lt;/pre>
+&lt;p>Pulsa tab:&lt;/p>
+&lt;pre>&lt;code>[VasakOS@PatoJAD ~]$ ls D
+&lt;/code>&lt;/pre>
+&lt;p>No completa, sólo da un pitido. Esto ocurre porque “D” coincide con más de una entrada en el directorio. Para que el completado funcione, el “indicio” que le des no debe ser ambiguo. Si seguimos:&lt;/p>
+&lt;pre>&lt;code>[VasakOS@PatoJAD ~]$ ls Do
+&lt;/code>&lt;/pre>
+&lt;p>Y pulsamos tab:&lt;/p>
+&lt;pre>&lt;code>[VasakOS@PatoJAD ~]$ ls Documents
+&lt;/code>&lt;/pre>
+&lt;p>El completado funciona.&lt;/p>
+&lt;p>Aunque este ejemplo muestra el completado de nombres de archivo, que es su uso más común, el completado también funciona con variables (si el principio de la palabra es un “$”), nombres de usuario (si la palabra empieza con “~”), comandos (si la palabra es la primera en la línea.) y nombres de equipo (si la palabra empieza con “@”). El completado de nombres de equipo sólo funciona para los nombres de equipo listados en /etc/hosts.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="script">
+script
+&lt;a href="#script" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Además de la función del historial de comandos en bash, la mayoría de las distribuciones Linux incluyen un programa llamado script que se puede utilizar para grabar una sesión de shell completa y almacenarla en un archivo. La sintaxis básica del comando es:&lt;/p>
+&lt;pre>&lt;code>script [archivo]
+&lt;/code>&lt;/pre>
+&lt;p>donde archivo es el nombre del archivo utilizado para almacenar la grabación. Si no se especifica ningún archivo, se usa el archivo typescript. Mira la man page de script para ver una lista completa de las opciones y funciones del programa.&lt;/p>
+&lt;hr>
+&lt;p>Recorda &lt;strong>apoyarnos&lt;/strong> en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p></description></item></channel></rss>

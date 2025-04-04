@@ -1,0 +1,2186 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Instalacion on PatoJAD</title><link>https://patojad.com.ar/tags/instalacion/</link><description>Recent content in Instalacion on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 20 Feb 2024 14:34:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/instalacion/index.xml" rel="self" type="application/rss+xml"/><item><title>Instalar grafica NVIDIA integrada en Arch Linux</title><link>https://patojad.com.ar/post/2024/02/instalar-grafica-nvidia-integrada-en-arch-linux/</link><pubDate>Tue, 20 Feb 2024 14:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/02/instalar-grafica-nvidia-integrada-en-arch-linux/</guid><description>&lt;p>Hola! Les comparto el método que encontré para hacer funcionar mi gráfica nvidia integrada con 10 años de antigüedad usando drivers privativo y Optimus Manager!&lt;/p>
+&lt;blockquote>
+&lt;p>Ej.: mi gráfica es NVIDIA GeForge GTX770M y la versión compatible es la nvidia-470xx)&lt;/p>&lt;/blockquote>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="detectando-tipo-de-controladores-de-video">
+Detectando tipo de controladores de video:
+&lt;a href="#detectando-tipo-de-controladores-de-video" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">lspci &lt;span class="p">|&lt;/span> grep VGA
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>en mi caso responde: &lt;code>00:02.0 VGA compatible controller: Intel Corporation 4th Gen Core Processor Integrated Graphics Controller (rev 06)&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">lspci -k &lt;span class="p">|&lt;/span> grep VGA -A &lt;span class="m">2&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>en mi caso responde:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">00:02.0 VGA compatible controller: Intel Corporation 4th Gen Core Processor Integrated Graphics Controller (rev 06)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Subsystem: Toshiba Corporation 4th Gen Core Processor Integrated Graphics Controller
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Kernel driver in use: i915
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="instalando-controlador-de-codigo-abieto-de-intel">
+Instalando controlador de Codigo abieto de Intel:
+&lt;a href="#instalando-controlador-de-codigo-abieto-de-intel" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S xf86-video-intel intel-ucode
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="detectar-nvidia">
+Detectar Nvidia:
+&lt;a href="#detectar-nvidia" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>Ver DRIVERS de VIDEO instalados:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">xrandr --listproviders
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Ver paquetes NVIDIA instalados:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Ss nvidia
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Ver paquete NVIDIA SETTINGS instalado:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Ss nvidia-settings
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="desinstalando-versiones-anteriores">
+Desinstalando versiones anteriores:
+&lt;a href="#desinstalando-versiones-anteriores" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Rns nombredelpaquete
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>ej.:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Rns nvidia-340xx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="detectar-driver-compatible-con-la-gráfica-nvidia">
+Detectar Driver compatible con la gráfica NVIDIA:
+&lt;a href="#detectar-driver-compatible-con-la-gr%c3%a1fica-nvidia" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Hay que considerar dos factores de compatibilidad: &lt;strong>Versión nvidia&lt;/strong> y el &lt;strong>Kernel&lt;/strong>&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="ver-lista-de-compatibilidad">
+Ver lista de compatibilidad:
+&lt;a href="#ver-lista-de-compatibilidad" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>Entrar a la &lt;a href="https://www.nvidia.com/en-us/drivers/unix/legacy-gpu/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+siguiente página
+&lt;/a> y buscar tu modelo de nvidia dentro de la lista para saber con
+que versión es compatible.&lt;/li>
+&lt;/ul>
+&lt;h4 class="text-gray-500 text-3xl my-6" id="nvidia-según-el-kernel">
+Nvidia según el kernel:
+&lt;a href="#nvidia-seg%c3%ban-el-kernel" class="text-gray-500">#&lt;/a>
+&lt;/h4>&lt;ul>
+&lt;li>kernel linux → nvidia&lt;/li>
+&lt;li>linux-lts → nvidia-lts&lt;/li>
+&lt;li>todos los kernel (construye dinámicamente los módulos del kernel) → nvidia-dkms&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>ej: en mi caso como el modelo de la nvidia es viejo debo usar por compatibilidad el kernetl lts pero con nvidia-dkms&lt;/p>&lt;/blockquote>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="pasos-previos-a-la-instalación">
+Pasos previos a la instalación:
+&lt;a href="#pasos-previos-a-la-instalaci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;ul>
+&lt;li>Habilitar Multilib para ejecutar aplicaciones 32 bits en sist. de 64 bits:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo nano /etc/pacman.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>(para habilitar hay que descomentar las dos lineas siguientes, borrar # y guardar)
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="line">&lt;span class="cl">&lt;span class="k">[multilib]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Include&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">/etc/pacman.d/mirrorlist&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Para guardar cambios: Ctrol + o (letra), Para confirmar: enter, Para salir: Ctrol + x&lt;/li>
+&lt;li>Entrar al archivo sddm para editarlo (en el caso de que se use kde) con el siguiente comando:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo nano /etc/sddm.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Agregar # a las dos líneas que estan debajo de [X11]:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="line">&lt;span class="cl">&lt;span class="k">[X11]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># DisplayCommand&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># DisplayStopCommand&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Ctrl + o
+Enter
+Ctrol + X&lt;/li>
+&lt;/ul>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="borrar-archivos-que-esten-dentro-de-la-carpeta-x11-para-que-no-interfieran">
+Borrar archivos que esten dentro de la carpeta X11 para que no interfieran:
+&lt;a href="#borrar-archivos-que-esten-dentro-de-la-carpeta-x11-para-que-no-interfieran" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>Ir a la carpeta: &lt;code>/etc/X11/&lt;/code>&lt;/li>
+&lt;li>Ver si hay archivos xorg fuera de las carpetas.&lt;/li>
+&lt;li>Si hay archivos xorg: los vamos a borrar de la siguiente manera:
+&lt;ul>
+&lt;li>Hacer Click derecho y seleccionar abrir terminal aqui&lt;/li>
+&lt;li>Para Borrar los archivos y dejar las carpetas
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo rm xorg.conf
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo mv xorg.conf xorg.conf0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo rm xorg.conf.nvidia-xconfig-original
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalar-controlador-privativo-de-nvidia">
+Instalar controlador privativo de Nvidia:
+&lt;a href="#instalar-controlador-privativo-de-nvidia" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="nvidia-para-kernel-linux-última-versión">
+Nvidia para kernel linux (última versión)
+&lt;a href="#nvidia-para-kernel-linux-%c3%baltima-versi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S nvidia nvidia-utils
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="nvidia-para-kernel-linux-lts-para-nvidia-viejas-es-mejor-no-usar-lts">
+Nvidia para kernel linux-lts: (para nvidia viejas es mejor no usar lts)
+&lt;a href="#nvidia-para-kernel-linux-lts-para-nvidia-viejas-es-mejor-no-usar-lts" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S nvidia-lts
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="nvidia-para-kernel-linux-zen-sirve-para-todos-los-kernel-dkms">
+Nvidia para kernel linux-zen: (sirve para todos los kernel) dkms
+&lt;a href="#nvidia-para-kernel-linux-zen-sirve-para-todos-los-kernel-dkms" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S nvidia-dkms
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>ej: en mi caso compatible con GeForge GTX770M&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S nvidia-470xx-dkms
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yay -S nvidia-470xx-utils
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yay -S lib32-nvidia-470xx-utils
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yay -S lib32-opencl-nvidia-470xx
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yay -S opencl-nvidia-470xx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>En una linea todos los paquetes dkms para la versión 470xx:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S nvidia-470xx-dkms nvidia-470xx-utils lib32-nvidia-470xx-utils lib32-opencl-nvidia-470xx opencl-nvidia-470xx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="instalar-mhwd">
+Instalar MhWd:
+&lt;a href="#instalar-mhwd" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">$ yay -S mhwd-nvidia-versión
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>ej: en mi caso compatible 470xx&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S mhwd-nvidia-470xx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="instalar-nvidia-settings">
+Instalar Nvidia Settings:
+&lt;a href="#instalar-nvidia-settings" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S nvidia-settings
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>ej.: Compatible 470xx:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S nvidia-470xx-settings
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="instalar-bbswithc">
+Instalar bbswithc
+&lt;a href="#instalar-bbswithc" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="para-kernel-linux">
+Para kernel linux:
+&lt;a href="#para-kernel-linux" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S bbswitch
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="para-kernel-linux-zen-o-si-usamos-las-nvidia-dkms">
+Para kernel linux-Zen o si usamos las nvidia-dkms:
+&lt;a href="#para-kernel-linux-zen-o-si-usamos-las-nvidia-dkms" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S bbswitch-dkms
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="instalar-optimus-manager">
+Instalar Optimus Manager:
+&lt;a href="#instalar-optimus-manager" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S optimus-manager optimus-manager-qt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Actualizar:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Syyu
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Verificar el estado de Optimus Manager:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">systemctl status optimus-manager.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Para parar el proceso apretar: q&lt;/p>
+&lt;p>Reiniciar:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">reboot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="configurar-optimus-manager">
+Configurar Optimus Manager:
+&lt;a href="#configurar-optimus-manager" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>Ir al Menú de aplicaciones y ejecutar Optimus manager&lt;/li>
+&lt;li>Va aparecer un icono en la barra.&lt;/li>
+&lt;li>Hacer Click derecho sobre el ícono de Optimus manager de la barra y entrar a Configuración.
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/ZYdrnpxr/image.png" alt="Optimus Manager" loading="lazy" class="rounded-xl" />
+&lt;/div>
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/Gmh8FyGg/image.png" alt="Optimus Manager" loading="lazy" class="rounded-xl" />
+&lt;/div>
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/VkGSDkFf/image.png" alt="Optimus Manager" loading="lazy" class="rounded-xl" />
+&lt;/div>
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/FKYYqXPj/image.png" alt="Optimus Manager" loading="lazy" class="rounded-xl" />
+&lt;/div>
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/ZqXWzsgX/image.png" alt="Optimus Manager" loading="lazy" class="rounded-xl" />
+&lt;/div>
+&lt;div class="w-full rounded-xl bg-yellow-600/75 text-yellow-950 p-3 flex flex-row justify-center content-between">
+&lt;span class="fa fa-warning fa-5x p-3">&lt;/span>
+&lt;p class="no-margin">OJO: INICIAR SESIÓN CON X11 (Xorg de KDE) porque optimus manager no es compatible con wayland&lt;/p>
+&lt;/div>
+&lt;/li>
+&lt;li>Reiniciar el sistema:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">reboot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="comprobar-si-funciona-nvidia">
+Comprobar si funciona Nvidia:
+&lt;a href="#comprobar-si-funciona-nvidia" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>Abrir la consola y poner el siguiente comando:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">optimus-manager --print-mode
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>ej: en mi caso responde:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Current GPU mode : nvidia
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Poner el siguiente comando:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">glxgears -info
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Se abre la siguiente ventana:
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/c1BLFJsp/image.png" alt="glxgears" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/li>
+&lt;li>Cerrar la ventana chicha y se frena el proceso.&lt;/li>
+&lt;li>Subir por la consola hasta donde se puso el comando para ver el resultado.
+Ej: en mi caso dio:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Running synchronized to the vertical refresh. The framerate should be
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">approximately the same as the monitor refresh rate.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">GL_RENDERER = NVIDIA GeForce GTX 770M/PCIe/SSE2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">GL_VERSION = 4.6.0 NVIDIA 470.223.02
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">GL_VENDOR = NVIDIA Corporation
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="configurar-nvidia-settings">
+CONFIGURAR NVIDIA SETTINGS
+&lt;a href="#configurar-nvidia-settings" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>Entrar al Menu de apliciones y abrir Nvidia X Server Settings&lt;/li>
+&lt;li>Entrar a “OpenGL Settings”&lt;/li>
+&lt;li>En la solapa Image Settings:&lt;/li>
+&lt;li>Poner la configuración deseada:
+High Performance (mejor rendimiento, elijo esta)
+High Quality (mejor calidad)&lt;/li>
+&lt;/ul>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="instalar-el-controlador-gwe-controla-las-gpu-nvidia">
+INSTALAR EL CONTROLADOR GWE: controla las GPU NVIDIA
+&lt;a href="#instalar-el-controlador-gwe-controla-las-gpu-nvidia" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S gwe
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Guía Completa para Instalar y Utilizar Timeshift en Linux</title><link>https://patojad.com.ar/post/2024/01/gu%C3%ADa-completa-para-instalar-y-utilizar-timeshift-en-linux/</link><pubDate>Tue, 09 Jan 2024 10:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/01/gu%C3%ADa-completa-para-instalar-y-utilizar-timeshift-en-linux/</guid><description>&lt;p>La gestión de copias de seguridad es esencial para cualquier usuario de Linux que desee mantener la integridad de su sistema operativo. En este artículo, exploraremos &lt;strong>Timeshift&lt;/strong>, una poderosa herramienta de respaldo para Linux, respondiendo preguntas clave y proporcionando instrucciones detalladas para su instalación en diversas distribuciones.&lt;/p>
+&lt;hr>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-timeshift-de-linux">
+¿Qué es Timeshift de Linux?
+&lt;a href="#qu%c3%a9-es-timeshift-de-linux" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;strong>Timeshift&lt;/strong> es una herramienta de respaldo para sistemas operativos basados en Linux que permite realizar instantáneas del sistema en un momento específico. Estas instantáneas se pueden utilizar para restaurar el sistema a ese estado particular en caso de fallos o problemas. &lt;strong>Timeshift&lt;/strong> utiliza tecnologías como &lt;strong>rsync&lt;/strong> y &lt;strong>Btrfs&lt;/strong> para crear y gestionar estas instantáneas.&lt;/p>
+&lt;hr>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-diferencia-hay-entre-rsync-y-timeshift">
+¿Qué diferencia hay entre rsync y Timeshift?
+&lt;a href="#qu%c3%a9-diferencia-hay-entre-rsync-y-timeshift" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Aunque &lt;strong>rsync&lt;/strong> y &lt;strong>Timeshift&lt;/strong> comparten la capacidad de realizar copias de seguridad, difieren en su enfoque. &lt;strong>Rsync&lt;/strong> es una herramienta de sincronización de archivos, mientras que &lt;strong>Timeshift&lt;/strong> va más allá al capturar el estado completo del sistema en un momento dado. &lt;strong>Timeshift&lt;/strong> simplifica el proceso de restauración del sistema a un estado anterior mediante la gestión eficiente de instantáneas.&lt;/p>
+&lt;hr>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="timeshift-es-una-herramienta-de-respaldo">
+¿Timeshift es una herramienta de respaldo?
+&lt;a href="#timeshift-es-una-herramienta-de-respaldo" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Sí, &lt;strong>Timeshift&lt;/strong> se clasifica como una herramienta de respaldo, pero va más allá de simplemente copiar archivos. Al crear instantáneas del sistema, &lt;strong>Timeshift&lt;/strong> permite restaurar todo el estado del sistema, incluyendo archivos del sistema, configuraciones y aplicaciones instaladas, proporcionando una solución integral para la gestión de copias de seguridad.&lt;/p>
+&lt;hr>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="timeshift-funciona-en-ubuntu">
+¿Timeshift funciona en Ubuntu?
+&lt;a href="#timeshift-funciona-en-ubuntu" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;strong>Timeshift&lt;/strong> es compatible con varias distribuciones de Linux, incluyendo &lt;strong>Ubuntu&lt;/strong>. Su versatilidad y capacidad de adaptación a diferentes sistemas hacen que sea una opción sólida para usuarios de Ubuntu, o cualquier distribucion, que buscan una solución de respaldo confiable.&lt;/p>
+&lt;hr>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalación-de-timeshift-en-distintas-distribuciones">
+Instalación de Timeshift en Distintas Distribuciones:
+&lt;a href="#instalaci%c3%b3n-de-timeshift-en-distintas-distribuciones" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>A continuación, te presentamos cómo instalar &lt;strong>Timeshift&lt;/strong> en algunas de las distribuciones de Linux más populares:&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="ubuntu--debian">
+Ubuntu / Debian
+&lt;a href="#ubuntu--debian" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt-get update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get install timeshift
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="arch-linux">
+Arch Linux
+&lt;a href="#arch-linux" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>En este caso diferimos del video ya que en el mismo se instala desde AUR con algunos complementos adicionales que simplifican y automatizan su uso y en este caso lo haremos desde los repositorios oficiales.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo pacman -S timeshift
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="fedora">
+Fedora
+&lt;a href="#fedora" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install timeshift
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="opensuse">
+openSUSE:
+&lt;a href="#opensuse" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo zypper install timeshift
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusión">
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;strong>Timeshift&lt;/strong> emerge como una herramienta esencial para la gestión de copias de seguridad en sistemas Linux. Su capacidad para crear instantáneas del sistema y simplificar la restauración lo convierte en una opción valiosa. Al seguir nuestras instrucciones, puedes instalar y comenzar a utilizar Timeshift en tu distribución de Linux preferida, asegurando la estabilidad y seguridad de tu sistema.&lt;/p></description></item><item><title>Instalación de Wine en GNU/Linux para Ejecutar Aplicaciones Windows</title><link>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</link><pubDate>Wed, 15 Nov 2023 12:02:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</guid><description>&lt;p>La compatibilidad entre sistemas operativos es esencial, y Wine, una herramienta de código abierto, facilita la ejecución de aplicaciones Windows en entornos GNU/Linux. En esta guía, exploraremos qué es Wine, cómo instalarlo en distintas distribuciones y dónde se instalan las aplicaciones. ¡Descubre cómo ampliar las posibilidades de tu sistema operativo!&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-wine">
+¿Qué es Wine?
+&lt;a href="#qu%c3%a9-es-wine" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Wine, que significa &amp;ldquo;Wine Is Not an Emulator&amp;rdquo; (Wine no es un emulador), es una capa de compatibilidad que permite ejecutar aplicaciones diseñadas para Microsoft Windows en sistemas operativos basados en Unix, como GNU/Linux. No es una máquina virtual ni emula un entorno Windows completo; en cambio, traduce llamadas de sistema de Windows a llamadas de sistema compatibles con Unix.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="por-qué-usar-wine">
+¿Por qué usar Wine?
+&lt;a href="#por-qu%c3%a9-usar-wine" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Wine es una herramienta muy útil para aquellos que necesitan ejecutar aplicaciones Windows en entornos GNU/Linux. Algunos ejemplos de casos de uso incluyen:&lt;/p>
+&lt;ul>
+&lt;li>Ejecutar aplicaciones de productividad como Microsoft Office.&lt;/li>
+&lt;li>Ejecutar aplicaciones de diseño como Adobe Photoshop.&lt;/li>
+&lt;li>Ejecutar juegos de Windows.&lt;/li>
+&lt;li>Ejecutar aplicaciones de Windows que no tienen alternativas nativas en GNU/Linux.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="cómo-se-instala-wine">
+¿Cómo se instala Wine?
+&lt;a href="#c%c3%b3mo-se-instala-wine" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>La instalación de Wine varía según la distribución de GNU/Linux que estés utilizando. A continuación, se detallan los pasos para algunas distribuciones populares.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="debianubuntu">
+Debian/Ubuntu
+&lt;a href="#debianubuntu" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo dpkg --add-architecture i386
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install wine64 wine32
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="fedora">
+Fedora
+&lt;a href="#fedora" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo dnf install wine
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="arch-linux-y-derivadas-como-manjaro">
+Arch Linux (y derivadas como Manjaro):
+&lt;a href="#arch-linux-y-derivadas-como-manjaro" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S wine
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="opensuse">
+OpenSUSE:
+&lt;a href="#opensuse" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo zypper install wine
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="dónde-se-instalan-las-aplicaciones-con-wine">
+¿Dónde se instalan las aplicaciones con Wine?
+&lt;a href="#d%c3%b3nde-se-instalan-las-aplicaciones-con-wine" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Las aplicaciones instaladas con Wine se almacenan en un directorio llamado &lt;code>wineprefix&lt;/code>. Por defecto, se encuentra en el directorio de inicio del usuario en una carpeta oculta llamada &lt;code>.wine&lt;/code>. Dentro de este directorio, encontrarás una estructura similar a la de un sistema Windows estándar, con carpetas como &lt;code>Program Files&lt;/code> y &lt;code>Windows&lt;/code>.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="proceso-de-instalación-básico-de-una-aplicación-con-wine">
+Proceso de instalación básico de una aplicación con Wine
+&lt;a href="#proceso-de-instalaci%c3%b3n-b%c3%a1sico-de-una-aplicaci%c3%b3n-con-wine" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>Descarga el instalador de la aplicación Windows que deseas ejecutar.&lt;/li>
+&lt;li>Abre una terminal y navega hasta el directorio donde descargaste el instalador.&lt;/li>
+&lt;li>Ejecuta el siguiente comando:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">wine nombre_del_instalador.exe
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Sigue los pasos de instalación como lo harías en Windows.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusiones">
+Conclusiones
+&lt;a href="#conclusiones" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;strong>Wine&lt;/strong> es una herramienta invaluable para aquellos que necesitan ejecutar aplicaciones Windows en entornos GNU/Linux. Su capacidad para traducir llamadas de sistema y proporcionar un entorno de ejecución nativo es fundamental para mejorar la interoperabilidad entre diferentes sistemas operativos.&lt;/p></description></item><item><title>Cómo Actualizar aaPanel y Mantener tu Servidor Web al Día</title><link>https://patojad.com.ar/post/2023/08/c%C3%B3mo-actualizar-aapanel-y-mantener-tu-servidor-web-al-d%C3%ADa/</link><pubDate>Wed, 30 Aug 2023 11:23:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/08/c%C3%B3mo-actualizar-aapanel-y-mantener-tu-servidor-web-al-d%C3%ADa/</guid><description>&lt;p>Mantener tu servidor web actualizado es esencial para garantizar su rendimiento, seguridad y funcionalidad. En este artículo, aprenderás cómo actualizar &lt;strong>aaPanel&lt;/strong>, una herramienta de panel de control que simplifica la administración de servidores web, y te proporciona una guía paso a paso para llevar a cabo este proceso.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-aapanel">
+¿Qué es aaPanel?
+&lt;a href="#qu%c3%a9-es-aapanel" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;strong>aaPanel&lt;/strong> es un panel de control de hosting web gratuito y de código abierto que facilita la administración de servidores. Proporciona una interfaz gráfica intuitiva y amigable que permite a los usuarios gestionar servicios como &lt;strong>Apache&lt;/strong>, &lt;strong>Nginx&lt;/strong>, &lt;strong>PHP&lt;/strong>, bases de datos y más, sin necesidad de conocimientos técnicos avanzados.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="importancia-de-actualizar-aapanel">
+Importancia de Actualizar aaPanel
+&lt;a href="#importancia-de-actualizar-aapanel" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>La actualización regular de aaPanel es crucial por varias razones:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Seguridad:&lt;/strong> Las actualizaciones suelen incluir parches de seguridad que protegen tu servidor contra amenazas potenciales. Mantener aaPanel actualizado reduce la superficie de ataque y mantiene tus datos y aplicaciones seguros.&lt;/li>
+&lt;li>&lt;strong>Rendimiento:&lt;/strong> Las actualizaciones pueden mejorar el rendimiento de aaPanel al corregir errores, optimizar el código y agregar nuevas características que optimizan la eficiencia.&lt;/li>
+&lt;li>&lt;strong>Funcionalidad:&lt;/strong> Las versiones más recientes de aaPanel suelen ofrecer nuevas funciones y mejoras en la interfaz, lo que puede mejorar la experiencia de administración del servidor.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="pasos-para-actualizar-aapanel">
+Pasos para Actualizar aaPanel
+&lt;a href="#pasos-para-actualizar-aapanel" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Si bien en el video se muestra como actualizar &lt;strong>aaPanel&lt;/strong> desde la interfaz web, en este articulo se muestra como hacerlo desde la terminal.&lt;/p>
+&lt;p>A continuación, se detallan los pasos para actualizar aaPanel a la última versión en caso de querer hacerlo desde la terminal conectadose al servidor por &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+SSH
+&lt;/a>:&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="acceder-al-servidor">
+Acceder al Servidor
+&lt;a href="#acceder-al-servidor" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Inicia sesión en tu servidor a través de &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+SSH
+&lt;/a> utilizando un cliente como PuTTY (en el caso de estar en Windows) o la terminal en sistemas Unix o Unix-Like como Linux.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">ssh username@server_ip
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="respaldo-de-datos-opcional-pero-recomendado">
+Respaldo de Datos (Opcional pero Recomendado)
+&lt;a href="#respaldo-de-datos-opcional-pero-recomendado" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Antes de actualizar, realiza una copia de seguridad de tus datos importantes, como archivos del sitio web y bases de datos, para evitar pérdidas accidentales. Si bien este paso es opcional, se recomienda encarecidamente realizar una copia de seguridad de tus datos antes de actualizar. Puedes utilizar el siguiente comando para crear una copia de seguridad de tu sitio web:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">tar -czvf backup.tar.gz /home/wwwroot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="actualización">
+Actualización
+&lt;a href="#actualizaci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Ejecuta el siguiente comando para ejecutar el script de actualización:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">service bt &lt;span class="m">16&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Sigue las instrucciones en pantalla para completar el proceso de actualización.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="verificación">
+Verificación
+&lt;a href="#verificaci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Después de la actualización, verifica que &lt;strong>aaPanel&lt;/strong> esté funcionando correctamente accediendo a la interfaz de administración a través de tu navegador web.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusión">
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Mantener &lt;strong>aaPanel&lt;/strong> actualizado es esencial para garantizar la seguridad y el rendimiento de tu servidor web. Sigue estos pasos para realizar una actualización exitosa y asegúrate de respaldar tus datos antes de comenzar. Un &lt;strong>aaPanel&lt;/strong> actualizado no solo protege tu servidor de posibles amenazas, sino que también te permite acceder a nuevas características y mejoras en la administración de tu sitio web. ¡Mantén tu servidor al día y disfruta de un entorno en línea seguro y eficiente!&lt;/p></description></item><item><title>App Store de aaPanel</title><link>https://patojad.com.ar/post/2023/07/app-store-de-aapanel/</link><pubDate>Thu, 27 Jul 2023 11:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/07/app-store-de-aapanel/</guid><description>&lt;p>Ya vimos como realizar la instalacion de aaPanel y como abrir los puertos necesarios. Tambien realizamos el primer ingreso y la instalacion de LAMP o LNMP segun deseemos. Ahora veremos el appstore de aaPanel. Y realiamos instalaciones desde diferentes areas de modulos o complemento.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-aapanel">
+¿Qué es aaPanel?
+&lt;a href="#qu%c3%a9-es-aapanel" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;strong>aaPanel&lt;/strong> es un panel de control de hosting web gratuito y de código abierto que facilita la administración de servidores. Proporciona una interfaz gráfica intuitiva y amigable que permite a los usuarios gestionar servicios como &lt;strong>Apache&lt;/strong>, &lt;strong>Nginx&lt;/strong>, &lt;strong>PHP&lt;/strong>, bases de datos y más, sin necesidad de conocimientos técnicos avanzados.&lt;/p>
+&lt;p>En el video podemos apreciar y recorrer un poco mas la seccion de appstore de aapanel. En esta seccion podemos encontrar complementos para nuestro panel, como tambien para nuestros sitios web.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="imagenes">
+Imagenes
+&lt;a href="#imagenes" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/nrhLsCmh/aapanelstore1.webp" alt="aapanel" loading="lazy" class="rounded-xl" />
+&lt;/div>
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/5yK28b5q/aapanelstore2.webp" alt="aapanel" loading="lazy" class="rounded-xl" />
+&lt;/div>
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/76V6YgfR/aapanelstore3.webp" alt="aapanel" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;hr>
+&lt;p>&lt;a href="https://www.aapanel.com/new/feature.html#shop" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+Fuente
+&lt;/a>&lt;/p></description></item><item><title>Instalar aaPanel</title><link>https://patojad.com.ar/post/2023/06/instalar-aapanel/</link><pubDate>Wed, 21 Jun 2023 11:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/06/instalar-aapanel/</guid><description>&lt;p>aaPanel es un software que mejora la eficiencia de la gestión de servidores admite más de 100 funciones, como LEMP/LNMP/monitor/FTP/base de datos con un solo clic Después de más de 80 iteraciones, es completamente funcional y seguro, y ha sido aprobado e instalado por millones de usuarios en todo el mundo.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="caracteristicas">
+Caracteristicas
+&lt;a href="#caracteristicas" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;ul>
+&lt;li>&lt;strong>Website Manager:&lt;/strong> Cree un sitio web de administración a través del panel y complete varias configuraciones de manera fácil y sencilla.&lt;/li>
+&lt;li>&lt;strong>Database Manager:&lt;/strong> Un clic para crear, configurar, respaldar, restaurar la base de datos.&lt;/li>
+&lt;li>&lt;strong>File Manager:&lt;/strong> Un administrador de archivos conveniente y eficiente que admite carga, descarga, empaquetado, descompresión y edición y visualización de archivos.&lt;/li>
+&lt;li>&lt;strong>App Store:&lt;/strong> El software del servidor utilizado para la instalación se puede administrar fácilmente a través de la interfaz web.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="http://demo.aapanel.com/fdgi87jbn" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+Demo
+&lt;/a>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="planes">
+Planes
+&lt;a href="#planes" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="basico">
+Basico
+&lt;a href="#basico" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>Precio:&lt;/strong> Gratis&lt;/li>
+&lt;li>&lt;strong>Sitios:&lt;/strong> Ilimitados&lt;/li>
+&lt;li>Número &lt;strong>ilimitado&lt;/strong> de dominios&lt;/li>
+&lt;li>Certificado SSL ilimitado (Let&amp;rsquo;s Encrypt)&lt;/li>
+&lt;li>Protección de seguridad básica&lt;/li>
+&lt;li>Administrador de archivos con todas las funciones&lt;/li>
+&lt;li>Editor de archivos en línea&lt;/li>
+&lt;li>Use todos los complementos gratuitos&lt;/li>
+&lt;/ul>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="profesional">
+Profesional
+&lt;a href="#profesional" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>Precio:&lt;/strong> 14.5 USD/mes - 118.32 USD/año&lt;/li>
+&lt;li>&lt;strong>Sitios:&lt;/strong> Ilimitados&lt;/li>
+&lt;li>Número &lt;strong>ilimitado&lt;/strong> de dominios&lt;/li>
+&lt;li>Certificado SSL ilimitado (Let&amp;rsquo;s Encrypt)&lt;/li>
+&lt;li>Protección de seguridad básica&lt;/li>
+&lt;li>Administrador de archivos con todas las funciones&lt;/li>
+&lt;li>Editor de archivos en línea&lt;/li>
+&lt;li>Use todos los complementos gratuitos&lt;/li>
+&lt;li>Use todos los complementos profesionales
+&lt;ul>
+&lt;li>Nginx/Apache WAF&lt;/li>
+&lt;li>Aplicación de teléfono móvil&lt;/li>
+&lt;li>Sistema de endurecimiento&lt;/li>
+&lt;li>Estadísticas del sitio web&lt;/li>
+&lt;li>etc.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>&lt;a href="https://www.aapanel.com/new/pricing.html" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+Mas información
+&lt;/a>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalacion">
+Instalacion
+&lt;a href="#instalacion" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="comandos-utilizados">
+Comandos Utilizados
+&lt;a href="#comandos-utilizados" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Para centos:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">yum install -y wget &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> wget -O install.sh http://www.aapanel.com/script/install_6.0_en.sh &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> bash install.sh aapanel
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Para deepin/ubuntu:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">wget -O install.sh http://www.aapanel.com/script/install-ubuntu_6.0_en.sh &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> sudo bash install.sh aapanel
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Para debian:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">wget -O install.sh http://www.aapanel.com/script/install-ubuntu_6.0_en.sh &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> bash install.sh aapanel
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="w-full rounded-xl bg-yellow-600/75 text-yellow-950 p-3 flex flex-row justify-center content-between">
+&lt;span class="fa fa-warning fa-5x p-3">&lt;/span>
+&lt;p class="no-margin">Asegúrese de que es un sistema operativo limpio, no hay otro entorno con Apache/Nginx/php/MySQL instalado (el entorno existente no se puede instalar)&lt;/p>
+&lt;/div>
+&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between">
+&lt;span class="fa fa-info fa-5x p-3">&lt;/span>
+&lt;p class="no-margin">Se recomienda utilizar los navegadores Chrome, Firefox y edge para acceder a la dirección de inicio de sesión del panel&lt;/p>
+&lt;/div>
+&lt;hr>
+&lt;p>&lt;a href="https://www.aapanel.com/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+Fuente
+&lt;/a>&lt;/p></description></item><item><title>Como instalar MongoDB en MacOS</title><link>https://patojad.com.ar/post/2023/05/como-instalar-mongodb-en-macos/</link><pubDate>Fri, 05 May 2023 13:45:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/05/como-instalar-mongodb-en-macos/</guid><description>&lt;p>Vamos a ver como realizar la instalacion de &lt;strong>MongoDB&lt;/strong> en MacOS. Recuerda que para esto debes tener instalado primero &lt;a href="https://patojad.com.ar/post/2023/02/como-instalar-brew-en-macos/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Homebrew
+&lt;/a>.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="comandos">
+Comandos
+&lt;a href="#comandos" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Los siguientes comandos podes usarlos en tu terminal (Recorda tener instalado &lt;a href="https://patojad.com.ar/post/2023/02/como-instalar-brew-en-macos/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Homebrew
+&lt;/a>):&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">brew tap mongodb/brew
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Una ves agregado el TAP de MongoDB podemos instalarlo de manera oficial, pero antes debemos actualizar:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">brew update
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Luego si, ya podemos proceder a realizar la instalación de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">brew install mongodb-community
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="instalado">
+Instalado
+&lt;a href="#instalado" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Una ves instalado tendremos acceso a los siguientes binarios:&lt;/p>
+&lt;ul>
+&lt;li>El servidor &lt;code>mongod&lt;/code>&lt;/li>
+&lt;li>Enrutador de consultas &lt;code>mongos&lt;/code>&lt;/li>
+&lt;li>El cliente de MongoDB para Shell &lt;code>mongosh&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>Fuente: &lt;a href="https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
+&lt;/a>&lt;/p></description></item><item><title>Error Boost.Python en el proceso Bootloader - Huayra</title><link>https://patojad.com.ar/post/2023/03/error-boost.python-en-el-proceso-bootloader-huayra/</link><pubDate>Mon, 20 Mar 2023 08:47:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/03/error-boost.python-en-el-proceso-bootloader-huayra/</guid><description>&lt;p>Desde que arme el video de de la review de &lt;strong>Huayra&lt;/strong> y su instalación (el cual pueden ver acá abajo) muchos comentarios me llegaban con &lt;strong>problemas de instalación&lt;/strong>, y el último fue la semana pasada de la mano de un miembro de la comunidad llamado &lt;strong>Nicolas Ojeda&lt;/strong> (al que le mando un fuerte saludo) con el cual indagando un rato (como otras veces en la comunidad) llegamos a la clara solución y la idea es dejar documentada esta solución para personas que tengan el mismo error con esta, o cualquier otra, distribución.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="el-error">
+El error
+&lt;a href="#el-error" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Básicamente el error ocurre durante el proceso de instalación, a la hora de instalar el grub obtenemos un cartel como el siguiente:&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/gjKRR12p/photo-2023-03-17-14-17-29.jpg" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Donde nos informa que hay un error a la hora de instalar el &lt;strong>bootloader&lt;/strong>.Esto deja el sistema inutilizable pero ya realizó el formateo de las particiones de los discos, por lo cual si es nuestra única máquina nos complica muchísimo.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="la-solución">
+La solución
+&lt;a href="#la-soluci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://uploads-ssl.webflow.com/636ab6ba0e1bd250e3aaedaf/63905e57364473528de52e1a_Etcher_steps.gif" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Para poder solucionar este error de bootloader lo único que debemos hacer es utilizar otra aplicación para bootear el USB, en estos casos se usaba &lt;strong>unetbootin&lt;/strong> o &lt;strong>rufus&lt;/strong> pero generan este error. En la experiencia que generamos con este error sabemos que balena &lt;strong>etcher&lt;/strong> es la mejor app para generar booteables para &lt;strong>Huayra Linux&lt;/strong>. Tenemos la suerte de que esta app es multiplataforma.&lt;/p>
+&lt;p>&lt;a href="https://www.balena.io/etcher" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+Sitio de Etcher
+&lt;/a>&lt;/p>
+&lt;p>Espero que esto te haya servido y no te olvides de contar tu experiencia y por supuesto de unirte al foro y al grupo de telegram!&lt;/p></description></item><item><title>MacOS ¿Se parece mas a GNU/Linux o a Windows?</title><link>https://patojad.com.ar/post/2022/06/macos-se-parece-mas-a-gnu/linux-o-a-windows/</link><pubDate>Tue, 07 Jun 2022 10:41:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/06/macos-se-parece-mas-a-gnu/linux-o-a-windows/</guid><description>&lt;p>Ya hace tiempo, me es más difícil crear contenido, a medida que aumentan las responsabilidades es mucho más difícil hacerse un tiempo para poder escribir o grabar. Sin embargo sigo con este método de tomar preguntas de diferentes lugares y responder o tomarla como disparador para hablar de algún tema. En este caso la pregunta es la siguiente:&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/pL5xYCPM/Screenshot-20220504-202955-Facebook-1.jpg" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="vídeo">
+Vídeo
+&lt;a href="#v%c3%addeo" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Sin embargo la respuesta puede llegar a ser un poco… “simple” por lo cual no solo muestro un poco como funciona el sistema de instalación y los paquetes en MacOS pero también aprovechamos para hablar de algunos temas interesantes para el mundo de linux.&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/K5UM_BoszTE?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between">
+&lt;span class="fa fa-info fa-5x p-3">&lt;/span>
+&lt;p class="no-margin">Gracias por estar acá, si no es molestia te pido un ultimo favor mas, podrias unirte a la comunidad de telegram o apoyarme suscribiendote a youtube o a Odysee, es completamente gratis y vale muchisimo.&lt;/p>
+&lt;/div>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="appimage-vs-flatpack-vs-snap">
+AppImage vs Flatpack vs Snap
+&lt;a href="#appimage-vs-flatpack-vs-snap" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Si bien esto se merece su propia publicación y probablemente lo tenga, de momento voy a dejar una lista con la comparación sobre estas 3 “tecnologías”&lt;/p>
+&lt;table class="w-full bg-gray-100 dark:bg-gray-900 rounded-xl my-4">
+&lt;thead>
+&lt;tr>
+&lt;th class="px-3 py-1" style="text-align: center">Característica&lt;/th>
+&lt;th class="px-3 py-1" style="text-align: center">AppImage&lt;/th>
+&lt;th class="px-3 py-1" style="text-align: center">Snap&lt;/th>
+&lt;th class="px-3 py-1" style="text-align: center">Flatpak&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Aplicaciones de escritorio&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Herramientas de terminal&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Servicios&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Aplicación correcta de temas&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Librerías y dependencias&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">En la propia imagen&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">En la propia imagen o con complementos&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Uso de runtimes de las librerías principales&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Soporte&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Ninguno&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Canonical&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Red Hat y otros&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Sin confinamiento&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Puede utilizar diferentes confinamientos&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No (solo AppArmor)&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No (solo Bubblewrap)&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Ejecutable&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No . Necesita instalación&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No . Necesita instalación&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Sin root&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No. Necesita root para instalar.&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No. Necesita root para instalar.&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Ejecutable desde comprimido&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Repositorio central&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">AppImageHub&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">SnapCraft&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">FlatHub&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Necesita repositorio&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Repositorios individuales&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Multiples versiones en paralelo&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Mecanismo de actualización&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">AppImageUpdate&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Repositorio&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Repositorio&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Actualizaciones incrementales&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Autoactualizaciones&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">Aplicación en disco comprimida&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Si&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">No&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">LibreOffice 6.0.0&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">200 MB&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">200 MB&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">659 MB&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>Instalar PARU y YAY</title><link>https://patojad.com.ar/post/2022/01/instalar-paru-y-yay/</link><pubDate>Thu, 27 Jan 2022 15:12:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/01/instalar-paru-y-yay/</guid><description>&lt;p>Ya hablamos con anterioridad sobre &lt;a href="https://patojad.com.ar/aplicaciones/2022/01/paru-vs-yay-cual-elegir/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+PARU y YAY
+&lt;/a>. En esa oportunidad di mi opinión sobre cuál deberíamos elegir, aunque esto siempre es a gusto y placer de la persona que lo utilice. Por eso en esta oportunidad vamos a ver la manera más simple de instalar ambas aplicaciones.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="requisitos-previos">
+Requisitos previos
+&lt;a href="#requisitos-previos" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Para poder realizar la instalación tenemos unos requisitos previos para que todo salga mas que bien, te dejo a continuación ambos links que explicaran como hacer esto (El primero no es obligatorio pero está bueno saber cual elegir antes de instalar alguno)&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://patojad.com.ar/aplicaciones/2022/01/paru-vs-yay-cual-elegir/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Paru VS YAY ¿Cual elegir?
+&lt;/a> (Opcional)&lt;/li>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2022/01/instalar-chaotic-aur/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Instalar Chaotic AUR
+&lt;/a> (Obligatorio)&lt;/li>
+&lt;/ul>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="video">
+Video
+&lt;a href="#video" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Claramente siempre genero un pequeño video para poder ser un poco más gráfico, de todas formas en la parte inferior voy a dejar los comandos utilizados. Es muy importante tener los repositorios de chaotic para poder instalarlo de esta manera.&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/DF8IAz5WoXg?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between">
+&lt;span class="fa fa-info fa-5x p-3">&lt;/span>
+&lt;p class="no-margin">Si el video te sirvió pegale una subscribirda al canal que es muchísimo apoyo y es totalmente gratuito.&lt;/p>
+&lt;/div>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="comandos">
+Comandos
+&lt;a href="#comandos" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Para la instalación de yay:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Sy yay
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Para la instalación de paru:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Sy paru
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>En caso de que vayamos a instalar los 2 podemos hacerlo de una sola vez usando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Sy yay paru
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Para desinstalar yay:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Rs yay
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Para desinstalar paru:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Rs paru
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Para desinstalar ambos:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Rs yay paru
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Instalar Chaotic AUR</title><link>https://patojad.com.ar/post/2022/01/instalar-chaotic-aur/</link><pubDate>Wed, 12 Jan 2022 09:45:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/01/instalar-chaotic-aur/</guid><description>&lt;p>Chaotic es un repositorio que busca traer los paquetes de AUR, o al menos los de mayor uso desde el punto de vista del creador, para administrarlos de forma simple con pacman. Sin tener que instalar los AUR ni configurarlos y mucho menos usar los AURHelpers. Estos son algunos de los detalles a tener en cuenta sobre Chaotic:&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/vZr3rN4_ZDc?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;ul>
+&lt;li>La mayoría de los paquetes disponibles en este repositorio se crean automáticamente a partir de su paquete fuente AUR respectivo. Sin embargo, hay algunas excepciones, consulte &lt;a href="https://github.com/chaotic-aur/packages" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fab fa-github">&lt;/i>&amp;nbsp;
+https://github.com/chaotic-aur/packages
+&lt;/a> para averiguar cuáles.&lt;/li>
+&lt;li>El clúster de construcción principal es un nodo en el centro de datos de UFSCars que está alojado en San Carlos, San Paulo, Brazil.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="comandos">
+Comandos
+&lt;a href="#comandos" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>En el video muestro como se realiza y que podemos ver el resultado dentro de nuestros repositorios en &lt;strong>pacman&lt;/strong> por esto mismo voy a dejar a continuación los comandos.&lt;/p>
+&lt;p>Instalación o descarga de las Key del repositorio para chequear los paquetes:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pacman-key --lsign-key FBA220DFC880C036
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Instalación de los paquetes con pacman (En el video los instalo por separado, sin embargo el comando de abajo los instala a los dos juntos)&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">pacman -U &lt;span class="s1">&amp;#39;https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Por último tenemos que agregar el repositorio en la configuración de pacman. Para esto debemos editarla con permisos de administrador, por ejemplo de la siguiente manera &lt;code>sudo nano /etc/pacman.conf&lt;/code> y agregamos lo siguiente en la sección de repositorios:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="line">&lt;span class="cl">&lt;span class="k">[chaotic-aur]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Include&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">/etc/pacman.d/chaotic-mirrorlist&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="recomendaciones">
+Recomendaciones
+&lt;a href="#recomendaciones" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Las siguientes recomendaciones son propias de los desarrolladores de &lt;strong>ChaoticAUR&lt;/strong> con alguna que otra modificación:&lt;/p>
+&lt;ul>
+&lt;li>Si sos usuario de powerpill y queres usarlo para realizar todas las descargas desde todos los mirrors se recomienda realizar la actualización de la siguiente manera:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo pacman -Sy &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> sudo powerpill -Su &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> paru -Su
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Asegúrese de insertar todos los espejos en su pacman.conf o use caotic-mirrorlist con todos ellos activos si usa powerpill.&lt;/li>
+&lt;li>Si está utilizando otros repositorios de terceros, le recomendamos que coloque Chaotic-AUR antes que ellos en &lt;code>/etc/pacman.conf&lt;/code>. Dado que actualizamos la mayoría de los paquetes cada hora y seguimos los &lt;code>PKGBUILD&lt;/code> de &lt;strong>AUR&lt;/strong>, este repositorio es más adecuado como primera opción al descargar paquetes.&lt;/li>
+&lt;li>Si necesita omitir la actualización de un paquete para usar las creadas localmente (por ejemplo, con optimizaciones nativas), puede agregar &lt;code>'IgnorePkg = ...'&lt;/code> a la sección del repositorio en &lt;code>/etc/pacman.conf&lt;/code>&lt;/li>
+&lt;li>Puede elegir el repositorio desde el que descargar un paquete de esta manera: &lt;code>pacman -S chaotic-aur/dxvk-mingw-git&lt;/code>. Algunos ayudantes de AUR también lo admiten, por ejemplo: &lt;code>paru -S aur/firefox-hg&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;div class="w-full rounded-xl bg-yellow-600/75 text-yellow-950 p-3 flex flex-row justify-center content-between">
+&lt;span class="fa fa-warning fa-5x p-3">&lt;/span>
+&lt;p class="no-margin">Debe tener habilitado el repositorio multilib.&lt;/p>
+&lt;/div></description></item><item><title>Instalacion de Huayra Linux</title><link>https://patojad.com.ar/post/2021/11/instalacion-de-huayra-linux/</link><pubDate>Fri, 19 Nov 2021 08:53:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/11/instalacion-de-huayra-linux/</guid><description>&lt;p>En esta oportunidad vamos a ver como instalar Huayra la mítica distribución de linux que me trajo a este mundo y me volvió un linuxnauta.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="huayra-en-un-pen-drive">
+Huayra en un pen-drive
+&lt;a href="#huayra-en-un-pen-drive" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Huayra Linux, como la mayoría de las distribuciones de linux, nos permiten probar el live desde un USB o PenDrive y ejecutar la instalación fácilmente desde ahí adentro. Para poder generar un pendrive con la iso de Huayra podemos usar los métodos tradicionales, sin embargo huayra nos ofrece un hermoso tutorial el cual voy a dejar a continuación.&lt;/p>
+&lt;p>&lt;a href="https://huayra.educar.gob.ar/pendrive-de-arranque-huayra-gnu-linux/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+Crear pendrive con Huayra
+&lt;/a>&lt;/p>
+&lt;p>Claramente para este paso primero tenemos que descargar la ISO de Huayra y esto lo podemos hacer desde su página de descargas:&lt;/p>
+&lt;p>&lt;a href="https://huayra.educar.gob.ar/descargas/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+Descargar Huayra
+&lt;/a>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalación">
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>El proceso de instalación es realmente sencillo, particularmente preferí hacer un video donde se muestra gráficamente el proceso. Sin embargo para quienes no deseen ver el video dejare abajo la documentación creada por Huayra:&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/t-Mx2ZaPTP4?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;ul>
+&lt;li>
+&lt;p>En el escritorio hacé doble clic en el icono “Instalar Huayra GNU/Linux”.
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://huayra.educar.gob.ar/wp-content/uploads/2021/04/In_huayra.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>
+&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between">
+&lt;span class="fa fa-info fa-5x p-3">&lt;/span>
+&lt;p class="no-margin">NOTA IMPORTANTE: Algunas máquinas montan automáticamente el disco rígido, si en el escritorio aparece un ícono de una unidad de disco como el que se vé en la siguiente imagen marcado con un rectángulo rojo, necesitás “desmontar” la unidad para una correcta instalación.&lt;/p>
+&lt;/div>
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/sfbYZDv7/image.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>
+&lt;strong>Para desmontar la unidad tenés que hacer clic derecho sobre el ícono -&amp;gt; desmontar. Listo, ahora si podés continuar con la instalación haciendo clic en “Instalar Huayra GNU/Linux”.&lt;/strong>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Cuando inicia el instalador elegí el idioma y luego &lt;strong>Siguiente&lt;/strong>.
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://huayra.educar.gob.ar/wp-content/uploads/2021/04/Calamares.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Seleccioná tu ubicación y luego &lt;strong>Siguiente&lt;/strong>.
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://huayra.educar.gob.ar/wp-content/uploads/2021/04/3Ubicacion.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>En la configuración de teclado seleccioná “Spanish (Latin American)”.
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://huayra.educar.gob.ar/wp-content/uploads/2021/04/Teclado.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Ahora debemos elegir dónde instalaremos Huayra 5.
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://huayra.educar.gob.ar/wp-content/uploads/2021/04/Particiones.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>
+Podemos reemplazar una partición anterior de Linux, instalar junto a otro sistema operativo o elegir la opción: “Borrar disco (recomendada)”. Con esta opción el instalador va a crear todas las particiones necesarias para crear una instalación “limpia”.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Creá tu usuario y elegí una contraseña.
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://huayra.educar.gob.ar/wp-content/uploads/2021/04/Users.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>
+En “Resumen” aparecen todas la opciones que elegiste. Si todo está correcto presioná &lt;strong>Instalar&lt;/strong>.
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://huayra.educar.gob.ar/wp-content/uploads/2021/04/Resumen.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Comenzará el proceso de instalación automáticamente.
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://huayra.educar.gob.ar/wp-content/uploads/2021/04/Install.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Después de unos minutos, aparecerá un mensaje que te avisará que Huayra 5 se ha instalado con éxito. Reiniciá o pulsá “Hecho”
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://huayra.educar.gob.ar/wp-content/uploads/2021/04/finalizar.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>
+¡Listo! Ya podés usar Huayra GNU/Linux en tu equipo.&lt;/p>
+&lt;/li>
+&lt;/ul></description></item><item><title>Webservice NodeJS y MariaDB 6 - ABM en nuestra DB vía API</title><link>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-6-abm-en-nuestra-db-v%C3%ADa-api/</link><pubDate>Mon, 16 Aug 2021 10:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-6-abm-en-nuestra-db-v%C3%ADa-api/</guid><description>&lt;p>Como última instancia vamos a terminar el ABM de nuestro webservice para poder controlar completamente la base de datos desde la API. Recordemos que esto es completamente extensible y que incluso puedo agregar querys con joins y demás.&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/KMeGAYhoYi4?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;p>Así mismo, como siempre, dejo a continuación el código utilizado en el video, no con el fin de ser copiado (aunque esto es posible) Sino más bien como referencia para que construyan su propio código&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="nx">router&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">route&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/user/add&amp;#39;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nx">post&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kr">async&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">req&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">res&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kr">await&lt;/span> &lt;span class="nx">DBConnector&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">queryWithParams&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s1">&amp;#39;INSERT INTO usuarios(dni, nombre, apellido, email) VALUES(?,?,?,?)&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">[&lt;/span>&lt;span class="nx">req&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">body&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">dni&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">req&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">body&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">nombre&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">req&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">body&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">apellido&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">req&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">body&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">email&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">res&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">json&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">result&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">router&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">route&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/user/delete/:id&amp;#39;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nx">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kr">async&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">req&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">res&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kr">await&lt;/span> &lt;span class="nx">DBConnector&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">queryWithParams&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s1">&amp;#39;DELETE FROM usuarios WHERE id=?&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">[&lt;/span>&lt;span class="nx">req&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">params&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">res&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">json&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">result&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">router&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">route&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/user/update&amp;#39;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nx">post&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kr">async&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">req&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">res&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kr">await&lt;/span> &lt;span class="nx">DBConnector&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">queryWithParams&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s1">&amp;#39;UPDATE usuarios SET nombre=?, apellido=?, email=? WHERE ID=?&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">[&lt;/span>&lt;span class="nx">req&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">body&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">nombre&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">req&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">body&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">apellido&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">req&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">body&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">email&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">req&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">body&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">res&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">json&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">result&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Si te necesitas que te demos una mano o tienes alguna duda, podes encontrarnos en la comunidad de Telegram donde con mucha alegría te vamos a estar ayudando.&lt;/p>
+&lt;p>&lt;a href="https://t.me/PatoJADCommunity" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fab fa-telegram">&lt;/i>&amp;nbsp;
+Grupo de Telegram
+&lt;/a>&lt;/p>
+&lt;p>Si te sirvio no te olvides de apoyar. Compartir, una suscripción o un like no cuestan nada pero valen mucho&amp;hellip;&lt;/p>
+&lt;hr>
+&lt;p>Si sentís que el curso te sirvió y, queres apoyar aún más que con tu subscribirse al canal de youtube y en las redes sociales o simplemente quieres certificar puedes encontrarlo en Udemy. Lamentablemente no me permite ponerle menos precio, pero si te interesa el certificado no te olvides de seguirnos que vamos a estar ofreciendo gratis para que todos los que lo deseen puedan certificar.&lt;/p>
+&lt;p>&lt;a href="https://www.udemy.com/course/patojad-webservice-nodejs-y-mariadb/?referralCode=817BCD02D2C08DEC01DE" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+Curso en Udemy
+&lt;/a>&lt;/p></description></item><item><title>Webservice NodeJS y MariaDB 5 - Accediendo a Nuestra DB mediante la API</title><link>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-5-accediendo-a-nuestra-db-mediante-la-api/</link><pubDate>Thu, 12 Aug 2021 10:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-5-accediendo-a-nuestra-db-mediante-la-api/</guid><description>&lt;p>Ya teniendo nuestra API levantada vamos a empezar a interactuar con nuestra base de datos y responderlo mediante la API. En este punto podemos ver que ya esto es extremadamente extensible como para proyectar mucho más grande.&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/AAjfynGFUuE?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;p>Dejo a continuación el código utilizado en el Video. Recuerden que se puede copiar con facilidad y ante cualquier duda podes encontrarnos en el grupo de telegram:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="nx">router&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">route&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/users&amp;#39;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nx">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kr">async&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">req&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">res&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kr">await&lt;/span> &lt;span class="nx">DBConnector&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">query&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;SELECT * FROM usuarios&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">res&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">json&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">result&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">router&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">route&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/user/:id&amp;#39;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nx">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kr">async&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">req&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">res&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kr">await&lt;/span> &lt;span class="nx">DBConnector&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">queryWithParams&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s1">&amp;#39;SELECT * FROM usuarios WHERE id=?&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">[&lt;/span>&lt;span class="nx">req&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">params&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">res&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">json&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">result&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;a href="https://t.me/PatoJADCommunity" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fab fa-telegram">&lt;/i>&amp;nbsp;
+Unite a nuestra comunidad
+&lt;/a>&lt;/p>
+&lt;p>Si te sirvio no te olvides de apoyar. Compartir, una suscripción o un like no cuestan nada pero valen mucho&amp;hellip;&lt;/p></description></item><item><title>Webservice NodeJS y MariaDB 4 - Levantando API con Express</title><link>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-4-levantando-api-con-express/</link><pubDate>Mon, 09 Aug 2021 10:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-4-levantando-api-con-express/</guid><description>&lt;p>Ya estamos preparando lo último, aunque pueden ver que ya está todo bastante encaminado. En esta oportunidad vamos a dejar la API levantada para poder generar nuestras llamadas. Este paso es importante chequear que funciona correctamente para evitar cualquier problema posterior.&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/kV42bjGdsLQ?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;p>Dejo a continuación el código utilizado en el video, recuerden que la explicación del video sirve para comprender cada parte y luego poder configurarlo a gusto dependiendo de las necesidades. Si bien el curso es básico, dispone del contenido necesario para levantar una api Completa.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// Importro requerimientos
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="kr">const&lt;/span> &lt;span class="nx">express&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">require&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;express&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">const&lt;/span> &lt;span class="nx">cors&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">require&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;cors&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">const&lt;/span> &lt;span class="nx">bodyParser&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">require&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;body-parser&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// Inicializo las apps
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="kr">const&lt;/span> &lt;span class="nx">app&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">express&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">const&lt;/span> &lt;span class="nx">router&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">express&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Router&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// Seteo Puerto
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="kr">const&lt;/span> &lt;span class="nx">port&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">process&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">env&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">PORT&lt;/span> &lt;span class="o">||&lt;/span> &lt;span class="mi">8484&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// Preparo el APP
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nx">app&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">use&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">bodyParser&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">urlencoded&lt;/span>&lt;span class="p">({&lt;/span> &lt;span class="nx">extended&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">true&lt;/span> &lt;span class="p">}));&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">app&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">use&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">bodyParser&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">json&lt;/span>&lt;span class="p">());&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">app&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">use&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">cors&lt;/span>&lt;span class="p">());&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// Seteo Ruta principal
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nx">app&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">use&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">router&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// Configuro Rutas
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nx">router&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">route&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/&amp;#39;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nx">get&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="nx">req&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">res&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">res&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">json&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Nuesta API esta Funcionando&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// Inicio la APP
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nx">app&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">listen&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">port&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// Muestro Puero en consola
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Inicio en el puero &amp;#39;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="nx">port&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Webservice NodeJS y MariaDB 3 - Conector MariaDB en NodeJS</title><link>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-3-conector-mariadb-en-nodejs/</link><pubDate>Thu, 05 Aug 2021 10:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-3-conector-mariadb-en-nodejs/</guid><description>&lt;p>Ya teniendo todo preparado vamos a crear nuestro conector entre NodeJS y Mariadb para poder realizar las consultas o Querys para obtener, modificar o actualizar datos&amp;hellip;&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/2P3jkH-HaKY?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;p>Dejo a continuación el código correcto del objeto que creamos para poder manipular las consultas.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">const&lt;/span> &lt;span class="nx">mariadb&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">require&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;mariadb&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">const&lt;/span> &lt;span class="nx">config&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">host&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;localhost&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">user&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;testwebserveruser&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">password&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;testwebserverpass&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">database&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;webserverdb&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">connectionLimit&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">acquireTimeout&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">300&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">};&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">class&lt;/span> &lt;span class="nx">DBConnector&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">dbconnector&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">mariadb&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">createPool&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">config&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">async&lt;/span> &lt;span class="nx">query&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">sQuery&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kd">var&lt;/span> &lt;span class="nx">conn&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kr">await&lt;/span> &lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">dbconnector&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">getConnection&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kd">var&lt;/span> &lt;span class="nx">ret&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kc">null&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">await&lt;/span> &lt;span class="nx">conn&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="nx">query&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">sQuery&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="nx">then&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="nx">data&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">ret&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">data&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">conn&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">end&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">})&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="k">catch&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="nx">err&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">err&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">conn&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">end&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="nx">ret&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">module&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">exports&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="k">new&lt;/span> &lt;span class="nx">DBConnector&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Webservice NodeJS y MariaDB 2 - Creando Base de Datos e iniciando Proyecto</title><link>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-2-creando-base-de-datos-e-iniciando-proyecto/</link><pubDate>Mon, 02 Aug 2021 10:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-2-creando-base-de-datos-e-iniciando-proyecto/</guid><description>&lt;p>Sabiendo que ya tenemos instalado lo necesario vamos a preparar nuestro entorno creando la base de datos y subiendo los datos que necesitamos:&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/BllyitZzO0g?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;p>Dejo a continuación el script que utilizamos:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="cm">/* CREADO POR https://patojad.com.ar/ */&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="cm">/* Creo Base de Datos para el WebServer */&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">CREATE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">DATABASE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">`&lt;/span>&lt;span class="n">webserverdb&lt;/span>&lt;span class="o">`&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="cm">/* Creo el usuario para esta prueba publica */&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">CREATE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">USER&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;testwebserveruser&amp;#39;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">IDENTIFIED&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">BY&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;testwebserverpass&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="cm">/* Le concedo permisos para conectarse */&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">GRANT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">USAGE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">ON&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">TO&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;testwebserveruser&amp;#39;&lt;/span>&lt;span class="o">@&lt;/span>&lt;span class="n">localhost&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">IDENTIFIED&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">BY&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;testwebserverpass&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="cm">/* GRANT USAGE ON *.* TO &amp;#39;testwebserveruser&amp;#39;@&amp;#39;%&amp;#39; IDENTIFIED BY &amp;#39;testwebserverpass&amp;#39;; // Esto se usar en caso de que se requiera acceder fuera del localhost */&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="cm">/* Se le da acceso al usuario a la Base de Datos */&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">GRANT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">ALL&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">privileges&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">ON&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">`&lt;/span>&lt;span class="n">webserverdb&lt;/span>&lt;span class="o">`&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">TO&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;testwebserveruser&amp;#39;&lt;/span>&lt;span class="o">@&lt;/span>&lt;span class="n">localhost&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="cm">/* Aplico los cambios */&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">FLUSH&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">PRIVILEGES&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="cm">/* Selecciono la Base de Datos */&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">USE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">webserverdb&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="cm">/* Creo trabla para las pruebas */&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">CREATE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">TABLE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">usuarios&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">id&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">BIGINT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">UNSIGNED&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">AUTO_INCREMENT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">PRIMARY&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">KEY&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="cm">/* ID auto incrementable seteado como primary key*/&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">dni&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">VARCHAR&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">20&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">UNIQUE&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="cm">/* Seteo DNI como unico */&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">nombre&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">VARCHAR&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">100&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">apellido&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">VARCHAR&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">100&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">email&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nb">VARCHAR&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">100&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="cm">/* Inserto datos en la Tabla para realizar las pruebas */&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">INSERT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">INTO&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">usuarios&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">dni&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">nombre&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">apellido&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">email&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">VALUES&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;39493125&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;Joaquin&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;Decima&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;joaquin.decima@gmail.com&amp;#39;&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;39423029&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;Pato&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;Decima&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;patojad96@gmail.com&amp;#39;&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;11658488&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;Julio&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;Gnome&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;aguante@gnome.com&amp;#39;&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;09547684&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;Daniel&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;Pancram&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;pancram@linuxitos.com&amp;#39;&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;17685998&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;Pipe&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;Garcia&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;pipe@amomint.com&amp;#39;&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;107685998&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;Issac&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;Garcia&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;elgran@issac.garcia&amp;#39;&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;16587958&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;LPI&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;MilagrOS&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s1">&amp;#39;lpi@milagros.com&amp;#39;&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;36584929&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;Nico&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;Loco&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;nico@locosporlinux.com&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="cm">/* Muestro los datos */&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">SELECT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">FROM&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">usuarios&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="cm">/* CREADO POR https://patojad.com.ar/ */&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>En caso de necesitar purgar la Base de Datos o limpiar todo, pueden correr el siguiente script que se encarga de limpiar la DB&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="cm">/* EN CASO DE QUERER LIMPIAR LA BASE DE DATOS USAR LO SIGUIENTE */&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">USE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">webserverdb&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">DROP&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">TABLE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">usuarios&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">DROP&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">DATABASE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">webserverdb&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">DROP&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">USER&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;testwebserveruser&amp;#39;&lt;/span>&lt;span class="o">@&lt;/span>&lt;span class="s1">&amp;#39;localhost&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">DROP&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">USER&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;testwebserveruser&amp;#39;&lt;/span>&lt;span class="o">@&lt;/span>&lt;span class="s1">&amp;#39;%&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Webservice NodeJS y MariaDB 1 - Instalacion de NodeJS NPM y MariaDB</title><link>https://patojad.com.ar/post/2021/07/webservice-nodejs-y-mariadb-1-instalacion-de-nodejs-npm-y-mariadb/</link><pubDate>Thu, 29 Jul 2021 09:50:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/07/webservice-nodejs-y-mariadb-1-instalacion-de-nodejs-npm-y-mariadb/</guid><description>&lt;p>En esta primera etapa del curso vamos a instalar las dependencias necesarias para poder realizar el curso. En mi caso estoy usando una distribución basada en arch, pero en caso de que dispongan de otra distribucion voy a dejar la documentación de como instalar las dependencias&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/qWyRs1Zlevk?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="ubuntu">
+Ubuntu
+&lt;a href="#ubuntu" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt update &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> sudo apt install -y build-essential
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">curl -fsSL https://deb.nodesource.com/setup_16.x &lt;span class="p">|&lt;/span> sudo -E bash -
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install -y nodejs mariadb
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="rhel">
+RHEL
+&lt;a href="#rhel" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo yum install gcc-c++ make mariadb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">curl -fsSL https://rpm.nodesource.com/setup_16.x &lt;span class="p">|&lt;/span> sudo bash -
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="arch-linux-y-derivadas">
+Arch Linux y derivadas
+&lt;a href="#arch-linux-y-derivadas" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Los paquetes para Node.js y npm están disponibles en el repositorio de la Comunidad.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">pacman -S nodejs npm mariadb
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="gentoo">
+Gentoo
+&lt;a href="#gentoo" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Node.js está disponible en portage.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">emerge nodejs mariadb
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="void-linux">
+Void Linux
+&lt;a href="#void-linux" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Void Linux incluye la versión estable de Node.js en el repositorio principal.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">xbps-install -Sy nodejs mariadb
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="snap-no-recomendado">
+SNAP (No recomendado)
+&lt;a href="#snap-no-recomendado" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo snap install node --classic --channel&lt;span class="o">=&lt;/span>&lt;span class="m">8&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="chequear-las-instalaciones">
+Chequear las instalaciones
+&lt;a href="#chequear-las-instalaciones" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>para poder chequear las instalaciones debemos correr el siguiente comando que nos retornara las versiones de npm nodejs y mariadb:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">npm --version &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> node --version &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> mariadb --version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Manjaro WebDad</title><link>https://patojad.com.ar/post/2021/02/manjaro-webdad/</link><pubDate>Fri, 26 Feb 2021 08:53:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/02/manjaro-webdad/</guid><description>&lt;p>Hace ya un tiempo di mi opinión sobre &lt;a href="https://patojad.com.ar/instalaciones/2020/11/ubuntu-web-remix/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Ubuntu web
+&lt;/a>, y en los recientes días, con el aumento del uso de ChromeOS parece ser que esta distro es una excelente idea. Sin embargo, por otro camino diferente existe un joven que desarrolló un escritorio que lo podríamos definir como &amp;ldquo;Lo que Ubuntu Web no pudo&amp;rdquo; dado que es aún más embebible con esta idea.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="manjaro-webdad">
+Manjaro WebDad
+&lt;a href="#manjaro-webdad" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Vamos a hablar de este sabor de manjaro que viene con el escritorio JADE. En particular no voy a extenderme con las novedades de su escritorio, dado que ya mucho lo hicieron en youtube. Pero si quiero plantar lo que puede llegar a significar este tipo de cambio y perspectiva.&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/jGdmbYL3JB4?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;p>Como prometí en el video voy a dejar algunos datos sobre la distro que pueden llegar a ser muy interesantes.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="su-propio-launcher">
+Su propio launcher
+&lt;a href="#su-propio-launcher" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://raw.githubusercontent.com/codesardine/Jadesktop/master/jade.jpg" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>JADE nos ofrece un launcher que corre nativamente en su desktop, el mismo es &lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+HTML
+&lt;/a> y es realmente muy fluido y no consume tantos recursos como, por ejemplo, &lt;a href="https://patojad.com.ar/aplicaciones/2020/05/ulauncher/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+ulanucher
+&lt;/a> o &lt;a href="https://patojad.com.ar/aplicaciones/2020/05/cerebro/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+cerebro
+&lt;/a> que son dos grandes launchers.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="fondos-en-movimiento">
+Fondos en movimiento
+&lt;a href="#fondos-en-movimiento" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Adicional a esto también nos ofrece los tan populares fondos en movimiento que muchos agregan con apps como Komorebi. Pero nuevamente lo hace desde una etiqueta &lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+HTML
+&lt;/a> lo cual es mucho menos costoso que desarrollar una app que lo haga.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="altamente-personalizable">
+Altamente personalizable.
+&lt;a href="#altamente-personalizable" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/MGMv0q6W/Captura-de-pantalla-de-2020-11-20-15-52-06.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Este Escritorio, al estar desarrollado en &lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+HTML
+&lt;/a> (En lo que a su interfaz respecta) permitiría que cualquiera con un buen conocimiento en este lenguaje de etiquetas lo personalice al máximo obteniendo increíbles resultados&lt;/p></description></item><item><title>Guia para instalar Arch</title><link>https://patojad.com.ar/post/2020/10/guia-para-instalar-arch/</link><pubDate>Tue, 13 Oct 2020 10:46:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/10/guia-para-instalar-arch/</guid><description>&lt;p>Siempre hablamos de esta distribución tan maravillosa y en esta oportunidad vamos a aprovechar que un usuario nos dejó una guía tan específica y tan perfecta que vamos a proceder con la instalación de Arch linux. Con esta guía solo basta seguir paso a paso.&lt;/p>
+&lt;h4 class="text-gray-500 text-3xl my-6" id="atención-esta-guia-solo-sirve-para-instalarlo-sobre-disco-duro-y-no-sobre-ssd">
+Atención esta guia solo sirve para instalarlo sobre Disco Duro y no sobre SSD
+&lt;a href="#atenci%c3%b3n-esta-guia-solo-sirve-para-instalarlo-sobre-disco-duro-y-no-sobre-ssd" class="text-gray-500">#&lt;/a>
+&lt;/h4>&lt;h2 class="text-amber-500 text-3xl my-6" id="preparando-el-equipo">
+Preparando el equipo
+&lt;a href="#preparando-el-equipo" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Una vez que hayamos booteado nuestro prendive con Arch linux vamos a poner nuestro teclado en español de la siguiente forma:&lt;/p>
+&lt;pre>&lt;code>loadkeys la-latin1
+&lt;/code>&lt;/pre>
+&lt;p>Teniendo el teclado en español ya podemos digitar sin mayores problemas por lo cual podemos proceder a conectarnos a internet siguiendo estos pasos si usaras WiFi en vez de cable.&lt;/p>
+&lt;pre>&lt;code>iwctl
+device list
+station wlan0 scan
+station wlan0 get-networks
+station wlan0 connect [&amp;quot;Nombre_de_la_Red&amp;quot;] PassDelWiFi
+exit
+&lt;/code>&lt;/pre>
+&lt;p>En este caso la wlan0 era la que me correspondía, si te sale otro número que no sea 0 solo cambialo por el que te sale por ejemplo wlan1. Para comprobar si ya tienes conexión activada&lt;/p>
+&lt;pre>&lt;code>ping patojad.com.ar
+&lt;/code>&lt;/pre>
+&lt;p>Presiona las teclas Ctrl+C para parar el ping si todo funciona ok, en caso contrario debemos revisar el paso anterior. Antes de preparar el disco debemos identificar si realmente tenemos UEFI o BIOS (si es que no lo sabemos de antemano) esto podemos verlo de la siguiente manera:&lt;/p>
+&lt;pre>&lt;code>ls /sys/firmware/efi/efivars
+&lt;/code>&lt;/pre>
+&lt;p>Si te aparece una lista con varios identificadores es porque estás utilizando un ordenador UEFI y debes saltar hasta la parte de Preparando el Disco UEFI&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="preparando-el-disco-bios">
+Preparando el Disco BIOS
+&lt;a href="#preparando-el-disco-bios" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Para particionar el disco basta con ingresar a la herramienta de terminal que nos permite particionarlo y eso podemos hacerlo de la siguiente forma&lt;/p>
+&lt;pre>&lt;code>cfdisk
+&lt;/code>&lt;/pre>
+&lt;p>Seleccionar &lt;strong>DOS&lt;/strong> para crear una tabla de particiones para &lt;strong>BIOS&lt;/strong>. A continuación te dejo en detalle una de las formas recomendadas. Desde el expertise de cada uno sabe que puede omitir el home o el swap. Si no entendes mucho de las particiones te recomiendo la siguiente configuración&lt;/p>
+&lt;pre>&lt;code>sda1 /boot 512M
+sda2 /swap 4-6G | Vas a la opción Type y la marcas &amp;quot;Linux Swap&amp;quot;
+sda3 /root 30-60G
+sda4 /home |Lo que sobre
+&lt;/code>&lt;/pre>
+&lt;p>Write para escribir cambios en el disco y quit para salir. Luego te recomiendo listar los discos duros y sus particiones, es para asegurarte que todo haya salido bien en el particionado&lt;/p>
+&lt;pre>&lt;code>fdisk -l
+&lt;/code>&lt;/pre>
+&lt;p>Si todo lo anterior salió correctamente es hora de formatear las particiones para poder usarlas y eso lo vamos a hacer de la siguiente manera (Este paso puede variar si no particionaste como recomendamos en el paso anterior)&lt;/p>
+&lt;pre>&lt;code>mkfs.ext2 /dev/sda1 ; mkfs.ext4 /dev/sda3 ; mkfs.ext4 /dev/sda4 ; mkswap /dev/sda2
+&lt;/code>&lt;/pre>
+&lt;p>Puedes hacerlo 1 por 1 también si te sientes más cómodo. Una vez formateados nos toca montar las particiones y swap:&lt;/p>
+&lt;pre>&lt;code>mount /dev/sda3 /mnt ; mkdir /mnt/boot ; mount /dev/sda1 /mnt/boot ; mkdir /mnt/home ; mount /dev/sda4 /mnt/home ; mkswap /dev/sda2
+&lt;/code>&lt;/pre>
+&lt;p>Luego de esto escribes &amp;ldquo;swapon&amp;rdquo; para encender la swap. Puedes hacerlo 1 por 1 también si es que es más cómodo.&lt;/p>
+&lt;pre>&lt;code>swapon
+&lt;/code>&lt;/pre>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="preparando-el-disco-uefi">
+Preparando el Disco &lt;strong>UEFI&lt;/strong>
+&lt;a href="#preparando-el-disco-uefi" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Primero utilizamos el siguiente comando:&lt;/p>
+&lt;pre>&lt;code>fdisk /dev/sda
+&lt;/code>&lt;/pre>
+&lt;p>A eso lo continuas escribiendo g luego w y q para salir. Seleccionar &lt;strong>GPT&lt;/strong> para crear una tabla de particiones para &lt;strong>UEFI&lt;/strong>. A continuación te dejo en detalle una de las formas recomendadas. Desde el expertise de cada uno sabe que puede omitir el home o el swap. Si no entendes mucho de las particiones te recomiendo la siguiente configuración&lt;/p>
+&lt;pre>&lt;code>sda1 /boot/efi 512M | La marcamos bootable | Luego vamos a Type y la marcamos &amp;quot;EFI System&amp;quot;
+sda2 /swap 4-6G | Vas a la opción Type y la marcas &amp;quot;Linux Swap&amp;quot;
+sda3 /root 30-60G
+sda4 /home |Lo que sobre
+&lt;/code>&lt;/pre>
+&lt;p>Write para escribir cambios en el disco y quit para salir. Luego te recomiendo listar los discos duros y sus particiones, es para asegurarte que todo haya salido bien en el particionado&lt;/p>
+&lt;pre>&lt;code>fdisk -l
+&lt;/code>&lt;/pre>
+&lt;p>Si todo lo anterior salió correctamente es hora de formatear las particiones para poder usarlas y eso lo vamos a hacer de la siguiente manera (Este paso puede variar si no particionaste como recomendamos en el paso anterior)&lt;/p>
+&lt;pre>&lt;code>mkfs.vfat -F32 /dev/sda1 ; mkfs.ext4 /dev/sda3 ; mkfs.ext4 /dev/sda4 ; mkswap /dev/sda2
+&lt;/code>&lt;/pre>
+&lt;p>Puedes hacerlo 1 por 1 también si te sientes más cómodo. Una vez formateados nos toca montar las particiones y swap:&lt;/p>
+&lt;pre>&lt;code>mount /dev/sda3 /mnt ; mkdir /mnt/boot/efi ; mount /dev/sda1 /mnt/boot/efi ; mkdir /mnt/home ; mount /dev/sda4 /mnt/home ; swapon /dev/sda2
+&lt;/code>&lt;/pre>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalación-del-sistema-bios">
+Instalación del Sistema BIOS
+&lt;a href="#instalaci%c3%b3n-del-sistema-bios" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Una vez que ya tengamos nuestras particiones funcionando de 10 debemos instalar el sistema y para eso vamos a hacerlo con el siguiente comando en el caso de que nuestro equipo sea &lt;strong>BIOS&lt;/strong>&lt;/p>
+&lt;pre>&lt;code>pacstrap /mnt base linux-lts linux-firmware linux-lts-headers grub networkmanager network-manager-applet netctl wireless_tools iw wpa_supplicant nano xdg-user-dirs dhcpcd base-devel xterm sudo
+&lt;/code>&lt;/pre>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalación-del-sistema-uefi">
+Instalación del Sistema UEFI
+&lt;a href="#instalaci%c3%b3n-del-sistema-uefi" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Una vez que ya tengamos nuestras particiones funcionando de 10 debemos instalar el sistema y para eso vamos a hacerlo con el siguiente comando en el caso de que nuestro equipo sea &lt;strong>UEFI&lt;/strong>&lt;/p>
+&lt;pre>&lt;code>pacstrap /mnt base linux-lts linux-firmware linux-lts-headers grub networkmanager network-manager-applet netctl wireless_tools iw wpa_supplicant nano xdg-user-dirs dhcpcd base-devel sudo xterm efibootmgr
+&lt;/code>&lt;/pre>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="configuraciones-varias">
+Configuraciones Varias
+&lt;a href="#configuraciones-varias" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Ahora llega una parte que vamos a realizar algunas configuraciones varias, esto aplica tanto a UEFI como a BIOS y se realizan de la misma manera. Lo primero que vamos a realizar es descomentar multilib e Include para esto vamos a usar nano de la siguiente manera:&lt;/p>
+&lt;pre>&lt;code>nano /mnt/etc/pacman.conf
+&lt;/code>&lt;/pre>
+&lt;p>Presionar crtl+w | escribir multilib y descomentar ambas líneas. Para poder hacer uso del multilib&lt;/p>
+&lt;pre>&lt;code>[multilib]
+Include = /etc/pacman.de/mirrorlist
+&lt;/code>&lt;/pre>
+&lt;p>A continuación vamos a generar fstab de la siguiente manera&lt;/p>
+&lt;pre>&lt;code>genfstab -U /mnt &amp;gt;&amp;gt; /mnt/etc/fstab
+&lt;/code>&lt;/pre>
+&lt;p>No tenemos que olvidarnos de cambiar root al nuevo sistema con este simple comando&lt;/p>
+&lt;pre>&lt;code>arch-chroot /mnt
+&lt;/code>&lt;/pre>
+&lt;p>Y por último procedemos con unas configuraciones varias en lo que respecta a locacion, hostname etc&amp;hellip;&lt;/p>
+&lt;pre>&lt;code>ln -sf usr/share/zoneinfo/TuContinente/TuPais_o_Capital /etc/localtime
+hwclock -w
+nano /etc/locale.gen | crt+w escribir do | desmarcar #es_DO.UTF-8
+locale-gen
+echo CualquierNombre &amp;gt; /etc/hostname
+echo KEYMAP=es &amp;gt; /etc/vconsole.conf
+echo LANG=es_DO.UTF-8 &amp;gt; /etc/locale.conf
+&lt;/code>&lt;/pre>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalación-del-grub-en-bios">
+Instalación del GRUB en BIOS
+&lt;a href="#instalaci%c3%b3n-del-grub-en-bios" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Es importante instalar nuestro cargador de arranque para poder iniciar el sistema y esto lo podemos hacer con 2 simples comandos para &lt;strong>BIOS&lt;/strong>&lt;/p>
+&lt;pre>&lt;code>grub-install /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg
+&lt;/code>&lt;/pre>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalación-del-grub-en-uefi">
+Instalación del GRUB en UEFI
+&lt;a href="#instalaci%c3%b3n-del-grub-en-uefi" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>En el caso de estar en &lt;strong>UEFI&lt;/strong> la instalación del cargador de arranque se realiza con los siguientes comandos:&lt;/p>
+&lt;pre>&lt;code>grub-install --efi-directory=/boot/efi --bootloader-id='Arch Linux' --target=x86_64-efi
+grub-mkconfig -o /boot/grub/grub.cfg
+&lt;/code>&lt;/pre>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="configurando-el-usuario-y-el-sistema">
+Configurando el usuario y el sistema
+&lt;a href="#configurando-el-usuario-y-el-sistema" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Una vez instalado el GRUB podemos proceder a configurar los usuarios y el resto del sistema, para esto iniciamos configurando la contraseña root de la siguiente manera:&lt;/p>
+&lt;pre>&lt;code>passwd
+&lt;/code>&lt;/pre>
+&lt;p>Una vez configurada la contraseña podemos configurar ya el usuario y contraseña que vamos a utilizar:&lt;/p>
+&lt;pre>&lt;code>useradd -mUG wheel [tu usuario]
+passwd [tu usuario]
+&lt;/code>&lt;/pre>
+&lt;p>Ahora sí ya podemos apagar todo y reiniciar para poder seguir con el sistema ya instalado!&lt;/p>
+&lt;pre>&lt;code>exit
+reboot
+&lt;/code>&lt;/pre>
+&lt;p>Una vez que haya reiniciado con éxito y estemos de nuevo en nuestro sistema vamos a configurar usuario sudoers de la siguiente forma (para esto debemos logearnos como root con su y la contraseña)&lt;/p>
+&lt;pre>&lt;code>EDITOR=nano visudo
+&lt;/code>&lt;/pre>
+&lt;p>Ctrl+w | escribir: %wheel para buscar y luego procedemos a descomentar # %wheel. Ya habiendo configurado eso podemos proceder a activar internet de la siguiente manera:&lt;/p>
+&lt;pre>&lt;code>systemctl enable NetworkManager
+systemctl start NetworkManager.service
+&lt;/code>&lt;/pre>
+&lt;p>Si usaste wifi en vez de cable escribe para obtener la lista de dispositivos y poder realizar la coneccion:&lt;/p>
+&lt;pre>&lt;code>ip link
+&lt;/code>&lt;/pre>
+&lt;p>Una vez que identifiquemos la placa wifi la usamos de la siguiente forma&lt;/p>
+&lt;pre>&lt;code>ip link set wlo1 up
+&lt;/code>&lt;/pre>
+&lt;p>Con ese comando ya estaria prendida la placa WiFi y podemos conectarnos de la siguiente forma:&lt;/p>
+&lt;pre>&lt;code>nmcli dev wifi connect PatoJADWiFi password p4t0j4d
+&lt;/code>&lt;/pre>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalación-del-servidor-gráfico-y-driver-de-tu-gráfica">
+Instalación del servidor gráfico y driver de tu gráfica
+&lt;a href="#instalaci%c3%b3n-del-servidor-gr%c3%a1fico-y-driver-de-tu-gr%c3%a1fica" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Vamos a instalar nuestra servidor gráfico y placa, para esto vamos a dividirlo dependiendo de nuestra placa de video&lt;/p>
+&lt;h4 class="text-gray-500 text-3xl my-6" id="intel">
+Intel
+&lt;a href="#intel" class="text-gray-500">#&lt;/a>
+&lt;/h4>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://hardzone.es/app/uploads-hardzone.es/2019/09/Intel-Cascade-Lake-X-intro.jpg" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;pre>&lt;code>sudo pacman -Syyu xf86-video-intel mesa-demos intel-ucode xorg pavucontrol pulseaudio
+&lt;/code>&lt;/pre>
+&lt;h4 class="text-gray-500 text-3xl my-6" id="nvdia">
+Nvdia
+&lt;a href="#nvdia" class="text-gray-500">#&lt;/a>
+&lt;/h4>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://hardzone.es/app/uploads-hardzone.es/2020/04/NVIDIA-Hotfix.jpg" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;pre>&lt;code>sudo pacman -Syyu xf86-video-nouveau mesa-demos mesa-libgl xorg pavucontrol pulseaudio
+&lt;/code>&lt;/pre>
+&lt;h4 class="text-gray-500 text-3xl my-6" id="amd">
+AMD
+&lt;a href="#amd" class="text-gray-500">#&lt;/a>
+&lt;/h4>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://hardzone.es/app/uploads-hardzone.es/2020/03/AMD-Ryzen-9.jpg" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;pre>&lt;code>sudo pacman -Syyu xf86-video-amdgpu mesa-vdpau mesa-demos xorg pavucontrol pulseaudio
+&lt;/code>&lt;/pre>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalación-del-escritorio-y-sus-utilidades">
+Instalación del escritorio y sus utilidades
+&lt;a href="#instalaci%c3%b3n-del-escritorio-y-sus-utilidades" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>A continuación vamos a ver la instalación de los escritorios disponibles y sus utilidades te recomendamos escoger el que más te guste:&lt;/p>
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-xfce4">
+Instalar XFCE4
+&lt;a href="#instalar-xfce4" class="text-gray-500">#&lt;/a>
+&lt;/h4>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://docs.xfce.org/_media/xfce/4.12/slider-desktop.jpg" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>290MiB/RAM aproximadamente, un escritorio muy ligero y bastante personalizable&lt;/p>
+&lt;pre>&lt;code>pacman -S xfce4 xfce4-goodies network-manager-applet
+pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+pacman -S light-locker accountsservice
+&lt;/code>&lt;/pre>
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-deepin">
+Instalar Deepin
+&lt;a href="#instalar-deepin" class="text-gray-500">#&lt;/a>
+&lt;/h4>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://www.deepin.org/wp-content/uploads/2020/04/01-1.jpg" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>590MiB/RAM aproximadamente, es un escritorio muy estético aunque el nivel de personalización es bastante bajo&lt;/p>
+&lt;pre>&lt;code>pacman -S deepin deepin-extra
+pacman -S lightdm deepin-session-ui
+pacman -S light-locker accountsservice
+&lt;/code>&lt;/pre>
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-budgie">
+Instalar Budgie
+&lt;a href="#instalar-budgie" class="text-gray-500">#&lt;/a>
+&lt;/h4>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Ubuntu-budgie-18.04-cat.png/1280px-Ubuntu-budgie-18.04-cat.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>460MiB/RAM aproximadamente, un escritorio maleable y muy buscado&lt;/p>
+&lt;pre>&lt;code>pacman -S budgie-desktop gnome gnome-shell gnome-extra gdm
+&lt;/code>&lt;/pre>
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-cinnamon">
+Instalar Cinnamon
+&lt;a href="#instalar-cinnamon" class="text-gray-500">#&lt;/a>
+&lt;/h4>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://erikdubois.be/wp-content/uploads/2017/01/arch-cinnamon-aureola-acros.jpg" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>450MiB/RAM aproximadamente, es un escritorio muy estético y fluido, con cada actualización este escritorio se renueva y nos soprende mas&lt;/p>
+&lt;pre>&lt;code>pacman -S cinnamon gdm
+&lt;/code>&lt;/pre>
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-enlightenment">
+Instalar Enlightenment
+&lt;a href="#instalar-enlightenment" class="text-gray-500">#&lt;/a>
+&lt;/h4>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.stack.imgur.com/FvoTq.jpg" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>149MiB/RAM aproximadamente, es un escritorio muy liviano y muy optimizado, altamente recomendado para equipos viejos&lt;/p>
+&lt;pre>&lt;code>pacman -S enlightenment terminology gnu-free-fonts
+pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+pacman -S light-locker accountsservice
+&lt;/code>&lt;/pre>
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-gnome">
+Instalar GNOME
+&lt;a href="#instalar-gnome" class="text-gray-500">#&lt;/a>
+&lt;/h4>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.redd.it/qeu6pls7v7w11.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>740MiB/RAM aproximadamente, es un escritorio muy maleable y bastante fluido (es uno de los escritorios con más precarga pero lo vale en la usabilidad) es el preferido de &lt;strong>Pipe&lt;/strong> y &lt;strong>Julio&lt;/strong>&lt;/p>
+&lt;pre>&lt;code>pacman -S gnome gnome-extra gdm
+&lt;/code>&lt;/pre>
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-gnomeflashback">
+Instalar GNOME/Flashback
+&lt;a href="#instalar-gnomeflashback" class="text-gray-500">#&lt;/a>
+&lt;/h4>&lt;p>![](&lt;a href="https://external-preview.redd.it/38qPd6ZJGLQXB2HtQ6iL2ZEvOw-Dsg0VM05FOTc8O7I.png?auto=webp&amp;amp;s=bab6f84634f388e1abc83e14c954f94fe34b150d%22" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://external-preview.redd.it/38qPd6ZJGLQXB2HtQ6iL2ZEvOw-Dsg0VM05FOTc8O7I.png?auto=webp&amp;s=bab6f84634f388e1abc83e14c954f94fe34b150d"
+&lt;/a> &amp;gt;}}&lt;/p>
+&lt;p>435MiB/RAM aproximadamente, el diseño del escritorio y la tecnología subyacente es similar a GNOME 2. No utiliza la aceleración 3D en absoluto, por lo que generalmente es más rápido y requiere menos CPU&lt;/p>
+&lt;pre>&lt;code>pacman -S gnome-flashback gnome gnome-applets sensors-applet gdm
+&lt;/code>&lt;/pre>
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-lxde--gtk3">
+Instalar LXDE — GTK3
+&lt;a href="#instalar-lxde--gtk3" class="text-gray-500">#&lt;/a>
+&lt;/h4>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://cdn.pling.com/img//hive/content-pre1/159897-1.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>175MiB/RAM aproximadamente, es un escritorio muy fluido y pueden lograrse estéticas únicas&lt;/p>
+&lt;pre>&lt;code>pacman -S lxde-gtk3 lxdm-gtk3 lxde-common
+&lt;/code>&lt;/pre>
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-lxqt">
+Instalar LXQt
+&lt;a href="#instalar-lxqt" class="text-gray-500">#&lt;/a>
+&lt;/h4>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://blog.desdelinux.net/wp-content/uploads/2014/05/lxqt-1.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>227MiB/RAM aproximadamente, es un escritorio fluido con un nivel de precarga bajo pero suficiente&lt;/p>
+&lt;pre>&lt;code>pacman -S lxqt sddm breeze-icons xdg-utils xscreensaver xautolock gnu-free-fonts
+&lt;/code>&lt;/pre>
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-lxde--gtk2">
+Instalar LXDE — GTK2
+&lt;a href="#instalar-lxde--gtk2" class="text-gray-500">#&lt;/a>
+&lt;/h4>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://blog.desdelinux.net/wp-content/uploads/2012/07/2012-07-17-194657_1440x900_scrot.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>170MiB/RAM aproximadamente, es la versión con GTK2 de lxde, en lo personal prefiero la versión con GTK3 pero eso va por cada uno.&lt;/p>
+&lt;pre>&lt;code>pacman -S lxde lxdm lxde-common
+&lt;/code>&lt;/pre>
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-mate">
+Instalar MATE
+&lt;a href="#instalar-mate" class="text-gray-500">#&lt;/a>
+&lt;/h4>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://fc06.deviantart.net/fs71/f/2012/150/f/9/archlinux_mate_29_05_12_by_chetaahmc-d51p82z.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>332MiB/RAM aproximadamente, es uno de los escritorios con mejor relación consumo oferta y realmente es uno de los que personalmente más me gusta.&lt;/p>
+&lt;pre>&lt;code>pacman -S mate mate-extra mate-media
+pacman -S mate-applet-dock mate-applet-streamer mate-power-manager
+pacman -S network-manager-applet system-config-printer
+&lt;/code>&lt;/pre>
+&lt;p>mate-extra &amp;gt; Paquete de programas para MATE (opcional)
+system-config-printer &amp;gt; Configuración de Impresoras (opcional)
+mate-power-manager &amp;gt; El backend UPower (opcional)&lt;/p>
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-sugar">
+Instalar Sugar
+&lt;a href="#instalar-sugar" class="text-gray-500">#&lt;/a>
+&lt;/h4>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://sugarlabs.org/assets/home-screenshot.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>260MiB/RAM aproximadamente, el escritorio pensado para niños (Si, no hay nada mejor que nuestro niño de 6 años use Arch, imaginense lo que va a ser a los 20) es ligero y pensado para ser muy simple de usar&lt;/p>
+&lt;pre>&lt;code>pacman -S sugar sugar-fructose sugar-runner network-manager-applet
+pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+pacman -S light-locker accountsservice
+&lt;/code>&lt;/pre>
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-kde-plasma">
+Instalar KDE Plasma
+&lt;a href="#instalar-kde-plasma" class="text-gray-500">#&lt;/a>
+&lt;/h4>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://arcolinuxd.com/wp-content/uploads/2018/06/archlinux-plasma-menu.jpg" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>700MiB/RAM aproximadamente, es un escritorio muy estético y personalizable, la precarga es baja pero en algunos casos puede ir aumentando en el uso.&lt;/p>
+&lt;pre>&lt;code>pacman -S plasma gnu-free-fonts ttf-hack kde-applications sddm
+&lt;/code>&lt;/pre>
+&lt;p>kde-applications &amp;gt; Paquete de programas para KDE (opcional)&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="iniciando-el-sistema">
+Iniciando el sistema
+&lt;a href="#iniciando-el-sistema" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Para entrar al sistema solo escribes&lt;/p>
+&lt;pre>&lt;code>systemctl enable lightdm|sddm|gdm
+&lt;/code>&lt;/pre>
+&lt;p>Depende de el escritorio que instales por ejemplo instalaste kde plasma entonces deberías poner&lt;/p>
+&lt;pre>&lt;code>systemctl enable sddm
+&lt;/code>&lt;/pre>
+&lt;p>Y luego para poder iniciarlo también depende del escritorio que instales por ejemplo con kde&lt;/p>
+&lt;pre>&lt;code>systemctl start sddm.service
+&lt;/code>&lt;/pre>
+&lt;p>Deberías cambiar en ambos casos a sddm por el gestor de sesiones que hayas instalado para poder iniciarlo&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="créditos">
+Créditos
+&lt;a href="#cr%c3%a9ditos" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>El contenido de esta publicación no es mio, simplemente acomode y junte las 2 guías para llegar a esta publicación. Quiero agradecer a &lt;strong>Im Rere =)&lt;/strong> por permitirme usar sus guías.&lt;/p>
+&lt;hr>
+&lt;p>Recorda &lt;strong>apoyarnos&lt;/strong> en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p></description></item><item><title>Instalcion MilagrOS</title><link>https://patojad.com.ar/post/2020/06/instalcion-milagros/</link><pubDate>Tue, 30 Jun 2020 08:30:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/06/instalcion-milagros/</guid><description>&lt;p>El otro dia hablamos sobre el init en linux (despues de eso me di cuenta que era un tema recurrente en mi blog) Y como parte de mi compromiso con esto decidí comentar como es la instalación de MilagrOS un Sistema Basado en MX Linux que no usa SystemD y el cual nos va a servir como punto para retomar las instalaciones en el canal…&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://proyectotictac.files.wordpress.com/2020/04/pantallazo-escritorio-conky-milagros-2.0.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;blockquote>
+&lt;p>“MilagrOS GNU/Linux, es una edición no oficial (Respin) de la Distro MX-Linux. La cual viene con una personalización y optimización extrema, que la hace ideal para ordenadores de bajos recursos o viejos, y para usuarios con nulo o limitado potencial de Internet y conocimientos de GNU/Linux. Una vez obtenida (descargada) e instalada, ya se pueda usar eficaz y eficientemente sin necesidad de Internet, ya que todo lo necesario y más está pre-instalado”.&lt;/p>&lt;/blockquote>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="video">
+Video
+&lt;a href="#video" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;iframe src='https://www.youtube.com/embed/EuYdLQXShrc?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;p>Mi idea de las instalaciones no es tener videos de 15 minutos sin aporte alguno o donde hablamos pavadas, por lo cual vamos a ir sacando pequeños videos con los pasos y detalles de instalaciones…&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="más-info">
+Más Info
+&lt;a href="#m%c3%a1s-info" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://proyectotictac.files.wordpress.com/2020/04/pantallazo-mx-herramienta2-milagros-2.0.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Vamos a dejar un poco de información importante para los usuarios de MilagrOS, sobre todo relevante para antes de su instalación.&lt;/p>
+&lt;ul>
+&lt;li>Usuario Principal: Sysadmin MilagrOS (sysadmin)&lt;/li>
+&lt;li>Contraseña Usuario Principal: Sysadmin&lt;em>2020&lt;/em>&lt;/li>
+&lt;li>Usuario Administrador: Root (root)&lt;/li>
+&lt;li>Contraseña Usuario Principal: Root&lt;em>2020&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="bonus">
+Bonus
+&lt;a href="#bonus" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Quería recordar y agradecer, porque MilagrOS cuenta con el repositorio de la Comunidad PreInstalado, basta con activarlo para que se encuentre en funcionamiento… Muchas gracias por ese pequeño gran detalle!&lt;/p>
+&lt;p>&lt;a href="https://proyectotictac.org.ve/distros/MilagrOS/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+Descargar MilagrOS
+&lt;/a>&lt;/p></description></item></channel></rss>
