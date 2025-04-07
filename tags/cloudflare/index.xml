@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cloudflare on PatoJAD</title><link>https://patojad.com.ar/tags/cloudflare/</link><description>Recent content in Cloudflare on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 27 Jun 2023 10:06:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/cloudflare/index.xml" rel="self" type="application/rss+xml"/><item><title>Como cambiar DNS de Windows 10</title><link>https://patojad.com.ar/post/2023/06/como-cambiar-dns-de-windows-10/</link><pubDate>Tue, 27 Jun 2023 10:06:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/06/como-cambiar-dns-de-windows-10/</guid><description>&lt;p>Cambiar los DNS de nuestro equipo es algo que deberiamos hacer siempre, ya que los DNS que nos provee nuestro ISP no son los mas rapidos y seguros. Por eso hoy vamos a ver como cambiar los DNS en Windows 10 y vamos a setear los de Cloudflare.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-dns">
+¿Qué es DNS?
+&lt;a href="#qu%c3%a9-es-dns" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>El Sistema de nombres de dominio (DNS) es la guía telefónica de Internet. Mientras que las personas acceden a la información en línea a través de nombres de dominio como example.com, los ordenadores lo hacen utilizando direcciones del Protocolo de Internet (IP), cadenas únicas de caracteres alfanuméricos que se asignan a cada propiedad de Internet. El DNS traduce los nombres de dominio a direcciones IP para que los usuarios puedan acceder fácilmente a un sitio web sin tener que conocer su dirección IP.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://www.cloudflare.com/img/learning/dns/what-is-1.1.1.1/dns-lookup.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="qué-es-un-solucionador-de-dns">
+¿Qué es un solucionador de DNS?
+&lt;a href="#qu%c3%a9-es-un-solucionador-de-dns" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Un solucionador de DNS es un tipo de servidor que gestiona la traducción &amp;ldquo;nombre a dirección&amp;rdquo;, en la que una dirección IP se corresponde con un nombre de dominio y se envía de vuelta al ordenador que la solicitó. Los solucionadores de DNS también se conocen como solucionadores recursivos.&lt;/p>
+&lt;p>Los equipos están configurados para hablar con solucionadores de DNS específicos, que se identifican por dirección IP. Generalmente, la configuración la gestiona el Proveedor de acceso a Internet (ISP) del usuario en conexiones desde el hogar o inalámbricas, y un administrador de red en las conexiones desde la oficina. Los usuarios también pueden cambiar manualmente el solucionador de DNS con el que pueden comunicarse sus ordenadores.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="dns-de-cloudflare">
+DNS de cloudflare
+&lt;a href="#dns-de-cloudflare" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Cloudflare tiene dos DNS publicos que son los mas rapidos y seguros del mundo hasta el momento&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="qué-hace-que-1111-sea-más-seguro-que-otros-servicios-de-dns-públicos">
+¿Qué hace que 1.1.1.1 sea más seguro que otros servicios de DNS públicos?
+&lt;a href="#qu%c3%a9-hace-que-1111-sea-m%c3%a1s-seguro-que-otros-servicios-de-dns-p%c3%bablicos" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Algunos servicios de DNS son compatibles con DNSSEC. Aunque se trata de una buena práctica de seguridad, no protege las consultas de los usuarios de las propias empresas de DNS. Muchas de estas empresas recopilan datos de sus clientes de DNS para utilizarlos con fines comerciales, como la venta a anunciantes.&lt;/p>
+&lt;p>En cambio, &lt;code>1.1.1.1&lt;/code> no hace minería de datos de los usuarios. Los registros se guardan durante 24 horas con el fin de eliminar errores y a continuación se purgan.&lt;/p>
+&lt;p>&lt;code>1.1.1.1&lt;/code> también ofrece funciones de seguridad que no están disponibles en muchos otros servicios públicos de DNS, como la minimización del nombre de consulta. La minimización del nombre de consulta mejora la privacidad al incluir en cada consulta solo el mínimo de información necesaria para ese paso del proceso de resolución.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="qué-convierte-a-1111-en-el-servicio-de-dns-recursivo-más-rápido">
+¿Qué convierte a 1.1.1.1 en el servicio de DNS recursivo más rápido?
+&lt;a href="#qu%c3%a9-convierte-a-1111-en-el-servicio-de-dns-recursivo-m%c3%a1s-r%c3%a1pido" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>La potencia de la red de Cloudflare da a &lt;code>1.1.1.1&lt;/code> una ventaja natural en lo referente a entregar consultas de DNS rápidas. Ya que está integrado en la red de Cloudflare, que abarca 300 ciudades del mundo, los usuarios de cualquier parte del mundo obtienen una respuesta rápida de &lt;code>1.1.1.1&lt;/code>.&lt;/p>
+&lt;p>Además, los centros de datos de la red tienen acceso a los millones de propiedades de Internet de la plataforma de Cloudflare, lo que hace que las consultas de esos dominios sean extremadamente rápidas. En general, el supervisor independiente de DNS DNSPerf clasifica &lt;code>1.1.1.1&lt;/code> como el servicio de DNS más rápido del mundo:&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://www.cloudflare.com/img/learning/dns/what-is-1.1.1.1/query-speed.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="pasos-a-seguir">
+Pasos a seguir
+&lt;a href="#pasos-a-seguir" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;ul>
+&lt;li>Abrimos el menu de inicio y vamos a &lt;code>Configuracion&lt;/code>&lt;/li>
+&lt;li>Luego vamos a &lt;code>Red e Internet&lt;/code> y seleccionamos &lt;code>Cambiar opciones del adaptador&lt;/code>&lt;/li>
+&lt;li>Seleccionamos la red que estamos usando y hacemos click derecho y seleccionamos &lt;code>Propiedades&lt;/code>&lt;/li>
+&lt;li>Seleccionamos &lt;code>Protocolo de Internet version 4 (TCP/IPv4)&lt;/code> y hacemos click en &lt;code>Propiedades&lt;/code>&lt;/li>
+&lt;li>Seleccionamos &lt;code>Usar las siguientes direcciones de servidor DNS&lt;/code> y en &lt;code>Servidor DNS preferido&lt;/code> ponemos:
+&lt;ul>
+&lt;li>Para usar el generico de Cloudflare:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-batch" data-lang="batch">&lt;span class="line">&lt;span class="cl">1.1.1.1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">1.0.0.1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Para usar el Bloqueo de Maleware de Cloudflare (Para Familias):
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-batch" data-lang="batch">&lt;span class="line">&lt;span class="cl">1.1.1.2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">1.0.0.2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Para usar el Bloqueo de Maleware y contenidos de Adultos de Cloudflare (Para Familias):
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-batch" data-lang="batch">&lt;span class="line">&lt;span class="cl">1.1.1.3
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">1.0.0.3
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Hacemos click en &lt;code>Aceptar&lt;/code> y listo&lt;/li>
+&lt;/ul>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="sumando-ipv6">
+Sumando IPv6
+&lt;a href="#sumando-ipv6" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>Seleccionamos &lt;code>Protocolo de Internet version 6 (TCP/IPv6)&lt;/code> y hacemos click en &lt;code>Propiedades&lt;/code>&lt;/li>
+&lt;li>Seleccionamos &lt;code>Usar las siguientes direcciones de servidor DNS&lt;/code> y en &lt;code>Servidor DNS preferido&lt;/code> ponemos:
+&lt;ul>
+&lt;li>Para usar el generico de Cloudflare:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-batch" data-lang="batch">&lt;span class="line">&lt;span class="cl">2606:4700:4700::1111
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2606:4700:4700::1001
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Para usar el Bloqueo de Maleware de Cloudflare (Para Familias):
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-batch" data-lang="batch">&lt;span class="line">&lt;span class="cl">2606:4700:4700::1112
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2606:4700:4700::1002
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Para usar el Bloqueo de Maleware y contenidos de Adultos de Cloudflare (Para Familias):
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-batch" data-lang="batch">&lt;span class="line">&lt;span class="cl">2606:4700:4700::1113
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2606:4700:4700::1003
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Hacemos click en &lt;code>Aceptar&lt;/code> y listo&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>Fuente: &lt;a href="https://developers.cloudflare.com/1.1.1.1/setup/windows/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://developers.cloudflare.com/1.1.1.1/setup/windows/
+&lt;/a>&lt;/p></description></item><item><title>Email Profesional GRATIS - Saliente</title><link>https://patojad.com.ar/post/2022/10/email-profesional-gratis-saliente/</link><pubDate>Thu, 20 Oct 2022 11:05:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/10/email-profesional-gratis-saliente/</guid><description>&lt;h2 class="text-amber-500 text-3xl my-6" id="usar-email-para-salida-de-correos">
+Usar email para salida de correos
+&lt;a href="#usar-email-para-salida-de-correos" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Si bien &lt;a href="https://patojad.com.ar/post/2022/09/email-profesional-gratis/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+esto ya es muy profesional
+&lt;/a>, también resultaría interesante poder responder utilizando el correo que creamos. En este caso voy a mostrar cómo agregarlo a &lt;strong>GMAIL&lt;/strong> para poder utilizarlo como correo saliente.&lt;/p>
+&lt;p>Para esto debemos ingresar en nuestra cuenta de Gmail e ir a las configuraciones de la misma para poder agregar una nueva cuenta de correo saliente. Esto lo hacemos desde &lt;strong>Ajustes&lt;/strong> -&amp;gt; &lt;strong>Ver todos los Ajustes&lt;/strong> -&amp;gt; &lt;strong>Cuentas e Importación&lt;/strong> -&amp;gt; &lt;strong>Enviar como:&lt;/strong> -&amp;gt; &lt;strong>Añadir otra dirección de correo electrónico&lt;/strong>&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/ZKSKp7Lw/gmailconf.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Añadimos el correo, con el nombre que utilizaremos para identificarlo de la siguiente manera (recuerda que los datos son a modo ejemplo, tu debes completarlo con tus datos particulares)&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/ncGVk4Rp/image.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Luego vamos a completar los campos con los datos de nuestra cuenta de Gmail (en este caso la cuenta que los recibe y la que envía van a ser la misma) de la siguiente manera:&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/q7zk49kv/image.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Donde:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Servidor SMTP:&lt;/strong> smtp.gmail.com&lt;/li>
+&lt;li>&lt;strong>Nombre de Usuario:&lt;/strong> El nombre de usuario de Gmail ( si tu correo es &lt;a href="mailto:user@gmail.com" >
+&lt;i class="fas fa-envelope">&lt;/i>&amp;nbsp;
+user@gmail.com
+&lt;/a>, user es tu nombre de usuario).&lt;/li>
+&lt;li>&lt;strong>Contraseña:&lt;/strong> Contraseña de GMAIL.&lt;/li>
+&lt;li>&lt;strong>Puerto:&lt;/strong> 465.&lt;/li>
+&lt;/ul>
+&lt;div class="w-full rounded-xl bg-yellow-600/75 text-yellow-950 p-3 flex flex-row justify-center content-between">
+&lt;span class="fa fa-warning fa-5x p-3">&lt;/span>
+&lt;p class="no-margin">ATENCIÓN: En el caso de que tengas el doble factor activado, la contraseña deberá ser una nueva creada para este fin, lo cual veremos cómo hacerlo a continuación.&lt;/p>
+&lt;/div>
+&lt;p>&lt;a href="https://patojad.com.ar/posts/2022/07/crear-contrase%c3%b1a-para-apps-en-google/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Crear contraseña para apps en Google
+&lt;/a>&lt;/p>
+&lt;hr>
+&lt;p>Ya con esto podemos enviar desde nuestro Gmail utilizando nuestro correo profesional.&lt;/p></description></item><item><title>Email Profesional GRATIS</title><link>https://patojad.com.ar/post/2022/09/email-profesional-gratis/</link><pubDate>Mon, 12 Sep 2022 08:25:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/09/email-profesional-gratis/</guid><description>&lt;p>Ya hable con anterioridad sobre Cloudflare allá por el 2019. Y creo que quedó fuertemente asentado que lo recomiendo fuertemente más allá de sus contras. Dejo la información hablada con anterioridad sobre esto:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2019/10/cloudflare-que-es-ventajas-y-desventajas/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+CloudFlare ¿Que es? Ventajas y Desventajas
+&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2019/11/configurar-gitlab-pages-con-cloudflare/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Configurar GitLab Pages con CloudFlare
+&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Como siempre cloudflare avanza a pasos agigantados y gracias a esto nos ofrece nuevas funcionalidades y una de las más interesantes es la posibilidad de tener un email profesional &lt;em>(@tudominio)&lt;/em> completamente &lt;strong>GRATIS&lt;/strong>. Y si bien de entrada esta opción parece que solo es para forwardear correos a uno ya existente (por ejemplo tu gmail) es muy interesante conocer la mejor forma de configurarlo para poder enviar correos con tu dominio “profesional” desde, en este caso, nuestro gmail.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="primeros-pasos">
+Primeros pasos
+&lt;a href="#primeros-pasos" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Como primeros pasos debemos tener nuestro dominio en &lt;strong>CloudFlare&lt;/strong> ya configurado &lt;em>(Lo cual podemos verlo en guías anteriores)&lt;/em> y debemos solicitar la BETA del &lt;strong>Enrutamiento de correos electrónicos&lt;/strong> la cual es completamente gratuita con sus respectivos límites.&lt;/p>
+&lt;p>Una vez que hayamos sido aceptados, basta con configurar los DNS. Si los estamos administrado con CloudFlare (Lo cual sería lo correcto) Basta con un solo botón que configura todo &lt;em>automágicamente&lt;/em> en la sección &lt;strong>correo electrónico&lt;/strong> -&amp;gt; &lt;strong>Configuración&lt;/strong> -&amp;gt; &lt;strong>Iniciar la activación&lt;/strong>&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/d1VVkLmw/image.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Luego debemos agregar la dirección de destino en la cual queremos recibir los correos electrónicos (Es decir un email ya existente y funcionando, en mi caso utilizo mi gmail personal para recibir los correos) esto lo hacemos desde &lt;strong>correo electrónico&lt;/strong> -&amp;gt; &lt;strong>Rutas&lt;/strong> -&amp;gt; &lt;strong>Agregar la dirección de destino&lt;/strong>. Esto nos enviará un email de confirmación para saber que se encuentra funcionando. Una vez activado lo veremos con el estado &lt;em>verificado&lt;/em>&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/fLzJcHZ4/mailverificado.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Ya teniendo correctamente configurado el correo de destino debemos agregar (o crear) la dirección de correo custom que queremos, lo cual lo podemos hacer desde: &lt;strong>correo electrónico&lt;/strong> -&amp;gt; &lt;strong>Rutas&lt;/strong> -&amp;gt; &lt;strong>Crear dirección&lt;/strong>. En esta parte es completamente intuitivo y solo nos aparecerá como destino en &lt;strong>Acciones&lt;/strong> aquellos correos que ya estén verificados.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/zvR5KWLZ/mailadd.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Una vez que hayamos realizado estos pasos ya podemos recibir correos a nuestro nuevo email profesional desde nuestra casilla personal.&lt;/p></description></item><item><title>Configurar GitLab Pages con CloudFlare</title><link>https://patojad.com.ar/post/2019/11/configurar-gitlab-pages-con-cloudflare/</link><pubDate>Wed, 06 Nov 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/11/configurar-gitlab-pages-con-cloudflare/</guid><description>&lt;p>Vamos a ver cómo realizar la configuración entre Cloudflare y Gitlab. Antes que nada, recomiendo leer porque elegimos &lt;a href="https://patojad.com.ar/post/2019/10/gitlab-pages/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Gitlab
+&lt;/a> y Porque elegimos &lt;a href="https://patojad.com.ar/post/2019/10/cloudflare-que-es-ventajas-y-desventajas/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Cloudflare
+&lt;/a>. Una vez visto esto vamos a explicar cómo hacer para que nuestro dominio alojado el CloudFlare previamente realizado aquí.&lt;/p>
+&lt;p>Una vez habilitado el dominio en Cloudflare procedemos a crear los certificados para poder generar los registros correctamente.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="certificado">
+Certificado
+&lt;a href="#certificado" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/59C3kM1T/cert.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Nos dirigimos a SSL/TLS ahí dentro vamos a Origin Server Y podemos crear el Certificado. Para esto debemos elegir los dominios a los cuales apelara ese Certificado y el tiempo de duración de los mismos.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/yNxhmMvf/cert1.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Y esto nos generara las respectivas claves que utilizaremos para asegurar la conexión. Esto es lo que nos certifica la seguridad del servidor al que se envían.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/zfQC0xQq/cert2.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>En donde se encuentran los cuadros blancos verán su respectivo certificado y clave los cuales debemos guardar para utilizarlos en GitLab&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="agregar-dominio-a-gitlab">
+Agregar Dominio a Gitlab
+&lt;a href="#agregar-dominio-a-gitlab" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Dentro de nuestro proyecto en gitlab, (entendiendo que ya se encuentran configurados los CI para habilitar la sección Paginas) Nos dirigimos a configuración y a la sección de páginas.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/WzLMPhjK/glab.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Ahí seleccionamos nuevo Dominio y completamos los campos como vemos a continuación. Es importante recalcar que el dominio va sin http ni https y que no gestionamos los certificados automáticamente (Ya que lo hacemos por cloudflare manualmente)&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/Gmcx28Yn/glab1.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Como requiere todos los certificados no olvidemos poner el del servidor de cloudflare el cual les dejo a continuación&lt;/p>
+&lt;pre>&lt;code>-----BEGIN CERTIFICATE-----
+MIIEADCCAuigAwIBAgIID+rOSdTGfGcwDQYJKoZIhvcNAQELBQAwgYsxCzAJBgNV
+BAYTAlVTMRkwFwYDVQQKExBDbG91ZEZsYXJlLCBJbmMuMTQwMgYDVQQLEytDbG91
+ZEZsYXJlIE9yaWdpbiBTU0wgQ2VydGlmaWNhdGUgQXV0aG9yaXR5MRYwFAYDVQQH
+Ew1TYW4gRnJhbmNpc2NvMRMwEQYDVQQIEwpDYWxpZm9ybmlhMB4XDTE5MDgyMzIx
+MDgwMFoXDTI5MDgxNTE3MDAwMFowgYsxCzAJBgNVBAYTAlVTMRkwFwYDVQQKExBD
+bG91ZEZsYXJlLCBJbmMuMTQwMgYDVQQLEytDbG91ZEZsYXJlIE9yaWdpbiBTU0wg
+Q2VydGlmaWNhdGUgQXV0aG9yaXR5MRYwFAYDVQQHEw1TYW4gRnJhbmNpc2NvMRMw
+EQYDVQQIEwpDYWxpZm9ybmlhMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+AQEAwEiVZ/UoQpHmFsHvk5isBxRehukP8DG9JhFev3WZtG76WoTthvLJFRKFCHXm
+V6Z5/66Z4S09mgsUuFwvJzMnE6Ej6yIsYNCb9r9QORa8BdhrkNn6kdTly3mdnykb
+OomnwbUfLlExVgNdlP0XoRoeMwbQ4598foiHblO2B/LKuNfJzAMfS7oZe34b+vLB
+yrP/1bgCSLdc1AxQc1AC0EsQQhgcyTJNgnG4va1c7ogPlwKyhbDyZ4e59N5lbYPJ
+SmXI/cAe3jXj1FBLJZkwnoDKe0v13xeF+nF32smSH0qB7aJX2tBMW4TWtFPmzs5I
+lwrFSySWAdwYdgxw180yKU0dvwIDAQABo2YwZDAOBgNVHQ8BAf8EBAMCAQYwEgYD
+VR0TAQH/BAgwBgEB/wIBAjAdBgNVHQ4EFgQUJOhTV118NECHqeuU27rhFnj8KaQw
+HwYDVR0jBBgwFoAUJOhTV118NECHqeuU27rhFnj8KaQwDQYJKoZIhvcNAQELBQAD
+ggEBAHwOf9Ur1l0Ar5vFE6PNrZWrDfQIMyEfdgSKofCdTckbqXNTiXdgbHs+TWoQ
+wAB0pfJDAHJDXOTCWRyTeXOseeOi5Btj5CnEuw3P0oXqdqevM1/+uWp0CM35zgZ8
+VD4aITxity0djzE6Qnx3Syzz+ZkoBgTnNum7d9A66/V636x4vTeqbZFBr9erJzgz
+hhurjcoacvRNhnjtDRM0dPeiCJ50CP3wEYuvUzDHUaowOsnLCjQIkWbR7Ni6KEIk
+MOz2U0OBSif3FTkhCgZWQKOOLo1P42jHC3ssUZAtVNXrCk3fw9/E15k8NPkBazZ6
+0iykLhH1trywrKRMVw67F44IE8Y=
+-----END CERTIFICATE-----
+&lt;/code>&lt;/pre>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/3NX2rYxw/glab3.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Una vez finalizado esto vamos a ver lo siguiente lo cual nos da el registro txt que debemos agregar a nuestro cloudflare para completar con éxito la redirección.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="dns">
+DNS
+&lt;a href="#dns" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/28dxrF1x/dns.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Por ultimo debemos configurar los DNS para concretar la redirección. Esto debemos hacerlo desde Clodflare en la sección DNS&lt;/p>
+&lt;p>Y debemos completar primero la IP hacían donde va mirar nuestro dominio, en este caso estoy configurando &lt;a href="https://patojad.com.ar/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+https://patojad.com.ar/
+&lt;/a> lo cual seria mi dominio principal por lo cual el name del registro seria @ haciendo referencia a root. En caso de querer configurar un subdominio (por ejemplo &lt;a href="https://compartelibre.patojad.com.ar" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://compartelibre.patojad.com.ar
+&lt;/a>) debemos poner solo el subdominio ej compartelibre.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/rF29BYwm/dns1.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Una vez agregada la IP debemos agregar el registro TXT que nos dio gitlab.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/dV4mTsmk/dns2.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Una vez agregado solo debemos volver a gitlab y verificarlo, si realizamos todo correctamente vamos a ver la siguiente pantalla. (ATENCION es posible que desde que agregue los registros pasen minutos hasta que la verificación se concluya.)&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/ZRyrgrkp/glab4.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Cuando concluimos con esto en pocas horas la redirección será exitosa.&lt;/p></description></item><item><title>CloudFlare ¿Que es? Ventajas y Desventajas</title><link>https://patojad.com.ar/post/2019/10/cloudflare-que-es-ventajas-y-desventajas/</link><pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/10/cloudflare-que-es-ventajas-y-desventajas/</guid><description>&lt;p>CloudFlare es un sistema gratuito que actúa como un proxy (intermediario) entre los visitantes del sitio web y el servidor. Al actuar como un proxy, CloudFlare guarda temporalmente contenido estático del sitio, el cual disminuye el número de peticiones al servidor pero sigue permitiendo a los visitantes el acceso al sitio.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/53qCYhQbir5WtIU0VDWESo/1c28d510cb5bb9a44e56916e37a889b6/Cloudflare_default_OG_.png" alt="" loading="lazy" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="ventajas">
+Ventajas
+&lt;a href="#ventajas" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;ul>
+&lt;li>&lt;strong>Desempeño del Sitio Mejorado:&lt;/strong> CloudFlare tiene servidores proxy localizados alrededor del mundo. Los servidores proxy están localizados cerca de los visitantes, con lo cual estos podrán cargar el sitio más rápido directo de los servidores proxy. &amp;ldquo;Mientras más rápido cargue un sitio, el visitante permanecerá en este por más tiempo.&amp;rdquo;&lt;/li>
+&lt;li>&lt;strong>Protección contra Amenazas y Bots:&lt;/strong> CloudFlare usa datos del &amp;ldquo;Project Honey Pot&amp;rdquo; y otras fuentes de terceros, así como datos de su comunidad para identificar amenazas maliciosas y parar ataques antes de que estos lleguen a los sitios. Se podrán ver la amenazas que están siendo paradas a través de CloudFlare desde: &lt;a href="https://www.cloudflare.com/your-websites.html" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://www.cloudflare.com/your-websites.html
+&lt;/a>&lt;/li>
+&lt;li>&lt;strong>Protección para &amp;ldquo;Comentarios Spam&amp;rdquo;:&lt;/strong> CloudFlare usa datos de fuentes de terceros para reducir el número de &amp;ldquo;comentarios Spam&amp;rdquo; en el sitio.&lt;/li>
+&lt;li>&lt;strong>Alerta a Visitantes de Computadoras Infectadas:&lt;/strong> CloudFlare alerta a los visitantes cuando estos acceden desde una computadora infectada para que tomen acciones inmediatas. El visitante podrá ingresar un &amp;ldquo;Captcha&amp;rdquo; para ingresar al sitio.&lt;/li>
+&lt;li>&lt;strong>Modo de Navegación Offline:&lt;/strong> En el caso eventual que nuestros servidores no se encuentren disponibles, los visitantes podrán seguir accediendo al sitio ya que CloudFlare servirá el sitio desde su CDN.&lt;/li>
+&lt;li>&lt;strong>Disminución del Uso de CPU:&lt;/strong> Ya que habría menos solicitudes a nuestros servidores, esto disminuirá el consumo de CPU de cada cuenta.&lt;/li>
+&lt;li>&lt;strong>Nuevas Estadísticas del Sitio:&lt;/strong> Con CloudFlare se podrá tener herramientas para evaluar el tráfico que existe de visitantes hacia el sitio y además contará con estadísticas para &amp;ldquo;crawlers de herramientas de búsqueda&amp;rdquo; y de amenazas.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="desventajas">
+Desventajas
+&lt;a href="#desventajas" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;ul>
+&lt;li>Actualmente, las peticiones deben ser redirigidas a www.$dominio en lugar de $dominio (lo cual puede significar que se deben realizar algunos cambios de configuración).&lt;/li>
+&lt;li>CloudFlare puede afectar algunos programas de estadística interna que leen directamente los logs de Apache. CloudFlare no afectará programas de análisis basados en web que usen Javascript o Google Analytics. Mientras que los logs van a reflejar menos peticiones al servidor y menos carga, la experiencia hacia los visitantes de los sitios permanecerá igual.&lt;/li>
+&lt;li>CloudFlare guarda contenido estático del sitio. Esto reduce la carga en el servidor y significa que si se hace un cambio de un archivo estático existente como una imagen, puede existir un retraso pequeño mientras aparece el cambio. &lt;strong>Mientras se hace una actualización se puede configurar CloudFlare en Modo de Desarrollo para que el cambio aparezca inmediatamente.&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="patojad-y-cloudflare">
+PatoJAD y CloudFlare
+&lt;a href="#patojad-y-cloudflare" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Cuando decidí utilizar CloudFlare (recomendado por Tehuel) me pareció que era demasiado para solo un dominio (primera vez con .tk) sin embargo con el tiempo vi que las funcionalidades me permitían ir mucho más allá. Incluso me sirvió para realizar pruebas de desarrollo particulares. Actualmente lo sigo utilizando y si bien el blog es pequeño aun, algún día pagare para poder llevar todo esto a otro nivel dado que el potencial que tiene desde el control de DNS hasta la cache geo localizada para cargar más rápido los sitios son ampliamente útiles.&lt;/p></description></item></channel></rss>

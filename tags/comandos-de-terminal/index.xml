@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Comandos De Terminal on PatoJAD</title><link>https://patojad.com.ar/tags/comandos-de-terminal/</link><description>Recent content in Comandos De Terminal on PatoJAD</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Wed, 09 Sep 2020 10:33:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/comandos-de-terminal/index.xml" rel="self" type="application/rss+xml"/><item><title>¿Qué son exactamente los comandos?</title><link>https://patojad.com.ar/post/2020/09/qu%C3%A9-son-exactamente-los-comandos/</link><pubDate>Wed, 09 Sep 2020 10:33:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/09/qu%C3%A9-son-exactamente-los-comandos/</guid><description>&lt;p>Un comando puede ser una de estas cuatro cosas:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Un programa ejecutable&lt;/strong> como todos esos archivos que vimos en /usr/bin. Dentro de esta categoría, los programas pueden ser binarios compilados como programas escritos en C y C++, o programas escritos en lenguajes de script como el shell, perl, python, ruby, etc.&lt;/li>
+&lt;li>&lt;strong>Un comando contenido en el propio shell&lt;/strong>. bash soporta gran número de comandos internos llamados shell builtins. El comando cd, por ejemplo, es un shell builtin. 3.&lt;strong>Una función del shell&lt;/strong>. Estos son pequeños scripts de shell incorporados en el entorno. Veremos cómo configurar el entorno y cómo escribir funciones del shell en próximos capítulos, pero por ahora, sólo ten en cuenta que existen.&lt;/li>
+&lt;li>&lt;strong>Un alias&lt;/strong>. Comando que podemos definir nosotros mismos, construidos a partir de otros comandos.&lt;/li>
+&lt;/ol>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="identificando-comandos">
+Identificando comandos
+&lt;a href="#identificando-comandos" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>A menudo es útil saber exactamente cual de los cuatro tipos de comandos estamos usando y Linux proporciona un par de formas de averiguarlo.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="type--muestra-de-qué-tipo-es-un-comando">
+type – Muestra de qué tipo es un comando
+&lt;a href="#type--muestra-de-qu%c3%a9-tipo-es-un-comando" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>El comando type es un shell builtin que muestra el tipo de comando que el shell ejecutará, indicándole el nombre de un comando en particular. Funciona así:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">type&lt;/span> comando
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>donde &amp;ldquo;comando&amp;rdquo; es el nombre del comando que quieres examinar. Aquí tienes algunos ejemplos:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">type&lt;/span> &lt;span class="nb">type&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">type&lt;/span> is a shell &lt;span class="nb">builtin&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">type&lt;/span> ls
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ls is aliased to &lt;span class="s1">&amp;#39;ls --color=tty&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">type&lt;/span> cp
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cp is /bin/cp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Aquí vemos los resultados para tres comandos diferentes. Fíjate en el de ls (realizado sobre un sistema Fedora) y en cómo el comando ls es realmente un alias del comando ls con la opción “&amp;ndash;color=tty” añadida. ¡Ahora sabemos porqué la salida de ls se muestra en color!&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="which--muestra-la-localización-de-un-ejecutable">
+which – Muestra la localización de un ejecutable
+&lt;a href="#which--muestra-la-localizaci%c3%b3n-de-un-ejecutable" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>A veces hay más de una versión de un programa ejecutable instalada en un sistema. Aunque no es muy usual en los sistemas de escritorio, sí es más frecuente en grandes servidores. Para determinar la localización exacta de un ejecutable dado tenemos el comando which:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">which ls
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/bin/ls
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>which sólo funciona con programas ejecutables, ni con builtins ni con alias que son sustitutos de los verdaderos programas ejecutables. Cuando intentamos usar which en un shell builtin, por ejemplo, cd, no tendremos respuesta o nos dará un mensaje de error:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">which &lt;span class="nb">cd&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/usr/bin/which: no &lt;span class="nb">cd&lt;/span> in &lt;span class="o">(&lt;/span>/opt/jre1.6.0_03/bin:/usr/lib/qt-3.3/bin:/usr/kerberos/bin:/opt/jre1.6.0_03/bin:/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/home/me/bin&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="obteniendo-la-documentación-de-un-comando">
+Obteniendo la documentación de un comando
+&lt;a href="#obteniendo-la-documentaci%c3%b3n-de-un-comando" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Ahora que sabemos qué es un comando, podemos buscar la documentación disponible para cada tipo de comando. Pero esto lo veremos mas adelante&amp;hellip;&lt;/p>
+&lt;hr>
+&lt;p>Recorda &lt;strong>apoyarnos&lt;/strong> en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p></description></item></channel></rss>
