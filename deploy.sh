@@ -4,7 +4,7 @@ rm -rf public
 # abort on errors
 set -e
 # build
-hugo --minify
+hugo --minify --enableGitInfo
 
 # navigate into the build output directory
 cd public
