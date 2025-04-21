@@ -1,5 +1,5 @@
 ---
-title: "Gestión de Paquetes en AlmaLinux con DNF: Guía Completa 2024"
+title: "Gestión de Paquetes en AlmaLinux con DNF: Guía Completa 2025"
 date: "2025-04-14 09:13:00.00"
 description: "Domina el gestor DNF en AlmaLinux: instala, actualiza y elimina paquetes, gestiona repositorios (EPEL/CRB) y usa comandos avanzados. Incluye ejemplos prácticos y solución de errores."
 type: video
