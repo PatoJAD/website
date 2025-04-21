@@ -9,7 +9,7 @@
       .Site.Pages.ByPublishDate.Reverse }} {{ range
       .Params.authors }} {{ range where (where $pages "Type"
       "authors") ".Params.name" . }}
-      <a href="#"><img class="w-10 h-10 rounded-full mr-2" src="{{ .Params.photo }}"
+      <a href="#"><img class="w-10 h-10 rounded-full mr-2" title="{{ .Params.name }}" src="{{ .Params.photo }}"
           alt="{{ .Params.name }}"></a>
       <div class="text-xl">
         <a href="#" class="font-medium leading-none hover:text-amber-500">
@@ -23,7 +23,8 @@
 
   <div class="relative">
     <a href="{{ .RelPermalink }}">
-      <img class="w-full" src="{{.Params.img}}" alt="{{ .Title }}">
+      <img class="w-full" src="{{.Params.img}}" alt="{{ .Title }}" title="{{ .Title }}"
+        loading="lazy" decoding="async" />
     </a>
     {{ if .Params.categories }}
     <div class="z-10 absolute bottom-0">

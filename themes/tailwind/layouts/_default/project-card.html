@@ -1,7 +1,7 @@
 <article class="rounded-xl overflow-hidden shadow-lg bg-gray-100 dark:bg-gray-800">
   <div class="relative">
     <a href="{{ .RelPermalink }}">
-      <img class="w-full" src="{{.Params.img}}" alt="{{ .Title }}">
+      <img class="w-full" src="{{.Params.img}}" alt="{{ .Title }}" title="{{ .Title }}" loading="lazy" decoding="async">
       <div
         class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25">
       </div>
@@ -12,7 +12,7 @@
         {{ range .Site.Params.technologies.main }}
         {{ $usedTech := in $technologies .name }}
         {{ if $usedTech}}
-        <span class="mr-2"><img src="{{ .image | safeURL }}" alt="{{ .name }}" class=" h-6 w-6 inline"></span>
+        <span class="mr-2"><img src="{{ .image | safeURL }}" alt="{{ .name }}" title="{{ .name }}" class="h-6 w-6 inline" loading="lazy" decoding="async"></span>
         {{ end }}
         {{ end }}
       </div>
