@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Crear on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/crear/</link><description>Recent content in Crear on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Wed, 07 Oct 2020 09:46:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/crear/index.xml" rel="self" type="application/rss+xml"/><item><title>Creando tus propios comandos</title><link>https://patojad.com.ar/post/2020/10/creando-tus-propios-comandos/</link><pubDate>Wed, 07 Oct 2020 09:46:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/10/creando-tus-propios-comandos/</guid><description>&lt;p>En esta oportunidad crearemos un comando propio usando el comando &lt;em>alias&lt;/em> que suele venir instalado en nuestra distribución de GBU/linux. Pero antes de empezar, necesitamos desvelar un pequeño truco de la línea de comandos. Es posible poner más de un comando en una línea separando cada comando con un punto y coma. Funciona así:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">comando1&lt;span class="p">;&lt;/span> comando2&lt;span class="p">;&lt;/span> comando3...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Aquí tenemos el ejemplo que usaremos:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> /usr&lt;span class="p">;&lt;/span> ls&lt;span class="p">;&lt;/span> &lt;span class="nb">cd&lt;/span> -
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/d0mhp3jz/image.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Y nos da una salida como esta:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">bin games kerberos lib64 &lt;span class="nb">local&lt;/span> share tmp
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">etc include lib libexec sbin src
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/home/me
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Como podemos ver, hemos combinado tres comandos en una línea. Primero hemos cambiado el directorio a /usr luego hemos listado el directorio y finalmente hemos vuelto al directorio original (usando &amp;lsquo;cd -&amp;rsquo;) con lo que hemos terminado donde empezamos. Ahora convirtamos esta secuencia en un nuevo comando usando alias.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="usando-alias">
+Usando Alias
+&lt;a href="#usando-alias" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>La primera cosa que tenemos que hacer es inventarnos un nombre para nuestro nuevo comando. Probemos “foo”. Antes de hacerlo, sería una buena idea averiguar si el nombre “foo” ya está siendo usado. Para averiguarlo, podemos usar el comando type de nuevo:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">type&lt;/span> foo
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/RFt4yDmq/image.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Que nos retorna&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">bash: type: foo: not found
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>¡Genial! “foo” no está cogido. Así que creemos nuestro alias:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">foo&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;cd /usr; ls; cd -&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/mZNG9Mgx/image.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Fíjate en la estructura de este comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">name&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;string&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Tras el comando “alias” le damos a alias un nombre seguido inmediatamente (sin espacios en blanco) por un signo igual, seguido inmediatamente por una cadena entre comillas simples conteniendo los comandos que se asignarán al nombre. Después de definir nuestro alias, puede ser usado donde quiera que el shell acepte comandos. Probemos:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">foo
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/j2jvCGjS/image.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Ahora nos dara una salida similar a:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> bin games kerberos lib64 &lt;span class="nb">local&lt;/span> share tmp
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> etc include lib libexec sbin src
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> /home/me
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>También podemos usar el comando type de nuevo para ver nuestro alias:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">type&lt;/span> foo
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/mr8Hhh17/image.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Ahora nos dira:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">foo is aliased to &lt;span class="sb">`&lt;/span>&lt;span class="nb">cd&lt;/span> /usr&lt;span class="p">;&lt;/span> ls &lt;span class="p">;&lt;/span> &lt;span class="nb">cd&lt;/span> -&lt;span class="err">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Para eliminar un alias, se usa el comando unalias, así:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">unalias&lt;/span> foo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">type&lt;/span> foo
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/FsH35yfN/image.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Y el type nos sirve para verificar que se elimino dando la siguiente salida:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">bash: type: foo: not found
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Aunque evitamos a propósito nombrar nuestro alias con un nombre de comando existente, no es raro que se haga. Generalmente se hace para aplicar una opción que se utilice a menudo en cada invocación de un comando común. Por ejemplo, vimos antes que el comando ls a menudo es un alias con soporte para colores:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">type&lt;/span> ls
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Mostrando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">ls is aliased to &lt;span class="sb">`&lt;/span>ls –color&lt;span class="o">=&lt;/span>tty&lt;span class="err">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Para ver todos los alias definidos en nuestro entorno, utiliza el comando alias sin argumentos. Aquí tienes algunos de los alias definidos por defecto en un sistema Fedora. Pruébalo e imagina para qué sirve cada uno:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/NfkTZNGN/image.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Mostrando las alias de la siguiente forma&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> l.&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;ls -d .* --color=tty&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">ll&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;ls -l --color=tty&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">ls&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;ls –color=tty&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Hay un pequeño problema con la definición de alias en la línea de comandos. Se esfuman cuando la sesión de shell se cierra. Más adelante, veremos cómo añadir nuestros alias a archivos que establecen el entorno cada vez que iniciamos sesión, pero por ahora, disfruta del hecho de que hemos dado nuestro primer paso, aunque sea pequeño, ¡en el mundo de la programación en shell!&lt;/p></description></item><item><title>Crea Tu Propio Pack de Stickers en Telegram</title><link>https://patojad.com.ar/post/2020/06/crea-tu-propio-pack-de-stickers-en-telegram/</link><pubDate>Sat, 06 Jun 2020 14:04:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/06/crea-tu-propio-pack-de-stickers-en-telegram/</guid><description>&lt;p>En esta oportunidad vamos a ver como hacer &lt;strong>nuestro propio pack de stickers&lt;/strong>, en este caso, no vamos a meternos en edición de imagen, o vamos a hacer lo menos posible por lo cual no vamos a usar ni GIMP ni ninguna herramienta por el estilo.&lt;/p>
+&lt;p>En mi caso los voy a usar mi propia cara y para eso voy usar &lt;strong>BitMoji&lt;/strong> (Gracias Cumpi por darlo a conocer) y voy a descargar de ahi en formato PNG todos lo que quiera convertir en sticker.&lt;/p>
+&lt;p>![](&lt;a href="https://sdk.bitmoji.com/render/panel/9c3e3a09-773c-4836-a93c-7efe79b8b562-c796801f-3d03-48e6-9753-c6df668cc1af-v1.png?transparent=1&amp;amp;palette=1%22" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://sdk.bitmoji.com/render/panel/9c3e3a09-773c-4836-a93c-7efe79b8b562-c796801f-3d03-48e6-9753-c6df668cc1af-v1.png?transparent=1&amp;palette=1"
+&lt;/a> &amp;gt;}}&lt;/p>
+&lt;p>Una vez descargados las imágenes nos daremos cuenta que &lt;strong>no coinciden con el requisito de telegram&lt;/strong> que sean de por lo menos 512*512 pero sí son perfectamente cuadradas, lo cual es perfecto para el uso que le queremos dar.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="hackaso-para-evitar-editar-las-imágenes">
+Hackaso para evitar editar las imágenes
+&lt;a href="#hackaso-para-evitar-editar-las-im%c3%a1genes" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>A muchos no les gusta la terminal y si es tu caso podes tranquilamente abrir las imágenes una por una y redimensionarlas y volver a guardarlo. Si no te molesta usar un poco la terminal te voy a contar este &lt;em>“Hackaso”&lt;/em> que te va a permitir transformarlas en poco tiempo &lt;em>(Tenía un script que tardaba un seg pero lo borre sin querer)&lt;/em>&lt;/p>
+&lt;p>Abrimos una terminal y nos ubicamos donde descargamos las imágenes y a continuación basta con ejecutar el siguiente comando &lt;em>(por cada imagen)&lt;/em> para generar la redimensión de la misma sin ningún inconveniente:&lt;/p>
+&lt;pre>&lt;code>convert -resize 512×512 nombredelaimagen.png nombredelaimagen512.png
+&lt;/code>&lt;/pre>
+&lt;p>Y esto nos crea el archivo &lt;em>nombredelaimagen512.png&lt;/em> que tiene la medida perfecta para nuestro sticker.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="creando-el-pack">
+Creando el Pack
+&lt;a href="#creando-el-pack" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Para comenzar tenemos que &lt;strong>iniciar una conversación&lt;/strong> con un bot que va a hacer casi todo por nosotros y para iniciarla te dejo aca abajo un hermoso botón!&lt;/p>
+&lt;p>&lt;a href="https://telegram.me/stickers" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+@stickers
+&lt;/a>&lt;/p>
+&lt;p>Una vez iniciada la conversación nos va mostrar toda la lista de opciones y comandos que utiliza. Pero nosotros sabemos que es lo que queremos hacer, para iniciar vamos a &lt;strong>crear un nuevo pack&lt;/strong> de stickers enviando el siguiente comando&lt;/p>
+&lt;pre>&lt;code>/newpack
+&lt;/code>&lt;/pre>
+&lt;p>Lo primero que te pedirá el bot es un nombre para el paquete de stickers. Este nombre será visible para quien vea cualquiera de sus stickers, así que intenta que sea descriptivo. En mi caso vamos a usar &lt;em>PatoJAD&lt;/em>&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/4NtJ3vtN/image.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="agregando-stickers">
+Agregando Stickers
+&lt;a href="#agregando-stickers" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Ahora tenemos que ir agregando de a uno cada uno de los stickers que queremos, para eso tenemos que enviarlo &lt;strong>COMO ARCHIVO&lt;/strong> y no como &lt;em>imagen&lt;/em>, y luego enviar los emojis con los que queremos relacionarlos, y así consecutivamente con todos los stickers que tengamos.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/c45QsSRN/image.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Una vez que hayamos subido todos los que nos gustan debemos terminar &lt;strong>publicando el paquete&lt;/strong> de stickers para su uso, esto lo podemos hacer simplemente enviando el comando publish al bot de la siguiente forma:&lt;/p>
+&lt;pre>&lt;code>/publish
+&lt;/code>&lt;/pre>
+&lt;p>Y nos pedira 2 datos más, &lt;strong>una imagen que represente al pack&lt;/strong> que también debemos enviar como archivo y debe ser un PNG de 100x100 para lo cual les reitero el comando para que sea más simple&lt;/p>
+&lt;pre>&lt;code>convert -resize 100×100 nombredelaimagen.png logo.png
+&lt;/code>&lt;/pre>
+&lt;p>Y una vez enviado nos pedirá &lt;strong>el nombre Corto del Pack&lt;/strong>, en nuestro caso vamos a volver a usar &lt;em>PatoJAD&lt;/em> dado que es corto y fácil de aprender.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/B6VqjMMt/image.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Y ya nos genero una url para compartir el sticker con quienes queramos y poder empezarlo a utilizar… Te dejo el pack que cree por &lt;em>si queres usarlo&lt;/em> y espero que te sirva y no te olvides de enviarnos los packs que hagas a &lt;a href="https://t.me/PatoJADCommunity" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fab fa-telegram">&lt;/i>&amp;nbsp;
+nuestro grupo de telegram
+&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://t.me/addstickers/PatoJAD" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fab fa-telegram">&lt;/i>&amp;nbsp;
+Stickers PatoJAD
+&lt;/a>&lt;/p></description></item><item><title>¿Como crear un deb con dpkg?</title><link>https://patojad.com.ar/post/2020/04/como-crear-un-deb-con-dpkg/</link><pubDate>Thu, 02 Apr 2020 10:14:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/04/como-crear-un-deb-con-dpkg/</guid><description>&lt;p>Existen muchas formas de crear un instalable .deb para nuestros sistemas. En este caso vamos a ver uno de los metodos, probablemente el mas simple de todos y uno de los mas utiles por su practicidad.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="como-funciona">
+¿Como funciona?
+&lt;a href="#como-funciona" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;iframe src='https://www.youtube.com/embed/mHqRbo1A5MM?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;p>Como se puede apreciar en el video lo que debemos hacer es organizar las carpetas de nuestro programa como si estuvieramso en el directorio raiz (en el caso practico en la carpeta deb tomamos como si fuera raiz para posicionar todos los archivos en la pocicion que deben quedar post intalacion)&lt;/p>
+&lt;p>Luego debemos crear el directorio DEBIAN en &amp;ldquo;nuestro root&amp;rdquo; y dentro de el crear el archivo control, el cual podemos hacerlo de la siguiente forma:&lt;/p>
+&lt;pre>&lt;code>mkdir DEBIAN
+cd DEBIAN
+vim control
+&lt;/code>&lt;/pre>
+&lt;p>(En el ultimo punto podemos usar vim, vi, pluma, gedit, deepin-editor o el que querramos para que nos quede comodo editar el archivo). Inmediatamente despues basta con agregar lo siguiente personalizando los datos claramente:&lt;/p>
+&lt;pre>&lt;code>Package: lynxos-gtk-theme
+Priority: optional
+Section: graphics
+Maintainer: PatoJAD &amp;lt;jdecima@disroot.org&amp;gt;
+Architecture: amd64
+Version: 0.0.4
+Depends: lynxos-icons-theme, lynxos-wallpapers
+Description: Tema de GTK para LynxOS
+LynxOS un thema GTK integrado con su trabajo en el escritorio
+&lt;/code>&lt;/pre>
+&lt;p>Recorda que en el video se explica mucho mejor como funcionan los campos. Realmente es importante completarlos bien para evitar errores futuros. En la ultima linea (la descripcion larga) es importante dejar el espacio como inicio de linea.&lt;/p>
+&lt;p>Despeus de esto basta con ejecutar el comando dpkg que empaqueta el archivo dejando listo nuestro instalador de la siguiente forma:&lt;/p>
+&lt;pre>&lt;code>dpkg -b ./ ../lynxos-gtk-theme-0.0.4_amd64.deb
+&lt;/code>&lt;/pre>
+&lt;p>Donde dpkg -b recibe 2 parametos el 1 es el directorio que tomamoscomo raiz para crear nuestro deb (en el caso practico deb) y el 2 donde queremos que quede el deb con el respectivo nombre.&lt;/p></description></item></channel></rss>

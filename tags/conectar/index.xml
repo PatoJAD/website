@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Conectar on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/conectar/</link><description>Recent content in Conectar on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Mon, 13 Jul 2020 09:41:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/conectar/index.xml" rel="self" type="application/rss+xml"/><item><title>Conectarse al WiFi desde la Terminal</title><link>https://patojad.com.ar/post/2020/07/conectarse-al-wifi-desde-la-terminal/</link><pubDate>Mon, 13 Jul 2020 09:41:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/07/conectarse-al-wifi-desde-la-terminal/</guid><description>&lt;p>Seguimos trabajando para que no le tengas miedo a la hermosa terminal que tenemos, por eso en esta oportunidad vamos a ver como se puede conectar al wifi utilizando la terminal. Esto es importante porque muchas veces queremos instalar una distro core o net y no tenemos un cable de red a mano, ahora no va a ser problema, porque la terminal nos va a permitir conectarnos al wifi sin más&amp;hellip;&lt;/p>
+&lt;p>El procedimiento para conectarte a una red Wifi usando la terminal, que vamos a ver a continuación, puede ser aplicado tanto para redes con seguridad &lt;strong>WEP&lt;/strong> como &lt;strong>WPA&lt;/strong>, es independiente de la distro en la que estemos en ese momento y funciona con cualquier tarjeta de red (siempre y cuando el sistema la reconozca, es decir que si es privativa debemos instalar los drivers).&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="breve-presentación">
+Breve presentación.
+&lt;a href="#breve-presentaci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Es importante destacar que las herramientas para este procedimiento se encuentran instaladas por defecto en la mayoría de las distros actuales (pero nunca está de mas chequear que se encuentren correctamente instaladas), y suelen utilizarse de la siguiente manera:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>iwconfig&lt;/strong>: Nos permite ver y configurar los parámetros de una interfaz de red inalámbrica.&lt;/li>
+&lt;li>&lt;strong>ifconfig&lt;/strong>: Nos permite encender el dispositivo inalámbrico.&lt;/li>
+&lt;li>&lt;strong>iwlist&lt;/strong>: Se obtiene información detallada de las redes inalámbricas disponibles.&lt;/li>
+&lt;li>&lt;strong>nmcli&lt;/strong>: Nos permite controlar NetworkManager y reportar el estado de la red, brindándonos la posibilidad de crear, mostrar, editar, eliminar, activar y desactivar las conexiones de red.&lt;/li>
+&lt;/ul>
+&lt;p>Para conocer a detalle la sintaxis y el uso de cada uno de estos comandos podemos ejecutar el comando acompañado del argumento de ayuda, o bien &lt;a href="https://patojad.com.ar/post/2019/01/man-tu-manual-para-linux/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+utilizar man como ya vimos antes en el blog
+&lt;/a>.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="conectandonos">
+Conectandonos
+&lt;a href="#conectandonos" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Lo primero que debemos hacer para conectarnos a cualquier red Wifi usando el terminal es identificar el nombre de la tarjeta de red de nuestro equipo, el cual seguramente no conozcamos, con el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">iwconfig
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Una vez tengamos el nombre de la tarjeta de red, debemos proceder a encenderla (puede que ya se encuentre encendida pero nunca esta de mas asegurarse) para ellos ejecutemos el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">ifconfig &amp;lt;InterfazWifi&amp;gt; up
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Seguidamente debemos analizar las redes inalámbricas disponible y conocer el SSID de la misma, lo que se puede hacer de manera sencilla con iwlist para ello debemos ejecutar:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo iwlist &amp;lt;InterfazWifi&amp;gt; scanning
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Teniendo los datos de la tarjeta y de la red inalámbrica a la que deseamos conectarnos, simplemente debemos ejecutar a nmcli con los parámetros correspondientes (que obtuvimos anteriormente):&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">nmcli d wifi connect &amp;lt;WifiSSID&amp;gt; password &amp;lt;ContraseñaWifi&amp;gt; iface &amp;lt;InterfazWifi&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Con esto pasos ya nos hemos conectado a una red wifi utilizando la terminal, debemos tener en cuenta que en los comandos anteriormente mencionados debemos cambiar los siguientes datos por los que correspondan:&lt;/p>
+&lt;p>&lt;em>InterfazWifi&lt;/em>: El nombre de la tarjeta de red&lt;/p>
+&lt;p>&lt;em>WifiSSID&lt;/em>: El SSID de la red inalámbrica a la que deseamos conectarnos&lt;/p>
+&lt;p>&lt;em>ContraseñaWifi&lt;/em>: La contraseña de acceso a la red inalámbrica en cuestión.&lt;/p>
+&lt;p>En caso de que nos deseemos conectar a una red wifi que ya se encuentra en nuestro historial basta con que ejecutemos desde la terminal el siguiente comando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">nmcli c up &amp;lt;NombreDadaALaRedAlmacenada&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Realizado todos los pasos anteriores deberíamos poder acceder de manera adecuada a la red inalámbrica que hayamos elegido.&lt;/p>
+&lt;p>&lt;em>Fuente: profesionalreview&lt;/em>&lt;/p></description></item></channel></rss>
