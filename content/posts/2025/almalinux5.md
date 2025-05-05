@@ -23,7 +23,7 @@ tags:
     apache virtual hosts,
     apache rendimiento,
   ]
-categories: [Linux, Servidores Web, Bases de Datos]
+categories: [Linux, Redes, Programacion]
 img: https://i.postimg.cc/ydqNyp0n/almalinux-apache.webp
 authors: [PatoJAD]
 ---
