@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Apache Tutorial on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/apache-tutorial/</link><description>Recent content in Apache Tutorial on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Mon, 28 Apr 2025 08:30:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/apache-tutorial/index.xml" rel="self" type="application/rss+xml"/><item><title>Configurar Apache HTTPD en AlmaLinux: Stack LAMP Completo 2025</title><link>https://patojad.com.ar/post/2025/04/configurar-apache-httpd-en-almalinux-stack-lamp-completo-2025/</link><pubDate>Mon, 28 Apr 2025 08:30:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/04/configurar-apache-httpd-en-almalinux-stack-lamp-completo-2025/</guid><description>&lt;p>Apache HTTPD sigue siendo relevante para:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Compatibilidad&lt;/strong>: Soporte nativo para .htaccess y aplicaciones legacy&lt;/li>
+&lt;li>&lt;strong>Flexibilidad&lt;/strong>: Módulos dinámicos (PHP, Python, Perl)&lt;/li>
+&lt;li>&lt;strong>Soporte empresarial&lt;/strong>: Ideal para sistemas con software antiguo&lt;/li>
+&lt;li>&lt;strong>Facilidad de uso&lt;/strong>: Configuración más intuitiva que Nginx&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>📊 &lt;strong>Estadística&lt;/strong>: 31% de los sitios web usan Apache según Netcraft (2025)&lt;/p>&lt;/blockquote>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-instalación-básica-de-apache">
+🛠️ Instalación Básica de Apache
+&lt;a href="#-instalaci%c3%b3n-b%c3%a1sica-de-apache" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="instalar-paquetes-necesarios">
+Instalar paquetes necesarios
+&lt;a href="#instalar-paquetes-necesarios" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install httpd httpd-tools -y
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="iniciar-y-habilitar-el-servicio">
+Iniciar y habilitar el servicio
+&lt;a href="#iniciar-y-habilitar-el-servicio" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl &lt;span class="nb">enable&lt;/span> --now httpd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="verificar-estado">
+Verificar estado
+&lt;a href="#verificar-estado" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl status httpd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Salida esperada: &lt;code>Active: active (running)&lt;/code>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-estructura-de-directorios-clave">
+📂 Estructura de Directorios Clave
+&lt;a href="#-estructura-de-directorios-clave" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;table class="w-full bg-gray-100 dark:bg-gray-900 rounded-xl my-4">
+&lt;thead>
+&lt;tr>
+&lt;th class="px-3 py-1">Ruta&lt;/th>
+&lt;th class="px-3 py-1">Propósito&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">&lt;code>/etc/httpd/conf/httpd.conf&lt;/code>&lt;/td>
+&lt;td class="px-3 py-1">Configuración principal&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">&lt;code>/etc/httpd/conf.d/&lt;/code>&lt;/td>
+&lt;td class="px-3 py-1">Configs adicionales&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">&lt;code>/var/www/html/&lt;/code>&lt;/td>
+&lt;td class="px-3 py-1">Contenido web por defecto&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">&lt;code>/var/log/httpd/&lt;/code>&lt;/td>
+&lt;td class="px-3 py-1">Logs de acceso/errores&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>&lt;h2 class="text-amber-500 text-3xl my-6" id="-configurar-virtual-hosts">
+🖥️ Configurar Virtual Hosts
+&lt;a href="#-configurar-virtual-hosts" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Ejemplo básico (/etc/httpd/conf.d/misitio.conf):&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-apache" data-lang="apache">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;VirtualHost&lt;/span> &lt;span class="s">*:80&lt;/span>&lt;span class="nt">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">ServerName&lt;/span> misitio.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">DocumentRoot&lt;/span> &lt;span class="sx">/var/www/html/misitio&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;Directory&lt;/span> &lt;span class="s">/var/www/html/misitio&lt;/span>&lt;span class="nt">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">Options&lt;/span> Indexes FollowSymLinks
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">AllowOverride&lt;/span> &lt;span class="k">All&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">Require&lt;/span> &lt;span class="k">all&lt;/span> granted
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/Directory&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/VirtualHost&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Comandos para aplicar cambios:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl restart httpd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo firewall-cmd --add-service&lt;span class="o">=&lt;/span>http --permanent
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo firewall-cmd --reload
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-stack-lamp-completo">
+🧩 Stack LAMP Completo
+&lt;a href="#-stack-lamp-completo" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="instalar-php-y-mysql">
+Instalar PHP y MySQL
+&lt;a href="#instalar-php-y-mysql" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install php php-mysqlnd php-json mariadb-server -y
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="configurar-mariadb">
+Configurar MariaDB
+&lt;a href="#configurar-mariadb" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl &lt;span class="nb">enable&lt;/span> --now mariadb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo mysql_secure_installation
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="probar-php">
+Probar PHP
+&lt;a href="#probar-php" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&amp;lt;?php phpinfo(); ?&amp;gt;&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee /var/www/html/misitio/info.php
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-comparativa-apache-vs-nginx-2025">
+⚖️ Comparativa Apache vs Nginx (2025)
+&lt;a href="#-comparativa-apache-vs-nginx-2025" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;table class="w-full bg-gray-100 dark:bg-gray-900 rounded-xl my-4">
+&lt;thead>
+&lt;tr>
+&lt;th class="px-3 py-1">Característica&lt;/th>
+&lt;th class="px-3 py-1">Apache&lt;/th>
+&lt;th class="px-3 py-1">Nginx&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">Modo de trabajo&lt;/td>
+&lt;td class="px-3 py-1">Proceso/Thread&lt;/td>
+&lt;td class="px-3 py-1">Evento&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">Rendimiento PHP&lt;/td>
+&lt;td class="px-3 py-1">7,200 req/seg&lt;/td>
+&lt;td class="px-3 py-1">8,500 req/seg&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">Consumo memoria&lt;/td>
+&lt;td class="px-3 py-1">350MB (10K conex)&lt;/td>
+&lt;td class="px-3 py-1">120MB&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">Facilidad config&lt;/td>
+&lt;td class="px-3 py-1">★★★★★&lt;/td>
+&lt;td class="px-3 py-1">★★★☆☆&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">Soporte .htaccess&lt;/td>
+&lt;td class="px-3 py-1">Nativo&lt;/td>
+&lt;td class="px-3 py-1">Require rewrite&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">HTTP/3&lt;/td>
+&lt;td class="px-3 py-1">Experimental&lt;/td>
+&lt;td class="px-3 py-1">Soporte completo&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>&lt;h2 class="text-amber-500 text-3xl my-6" id="-optimización-de-apache">
+⚡ Optimización de Apache
+&lt;a href="#-optimizaci%c3%b3n-de-apache" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Ajustes en &lt;code>/etc/httpd/conf/httpd.conf&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-apache" data-lang="apache">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">KeepAlive&lt;/span> &lt;span class="k">On&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">MaxKeepAliveRequests&lt;/span> &lt;span class="m">100&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">KeepAliveTimeout&lt;/span> &lt;span class="m">5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">StartServers&lt;/span> &lt;span class="m">5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">MinSpareServers&lt;/span> &lt;span class="m">5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">MaxSpareServers&lt;/span> &lt;span class="m">10&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-solución-de-problemas-comunes">
+🚨 Solución de Problemas Comunes
+&lt;a href="#-soluci%c3%b3n-de-problemas-comunes" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="error-could-not-reliably-determine">
+Error: &amp;ldquo;Could not reliably determine&amp;hellip;&amp;rdquo;
+&lt;a href="#error-could-not-reliably-determine" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;ServerName localhost&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee -a /etc/httpd/conf/httpd.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="error-403-forbidden">
+Error: &amp;ldquo;403 Forbidden&amp;rdquo;
+&lt;a href="#error-403-forbidden" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo chown -R apache:apache /var/www/html/misitio
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo chmod -R &lt;span class="m">755&lt;/span> /var/www/html
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-conclusión">
+📌 Conclusión
+&lt;a href="#-conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Con esta guía has aprendido a:&lt;/p>
+&lt;ul>
+&lt;li>Instalar Apache HTTPD en AlmaLinux&lt;/li>
+&lt;li>Configurar hosts virtuales&lt;/li>
+&lt;li>Implementar stack LAMP completo&lt;/li>
+&lt;li>Optimizar para entornos productivos&lt;/li>
+&lt;/ul>
+&lt;p>Próximo paso: Proteger tu servidor con &lt;code>firewalld&lt;/code> y &lt;code>fail2ban&lt;/code>.&lt;/p>
+&lt;blockquote>
+&lt;p>💡 Dato técnico: Apache soporta más de 60 módulos dinámicos, incluyendo mod_wsgi para Python y mod_perl.&lt;/p>&lt;/blockquote></description></item></channel></rss>

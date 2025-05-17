@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Almalinux Seguridad on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/almalinux-seguridad/</link><description>Recent content in Almalinux Seguridad on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Mon, 12 May 2025 09:00:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/almalinux-seguridad/index.xml" rel="self" type="application/rss+xml"/><item><title>Dominar SELinux en AlmaLinux: Guía Definitiva 2025</title><link>https://patojad.com.ar/post/2025/05/dominar-selinux-en-almalinux-gu%C3%ADa-definitiva-2025/</link><pubDate>Mon, 12 May 2025 09:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/05/dominar-selinux-en-almalinux-gu%C3%ADa-definitiva-2025/</guid><description>&lt;p>&lt;strong>SELinux&lt;/strong> (Security-Enhanced Linux) es una característica de seguridad avanzada en sistemas Linux, especialmente en distribuciones como AlmaLinux. En 2025, su uso se ha vuelto esencial para proteger servidores y aplicaciones críticas.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-por-qué-selinux-es-crucial-en-2025">
+🔍 ¿Por qué SELinux es crucial en 2025?
+&lt;a href="#-por-qu%c3%a9-selinux-es-crucial-en-2025" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;strong>Security-Enhanced Linux (SELinux)&lt;/strong> proporciona:&lt;/p>
+&lt;ul>
+&lt;li>✅ Control de acceso obligatorio (MAC)&lt;/li>
+&lt;li>✅ Aislamiento de procesos y archivos&lt;/li>
+&lt;li>✅ Protección contra exploits zero-day&lt;/li>
+&lt;li>✅ Cumplimiento de normativas (HIPAA, PCI DSS)&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>📊 &lt;strong>Dato&lt;/strong>: El 78% de las brechas de seguridad en servidores sin SELinux ocurren por permisos incorrectos (Fuente: Red Hat Security Report 2025)&lt;/p>&lt;/blockquote>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-configuración-básica">
+🛠️ Configuración Básica
+&lt;a href="#-configuraci%c3%b3n-b%c3%a1sica" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="estados-de-selinux">
+Estados de SELinux
+&lt;a href="#estados-de-selinux" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Ver estado actual&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo getenforce
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Cambiar temporalmente a Permissive&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo setenforce &lt;span class="m">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Hacer cambio permanente (en /etc/selinux/config)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo sed -i &lt;span class="s1">&amp;#39;s/SELINUX=.*/SELINUX=enforcing/&amp;#39;&lt;/span> /etc/selinux/config
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-casos-prácticos-comunes">
+🚨 Casos Prácticos Comunes
+&lt;a href="#-casos-pr%c3%a1cticos-comunes" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="error-httpd-no-puede-acceder-a-archivos">
+Error: &amp;ldquo;HTTPD no puede acceder a archivos&amp;rdquo;
+&lt;a href="#error-httpd-no-puede-acceder-a-archivos" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Diagnosticar&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo ausearch -m avc -ts recent &lt;span class="p">|&lt;/span> grep httpd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Solución (cambiar contexto)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo semanage fcontext -a -t httpd_sys_content_t &lt;span class="s2">&amp;#34;/ruta/a/tu/app(/.*)?&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo restorecon -Rv /ruta/a/tu/app
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="servicio-no-puede-usar-puerto-personalizado">
+Servicio no puede usar puerto personalizado
+&lt;a href="#servicio-no-puede-usar-puerto-personalizado" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Permitir a Nginx usar puerto 3000&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo semanage port -a -t http_port_t -p tcp &lt;span class="m">3000&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-comandos-esenciales">
+📋 Comandos Esenciales
+&lt;a href="#-comandos-esenciales" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;table class="w-full bg-gray-100 dark:bg-gray-900 rounded-xl my-4">
+&lt;thead>
+&lt;tr>
+&lt;th class="px-3 py-1">Comando&lt;/th>
+&lt;th class="px-3 py-1">Descripción&lt;/th>
+&lt;th class="px-3 py-1">Ejemplo&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">&lt;code>chcon&lt;/code>&lt;/td>
+&lt;td class="px-3 py-1">Cambiar contexto&lt;/td>
+&lt;td class="px-3 py-1">&lt;code>chcon -t httpd_sys_content_t archivo.html&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">&lt;code>semanage&lt;/code>&lt;/td>
+&lt;td class="px-3 py-1">Gestionar políticas&lt;/td>
+&lt;td class="px-3 py-1">&lt;code>semanage port -l | grep http&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">&lt;code>audit2allow&lt;/code>&lt;/td>
+&lt;td class="px-3 py-1">Crear módulos&lt;/td>
+&lt;td class="px-3 py-1">&lt;code>grep denied /var/log/audit/audit.log | audit2allow -M mi_politica&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>&lt;h2 class="text-amber-500 text-3xl my-6" id="-troubleshooting-avanzado">
+🔧 Troubleshooting Avanzado
+&lt;a href="#-troubleshooting-avanzado" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="analizar-logs-con-sealert">
+Analizar logs con sealert
+&lt;a href="#analizar-logs-con-sealert" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo sealert -a /var/log/audit/audit.log
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="crear-política-personalizada">
+Crear política personalizada
+&lt;a href="#crear-pol%c3%adtica-personalizada" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">grep &lt;span class="s2">&amp;#34;avc: denied&amp;#34;&lt;/span> /var/log/audit/audit.log &lt;span class="p">|&lt;/span> audit2allow -M mi_politica
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo semodule -i mi_politica.pp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="-tabla-de-contextos-comunes">
+📌 Tabla de Contextos Comunes
+&lt;a href="#-tabla-de-contextos-comunes" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;table class="w-full bg-gray-100 dark:bg-gray-900 rounded-xl my-4">
+&lt;thead>
+&lt;tr>
+&lt;th class="px-3 py-1">Contexto&lt;/th>
+&lt;th class="px-3 py-1">Uso Típico&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">&lt;code>httpd_sys_content_t&lt;/code>&lt;/td>
+&lt;td class="px-3 py-1">Archivos web estáticos&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">&lt;code>mysqld_db_t&lt;/code>&lt;/td>
+&lt;td class="px-3 py-1">Bases de datos MySQL&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">&lt;code>user_home_t&lt;/code>&lt;/td>
+&lt;td class="px-3 py-1">Archivos en &lt;code>/home&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">&lt;code>var_log_t&lt;/code>&lt;/td>
+&lt;td class="px-3 py-1">Archivos de logs&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>&lt;h2 class="text-amber-500 text-3xl my-6" id="-solución-de-problemas">
+⚠️ Solución de Problemas
+&lt;a href="#-soluci%c3%b3n-de-problemas" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="selinux-está-bloqueando-mi-aplicación">
+&amp;ldquo;SELinux está bloqueando mi aplicación&amp;rdquo;
+&lt;a href="#selinux-est%c3%a1-bloqueando-mi-aplicaci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Identificar el error:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo grep &lt;span class="s2">&amp;#34;avc: denied&amp;#34;&lt;/span> /var/log/audit/audit.log
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Solución temporal (solo para pruebas):&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo setenforce &lt;span class="m">0&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Solución permanente:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Usar las recomendaciones de sealert&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo sealert -l &lt;span class="s2">&amp;#34;*&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> grep -A &lt;span class="m">10&lt;/span> &lt;span class="s2">&amp;#34;Sugerencia&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-conclusión">
+📌 Conclusión
+&lt;a href="#-conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Con esta guía has aprendido a:&lt;/p>
+&lt;ul>
+&lt;li>Configurar SELinux en modo enforcing&lt;/li>
+&lt;li>Diagnosticar y solucionar errores comunes&lt;/li>
+&lt;li>Crear políticas personalizadas&lt;/li>
+&lt;li>Trabajar con contextos de archivos&lt;/li>
+&lt;li>Próximo paso: Hardening avanzado de AlmaLinux&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>💡 Tip profesional: Usa restorecon -Rv después de instalar nuevas aplicaciones para resetear contextos.&lt;/p>&lt;/blockquote></description></item><item><title>Configurar Firewall en AlmaLinux con firewalld: Guía de Seguridad 2025</title><link>https://patojad.com.ar/post/2025/05/configurar-firewall-en-almalinux-con-firewalld-gu%C3%ADa-de-seguridad-2025/</link><pubDate>Sat, 03 May 2025 10:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/05/configurar-firewall-en-almalinux-con-firewalld-gu%C3%ADa-de-seguridad-2025/</guid><description>&lt;p>&lt;strong>firewalld&lt;/strong> es el firewall predeterminado en AlmaLinux/RHEL porque:&lt;/p>
+&lt;ul>
+&lt;li>✅ Gestión dinámica de reglas sin reiniciar servicios&lt;/li>
+&lt;li>✅ Soporte para zonas de red (pública, DMZ, etc.)&lt;/li>
+&lt;li>✅ Integración nativa con systemd y NetworkManager&lt;/li>
+&lt;li>✅ Compatibilidad con IPv4/IPv6&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>📊 &lt;strong>Dato clave&lt;/strong>: Reduce ataques bruteforce en un 72% cuando se configura correctamente (Fuente: Red Hat Security Report 2025)&lt;/p>&lt;/blockquote>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-configuración-básica">
+🛠️ Configuración Básica
+&lt;a href="#-configuraci%c3%b3n-b%c3%a1sica" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="1-verificar-estado">
+1. Verificar estado
+&lt;a href="#1-verificar-estado" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl status firewalld
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo firewall-cmd --state
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="2-habilitar-e-iniciar">
+2. Habilitar e iniciar
+&lt;a href="#2-habilitar-e-iniciar" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl &lt;span class="nb">enable&lt;/span> --now firewalld
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="3-zonas-predeterminadas">
+3. Zonas predeterminadas
+&lt;a href="#3-zonas-predeterminadas" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo firewall-cmd --list-all-zones
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-reglas-para-servicios-web">
+🌐 Reglas para Servicios Web
+&lt;a href="#-reglas-para-servicios-web" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="permitir-httphttps-y-ssh">
+Permitir HTTP/HTTPS y SSH
+&lt;a href="#permitir-httphttps-y-ssh" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo firewall-cmd --permanent --add-service&lt;span class="o">=&lt;/span>http
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo firewall-cmd --permanent --add-service&lt;span class="o">=&lt;/span>https
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo firewall-cmd --permanent --add-service&lt;span class="o">=&lt;/span>ssh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo firewall-cmd --reload
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="verificar-reglas-activas">
+Verificar reglas activas
+&lt;a href="#verificar-reglas-activas" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo firewall-cmd --list-all
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-reglas-avanzadas">
+🔒 Reglas Avanzadas
+&lt;a href="#-reglas-avanzadas" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="1-restricción-por-ip-para-ssh">
+1. Restricción por IP para SSH
+&lt;a href="#1-restricci%c3%b3n-por-ip-para-ssh" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo firewall-cmd --permanent --remove-service&lt;span class="o">=&lt;/span>ssh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo firewall-cmd --permanent --add-rich-rule&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;rule family=&amp;#34;ipv4&amp;#34; source address=&amp;#34;192.168.1.100&amp;#34; service name=&amp;#34;ssh&amp;#34; accept&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="2-abrir-puerto-personalizado-ej-3000-para-nodejs">
+2. Abrir puerto personalizado (Ej: 3000 para Node.js)
+&lt;a href="#2-abrir-puerto-personalizado-ej-3000-para-nodejs" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo firewall-cmd --permanent --add-port&lt;span class="o">=&lt;/span>3000/tcp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="3-bloquear-país-completo-requiere-ipset">
+3. Bloquear país completo (Requiere ipset)
+&lt;a href="#3-bloquear-pa%c3%ads-completo-requiere-ipset" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo firewall-cmd --permanent --zone&lt;span class="o">=&lt;/span>drop --add-source&lt;span class="o">=&lt;/span>country:cn
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-monitoreo-y-troubleshooting">
+📊 Monitoreo y Troubleshooting
+&lt;a href="#-monitoreo-y-troubleshooting" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="conexiones-activas">
+Conexiones activas
+&lt;a href="#conexiones-activas" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo ss -tulnp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="tráfico-bloqueado">
+Tráfico bloqueado
+&lt;a href="#tr%c3%a1fico-bloqueado" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo journalctl -u firewalld --no-pager &lt;span class="p">|&lt;/span> grep DROP
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="resetear-configuración">
+Resetear configuración
+&lt;a href="#resetear-configuraci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo firewall-cmd --reset-to-defaults
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-tabla-de-servicios-comunes">
+📌 Tabla de Servicios Comunes
+&lt;a href="#-tabla-de-servicios-comunes" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;table class="w-full bg-gray-100 dark:bg-gray-900 rounded-xl my-4">
+&lt;thead>
+&lt;tr>
+&lt;th class="px-3 py-1">Servicio&lt;/th>
+&lt;th class="px-3 py-1">Puerto&lt;/th>
+&lt;th class="px-3 py-1">Comando firewalld&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">HTTP&lt;/td>
+&lt;td class="px-3 py-1">80&lt;/td>
+&lt;td class="px-3 py-1">&amp;ndash;add-service=http&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">HTTPS&lt;/td>
+&lt;td class="px-3 py-1">443&lt;/td>
+&lt;td class="px-3 py-1">&amp;ndash;add-service=https&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">SSH&lt;/td>
+&lt;td class="px-3 py-1">22&lt;/td>
+&lt;td class="px-3 py-1">&amp;ndash;add-service=ssh&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">MySQL&lt;/td>
+&lt;td class="px-3 py-1">3306&lt;/td>
+&lt;td class="px-3 py-1">&amp;ndash;add-service=mysql&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">PostgreSQL&lt;/td>
+&lt;td class="px-3 py-1">5432&lt;/td>
+&lt;td class="px-3 py-1">&amp;ndash;add-service=postgresql&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>&lt;h2 class="text-amber-500 text-3xl my-6" id="-solución-de-problemas">
+🚨 Solución de Problemas
+&lt;a href="#-soluci%c3%b3n-de-problemas" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="error-firewalld-is-not-running">
+Error: &amp;ldquo;FirewallD is not running&amp;rdquo;
+&lt;a href="#error-firewalld-is-not-running" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl start firewalld
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="reglas-no-persisten">
+Reglas no persisten
+&lt;a href="#reglas-no-persisten" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo firewall-cmd --runtime-to-permanent
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-conclusión">
+📌 Conclusión
+&lt;a href="#-conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Con esta guía has aprendido a:&lt;/p>
+&lt;ul>
+&lt;li>Configurar reglas básicas y avanzadas&lt;/li>
+&lt;li>Restringir acceso por IP/país&lt;/li>
+&lt;li>Monitorear conexiones sospechosas&lt;/li>
+&lt;li>Solucionar errores comunes&lt;/li>
+&lt;li>Próximo paso: Hardening avanzado con SELinux&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>💡 Tip profesional: Usa &lt;code>--timeout=300&lt;/code> en reglas temporales para pruebas (ej: &lt;code>sudo firewall-cmd --add-port=8080/tcp --timeout=300&lt;/code>)&lt;/p>&lt;/blockquote></description></item></channel></rss>
