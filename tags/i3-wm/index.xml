@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>I3-Wm on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/i3-wm/</link><description>Recent content in I3-Wm on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 19 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/i3-wm/index.xml" rel="self" type="application/rss+xml"/><item><title>Mi experiencia con los Tiling Window Managers</title><link>https://patojad.com.ar/post/2019/02/mi-experiencia-con-los-tiling-window-managers/</link><pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/02/mi-experiencia-con-los-tiling-window-managers/</guid><description>&lt;p>Este post quizá sea un poco largo, pero quiero contarles mi experiencia y opiniones con algunos Tiling Window Manager, espero que le sirva a alguien que desee probarlos para decidirse, o si nunca han probado un &lt;em>Tiling Window Manager&lt;/em>, para que se animen a instalarlos. Al ser Window Managers son mucho menos intrusivos que los Entornos de Escritorios y se pueden instalar y desinstalar sin problemas.&lt;/p>
+&lt;p>Un &lt;em>Tiling Window Manager&lt;/em> se diferencía de un Gestor de Ventanas normal en que las ventanas, al abrirlas, ocupan todo el espacio disponible. Si tenemos dos ventanas abiertas, entonces su tamaño cambia para que ocupen todo el espacio. Esto permite mayor eficacia al ocupar todo el espacio disponible en pantalla y no tener que preocuparnos por acomodar las ventanas para que no se empalmen.&lt;/p>
+&lt;p>Hasta ahorita, he instalado en mi sistema y probado cuatro de estos WM:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>i3wm.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>bspwm.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>awesome.&lt;/strong>&lt;/li>
+&lt;li>y &lt;strong>Qtile.&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="i3">
+i3
+&lt;a href="#i3" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Quizá &lt;a href="https://i3wm.org/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+i3wm
+&lt;/a> sea el &lt;em>Tiling Window Manager&lt;/em> más famoso y el más amigable para los principiantes. Fue el primero que usé ya que instalé &lt;em>Manjaro i3&lt;/em>. &lt;strong>i3&lt;/strong> se configura mediante un archivo de texto, su documentación es muy buena y amplia (aunque en Inglés) y permite crear &amp;ldquo;layouts&amp;rdquo; tan complejas como se desee, algunas configuraciones rayando en lo ridículo.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/rmfQp65n/i3.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Su manera de acomodar las ventanas es dinámica, es decir, tú tienes que indicarle a &lt;strong>i3&lt;/strong> la orientación en que se dividirá el nodo, si vertical u horizontal (por defecto, se abren horizontal), algo que a mi casi no me gustó, ya que nunca le indicaba donde abrir la siguiente ventana y tenía 4 o 5 ventanas abiertas en horizontal, lo que las volvía imposibles de leer e inútiles. Viene con un panel llamado &lt;em>i3bar&lt;/em>, que rápidamente cambié por &lt;strong>polybar&lt;/strong> y opciones interesantes, como configurar &amp;ldquo;modos&amp;rdquo; con atajos de teclado especiales (similar a &lt;em>VIM&lt;/em>).&lt;/p>
+&lt;p>Es un buen WM, muy bien documentado, aunque carece de &amp;ldquo;layouts&amp;rdquo; automáticas y para tener algunas configuraciones de apariencia es necesario usar un &lt;em>fork de &lt;strong>i3&lt;/strong>&lt;/em> llamado &lt;a href="https://github.com/Airblader/i3" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fab fa-github">&lt;/i>&amp;nbsp;
+i3-gaps
+&lt;/a>, que añade separaciones entre ventanas (gaps) y otras opciones que esperarías tener en el proyecto original.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="bspwm">
+Bspwm
+&lt;a href="#bspwm" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;a href="https://github.com/baskerville/bspwm" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fab fa-github">&lt;/i>&amp;nbsp;
+Bspwm
+&lt;/a> es el Window Manager en el que más tiempo he pasado y el que uso actualmente. &lt;strong>Bspwm&lt;/strong> solo se encarga de mostrar ventanas, quien se encarga de controlarlas es un módulo llamado &lt;code>bspc&lt;/code>, es decir que podemos enviar órdenes a &lt;code>bspwm&lt;/code> (mover ventanas, cerrar ventanas, cambiar tamaño de los bordes, etc.) con comandos en terminal.&lt;/p>
+&lt;p>&lt;strong>Bspwm&lt;/strong> se configura en 2 partes: un script de bash (&lt;code>bspwmrc&lt;/code>) donde indicamos algunas reglas y configuraciones de ventanas, y la aplicación que deseemos usar para configurar atajos de teclado, aunque, como viene recomendado en la página de &lt;strong>Bspwm&lt;/strong>, la mayoría usa &lt;a href="https://github.com/baskerville/sxhkd" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fab fa-github">&lt;/i>&amp;nbsp;
+sxhkd
+&lt;/a>, pero podemos usar la que queramos, como &lt;em>obkey&lt;/em> o la herramienta de algún Entorno de Escritorio. Las ventanas se abren como &amp;ldquo;hojas de un arbol binario&amp;rdquo;, es decir, al abrir una ventana, la última ventana abierta se divide en 2, ya sea vertical u horizontal, para ir formando una espiral, también se pueden preseleccionar donde queremos que se abra la nueva ventana, similar a &lt;em>i3&lt;/em>, aunque en mi opinión, tiene un acomodo de ventanas manual más poderoso, al poder elegir la proporción en la que queremos se divida la ventana.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/ZqCrL9Nc/bspwm.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>&lt;strong>Bspwm&lt;/strong> no trae panel integrado, pero podemos usar &lt;em>polybar&lt;/em>. Quizá el mayor problema con &lt;strong>Bspwm&lt;/strong> sea su documentación, la cual es mala a morir, la única manera de figurarte que puedes hacer es leer el manual y comenzar a experimentar, o estudiar ya sea los ejemplos proporcionados en su página de GitHub o la configuración de alguien más, por otro lado tiene muchas opciones como &amp;ldquo;gaps&amp;rdquo;, personalizar bordes, y es mucho más modular que &lt;em>i3&lt;/em>, además está en constante desarrollo.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="awesome">
+Awesome
+&lt;a href="#awesome" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/1z2D79cZ/awesome.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>&lt;a href="https://awesomewm.org/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+Awesome
+&lt;/a> es un WM desarrollado en &lt;em>Lua&lt;/em>. Tiene mucha mejor integración con el ratón que los demás y es posible usarlo como un WM flotante, como &lt;em>openbox&lt;/em>, incluso viene con bordes y botones de cerrar y minimizar, bandeja de notificaciones, temas, menú de ventanas abiertas y lanzador de aplicaciones.&lt;/p>
+&lt;p>Viene con un conjunto de &amp;ldquo;layouts&amp;rdquo; preseleccionadas y podemos elegir cuales usar, entre ellas las de otros WM como &lt;em>Bspwm&lt;/em> y &lt;em>Xmonad&lt;/em>, sin embargo, no tiene modo manual para colocar ventanas como si lo tienen &lt;em>Bspwm&lt;/em> o &lt;em>i3&lt;/em>. Posee un panel integrado llamado &lt;em>wiibar&lt;/em>, totalmente personalizable desde su archivo de configuración, y existen muchos módulos (widgets) que podemos agregar o podemos desarrollar los propios.&lt;/p>
+&lt;p>Su configuración es en &lt;em>Lua&lt;/em>, y este el mayor problema de &lt;strong>Awesome&lt;/strong>. En mi opinión, &lt;em>Lua&lt;/em> es un lenguaje sucio (usa muchas llaves, paréntesis y es complicado de leer, sobre todo comparado con &lt;em>bash&lt;/em> o &lt;em>python&lt;/em>) y como no se nada de &lt;em>Lua&lt;/em> me pierdo fácilmente. No obstante, es posible crear escritorios muy personalizados y poderosos, y los expertos en &lt;em>Lua&lt;/em> deberían sentirse en casa con este Window Manager.&lt;/p>
+&lt;p>&lt;strong>Awesome&lt;/strong> es mucho más completo que los anteriores y posee herramientas como &lt;em>cambiar el fondo de pantalla&lt;/em> o &lt;em>mostrar notificaciones&lt;/em> sin necesidad de utilizar aplicaciones externas, mientras que los demás ocupan de aplicaciones como &lt;em>nitrogen&lt;/em> y &lt;em>dunst&lt;/em> para esto.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qtile">
+Qtile
+&lt;a href="#qtile" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/hvbxGVFS/qtile.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>La verdad que usé este Gestor de Ventanas solo porque &lt;a href="https://www.youtube.com/channel/UCVls1GmFKf6WlTraIb_IaJg" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+DistroTube
+&lt;/a> habla maravillas de él. &lt;a href="http://www.qtile.org/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+Qtile
+&lt;/a> está escrito y configurado en &lt;em>python&lt;/em>, un lenguaje que tampoco manejo, pero que es súper fácil de interpretar y puedes empezar a modificar y a entender como funcionan las cosas simplemente estudiando el código (a diferencia de &lt;em>Lua&lt;/em> que es mucho más caótico).&lt;/p>
+&lt;p>Al igual que &lt;em>Awesome&lt;/em> viene con un panel totalmente configurable y posee un conjunto de &amp;ldquo;layouts&amp;rdquo; predefinidas, con la posibilidad de crear las propias en &lt;em>python&lt;/em>, además cada configuración de ventanas es personalizable, y se pueden tener diferentes bordes para cada una. Un problema que noté en &lt;strong>Qtile&lt;/strong> es que si hay un error en la configuración muy grave (ejemplo, no hay escritorios configurados), se niega a iniciar, obligandote a ir a otro WM para arreglar el problema o a la consola, mientras que otros como &lt;em>i3&lt;/em> o &lt;em>Awesome&lt;/em> inician con una notificación de error y cargan la configuración predeterminada.&lt;/p>
+&lt;p>Si bien su documentación es amplia, su comunidad es algo pequeña y es un Window Manager algo más oscuro que el resto. Salvo la página oficial, es difícil encontrar mucha más información por ahí, aunque si se domina &lt;em>python&lt;/em> no debería haber ningún problema. Personalmente, entre &lt;em>Awesome&lt;/em> y &lt;strong>Qtile&lt;/strong>, me quedo con &lt;strong>Qtile&lt;/strong> por su sencilla configuración.&lt;/p>
+&lt;p>Hay otros que nunca he usado pero se un poco por lo que he visto. Espero probarlos pronto.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://xmonad.org/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+Xmonad
+&lt;/a>: Está configurado en &lt;em>Haskell&lt;/em> (otro lenguaje poco usado), su manera de mostrar las ventanas por defecto me gusta bastante, al mostrar una principal y las demás en cascada al lado (esta configuración se conoce como &lt;em>MonadTall&lt;/em> o &lt;em>Master-Slave&lt;/em>) y es posible crear las propias en &lt;em>Haskell&lt;/em>. Al igual que &lt;em>bspwm&lt;/em>, no posee panel pero la mayoría suele usar &lt;em>xmobar&lt;/em> y es el utilizado en la documentación oficial para ejemplos.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://dwm.suckless.org/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+Dwm
+&lt;/a>: Un producto del proyecto &lt;em>suckless&lt;/em>, y como tal, carece de archivo de configuración, para cualquier modificación hay que editar el archivo &lt;em>config.h&lt;/em> encontrado en su código fuente y recopilar esto cada vez que se desee hacer una modificación. Carece de varias opciones (algunas que esperarías tener) debido a que quieren mantenerlo libre de sobrecargas innecesarias (bloated). Como &lt;em>Awesome&lt;/em>, viene con varias &amp;ldquo;layouts&amp;rdquo; predefinidas, un panel configurable y hay muchos parches que añaden funcionalidades extra.&lt;/p>
+&lt;/li>
+&lt;/ul></description></item></channel></rss>
