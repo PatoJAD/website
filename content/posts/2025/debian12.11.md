@@ -2,7 +2,17 @@
 title: "Debian 12.11 'Bookworm' Llega con Actualizaciones de Seguridad y Correcciones Clave"
 description: "La undécima actualización de Debian 12, versión 12.11 'Bookworm', ha sido liberada con importantes correcciones de seguridad y ajustes para problemas críticos. Descubre los detalles y cómo actualizar tu sistema."
 date: 2025-05-17
-tags: ["debian", "linux", "actualización", "seguridad", "bookworm", "código abierto", "sistema operativo"]
+type: post
+tags:
+  [
+    "debian",
+    "linux",
+    "actualización",
+    "seguridad",
+    "bookworm",
+    "código abierto",
+    "sistema operativo",
+  ]
 categories: ["Linux", "Seguridad"]
 authors: ["PatoJAD"]
 img: https://bantics.com.ar/wp-content/uploads/2023/12/Debian-12-Bookworm-1.jpg
@@ -23,8 +33,8 @@ Es importante destacar que esta no es una nueva versión completa de Debian 12, 
 
 Como con cualquier actualización, se han identificado algunos problemas conocidos y correcciones específicas:
 
-*   **Linux 6.1.137-1**: Se ha identificado una regresión en el kernel Linux 6.1.137-1, que impide la carga de los módulos "watchdog" y "w83977f_wdt" en la arquitectura "amd64". Se espera que este problema se resuelva en una próxima actualización. Mientras tanto, se recomienda a los usuarios que dependen de la funcionalidad watchdog que la deshabiliten o eviten actualizar a esta versión del kernel.
-*   **Diversas Correcciones de Bugs**: Se han añadido correcciones importantes a numerosos paquetes, incluyendo `abseil`, `adonthell`, `base-files`, `bash`, `busybox`, y muchos otros. Estas correcciones abordan una variedad de problemas, desde desbordamientos de búfer hasta problemas de compatibilidad y errores de construcción.
+- **Linux 6.1.137-1**: Se ha identificado una regresión en el kernel Linux 6.1.137-1, que impide la carga de los módulos "watchdog" y "w83977f_wdt" en la arquitectura "amd64". Se espera que este problema se resuelva en una próxima actualización. Mientras tanto, se recomienda a los usuarios que dependen de la funcionalidad watchdog que la deshabiliten o eviten actualizar a esta versión del kernel.
+- **Diversas Correcciones de Bugs**: Se han añadido correcciones importantes a numerosos paquetes, incluyendo `abseil`, `adonthell`, `base-files`, `bash`, `busybox`, y muchos otros. Estas correcciones abordan una variedad de problemas, desde desbordamientos de búfer hasta problemas de compatibilidad y errores de construcción.
 
 Para una lista detallada de todos los paquetes actualizados y los problemas resueltos, puedes consultar el registro de cambios oficial de Debian:
 
@@ -40,8 +50,8 @@ Esta revisión incluye numerosas actualizaciones de seguridad. El Equipo de Segu
 
 Debido a circunstancias fuera del control del proyecto, los siguientes paquetes han sido eliminados:
 
-*   `pidgin-skype`: Inútil debido a la discontinuación del servicio.
-*   `viagee`: Ya no puede conectarse a Gmail.
+- `pidgin-skype`: Inútil debido a la discontinuación del servicio.
+- `viagee`: Ya no puede conectarse a Gmail.
 
 ## Cómo Actualizar tu Sistema Debian
 
