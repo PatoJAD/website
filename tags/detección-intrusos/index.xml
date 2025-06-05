@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Detección Intrusos on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/detecci%C3%B3n-intrusos/</link><description>Recent content in Detección Intrusos on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Mon, 19 May 2025 10:00:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/detecci%C3%B3n-intrusos/index.xml" rel="self" type="application/rss+xml"/><item><title>Hardening Avanzado en AlmaLinux: Guía CIS Benchmark 2025</title><link>https://patojad.com.ar/post/2025/05/hardening-avanzado-en-almalinux-gu%C3%ADa-cis-benchmark-2025/</link><pubDate>Mon, 19 May 2025 10:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/05/hardening-avanzado-en-almalinux-gu%C3%ADa-cis-benchmark-2025/</guid><description>&lt;p>El hardening transforma tu AlmaLinux en un sistema resistente a:&lt;/p>
+&lt;ul>
+&lt;li>✅ Ataques automatizados (bots)&lt;/li>
+&lt;li>✅ Exploits de día cero&lt;/li>
+&lt;li>✅ Brechas por configuración incorrecta&lt;/li>
+&lt;li>✅ Cumplir con normativas (ISO 27001, PCI-DSS)&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>📊 &lt;strong>Estadística&lt;/strong>: Servidores sin hardening son comprometidos 5x más rápido (Fuente: CIS Security Report 2025)&lt;/p>&lt;/blockquote>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-auditoría-inicial">
+🛠️ Auditoría Inicial
+&lt;a href="#-auditor%c3%ada-inicial" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="escaneo-con-lynis">
+Escaneo con Lynis
+&lt;a href="#escaneo-con-lynis" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install lynis -y
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo lynis audit system --quick
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="actualizando-cves-conocidos">
+Actualizando CVEs conocidos
+&lt;a href="#actualizando-cves-conocidos" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf update --security&lt;span class="s2">&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-hardening-básico">
+🔐 Hardening Básico
+&lt;a href="#-hardening-b%c3%a1sico" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Seguridad de Paquetes&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Actualizaciones críticas&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dnf update --security -y
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Eliminar servicios inseguros&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dnf remove xinetd telnet rsh -y
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="ssh-seguro-etcsshsshd_config">
+SSH Seguro (/etc/ssh/sshd_config)
+&lt;a href="#ssh-seguro-etcsshsshd_config" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="na">Port 2222&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">PermitRootLogin no&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">PasswordAuthentication no&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">AllowUsers admin&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">Protocol 2&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-hardening-avanzado">
+⚡ Hardening Avanzado
+&lt;a href="#-hardening-avanzado" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="kernel-hardening-etcsysctld99-hardeningconf">
+Kernel Hardening (/etc/sysctl.d/99-hardening.conf)
+&lt;a href="#kernel-hardening-etcsysctld99-hardeningconf" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-ini" data-lang="ini">&lt;span class="line">&lt;span class="cl">&lt;span class="na">kernel.kptr_restrict&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">vm.swappiness&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">10&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">net.ipv4.icmp_echo_ignore_all&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="na">fs.protected_hardlinks&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">1&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo sysctl -p
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="control-de-procesos-cgroups-v2">
+Control de Procesos (cgroups v2)
+&lt;a href="#control-de-procesos-cgroups-v2" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo grubby --update-kernel&lt;span class="o">=&lt;/span>ALL --args&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;systemd.unified_cgroup_hierarchy=1&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="detección-de-intrusos-aide">
+Detección de Intrusos (AIDE)
+&lt;a href="#detecci%c3%b3n-de-intrusos-aide" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install aide -y
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo aideinit
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo aide --check
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-tabla-de-comandos-esenciales">
+📋 Tabla de Comandos Esenciales
+&lt;a href="#-tabla-de-comandos-esenciales" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;table class="w-full bg-gray-100 dark:bg-gray-900 rounded-xl my-4">
+&lt;thead>
+&lt;tr>
+&lt;th class="px-3 py-1">Comando&lt;/th>
+&lt;th class="px-3 py-1">Descripción&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">auditctl -l&lt;/td>
+&lt;td class="px-3 py-1">Listar reglas de auditoría&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">sestatus&lt;/td>
+&lt;td class="px-3 py-1">Ver estado SELinux&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">firewall-cmd &amp;ndash;list-all&lt;/td>
+&lt;td class="px-3 py-1">Reglas de firewall&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">lastb&lt;/td>
+&lt;td class="px-3 py-1">Intentos de login fallidos&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>&lt;h2 class="text-amber-500 text-3xl my-6" id="-solución-de-problemas">
+🚨 Solución de Problemas
+&lt;a href="#-soluci%c3%b3n-de-problemas" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="servicio-no-funciona-después-de-hardening">
+&amp;ldquo;Servicio no funciona después de hardening&amp;rdquo;
+&lt;a href="#servicio-no-funciona-despu%c3%a9s-de-hardening" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Verificar logs:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo journalctl -u nombre_servicio --no-pager
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Modo diagnóstico:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo setenforce &lt;span class="m">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo systemctl stop firewalld
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-checklist-de-seguridad">
+📌 Checklist de Seguridad
+&lt;a href="#-checklist-de-seguridad" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;ul>
+&lt;li>Actualizaciones automáticas habilitadas&lt;/li>
+&lt;li>Root login desactivado&lt;/li>
+&lt;li>Partición /tmp con nosuid,noexec&lt;/li>
+&lt;li>Logs centralizados configurados&lt;/li>
+&lt;li>Copias de seguridad automatizadas&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-resultados-esperados">
+📊 Resultados Esperados
+&lt;a href="#-resultados-esperados" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;table class="w-full bg-gray-100 dark:bg-gray-900 rounded-xl my-4">
+&lt;thead>
+&lt;tr>
+&lt;th class="px-3 py-1">Métrica&lt;/th>
+&lt;th class="px-3 py-1">Antes&lt;/th>
+&lt;th class="px-3 py-1">Después&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">Puntuación Lynis&lt;/td>
+&lt;td class="px-3 py-1">&amp;lt;50&lt;/td>
+&lt;td class="px-3 py-1">&amp;gt;85&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">CVEs conocidos&lt;/td>
+&lt;td class="px-3 py-1">10+&lt;/td>
+&lt;td class="px-3 py-1">0-2&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1">Servicios expuestos&lt;/td>
+&lt;td class="px-3 py-1">5+&lt;/td>
+&lt;td class="px-3 py-1">1-2&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>&lt;h2 class="text-amber-500 text-3xl my-6" id="-conclusión">
+📌 Conclusión
+&lt;a href="#-conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Con esta guía has implementado:&lt;/p>
+&lt;ul>
+&lt;li>Protección a nivel kernel&lt;/li>
+&lt;li>Configuración SSH segura&lt;/li>
+&lt;li>Detección de cambios no autorizados&lt;/li>
+&lt;li>Cumplimiento con CIS Benchmark&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>💡 Tip profesional: Usa oscap para evaluar automáticamente el cumplimiento CIS:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install openscap-scanner -y
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo oscap xccdf &lt;span class="nb">eval&lt;/span> --profile cis_level2 /usr/share/xml/scap/ssg/content/ssg-almalinux9-ds.xml
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/blockquote></description></item></channel></rss>
