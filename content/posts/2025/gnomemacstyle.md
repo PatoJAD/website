@@ -44,7 +44,7 @@ El **GNOME macOS Tahoe** es un tema visual diseñado específicamente para escri
 
 ## Instalación Paso a Paso del Tema GNOME macOS Tahoe
 
-La instalación de este tema es sencilla y se realiza directamente desde el código fuente del repositorio oficial. ¡Sigue estos pasos!
+La instalación de este tema es sencilla y se realiza directamente desde el código fuente del repositorio oficial. ¡Sigue estos pasos! Recuerda que debes tener instalado `git`, `gnome-tweaks`, de ser posible las extensiones recomendadas y tener permisos de administrador en tu sistema para completar la instalación.
 
 ### Instalar desde el Código Fuente
 Para empezar, necesitas clonar el repositorio del tema en tu sistema. Abre tu terminal y ejecuta los siguientes comandos:
@@ -84,6 +84,24 @@ Una vez que el tema esté instalado en tu sistema, necesitas activarlo. El proce
 Para que los cambios surtan efecto, es necesario reiniciar tu sesión o tu sistema.
 
 1. **Reinicia tu sistema o cierra y vuelve a iniciar sesión:** Simplemente, reinicia tu computadora o cierra tu sesión de usuario y vuelve a iniciarla. Al hacerlo, tu escritorio GNOME debería mostrar ahora el aspecto de macOS Tahoe.
+
+## Cursor e Iconos
+
+OPCIONAL: Si deseas completar la experiencia visual, puedes instalar los iconos y cursores de macOS Tahoe. Aquí te mostramos cómo hacerlo:
+
+```bash
+# Icon Theme
+git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git
+cd WhiteSur-icon-theme
+./install.sh
+```
+
+```bash
+# Cursor Theme
+git clone https://github.com/vinceliuice/WhiteSur-cursors.git
+cd WhiteSur-cursors
+./install.sh
+```
 
 ## Extensiones de GNOME Shell Recomendadas
 
