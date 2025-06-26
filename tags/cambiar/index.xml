@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cambiar on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/cambiar/</link><description>Recent content in Cambiar on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 27 Jun 2023 10:06:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/cambiar/index.xml" rel="self" type="application/rss+xml"/><item><title>Como cambiar DNS de Windows 10</title><link>https://patojad.com.ar/post/2023/06/como-cambiar-dns-de-windows-10/</link><pubDate>Tue, 27 Jun 2023 10:06:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/06/como-cambiar-dns-de-windows-10/</guid><description>&lt;p>Cambiar los DNS de nuestro equipo es algo que deberiamos hacer siempre, ya que los DNS que nos provee nuestro ISP no son los mas rapidos y seguros. Por eso hoy vamos a ver como cambiar los DNS en Windows 10 y vamos a setear los de Cloudflare.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-dns">
+¿Qué es DNS?
+&lt;a href="#qu%c3%a9-es-dns" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>El Sistema de nombres de dominio (DNS) es la guía telefónica de Internet. Mientras que las personas acceden a la información en línea a través de nombres de dominio como example.com, los ordenadores lo hacen utilizando direcciones del Protocolo de Internet (IP), cadenas únicas de caracteres alfanuméricos que se asignan a cada propiedad de Internet. El DNS traduce los nombres de dominio a direcciones IP para que los usuarios puedan acceder fácilmente a un sitio web sin tener que conocer su dirección IP.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://www.cloudflare.com/img/learning/dns/what-is-1.1.1.1/dns-lookup.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="qué-es-un-solucionador-de-dns">
+¿Qué es un solucionador de DNS?
+&lt;a href="#qu%c3%a9-es-un-solucionador-de-dns" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Un solucionador de DNS es un tipo de servidor que gestiona la traducción &amp;ldquo;nombre a dirección&amp;rdquo;, en la que una dirección IP se corresponde con un nombre de dominio y se envía de vuelta al ordenador que la solicitó. Los solucionadores de DNS también se conocen como solucionadores recursivos.&lt;/p>
+&lt;p>Los equipos están configurados para hablar con solucionadores de DNS específicos, que se identifican por dirección IP. Generalmente, la configuración la gestiona el Proveedor de acceso a Internet (ISP) del usuario en conexiones desde el hogar o inalámbricas, y un administrador de red en las conexiones desde la oficina. Los usuarios también pueden cambiar manualmente el solucionador de DNS con el que pueden comunicarse sus ordenadores.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="dns-de-cloudflare">
+DNS de cloudflare
+&lt;a href="#dns-de-cloudflare" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Cloudflare tiene dos DNS publicos que son los mas rapidos y seguros del mundo hasta el momento&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="qué-hace-que-1111-sea-más-seguro-que-otros-servicios-de-dns-públicos">
+¿Qué hace que 1.1.1.1 sea más seguro que otros servicios de DNS públicos?
+&lt;a href="#qu%c3%a9-hace-que-1111-sea-m%c3%a1s-seguro-que-otros-servicios-de-dns-p%c3%bablicos" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Algunos servicios de DNS son compatibles con DNSSEC. Aunque se trata de una buena práctica de seguridad, no protege las consultas de los usuarios de las propias empresas de DNS. Muchas de estas empresas recopilan datos de sus clientes de DNS para utilizarlos con fines comerciales, como la venta a anunciantes.&lt;/p>
+&lt;p>En cambio, &lt;code>1.1.1.1&lt;/code> no hace minería de datos de los usuarios. Los registros se guardan durante 24 horas con el fin de eliminar errores y a continuación se purgan.&lt;/p>
+&lt;p>&lt;code>1.1.1.1&lt;/code> también ofrece funciones de seguridad que no están disponibles en muchos otros servicios públicos de DNS, como la minimización del nombre de consulta. La minimización del nombre de consulta mejora la privacidad al incluir en cada consulta solo el mínimo de información necesaria para ese paso del proceso de resolución.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="qué-convierte-a-1111-en-el-servicio-de-dns-recursivo-más-rápido">
+¿Qué convierte a 1.1.1.1 en el servicio de DNS recursivo más rápido?
+&lt;a href="#qu%c3%a9-convierte-a-1111-en-el-servicio-de-dns-recursivo-m%c3%a1s-r%c3%a1pido" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>La potencia de la red de Cloudflare da a &lt;code>1.1.1.1&lt;/code> una ventaja natural en lo referente a entregar consultas de DNS rápidas. Ya que está integrado en la red de Cloudflare, que abarca 300 ciudades del mundo, los usuarios de cualquier parte del mundo obtienen una respuesta rápida de &lt;code>1.1.1.1&lt;/code>.&lt;/p>
+&lt;p>Además, los centros de datos de la red tienen acceso a los millones de propiedades de Internet de la plataforma de Cloudflare, lo que hace que las consultas de esos dominios sean extremadamente rápidas. En general, el supervisor independiente de DNS DNSPerf clasifica &lt;code>1.1.1.1&lt;/code> como el servicio de DNS más rápido del mundo:&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://www.cloudflare.com/img/learning/dns/what-is-1.1.1.1/query-speed.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="pasos-a-seguir">
+Pasos a seguir
+&lt;a href="#pasos-a-seguir" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;ul>
+&lt;li>Abrimos el menu de inicio y vamos a &lt;code>Configuracion&lt;/code>&lt;/li>
+&lt;li>Luego vamos a &lt;code>Red e Internet&lt;/code> y seleccionamos &lt;code>Cambiar opciones del adaptador&lt;/code>&lt;/li>
+&lt;li>Seleccionamos la red que estamos usando y hacemos click derecho y seleccionamos &lt;code>Propiedades&lt;/code>&lt;/li>
+&lt;li>Seleccionamos &lt;code>Protocolo de Internet version 4 (TCP/IPv4)&lt;/code> y hacemos click en &lt;code>Propiedades&lt;/code>&lt;/li>
+&lt;li>Seleccionamos &lt;code>Usar las siguientes direcciones de servidor DNS&lt;/code> y en &lt;code>Servidor DNS preferido&lt;/code> ponemos:
+&lt;ul>
+&lt;li>Para usar el generico de Cloudflare:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-batch" data-lang="batch">&lt;span class="line">&lt;span class="cl">1.1.1.1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">1.0.0.1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Para usar el Bloqueo de Maleware de Cloudflare (Para Familias):
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-batch" data-lang="batch">&lt;span class="line">&lt;span class="cl">1.1.1.2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">1.0.0.2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Para usar el Bloqueo de Maleware y contenidos de Adultos de Cloudflare (Para Familias):
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-batch" data-lang="batch">&lt;span class="line">&lt;span class="cl">1.1.1.3
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">1.0.0.3
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Hacemos click en &lt;code>Aceptar&lt;/code> y listo&lt;/li>
+&lt;/ul>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="sumando-ipv6">
+Sumando IPv6
+&lt;a href="#sumando-ipv6" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>Seleccionamos &lt;code>Protocolo de Internet version 6 (TCP/IPv6)&lt;/code> y hacemos click en &lt;code>Propiedades&lt;/code>&lt;/li>
+&lt;li>Seleccionamos &lt;code>Usar las siguientes direcciones de servidor DNS&lt;/code> y en &lt;code>Servidor DNS preferido&lt;/code> ponemos:
+&lt;ul>
+&lt;li>Para usar el generico de Cloudflare:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-batch" data-lang="batch">&lt;span class="line">&lt;span class="cl">2606:4700:4700::1111
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2606:4700:4700::1001
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Para usar el Bloqueo de Maleware de Cloudflare (Para Familias):
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-batch" data-lang="batch">&lt;span class="line">&lt;span class="cl">2606:4700:4700::1112
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2606:4700:4700::1002
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Para usar el Bloqueo de Maleware y contenidos de Adultos de Cloudflare (Para Familias):
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-batch" data-lang="batch">&lt;span class="line">&lt;span class="cl">2606:4700:4700::1113
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">2606:4700:4700::1003
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Hacemos click en &lt;code>Aceptar&lt;/code> y listo&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>Fuente: &lt;a href="https://developers.cloudflare.com/1.1.1.1/setup/windows/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://developers.cloudflare.com/1.1.1.1/setup/windows/
+&lt;/a>&lt;/p></description></item><item><title>Cambiando los permisos de un archivo</title><link>https://patojad.com.ar/post/2021/01/cambiando-los-permisos-de-un-archivo/</link><pubDate>Mon, 11 Jan 2021 09:20:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/01/cambiando-los-permisos-de-un-archivo/</guid><description>&lt;p>Para cambiar el modo (los permisos) de un archivo o un directorio, se utiliza el comando chmod. chmod soporta dos formas distintas de especificar los cambios de permisos: representación en números octales o representación simbólica.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="números-octales">
+Números octales
+&lt;a href="#n%c3%bameros-octales" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Con la notación octal usamos números octales para especificar el patrón de los permisos que queremos. Como cada dígito en un número octal representa tres dígitos binarios, esto coincide muy bien con la forma de almacenar los permisos de archivo. Esta tabla muestra lo que queremos decir:&lt;/p>
+&lt;table class="w-full bg-gray-100 dark:bg-gray-900 rounded-xl my-4">
+&lt;thead>
+&lt;tr>
+&lt;th class="px-3 py-1" style="text-align: center">Octal&lt;/th>
+&lt;th class="px-3 py-1" style="text-align: center">Binario&lt;/th>
+&lt;th class="px-3 py-1" style="text-align: center">Permisos de archivo&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">0&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">000&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">&amp;mdash;&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">1&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">001&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">&amp;ndash;x&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">2&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">010&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">-w-&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">3&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">011&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">-wx&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">4&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">100&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">r&amp;ndash;&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">5&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">101&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">r-x&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">6&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">110&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">rw-&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">7&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">111&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">rwx&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>&lt;p>Usando tres dígitos octales, podemos establecer los permisos de archivo para el propietario, el grupo propietario y el mundo:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&amp;gt; foo.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ls -l foo.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-rw-rw-r-- &lt;span class="m">1&lt;/span> me me &lt;span class="m">0&lt;/span> 2008-03-06 14:52 foo.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">chmod &lt;span class="m">600&lt;/span> foo.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ls -l foo.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-rw------- &lt;span class="m">1&lt;/span> me me &lt;span class="m">0&lt;/span> 2008-03-06 14:52 foo.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Pasándole el argumento “600”, podemos establecer los permisos del propietario para leer y escribir mientras borramos todos los permisos para el grupo propietario y el mundo. Aunque recordar la correspondencia entre octal y binario puede parecer un inconveniente, normalmente sólo tendrás que usar algunos muy comunes: 7(rwx), 6(rw-), 5(r-x), 4(r&amp;ndash;), y 0(&amp;mdash;).&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="notación-simbólica">
+Notación simbólica
+&lt;a href="#notaci%c3%b3n-simb%c3%b3lica" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>chmod también soporta notación simbólica para especificar los permisos de archivo. La notación simbólica se divide en tres partes: a quién afecta el cambio, qué operaciónes se realizarán, y qué permisos se establecerán. Para especificar quién se ve afectado se usa una combinación de los caracteres “u”, “g”, “o” y “a” de la siguiente manera:&lt;/p>
+&lt;table class="w-full bg-gray-100 dark:bg-gray-900 rounded-xl my-4">
+&lt;thead>
+&lt;tr>
+&lt;th class="px-3 py-1" style="text-align: center">Símbolo&lt;/th>
+&lt;th class="px-3 py-1" style="text-align: center">Significado&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">u&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Abreviatura de “usuario” pero significa el propietario del archivo o el directorio.&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">g&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">El grupo propietario.&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">o&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Abreviatura de “otros”, pero se refiere al mundo.&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">a&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Abreviatura de “all” (todos). Es la combinación de “u”, “g” y “o”&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>&lt;p>Si no se especifica ningún carácter, se asume “all”. La operación puede ser un “+” indicando que un permiso ha de ser añadido, un “-” indicando que un permiso ha de ser retirado, o un “=” indicando que sólo los permisos especificados deben ser aplicados y todos los demás han de ser eliminados.&lt;/p>
+&lt;p>Los permisos se especifican con los caracteres “r”, “w” y “x”. Aquí tenemos algunos ejemplos de la notación simbólica:&lt;/p>
+&lt;table class="w-full bg-gray-100 dark:bg-gray-900 rounded-xl my-4">
+&lt;thead>
+&lt;tr>
+&lt;th class="px-3 py-1" style="text-align: center">Notación&lt;/th>
+&lt;th class="px-3 py-1" style="text-align: center">Significado&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">u+x&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Añade permisos de ejecución para el propietario&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">u-x&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Elimina permisos de ejecución del propietario&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">+x&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Añade permisos de ejecución para el propietario, el grupo y el mundo. Equivalente a a+x&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">o-rw&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Elimina los permisos de lectura y escritura para cualquier persona, que no sea el propietario ni el grupo propietario.&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">go=rw&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Configura al grupo propietario y a cualquier persona, que no sea el propietario, para que tengan permisos de lectura y escritura. Si el grupo propietario o el mundo previamente tenían permisos de ejecución, los elimina.&lt;/td>
+&lt;/tr>
+&lt;tr class="border-t-2 border-gray-500">
+&lt;td class="px-3 py-1" style="text-align: center">u+x, go=rx&lt;/td>
+&lt;td class="px-3 py-1" style="text-align: center">Añade permisos de ejecución para el propietario y establece los permisos para el grupo y para otros de lectura y ejecución. Múltiples especificaciones pueden ser separadas por comas.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>&lt;p>Algunos prefieren usar la notación octal, otros prefieren la simbólica. La notación simbólica ofrece la ventaja de permitirte establecer un atributo individual sin molestar a los otros.&lt;/p>
+&lt;p>Échale un vistazo a la &lt;a href="https://patojad.com.ar/post/2019/01/man-tu-manual-para-linux/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+man page
+&lt;/a> de chmod para más detalles y una lista de opciones. Una advertencia con respecto a la opción “&amp;ndash;recursive”: actúa tanto en archivos como en directorios, así que no es tan útil como uno esperaría, rara vez queremos que archivos y directorios tengan los mismos permisos.&lt;/p></description></item></channel></rss>
