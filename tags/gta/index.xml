@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gta on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/gta/</link><description>Recent content in Gta on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Mon, 18 May 2020 08:27:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/gta/index.xml" rel="self" type="application/rss+xml"/><item><title>Instalar GTA V en Linux</title><link>https://patojad.com.ar/post/2020/05/instalar-gta-v-en-linux/</link><pubDate>Mon, 18 May 2020 08:27:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/05/instalar-gta-v-en-linux/</guid><description>&lt;p>Como muchos saben estos dias se estuvo entregando el GTA V gratis en la Epic Store. Es un juego bastante bueno aunque debo admitir que cuando salió se esperaba mas de él, sin embargo logró conformar a la gente e incluso el anuncio de que este juego se estaba regalando fue suficiente como para tirar los sitios de Epic Games.&lt;/p>
+&lt;p>Como podemos ven &lt;a href="https://www.protondb.com/app/271590" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+en la página de protondb
+&lt;/a> este juego funciona bien con Proton aunque con wine no tenemos la misma suerte, lamentablemente no suele funcionar a la primera e incluso si funciona no obtiene un buen rendimiento (Si lo hiciste funcionar en wine y con buen rendimiento enséñanos porque no lo logramos)&lt;/p>
+&lt;p>Por lo cual queremos compartir con ustedes lo que un usuario de reddit nos trae para que podamos instalar este hermoso juego y jugarlo casi sin problemas.&lt;/p>
+&lt;blockquote>
+&lt;p>Pasé bastante tiempo para que funcione con Wine / Proton, así que pensé en compartir mi experiencia aquí. Esperemos que sea útil para otros.&lt;/p>&lt;/blockquote>
+&lt;p>&lt;strong>Requisitos:&lt;/strong> Steam con proton instalado, winetricks, protontricks y wine&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="crea-una-cuenta-y-reclama-el-gta-v-gratis">
+Crea una cuenta y reclama el GTA V gratis
+&lt;a href="#crea-una-cuenta-y-reclama-el-gta-v-gratis" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Si aun no tenes el juego, &lt;strong>todavía estás a tiempo&lt;/strong>, quedan algunos días para reclamarlo tienes aun hasta el 21 de mayo, así que si no tienes cuenta puedes registrarte, activar la autenticación en 2 pasos y reclamar el juego en &lt;a href="https://www.epicgames.com/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+Epic Games
+&lt;/a>.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="descargue-e-instale-epic-games-launcher">
+Descargue e instale Epic Games Launcher
+&lt;a href="#descargue-e-instale-epic-games-launcher" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Descargue el iniciador e instálelo. Puede usar un prefijo de vino por separado si lo desea. Puede obtener un error, esto se resuelve utilizando el argumento &lt;code>-SkipBuildPatchPrereq&lt;/code> en el iniciador.&lt;/p>
+&lt;p>El lanzador &lt;strong>no&lt;/strong> funciona con dxvk, hay muchos parpadeos que lo hacen inutilizable. Para solucionarlo, puede usar el argumento &lt;code>-opengl&lt;/code> para forzar el iniciador al modo opengl. Esto requiere que dotnet48 esté instalado en el wineprefix con winetricks.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="agregue-epic-games-launcher-como-un-juego-que-no-sea-steam-a-steam">
+Agregue Epic Games Launcher como un juego que no sea steam a Steam
+&lt;a href="#agregue-epic-games-launcher-como-un-juego-que-no-sea-steam-a-steam" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Esto es necesario porque Rockstar Games Launcher no funciona en wine o en wine staging en este momento (al menos no lo hace para mí). Por alguna razón, los cursores van debajo de la ventana, lo que hace que sea imposible completar la instalación del iniciador de Rockstar Games.&lt;/p>
+&lt;p>Sin embargo, funciona bien en &lt;code>&amp;gt;=proton-5.0&lt;/code>. Por lo tanto, agregamos Epic Games Launcher que acabamos de instalar en steam: &amp;lsquo;Juegos&amp;rsquo;-&amp;gt;&amp;lsquo;Agregar juegos que no sean de steam a mi biblioteca&amp;rsquo;.&lt;/p>
+&lt;p>Actualmente hay un error en Steam donde una ruta que contiene espacios no se analiza correctamente al agregar un juego que no sea Steam. Por lo tanto, después de agregar el juego, haga clic derecho en la biblioteca y seleccione &amp;lsquo;Propiedades&amp;rsquo;. Asegúrese de que &amp;ldquo;Destino:&amp;rdquo; esté configurado en la ruta correcta, y que &amp;ldquo;Establecer opciones de inicio&amp;rdquo; esté configurado en &lt;code>-opengl&lt;/code> (Si la ruta contenía espacios, la parte de la ruta después de que el espacio termine en las opciones de inicio, si esto es el caso, límpielo y agregue &lt;code>-opengl&lt;/code>).&lt;/p>
+&lt;p>Además, seleccione &amp;ldquo;Forzar el uso de una herramienta de compatibilidad específica de Steam Play&amp;rdquo; y elija &lt;code>Proton 5.0-7&lt;/code>. Por alguna razón, no guardó correctamente la configuración para mí, por lo que es posible que deba volver a abrir el menú de propiedades y confirmar que todo esté configurado correctamente.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="add-dotnet48-to-the-proton-prefix">
+Add dotnet48 to the proton prefix
+&lt;a href="#add-dotnet48-to-the-proton-prefix" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Inicie el iniciador a través de Steam una vez, obtendrá una pantalla negra después de iniciar sesión. Esto se debe a que el argumento &lt;code>-opengl&lt;/code> no funciona sin dotnet48. Así que cierre el iniciador (&amp;lsquo;Salir&amp;rsquo; en la bandeja del sistema). Y luego use &lt;code>protontricks -s &amp;lt;nombre del 'juego que no sea steam' en la biblioteca de steam&amp;gt;&lt;/code>, esto debería devolver algo como esto:&lt;/p>
+&lt;pre>&lt;code>% protontricks -s GTA
+Found the following games:
+Non-Steam shortcut: GTA V (2677306004)
+To run protontricks for the chosen game, run:
+$ protontricks APPID COMMAND
+NOTE: A game must be launched at least once before protontricks can find the game.
+&lt;/code>&lt;/pre>
+&lt;p>Tome nota de la ID del juego, la usamos para instalar dotnet48 en el prefijo de protones correcto, por ejemplo:&lt;/p>
+&lt;pre>&lt;code>protontricks 2677306004 dotnet48
+&lt;/code>&lt;/pre>
+&lt;p>Una vez hecho esto (hay algunos clics manuales y aceptación de los términos involucrados), inicie Epic Games Launcher desde steam nuevamente. Esta vez debería funcionar.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="descarga-el-juego-desde-el-lanzador-de-epic-games">
+Descarga el juego desde el Lanzador de Epic Games
+&lt;a href="#descarga-el-juego-desde-el-lanzador-de-epic-games" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>El proceso de descarga de Epic es simple, basta con dirigirnos a nuestra biblioteca y seleccionar el juego que queremos instalar. Una vez seleccionado podemos simplemente instalarlo. En este caso tiene que descargar casi 100GB por lo cual puede demorar un poco dependiendo de la velocidad de internet.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="ejecuta-el-juego-una-vez">
+Ejecuta el juego una vez
+&lt;a href="#ejecuta-el-juego-una-vez" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Una vez que se realiza la descarga, presiona iniciar en el Lanzador de Epic Games para iniciar el juego. Esto debería iniciar el proceso de instalación del Lanzador de Rockstar Games (Aquí es donde me quedé atascado usando wine (-staging) en lugar de protón, el cursor va debajo de la ventana de instalación y no puedo hacer clic en el botón &amp;ldquo;Inglés&amp;rdquo;). Una vez que esto se haya completado, Rockstar Games Launcher intentará lanzar el juego, fallará (al menos lo hizo para mí). Sin embargo, si vuelve al Lanzador de Epic Games e intenta nuevamente, debería funcionar.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="disfrutar">
+Disfrutar
+&lt;a href="#disfrutar" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>El juego ahora debería comenzar y ser jugable (se te pedirá que inicies sesión con una cuenta de Rockstar Social Club). Para mí, la configuración de gráficos se estableció en las opciones más bajas, incluida la resolución. Entonces quizás tengas que modificar eso un poco&lt;/p>
+&lt;hr>
+&lt;p>Desde ya y dia a dia agradecemos a todos los usuarios que colaboran para que todos podamos disfrutar de todos los juegos sin problemas.&lt;/p></description></item></channel></rss>

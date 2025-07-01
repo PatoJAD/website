@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Audit2allow on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/audit2allow/</link><description>Recent content in Audit2allow on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Mon, 12 May 2025 09:00:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/audit2allow/index.xml" rel="self" type="application/rss+xml"/><item><title>Dominar SELinux en AlmaLinux: Guía Definitiva 2025</title><link>https://patojad.com.ar/post/2025/05/dominar-selinux-en-almalinux-gu%C3%ADa-definitiva-2025/</link><pubDate>Mon, 12 May 2025 09:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/05/dominar-selinux-en-almalinux-gu%C3%ADa-definitiva-2025/</guid><description>&lt;p>&lt;strong>SELinux&lt;/strong> (Security-Enhanced Linux) es una característica de seguridad avanzada en sistemas Linux, especialmente en distribuciones como AlmaLinux. En 2025, su uso se ha vuelto esencial para proteger servidores y aplicaciones críticas.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-por-qué-selinux-es-crucial-en-2025">
+🔍 ¿Por qué SELinux es crucial en 2025?
+&lt;a href="#-por-qu%c3%a9-selinux-es-crucial-en-2025" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;strong>Security-Enhanced Linux (SELinux)&lt;/strong> proporciona:&lt;/p>
+&lt;ul>
+&lt;li>✅ Control de acceso obligatorio (MAC)&lt;/li>
+&lt;li>✅ Aislamiento de procesos y archivos&lt;/li>
+&lt;li>✅ Protección contra exploits zero-day&lt;/li>
+&lt;li>✅ Cumplimiento de normativas (HIPAA, PCI DSS)&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>📊 &lt;strong>Dato&lt;/strong>: El 78% de las brechas de seguridad en servidores sin SELinux ocurren por permisos incorrectos (Fuente: Red Hat Security Report 2025)&lt;/p>&lt;/blockquote>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-configuración-básica">
+🛠️ Configuración Básica
+&lt;a href="#-configuraci%c3%b3n-b%c3%a1sica" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="estados-de-selinux">
+Estados de SELinux
+&lt;a href="#estados-de-selinux" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Ver estado actual&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo getenforce
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Cambiar temporalmente a Permissive&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo setenforce &lt;span class="m">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Hacer cambio permanente (en /etc/selinux/config)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo sed -i &lt;span class="s1">&amp;#39;s/SELINUX=.*/SELINUX=enforcing/&amp;#39;&lt;/span> /etc/selinux/config
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-casos-prácticos-comunes">
+🚨 Casos Prácticos Comunes
+&lt;a href="#-casos-pr%c3%a1cticos-comunes" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="error-httpd-no-puede-acceder-a-archivos">
+Error: &amp;ldquo;HTTPD no puede acceder a archivos&amp;rdquo;
+&lt;a href="#error-httpd-no-puede-acceder-a-archivos" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Diagnosticar&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo ausearch -m avc -ts recent &lt;span class="p">|&lt;/span> grep httpd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Solución (cambiar contexto)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo semanage fcontext -a -t httpd_sys_content_t &lt;span class="s2">&amp;#34;/ruta/a/tu/app(/.*)?&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo restorecon -Rv /ruta/a/tu/app
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="servicio-no-puede-usar-puerto-personalizado">
+Servicio no puede usar puerto personalizado
+&lt;a href="#servicio-no-puede-usar-puerto-personalizado" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Permitir a Nginx usar puerto 3000&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo semanage port -a -t http_port_t -p tcp &lt;span class="m">3000&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-comandos-esenciales">
+📋 Comandos Esenciales
+&lt;a href="#-comandos-esenciales" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Comando&lt;/th>
+&lt;th>Descripción&lt;/th>
+&lt;th>Ejemplo&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>chcon&lt;/code>&lt;/td>
+&lt;td>Cambiar contexto&lt;/td>
+&lt;td>&lt;code>chcon -t httpd_sys_content_t archivo.html&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>semanage&lt;/code>&lt;/td>
+&lt;td>Gestionar políticas&lt;/td>
+&lt;td>&lt;code>semanage port -l | grep http&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>audit2allow&lt;/code>&lt;/td>
+&lt;td>Crear módulos&lt;/td>
+&lt;td>&lt;code>grep denied /var/log/audit/audit.log | audit2allow -M mi_politica&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-troubleshooting-avanzado">
+🔧 Troubleshooting Avanzado
+&lt;a href="#-troubleshooting-avanzado" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="analizar-logs-con-sealert">
+Analizar logs con sealert
+&lt;a href="#analizar-logs-con-sealert" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo sealert -a /var/log/audit/audit.log
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="crear-política-personalizada">
+Crear política personalizada
+&lt;a href="#crear-pol%c3%adtica-personalizada" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">grep &lt;span class="s2">&amp;#34;avc: denied&amp;#34;&lt;/span> /var/log/audit/audit.log &lt;span class="p">|&lt;/span> audit2allow -M mi_politica
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo semodule -i mi_politica.pp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="-tabla-de-contextos-comunes">
+📌 Tabla de Contextos Comunes
+&lt;a href="#-tabla-de-contextos-comunes" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Contexto&lt;/th>
+&lt;th>Uso Típico&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>httpd_sys_content_t&lt;/code>&lt;/td>
+&lt;td>Archivos web estáticos&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>mysqld_db_t&lt;/code>&lt;/td>
+&lt;td>Bases de datos MySQL&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>user_home_t&lt;/code>&lt;/td>
+&lt;td>Archivos en &lt;code>/home&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>var_log_t&lt;/code>&lt;/td>
+&lt;td>Archivos de logs&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-solución-de-problemas">
+⚠️ Solución de Problemas
+&lt;a href="#-soluci%c3%b3n-de-problemas" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="selinux-está-bloqueando-mi-aplicación">
+&amp;ldquo;SELinux está bloqueando mi aplicación&amp;rdquo;
+&lt;a href="#selinux-est%c3%a1-bloqueando-mi-aplicaci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Identificar el error:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo grep &lt;span class="s2">&amp;#34;avc: denied&amp;#34;&lt;/span> /var/log/audit/audit.log
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Solución temporal (solo para pruebas):&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo setenforce &lt;span class="m">0&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Solución permanente:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Usar las recomendaciones de sealert&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo sealert -l &lt;span class="s2">&amp;#34;*&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> grep -A &lt;span class="m">10&lt;/span> &lt;span class="s2">&amp;#34;Sugerencia&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-conclusión">
+📌 Conclusión
+&lt;a href="#-conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Con esta guía has aprendido a:&lt;/p>
+&lt;ul>
+&lt;li>Configurar SELinux en modo enforcing&lt;/li>
+&lt;li>Diagnosticar y solucionar errores comunes&lt;/li>
+&lt;li>Crear políticas personalizadas&lt;/li>
+&lt;li>Trabajar con contextos de archivos&lt;/li>
+&lt;li>Próximo paso: Hardening avanzado de AlmaLinux&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>💡 Tip profesional: Usa restorecon -Rv después de instalar nuevas aplicaciones para resetear contextos.&lt;/p>&lt;/blockquote></description></item></channel></rss>
