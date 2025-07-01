@@ -3,7 +3,7 @@ title: "Linux para Programadores: Configura tu Entorno de Desarrollo IDEAL"
 date: "2025-07-01 09:27:00.00"
 description: Descubre cómo configurar tu entorno de desarrollo en Linux para programar. Esta guía completa para desarrolladores cubre la elección de tu distribución, herramientas esenciales como Git y Docker, y consejos para optimizar tu flujo de trabajo en Linux. ¡Haz de Linux tu SO ideal para programar!
 type: video
-videoId: zXUMIJcb4oI
+videoId: 16J5bqkFa50
 tags:
   [
     linux para programadores,
@@ -111,12 +111,12 @@ sudo dnf install curl wget -y
 
 La terminal de Linux puede parecer intimidante al principio, pero es la herramienta más poderosa que tienes como desarrollador. Dominarla te dará una ventaja enorme. Algunos comandos esenciales que usarás a diario:
 
-* `ls`: Lista el contenido de un directorio.
-* `cd [directorio]`: Cambia de directorio.
-* `pwd`: Muestra la ruta de tu directorio actual.
-* `mkdir [nombre]`: Crea una nueva carpeta.
-* `rm [archivo/carpeta]`: Elimina archivos o carpetas (¡usar con precaución!).
-* `man [comando]`: Muestra el manual de cualquier comando.
+- `ls`: Lista el contenido de un directorio.
+- `cd [directorio]`: Cambia de directorio.
+- `pwd`: Muestra la ruta de tu directorio actual.
+- `mkdir [nombre]`: Crea una nueva carpeta.
+- `rm [archivo/carpeta]`: Elimina archivos o carpetas (¡usar con precaución!).
+- `man [comando]`: Muestra el manual de cualquier comando.
 
 Con el tiempo, aprenderás a personalizarla con alias o shells como Zsh para hacerla aún más eficiente.
 
@@ -124,9 +124,9 @@ Con el tiempo, aprenderás a personalizarla con alias o shells como Zsh para hac
 
 Elegir tu editor de código es una decisión personal, pero hay opciones excelentes para Linux:
 
-* **Visual Studio Code (VS Code)**: Sin duda, el editor más popular. Es ligero, rápido, tiene miles de extensiones para cualquier lenguaje o herramienta, y es totalmente gratuito. Lo podés descargar directamente de su sitio web o instalarlo desde el gestor de paquetes de tu distribución (como snap en Ubuntu).
-* **Vim / Neovim o Emacs**: Si buscas máxima eficiencia y no te asusta una curva de aprendizaje pronunciada, estos editores basados en terminal son increíblemente potentes una vez dominados.
-* **IDEs (Entornos de Desarrollo Integrados)**: Para lenguajes específicos, como Java (IntelliJ IDEA) o Python (PyCharm), los IDEs de JetBrains ofrecen una integración profunda y herramientas poderosas, y la mayoría tienen versiones nativas para Linux.
+- **Visual Studio Code (VS Code)**: Sin duda, el editor más popular. Es ligero, rápido, tiene miles de extensiones para cualquier lenguaje o herramienta, y es totalmente gratuito. Lo podés descargar directamente de su sitio web o instalarlo desde el gestor de paquetes de tu distribución (como snap en Ubuntu).
+- **Vim / Neovim o Emacs**: Si buscas máxima eficiencia y no te asusta una curva de aprendizaje pronunciada, estos editores basados en terminal son increíblemente potentes una vez dominados.
+- **IDEs (Entornos de Desarrollo Integrados)**: Para lenguajes específicos, como Java (IntelliJ IDEA) o Python (PyCharm), los IDEs de JetBrains ofrecen una integración profunda y herramientas poderosas, y la mayoría tienen versiones nativas para Linux.
 
 ## Control de Versiones con Git: Un IMPRESCINDIBLE
 
@@ -175,10 +175,10 @@ La instalación de Docker puede variar ligeramente según tu distribución. Te r
 
 Para exprimir al máximo tu entorno de desarrollo Linux:
 
-* **Atajos de Teclado:** Aprende los atajos de tu editor de código y de tu sistema operativo. Te ahorrarán horas.
-* **Monitores Múltiples:** Si es posible, un segundo monitor transforma la productividad, permitiéndote tener código, terminal y navegador visibles a la vez.
-* **Automatización con Scripts:** Aprende a escribir pequeños scripts de shell para automatizar tareas repetitivas.
-* **Mantén tu Sistema Limpio:** Realiza limpieza de paquetes innecesarios regularmente (sudo apt autoremove).
+- **Atajos de Teclado:** Aprende los atajos de tu editor de código y de tu sistema operativo. Te ahorrarán horas.
+- **Monitores Múltiples:** Si es posible, un segundo monitor transforma la productividad, permitiéndote tener código, terminal y navegador visibles a la vez.
+- **Automatización con Scripts:** Aprende a escribir pequeños scripts de shell para automatizar tareas repetitivas.
+- **Mantén tu Sistema Limpio:** Realiza limpieza de paquetes innecesarios regularmente (sudo apt autoremove).
 
 ---
 
