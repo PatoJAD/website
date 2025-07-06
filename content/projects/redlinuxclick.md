@@ -19,7 +19,7 @@ tags:
     "dominio",
   ]
 img: "https://i.postimg.cc/Y95GnD7P/redlinuxclick.png"
-technologies: ["Linux", "Ubuntu"]
+technologies: ["Linux", "Ubuntu", "Nginx", "PHP", "MySQL"]
 authors: [PatoJAD]
 ---
 

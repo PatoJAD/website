@@ -28,7 +28,7 @@ tags:
     eos os,
   ]
 img: "https://i.postimg.cc/dt6yftMW/EosOS.png"
-technologies: ["Linux", "JavaScript", "Tailwind CSS", "Astro"]
+technologies: ["Linux", "JavaScript", "Tailwind CSS", "Astro", "GitHub"]
 ---
 
 Se crea una Landing Page en Astro para EosOS, un sistema operativo basado en Linux, con el objetivo de presentar sus características y funcionalidades de manera atractiva y accesible. En esto realizamos:

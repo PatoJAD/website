@@ -20,7 +20,7 @@ tags:
     "vasak group",
   ]
 img: "https://i.postimg.cc/SKY6X4Mh/legionlinuxgamers.png"
-technologies: ["HugoCMS", "CSS", "HTML", "JavaScript", "GitLab"]
+technologies: ["HugoCMS", "CSS", "HTML", "JavaScript", "GitLab", "Hugo"]
 authors: [PatoJAD]
 ---
 
