@@ -1,0 +1,1249 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Almalinux on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/almalinux/</link><description>Recent content in Almalinux on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Mon, 28 Apr 2025 08:30:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/almalinux/index.xml" rel="self" type="application/rss+xml"/><item><title>Configurar Apache HTTPD en AlmaLinux: Stack LAMP Completo 2025</title><link>https://patojad.com.ar/post/2025/04/configurar-apache-httpd-en-almalinux-stack-lamp-completo-2025/</link><pubDate>Mon, 28 Apr 2025 08:30:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/04/configurar-apache-httpd-en-almalinux-stack-lamp-completo-2025/</guid><description>&lt;p>Apache HTTPD sigue siendo relevante para:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Compatibilidad&lt;/strong>: Soporte nativo para .htaccess y aplicaciones legacy&lt;/li>
+&lt;li>&lt;strong>Flexibilidad&lt;/strong>: Módulos dinámicos (PHP, Python, Perl)&lt;/li>
+&lt;li>&lt;strong>Soporte empresarial&lt;/strong>: Ideal para sistemas con software antiguo&lt;/li>
+&lt;li>&lt;strong>Facilidad de uso&lt;/strong>: Configuración más intuitiva que Nginx&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>📊 &lt;strong>Estadística&lt;/strong>: 31% de los sitios web usan Apache según Netcraft (2025)&lt;/p>&lt;/blockquote>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-instalación-básica-de-apache">
+🛠️ Instalación Básica de Apache
+&lt;a href="#-instalaci%c3%b3n-b%c3%a1sica-de-apache" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="instalar-paquetes-necesarios">
+Instalar paquetes necesarios
+&lt;a href="#instalar-paquetes-necesarios" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install httpd httpd-tools -y
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="iniciar-y-habilitar-el-servicio">
+Iniciar y habilitar el servicio
+&lt;a href="#iniciar-y-habilitar-el-servicio" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl &lt;span class="nb">enable&lt;/span> --now httpd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="verificar-estado">
+Verificar estado
+&lt;a href="#verificar-estado" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl status httpd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Salida esperada: &lt;code>Active: active (running)&lt;/code>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-estructura-de-directorios-clave">
+📂 Estructura de Directorios Clave
+&lt;a href="#-estructura-de-directorios-clave" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Ruta&lt;/th>
+&lt;th>Propósito&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>/etc/httpd/conf/httpd.conf&lt;/code>&lt;/td>
+&lt;td>Configuración principal&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>/etc/httpd/conf.d/&lt;/code>&lt;/td>
+&lt;td>Configs adicionales&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>/var/www/html/&lt;/code>&lt;/td>
+&lt;td>Contenido web por defecto&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>/var/log/httpd/&lt;/code>&lt;/td>
+&lt;td>Logs de acceso/errores&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-configurar-virtual-hosts">
+🖥️ Configurar Virtual Hosts
+&lt;a href="#-configurar-virtual-hosts" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Ejemplo básico (/etc/httpd/conf.d/misitio.conf):&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-apache" data-lang="apache">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;VirtualHost&lt;/span> &lt;span class="s">*:80&lt;/span>&lt;span class="nt">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">ServerName&lt;/span> misitio.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">DocumentRoot&lt;/span> &lt;span class="sx">/var/www/html/misitio&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;Directory&lt;/span> &lt;span class="s">/var/www/html/misitio&lt;/span>&lt;span class="nt">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">Options&lt;/span> Indexes FollowSymLinks
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">AllowOverride&lt;/span> &lt;span class="k">All&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">Require&lt;/span> &lt;span class="k">all&lt;/span> granted
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/Directory&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/VirtualHost&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Comandos para aplicar cambios:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl restart httpd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo firewall-cmd --add-service&lt;span class="o">=&lt;/span>http --permanent
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo firewall-cmd --reload
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-stack-lamp-completo">
+🧩 Stack LAMP Completo
+&lt;a href="#-stack-lamp-completo" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="instalar-php-y-mysql">
+Instalar PHP y MySQL
+&lt;a href="#instalar-php-y-mysql" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install php php-mysqlnd php-json mariadb-server -y
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="configurar-mariadb">
+Configurar MariaDB
+&lt;a href="#configurar-mariadb" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl &lt;span class="nb">enable&lt;/span> --now mariadb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo mysql_secure_installation
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="probar-php">
+Probar PHP
+&lt;a href="#probar-php" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&amp;lt;?php phpinfo(); ?&amp;gt;&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee /var/www/html/misitio/info.php
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-comparativa-apache-vs-nginx-2025">
+⚖️ Comparativa Apache vs Nginx (2025)
+&lt;a href="#-comparativa-apache-vs-nginx-2025" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Característica&lt;/th>
+&lt;th>Apache&lt;/th>
+&lt;th>Nginx&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Modo de trabajo&lt;/td>
+&lt;td>Proceso/Thread&lt;/td>
+&lt;td>Evento&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Rendimiento PHP&lt;/td>
+&lt;td>7,200 req/seg&lt;/td>
+&lt;td>8,500 req/seg&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Consumo memoria&lt;/td>
+&lt;td>350MB (10K conex)&lt;/td>
+&lt;td>120MB&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Facilidad config&lt;/td>
+&lt;td>★★★★★&lt;/td>
+&lt;td>★★★☆☆&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Soporte .htaccess&lt;/td>
+&lt;td>Nativo&lt;/td>
+&lt;td>Require rewrite&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>HTTP/3&lt;/td>
+&lt;td>Experimental&lt;/td>
+&lt;td>Soporte completo&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-optimización-de-apache">
+⚡ Optimización de Apache
+&lt;a href="#-optimizaci%c3%b3n-de-apache" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Ajustes en &lt;code>/etc/httpd/conf/httpd.conf&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-apache" data-lang="apache">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">KeepAlive&lt;/span> &lt;span class="k">On&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">MaxKeepAliveRequests&lt;/span> &lt;span class="m">100&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">KeepAliveTimeout&lt;/span> &lt;span class="m">5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">StartServers&lt;/span> &lt;span class="m">5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">MinSpareServers&lt;/span> &lt;span class="m">5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">MaxSpareServers&lt;/span> &lt;span class="m">10&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-solución-de-problemas-comunes">
+🚨 Solución de Problemas Comunes
+&lt;a href="#-soluci%c3%b3n-de-problemas-comunes" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="error-could-not-reliably-determine">
+Error: &amp;ldquo;Could not reliably determine&amp;hellip;&amp;rdquo;
+&lt;a href="#error-could-not-reliably-determine" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;ServerName localhost&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee -a /etc/httpd/conf/httpd.conf
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="error-403-forbidden">
+Error: &amp;ldquo;403 Forbidden&amp;rdquo;
+&lt;a href="#error-403-forbidden" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo chown -R apache:apache /var/www/html/misitio
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo chmod -R &lt;span class="m">755&lt;/span> /var/www/html
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-conclusión">
+📌 Conclusión
+&lt;a href="#-conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Con esta guía has aprendido a:&lt;/p>
+&lt;ul>
+&lt;li>Instalar Apache HTTPD en AlmaLinux&lt;/li>
+&lt;li>Configurar hosts virtuales&lt;/li>
+&lt;li>Implementar stack LAMP completo&lt;/li>
+&lt;li>Optimizar para entornos productivos&lt;/li>
+&lt;/ul>
+&lt;p>Próximo paso: Proteger tu servidor con &lt;code>firewalld&lt;/code> y &lt;code>fail2ban&lt;/code>.&lt;/p>
+&lt;blockquote>
+&lt;p>💡 Dato técnico: Apache soporta más de 60 módulos dinámicos, incluyendo mod_wsgi para Python y mod_perl.&lt;/p>&lt;/blockquote></description></item><item><title>Configurar Nginx con SSL en AlmaLinux: Guía Definitiva 2025</title><link>https://patojad.com.ar/post/2025/04/configurar-nginx-con-ssl-en-almalinux-gu%C3%ADa-definitiva-2025/</link><pubDate>Mon, 21 Apr 2025 09:13:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/04/configurar-nginx-con-ssl-en-almalinux-gu%C3%ADa-definitiva-2025/</guid><description>&lt;p>Nginx es uno de los servidores web más rápidos y eficientes para entornos Linux. En esta guía aprenderás a:&lt;/p>
+&lt;ul>
+&lt;li>Instalar y configurar Nginx en &lt;strong>&lt;a href="https://patojad.com.ar/post/2025/03/almalinux-gu%c3%ada-definitiva-historia-ventajas-y-comparativa-vs-rhelcentos/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+AlmaLinux
+&lt;/a>&lt;/strong>&lt;/li>
+&lt;li>Habilitar HTTPS con Let&amp;rsquo;s Encrypt&lt;/li>
+&lt;li>Optimizar el rendimiento para producción&lt;/li>
+&lt;li>Solucionar errores comunes&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-instalación-de-nginx">
+🛠️ Instalación de Nginx
+&lt;a href="#-instalaci%c3%b3n-de-nginx" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;ol>
+&lt;li>Instalar desde repositorios
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install nginx -y
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Iniciar y habilitar el servicio
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl &lt;span class="nb">enable&lt;/span> --now nginx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Verificar instalación
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">curl -I localhost
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Deberías ver: HTTP/1.1 200 OK&lt;/li>
+&lt;/ol>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-configuración-básica">
+📂 Configuración Básica
+&lt;a href="#-configuraci%c3%b3n-b%c3%a1sica" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="estructura-de-archivos-clave">
+Estructura de archivos clave
+&lt;a href="#estructura-de-archivos-clave" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Ruta&lt;/th>
+&lt;th>Propósito&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>/etc/nginx/nginx.conf&lt;/td>
+&lt;td>Configuración principal&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>/etc/nginx/conf.d/&lt;/td>
+&lt;td>Configs de sitios adicionales&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>/var/www/html/&lt;/td>
+&lt;td>Directorio raíz por defecto&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="ejemplo-de-configuración-mínima">
+Ejemplo de configuración mínima
+&lt;a href="#ejemplo-de-configuraci%c3%b3n-m%c3%adnima" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-gdscript3" data-lang="gdscript3">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># /etc/nginx/conf.d/tusitio.conf&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">server&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">listen&lt;/span> &lt;span class="mi">80&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">server_name&lt;/span> &lt;span class="n">tusitio&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">com&lt;/span> &lt;span class="n">www&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">tusitio&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">com&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">root&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="k">var&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">www&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">html&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">location&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">try_files&lt;/span> &lt;span class="o">$&lt;/span>&lt;span class="n">uri&lt;/span> &lt;span class="o">$&lt;/span>&lt;span class="n">uri&lt;/span>&lt;span class="o">/&lt;/span> &lt;span class="o">=&lt;/span>&lt;span class="mi">404&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Verificar y recargar:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo nginx -t &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> sudo systemctl reload nginx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-certificado-ssl-con-lets-encrypt">
+🔒 Certificado SSL con Let&amp;rsquo;s Encrypt
+&lt;a href="#-certificado-ssl-con-lets-encrypt" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;ol>
+&lt;li>Instalar Certbot
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install certbot python3-certbot-nginx -y
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Obtener certificado
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo certbot --nginx -d tusitio.com -d www.tusitio.com
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Renovación automática
+Añadir al cron:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="m">0&lt;/span> &lt;span class="m">3&lt;/span> &lt;span class="se">\*&lt;/span> &lt;span class="se">\*&lt;/span> &lt;span class="se">\*&lt;/span> /usr/bin/certbot renew --quiet
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-optimización-de-rendimiento">
+⚡ Optimización de Rendimiento
+&lt;a href="#-optimizaci%c3%b3n-de-rendimiento" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="ajustes-recomendados-en-etcnginxnginxconf">
+Ajustes recomendados en /etc/nginx/nginx.conf
+&lt;a href="#ajustes-recomendados-en-etcnginxnginxconf" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">worker_processes auto;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">worker_connections 1024;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">keepalive_timeout 30;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">gzip on;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">gzip_types text/css application/javascript;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="comandos-útiles">
+Comandos útiles
+&lt;a href="#comandos-%c3%batiles" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Reinicio seguro&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo systemctl restart nginx
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Ver estado&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo systemctl status nginx
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Monitorear peticiones&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo tail -f /var/log/nginx/access.log
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-solución-de-problemas-comunes">
+🚨 Solución de Problemas Comunes
+&lt;a href="#-soluci%c3%b3n-de-problemas-comunes" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="error-port-80-already-in-use">
+Error: &amp;ldquo;Port 80 already in use&amp;rdquo;
+&lt;a href="#error-port-80-already-in-use" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo netstat -tulnp &lt;span class="p">|&lt;/span> grep :80
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo &lt;span class="nb">kill&lt;/span> -9 &amp;lt;PID&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="error-ssl-handshake-failed">
+Error: &amp;ldquo;SSL handshake failed&amp;rdquo;
+&lt;a href="#error-ssl-handshake-failed" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Verificar que el puerto 443 esté abierto:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo firewall-cmd --add-service&lt;span class="o">=&lt;/span>https --permanent
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo firewall-cmd --reload
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-comparativa-nginx-vs-apache">
+📊 Comparativa Nginx vs Apache
+&lt;a href="#-comparativa-nginx-vs-apache" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Característica&lt;/th>
+&lt;th>Nginx&lt;/th>
+&lt;th>Apache&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Velocidad&lt;/td>
+&lt;td>Rapido&lt;/td>
+&lt;td>Lento&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Rendimiento&lt;/td>
+&lt;td>Alto&lt;/td>
+&lt;td>Medio&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Consumo RAM&lt;/td>
+&lt;td>Bajo&lt;/td>
+&lt;td>Moderado&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Facilidad&lt;/td>
+&lt;td>Intermedia&lt;/td>
+&lt;td>Sencilla&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Soporte .htaccess&lt;/td>
+&lt;td>No&lt;/td>
+&lt;td>Sí&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-conclusión">
+📌 Conclusión
+&lt;a href="#-conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Con esta guía has aprendido a:&lt;/p>
+&lt;ul>
+&lt;li>Desplegar Nginx en &lt;strong>&lt;a href="https://patojad.com.ar/post/2025/03/almalinux-gu%c3%ada-definitiva-historia-ventajas-y-comparativa-vs-rhelcentos/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+AlmaLinux
+&lt;/a>&lt;/strong>&lt;/li>
+&lt;li>Configurar sitios virtuales&lt;/li>
+&lt;li>Implementar HTTPS automático&lt;/li>
+&lt;li>Optimizar para entornos productivos&lt;/li>
+&lt;/ul></description></item><item><title>Gestión de Paquetes en AlmaLinux con DNF: Guía Completa 2025</title><link>https://patojad.com.ar/post/2025/04/gesti%C3%B3n-de-paquetes-en-almalinux-con-dnf-gu%C3%ADa-completa-2025/</link><pubDate>Mon, 14 Apr 2025 09:13:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/04/gesti%C3%B3n-de-paquetes-en-almalinux-con-dnf-gu%C3%ADa-completa-2025/</guid><description>&lt;p>&lt;strong>DNF&lt;/strong> (Dandified YUM) es el gestor de paquetes moderno en &lt;strong>&lt;a href="https://patojad.com.ar/post/2025/03/almalinux-gu%c3%ada-definitiva-historia-ventajas-y-comparativa-vs-rhelcentos/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+AlmaLinux
+&lt;/a>&lt;/strong>, heredero de &lt;strong>YUM&lt;/strong> pero más rápido y eficiente. En esta guía aprenderás:&lt;/p>
+&lt;ul>
+&lt;li>Comandos esenciales para gestión de software&lt;/li>
+&lt;li>Cómo trabajar con repositorios (&lt;strong>EPEL&lt;/strong>/&lt;strong>CRB&lt;/strong>)&lt;/li>
+&lt;li>Trucos avanzados para administradores de sistemas&lt;/li>
+&lt;li>Solución a errores comunes&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-comandos-básicos-de-dnf">
+📦 Comandos Básicos de &lt;strong>DNF&lt;/strong>
+&lt;a href="#-comandos-b%c3%a1sicos-de-dnf" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="actualización-del-sistema">
+Actualización del sistema
+&lt;a href="#actualizaci%c3%b3n-del-sistema" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf update
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Actualiza todos los paquetes instalados y sus dependencias.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="instalación-de-paquetes">
+Instalación de paquetes
+&lt;a href="#instalaci%c3%b3n-de-paquetes" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install nginx mysql-server
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Instala múltiples paquetes en un solo comando.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="búsqueda-de-paquetes">
+Búsqueda de paquetes
+&lt;a href="#b%c3%basqueda-de-paquetes" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">dnf search python3
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Encuentra paquetes disponibles en los repositorios.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="eliminación-de-paquetes">
+Eliminación de paquetes
+&lt;a href="#eliminaci%c3%b3n-de-paquetes" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf remove httpd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Elimina paquetes y sus dependencias no requeridas.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-gestión-de-repositorios">
+🔌 Gestión de Repositorios
+&lt;a href="#-gesti%c3%b3n-de-repositorios" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="repositorio-epel">
+Repositorio &lt;strong>EPEL&lt;/strong>
+&lt;a href="#repositorio-epel" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install epel-release
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dnf config-manager --set-enabled epel
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="repositorio-crb">
+Repositorio &lt;strong>CRB&lt;/strong>
+&lt;a href="#repositorio-crb" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf config-manager --set-enabled crb
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="tabla-comparativa-de-repositorios">
+Tabla comparativa de repositorios
+&lt;a href="#tabla-comparativa-de-repositorios" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Repositorio&lt;/th>
+&lt;th>Contenido&lt;/th>
+&lt;th>Comando para habilitar&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Base&lt;/td>
+&lt;td>Paquetes esenciales&lt;/td>
+&lt;td>Activado por defecto&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>EPEL&lt;/td>
+&lt;td>Paquetes adicionales&lt;/td>
+&lt;td>&lt;code>sudo dnf install epel-release&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>CRB&lt;/td>
+&lt;td>Paquetes de build&lt;/td>
+&lt;td>&lt;code>sudo dnf config-manager --set-enabled crb&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-comandos-avanzados">
+⚡ Comandos Avanzados
+&lt;a href="#-comandos-avanzados" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="limpieza-del-sistema">
+Limpieza del sistema
+&lt;a href="#limpieza-del-sistema" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf autoremove &lt;span class="c1"># Elimina paquetes huérfanos&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dnf clean all &lt;span class="c1"># Limpia la caché&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="historial-de-transacciones">
+Historial de transacciones
+&lt;a href="#historial-de-transacciones" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf &lt;span class="nb">history&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dnf &lt;span class="nb">history&lt;/span> info &lt;span class="m">3&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dnf &lt;span class="nb">history&lt;/span> undo &lt;span class="m">3&lt;/span> &lt;span class="c1"># Revierte la transacción 3&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-caso-práctico-instalación-de-lamp">
+🚀 Caso Práctico: Instalación de &lt;strong>LAMP&lt;/strong>
+&lt;a href="#-caso-pr%c3%a1ctico-instalaci%c3%b3n-de-lamp" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install httpd mariadb-server php php-mysqlnd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo systemctl &lt;span class="nb">enable&lt;/span> --now httpd mariadb &lt;span class="c1"># No visto en video aun&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-solución-de-problemas-comunes">
+🔍 Solución de Problemas Comunes
+&lt;a href="#-soluci%c3%b3n-de-problemas-comunes" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="error-no-hay-paquetes-disponibles">
+Error: &amp;ldquo;No hay paquetes disponibles&amp;rdquo;
+&lt;a href="#error-no-hay-paquetes-disponibles" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Verifica los repositorios habilitados:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf repolist
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Limpia la caché:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf clean all &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> sudo dnf makecache
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="-conclusión">
+📌 Conclusión
+&lt;a href="#-conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Dominar &lt;strong>DNF&lt;/strong> es esencial para cualquier usuario de &lt;strong>&lt;a href="https://patojad.com.ar/post/2025/03/almalinux-gu%c3%ada-definitiva-historia-ventajas-y-comparativa-vs-rhelcentos/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+AlmaLinux
+&lt;/a>&lt;/strong>. Con esta guía puedes:&lt;/p>
+&lt;ul>
+&lt;li>Gestionar software eficientemente&lt;/li>
+&lt;li>Configurar repositorios adicionales&lt;/li>
+&lt;li>Solucionar problemas comunes&lt;/li>
+&lt;/ul></description></item><item><title>Instalación de AlmaLinux Paso a Paso</title><link>https://patojad.com.ar/post/2025/04/instalaci%C3%B3n-de-almalinux-paso-a-paso/</link><pubDate>Mon, 07 Apr 2025 15:45:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/04/instalaci%C3%B3n-de-almalinux-paso-a-paso/</guid><description>&lt;p>&lt;strong>&lt;a href="https://patojad.com.ar/post/2025/03/almalinux-gu%c3%ada-definitiva-historia-ventajas-y-comparativa-vs-rhelcentos/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+AlmaLinux
+&lt;/a>&lt;/strong> se ha consolidado como una de las mejores alternativas gratuitas a &lt;strong>RHEL&lt;/strong> y &lt;strong>CentOS&lt;/strong>. en este artículo, te guiaré paso a paso en su instalación, desde la descarga hasta la configuración inicial, ideal tanto para principiantes como para usuarios avanzados.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-requisitos-previos">
+📥 Requisitos previos
+&lt;a href="#-requisitos-previos" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Antes de comenzar, necesitarás:&lt;/p>
+&lt;ul>
+&lt;li>Mínimo 2 gb de ram (4 gb recomendado para entornos gráficos).&lt;/li>
+&lt;li>20 gb de espacio en disco.&lt;/li>
+&lt;li>USB de 8 gb o más para crear el medio de instalación.&lt;/li>
+&lt;li>Conexión a internet (opcional durante la instalación).&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-paso-1-descargar-la-iso-de-almalinux">
+🔽 Paso 1: Descargar la ISO de &lt;strong>&lt;a href="https://patojad.com.ar/post/2025/03/almalinux-gu%c3%ada-definitiva-historia-ventajas-y-comparativa-vs-rhelcentos/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+AlmaLinux
+&lt;/a>&lt;/strong>
+&lt;a href="#-paso-1-descargar-la-iso-de-almalinux" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;ul>
+&lt;li>Visita el sitio oficial:&lt;a href="https://almalinux.org/download" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+almalinux.org/download
+&lt;/a>.&lt;/li>
+&lt;li>Elige entre &lt;strong>&lt;a href="https://patojad.com.ar/post/2025/03/almalinux-gu%c3%ada-definitiva-historia-ventajas-y-comparativa-vs-rhelcentos/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+AlmaLinux
+&lt;/a>&lt;/strong> 9 (última versión estable) o 8 (para compatibilidad con software heredado).&lt;/li>
+&lt;li>Descarga la iso según tu arquitectura (x86_64 para la mayoría de los casos).&lt;/li>
+&lt;/ul>
+&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between">
+&lt;span class="fa fa-info fa-5x p-3">&lt;/span>
+&lt;p class="no-margin">💡 tip: verifica la integridad del archivo con el checksum sha256 proporcionado en el sitio.&lt;/p>
+&lt;/div>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-paso-2-crear-usb-booteable">
+🛠️ Paso 2: Crear USB booteable
+&lt;a href="#-paso-2-crear-usb-booteable" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="opción-a-usar-balenaetcher-windowsmacoslinux">
+Opción A: Usar balenaetcher (Windows/macOS/linux)
+&lt;a href="#opci%c3%b3n-a-usar-balenaetcher-windowsmacoslinux" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>Descarga e instala &lt;a href="https://etcher.balena.io/#download-etcher" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+balenaetcher
+&lt;/a>.&lt;/li>
+&lt;li>Selecciona la iso de &lt;strong>&lt;a href="https://patojad.com.ar/post/2025/03/almalinux-gu%c3%ada-definitiva-historia-ventajas-y-comparativa-vs-rhelcentos/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+AlmaLinux
+&lt;/a>&lt;/strong> y la usb.&lt;/li>
+&lt;li>Haz clic en Flash! y espera a que termine.&lt;/li>
+&lt;/ul>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="opción-b-usar-línea-de-comandos-linux">
+Opción B: Usar línea de comandos (linux)
+&lt;a href="#opci%c3%b3n-b-usar-l%c3%adnea-de-comandos-linux" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dd &lt;span class="k">if&lt;/span>&lt;span class="o">=&lt;/span>almalinux-9.x-x86_64.iso &lt;span class="nv">of&lt;/span>&lt;span class="o">=&lt;/span>/dev/sdX &lt;span class="nv">bs&lt;/span>&lt;span class="o">=&lt;/span>4M &lt;span class="nv">status&lt;/span>&lt;span class="o">=&lt;/span>progress &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> sync
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="w-full rounded-xl bg-yellow-600/75 text-yellow-950 p-3 flex flex-row justify-center content-between">
+&lt;span class="fa fa-warning fa-5x p-3">&lt;/span>
+&lt;p class="no-margin">Importante: reemplaza /dev/sdX con la ruta correcta de tu usb (usa lsblk para identificarla).&lt;/p>
+&lt;/div>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="uso-de-ventoy">
+Uso de Ventoy
+&lt;a href="#uso-de-ventoy" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;iframe src='https://www.youtube.com/embed/0BgO2y138oc?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;p>O tambien puedes verlo en su &lt;a href="https://patojad.com.ar/post/2021/04/ventoy-armando-un-usb-multiboot/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+articulo
+&lt;/a>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-paso-3-instalar-almalinux">
+💻 Paso 3: Instalar &lt;strong>&lt;a href="https://patojad.com.ar/post/2025/03/almalinux-gu%c3%ada-definitiva-historia-ventajas-y-comparativa-vs-rhelcentos/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+AlmaLinux
+&lt;/a>&lt;/strong>
+&lt;a href="#-paso-3-instalar-almalinux" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;ol>
+&lt;li>Arranca desde la usb (presiona F12/ESC/DEL según tu placa base para seleccionar el dispositivo).&lt;/li>
+&lt;li>Sigue estos pasos en el instalador:&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>Idioma/teclado: Elige español o inglés.&lt;/li>
+&lt;li>Particionado:
+&lt;ul>
+&lt;li>Automático: Recomendado para principiantes.&lt;/li>
+&lt;li>Manual: Para avanzados (crea /, /home, y swap).&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Configuración de red: Actívala y asigna un nombre al equipo.&lt;/li>
+&lt;li>Usuario y contraseña: Crea un usuario con privilegios de administrador.&lt;/li>
+&lt;/ul>
+&lt;ol start="3">
+&lt;li>Inicia la instalación y espera a que finalice (≈10-15 minutos).&lt;/li>
+&lt;/ol>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-paso-4-configuración-post-instalación">
+⚙️ Paso 4: Configuración post-instalación
+&lt;a href="#-paso-4-configuraci%c3%b3n-post-instalaci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Una vez instalado, ejecuta estos comandos esenciales:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Actualizar el sistema &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dnf update -y
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Instalar herramientas básicas &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dnf install -y nano git curl wget
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Verificar la versión &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cat /etc/redhat-release
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between">
+&lt;span class="fa fa-info fa-5x p-3">&lt;/span>
+&lt;p class="no-margin">🔥 Consejo: si usas almalinux en un servidor, instala también fail2ban y configura el firewall.&lt;/p>
+&lt;/div>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-conclusión">
+📌 Conclusión
+&lt;a href="#-conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Ahora tienes &lt;strong>&lt;a href="https://patojad.com.ar/post/2025/03/almalinux-gu%c3%ada-definitiva-historia-ventajas-y-comparativa-vs-rhelcentos/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+AlmaLinux
+&lt;/a>&lt;/strong> listo para usar. en el próximo artículo, exploraremos cómo gestionar paquetes con dnf y configurar repositorios adicionales.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="-recursos-útiles">
+🔗 Recursos útiles:
+&lt;a href="#-recursos-%c3%batiles" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;a href="https://wiki.almalinux.org/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+Documentación oficial de almalinux
+&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://almalinux.org/community/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+Foro de la comunidad
+&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>AlmaLinux: Guía Definitiva – Historia, Ventajas y Comparativa vs RHEL(CentOS)</title><link>https://patojad.com.ar/post/2025/03/almalinux-gu%C3%ADa-definitiva-historia-ventajas-y-comparativa-vs-rhelcentos/</link><pubDate>Mon, 31 Mar 2025 09:47:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/03/almalinux-gu%C3%ADa-definitiva-historia-ventajas-y-comparativa-vs-rhelcentos/</guid><description>&lt;p>&lt;strong>AlmaLinux&lt;/strong> se ha convertido en una de las distribuciones &lt;strong>Linux&lt;/strong> más populares para servidores y entornos empresariales, especialmente después de los cambios en &lt;strong>CentOS&lt;/strong>. Pero, ¿qué lo hace tan especial? En este artículo, exploraremos:&lt;/p>
+&lt;ul>
+&lt;li>Qué es AlmaLinux y por qué nació.&lt;/li>
+&lt;li>Sus ventajas clave frente a RHEL, CentOS y Rocky Linux.&lt;/li>
+&lt;li>Casos de uso reales (¿para quién es ideal?).&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-almalinux">
+¿Qué es AlmaLinux?
+&lt;a href="#qu%c3%a9-es-almalinux" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;strong>AlmaLinux&lt;/strong> es un sistema operativo gratuito y de código abierto, basado en Red Hat Enterprise Linux (RHEL). Surgió en 2021 como alternativa estable tras el anuncio de Red Hat de discontinuar CentOS tradicional.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="-datos-clave">
+🔍 Datos clave
+&lt;a href="#-datos-clave" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>Creado por:&lt;/strong> CloudLinux Inc. y la comunidad.&lt;/li>
+&lt;li>&lt;strong>Compatibilidad:&lt;/strong> 1:1 con RHEL (mismo código base, sin costos).&lt;/li>
+&lt;li>&lt;strong>Lanzamiento estable:&lt;/strong> Abril de 2021 (versión 8.3).&lt;/li>
+&lt;/ul>
+&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between">
+&lt;span class="fa fa-info fa-5x p-3">&lt;/span>
+&lt;p class="no-margin">💡 ¿Por qué elegirlo? AlmaLinux ofrece 10 años de soporte por versión, igual que RHEL, pero sin licencias.&lt;/p>
+&lt;/div>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="historia-de-almalinux-por-qué-reemplaza-a-centos">
+Historia de AlmaLinux: ¿Por qué reemplaza a CentOS?
+&lt;a href="#historia-de-almalinux-por-qu%c3%a9-reemplaza-a-centos" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="-línea-de-tiempo-clave">
+📅 Línea de tiempo clave:
+&lt;a href="#-l%c3%adnea-de-tiempo-clave" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>2014: Red Hat adquiere CentOS, prometiendo mantenerlo estable.&lt;/li>
+&lt;li>Diciembre 2020: Red Hat anuncia que CentOS Stream será su único enfoque (rolling release, menos estable).&lt;/li>
+&lt;li>Marzo 2021: Lanzamiento de AlmaLinux 8.3, financiado por CloudLinux.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-almalinux-vs-rhel-vs-rocky-linux-cuál-elegir">
+⚖️ AlmaLinux vs RHEL vs Rocky Linux: ¿Cuál elegir?
+&lt;a href="#-almalinux-vs-rhel-vs-rocky-linux-cu%c3%a1l-elegir" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Característica&lt;/th>
+&lt;th>AlmaLinux&lt;/th>
+&lt;th>RHEL&lt;/th>
+&lt;th>Rocky Linux&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Costo&lt;/td>
+&lt;td>Gratuito&lt;/td>
+&lt;td>De pago&lt;/td>
+&lt;td>Gratuito&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Soporte&lt;/td>
+&lt;td>10 años&lt;/td>
+&lt;td>10 años&lt;/td>
+&lt;td>10 años&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Compatibilidad&lt;/td>
+&lt;td>RHEL 100%&lt;/td>
+&lt;td>N/A (es RHEL)&lt;/td>
+&lt;td>100%&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Respaldo&lt;/td>
+&lt;td>CloudLinux + Comunidad&lt;/td>
+&lt;td>Red Hat&lt;/td>
+&lt;td>Comunidad&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between">
+&lt;span class="fa fa-info fa-5x p-3">&lt;/span>
+&lt;p class="no-margin">🔥 Conclusión: AlmaLinux es ideal si buscas estabilidad gratuita con soporte empresarial opcional. Rocky Linux es similar, pero con menos respaldo corporativo.&lt;/p>
+&lt;/div>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="5-ventajas-clave-de-almalinux">
+5 Ventajas Clave de AlmaLinux
+&lt;a href="#5-ventajas-clave-de-almalinux" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;ul>
+&lt;li>🔐 &lt;strong>Compatibilidad total con RHEL:&lt;/strong> Migra aplicaciones sin cambios.&lt;/li>
+&lt;li>⏳ &lt;strong>Largo ciclo de vida:&lt;/strong> Actualizaciones hasta 2032 para AlmaLinux 9.&lt;/li>
+&lt;li>🆓 &lt;strong>100% gratuito:&lt;/strong> Sin licencias ocultas (a diferencia de RHEL).&lt;/li>
+&lt;li>🛠️ &lt;strong>Soporte profesional:&lt;/strong> Opcional mediante CloudLinux.&lt;/li>
+&lt;li>🌍 &lt;strong>Comunidad activa:&lt;/strong> Foros, documentación y updates rápidos.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="quién-debería-usar-almalinux-casos-de-uso">
+¿Quién debería usar AlmaLinux? (Casos de uso)
+&lt;a href="#qui%c3%a9n-deber%c3%ada-usar-almalinux-casos-de-uso" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;ul>
+&lt;li>&lt;strong>DevOps/SysAdmins:&lt;/strong> Para servidores web (Apache/Nginx), bases de datos (MySQL/MariaDB), o Kubernetes.&lt;/li>
+&lt;li>&lt;strong>Empresas:&lt;/strong> Migración desde CentOS sin costos adicionales.&lt;/li>
+&lt;li>&lt;strong>Desarrolladores:&lt;/strong> Entorno estable para testing/producción.&lt;/li>
+&lt;/ul>
+&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between">
+&lt;span class="fa fa-info fa-5x p-3">&lt;/span>
+&lt;p class="no-margin">📌 Ejemplo real: Empresas como AWS, Microsoft Azure y cPanel ya soportan AlmaLinux oficialmente.&lt;/p>
+&lt;/div>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-conclusión-vale-la-pena-migrar">
+📌 Conclusión: ¿Vale la pena migrar?
+&lt;a href="#-conclusi%c3%b3n-vale-la-pena-migrar" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>AlmaLinux es la mejor opción si:&lt;/p>
+&lt;ul>
+&lt;li>Necesitas un RHEL gratuito y estable.&lt;/li>
+&lt;li>Quieres soporte a largo plazo (10 años).&lt;/li>
+&lt;li>Prefieres respaldo corporativo (CloudLinux) + comunidad.&lt;/li>
+&lt;/ul>
+&lt;script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "FAQPage",
+"mainEntity": [
+{
+"@type": "Question",
+"name": "¿AlmaLinux es gratuito?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Sí, AlmaLinux es 100% gratuito y de código abierto, a diferencia de RHEL que requiere licencia."
+}
+},
+{
+"@type": "Question",
+"name": "¿AlmaLinux es estable?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Totalmente. AlmaLinux está diseñado para entornos de producción, con soporte de hasta 10 años."
+}
+}
+]
+}
+&lt;/script></description></item><item><title>Theme NGINX para VPSUniverse</title><link>https://patojad.com.ar/projects/almalinux_mirror_vpsuniverse_style/</link><pubDate>Fri, 28 Mar 2025 00:00:00 -0500</pubDate><guid>https://patojad.com.ar/projects/almalinux_mirror_vpsuniverse_style/</guid><description>&lt;p>Se crea un theme para nginx para el mirror de Almalinux para VPSUniverse, con el objetivo de obtener un mejor diseño y accesibilidad para los usuarios. En esto realizamos:&lt;/p>
+&lt;ul>
+&lt;li>Creacion del header y footer con datos importantes para el usuarios&lt;/li>
+&lt;li>Creacion de un diseño responsive&lt;/li>
+&lt;li>Creacion de un diseño atractivo&lt;/li>
+&lt;/ul>
+&lt;p>Repositorios:&lt;/p>
+&lt;ul>
+&lt;li>Se puede ver su disponibilidad en &lt;a href="https://almalinux-mirror.vpsuniverse.net/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+almalinux-mirror.vpsuniverse.net
+&lt;/a>&lt;/li>
+&lt;li>Tambien se puede ver el codigo en &lt;a href="https://github.com/Vasak-Group/almalinux-vpsuniverse-nginx" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fab fa-github">&lt;/i>&amp;nbsp;
+Github
+&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>Este proyecto se realizo para &lt;a href="https://vpsuniverse.net/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+VPSUniverse
+&lt;/a> por lo cual el estado del sitio quedo en manos de ellos.&lt;/p></description></item><item><title>Theme NGINX para Bernini.DEV</title><link>https://patojad.com.ar/projects/almalinux_mirror_bernini_style/</link><pubDate>Thu, 20 Mar 2025 00:00:00 -0500</pubDate><guid>https://patojad.com.ar/projects/almalinux_mirror_bernini_style/</guid><description>&lt;p>Se crea un theme para nginx para el mirror de Almalinux para Bernini.DEV, con el objetivo de obtener un mejor diseño y accesibilidad para los usuarios. En esto realizamos:&lt;/p>
+&lt;ul>
+&lt;li>Creacion del header y footer con datos importantes para el usuarios&lt;/li>
+&lt;li>Creacion de un diseño responsive&lt;/li>
+&lt;li>Creacion de un diseño atractivo&lt;/li>
+&lt;/ul>
+&lt;p>Repositorios:&lt;/p>
+&lt;ul>
+&lt;li>Se puede ver su disponibilidad en &lt;a href="https://almalinux-mirror.bernini.dev/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+almalinux-mirror.bernini.dev
+&lt;/a>&lt;/li>
+&lt;li>Tambien se puede ver el codigo en &lt;a href="https://github.com/Vasak-Group/almalinux-bernini-nginx" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fab fa-github">&lt;/i>&amp;nbsp;
+Github
+&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>Este proyecto se realizo para &lt;a href="https://bernini.dev/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+Bernini
+&lt;/a> por lo cual el estado del sitio quedo en manos de ellos.&lt;/p></description></item><item><title>Mirror de Almalinux para VPSUniverse</title><link>https://patojad.com.ar/projects/almalinux_mirror_vpsuniverse/</link><pubDate>Mon, 17 Mar 2025 00:00:00 -0500</pubDate><guid>https://patojad.com.ar/projects/almalinux_mirror_vpsuniverse/</guid><description>&lt;p>Se crea un mirror de Almalinux para VPSUniverse, con el objetivo de tener una copia para mejorar la velocidad de descarga y actualización de servidores y accesible para todos. En esto realizamos:&lt;/p>
+&lt;ul>
+&lt;li>Creacion de servidor&lt;/li>
+&lt;li>Instalacion de Almalinux&lt;/li>
+&lt;li>Configuracion de Almalinux&lt;/li>
+&lt;li>Configuracion de mirror&lt;/li>
+&lt;li>Configuracion de firewall&lt;/li>
+&lt;li>Configuracion de red&lt;/li>
+&lt;li>PR de mirror en github&lt;/li>
+&lt;li>Configuracion de cron para actualizacion de mirror&lt;/li>
+&lt;/ul>
+&lt;p>Se puede ver su disponibilidad en &lt;a href="https://almalinux-mirror.vpsuniverse.net/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+almalinux-mirror.vpsuniverse.net
+&lt;/a>&lt;/p>
+&lt;hr>
+&lt;p>Este proyecto se realizo para &lt;a href="https://vpsuniverse.net/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+VPS Universe
+&lt;/a> por lo cual el estado del sitio quedo en manos de ellos.&lt;/p></description></item><item><title>Mirror de Almalinux para Bernini.DEV</title><link>https://patojad.com.ar/projects/almalinux_mirror_bernini/</link><pubDate>Fri, 28 Feb 2025 00:00:00 -0500</pubDate><guid>https://patojad.com.ar/projects/almalinux_mirror_bernini/</guid><description>&lt;p>Se crea un mirror de Almalinux para Bernini.DEV, con el objetivo de tener una copia para mejorar la velocidad de descarga y actualización de servidores y accesible para todos. En esto realizamos:&lt;/p>
+&lt;ul>
+&lt;li>Creacion de servidor&lt;/li>
+&lt;li>Instalacion de Almalinux&lt;/li>
+&lt;li>Configuracion de Almalinux&lt;/li>
+&lt;li>Configuracion de mirror&lt;/li>
+&lt;li>Configuracion de firewall&lt;/li>
+&lt;li>Configuracion de red&lt;/li>
+&lt;li>PR de mirror en github&lt;/li>
+&lt;li>Configuracion de cron para actualizacion de mirror&lt;/li>
+&lt;/ul>
+&lt;p>Se puede ver su disponibilidad en &lt;a href="https://almalinux-mirror.bernini.dev/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+almalinux-mirror.bernini.dev
+&lt;/a>&lt;/p>
+&lt;hr>
+&lt;p>Este proyecto se realizo para &lt;a href="https://bernini.dev/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+Bernini
+&lt;/a> por lo cual el estado del sitio quedo en manos de ellos.&lt;/p></description></item><item><title>Como instalar MongoDB en GNU/Linux</title><link>https://patojad.com.ar/post/2023/04/como-instalar-mongodb-en-gnu/linux/</link><pubDate>Wed, 19 Apr 2023 13:45:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/04/como-instalar-mongodb-en-gnu/linux/</guid><description>&lt;p>Vamos a ver como realizar la instalacion de &lt;strong>MongoDB&lt;/strong> en nuestra distribucion de GNU/Linux preferida.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="comando-para-arch-linux">
+Comando para Arch Linux
+&lt;a href="#comando-para-arch-linux" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>En arch linux la instalacion es tan simple como podemos ver en el video utilizando:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -Sy mongodb-bin
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="debian-y-derivadas-como-ubuntu">
+Debian y derivadas como ubuntu
+&lt;a href="#debian-y-derivadas-como-ubuntu" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Debemos asegurarnos de tener &lt;code>gnupg&lt;/code> para poder instalar las llaves necesarias, podemos instalarlo de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo apt-get install gnupg
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>y una ves instalado procedemos a realizar la descarga e instalacion de las llaves de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">curl -fsSL https://pgp.mongodb.com/server-6.0.asc &lt;span class="p">|&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> sudo gpg -o /usr/share/keyrings/mongodb-server-6.0.gpg &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> --dearmor
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>creamos el archivo &lt;code>/etc/apt/sources.list.d/mongodb-org-6.0.list&lt;/code> para agregar el repositorio, esto lo podemos hacer de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">nano /etc/apt/sources.list.d/mongodb-org-6.0.list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>guardamos y cerramos el archivo limpio para luego dentro agregar el repositorio segun corresponda.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="debian-10">
+Debian 10
+&lt;a href="#debian-10" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;deb [ signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] http://repo.mongodb.org/apt/debian buster/mongodb-org/6.0 main&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="debian-11">
+Debian 11
+&lt;a href="#debian-11" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;deb [ signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg] http://repo.mongodb.org/apt/debian bullseye/mongodb-org/6.0 main&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="ubuntu-184">
+Ubuntu 18.4
+&lt;a href="#ubuntu-184" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/6.0 multiverse&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="ubuntu-204">
+Ubuntu 20.4
+&lt;a href="#ubuntu-204" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="ubuntu-224">
+Ubuntu 22.4
+&lt;a href="#ubuntu-224" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;p>Una vez creado el archivo procedemos a instalar el paquete de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo apt update &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> sudo apt install -y mongodb-org
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="rhel--centos--oracle--rocky--almalinux">
+RHEL / CentOS / Oracle / Rocky / AlmaLinux
+&lt;a href="#rhel--centos--oracle--rocky--almalinux" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Vamos a crear el archivo &lt;code>/etc/yum.repos.d/mongodb-org-6.0.repo&lt;/code> que nos permitira agregar el repositorio para la instalacion y dentro vamos a agregar lo siguiente:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">[mongodb-org-6.0]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">name=MongoDB Repository
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">baseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/6.0/x86_64/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">gpgcheck=1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">enabled=1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">gpgkey=https://www.mongodb.org/static/pgp/server-6.0.asc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Una vez creado el archivo procedemos a instalar el paquete de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo yum install -y mongodb-org
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;p>Fuente: &lt;a href="https://www.mongodb.com/docs/manual/administration/install-on-linux/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://www.mongodb.com/docs/manual/administration/install-on-linux/
+&lt;/a>&lt;/p></description></item></channel></rss>

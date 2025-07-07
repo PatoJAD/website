@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Consejos on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/consejos/</link><description>Recent content in Consejos on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Mon, 03 Mar 2025 09:47:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/consejos/index.xml" rel="self" type="application/rss+xml"/><item><title>Cómo Monitorear y Optimizar el Rendimiento de tu Sistema Linux: Guía Paso a Paso 📊⚡</title><link>https://patojad.com.ar/post/2025/03/c%C3%B3mo-monitorear-y-optimizar-el-rendimiento-de-tu-sistema-linux-gu%C3%ADa-paso-a-paso/</link><pubDate>Mon, 03 Mar 2025 09:47:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/03/c%C3%B3mo-monitorear-y-optimizar-el-rendimiento-de-tu-sistema-linux-gu%C3%ADa-paso-a-paso/</guid><description>&lt;p>¿Alguna vez has sentido que tu sistema Linux está lento o que no funciona tan bien como debería? No te preocupes, ¡estás en el lugar correcto! En este artículo, aprenderás cómo monitorear y optimizar el rendimiento de tu sistema Linux utilizando herramientas simples pero poderosas. Al final, podrás identificar problemas de rendimiento y solucionarlos fácilmente.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="por-qué-monitorear-el-rendimiento">
+¿Por Qué Monitorear el Rendimiento?
+&lt;a href="#por-qu%c3%a9-monitorear-el-rendimiento" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Monitorear el rendimiento de tu sistema es crucial para mantenerlo funcionando de manera eficiente. Al hacerlo, puedes:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Identificar procesos que consumen muchos recursos:&lt;/strong> Encuentra programas que estén usando demasiada CPU, memoria o disco.&lt;/li>
+&lt;li>&lt;strong>Detectar cuellos de botella:&lt;/strong> Resuelve problemas que ralentizan tu sistema.&lt;/li>
+&lt;li>&lt;strong>Mantener tu sistema limpio y eficiente:&lt;/strong> Libera espacio y elimina archivos innecesarios.&lt;/li>
+&lt;/ul>
+&lt;p>Hoy vamos a usar herramientas simples pero efectivas que puedes ejecutar directamente desde la terminal.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="herramienta-1-top---monitorear-procesos-en-tiempo-real">
+Herramienta 1: &lt;code>top&lt;/code> - Monitorear Procesos en Tiempo Real
+&lt;a href="#herramienta-1-top---monitorear-procesos-en-tiempo-real" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>La primera herramienta que exploraremos es &lt;code>top&lt;/code>. Este comando muestra una lista en tiempo real de todos los procesos que se están ejecutando en tu sistema, junto con su uso de CPU y memoria. Simplemente ejecuta:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">top
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Aquí puedes ver qué procesos están consumiendo más recursos. Si encuentras algo sospechoso, puedes detenerlo usando su ID de proceso (PID) con:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">kill&lt;/span> &amp;lt;PID&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Es una herramienta esencial para diagnosticar problemas rápidamente.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="herramienta-2-htop---una-versión-mejorada-de-top">
+Herramienta 2: &lt;code>htop&lt;/code> - Una Versión Mejorada de &lt;code>top&lt;/code>
+&lt;a href="#herramienta-2-htop---una-versi%c3%b3n-mejorada-de-top" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Si prefieres una interfaz más amigable, prueba&lt;code>htop&lt;/code>. Es como &lt;code>top&lt;/code>, pero con colores y opciones adicionales. Primero, instálalo:&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="en-distribuciones-basadas-en-debian-como-ubuntu">
+En distribuciones basadas en Debian (como Ubuntu):
+&lt;a href="#en-distribuciones-basadas-en-debian-como-ubuntu" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo apt install htop
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="en-distribuciones-basadas-en-red-hat-como-fedora">
+En distribuciones basadas en Red Hat (como Fedora):
+&lt;a href="#en-distribuciones-basadas-en-red-hat-como-fedora" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo yum install htop
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="en-distribuciones-basadas-en-arch-como-endeavour">
+En distribuciones basadas en &lt;a href="https://patojad.com.ar/post/2025/02/qu%c3%a9-es-arch-linux-la-mejor-distribuci%c3%b3n-para-usuarios-avanzados/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Arch
+&lt;/a> (como Endeavour):
+&lt;a href="#en-distribuciones-basadas-en-arch-como-endeavour" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S htop
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;p>Luego ejecútalo:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">htop
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Con &lt;code>htop&lt;/code>, puedes navegar por los procesos con las flechas del teclado, ordenarlos y detenerlos directamente desde la interfaz. Es perfecto para usuarios nuevos.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="herramienta-3-df-y-du---monitorear-el-uso-de-disco">
+Herramienta 3: df y du - Monitorear el Uso de Disco
+&lt;a href="#herramienta-3-df-y-du---monitorear-el-uso-de-disco" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Ahora, hablemos del almacenamiento. Para ver cuánto espacio ocupan tus discos, usa &lt;code>df&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">df -h
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Esto muestra el uso de disco en formato legible. Si necesitas identificar archivos grandes que ocupan espacio, usa &lt;code>du&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">du -sh /ruta/a/carpeta
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Estos comandos son ideales para liberar espacio y mantener tu sistema limpio.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="optimización-básica-limpieza-de-paquetes-innecesarios">
+Optimización Básica: Limpieza de Paquetes Innecesarios
+&lt;a href="#optimizaci%c3%b3n-b%c3%a1sica-limpieza-de-paquetes-innecesarios" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Finalmente, vamos a optimizar tu sistema eliminando paquetes innecesarios.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="en-distribuciones-basadas-en-debian-como-ubuntu-1">
+En distribuciones basadas en Debian (como Ubuntu):
+&lt;a href="#en-distribuciones-basadas-en-debian-como-ubuntu-1" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo apt autoremove
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt clean
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="en-distribuciones-basadas-en-red-hat-como-fedora-1">
+En distribuciones basadas en Red Hat (como Fedora):
+&lt;a href="#en-distribuciones-basadas-en-red-hat-como-fedora-1" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo dnf autoremove
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dnf clean all
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="en-distribuciones-basadas-en-arch-como-endeavour-1">
+En distribuciones basadas en &lt;a href="https://patojad.com.ar/post/2025/02/qu%c3%a9-es-arch-linux-la-mejor-distribuci%c3%b3n-para-usuarios-avanzados/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Arch
+&lt;/a> (como Endeavour):
+&lt;a href="#en-distribuciones-basadas-en-arch-como-endeavour-1" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -Rns &lt;span class="k">$(&lt;/span>pacman -Qtdq&lt;span class="k">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo pacman -Sc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Esto elimina paquetes antiguos y libera espacio. Estos pasos simples pueden mejorar significativamente el rendimiento de tu sistema.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="consejos-adicionales-para-mantener-tu-sistema-óptimo">
+Consejos Adicionales para Mantener tu Sistema Óptimo
+&lt;a href="#consejos-adicionales-para-mantener-tu-sistema-%c3%b3ptimo" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;ul>
+&lt;li>&lt;strong>Actualiza regularmente tu sistema:&lt;/strong> Usa sudo apt update &amp;amp;&amp;amp; sudo apt upgrade para asegurarte de tener las últimas versiones de software.&lt;/li>
+&lt;li>&lt;strong>Desactiva servicios innecesarios:&lt;/strong> Usa systemctl list-units &amp;ndash;type=service para identificar servicios que no necesitas.&lt;/li>
+&lt;li>&lt;strong>Usa un tema ligero:&lt;/strong> Si usas una interfaz gráfica, elige temas y aplicaciones que consuman menos recursos.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusión">
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Monitorear y optimizar el rendimiento de tu sistema &lt;strong>Linux&lt;/strong> no tiene que ser complicado. Con herramientas como &lt;code>top&lt;/code>, &lt;code>htop&lt;/code>, &lt;code>df&lt;/code> y &lt;code>du&lt;/code>, puedes identificar problemas y solucionarlos fácilmente. Además, siguiendo algunos consejos básicos de optimización, puedes mantener tu sistema rápido y eficiente.&lt;/p></description></item><item><title>Cómo instalar Bun.js en MacOS con Homebrew</title><link>https://patojad.com.ar/post/2024/11/c%C3%B3mo-instalar-bun.js-en-macos-con-homebrew/</link><pubDate>Fri, 01 Nov 2024 10:24:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/11/c%C3%B3mo-instalar-bun.js-en-macos-con-homebrew/</guid><description>&lt;p>Instalar &lt;strong>Bun.js&lt;/strong> en MacOS puede hacerse de varias maneras, y en este artículo exploraremos cómo hacerlo con Homebrew, un gestor de paquetes que simplifica la instalación de herramientas en Mac. Aunque hay otros métodos, en mi caso he optado por usar Brew por preferencia personal, y en este tutorial te guiaré paso a paso en el proceso. Además, agregaré información básica sobre &lt;strong>Bun.js&lt;/strong> y su utilidad, así como algunos consejos útiles para la instalación.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-bunjs-y-por-qué-usarlo">
+¿Qué es &lt;strong>Bun.js&lt;/strong> y por qué usarlo?
+&lt;a href="#qu%c3%a9-es-bunjs-y-por-qu%c3%a9-usarlo" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;strong>Bun.js&lt;/strong> es un runtime y gestor de paquetes todo en uno para JavaScript, desarrollado con el objetivo de ofrecer una alternativa ultrarrápida a Node.js y npm. Su principal ventaja es la velocidad, ya que está diseñado desde cero para mejorar el rendimiento en aplicaciones web y herramientas de desarrollo. Gracias a su enfoque optimizado en operaciones comunes, &lt;strong>Bun.js&lt;/strong> resulta ideal para desarrolladores que buscan una alternativa a otros runtimes y desean mayor rapidez en sus aplicaciones.&lt;/p>
+&lt;p>Para profundizar en &lt;strong>Bun.js&lt;/strong> y su ecosistema, pronto estaré publicando un artículo que detallará todas sus características y ventajas.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="requisitos-previos-instalar-homebrew">
+Requisitos previos: Instalar Homebrew
+&lt;a href="#requisitos-previos-instalar-homebrew" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Antes de comenzar con la instalación de &lt;strong>Bun.js&lt;/strong>, necesitarás tener Homebrew instalado en tu Mac. Si aún no lo tienes, puedes hacerlo siguiendo los pasos del tutorial que te dejo en este &lt;a href="https://patojad.com.ar/post/2023/02/como-instalar-brew-en-macos/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+enlace
+&lt;/a>. Homebrew es un gestor de paquetes para MacOS que facilita la instalación de software y herramientas en tu sistema. Una vez que lo tengas instalado, podrás instalar &lt;strong>Bun.js&lt;/strong> y otros paquetes con un simple comando en la terminal.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalación">
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>A continuación, te muestro cómo instalar &lt;strong>Bun.js&lt;/strong> en MacOS, para esto voy a dejarte los comandos que usamos en el video y otra opcion que tambien comentamos para que vos utilices la que creas mas conveniente.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="usando-homebrew">
+Usando Homebrew
+&lt;a href="#usando-homebrew" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Sigue estos pasos para instalar &lt;strong>Bun.js&lt;/strong> utilizando Homebrew:&lt;/p>
+&lt;ul>
+&lt;li>Abre la Terminal y ejecuta el siguiente comando para instalar &lt;strong>Bun.js&lt;/strong>:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">brew install bun
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>Para verificar que &lt;strong>Bun.js&lt;/strong> se haya instalado correctamente, utiliza el siguiente comando:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">bun --version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Si ves la versión de &lt;strong>Bun.js&lt;/strong> en pantalla, significa que la instalación fue exitosa.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="otros-métodos-para-instalar-bunjs-en-macos">
+Otros métodos para instalar &lt;strong>Bun.js&lt;/strong> en MacOS
+&lt;a href="#otros-m%c3%a9todos-para-instalar-bunjs-en-macos" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Aunque Brew es una opción rápida y práctica, existen otros métodos para instalar &lt;strong>Bun.js&lt;/strong> en MacOS:&lt;/p>
+&lt;ul>
+&lt;li>Instalación directa desde el script de Bun: Ejecuta el siguiente comando en la Terminal para una instalación rápida:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">curl -fsSL https://bun.sh/install &lt;span class="p">|&lt;/span> bash
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># En caso de querer instalar una version específica&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">curl -fsSL https://bun.sh/install &lt;span class="p">|&lt;/span> bash -s &lt;span class="s2">&amp;#34;bun-v1.0.0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>Este script se encargará de descargar e instalar &lt;strong>Bun.js&lt;/strong> directamente desde su sitio oficial.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="solución-de-problemas-comunes">
+Solución de problemas comunes
+&lt;a href="#soluci%c3%b3n-de-problemas-comunes" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Es posible que te encuentres con algunos problemas durante la instalación. A continuación, presento algunos problemas comunes y cómo solucionarlos:&lt;/p>
+&lt;ul>
+&lt;li>Error al ejecutar comandos de Brew: Si Brew no está reconocido en tu Terminal, asegúrate de que está en tu PATH. Puedes añadirlo con:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;eval &amp;#34;$(/opt/homebrew/bin/brew shellenv)&amp;#34;&amp;#39;&lt;/span> &amp;gt;&amp;gt; ~/.zprofile
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">eval&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>/opt/homebrew/bin/brew shellenv&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Error de permisos: Si encuentras problemas de permisos, intenta ejecutar el comando con sudo, aunque esto no suele ser necesario en instalaciones estándar de Brew.
+&lt;ul>
+&lt;li>Comando ‘bun’ no encontrado después de la instalación: Si la Terminal no reconoce el comando bun después de instalarlo, intenta cerrar y reabrir la Terminal, o añade el PATH de &lt;strong>Bun.js&lt;/strong> manualmente:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">PATH&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;/opt/homebrew/bin:&lt;/span>&lt;span class="nv">$PATH&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusión">
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Instalar &lt;strong>Bun.js&lt;/strong> en MacOS con Homebrew es una manera sencilla y práctica para iniciarse con este potente runtime de JavaScript. No obstante, existen otros métodos de instalación, como el script directo o la descarga manual desde GitHub, que también puedes considerar según tus preferencias.&lt;/p>
+&lt;p>No olvides visitar el video en YouTube para ver el proceso en acción, y asegúrate de tener Brew correctamente configurado para evitar problemas. Espero que esta guía te haya resultado útil, ¡y te animo a explorar todo el potencial de &lt;strong>Bun.js&lt;/strong> en tus próximos proyectos de desarrollo!&lt;/p></description></item><item><title>7 errores comunes de ciberseguridad</title><link>https://patojad.com.ar/post/2020/10/7-errores-comunes-de-ciberseguridad/</link><pubDate>Fri, 30 Oct 2020 10:44:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/10/7-errores-comunes-de-ciberseguridad/</guid><description>&lt;p>Como es de “común conocimiento” siempre una cadena se rompe por el eslabón más débil. En pleno siglo XXI la tecnología avanza a grandes pasos y cada vez el usuario es este eslabón fácil de romper. Una de las propuestas de este blog es intentar mejorar el día a día de sus lectores, ya sean recurrentes o casuales. Y muchas veces esto lo hacemos, como en este caso, replicando información realmente útil. Por lo cual hoy vamos a compartir información brindada por &lt;strong>CSIRT-CV&lt;/strong> de España. Sin más preámbulo veamos estos 7 errores comunes que debemos evitar.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="error-1-tienes-la-misma-contraseña-para-todas-tus-cuentas">
+ERROR 1: ¿Tienes la misma contraseña para todas tus cuentas?
+&lt;a href="#error-1-tienes-la-misma-contrase%c3%b1a-para-todas-tus-cuentas" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://www.lavanguardia.com/r/GODO/LV/p6/WebSite/2019/06/04/Recortada/img_ppons_20190604-103420_imagenes_lv_colaboradores_istock-921526892-kWCH-U462671425033IgG-992x558@LaVanguardia-Web.jpg" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;blockquote>
+&lt;p>Usar la misma contraseña para acceder a tus redes sociales y a tu cuenta de banco no es una buena idea. Serás un blanco muy fácil para cualquier ciberdelincuente o persona malintencionada con la que te cruces en la Red.&lt;/p>&lt;/blockquote>
+&lt;p>Acá es donde todos dicen “Pero Pato, con suerte me acuerdo la fecha de mi cumpleaños como voy a manejar todas estas contraseñas” Bueno yo pensaba exactamente lo mismo y si bien la respuesta es fácil me la tuvo que decir un grande de la seguridad informática para que comience a aplicar esta maravilla. &lt;strong>Usa un gestor de contraseñas&lt;/strong> solo vas a tener que acordarte 1 contraseña y ahí adentro el programa solo se va a acordar de todas las demás…&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="error-2-te-conectas-a-redes-wifi-públicas">
+ERROR 2: ¿Te conectas a redes WIFI públicas?
+&lt;a href="#error-2-te-conectas-a-redes-wifi-p%c3%bablicas" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://jefflovesjessica.com/images/best-vpn-for-public-wifi-hotspots.jpg" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;blockquote>
+&lt;p>Evita conectarte a redes WIFI públicas, sobre todo, si vas a realizar operaciones bancarias. En estas redes abiertas, cualquier ciberdelincuente podría estar espiando la red y robarte contraseñas tan importantes como la de acceso a tu cuenta bancaria.&lt;/p>
+&lt;p>Si aún así lo haces, fíjate que sea siempre a través de HTTPS (busca el candado cerrado) para que la información vaya cifrada.&lt;/p>
+&lt;p>Ya lo sabes, la próxima vez, antes de engancharte a un wifi público, piénsatelo dos veces.&lt;/p>&lt;/blockquote>
+&lt;p>Entonces después de leer esto vos me decis “Pato los datos no son gratis y hay muchas redes abiertas que dan diferentes instituciones” Bueno yo hable anteriormente de la importancia de los datos. El uso de redes abiertas deberíamos hacerlo teniendo en cuenta el cifrado de las aplicaciones que usemos, o la baja importancia de un dato (No me molesta que me roben un meme, pero si me molesta que me roben el texto plano con mis futuras publicaciones, si existiera)&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="error-3-usas-contraseñas-inseguras">
+ERROR 3: ¿Usas contraseñas inseguras?
+&lt;a href="#error-3-usas-contrase%c3%b1as-inseguras" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://www.pandasecurity.com/es/mediacenter/src/uploads/2016/11/pandasecurity-gestor-contrase%C3%B1as-1024x683.jpg" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;blockquote>
+&lt;p>Parece increíble que una de las contraseñas más frecuentes siga siendo 123456. Es un error muy habitual utilizar nombre y año de nacimiento e incluso el nombre de una mascota.&lt;/p>
+&lt;p>Una contraseña robusta tiene que tener 8 o más caracteres, mayúsculas y minúsculas, signos de puntuación y caracteres especiales (%, $, &amp;amp;,…) y sobre todo, cámbialas periódicamente y así tus cuentas estarán siempre seguras.&lt;/p>
+&lt;p>No se lo pongas fácil a los ciberdelincuentes.&lt;/p>&lt;/blockquote>
+&lt;p>“Pato, otra vez con esto, no me voy a acordar de esas contraseñas” Si estás pensando eso te recomiendo releer el error 1, acordate que solo 1 contraseña (Una que debería ser bastante compleja como T0d05!L05_D145@L330_3l_Bl0G@P4t0J4D) y todas las demás pueden ser hashes o cosas raras que tu gestor de contraseñas pueden guardarlas tranquilamente.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="error-4-cuidado-con-los-adjuntos-que-recibes-por-email">
+ERROR 4: ¡Cuidado con los adjuntos que recibes por email!
+&lt;a href="#error-4-cuidado-con-los-adjuntos-que-recibes-por-email" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://blog.ida.cl/wp-content/uploads/sites/5/2019/05/email_internet-655x470.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;blockquote>
+&lt;p>Si recibes un fichero adjunto desde una cuenta desconocida ¡no lo abras nunca! Probablemente sea malicioso.&lt;/p>
+&lt;p>Si te lo envía un conocido pero te parece “extraño”, consúltale antes de abrirlo. ¡No seas víctima del phishing!&lt;/p>&lt;/blockquote>
+&lt;p>Hoy en día no somos muchos quienes seguimos usando el email activamente (La mayoría solo tiene uno porque es requisito para registrarse) Pero aun así muchos caen en estas trampas que apelan al apuro y al poco recaudo de las personas. Tomate un tiempo y chequea las cosas solo eso basta…&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="error-5-denuncia-si-eres-víctima-de-un-ciberdelito">
+ERROR 5: ¡Denuncia si eres víctima de un ciberdelito!
+&lt;a href="#error-5-denuncia-si-eres-v%c3%adctima-de-un-ciberdelito" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>![](&lt;a href="https://i1.wp.com/aldiaargentina.microjuris.com/wp-content/uploads/2020/06/shutterstock_1354181000-1.jpg?fit=800%2C421&amp;amp;ssl=1%22" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://i1.wp.com/aldiaargentina.microjuris.com/wp-content/uploads/2020/06/shutterstock_1354181000-1.jpg?fit=800%2C421&amp;ssl=1"
+&lt;/a> &amp;gt;}}&lt;/p>
+&lt;blockquote>
+&lt;p>No pienses que no se puede hacer nada. Si han suplantado tu identidad en Redes Sociales, denúncialo cuanto antes.&lt;/p>
+&lt;p>Tampoco pagues el rescate a los secuestradores para recuperar tu información si eres víctima de un ransomware, DENÚNCIALO. ¡No lo olvides!&lt;/p>&lt;/blockquote>
+&lt;p>Parece que no, pero es realmente denunciar esto, o hacer denuncias masivas impulsadas por la comunidad (Sólo en casos reales) Para no dejar impune a estos delincuentes&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="error-6-recuerda-mantener-la-privacidad">
+ERROR 6: ¡Recuerda mantener la privacidad!
+&lt;a href="#error-6-recuerda-mantener-la-privacidad" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://www.consolidatedcredit.org/es/wp-content/uploads/2019/02/Fotolia_180085577_Subscription_Monthly_M-Privacidad-de-Datos.jpg" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;blockquote>
+&lt;p>Un error muy común es no ser cuidadosos con la información que manejamos en nuestro lugar de trabajo y es algo que te puede traer consecuencias nefastas en cualquier carrera profesional.&lt;/p>
+&lt;p>Toma ciertas precauciones como cerrar siempre todas las sesiones de tus cuentas de redes sociales o de cualquier otro servicio y si te ausentas un momento, recuerda bloquear siempre tu equipo.&lt;/p>&lt;/blockquote>
+&lt;p>Creo que es algo que todos sabemos pero nunca está de más repetirlo (Nunca está demás repetirlo). No hay mucho para agregar dado que es muy claro con lo que dice.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="error-7-contraseñas-por-defecto">
+ERROR 7: ¿Contraseñas por defecto?
+&lt;a href="#error-7-contrase%c3%b1as-por-defecto" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://aurora.com.gt/wp-content/uploads/2015/06/ip-router-nexxt-aurora.com_.gt_.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;blockquote>
+&lt;p>¿Has cambiado la contraseña que viene por defecto en el router de tu casa o negocio?&lt;/p>
+&lt;p>Si la respuesta es no, cámbiala lo antes posible y te ahorrarás muchos quebraderos de cabeza en el caso de que ciberdelincuentes consigan acceder a la información de la compañía a la que pertenece tu dispositivo.&lt;/p>
+&lt;p>Además, recuerda mantener siempre actualizado su firmware. Tanto el cambio de contraseña como la actualización del firmware lo deberías hacer en cualquier dispositivo IoT que tengas en casa.&lt;/p>&lt;/blockquote>
+&lt;p>No sé si es peor que esto siga pasando o que también pase en grandes empresas… Esta clase de cosas puede hacer que nuestro wifi quede inaccesible lo cual es realmente molesto… Siempre se deben cambiar las contraseñas por defecto (Se los digo yo que deje la contraseña del wifi que venía en el equipo)&lt;/p>
+&lt;hr>
+&lt;p>Recorda &lt;strong>apoyarnos&lt;/strong> en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p></description></item></channel></rss>

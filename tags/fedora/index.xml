@@ -1,0 +1,864 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fedora on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/fedora/</link><description>Recent content in Fedora on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Thu, 25 Jul 2024 12:34:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/fedora/index.xml" rel="self" type="application/rss+xml"/><item><title>Desmitificando la seguridad de los empaquetados de aplicaciones en Linux</title><link>https://patojad.com.ar/post/2024/07/desmitificando-la-seguridad-de-los-empaquetados-de-aplicaciones-en-linux/</link><pubDate>Thu, 25 Jul 2024 12:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/07/desmitificando-la-seguridad-de-los-empaquetados-de-aplicaciones-en-linux/</guid><description>&lt;p>El empaquetado de aplicaciones en Linux es un tema que ha generado mucho debate en la comunidad. Algunos defienden el uso de paquetes de distribuidores, mientras que otros prefieren el empaquetado de terceros como Flatpak o Snap. En este vídeo, vamos a desmitificar algunos conceptos erróneos sobre la seguridad y el empaquetado de aplicaciones en Linux.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="verificación-de-aplicaciones">
+Verificación de aplicaciones
+&lt;a href="#verificaci%c3%b3n-de-aplicaciones" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>La verificación de aplicaciones es un proceso que garantiza que la aplicación que se descarga y se instala proviene directamente del desarrollador y no ha sido modificada por un tercero. Esto es especialmente importante en Linux, donde cualquier persona puede crear un paquete y distribuirlo. Sin embargo, la verificación de aplicaciones no garantiza que la aplicación sea segura o libre de vulnerabilidades.
+Por ejemplo, la biblioteca XZ fue hackeada y contenía una backdoor. Aunque la aplicación fue verificada, todavía contenía el código malicioso. Otro ejemplo es el caso de KeePassXC, donde el mantenedor de la versión de Debian decidió eliminar algunas características sin el consentimiento del desarrollador original.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="empaquetado-de-distribuidores">
+Empaquetado de distribuidores
+&lt;a href="#empaquetado-de-distribuidores" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>El empaquetado de distribuidores no es necesariamente más seguro que el empaquetado de terceros. Los mantenedores de paquetes pueden no ser desarrolladores y no realizar revisiones de seguridad del código. Además, los paquetes de distribuidores pueden contener versiones antiguas de bibliotecas que no han sido actualizadas con las últimas correcciones de seguridad.
+Por ejemplo, la vulnerabilidad de log4j afectó a muchas distribuciones de Linux, incluyendo a Debian y Ubuntu. Aunque los paquetes de distribuidores fueron actualizados, todavía había versiones antiguas de la biblioteca que no habían sido parcheadas.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="sandbox">
+Sandbox
+&lt;a href="#sandbox" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>El sandbox es un sistema de permisos que limita lo que una aplicación puede hacer en el sistema. Sin embargo, no garantiza que la aplicación sea segura. Un ejemplo de esto es el caso de las aplicaciones de criptomonedas que fueron hackeadas en el Snap Store. A pesar de que estas aplicaciones estaban sandboxeadas, todavía podían acceder a la conexión a internet y realizar acciones maliciosas.
+Otro ejemplo es el caso de Flatpak, que permite a las aplicaciones acceder a la carpeta de documentos del usuario sin restricciones. Aunque el sandbox de Flatpak es más estricto que el de Snap, todavía hay riesgos de seguridad asociados con el uso de aplicaciones sandboxeadas.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="dependencias">
+Dependencias
+&lt;a href="#dependencias" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Las dependencias en el empaquetado de aplicaciones pueden ser un problema. Los paquetes de distribuidores no siempre están actualizados, y los paquetes de terceros pueden contener versiones antiguas de bibliotecas. Esto puede llevar a vulnerabilidades de seguridad y problemas de compatibilidad.
+Por ejemplo, la biblioteca OpenSSL es una dependencia común en muchas aplicaciones. Sin embargo, las versiones antiguas de OpenSSL contienen vulnerabilidades de seguridad que pueden ser explotadas por atacantes. Si una aplicación utiliza una versión antigua de OpenSSL, puede ser vulnerable a ataques, incluso si el paquete ha sido verificado.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusión">
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>En conclusión, la seguridad del empaquetado de aplicaciones en Linux depende de muchos factores. Es importante recordar que los usuarios son responsables de verificar la seguridad de las aplicaciones que instalan. También es importante elegir fuentes de paquetes confiables y mantener las aplicaciones actualizadas.&lt;/p></description></item><item><title>Formatos de Empaquetado en Linux: Nativos, Flatpak, Snap y AppImage</title><link>https://patojad.com.ar/post/2024/03/formatos-de-empaquetado-en-linux-nativos-flatpak-snap-y-appimage/</link><pubDate>Mon, 25 Mar 2024 12:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/03/formatos-de-empaquetado-en-linux-nativos-flatpak-snap-y-appimage/</guid><description>&lt;p>En el tradicional formato de empaquetado de Linux, tenemos &lt;strong>DEB&lt;/strong> (para debian, ubuntu y derivadas), &lt;strong>RPM&lt;/strong> (para redhat, fedora y derivadas) y otras variantes. Más recientemente, se han añadido &lt;strong>Flatpak&lt;/strong>, &lt;strong>Snap&lt;/strong> e &lt;strong>AppImage&lt;/strong>, lo que ha generado una gran variedad de formatos con diferentes características, ventajas y limitaciones. En este análisis, exploraremos el rendimiento de cada formato y las funciones que faltan en cada uno.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="nativas">
+Nativas
+&lt;a href="#nativas" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Generalmente no son compatibles entre distintas distribuciones, no implementan ningún modelo de seguridad o espacio aislado específico y se distribuyen a través de repositorios, ya sean oficiales o de terceros. Estos paquetes pueden contener bibliotecas o aplicaciones y todas las bibliotecas se comparten entre aplicaciones, lo que ahorra espacio y evita bibliotecas duplicadas. Sin embargo, esto también significa que una aplicación que necesita una biblioteca más nueva podría no funcionar en una distribución más antigua.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="flatpak">
+Flatpak
+&lt;a href="#flatpak" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Generalmente agregan además de sus paquetes regulares, son agnósticos de la distribución en sí, por lo que si su distro admite el &lt;strong>Flatpak&lt;/strong>, puede ejecutar exactamente el mismo paquete que cualquier otra distribución. El desarrollador empaqueta su aplicación una vez y se ejecuta en todo, no es necesario duplicar el trabajo de empaquetado. Los &lt;strong>Flatpak&lt;/strong> tienen un empaquetado &amp;ldquo;sandbox&amp;rdquo;, lo que significa que ofrecen menos agujeros de seguridad para posibles atacantes y, al mismo tiempo, comparten una gran cantidad de bibliotecas a través de tiempos de ejecución. Algunos &lt;strong>Flatpak&lt;/strong> contienen muchas bibliotecas en las que confían muchas aplicaciones. También pueden enviar sus propias bibliotecas en el paquete, lo que significa que pueden usar más espacio con el tiempo. Los &lt;strong>Flatpak&lt;/strong> se distribuyen principalmente a través de Flathub y repositorios en línea, pero usted también puede crear su propio repositorio ya que todo es de código abierto.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="snap">
+Snap
+&lt;a href="#snap" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Los &lt;strong>Snaps&lt;/strong> son básicamente el mismo concepto que los &lt;strong>Flatpak&lt;/strong>, pero para Ubuntu. Hay algunas diferencias técnicas con los &lt;strong>Flatpak&lt;/strong>, especialmente con respecto a cómo se abren y montan las aplicaciones en el sistema, pero funcionan de la misma manera. De esta manera, tiene tiempos de ejecución que incluyen bibliotecas necesarias para múltiples aplicaciones y luego las aplicaciones que pueden usar estos tiempos de ejecución se pueden aislar, pero no es obligatorio, por lo que algunas no lo son y se distribuyen exclusivamente a través de la tienda de Snap administrada por Canonical y ese específico. El back-end no es de código abierto. Los &lt;strong>Snaps&lt;/strong> se empaquetan una vez y cualquier distribución puede usar el mismo Snap siempre que admita el formato. Otra gran diferencia es que los &lt;strong>Snaps&lt;/strong> son adecuados no solo para aplicaciones gráficas sino también para programas de línea de comandos, aplicaciones del lado del servidor o incluso el kernel, el entorno de escritorio, el cargador de arranque o los controladores.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="appimage">
+AppImage
+&lt;a href="#appimage" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Son un formato más portátil similar a lo que hace &lt;strong>MacOS&lt;/strong>: toda la aplicación se envía dentro de un solo archivo con la mayoría, si no todas, sus bibliotecas. Esto significa que puede copiar y pegar aplicaciones desde un sistema a otro y se ejecutan en cualquier distribución que tenga acceso a fuse, que es lo que usan las imágenes de la aplicación para ejecutar las imágenes de la aplicación. A diferencia de las anteriores, no se ejecutan en un sandbox, aunque puedes hacerlo manualmente con algo como Fire Jail y, a veces, dependen de las bibliotecas del sistema que distribución se envía como paquetes regulares. Esto significa que ciertas imágenes de aplicaciones pueden no funcionar en ciertos sistemas que no tienen la biblioteca requerida; generalmente se distribuyen desde el sitio web de los desarrolladores o desde la aplicación App Image Hub. Las imágenes no crean automáticamente entradas en su sistema. menú a menos que use un demonio específico que se ejecuta en segundo plano.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="puntos-de-referencia-de-rendimiento">
+Puntos de referencia de rendimiento
+&lt;a href="#puntos-de-referencia-de-rendimiento" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/Z5xcr9pK/image.png" alt="PC de pruebas" title="PC de pruebas" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Las pruebas de rendimiento se llevaron a cabo en una máquina virtual Ubuntu 23.04 con 16 GB de RAM y un procesador Intel Core i7 de 13.a generación. Se instalaron aplicaciones en todos los formatos de empaquetado, y se midió el tiempo de apertura inicial y las ejecuciones posteriores. Los resultados mostraron diferencias en el tiempo de inicio y el rendimiento en pruebas como Velocímetro y Jetstream Benchmark.&lt;/p>
+&lt;ul>
+&lt;li>16 GB de RAM&lt;/li>
+&lt;li>Procesador Intel Core i7 de 13.a generación&lt;/li>
+&lt;li>Renderizado por hardware&lt;/li>
+&lt;li>Ubuntu 23.04&lt;/li>
+&lt;li>Maquina virtual&lt;/li>
+&lt;/ul>
+&lt;p>Recordemos que esto no pretende ser una maquina real sino un punto para una comparación de rendimiento entre los distintos formatos de empaquetado.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="resultados">
+Resultados
+&lt;a href="#resultados" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/Dzfc52PQ/image.png" alt="Resultados 1" title="Resultados 1" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>
+&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/RCJLgpKY/image.png" alt="Resultados 2" title="Resultados 2" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="sandbox">
+Sandbox
+&lt;a href="#sandbox" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Los formatos de empaquetado como &lt;strong>Flatpaks&lt;/strong> y &lt;strong>Snaps&lt;/strong> utilizan entornos de sandbox para proporcionar aislamiento y seguridad a las aplicaciones. Sin embargo, esto puede afectar el rendimiento y la compatibilidad con ciertas características, como la mensajería nativa. El Sandbox no es 100% a prueba de balas. Nada lo es, pero es interesante limitar a qué puede acceder la aplicación, todo esto se administra a través de permisos de aplicaciones, de manera muy similar a lo que encontraría en las aplicaciones de Android o iOS, puede otorgar permisos a las aplicaciones para acceder a archivos y carpetas específicos o servicios y componentes específicos del sistema, todo esto generalmente se maneja a través de portales de escritorio que significa que la aplicación realmente no accede al archivo o a la carpeta, abre un portal que es lo que accede al recurso requerido y lo pasa a la aplicación.&lt;/p>
+&lt;p>Esto es similar a cómo los navegadores web ejecutan cada pestaña en un proceso separado al que no se puede acceder. el hilo principal del navegador o las otras pestañas, los paquetes regulares no están protegidos de forma predeterminada, se instalan en el sistema de archivos y requieren privilegios de root para instalarse, lo que significa que si el paquete tiene algunos scripts maliciosos posteriores a la instalación que ejecuta, le ha dado rienda suelta sobre su sistema y cualquier aplicación que haya instalado a través de paquetes pueden acceder a cualquier cosa que su usuario pueda acceder a su directorio completo de home, por ejemplo, u otros archivos de configuración de aplicaciones.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="funciones-faltantes">
+Funciones faltantes
+&lt;a href="#funciones-faltantes" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Cada formato de empaquetado tiene limitaciones y funciones faltantes. Por ejemplo, los paquetes &lt;strong>Flatpak&lt;/strong> y Snap carecen de compatibilidad con la mensajería nativa, lo que puede afectar su utilidad en ciertos casos de uso. Además, el soporte para el tema del sistema puede ser imperfecto en algunos formatos, lo que puede afectar la integración visual con el entorno del usuario.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusión">
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>A pesar de las diferencias y limitaciones, todos los formatos de empaquetado ofrecen una experiencia similar en la ejecución de aplicaciones en Linux. La elección del formato adecuado puede depender de factores como la seguridad, la portabilidad y las características específicas requeridas por el usuario. Si bien la unificación hacia un formato de empaquetado único podría simplificar la experiencia para los usuarios principiantes, actualmente cada formato tiene su lugar en el ecosistema de Linux.&lt;/p></description></item><item><title>Explorando SystemD en el Mundo Linux: Críticas, Realidades y Controversias</title><link>https://patojad.com.ar/post/2024/03/explorando-systemd-en-el-mundo-linux-cr%C3%ADticas-realidades-y-controversias/</link><pubDate>Fri, 15 Mar 2024 18:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/03/explorando-systemd-en-el-mundo-linux-cr%C3%ADticas-realidades-y-controversias/</guid><description>&lt;p>En el vasto y diverso ecosistema de Linux, cada componente del sistema es objeto de discusión y opinión, y el sistema de inicio no es la excepción. &lt;strong>SystemD&lt;/strong> ha sido un tema de controversia dentro de la comunidad, generando críticas y debates en línea. En este artículo, profundizaremos en qué es &lt;strong>SystemD&lt;/strong>, su evolución, y las razones detrás de las críticas que ha enfrentado.&lt;/p>
+&lt;p>Ya escribi algunos articulos planteando los problemas de &lt;strong>SystemD&lt;/strong> y las alternativas que existen, pero en esta ocasión quiero profundizar en el tema y explicar las razones de la resistencia que ha enfrentado &lt;strong>SystemD&lt;/strong>. Y la explicacion de las cosas buenas que tiene, porque no todo es malo.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2020/06/systemd-solucion-o-problema/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+SystemD ¿Solucion o Problema?
+&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2020/07/systemd-no-es-el-problema-respuesta-a-zatiel/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+¿SystemD no es el problema? Respuesta a Zatiel
+&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="desentrañando-systemd-y-su-rol-como-sistema-de-inicio">
+Desentrañando SystemD y su Rol como Sistema de Inicio
+&lt;a href="#desentra%c3%b1ando-systemd-y-su-rol-como-sistema-de-inicio" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>En el corazón de todos los sistemas basados en Linux se encuentra un sistema de inicio, el primer proceso que entra en acción después de arrancar el sistema operativo. Este proceso trabaja en segundo plano, gestionando servicios y procesos esenciales. En este contexto, &lt;strong>SystemD&lt;/strong> se presenta como un sistema de inicio predominante en muchas distribuciones de Linux.&lt;/p>
+&lt;p>Iniciado en 2010 bajo el liderazgo de &lt;strong>Red Hat&lt;/strong> y &lt;strong>Leonard Puttering&lt;/strong>, &lt;strong>SystemD&lt;/strong> nació con la intención de reemplazar soluciones existentes como &lt;strong>SysV&lt;/strong> y &lt;strong>Upstart&lt;/strong>. Su enfoque principal era mejorar el rendimiento del sistema, acelerar los tiempos de arranque y reducir el consumo de recursos. Rápidamente, se convirtió en el sistema de inicio predeterminado para distros populares como &lt;em>Fedora&lt;/em>, &lt;em>Arch Linux&lt;/em>, &lt;em>Debian&lt;/em> y &lt;em>Ubuntu&lt;/em>, entre otras.&lt;/p>
+&lt;p>A pesar de su adopción generalizada, algunas distribuciones, como &lt;em>Alpine Linux&lt;/em>, &lt;em>MX Linux&lt;/em>, &lt;em>&lt;a href="https://patojad.com.ar/post/2019/09/voidlinux-por-jos%c3%a9/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Void Linux
+&lt;/a>&lt;/em>, &lt;em>&lt;a href="https://patojad.com.ar/post/2020/08/artix-linux/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Artix
+&lt;/a>&lt;/em>, &lt;em>&lt;a href="https://patojad.com.ar/post/2020/06/instalcion-milagros/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+MilagOS
+&lt;/a>&lt;/em> y otras, han optado por no adoptar &lt;strong>SystemD&lt;/strong>.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="explorando-las-razones-de-la-resistencia">
+Explorando las Razones de la Resistencia
+&lt;a href="#explorando-las-razones-de-la-resistencia" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;h3 class="text-gray-500 text-3xl my-6" id="el-argumento-del-bloat">
+El Argumento del &amp;ldquo;Bloat&amp;rdquo;
+&lt;a href="#el-argumento-del-bloat" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Un argumento recurrente contra &lt;strong>SystemD&lt;/strong> es su expansión progresiva hacia funciones que tradicionalmente eran gestionadas por servicios individuales. Esta acumulación de características ha llevado a críticas sobre su conformidad con la filosofía &lt;strong>UNIX&lt;/strong>, que aboga por la simplicidad y la especialización de funciones.&lt;/p>
+&lt;p>Aunque &lt;strong>SystemD&lt;/strong> mantiene su modularidad (recordemos qeu son varios mini-binarios especificos), su crecimiento ha llevado a la percepción de ser una solución monolítica. Además, su actualización periódica y la adición de nuevas funciones pueden traducirse en un mayor uso de espacio y recursos, lo que preocupa a aquellos que buscan eficiencia (hablando en kb de recursos).&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="dependencia-omnipresente-y-restricciones-de-opciones">
+Dependencia Omnipresente y Restricciones de Opciones
+&lt;a href="#dependencia-omnipresente-y-restricciones-de-opciones" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>&lt;strong>SystemD&lt;/strong> se ha vuelto tan integral en muchos aspectos del sistema que su ausencia puede limitar la funcionalidad de otros componentes. Servicios como el inicio de sesión gráfico o la gestión de conexiones de red a menudo dependen de componentes de &lt;strong>SystemD&lt;/strong>. Aunque es posible prescindir de él, las distribuciones que optan por no implementarlo deben buscar, proporcionar y mantener alternativas.&lt;/p>
+&lt;p>No podemos culpar a los desarrolladres de las aplicaciones por usar el set de herramientas que les provee &lt;strong>SystemD&lt;/strong>. Sin embargo, esto puede ser un problema para aquellos que buscan una mayor diversidad de opciones. Aun asi, hay que entender que estos set de herramienta facilitan y simplifican el trabajo de los desarrolladores, permitiendoles enfocarse en la funcionalidad de sus aplicaciones.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="red-hat-como-dueño-de-systemd">
+Red Hat como &amp;ldquo;Dueño&amp;rdquo; de SystemD
+&lt;a href="#red-hat-como-due%c3%b1o-de-systemd" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Otra crítica común se dirige al hecho de que &lt;strong>SystemD&lt;/strong> es un proyecto de &lt;strong>Red Hat&lt;/strong>. Aunque comenzó como un proyecto de esta compañía, actualmente propiedad de IBM, algunas voces expresan preocupación sobre el control que una entidad única puede tener sobre la dirección del sistema de inicio en Linux. Las recientes transformaciones en la gestión de la comunidad por parte de &lt;strong>Red Hat&lt;/strong> han aumentado estas preocupaciones.&lt;/p>
+&lt;p>Aun asi, &lt;strong>SystemD&lt;/strong> es un proyecto de código abierto, y su desarrollo está abierto a la participación de la comunidad. Además, la adopción de &lt;strong>SystemD&lt;/strong> por parte de otras distribuciones, como Debian y Ubuntu, ha ayudado a mitigar estas preocupaciones dado que en la actualidad es un proyecto que va mas alla de &lt;strong>Red Hat&lt;/strong>.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="restricción-de-opciones-y-seguridad-del-sistema">
+Restricción de Opciones y Seguridad del Sistema
+&lt;a href="#restricci%c3%b3n-de-opciones-y-seguridad-del-sistema" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>&lt;strong>SystemD&lt;/strong> ha sido señalado como un factor que contribuye a la uniformidad en los sistemas Linux, restringiendo la diversidad de opciones. También se argumenta que su presencia crea un riesgo de seguridad, al ser un objetivo único para posibles ataques.&lt;/p>
+&lt;p>Sin embargo, defensores de &lt;strong>SystemD&lt;/strong> contrarrestan estas preocupaciones destacando su integración con el kernel de Linux y su eficiencia. Aseguran que, aunque puede haber un riesgo potencial debido a su ubicuidad, la confianza en un proyecto bien mantenido y ampliamente utilizado puede superar estos desafíos. Y es una realidad que &lt;strong>SystemD&lt;/strong> es un proyecto bien mantenido y ampliamente utilizado con un desarrollo activo.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusión">
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>En resumen, las críticas hacia &lt;strong>SystemD&lt;/strong> abordan aspectos que van desde la filosofía &lt;strong>UNIX&lt;/strong> hasta preocupaciones sobre dependencias y seguridad. Aunque se presentan alternativas viables, la elección de utilizar &lt;strong>SystemD&lt;/strong> o no a menudo se reduce a la conveniencia, eficiencia y preferencias de cada usuario.&lt;/p></description></item><item><title>Guía Completa para Instalar y Utilizar Timeshift en Linux</title><link>https://patojad.com.ar/post/2024/01/gu%C3%ADa-completa-para-instalar-y-utilizar-timeshift-en-linux/</link><pubDate>Tue, 09 Jan 2024 10:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/01/gu%C3%ADa-completa-para-instalar-y-utilizar-timeshift-en-linux/</guid><description>&lt;p>La gestión de copias de seguridad es esencial para cualquier usuario de Linux que desee mantener la integridad de su sistema operativo. En este artículo, exploraremos &lt;strong>Timeshift&lt;/strong>, una poderosa herramienta de respaldo para Linux, respondiendo preguntas clave y proporcionando instrucciones detalladas para su instalación en diversas distribuciones.&lt;/p>
+&lt;hr>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-timeshift-de-linux">
+¿Qué es Timeshift de Linux?
+&lt;a href="#qu%c3%a9-es-timeshift-de-linux" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;strong>Timeshift&lt;/strong> es una herramienta de respaldo para sistemas operativos basados en Linux que permite realizar instantáneas del sistema en un momento específico. Estas instantáneas se pueden utilizar para restaurar el sistema a ese estado particular en caso de fallos o problemas. &lt;strong>Timeshift&lt;/strong> utiliza tecnologías como &lt;strong>rsync&lt;/strong> y &lt;strong>Btrfs&lt;/strong> para crear y gestionar estas instantáneas.&lt;/p>
+&lt;hr>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-diferencia-hay-entre-rsync-y-timeshift">
+¿Qué diferencia hay entre rsync y Timeshift?
+&lt;a href="#qu%c3%a9-diferencia-hay-entre-rsync-y-timeshift" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Aunque &lt;strong>rsync&lt;/strong> y &lt;strong>Timeshift&lt;/strong> comparten la capacidad de realizar copias de seguridad, difieren en su enfoque. &lt;strong>Rsync&lt;/strong> es una herramienta de sincronización de archivos, mientras que &lt;strong>Timeshift&lt;/strong> va más allá al capturar el estado completo del sistema en un momento dado. &lt;strong>Timeshift&lt;/strong> simplifica el proceso de restauración del sistema a un estado anterior mediante la gestión eficiente de instantáneas.&lt;/p>
+&lt;hr>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="timeshift-es-una-herramienta-de-respaldo">
+¿Timeshift es una herramienta de respaldo?
+&lt;a href="#timeshift-es-una-herramienta-de-respaldo" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Sí, &lt;strong>Timeshift&lt;/strong> se clasifica como una herramienta de respaldo, pero va más allá de simplemente copiar archivos. Al crear instantáneas del sistema, &lt;strong>Timeshift&lt;/strong> permite restaurar todo el estado del sistema, incluyendo archivos del sistema, configuraciones y aplicaciones instaladas, proporcionando una solución integral para la gestión de copias de seguridad.&lt;/p>
+&lt;hr>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="timeshift-funciona-en-ubuntu">
+¿Timeshift funciona en Ubuntu?
+&lt;a href="#timeshift-funciona-en-ubuntu" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;strong>Timeshift&lt;/strong> es compatible con varias distribuciones de Linux, incluyendo &lt;strong>Ubuntu&lt;/strong>. Su versatilidad y capacidad de adaptación a diferentes sistemas hacen que sea una opción sólida para usuarios de Ubuntu, o cualquier distribucion, que buscan una solución de respaldo confiable.&lt;/p>
+&lt;hr>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalación-de-timeshift-en-distintas-distribuciones">
+Instalación de Timeshift en Distintas Distribuciones:
+&lt;a href="#instalaci%c3%b3n-de-timeshift-en-distintas-distribuciones" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>A continuación, te presentamos cómo instalar &lt;strong>Timeshift&lt;/strong> en algunas de las distribuciones de Linux más populares:&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="ubuntu--debian">
+Ubuntu / Debian
+&lt;a href="#ubuntu--debian" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt-get update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-get install timeshift
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="arch-linux">
+Arch Linux
+&lt;a href="#arch-linux" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>En este caso diferimos del video ya que en el mismo se instala desde AUR con algunos complementos adicionales que simplifican y automatizan su uso y en este caso lo haremos desde los repositorios oficiales.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo pacman -S timeshift
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="fedora">
+Fedora
+&lt;a href="#fedora" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install timeshift
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="opensuse">
+openSUSE:
+&lt;a href="#opensuse" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo zypper install timeshift
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusión">
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;strong>Timeshift&lt;/strong> emerge como una herramienta esencial para la gestión de copias de seguridad en sistemas Linux. Su capacidad para crear instantáneas del sistema y simplificar la restauración lo convierte en una opción valiosa. Al seguir nuestras instrucciones, puedes instalar y comenzar a utilizar Timeshift en tu distribución de Linux preferida, asegurando la estabilidad y seguridad de tu sistema.&lt;/p></description></item><item><title>Instalación de Wine en GNU/Linux para Ejecutar Aplicaciones Windows</title><link>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</link><pubDate>Wed, 15 Nov 2023 12:02:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</guid><description>&lt;p>La compatibilidad entre sistemas operativos es esencial, y Wine, una herramienta de código abierto, facilita la ejecución de aplicaciones Windows en entornos GNU/Linux. En esta guía, exploraremos qué es Wine, cómo instalarlo en distintas distribuciones y dónde se instalan las aplicaciones. ¡Descubre cómo ampliar las posibilidades de tu sistema operativo!&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-wine">
+¿Qué es Wine?
+&lt;a href="#qu%c3%a9-es-wine" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Wine, que significa &amp;ldquo;Wine Is Not an Emulator&amp;rdquo; (Wine no es un emulador), es una capa de compatibilidad que permite ejecutar aplicaciones diseñadas para Microsoft Windows en sistemas operativos basados en Unix, como GNU/Linux. No es una máquina virtual ni emula un entorno Windows completo; en cambio, traduce llamadas de sistema de Windows a llamadas de sistema compatibles con Unix.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="por-qué-usar-wine">
+¿Por qué usar Wine?
+&lt;a href="#por-qu%c3%a9-usar-wine" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Wine es una herramienta muy útil para aquellos que necesitan ejecutar aplicaciones Windows en entornos GNU/Linux. Algunos ejemplos de casos de uso incluyen:&lt;/p>
+&lt;ul>
+&lt;li>Ejecutar aplicaciones de productividad como Microsoft Office.&lt;/li>
+&lt;li>Ejecutar aplicaciones de diseño como Adobe Photoshop.&lt;/li>
+&lt;li>Ejecutar juegos de Windows.&lt;/li>
+&lt;li>Ejecutar aplicaciones de Windows que no tienen alternativas nativas en GNU/Linux.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="cómo-se-instala-wine">
+¿Cómo se instala Wine?
+&lt;a href="#c%c3%b3mo-se-instala-wine" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>La instalación de Wine varía según la distribución de GNU/Linux que estés utilizando. A continuación, se detallan los pasos para algunas distribuciones populares.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="debianubuntu">
+Debian/Ubuntu
+&lt;a href="#debianubuntu" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo dpkg --add-architecture i386
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install wine64 wine32
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="fedora">
+Fedora
+&lt;a href="#fedora" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo dnf install wine
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="arch-linux-y-derivadas-como-manjaro">
+Arch Linux (y derivadas como Manjaro):
+&lt;a href="#arch-linux-y-derivadas-como-manjaro" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo pacman -S wine
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="opensuse">
+OpenSUSE:
+&lt;a href="#opensuse" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo zypper install wine
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="dónde-se-instalan-las-aplicaciones-con-wine">
+¿Dónde se instalan las aplicaciones con Wine?
+&lt;a href="#d%c3%b3nde-se-instalan-las-aplicaciones-con-wine" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Las aplicaciones instaladas con Wine se almacenan en un directorio llamado &lt;code>wineprefix&lt;/code>. Por defecto, se encuentra en el directorio de inicio del usuario en una carpeta oculta llamada &lt;code>.wine&lt;/code>. Dentro de este directorio, encontrarás una estructura similar a la de un sistema Windows estándar, con carpetas como &lt;code>Program Files&lt;/code> y &lt;code>Windows&lt;/code>.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="proceso-de-instalación-básico-de-una-aplicación-con-wine">
+Proceso de instalación básico de una aplicación con Wine
+&lt;a href="#proceso-de-instalaci%c3%b3n-b%c3%a1sico-de-una-aplicaci%c3%b3n-con-wine" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;ul>
+&lt;li>Descarga el instalador de la aplicación Windows que deseas ejecutar.&lt;/li>
+&lt;li>Abre una terminal y navega hasta el directorio donde descargaste el instalador.&lt;/li>
+&lt;li>Ejecuta el siguiente comando:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">wine nombre_del_instalador.exe
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Sigue los pasos de instalación como lo harías en Windows.&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusiones">
+Conclusiones
+&lt;a href="#conclusiones" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;strong>Wine&lt;/strong> es una herramienta invaluable para aquellos que necesitan ejecutar aplicaciones Windows en entornos GNU/Linux. Su capacidad para traducir llamadas de sistema y proporcionar un entorno de ejecución nativo es fundamental para mejorar la interoperabilidad entre diferentes sistemas operativos.&lt;/p></description></item><item><title>Instalacion de Postman en Linux</title><link>https://patojad.com.ar/post/2021/08/instalacion-de-postman-en-linux/</link><pubDate>Wed, 25 Aug 2021 13:17:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/08/instalacion-de-postman-en-linux/</guid><description>&lt;p>En este momento vamos a ver como se instala postman en nuestro GNU/Linux, en esta instalación vamos a ver la forma más genérica, si bien para cada distribución existe su propia alternativa, ya usar usando AUR en Arch o SNAP en cualquier distro existe una forma un tanto… más simple que es útil para usos portables de esta herramienta.&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/L5gh73HD/image.webp" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="descarga">
+Descarga
+&lt;a href="#descarga" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Lo primero que debemos hacer es descargar postman, en este caso vamos a descargar la última versión directamente de su sitio web. Pueden buscar cualquier versión, sin embargo recomendamos usar la versión oficial de su web.&lt;/p>
+&lt;p>&lt;a href="https://www.postman.com/downloads/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+Descargar
+&lt;/a>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalación">
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Realmente no es necesario una instalación propiamente dicha, es más bien la extracción de los binarios. Estos los podemos hacer desde la terminal, dirigiéndonos a la carpeta donde lo descargamos por ejemplo “Downloads”&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> Downloads/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">tar -xvzf Postman-linux-x86_64-8.11.1.tar.gz
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>siendo &lt;code>Postman-linux-x86_64-8.11.1.tar.gz&lt;/code> el nombre del archivo descargado (En caso de tener otra version poner el nombre correspondiente). Esto nos generará una carpeta llamada Postman. Esta misma si queremos podemos ponerla donde nosotros deseemos.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="uso">
+Uso
+&lt;a href="#uso" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Para su uso basta con ejecutar el binario llamado Postman. Si seguimos con el ejemplo anterior, y no movimos la carpeta, bastara con hacer lo siguiente:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> Postman
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">./Postman
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Y ya iniciara el Postman, en caso de que no inicie podrás ver en la consola el error que retorna. Si no retorna ningún error y abre sin problemas, podemos ejecutarlo desde el binario con doble click de ahora en adelante.&lt;/p></description></item><item><title>¿Como instalar Wine?</title><link>https://patojad.com.ar/post/2021/04/como-instalar-wine/</link><pubDate>Fri, 16 Apr 2021 09:36:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/04/como-instalar-wine/</guid><description>&lt;p>Ya con anterioridad me consultaron de como instalar Wine en Artix, esto me llevó a armar el video y obviamente siempre a explicar mi perspectiva o punto de vista sobre el uso de wine. En esta oportunidad el video es específico de distros basadas en Arch. Sin embargo, en la parte inferior van a poder encontrar la instalación para otras distros de linux.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="pre-requisitos">
+Pre requisitos
+&lt;a href="#pre-requisitos" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Si venis por Artix o cualquier distro de Arch te recomiendo que veas de antemano las instalaciones y configuraciones de las que hago uso en el video y doy por sabido estas son&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2021/03/activar-multilib-artix/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+Multilib
+&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://patojad.com.ar/post/2020/10/instalar-yay-en-artix-linux/" >
+&lt;i class="fas fa-link">&lt;/i>&amp;nbsp;
+yay
+&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="video">
+Video
+&lt;a href="#video" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Como siempre disfruto mucho de armar videos y dejar mi opinion asi que sin rodeos los dejo con el video&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/47A2KBLgj6I?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalar-winehq">
+Instalar WineHQ
+&lt;a href="#instalar-winehq" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://linuxhint.com/wp-content/uploads/2020/06/1-12.jpg" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Lo primero que debemos hacer es instalar WineHQ en nuestra distribución, para esto debemos agregar las librerías y ejecutar la instalación.&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="debian">
+Debian
+&lt;a href="#debian" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Habilitamos los 32 bits&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">sudo dpkg --add-architecture i386
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Descargamos e instalamos a Key&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">wget -nc https://dl.winehq.org/wine-builds/winehq.key
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt-key add winehq.key
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Agregamos el repositorio dependiendo de nuestra versión&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Version&lt;/th>
+&lt;th>Agregar a /etc/apt/sources.list:&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Debian 8 (Jessie)&lt;/td>
+&lt;td>deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://dl.winehq.org/wine-builds/debian/
+&lt;/a> jessie main&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Debian 9 (Stretch)&lt;/td>
+&lt;td>deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://dl.winehq.org/wine-builds/debian/
+&lt;/a> stretch main&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Debian 10 (currently Testing) (Buster)&lt;/td>
+&lt;td>deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://dl.winehq.org/wine-builds/debian/
+&lt;/a> buster main&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Actualizamos el Sistema&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo apt update
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Instalamos uno de los paquetes&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>version&lt;/th>
+&lt;th>comando&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Stable branch&lt;/td>
+&lt;td>sudo apt install &amp;ndash;install-recommends winehq-stable&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Development branch&lt;/td>
+&lt;td>sudo apt install &amp;ndash;install-recommends winehq-devel&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Staging branch&lt;/td>
+&lt;td>sudo apt install &amp;ndash;install-recommends winehq-staging&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="fedora">
+Fedora
+&lt;a href="#fedora" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Agregamos los repositories&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>version&lt;/th>
+&lt;th>comando&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Fedora 29&lt;/td>
+&lt;td>dnf config-manager &amp;ndash;add-repo &lt;a href="https://dl.winehq.org/wine-builds/fedora/29/winehq.repo" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://dl.winehq.org/wine-builds/fedora/29/winehq.repo
+&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Fedora 30&lt;/td>
+&lt;td>dnf config-manager &amp;ndash;add-repo &lt;a href="https://dl.winehq.org/wine-builds/fedora/30/winehq.repo" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+https://dl.winehq.org/wine-builds/fedora/30/winehq.repo
+&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>E instalamos la version que deseamos&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>version&lt;/th>
+&lt;th>comando&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Stable branch&lt;/td>
+&lt;td>dnf install winehq-stable&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Development branch&lt;/td>
+&lt;td>dnf install winehq-devel&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Staging branch&lt;/td>
+&lt;td>dnf install winehq-staging&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Para otras distribuciones o BDS o MacOS revisar en su &lt;a href="https://wiki.winehq.org/Download" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+sitio oficial
+&lt;/a>&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="arch">
+Arch
+&lt;a href="#arch" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Si estás en una distro basada en arch lo que recomiendo es instalar wine-staging que es, personalmente la instalación que me dio un mejor rendimiento. En mi caso lo hice con yay pero puedes hacerlo directamente con pacman&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">yay -S wine-staging
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Tilix un gran emulador de terminal</title><link>https://patojad.com.ar/post/2021/02/tilix-un-gran-emulador-de-terminal/</link><pubDate>Thu, 18 Feb 2021 09:13:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/02/tilix-un-gran-emulador-de-terminal/</guid><description>&lt;p>En linux somos muchos los que usamos terminal, diría que la gran mayoría y cada uno tiene sus propias diferencias o elecciones, pero como siempre digo, esto no debería obnubilarlos para poder conocer “nuevas” apps. En este caso voy a compartir un emulador de terminal que si bien escuche hablar mucho no lo hubiera usado de no ser por Pipe que me lo recomendó fuertemente.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="que-ofrece">
+¿Que ofrece?
+&lt;a href="#que-ofrece" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Eventualmente siempre buscamos que ofrece A o que ofrece B, muchas veces la gran lista de cosas desarrolladas no son tan importantes como las propias obtenidas por los usuarios, aun así dejamos esa lista de cosas que ofrece segun su repositorio de GIT:&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://camo.githubusercontent.com/829c1c31ee4acdd88e55585d638e33202bdc3c947c9426c597d133cf7734bb95/68747470733a2f2f676e756e6e312e6769746875622e696f2f74696c69782d7765622f6173736574732f696d616765732f67616c6c6572792f74696c69782d73637265656e73686f742d312e706e67" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;ul>
+&lt;li>Diseñe los terminales de cualquier manera dividiéndolos horizontal o verticalmente&lt;/li>
+&lt;li>Los terminales se pueden reorganizar usando arrastrar y soltar tanto dentro como entre ventanas&lt;/li>
+&lt;li>Los terminales se pueden separar en una nueva ventana mediante arrastrar y soltar&lt;/li>
+&lt;li>Las pestañas o la barra lateral enumeran las sesiones actuales&lt;/li>
+&lt;li>La entrada se puede sincronizar entre terminales, por lo que los comandos escritos en un terminal se replican en los demás.&lt;/li>
+&lt;li>La agrupación de terminales se puede guardar y cargar desde el disco&lt;/li>
+&lt;li>Los terminales admiten títulos personalizados&lt;/li>
+&lt;li>Los esquemas de color se almacenan en archivos y se pueden crear esquemas de color personalizados simplemente creando un nuevo archivo&lt;/li>
+&lt;li>Fondo transparente&lt;/li>
+&lt;li>Imágenes de fondo&lt;/li>
+&lt;li>Soporte del modo Quake (es decir, terminal desplegable)&lt;/li>
+&lt;li>Hipervínculos personalizados&lt;/li>
+&lt;li>Cambios de perfil automáticos (activados) basados ​​en el nombre de host y el directorio&lt;/li>
+&lt;li>Admite notificaciones cuando los procesos se completan fuera de la vista.&lt;/li>
+&lt;li>Soporte de disparador experimental (requiere VTE parcheado)&lt;/li>
+&lt;li>Soporte de insignia experimental (requiere VTE parcheado)&lt;/li>
+&lt;/ul>
+&lt;p>Sin embargo como dije antes puede llegar a ser enriquecedora la experiencia de los usuarios y por eso quiero contar como me sirvio a mi esto.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="mi-experiencia">
+Mi experiencia
+&lt;a href="#mi-experiencia" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Para empezar cuando elegí usarlo fue solo porque realmente es un emulador rápido, nunca demoró en abrir y siempre pude usarlo cómodamente. Sin embargo, en lo personal, me simplificó el trabajo con servidores. Muchas veces tuve que actualizar múltiples servidores, instalar nuevas “apps” o actualizar, quizas compilar algunas… Todo esto podía hacer escribiendo una sola vez ya que se replicaba en todas las terminales que tenía organizadas de una forma cómoda gracias a su método “tilling”.&lt;/p>
+&lt;p>Es muy útil si trabajamos con múltiples apps locales para desarrollar también dado que elimina el número de ventanas levantadas y obviamente mantiene una excelente performance.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalación">
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Esta hermosa “terminal” se encuentra en todas las distros de GNU/Linux, o al menos en la gran mayoría. Por lo cual siempre se puede instalar desde los repositorios de la siguiente forma. Recordemos que estos comandos funcionan también con las derivadas.&lt;/p>
+&lt;h4 class="text-gray-500 text-3xl my-6" id="debianubuntu">
+Debian/Ubuntu
+&lt;a href="#debianubuntu" class="text-gray-500">#&lt;/a>
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt install tilix
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 class="text-gray-500 text-3xl my-6" id="fedora">
+Fedora
+&lt;a href="#fedora" class="text-gray-500">#&lt;/a>
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo dnf install tilix
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 class="text-gray-500 text-3xl my-6" id="arch">
+Arch
+&lt;a href="#arch" class="text-gray-500">#&lt;/a>
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo pacman -S tilix
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>O con yay&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo yay -S tilix/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Edge en Linux</title><link>https://patojad.com.ar/post/2020/12/edge-en-linux/</link><pubDate>Fri, 18 Dec 2020 09:06:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/12/edge-en-linux/</guid><description>&lt;p>Hace ya un tiempo arribó a las distros de linux el nuevo MS Edge que no es más que un chromiun modificado… Esto implicó entre los usuarios fuertes disputas y opiniones muy abruptas… Para no perder la costumbre hablamos de este tema hoy, cuando todos se olvidaron…&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.blogs.es/7af0a9/microsoft-edge-segundo-navegador-mas-usado-mundo/1366_2000.jpeg" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="video">
+Video
+&lt;a href="#video" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Como no podía ser menos, todo tema que demora mucho va a parar a youtube, ¿Por qué? nunca lo sabremos pero te dejamos este hermoso video para que vos también des tu opinión.&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/peCck-Rg3To?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalar">
+Instalar
+&lt;a href="#instalar" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://blog.desdelinux.net/wp-content/uploads/2020/09/edge-on-linux.jpg" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Seguramente sos una persona sensata que sabe que para opinar tenes que instalarlo, o simplemente quieres tenerlo en tu PC. Por esto mismo te dejo los pasos de instalación para que sea mucho más simple!&lt;/p>
+&lt;h3 class="text-gray-500 text-3xl my-6" id="debianubuntu-y-derivados">
+Debian/Ubuntu y derivados
+&lt;a href="#debianubuntu-y-derivados" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Basta con agregar los repositorios y la llave para asegurarnos de que sean los correctos, luego lo instalamos con nuestro amigo APT como siempre.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">curl https://packages.microsoft.com/keys/microsoft.asc &lt;span class="p">|&lt;/span> gpg –dearmor &amp;gt; microsoft.gpg
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo install -o root -g root -m &lt;span class="m">644&lt;/span> microsoft.gpg /etc/apt/trusted.gpg.d/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo sh -c ‘echo «deb &lt;span class="o">[&lt;/span>&lt;span class="nv">arch&lt;/span>&lt;span class="o">=&lt;/span>amd64&lt;span class="o">]&lt;/span> https://packages.microsoft.com/repos/edge stable main» &amp;gt; /etc/apt/sources.list.d/microsoft-edge-dev.list’
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo rm microsoft.gpg
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install microsoft-edge-dev
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="instalación-en-fedora-y-derivados">
+Instalación en Fedora y derivados
+&lt;a href="#instalaci%c3%b3n-en-fedora-y-derivados" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Al igual que ubuntu y amigas es necesario agregar los repos, las llaves e instalarlo de la siguiente forma.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo rpm –import https://packages.microsoft.com/keys/microsoft.asc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dnf config-manager –add-repo https://packages.microsoft.com/yumrepos/edge
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo mv /etc/yum.repos.d/packages.microsoft.com_yumrepos_edge.repo /etc/yum.repos.d/microsoft-edge-dev.repo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dnf install microsoft-edge-dev
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="instalación-en-opensuse-y-derivadas">
+Instalación en openSUSE y derivadas
+&lt;a href="#instalaci%c3%b3n-en-opensuse-y-derivadas" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>El proceso es similar a los anteriores pero con los comandos correspondientes a esta distribución&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo rpm –import https://packages.microsoft.com/keys/microsoft.asc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo zypper ar https://packages.microsoft.com/yumrepos/edge microsoft-edge-dev
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo zypper update
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo zypper install microsoft-edge-dev
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 class="text-gray-500 text-3xl my-6" id="arch-linux">
+Arch Linux
+&lt;a href="#arch-linux" class="text-gray-500">#&lt;/a>
+&lt;/h3>&lt;p>Aca como siempre juega un papel enorme la comunidad ya que MS ni se molestó en armar un paquete pero por suerte existe yay y podemos hacer simplemente:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">yay -S microsoft-edge-dev-bin
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>¿Como instalar Hamachi?</title><link>https://patojad.com.ar/post/2020/12/como-instalar-hamachi/</link><pubDate>Fri, 11 Dec 2020 09:13:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/12/como-instalar-hamachi/</guid><description>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/2yhM8CmK/image.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Hamachi es una app que nos permite generar una red privada virtual, de esta forma podemos compartir recursos, jugar en “LAN”, y muchas cosas más con personas que no se encuentran en la misma red, o en el mismo país…&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="debian-based">
+Debian Based
+&lt;a href="#debian-based" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Para instalarlo en cualquier debian based tenemos que descargar el .deb e instalarlo, a continuación dejo los comandos actualizados al dia de la fecha.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">wget https://www.vpn.net/installers/logmein-hamachi_2.1.0.203-1_amd64.deb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dpkg -i logmein-hamachi_2.1.0.203-1_amd64.deb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install -f
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>En el caso de que tengas una pc 32 bits, tranca palanca que estos ñatos tienen los 32 bits a manopla:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">wget https://www.vpn.net/installers/logmein-hamachi_2.1.0.203-1_i386.deb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo dpkg -i logmein-hamachi_2.1.0.203-1_i386.deb
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install -f
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="fedora-y-similares">
+Fedora (y Similares)
+&lt;a href="#fedora-y-similares" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>También puede ser que tengas por ahi Fedora, CentOS o RHEL y quieras tener hamachi, no hay drama la instalación es asi de simple.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">wget https://www.vpn.net/installers/logmein-hamachi-2.1.0.203-1.x86_64.rpm
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo rpm –i logmein-hamachi-2.1.0.203-1.x86_64.rpm
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Y si tu pc es 32 bits seria algo asi:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">wget https://www.vpn.net/installers/logmein-hamachi-2.1.0.203-1.i486.rpm
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo rpm –i logmein-hamachi-2.1.0.203-1.i486.rpm
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="cualquier-otra-distro">
+Cualquier otra distro
+&lt;a href="#cualquier-otra-distro" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Existe una forma de instalarlo independientemente de la distro que estemos usando. Para esto debemos seguir los siguientes pasos:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">wget https://www.vpn.net/installers/logmein-hamachi-2.1.0.203-x64.tgz
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">tar -xvzf logmein-hamachi-2.1.0.203-x64.tgz
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> logmein-hamachi-2.1.0.203-x64
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">./install.sh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Y en el caso de tener un Linux con 32 Bits podemos hacerlo de la siguiente manera:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">wget https://www.vpn.net/installers/logmein-hamachi-2.1.0.203-x86.tgz
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">tar -xvzf logmein-hamachi-2.1.0.203-x86.tgz
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> logmein-hamachi-2.1.0.203-x86
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">./install.sh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 class="text-amber-500 text-3xl my-6" id="arm">
+ARM
+&lt;a href="#arm" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>Existen unos compilados en BETA para esta arquitectura, a continuación dejo la web oficial de descarga donde no solo podrán obtener los ARM sino también podrán comprobar que la versión que puse sea la más actualizada.&lt;/p>
+&lt;p>&lt;a href="https://www.vpn.net/linux" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+ARM en Linux
+&lt;/a>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="windows">
+Windows
+&lt;a href="#windows" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://imag.malavida.com/mvimgbig/download-fs/hamachi-1410-1.jpg" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>En el caso de que uses Windows bastará con descargar el archivo .msi (Que veran a continuacion) e instalarlo con un doble click. Es importante recalcar que la descarga es directamente de la página oficial, no está alojado por este blog ni ningún otro&lt;/p>
+&lt;p>&lt;a href="https://secure.logmein.com/hamachi.msi" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+Descargar Para Windows
+&lt;/a>&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="macos">
+MacOS
+&lt;a href="#macos" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://images.sftcdn.net/images/t_app-cover-m,f_auto/p/2bea4bde-96d7-11e6-878e-00163ed833e7/2690128288/logmein-hamachi-screenshot.jpg" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>En el caso de usar el sistema de la manzanita me cuesta un poco más poder definir correctamente el procedimiento porque no uso este sistema pero si puedo facilitarte la descarga oficial de su sitio y de ahi calculo que no debe ser muy complejo&lt;/p>
+&lt;p>&lt;a href="https://secure.logmein.com/LogMeInHamachi.zip" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+Descargar para MacOS
+&lt;/a>&lt;/p>
+&lt;hr>
+&lt;p>Recorda &lt;strong>apoyarnos&lt;/strong> en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p></description></item><item><title>¿Las 5 Distros más usadas?</title><link>https://patojad.com.ar/post/2020/10/las-5-distros-m%C3%A1s-usadas/</link><pubDate>Fri, 16 Oct 2020 09:20:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/10/las-5-distros-m%C3%A1s-usadas/</guid><description>&lt;p>Lo lindo de GNU/Linux es que podemos encontrar comunidades por todos lados y con muchas ganas de generar contenido y colaborar. En esto siempre encontramos cosas que realizan los usuarios que nos da mucho que pensar. En este caso me llevó a reflexionar sobre mi propio blog dándome cuenta que lo que pongo acá, al igual que en todos los blogs, es mi punto de vista que no necesariamente es una verdad absoluta.&lt;/p>
+&lt;p>Por lo cual decidí tomar como costumbre tomar esas imágenes que aparecen en facebook dando alguna información relacionada a tecnología en general y comentarlas, no por el hecho de que las tarjetas están mal, sino para proyectarla más allá de facebook y obviamente para poder dar mi opinión que es un poco de lo que va esto, de no ser así sería realmente aburrido ¿No?&lt;/p>
+&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/XqRr0rnP/image.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;p>Como dice el titulo vamos a hablar de las distribuciones de linux más utilizadas, mejor dicho de las 5 más utilizadas. Realmente no tengo forma o parámetro de medir la veracidad del orden que le dio el autor de las imágenes, pero sí puedo comentar sus observaciones o expandirlas un poco más. Así que, vamos a eso…&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="debian">
+Debian
+&lt;a href="#debian" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/d36stnPg/image.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;blockquote>
+&lt;p>Una de las distribuciones más antiguas y más estables que encontrarás y padre de muchos distritos como Ubuntu. Si lo que buscas es algo muy estable, esta es tu distribución.&lt;/p>&lt;/blockquote>
+&lt;p>Así la describe el autor de las imágenes aunque en lo personal cambiaría la palabra &lt;em>padre&lt;/em> por la palabra &lt;strong>madre&lt;/strong> pero son pequeñeces. En lo que sí quiero resaltar en esta oportunidad es que debian es una distro muy simple y sencilla, da un poco más de trabajo que ubuntu por ejemplo a la hora de los drivers, pero simplemente se llega a un resultado mucho mejor que este, esta distro la recomiendo para aquellas personas que no tienen miedo a aprender porque es el primer juguete que presenta pequeños desafíos simples de resolver para acostumbrarse al mundo de GNU/Linux.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="arch">
+Arch
+&lt;a href="#arch" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/kGsS3xjg/image.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;blockquote>
+&lt;p>ArchLinux, es muy común verla entre los usuarios que quieren tener más control de lo que están instalando y apariencia del sistema, normalmente son usuarios ya avanzados que pasaron por las distribuciones de principiantes. Una de las ventajas que tiene Arch es que es Rolling Release, en otras palabras, siempre está actualizado.&lt;/p>&lt;/blockquote>
+&lt;p>Así mismo, a arch lo veo más para usuarios que quieren aprender, no necesariamente tienen que ser avanzados, simplemente no tienen que ser “flojos de espíritu” porque seguramente se encuentren con muchas piedras en el camino y es la tranquilidad y la lectura que los lleva a aprender mucho y a sortear todos los obstáculos.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="fedora">
+Fedora
+&lt;a href="#fedora" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/02q6ZHyd/image.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;blockquote>
+&lt;p>Fedora es una distribución de GNU/Linux para propósitos generales basada en RPM, que se caracteriza por ser un sistema estable, la cual es mantenida por una comunidad internacional de ingenieros, diseñadores gráficos y usuarios que informan fallos y prueban nuevas tecnologías. Cuenta con el respaldo y la promoción de RedHat.&lt;/p>&lt;/blockquote>
+&lt;p>Bueno no hay mucho para decir de esta distribución, en lo personal no es de mi agrado pero es real que su comunidad es muy grande y aporta mucho a la causa. Esta distro es mas bien el conejillo de indias de RedHat pero aun asi es mucho mas estable que otras.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="ubuntu">
+Ubuntu
+&lt;a href="#ubuntu" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/L4QC1L4p/image.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;blockquote>
+&lt;p>Es una distribución de linux basada en la arquitectura de Debian. Actualmente corre en computadoras de escritorio y servidores, en arquitectura AMD, Intel o ARM.&lt;/p>&lt;/blockquote>
+&lt;p>Bueno creo que de Ubuntu hay más que decir de lo que dice esta tarjeta… Ubuntu es la cocinita de plástico para los niños, sabemos que ahí no se van a quemar, ni a cortar, pero claramente nunca va a cocinar… Es decir que si bien Ubuntu trae todo resuelto (Incluso errores aleatorios para que no extrañes Windows) tampoco se aprende mucho en esta distribución dado que todo está completamente parcheado y poco podemos indagar o hacer. No suelo recomendarla aunque si esta bueno que la usen cuando el usuario no tiende a darse maña.&lt;/p>
+&lt;h2 class="text-amber-500 text-3xl my-6" id="linux-mint">
+Linux Mint
+&lt;a href="#linux-mint" class="text-gray-500">#&lt;/a>
+&lt;/h2>&lt;p>&lt;div class="flex flex-wrap justify-center">
+&lt;img src="https://i.postimg.cc/rsb2nHSG/image.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" />
+&lt;/div>&lt;/p>
+&lt;blockquote>
+&lt;p>Linux Mint basada en Debian y Ubuntu que se esfuerza por ser un “sistema operativo moderno, elegante y como; que sea potente y fácil de usar”.&lt;/p>&lt;/blockquote>
+&lt;p>En lo personal creo que mint nace buscando solucionar las cosas malas de Ubuntu (y la verdad que si lo logra, es como usar ubuntu pero hecho con ganas). La versión de Debian es muy estable y óptima. Yo creo que esta es la distribución por defecto para iniciar, es conceptualmente mejor que ubuntu y si bien no requiere que se aprenda mucho para usarla siempre te invita a aprender un poco más.&lt;/p>
+&lt;p>No te olvides de dejarnos tu comentario ya que queremos saber tu opinión sobre esta 5 distros más usadas&amp;hellip;&lt;/p>
+&lt;hr>
+&lt;p>Recorda &lt;strong>apoyarnos&lt;/strong> en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p></description></item></channel></rss>
