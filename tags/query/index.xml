@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Query on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/query/</link><description>Recent content in Query on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Mon, 16 Aug 2021 10:00:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/query/index.xml" rel="self" type="application/rss+xml"/><item><title>Webservice NodeJS y MariaDB 6 - ABM en nuestra DB vía API</title><link>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-6-abm-en-nuestra-db-v%C3%ADa-api/</link><pubDate>Mon, 16 Aug 2021 10:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-6-abm-en-nuestra-db-v%C3%ADa-api/</guid><description>&lt;p>Como última instancia vamos a terminar el ABM de nuestro webservice para poder controlar completamente la base de datos desde la API. Recordemos que esto es completamente extensible y que incluso puedo agregar querys con joins y demás.&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/KMeGAYhoYi4?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;p>Así mismo, como siempre, dejo a continuación el código utilizado en el video, no con el fin de ser copiado (aunque esto es posible) Sino más bien como referencia para que construyan su propio código&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="nx">router&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">route&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/user/add&amp;#39;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nx">post&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kr">async&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">req&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">res&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kr">await&lt;/span> &lt;span class="nx">DBConnector&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">queryWithParams&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s1">&amp;#39;INSERT INTO usuarios(dni, nombre, apellido, email) VALUES(?,?,?,?)&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">[&lt;/span>&lt;span class="nx">req&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">body&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">dni&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">req&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">body&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">nombre&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">req&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">body&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">apellido&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">req&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">body&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">email&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">res&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">json&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">result&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">router&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">route&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/user/delete/:id&amp;#39;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nx">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kr">async&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">req&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">res&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kr">await&lt;/span> &lt;span class="nx">DBConnector&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">queryWithParams&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s1">&amp;#39;DELETE FROM usuarios WHERE id=?&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">[&lt;/span>&lt;span class="nx">req&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">params&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">res&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">json&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">result&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">router&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">route&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/user/update&amp;#39;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nx">post&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kr">async&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">req&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">res&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kr">await&lt;/span> &lt;span class="nx">DBConnector&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">queryWithParams&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s1">&amp;#39;UPDATE usuarios SET nombre=?, apellido=?, email=? WHERE ID=?&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">[&lt;/span>&lt;span class="nx">req&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">body&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">nombre&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">req&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">body&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">apellido&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">req&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">body&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">email&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">req&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">body&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">res&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">json&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">result&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Si te necesitas que te demos una mano o tienes alguna duda, podes encontrarnos en la comunidad de Telegram donde con mucha alegría te vamos a estar ayudando.&lt;/p>
+&lt;p>&lt;a href="https://t.me/PatoJADCommunity" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fab fa-telegram">&lt;/i>&amp;nbsp;
+Grupo de Telegram
+&lt;/a>&lt;/p>
+&lt;p>Si te sirvio no te olvides de apoyar. Compartir, una suscripción o un like no cuestan nada pero valen mucho&amp;hellip;&lt;/p>
+&lt;hr>
+&lt;p>Si sentís que el curso te sirvió y, queres apoyar aún más que con tu subscribirse al canal de youtube y en las redes sociales o simplemente quieres certificar puedes encontrarlo en Udemy. Lamentablemente no me permite ponerle menos precio, pero si te interesa el certificado no te olvides de seguirnos que vamos a estar ofreciendo gratis para que todos los que lo deseen puedan certificar.&lt;/p>
+&lt;p>&lt;a href="https://www.udemy.com/course/patojad-webservice-nodejs-y-mariadb/?referralCode=817BCD02D2C08DEC01DE" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fas fa-up-right-from-square">&lt;/i>&amp;nbsp;
+Curso en Udemy
+&lt;/a>&lt;/p></description></item><item><title>Webservice NodeJS y MariaDB 5 - Accediendo a Nuestra DB mediante la API</title><link>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-5-accediendo-a-nuestra-db-mediante-la-api/</link><pubDate>Thu, 12 Aug 2021 10:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-5-accediendo-a-nuestra-db-mediante-la-api/</guid><description>&lt;p>Ya teniendo nuestra API levantada vamos a empezar a interactuar con nuestra base de datos y responderlo mediante la API. En este punto podemos ver que ya esto es extremadamente extensible como para proyectar mucho más grande.&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/AAjfynGFUuE?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;p>Dejo a continuación el código utilizado en el Video. Recuerden que se puede copiar con facilidad y ante cualquier duda podes encontrarnos en el grupo de telegram:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="nx">router&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">route&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/users&amp;#39;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nx">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kr">async&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">req&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">res&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kr">await&lt;/span> &lt;span class="nx">DBConnector&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">query&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;SELECT * FROM usuarios&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">res&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">json&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">result&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">router&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">route&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;/user/:id&amp;#39;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="nx">get&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kr">async&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">req&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">res&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kr">await&lt;/span> &lt;span class="nx">DBConnector&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">queryWithParams&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s1">&amp;#39;SELECT * FROM usuarios WHERE id=?&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">[&lt;/span>&lt;span class="nx">req&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">params&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">res&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">json&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">result&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;a href="https://t.me/PatoJADCommunity" target="_blank" rel="noopener noreferrer" >
+&lt;i class="fab fa-telegram">&lt;/i>&amp;nbsp;
+Unite a nuestra comunidad
+&lt;/a>&lt;/p>
+&lt;p>Si te sirvio no te olvides de apoyar. Compartir, una suscripción o un like no cuestan nada pero valen mucho&amp;hellip;&lt;/p></description></item><item><title>Webservice NodeJS y MariaDB 3 - Conector MariaDB en NodeJS</title><link>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-3-conector-mariadb-en-nodejs/</link><pubDate>Thu, 05 Aug 2021 10:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-3-conector-mariadb-en-nodejs/</guid><description>&lt;p>Ya teniendo todo preparado vamos a crear nuestro conector entre NodeJS y Mariadb para poder realizar las consultas o Querys para obtener, modificar o actualizar datos&amp;hellip;&lt;/p>
+&lt;iframe src='https://www.youtube.com/embed/2P3jkH-HaKY?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen>
+&lt;/iframe>
+&lt;p>Dejo a continuación el código correcto del objeto que creamos para poder manipular las consultas.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">const&lt;/span> &lt;span class="nx">mariadb&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">require&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;mariadb&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">const&lt;/span> &lt;span class="nx">config&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">host&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;localhost&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">user&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;testwebserveruser&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">password&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;testwebserverpass&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">database&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;webserverdb&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">connectionLimit&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">acquireTimeout&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">300&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">};&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">class&lt;/span> &lt;span class="nx">DBConnector&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">dbconnector&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">mariadb&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">createPool&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">config&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">async&lt;/span> &lt;span class="nx">query&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">sQuery&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kd">var&lt;/span> &lt;span class="nx">conn&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kr">await&lt;/span> &lt;span class="k">this&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">dbconnector&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">getConnection&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kd">var&lt;/span> &lt;span class="nx">ret&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="kc">null&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">await&lt;/span> &lt;span class="nx">conn&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="nx">query&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">sQuery&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="nx">then&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="nx">data&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">ret&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">data&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">conn&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">end&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">})&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="k">catch&lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="nx">err&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">err&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">conn&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">end&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="nx">ret&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">module&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">exports&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="k">new&lt;/span> &lt;span class="nx">DBConnector&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>
