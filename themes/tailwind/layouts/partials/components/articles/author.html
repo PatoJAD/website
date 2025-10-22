@@ -1,17 +1,29 @@
-{{ $pages :=
-.Site.Pages.ByPublishDate.Reverse }} {{ range
-.Params.authors }} {{ range where (where $pages "Type"
-"authors") ".Params.name" . }}
+{{ $pages := .Site.Pages.ByPublishDate.Reverse }}
+{{ range .Params.authors }}
+{{ range where (where $pages "Type" "authors") ".Params.name" . }}
 
-<div class="bg-gray-100 dark:bg-gray-800 rounded-xl flex flex-row overflow-hidden">
-  <div class="p-4 sm:w-1/2 sm:p-8 lg:w-3/5">
-    <h3 class="text-xl font-bold md:text-2xl lg:text-4xl">{{ .Params.name }}</h3>
-    <p class="text-lg">{{ .Params.descriptionp }}</p>
-    <p class="max-w-md" style="font-size: 14px !important;">{{ .Params.description }}</p>
-  </div>
-  <div class="order-first ml-auto w-full bg-gray-700 sm:order-none h-auto sm:w-1/2 lg:w-2/5">
-    <img class="h-full w-full object-cover" src="{{ .Params.photo }}" alt="{{ .Params.name }}"
-      title="{{ .Params.name }}" loading="lazy" decoding="async" />
+<div class=" overflow-hidden mb-4">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-2">
+    <!-- Left: full-height image (not rounded) -->
+    <div class="md:col-span-1 bg-gray-200 dark:bg-gray-900 p-0 rounded-xl overflow-hidden">
+      <img src="{{ .Params.photo }}" alt="{{ .Params.name }}" loading="lazy" decoding="async"
+        class="w-full h-full object-cover block" />
+    </div>
+
+    <!-- Right: content -->
+    <div class="md:col-span-3 flex flex-col justify-between gap-2">
+      <h3 class="text-xl md:text-2xl lg:text-3xl font-bold flex gap-2">
+        <span class="bg-gray-100 dark:bg-gray-800 rounded-xl p-2">{{ .Params.name}}</span> <span class="text-amber-500 font-semibold bg-gray-100 dark:bg-gray-800 rounded-xl p-2">{{ .Params.descriptionp }}</span>
+      </h3>
+
+      <div class="bg-gray-100 dark:bg-gray-800 rounded-xl p-2">
+        <p class="text-sm text-gray-700 dark:text-gray-300">{{ .Params.description | default "" }}</p>
+      </div>
+
+      <!-- Redes sociales eliminadas según solicitud -->
+    </div>
   </div>
 </div>
-{{ end }} {{ end }}
+
+{{ end }}
+{{ end }}
