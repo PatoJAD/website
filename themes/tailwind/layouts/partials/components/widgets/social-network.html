@@ -1,11 +1,39 @@
-<div class="bg-gray-100 dark:bg-gray-800 w-full mb-4 shadow-xl rounded-xl p-8 flex flex-col">
-  <h3 class="font-bold text-2xl text-amber-500 mb-4">{{ .Site.Params.social.title }}</h3>
-  <div class="flex flex-wrap justify-center items-center">
-    {{ range .Site.Params.social.main }}
-    <a href="{{ .url }}" alt="{{ .name }}" aria-label="{{ .name }}" class="rounded-full bg-gray-200 dark:bg-gray-900 p-5 me-2 mb-2 h-16 w-16 relative hover:bg-amber-500 flex justify-center items-center text-center" rel="noopener" target="_blank">
-      <em class="{{ .params.icon }} text-3xl" aria-hidden="true"></em>
-    </a>
+<div class="w-full mb-4">
+  <h3 class="text-2xl text-amber-500 font-bold mb-2 bg-gray-100 dark:bg-gray-800 p-4 rounded-xl text-center">{{ .Site.Params.social.title }}</h3>
+  <!-- Metro style grid: 2 cols mobile, 3 cols sm, 4 cols md/lg. Tiles are perfect squares via aspect-ratio. -->
+  <style>
+    /* Scoped styles for this partial */
+    #social-bento { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+    @media (min-width: 640px) { #social-bento { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 768px) { #social-bento { grid-template-columns: repeat(4, 1fr); } }
+    .social-bento-item { aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; border-radius: 0.75rem; }
+    .social-bento-item--big { grid-column: span 2; grid-row: span 2; }
+    /* Visual tweaks */
+    .social-bento-item em { display: inline-block; }
+
+  </style>
+
+  {{ $items := .Site.Params.social.main }}
+  {{ $count := len $items }}
+  {{/* Deterministic pattern: keep multiple big tiles (indices) to avoid orphan slots */}}
+  {{ $scratch := newScratch }}
+  {{ $cols := 4 }}
+  {{ if and (ge $count 4) (eq (mod $count $cols) 1) }}
+    {{/* two indices: 0 and penultimate to avoid orphan */}}
+    {{ $scratch.Set "bigIndices" (slice 0 (sub $count 2)) }}
+  {{ else if ge $count 2 }}
+    {{/* two indices: 0 and middle */}}
+    {{ $scratch.Set "bigIndices" (slice 0 (div $count 2)) }}
+  {{ else }}
+    {{ $scratch.Set "bigIndices" (slice 0) }}
+  {{ end }}
+
+  <div id="social-bento">
+    {{ range $i, $item := $items }}
+      {{ $isBig := in ($scratch.Get "bigIndices") $i }}
+      <a href="{{ $item.url }}" alt="{{ $item.name }}" aria-label="{{ $item.name }}" class="social-bento-item {{ if $isBig }}social-bento-item--big{{ end }} bg-gray-100 dark:bg-gray-800 hover:bg-amber-500 shadow-sm" rel="noopener noreferrer" target="_blank">
+        <em class="{{ $item.params.icon }} {{ if $isBig }}text-8xl{{ else }}text-2xl{{ end }} text-gray-800 dark:text-gray-100" aria-hidden="true"></em>
+      </a>
     {{ end }}
   </div>
-
 </div>
