@@ -1,16 +1,69 @@
 <div class="w-full mb-4">
-  <h3 class="text-2xl text-amber-500 font-bold mb-2 bg-gray-100 dark:bg-gray-800 p-4 rounded-xl text-center">{{ .Site.Params.social.title }}</h3>
-  <!-- Metro style grid: 2 cols mobile, 3 cols sm, 4 cols md/lg. Tiles are perfect squares via aspect-ratio. -->
+  <h3 class="text-2xl text-amber-500 font-bold mb-2 bg-gray-100 dark:bg-gray-800 p-4 rounded-xl text-center">{{
+    .Site.Params.social.title }}</h3>
   <style>
-    /* Scoped styles for this partial */
-    #social-bento { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
-    @media (min-width: 640px) { #social-bento { grid-template-columns: repeat(3, 1fr); } }
-    @media (min-width: 768px) { #social-bento { grid-template-columns: repeat(4, 1fr); } }
-    .social-bento-item { aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; border-radius: 0.75rem; }
-    .social-bento-item--big { grid-column: span 2; grid-row: span 2; }
-    /* Visual tweaks */
-    .social-bento-item em { display: inline-block; }
+    #social-bento {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
 
+    @media (min-width: 640px) {
+      #social-bento {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (min-width: 768px) {
+      #social-bento {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .social-bento-item {
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.75rem;
+    }
+
+    .social-bento-item--big {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    /* Visual tweaks */
+    .social-bento-item em {
+      display: inline-block;
+      color: currentColor;
+    }
+
+    .social-bento-item {
+      color: #374151;
+    }
+
+    .social-bento-item:hover {
+      color: #ffffff;
+    }
+
+    .social-bento-item:hover em {
+      color: inherit;
+    }
+
+    /* Use CSS variable --brand provided inline per tile */
+    .social-bento-item {
+      transition: background-color .18s ease, color .18s ease;
+    }
+
+    .social-bento-item:hover {
+      background: var(--brand) !important;
+      color: #fff !important;
+    }
+
+    .social-bento-item:hover em {
+      color: #fff !important;
+    }
   </style>
 
   {{ $items := .Site.Params.social.main }}
@@ -19,21 +72,24 @@
   {{ $scratch := newScratch }}
   {{ $cols := 4 }}
   {{ if and (ge $count 4) (eq (mod $count $cols) 1) }}
-    {{/* two indices: 0 and penultimate to avoid orphan */}}
-    {{ $scratch.Set "bigIndices" (slice 0 (sub $count 2)) }}
+  {{/* two indices: 0 and penultimate to avoid orphan */}}
+  {{ $scratch.Set "bigIndices" (slice 0 (sub $count 2)) }}
   {{ else if ge $count 2 }}
-    {{/* two indices: 0 and middle */}}
-    {{ $scratch.Set "bigIndices" (slice 0 (div $count 2)) }}
+  {{/* two indices: 0 and middle */}}
+  {{ $scratch.Set "bigIndices" (slice 0 (div $count 2)) }}
   {{ else }}
-    {{ $scratch.Set "bigIndices" (slice 0) }}
+  {{ $scratch.Set "bigIndices" (slice 0) }}
   {{ end }}
 
   <div id="social-bento">
     {{ range $i, $item := $items }}
-      {{ $isBig := in ($scratch.Get "bigIndices") $i }}
-      <a href="{{ $item.url }}" alt="{{ $item.name }}" aria-label="{{ $item.name }}" class="social-bento-item {{ if $isBig }}social-bento-item--big{{ end }} bg-gray-100 dark:bg-gray-800 hover:bg-amber-500 shadow-sm" rel="noopener noreferrer" target="_blank">
-        <em class="{{ $item.params.icon }} {{ if $isBig }}text-8xl{{ else }}text-2xl{{ end }} text-gray-800 dark:text-gray-100" aria-hidden="true"></em>
-      </a>
+    {{ $isBig := in ($scratch.Get "bigIndices") $i }}
+    <a href="{{ $item.url }}" alt="{{ $item.name }}" aria-label="{{ $item.name }}" style="--brand: {{ $item.params.color }};"
+      class="social-bento-item {{ if $isBig }}social-bento-item--big{{ end }} bg-gray-100 dark:bg-gray-800 shadow-sm"
+      rel="noopener noreferrer" target="_blank">
+      <em class="{{ $item.params.icon }} {{ if $isBig }}text-8xl{{ else }}text-2xl{{ end }}"
+        style="color: var(--brand);" aria-hidden="true"></em>
+    </a>
     {{ end }}
   </div>
 </div>
