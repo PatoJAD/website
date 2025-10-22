@@ -1,14 +1,13 @@
 {{- $limit := default 12 .Params.limit -}}
-<div class="bg-gray-100 dark:bg-gray-800 w-full mb-4 shadow-xl rounded-xl p-8">
-	<h3 class="font-bold text-2xl text-amber-500 mb-4">Tags Populares</h3>
-	<div class="flex flex-wrap justify-center items-center">
-		{{ range first $limit .Site.Taxonomies.tags.ByCount }}
-		<a class="position-relative rounded-full bg-gray-200 dark:bg-gray-900 p-5 me-2 mb-4 relative hover:bg-amber-500 p-4 text-center" href="{{ .Page.RelPermalink }}">
-			{{ .Page.Title }}
-			<span class="inline-flex items-center rounded-full bg-amber-400 px-2 py-1 text-xs font-medium text-white ring-1 ring-inset ring-amber-500/10 absolute -top-2 -right-2 opacity-70">
-				{{ .Count }}
-			</span>
-		</a>
-		{{ end }}
-	</div>
+<div class="w-full mb-4">
+	<h3 class="text-2xl text-amber-500 font-bold mb-2 bg-gray-100 dark:bg-gray-800 p-4 rounded-xl text-center">Tags Populares</h3>
+
+		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+			{{ range first $limit .Site.Taxonomies.tags.ByCount }}
+				<a href="{{ .Page.RelPermalink }}" class="flex items-center justify-between bg-gray-100 dark:bg-gray-800 rounded-xl px-4 h-12 hover:bg-amber-500 transition-colors">
+					<span class="truncate">{{ .Page.Title }}</span>
+					<span class="inline-flex items-center justify-center bg-gray-200 dark:bg-gray-900 p-1 rounded-xl text-white text-xs font-medium w-7 h-7 ml-3">{{ .Count }}</span>
+				</a>
+			{{ end }}
+		</div>
 </div>
