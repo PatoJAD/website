@@ -5,7 +5,6 @@
     #social-bento {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 0.75rem;
     }
 
     @media (min-width: 640px) {
@@ -25,7 +24,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 0.75rem;
     }
 
     .social-bento-item--big {
@@ -33,32 +31,8 @@
       grid-row: span 2;
     }
 
-    /* Visual tweaks */
-    .social-bento-item em {
-      display: inline-block;
-      color: currentColor;
-    }
-
-    .social-bento-item {
-      color: #374151;
-    }
-
-    .social-bento-item:hover {
-      color: #ffffff;
-    }
-
-    .social-bento-item:hover em {
-      color: inherit;
-    }
-
-    /* Use CSS variable --brand provided inline per tile */
-    .social-bento-item {
-      transition: background-color .18s ease, color .18s ease;
-    }
-
     .social-bento-item:hover {
       background: var(--brand) !important;
-      color: #fff !important;
     }
 
     .social-bento-item:hover em {
@@ -81,11 +55,11 @@
   {{ $scratch.Set "bigIndices" (slice 0) }}
   {{ end }}
 
-  <div id="social-bento">
+  <div id="social-bento" class="gap-2">
     {{ range $i, $item := $items }}
     {{ $isBig := in ($scratch.Get "bigIndices") $i }}
     <a href="{{ $item.url }}" alt="{{ $item.name }}" aria-label="{{ $item.name }}" style="--brand: {{ $item.params.color }};"
-      class="social-bento-item {{ if $isBig }}social-bento-item--big{{ end }} bg-gray-100 dark:bg-gray-800 shadow-sm"
+      class="social-bento-item {{ if $isBig }}social-bento-item--big{{ end }} bg-gray-100 dark:bg-gray-800 shadow-sm rounded-xl hover:text-white"
       rel="noopener noreferrer" target="_blank">
       <em class="{{ $item.params.icon }} {{ if $isBig }}text-8xl{{ else }}text-2xl{{ end }}"
         style="color: var(--brand);" aria-hidden="true"></em>
