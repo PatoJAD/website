@@ -10,21 +10,22 @@
       <div class="container mx-auto -py-6">
             <div class="relative flex flex-col min-w-0 w-full">
                   <div class="px-4">
-                        <div class="flex flex-wrap gap-2 justify-center content-stretch items-center">
+                        <div class="flex flex-col md:flex-row gap-2 justify-center items-start md:items-center w-full">
                               <div class="w-auto flex content-center">
                                     <img alt="Joaquin (Pato) Decima" src="https://i.postimg.cc/nhckyz3M/patojad.avif"
                                           class="shadow-xl rounded-xl h-auto align-middle border-none w-52"
                                           title="Joaquin (Pato) Decima" loading="lazy" decoding="async" />
                               </div>
                               <div
-                                    class="flex-auto grow px-4 items-center bg-gray-100 dark:bg-gray-800 shadow-xl rounded-xl p-4">
-                                    <h3 class="text-4xl font-semibold leading-normal">
+                                    class="flex-1 md:flex-auto px-4 items-center bg-gray-100 dark:bg-gray-800 shadow-xl rounded-xl p-4 md:max-w-2xl">
+                                    <h3 class="text-4xl font-semibold leading-normal text-center text-amber-500">
                                           Joaquin A. Decima [Pato]
                                     </h3>
-                                    <div class="mt-0">
-                                          <span class="text-sm leading-normal mb-0 font-bold uppercase p-0">
+                                    <div class="mt-0 w-full">
+                                          <h4
+                                                class="text-sm leading-normal mb-0 font-bold uppercase p-0 text-center w-full">
                                                 Solution Architect - Developer
-                                          </span>
+                                          </h4>
                                           <p class="leading-normal mt-0 mb-2 max-w-3xl p-0" style="font-size: 14px;">
                                                 Hola, Soy Pato, un apasionado por la tecnología y el desarrollo de
                                                 software.
@@ -39,9 +40,12 @@
                                     <div class="pt-3 mt-3 flex flex-row flex-wrap justify-center items-center">
                                           {{ range .Site.Params.social.main }}
                                           <a href="{{ .url }}" alt="{{ .name }}" aria-label="{{ .name }}"
-                                                class="rounded-full bg-gray-200 dark:bg-gray-900 h-16 w-16 flex items-center justify-center me-2 mb-2 hover:text-amber-500"
-                                                rel="noopener" target="_blank">
-                                                <em class="{{ .params.icon }} fa-2xl"></em>
+                                                class="rounded-xl bg-gray-200 dark:bg-gray-900 h-16 w-16 flex items-center justify-center me-2 mb-2 transition-colors"
+                                                rel="noopener" target="_blank"
+                                                onmouseover="(function(el,color){try{el.style.backgroundColor=color; var i=el.querySelector('em'); if(i)i.style.color='#fff';}catch(e){} })(this,'{{ .params.color }}')"
+                                                onmouseout="(function(el,color){try{el.style.backgroundColor=''; var i=el.querySelector('em'); if(i)i.style.color=color;}catch(e){} })(this,'{{ .params.color }}')">
+                                                <em class="{{ .params.icon }} fa-2xl"
+                                                      style="color: {{ .params.color }}; transition: color .18s ease"></em>
 
                                           </a>
 
@@ -51,16 +55,34 @@
                               <div
                                     class="w-auto py-4 items-center flex flex-col justify-center bg-gray-100 dark:bg-gray-800 shadow-xl rounded-xl p-3">
                                     <a href="/posts/"
-                                          class="bg-amber-500 active:bg-amber-600 uppercase text-white font-bold hover:shadow-md shadow text-base px-8 py-6 my-4 rounded-xl outline-none focus:outline-none m-auto"
-                                          type="button">
-                                          <i class="fa fa-blog"></i>
-                                          Ir al Blog
+                                          class="w-52 sm:w-56 md:w-64 text-center mx-auto inline-flex items-center justify-center gap-3 bg-gray-100 dark:bg-gray-900 font-semibold py-3 px-4 rounded-xl shadow hover:shadow-lg hover:bg-amber-500 mb-2"
+                                          aria-label="Ir al blog" title="Ir al Blog">
+                                          <i class="fa fa-blog fa-lg"></i>
+                                          <span>Ir al Blog</span>
                                     </a>
+
+                                    <!-- Projects button -->
+                                    <a href="/projects/"
+                                          class="w-52 sm:w-56 md:w-64 text-center mx-auto inline-flex items-center justify-center gap-3 bg-gray-100 dark:bg-gray-900 font-semibold py-3 px-4 rounded-xl shadow hover:shadow-lg hover:bg-amber-500 mb-2"
+                                          aria-label="Ver proyectos" title="Ver Proyectos">
+                                          <i class="fa fa-folder-open fa-lg"></i>
+                                          <span>Ver Proyectos</span>
+                                    </a>
+
+                                    <!-- Contact button -->
                                     <a href="https://t.me/patojad"
-                                          class="bg-amber-500 active:bg-amber-600 uppercase text-white font-bold hover:shadow-md shadow text-base px-8 py-6 my-4 rounded-xl outline-none focus:outline-none m-auto"
-                                          type="button">
-                                          <i class="fa fa-paper-plane"></i>
-                                          CONTACTO
+                                          class="w-52 sm:w-56 md:w-64 text-center mx-auto inline-flex items-center justify-center gap-3 bg-gray-100 dark:bg-gray-900 font-semibold py-3 px-4 rounded-xl shadow hover:shadow-lg hover:bg-amber-500 mb-2"
+                                          aria-label="Contacto" title="Contacto">
+                                          <i class="fa fa-paper-plane fa-lg"></i>
+                                          <span>Contacto</span>
+                                    </a>
+
+                                    <!-- Contact button -->
+                                    <a href="https://pensamientos.patojad.com.ar/" target="_blank"
+                                          class="w-52 sm:w-56 md:w-64 text-center mx-auto inline-flex items-center justify-center gap-3 bg-gray-100 dark:bg-gray-900 font-semibold py-3 px-4 rounded-xl shadow hover:shadow-lg hover:bg-amber-500"
+                                          aria-label="Contacto" title="Contacto">
+                                          <i class="fa fa-brain fa-lg"></i>
+                                          <span>Pensamientos</span>
                                     </a>
                               </div>
 
