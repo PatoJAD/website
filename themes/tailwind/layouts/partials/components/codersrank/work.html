@@ -1,17 +1,204 @@
-<style scoped>
-  codersrank-work-experience {
-    --preloader-color: #f59e0b;
-    --item-border-radius: 0.75rem;
-    --company-text-color: #f59e0b;
-    --tag-star-color: #f59e0b;
-    --tag-border-radius: 0.75rem;
-  }
-</style>
+{{ $data := site.Data.linkedin }}
+<h3 class="text-2xl text-amber-500 font-bold mb-2 bg-gray-100 dark:bg-gray-800 p-4 rounded-xl text-center">
+  Experiencia Laboral
+</h3>
+{{ $count := len $data.positions }}
+{{ if gt $count 0 }}
+{{ $first := index $data.positions 0 }}
+<div class="w-full mb-2">
+  <article class="bg-gray-100 dark:bg-gray-800 shadow rounded-xl p-4">
+    <div class="flex items-center gap-2">
+      <img src="{{ $first.company_logo | default " /img/placeholder-company.png" }}" alt="{{ $first.company }} logo"
+        class="h-20 w-20 object-contain rounded-xl bg-gray-200 dark:bg-gray-900" loading="lazy" decoding="async">
+      <div class="w-full">
+        <h3 class="text-2xl font-bold text-amber-500">{{ $first.company }}</h3>
+        <div class="text-sm text-gray-600 dark:text-gray-300">
+          <em class="fa fa-location-pin"></em> {{ $first.location }}
+        </div>
+        <div class="mt-4 space-y-3">
+          {{ range $idx, $role := $first.roles }}
+          <div class="bg-gray-200 dark:bg-gray-900 rounded-xl p-3">
+            <div class="flex items-start justify-between">
+              <div>
+                <div class="text-base font-semibold text-gray-800 dark:text-gray-100">{{ $role.title }}</div>
+                {{ $monthsNames := slice "enero" "febrero" "marzo" "abril" "mayo" "junio" "julio" "agosto" "septiembre"
+                "octubre" "noviembre" "diciembre" }}
+                {{ $startDisplay := "" }}
+                {{ $endDisplay := "" }}
+                {{ $durationDisplay := "" }}
+                {{ if $role.start_date }}
+                {{ $start := time $role.start_date }}
+                {{ $sY := dateFormat "2006" $start }}
+                {{ $sM := (replaceRE "^0" "" (dateFormat "01" $start)) | int }}
+                {{ $startDisplay = print (index $monthsNames (sub $sM 1)) " " $sY }}
+
+                {{ if and $role.end_date (ne $role.end_date "") }}
+                {{ $end := time $role.end_date }}
+                {{ $eY := dateFormat "2006" $end }}
+                {{ $eM := (replaceRE "^0" "" (dateFormat "01" $end)) | int }}
+                {{ $endDisplay = print (index $monthsNames (sub $eM 1)) " " $eY }}
+                {{ else }}
+                {{ $end := now }}
+                {{ $endDisplay = "Actualidad" }}
+                {{ end }}
+
+                {{ $e := cond (and $role.end_date (ne $role.end_date "")) (time $role.end_date) (now) }}
+                {{ $sYnum := (dateFormat "2006" $start) | int }}
+                {{ $sMnum := (replaceRE "^0" "" (dateFormat "01" $start)) | int }}
+                {{ $eYnum := (dateFormat "2006" $e) | int }}
+                {{ $eMnum := (replaceRE "^0" "" (dateFormat "01" $e)) | int }}
+
+                {{ $years := sub $eYnum $sYnum }}
+                {{ $months := sub $eMnum $sMnum }}
+                {{ if lt $months 0 }}
+                {{ $years = sub $years 1 }}
+                {{ $months = add $months 12 }}
+                {{ end }}
+
+                {{ $parts := slice }}
+                {{ if gt $years 0 }}
+                {{ $parts = $parts | append (print $years " años") }}
+                {{ end }}
+                {{ if gt $months 0 }}
+                {{ $parts = $parts | append (print $months " meses") }}
+                {{ end }}
+                {{ if eq (len $parts) 0 }}
+                {{ $durationDisplay = "menos de un mes" }}
+                {{ else }}
+                {{ $durationDisplay = delimit $parts " " }}
+                {{ end }}
+                {{ else }}
+                {{ $startDisplay = $role.dates }}
+                {{ end }}
+
+                <div class="text-xs text-gray-500 dark:text-gray-400">
+                  <em class="fa fa-calendar"></em>
+                  {{ $startDisplay }} - {{ $endDisplay }} 
+                  <br  />
+                  <em class="fa fa-hourglass-start"></em> {{ $durationDisplay }}
+                </div>
+              </div>
+              {{ if gt (len $role.skills) 0 }}
+              <div class="hidden md:flex flex-wrap gap-1">
+                {{ range first 4 $role.skills }}
+                <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 ">{{
+                  .
+                  }}</span>
+                {{ end }}
+              </div>
+              {{ end }}
+            </div>
+            {{ if $role.description }}
+            <p class="mt-2 text-sm text-gray-700 dark:text-gray-300 hidden">{{ $role.description }}</p>
+            {{ end }}
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
 
 
-  <div class="bg-gray-100 dark:bg-gray-800 w-full mb-4 shadow-xl rounded-xl p-8">
-    <h2 class="font-bold text-3xl text-amber-500 mb-4">Experiencia Laboral</h2>
-      <codersrank-work-experience logos="true" branding="false" username='joaquindecima'></codersrank-work-experience>
+  </article>
+</div>
+
+{{ $rest := after 1 $data.positions }}
+{{ if gt (len $rest) 0 }}
+<section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-2 auto-rows-min grid-flow-dense">
+  {{ range $j, $company := $rest }}
+  <div class="w-full col-span-1 md:col-span-3">
+    <article class="bg-gray-100 dark:bg-gray-800 h-full rounded-xl shadow overflow-hidden flex flex-col">
+      <div class="p-4 flex items-center gap-4">
+        <img src="{{ $company.company_logo | default " /img/placeholder-company.png" }}"
+          alt="{{ $company.company }} logo" class="h-16 w-16 object-contain rounded-xl bg-gray-200 dark:bg-gray-900"
+          loading="lazy" decoding="async">
+        <div class="flex-1">
+          <h4 class="text-lg font-bold text-amber-500">{{ $company.company }}</h4>
+          <div class="text-sm text-gray-600 dark:text-gray-300">
+            <em class="fa fa-location-pin"></em> {{ $company.location }}
+          </div>
+        </div>
+      </div>
+      <div class="p-4 flex flex-col gap-3">
+        {{ range $idx, $role := $company.roles }}
+        <div class="bg-gray-200 dark:bg-gray-900 rounded-xl p-3">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <div class="text-sm font-semibold text-gray-800 dark:text-gray-100">{{ $role.title }}</div>
+              {{/* Calcular duración para roles del resto de empresas (igual lógica que arriba) */}}
+              {{ $monthsNames := slice "enero" "febrero" "marzo" "abril" "mayo" "junio" "julio" "agosto" "septiembre"
+              "octubre" "noviembre" "diciembre" }}
+              {{ $startDisplay2 := "" }}
+              {{ $endDisplay2 := "" }}
+              {{ $durationDisplay2 := "" }}
+              {{ if $role.start_date }}
+              {{ $start2 := time $role.start_date }}
+              {{ $sY2 := dateFormat "2006" $start2 }}
+              {{ $sM2 := (replaceRE "^0" "" (dateFormat "01" $start2)) | int }}
+              {{ $startDisplay2 = print (index $monthsNames (sub $sM2 1)) " " $sY2 }}
+              {{ if and $role.end_date (ne $role.end_date "") }}
+              {{ $end2 := time $role.end_date }}
+              {{ $eY2 := dateFormat "2006" $end2 }}
+              {{ $eM2 := (replaceRE "^0" "" (dateFormat "01" $end2)) | int }}
+              {{ $endDisplay2 = print (index $monthsNames (sub $eM2 1)) " " $eY2 }}
+              {{ else }}
+              {{ $end2 := now }}
+              {{ $endDisplay2 = "Actualidad" }}
+              {{ end }}
+
+              {{ $e2 := cond (and $role.end_date (ne $role.end_date "")) (time $role.end_date) (now) }}
+              {{ $sY2num := (dateFormat "2006" $start2) | int }}
+              {{ $sM2num := (replaceRE "^0" "" (dateFormat "01" $start2)) | int }}
+              {{ $e2Ynum := (dateFormat "2006" $e2) | int }}
+              {{ $e2Mnum := (replaceRE "^0" "" (dateFormat "01" $e2)) | int }}
+
+              {{ $years2 := sub $e2Ynum $sY2num }}
+              {{ $months2 := sub $e2Mnum $sM2num }}
+              {{ if lt $months2 0 }}
+              {{ $years2 = sub $years2 1 }}
+              {{ $months2 = add $months2 12 }}
+              {{ end }}
+
+              {{ $parts2 := slice }}
+              {{ if gt $years2 0 }}
+              {{ $parts2 = $parts2 | append (print $years2 " años") }}
+              {{ end }}
+              {{ if gt $months2 0 }}
+              {{ $parts2 = $parts2 | append (print $months2 " meses") }}
+              {{ end }}
+              {{ if eq (len $parts2) 0 }}
+              {{ $durationDisplay2 = "menos de un mes" }}
+              {{ else }}
+              {{ $durationDisplay2 = delimit $parts2 " " }}
+              {{ end }}
+              {{ else }}
+              {{ $startDisplay2 = $role.dates }}
+              {{ end }}
+
+              <div class="text-xs text-gray-500 dark:text-gray-400">
+                <em class="fa fa-calendar"></em>
+                {{ $startDisplay2 }} - {{ $endDisplay2 }} 
+                <br />
+                <em class="fa fa-hourglass-start"></em> {{ $durationDisplay2 }}
+              </div>
+            </div>
+            {{ if gt (len $role.skills) 0 }}
+            <div class="hidden md:flex flex-wrap gap-1">
+              {{ range first 4 $role.skills }}
+              <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 ">{{ .
+                }}</span>
+              {{ end }}
+            </div>
+            {{ end }}
+          </div>
+          {{ if $role.description }}
+          <p class="mt-2 text-sm text-gray-700 dark:text-gray-300 line-clamp-3 hidden">{{ $role.description }}</p>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+    </article>
   </div>
-
-<script src="https://unpkg.com/@codersrank/work-experience@0.9.8/codersrank-work-experience.min.js" async></script>
+  {{ end }}
+</section>
+{{ end }}
+{{ end }}
