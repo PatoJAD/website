@@ -1,6 +1,6 @@
 ---
 title: '¿Murió el Full Stack Developer? La Verdad sobre el Rol "Todoterreno" en 2025'
-date: "2025-12-10 09:27:00.00"
+date: "2025-12-11 08:27:00.00"
 description: ¿El rol Full Stack Developer está obsoleto en 2025? Analizamos la crisis del Junior vs. la evolución del Senior Full Stack a Arquitecto Versátil. Claves para dominar Docker y Serverless.
 type: video
 videoId: cHTeL16Cq0c
