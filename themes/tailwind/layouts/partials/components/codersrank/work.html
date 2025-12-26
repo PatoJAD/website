@@ -17,6 +17,47 @@
           <em class="fa fa-location-pin"></em> {{ $first.location }}
         </div>
         {{ $firstRolesCount := len $first.roles }}
+        {{ if gt $firstRolesCount 0 }}
+        {{ $monthsNamesCompany := slice "enero" "febrero" "marzo" "abril" "mayo" "junio" "julio" "agosto" "septiembre" "octubre" "noviembre" "diciembre" }}
+        {{ $rolesWithStart := where $first.roles "start_date" "!=" "" }}
+        {{ $rolesWithEnd := where $first.roles "end_date" "!=" "" }}
+        {{ $validEndRoles := slice }}
+        {{ range $rolesWithEnd }}
+        {{ $endCandidate := time .end_date }}
+        {{ if ne (dateFormat "2006" $endCandidate) "0001" }}
+        {{ $validEndRoles = $validEndRoles | append . }}
+        {{ end }}
+        {{ end }}
+        {{ $companyStartDisplay := "" }}
+        {{ $companyEndDisplay := "" }}
+
+        {{ if gt (len $rolesWithStart) 0 }}
+        {{ $sortedStarts := sort $rolesWithStart "start_date" }}
+        {{ $startRole := index $sortedStarts 0 }}
+        {{ $cStart := time $startRole.start_date }}
+        {{ $cSY := dateFormat "2006" $cStart }}
+        {{ $cSM := (replaceRE "^0" "" (dateFormat "01" $cStart)) | int }}
+        {{ $companyStartDisplay = print (index $monthsNamesCompany (sub $cSM 1)) " " $cSY }}
+        {{ else }}
+        {{ $fallbackStart := index $first.roles 0 }}
+        {{ $companyStartDisplay = $fallbackStart.dates }}
+        {{ end }}
+
+        {{ if gt (len $validEndRoles) 0 }}
+        {{ $sortedEnds := sort $validEndRoles "end_date" }}
+        {{ $endRole := index $sortedEnds (sub (len $sortedEnds) 1) }}
+        {{ $cEnd := time $endRole.end_date }}
+        {{ $cEY := dateFormat "2006" $cEnd }}
+        {{ $cEM := (replaceRE "^0" "" (dateFormat "01" $cEnd)) | int }}
+        {{ $companyEndDisplay = print (index $monthsNamesCompany (sub $cEM 1)) " " $cEY }}
+        {{ else }}
+        {{ $companyEndDisplay = "Actualidad" }}
+        {{ end }}
+        <div class="text-sm text-gray-600 dark:text-gray-300 flex items-center gap-2 mt-1">
+          <em class="fa fa-calendar"></em>
+          <span>{{ $companyStartDisplay }} - {{ $companyEndDisplay }}</span>
+        </div>
+        {{ end }}
         {{ $firstRolesOdd := eq (mod $firstRolesCount 2) 1 }}
         <div class="p-4 grid grid-cols-2 gap-2">
           {{ range $idx, $role := $first.roles }}
@@ -130,9 +171,50 @@
           <div class="text-sm text-gray-600 dark:text-gray-300">
             <em class="fa fa-location-pin"></em> {{ $company.location }}
           </div>
+          {{ $companyRolesCount := len $company.roles }}
+          {{ if gt $companyRolesCount 0 }}
+          {{ $monthsNamesCompany := slice "enero" "febrero" "marzo" "abril" "mayo" "junio" "julio" "agosto" "septiembre" "octubre" "noviembre" "diciembre" }}
+          {{ $rolesWithStart := where $company.roles "start_date" "!=" "" }}
+          {{ $rolesWithEnd := where $company.roles "end_date" "!=" "" }}
+          {{ $validEndRoles := slice }}
+          {{ range $rolesWithEnd }}
+          {{ $endCandidate := time .end_date }}
+          {{ if ne (dateFormat "2006" $endCandidate) "0001" }}
+          {{ $validEndRoles = $validEndRoles | append . }}
+          {{ end }}
+          {{ end }}
+          {{ $companyStartDisplay := "" }}
+          {{ $companyEndDisplay := "" }}
+
+          {{ if gt (len $rolesWithStart) 0 }}
+          {{ $sortedStarts := sort $rolesWithStart "start_date" }}
+          {{ $startRole := index $sortedStarts 0 }}
+          {{ $cStart := time $startRole.start_date }}
+          {{ $cSY := dateFormat "2006" $cStart }}
+          {{ $cSM := (replaceRE "^0" "" (dateFormat "01" $cStart)) | int }}
+          {{ $companyStartDisplay = print (index $monthsNamesCompany (sub $cSM 1)) " " $cSY }}
+          {{ else }}
+          {{ $fallbackStart := index $company.roles 0 }}
+          {{ $companyStartDisplay = $fallbackStart.dates }}
+          {{ end }}
+
+          {{ if gt (len $validEndRoles) 0 }}
+          {{ $sortedEnds := sort $validEndRoles "end_date" }}
+          {{ $endRole := index $sortedEnds (sub (len $sortedEnds) 1) }}
+          {{ $cEnd := time $endRole.end_date }}
+          {{ $cEY := dateFormat "2006" $cEnd }}
+          {{ $cEM := (replaceRE "^0" "" (dateFormat "01" $cEnd)) | int }}
+          {{ $companyEndDisplay = print (index $monthsNamesCompany (sub $cEM 1)) " " $cEY }}
+          {{ else }}
+          {{ $companyEndDisplay = "Actualidad" }}
+          {{ end }}
+          <div class="text-sm text-gray-600 dark:text-gray-300 flex items-center gap-2 mt-1">
+            <em class="fa fa-calendar"></em>
+            <span>{{ $companyStartDisplay }} - {{ $companyEndDisplay }}</span>
+          </div>
+          {{ end }}
         </div>
       </div>
-      {{ $companyRolesCount := len $company.roles }}
       {{ $companyRolesOdd := eq (mod $companyRolesCount 2) 1 }}
       <div class="p-4 grid grid-cols-2 gap-2">
         {{ range $idx, $role := $company.roles }}
