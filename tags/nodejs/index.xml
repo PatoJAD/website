@@ -1,0 +1,1153 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nodejs on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/nodejs/</link><description>Recent content in Nodejs on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 27 Jan 2026 09:31:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/nodejs/index.xml" rel="self" type="application/rss+xml"/><item><title>Patrones de Diseño en Node.js: Arquitectura Profesional con Bun y TypeScript</title><link>https://patojad.com.ar/post/2026/01/patrones-de-dise%C3%B1o-en-node.js-arquitectura-profesional-con-bun-y-typescript/</link><pubDate>Tue, 27 Jan 2026 09:31:00 +0000</pubDate><guid>https://patojad.com.ar/post/2026/01/patrones-de-dise%C3%B1o-en-node.js-arquitectura-profesional-con-bun-y-typescript/</guid><description>&lt;p&gt;En el desarrollo de software, los patrones de diseño no son reglas rígidas, sino soluciones probadas a problemas comunes. En 2026, con entornos de alta velocidad como Bun, el cuello de botella ya no es el runtime, sino la deuda técnica.&lt;/p&gt;
+&lt;p&gt;A continuación, detallamos los 4 patrones que transforman un script en una aplicación de grado producción.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="singleton-creacional"&gt;
+Singleton (Creacional)
+&lt;a href="#singleton-creacional" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;El Problema:&lt;/strong&gt; Instanciar múltiples veces clases que gestionan recursos pesados (conexiones a DB, configuraciones, clientes de caché) agota la memoria y crea estados inconsistentes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;La Solución:&lt;/strong&gt; Garantizar que una clase tenga una única instancia y proveer un punto de acceso global a ella.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Implementación en TS:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-ts" data-lang="ts"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;ConfigManager&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;private&lt;/span&gt; &lt;span class="kr"&gt;static&lt;/span&gt; &lt;span class="nx"&gt;instance&lt;/span&gt;: &lt;span class="kt"&gt;ConfigManager&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;private&lt;/span&gt; &lt;span class="nx"&gt;settings&lt;/span&gt;: &lt;span class="kt"&gt;Record&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="na"&gt;string&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;private&lt;/span&gt; &lt;span class="kr"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// Carga inicial de variables de entorno
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;settings&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;apiKey&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;12345&amp;#34;&lt;/span&gt; &lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;static&lt;/span&gt; &lt;span class="nx"&gt;getInstance&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;ConfigManager&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nx"&gt;ConfigManager&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;ConfigManager&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;ConfigManager&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;ConfigManager&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;key&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;string&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;settings&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;key&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Uso: const config = ConfigManager.getInstance();
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Caso de uso real: Mantener una única conexión activa a una base de datos o un gestor de logs.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="factory-method-creacional"&gt;
+Factory Method (Creacional)
+&lt;a href="#factory-method-creacional" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;El Problema:&lt;/strong&gt; El código se llena de condicionales (if/else) cada vez que necesitamos crear diferentes tipos de objetos que comparten una interfaz.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;La Solución:&lt;/strong&gt; Delegar la lógica de instanciación a una clase &amp;ldquo;Fábrica&amp;rdquo; que decide qué objeto crear basándose en un parámetro.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Implementación en TS:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-ts" data-lang="ts"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;interface&lt;/span&gt; &lt;span class="nx"&gt;Notifier&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;send&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;message&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;EmailNotifier&lt;/span&gt; &lt;span class="kr"&gt;implements&lt;/span&gt; &lt;span class="nx"&gt;Notifier&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;send&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;msg&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sb"&gt;`Enviando Email: &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nx"&gt;msg&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;SMSNotifier&lt;/span&gt; &lt;span class="kr"&gt;implements&lt;/span&gt; &lt;span class="nx"&gt;Notifier&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;send&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;msg&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sb"&gt;`Enviando SMS: &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nx"&gt;msg&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;NotifierFactory&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;static&lt;/span&gt; &lt;span class="nx"&gt;create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;type&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;email&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;sms&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;Notifier&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;type&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;email&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;EmailNotifier&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;SMSNotifier&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Caso de uso real: Integrar múltiples pasarelas de pago (Stripe, PayPal) o proveedores de storage (S3, Local, Azure).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="repository-estructuralcomportamiento"&gt;
+Repository (Estructural/Comportamiento)
+&lt;a href="#repository-estructuralcomportamiento" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;El Problema:&lt;/strong&gt; La lógica de negocio está &amp;ldquo;casada&amp;rdquo; con la base de datos. Si cambias de motor de base de datos o de librería (ORM), tienes que reescribir toda la aplicación.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;La Solución:&lt;/strong&gt; Crear una capa intermedia que abstraiga el acceso a los datos. La lógica de negocio solo habla con el &amp;ldquo;Repositorio&amp;rdquo;, no con la base de datos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Implementación en TS:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-ts" data-lang="ts"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;interface&lt;/span&gt; &lt;span class="nx"&gt;User&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;id&lt;/span&gt;: &lt;span class="kt"&gt;number&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;name&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;interface&lt;/span&gt; &lt;span class="nx"&gt;IUserRepository&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;findById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;id&lt;/span&gt;: &lt;span class="kt"&gt;number&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;Promise&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;User&lt;/span&gt; &lt;span class="err"&gt;|&lt;/span&gt; &lt;span class="na"&gt;null&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;UserRepository&lt;/span&gt; &lt;span class="kr"&gt;implements&lt;/span&gt; &lt;span class="nx"&gt;IUserRepository&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;async&lt;/span&gt; &lt;span class="nx"&gt;findById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;id&lt;/span&gt;: &lt;span class="kt"&gt;number&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;Promise&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;User&lt;/span&gt; &lt;span class="err"&gt;|&lt;/span&gt; &lt;span class="na"&gt;null&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// Aquí iría la consulta real (SQL, NoSQL, etc.)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;name&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Pato&amp;#34;&lt;/span&gt; &lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Caso de uso real: Proyectos que necesitan ser testeables (haciendo un Mock del repositorio) o que prevén migrar su infraestructura de datos.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="decorator-estructural"&gt;
+Decorator (Estructural)
+&lt;a href="#decorator-estructural" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;El Problema:&lt;/strong&gt; Necesitas añadir funcionalidades (logs, validaciones, caché) a métodos existentes sin modificar su código original para no violar el principio de Responsabilidad Única.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;La Solución:&lt;/strong&gt; &amp;ldquo;Envolver&amp;rdquo; el método o clase original para añadirle comportamiento extra antes o después de su ejecución.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Implementación en TS:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-ts" data-lang="ts"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;Logger&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;target&lt;/span&gt;: &lt;span class="kt"&gt;any&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;propertyKey&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;descriptor&lt;/span&gt;: &lt;span class="kt"&gt;PropertyDescriptor&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;originalMethod&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;descriptor&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;value&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;descriptor&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;(...&lt;/span&gt;&lt;span class="nx"&gt;args&lt;/span&gt;: &lt;span class="kt"&gt;any&lt;/span&gt;&lt;span class="p"&gt;[])&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sb"&gt;`Ejecutando &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nx"&gt;propertyKey&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt; con:`&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;args&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;originalMethod&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;apply&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;args&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;UserService&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kd"&gt;@Logger&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;saveUser&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;name&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sb"&gt;`Usuario &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nx"&gt;name&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt; guardado.`&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Caso de uso real: Medir el tiempo de ejecución de funciones, validar permisos de usuario o transformar datos de salida automáticamente.&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>Frontend vs. Backend: La Guía Definitiva para Elegir Tu Camino de Desarrollo</title><link>https://patojad.com.ar/post/2025/10/frontend-vs.-backend-la-gu%C3%ADa-definitiva-para-elegir-tu-camino-de-desarrollo/</link><pubDate>Tue, 07 Oct 2025 08:02:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/10/frontend-vs.-backend-la-gu%C3%ADa-definitiva-para-elegir-tu-camino-de-desarrollo/</guid><description>&lt;p&gt;¡Hola a todos, futuros devs! 👋 Si recién te sumerges en el universo de la programación, la primera pregunta es casi siempre la misma: &lt;em&gt;¿Qué camino debo elegir?&lt;/em&gt; ¿&lt;strong&gt;Frontend&lt;/strong&gt; o &lt;strong&gt;Backend&lt;/strong&gt;?&lt;/p&gt;
+&lt;p&gt;En este artículo, que complementa nuestro video &amp;ldquo;FRONTEND vs BACKEND: La Guía DEFINITIVA para Programadores&amp;rdquo;, vamos a desmitificar estos dos mundos, comparando sus roles, sus tecnologías y sus responsabilidades.&lt;/p&gt;
+&lt;p&gt;Si ya viste &lt;a href="https://youtu.be/rRuK7YmqI2U" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+nuestro video sobre Arquitectura de Software
+&lt;/a&gt;, sabes que un sistema es complejo; ahora vamos a ver las dos mitades que lo componen.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="el-frontend-el-arte-de-la-interacción-lo-que-el-usuario-ve"&gt;
+El Frontend: El Arte de la Interacción (Lo que el Usuario Ve)
+&lt;a href="#el-frontend-el-arte-de-la-interacci%c3%b3n-lo-que-el-usuario-ve" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El Frontend se conoce como el desarrollo del &amp;ldquo;lado del cliente&amp;rdquo;. Es todo lo que el usuario final ve, toca y con lo que interactúa en el navegador: los colores, los menús, las animaciones de un botón, la tipografía y los formularios.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="responsabilidades-clave"&gt;
+Responsabilidades Clave:
+&lt;a href="#responsabilidades-clave" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Experiencia de Usuario (UX):&lt;/strong&gt; Asegurar que la aplicación sea intuitiva y fácil de usar.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Diseño Responsivo:&lt;/strong&gt; Garantizar que la web se vea bien en cualquier dispositivo (móvil, tablet, PC).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Optimización del Rendimiento:&lt;/strong&gt; Lograr que la página cargue rápido.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="tecnologías-fundamentales-el-trío-sagrado"&gt;
+Tecnologías Fundamentales (El Trío Sagrado):
+&lt;a href="#tecnolog%c3%adas-fundamentales-el-tr%c3%ado-sagrado" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+HTML
+&lt;/a&gt;:&lt;/strong&gt; La estructura y el contenido (el esqueleto).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2023/08/descubriendo-el-mundo-de-css/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+CSS
+&lt;/a&gt;:&lt;/strong&gt; El estilo y el diseño (la piel).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;JavaScript:&lt;/strong&gt; La interactividad y la lógica de la interfaz (el sistema nervioso).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;También te puede interesar &lt;a href="https://patojad.com.ar/post/2023/09/es-html-un-lenguaje-de-programaci%C3%B3n-desmitificando-su-naturaleza/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+¿Es HTML un Lenguaje de Programación?
+&lt;/a&gt; y &lt;a href="https://patojad.com.ar/post/2023/03/que-es-typescript-en-que-se-parece-a-javascript/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+¿Que es TypeScript? ¿En que se parece a JavaScript?
+&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Para proyectos modernos, los desarrolladores Frontend usan librerías y frameworks como &lt;strong&gt;React&lt;/strong&gt;, &lt;strong&gt;Angular&lt;/strong&gt; o &lt;strong&gt;Vue.js&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="el-backend-la-lógica-y-la-maquinaria-lo-que-el-usuario-no-ve"&gt;
+El Backend: La Lógica y la Maquinaria (Lo que el Usuario No Ve)
+&lt;a href="#el-backend-la-l%c3%b3gica-y-la-maquinaria-lo-que-el-usuario-no-ve" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El Backend es el desarrollo del &amp;ldquo;lado del servidor&amp;rdquo;. Es la maquinaria interna, el cerebro que maneja la lógica de negocio, la seguridad, las bases de datos y la comunicación con otros servicios.&lt;/p&gt;
+&lt;p&gt;Si el Frontend es la cara de la aplicación, el Backend es el sistema de gestión y almacenamiento.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="responsabilidades-clave-1"&gt;
+Responsabilidades Clave:
+&lt;a href="#responsabilidades-clave-1" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Bases de Datos:&lt;/strong&gt; Almacenar, gestionar y recuperar información (por ejemplo, los perfiles de usuario o los productos de una tienda).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;API (Application Programming Interface):&lt;/strong&gt; Crear los puntos de conexión que permiten al Frontend &amp;ldquo;pedir&amp;rdquo; o &amp;ldquo;enviar&amp;rdquo; datos de forma segura.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Lógica de Negocio y Seguridad:&lt;/strong&gt; Implementar las reglas del negocio (¿cuánto cuesta un producto? ¿está autorizado un usuario?).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="tecnologías-fundamentales-diversidad-de-lenguajes"&gt;
+Tecnologías Fundamentales (Diversidad de Lenguajes):
+&lt;a href="#tecnolog%c3%adas-fundamentales-diversidad-de-lenguajes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Lenguajes de Servidor:&lt;/strong&gt; Python, Node.js (JavaScript), PHP, Java, Ruby.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Frameworks:&lt;/strong&gt; Django, Express, Laravel, NestJS, SpringBoot.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bases de Datos:&lt;/strong&gt; PostgreSQL, MySQL, MongoDB.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;También te puede interesar &lt;a href="https://patojad.com.ar/post/2020/04/el-papel-de-javascript-en-la-seguridad/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+El papel de Javascript en la seguridad
+&lt;/a&gt; y &lt;a href="https://patojad.com.ar/post/2025/07/paradigmas-de-programaci%c3%b3n-qu%c3%a9-son-y-por-qu%c3%a9-son-clave-para-un-programador/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Paradigmas de Programación: ¿Qué Son y Por Qué Son Clave para un Programador?
+&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="full-stack-y-el-flujo-de-datos"&gt;
+Full Stack y el Flujo de Datos
+&lt;a href="#full-stack-y-el-flujo-de-datos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Cuando el Frontend y el Backend se unen, ocurre la magia.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;El Proceso:&lt;/strong&gt; El Frontend le &lt;em&gt;&amp;ldquo;pide&amp;rdquo;&lt;/em&gt; información al Backend a través de un API. El Backend procesa la solicitud, busca los datos en la base de datos y se los &lt;em&gt;&amp;ldquo;devuelve&amp;rdquo;&lt;/em&gt; al Frontend, que finalmente los muestra al usuario.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;El Rol Full Stack:&lt;/strong&gt; Un desarrollador Full Stack tiene la habilidad de trabajar en ambos lados de este proceso. Son extremadamente versátiles, aunque el dominio completo de ambas especialidades es un desafío constante.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="cómo-elegir-tu-camino-una-elección-de-perfil"&gt;
+¿Cómo Elegir Tu Camino? Una Elección de Perfil
+&lt;a href="#c%c3%b3mo-elegir-tu-camino-una-elecci%c3%b3n-de-perfil" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;No hay un camino &amp;ldquo;mejor&amp;rdquo;, solo el que mejor se adapta a tu perfil:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Si te atrae&amp;hellip;&lt;/th&gt;
+&lt;th&gt;&amp;hellip; Tu Camino es FRONTEND&lt;/th&gt;
+&lt;th&gt;&amp;hellip; Tu Camino es BACKEND&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enfoque&lt;/td&gt;
+&lt;td&gt;El diseño, la estética y la interacción.&lt;/td&gt;
+&lt;td&gt;La lógica, la eficiencia y los datos.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Resultado&lt;/td&gt;
+&lt;td&gt;Ver tu trabajo en el navegador al instante.&lt;/td&gt;
+&lt;td&gt;Solucionar problemas complejos en el servidor.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Perfil&lt;/td&gt;
+&lt;td&gt;Creativo, orientado a la experiencia del usuario y al detalle visual.&lt;/td&gt;
+&lt;td&gt;Lógico, metódico, orientado a la estructura y la seguridad.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;El mundo del desarrollo web es amplio. Empieza por el lado que más te apasione, y el resto del aprendizaje vendrá solo.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;No te olvides de ver nuestro video &lt;a href="https://patojad.com.ar/post/2025/06/c%c3%b3mo-empezar-a-programar-desde-cero-tu-gu%c3%ada-definitiva-para-dar-los-primeros-pasos/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Cómo Empezar a Programar Desde Cero: Tu Guía Definitiva para Dar los Primeros Pasos
+&lt;/a&gt; para tener una visión completa de cómo lanzarte en este emocionante viaje.&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>Bun vs Node.js: ¿Cuál Es Mejor Para Backend en 2025? 🤔</title><link>https://patojad.com.ar/post/2025/02/bun-vs-node.js-cu%C3%A1l-es-mejor-para-backend-en-2025/</link><pubDate>Thu, 20 Feb 2025 10:32:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/02/bun-vs-node.js-cu%C3%A1l-es-mejor-para-backend-en-2025/</guid><description>&lt;p&gt;¿Estás buscando el mejor entorno de ejecución para tu backend en &lt;strong&gt;JavaScript&lt;/strong&gt;? En este artículo, comparo &lt;strong&gt;Bun&lt;/strong&gt; y &lt;strong&gt;Node.js&lt;/strong&gt; , dos de las opciones más populares para desarrollo backend en 2025. Analizamos rendimiento, compatibilidad y facilidad de uso, además de crear un servidor básico con ambos. ¡Descubre cuál es la mejor opción para tus proyectos!&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-son-bun-y-nodejs"&gt;
+¿Qué son Bun y Node.js?
+&lt;a href="#qu%c3%a9-son-bun-y-nodejs" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="nodejs"&gt;
+Node.js
+&lt;a href="#nodejs" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Node.js&lt;/strong&gt; es un entorno de ejecución de &lt;strong&gt;JavaScript&lt;/strong&gt; que ha sido la opción estándar durante años. Es ampliamente utilizado, tiene una comunidad masiva y es compatible con casi todas las bibliotecas y frameworks. Su madurez lo convierte en una opción confiable para proyectos de cualquier tamaño.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="bun"&gt;
+Bun
+&lt;a href="#bun" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Por otro lado, Bun es un nuevo jugador en el mercado. Promete ser más rápido que &lt;strong&gt;Node.js&lt;/strong&gt; y ofrece características como soporte nativo para &lt;a href="https://patojad.com.ar/post/2023/03/que-es-typescript-en-que-se-parece-a-javascript/" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+TypeScript
+&lt;/a&gt; y una API simplificada. Además, Bun no solo es un entorno de ejecución, sino también un administrador de paquetes y un bundler.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="comparativa"&gt;
+Comparativa
+&lt;a href="#comparativa" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="rendimiento"&gt;
+Rendimiento
+&lt;a href="#rendimiento" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Según pruebas recientes, &lt;strong&gt;Bun&lt;/strong&gt; puede ser hasta 3 veces más rápido que Node.js en ciertas tareas, como la inicialización de servidores y la ejecución de scripts. Esto lo hace ideal para aplicaciones que requieren alta velocidad. Sin embargo, &lt;strong&gt;Node.js&lt;/strong&gt; sigue siendo más estable y maduro, con una compatibilidad casi universal.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Característica&lt;/th&gt;
+&lt;th&gt;Bun&lt;/th&gt;
+&lt;th&gt;Node.js&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Rendimiento&lt;/td&gt;
+&lt;td&gt;🚀 Más rápido&lt;/td&gt;
+&lt;td&gt;⚡️ Estable y probado&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Compatibilidad&lt;/td&gt;
+&lt;td&gt;📈 En crecimiento&lt;/td&gt;
+&lt;td&gt;✅ Amplia compatibilidad&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Facilidad de Uso&lt;/td&gt;
+&lt;td&gt;🧩 Sintaxis limpia y simplificada&lt;/td&gt;
+&lt;td&gt;🛠️ Requiere más configuración&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="compatibilidad-y-facilidad-de-uso"&gt;
+Compatibilidad y Facilidad de Uso
+&lt;a href="#compatibilidad-y-facilidad-de-uso" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;En términos de compatibilidad, &lt;strong&gt;Node.js&lt;/strong&gt; gana por su madurez. Casi todas las bibliotecas y frameworks funcionan sin problemas. Por otro lado, Bun está creciendo rápidamente, pero aún carece de compatibilidad con algunas herramientas específicas.&lt;/p&gt;
+&lt;p&gt;En cuanto a facilidad de uso, &lt;strong&gt;Bun&lt;/strong&gt; tiene una ventaja clara. Su sintaxis es más limpia y simplifica muchas tareas, como la instalación de dependencias y la creación de servidores.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="demostración-práctica-crear-un-servidor-básico"&gt;
+Demostración Práctica: Crear un Servidor Básico
+&lt;a href="#demostraci%c3%b3n-pr%c3%a1ctica-crear-un-servidor-b%c3%a1sico" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="servidor-en-nodejs"&gt;
+Servidor en Node.js
+&lt;a href="#servidor-en-nodejs" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;span class="lnt"&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;http&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;http&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;server&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;http&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;createServer&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;res&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;res&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;end&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Hola desde Node.js&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;server&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;listen&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Servidor corriendo en http://localhost:3000&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="servidor-en-bun"&gt;
+Servidor en Bun
+&lt;a href="#servidor-en-bun" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-TypeScript" data-lang="TypeScript"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;Bun&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;serve&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;port&lt;/span&gt;: &lt;span class="kt"&gt;3000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;fetch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Response&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Hola desde Bun&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Como puedes ver, &lt;strong&gt;Bun&lt;/strong&gt; simplifica mucho el proceso.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Ambos tienen sus pros y contras. Si buscas rendimiento y simplicidad, &lt;strong&gt;Bun&lt;/strong&gt; es una excelente opción. Pero si necesitas estabilidad y compatibilidad, Node.js sigue siendo una apuesta segura.&lt;/p&gt;
+&lt;p&gt;Si te gustó este artículo, no olvides compartirlo en tus redes sociales y seguirme en mis canales para más contenido sobre Linux , programación y desarrollo web.&lt;/p&gt;</description></item><item><title>Bun o Node.js en 2024: ¿Cuál es la mejor opción para desarrollo web?</title><link>https://patojad.com.ar/post/2024/04/bun-o-node.js-en-2024-cu%C3%A1l-es-la-mejor-opci%C3%B3n-para-desarrollo-web/</link><pubDate>Wed, 10 Apr 2024 09:04:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/04/bun-o-node.js-en-2024-cu%C3%A1l-es-la-mejor-opci%C3%B3n-para-desarrollo-web/</guid><description>&lt;p&gt;Cuando se trata de desarrollo web, ¡Hay tantas herramientas! Pero la opción más popular y ampliamente utilizada es &lt;strong&gt;Node.js&lt;/strong&gt;. Sin embargo, &lt;strong&gt;Bun&lt;/strong&gt;, una nueva herramienta, también trae muchos beneficios.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="deberías-cambiar-de-nodejs-a-bun-en-2024"&gt;
+¿Deberías cambiar de Node.js a Bun en 2024?
+&lt;a href="#deber%c3%adas-cambiar-de-nodejs-a-bun-en-2024" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Hoy estamos aquí para analizar las diferencias clave y ayudarnos a decidir cuál podría ser la mejor opción para este 2024. Así que, ¡toma una taza de café ☕️, pon tu lista de reproducción de codificación favorita y vamos a darle!&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="comprendiendo-bun-el-novato-en-el-barrio"&gt;
+Comprendiendo Bun: El Novato en el Barrio
+&lt;a href="#comprendiendo-bun-el-novato-en-el-barrio" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Imagina a &lt;strong&gt;Bun&lt;/strong&gt; como tu fiel compañero, siempre listo para simplificar tus aventuras de desarrollo web. Este moderno y liviano entorno de ejecución es un nuevo entorno de ejecución de &lt;strong&gt;JavaScript&lt;/strong&gt; completamente escrito en el lenguaje de programación &lt;strong&gt;Zig&lt;/strong&gt;, como una brisa fresca en un día caluroso de verano: refrescante y eficiente. &lt;strong&gt;Bun&lt;/strong&gt; está diseñado para ser un reemplazo directo de &lt;strong&gt;Node.js&lt;/strong&gt; y soporta la mayoría de las mismas API y características. Con &lt;strong&gt;Bun&lt;/strong&gt;, construir aplicaciones web se vuelve muy fácil gracias a su sintaxis intuitiva y características simplificadas.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="explorando-nodejs-el-guerrero-veterano"&gt;
+Explorando Node.js: El Guerrero Veterano
+&lt;a href="#explorando-nodejs-el-guerrero-veterano" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Ahora, imagina a &lt;strong&gt;Node.js&lt;/strong&gt; como el guerrero veterano del reino del desarrollo web, probado en batalla y confiable. Este entorno de ejecución es tu elección para aplicaciones escalables y de alto rendimiento. Su modelo de I/O no bloqueante y basado en eventos es como tener un superpoder para manejar múltiples tareas simultáneamente. Esto lo hace adecuado para manejar conexiones concurrentes y procesar grandes volúmenes de datos. Con su vasto ecosistema de módulos y bibliotecas, &lt;strong&gt;Node.js&lt;/strong&gt; capacita a los desarrolladores para crear una amplia gama de aplicaciones, desde servidores web hasta dispositivos IoT.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="comparación-de-características-bun-vs-nodejs"&gt;
+Comparación de características: Bun vs. Node.js
+&lt;a href="#comparaci%c3%b3n-de-caracter%c3%adsticas-bun-vs-nodejs" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Rendimiento:&lt;/strong&gt; Node.js brilla en el manejo de miles de conexiones con facilidad, como un superhéroe manejando una ciudad bulliciosa. Por otro lado, Bun, aunque más nuevo, se defiende bien y es perfecto para cargas de trabajo moderadas.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Facilidad de uso:&lt;/strong&gt; Bun es tu guía amigable del barrio, haciendo del desarrollo web un paseo alegre con su simplicidad. Mientras tanto, Node.js ofrece una inmersión más profunda en el mundo de la programación asincrónica, como dominar un rompecabezas complejo.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Escalabilidad:&lt;/strong&gt; Tanto Bun como Node.js son tus compañeros confiables para escalar aplicaciones. Node.js destaca en el manejo de conexiones concurrentes, mientras que Bun hereda esta fortaleza y se adapta a varios entornos sin problemas.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="escenarios-del-mundo-real-dónde-brillan"&gt;
+Escenarios del Mundo Real: ¿Dónde Brillan?
+&lt;a href="#escenarios-del-mundo-real-d%c3%b3nde-brillan" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Bun:&lt;/strong&gt; Ideal para startups y equipos pequeños, Bun es tu compañero ágil para construir aplicaciones web y APIs livianas. Es como tener una varita mágica para prototipos rápidos sin comprometer el rendimiento.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Node.js:&lt;/strong&gt; Ampliamente utilizado en diversas industrias, Node.js es tu aliado versátil para aplicaciones diversas, desde servidores web hasta dispositivos IoT. Su capacidad para manejar tareas de I/O lo convierte en el favorito entre las empresas para construir soluciones robustas y de alto rendimiento.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="pensamientos-finales-eligiendo-tu-compañero-de-desarrollo-web"&gt;
+Pensamientos Finales: Eligiendo tu Compañero de Desarrollo Web
+&lt;a href="#pensamientos-finales-eligiendo-tu-compa%c3%b1ero-de-desarrollo-web" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En la batalla de &lt;strong&gt;Bun&lt;/strong&gt; vs. &lt;strong&gt;Node.js&lt;/strong&gt;, la elección es tuya según tu búsqueda en el reino del desarrollo web. Ya sea que busques simplicidad y velocidad o potencia y escalabilidad, tanto &lt;strong&gt;Bun&lt;/strong&gt; como &lt;strong&gt;Node.js&lt;/strong&gt; están listos para acompañarte en tus aventuras de desarrollo web.&lt;/p&gt;
+&lt;p&gt;Entonces, queridos desarrolladores, ¿qué compañero elegirás para tu próxima aventura de desarrollo web?&lt;/p&gt;</description></item><item><title>¿Por qué Node.js se volvió tan popular para el desarrollo backend?</title><link>https://patojad.com.ar/post/2023/08/por-qu%C3%A9-node.js-se-volvi%C3%B3-tan-popular-para-el-desarrollo-backend/</link><pubDate>Mon, 28 Aug 2023 12:26:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/08/por-qu%C3%A9-node.js-se-volvi%C3%B3-tan-popular-para-el-desarrollo-backend/</guid><description>&lt;p&gt;En este artículo, exploraremos la perspectiva de un influyente autor de Medium acerca de los motivos detrás de la creciente popularidad de Node.js en el ámbito del desarrollo backend. El propósito de este artículo es presentar una adaptación traducida del artículo original, enriquecida con ajustes y opiniones personales sobre el contenido del autor.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="la-perspectiva-de-p-rehan"&gt;
+La perspectiva de P. Rehan
+&lt;a href="#la-perspectiva-de-p-rehan" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En los antiguos tiempos del desarrollo backend, &lt;strong&gt;PHP&lt;/strong&gt; solía ser la herramienta dominante para la creación de proyectos web &lt;em&gt;(incluso con un enfoque más abarcador que en la actualidad)&lt;/em&gt;. Sin embargo, con el paso del tiempo, &lt;strong&gt;PHP&lt;/strong&gt; gradualmente se convirtió en el pariente excéntrico y adelantado en el ámbito del desarrollo web, y en la actualidad, pocos comprenden su razón de existir &lt;em&gt;(aunque sigue siendo valioso en áreas como la sencillez del alojamiento web)&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Después, como aquel pariente alternativo que prefiere tomar café con leche, &lt;strong&gt;Ruby&lt;/strong&gt; (junto con Rails) ingresó con todas sus tecnologías sofisticadas y disruptivas &lt;em&gt;(aunque en este caso se pasa por alto el nivel de pureza de objetos que aún no se alcanza en &lt;strong&gt;Node.js&lt;/strong&gt;)&lt;/em&gt;. Todos tenemos a esos parientes, pero preferimos mantener cierta distancia.&lt;/p&gt;
+&lt;p&gt;Ni siquiera es necesario mencionar a &lt;strong&gt;Java&lt;/strong&gt;, un vestigio obsoleto en la programación backend que solo recuerdan los usuarios de antiguos teléfonos Nokia. &lt;em&gt;(Dejemos a un lado, por un momento, las ventajas de eficiencia que brinda JAVA más allá de su consumo de recursos)&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/gJtjsx80/nodepopular.webp" alt="Node: un lenguaje popular" title="Node: un lenguaje popular" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Pero &lt;em&gt;¿qué hace que Node.js sea el factor determinante en el desarrollo backend?&lt;/em&gt; Recordemos&amp;hellip; Hace algunos años, surgió algo nuevo en el mundo del desarrollo backend. No era una novedad extravagante, pero sí increíblemente eficiente: Node.js.&lt;/p&gt;
+&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-info fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;Node.js es un entorno de ejecución de JavaScript multiplataforma y de código abierto que revolucionó el panorama en 2017, año en que se volvió ampliamente utilizado.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;La historia de &lt;strong&gt;Node.js&lt;/strong&gt; comenzó antes de alcanzar las 40,000 estrellas en GitHub. Inicialmente, era uno de esos pequeños entornos de &lt;strong&gt;JavaScript&lt;/strong&gt; que ejecutaban código fuera del navegador web. Sin embargo, resultó que &lt;strong&gt;Node.js&lt;/strong&gt; era justo lo que el mundo del desarrollo backend había estado anhelando durante todos esos años: &lt;em&gt;&amp;ldquo;un entorno innovador y potente capaz de gestionar volúmenes masivos de tráfico&amp;rdquo;&lt;/em&gt;. Las siguientes características han contribuido a su renombre como paradigma en el desarrollo backend:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Su tamaño compacto lo convierte en una herramienta excepcional para el desarrollo de aplicaciones en la nube.&lt;/li&gt;
+&lt;li&gt;Su velocidad es prácticamente equiparable a la velocidad de la luz, gracias a su motor &lt;strong&gt;JavaScript&lt;/strong&gt; V8.&lt;/li&gt;
+&lt;li&gt;La escalabilidad y capacidad de respuesta en el desarrollo de aplicaciones son sobresalientes.&lt;/li&gt;
+&lt;li&gt;Cuenta con una comunidad activa de casi 100000 desarrolladores.&lt;/li&gt;
+&lt;li&gt;Dispone de un conjunto inagotable de API y un ecosistema ilimitado que facilita la creación desde simples aplicaciones hasta complejas estructuras de microservicios de nivel avanzado.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="cuál-es-el-componente-secreto"&gt;
+¿Cuál es el componente secreto?
+&lt;a href="#cu%c3%a1l-es-el-componente-secreto" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;¿Cómo puede un entorno de desarrollo backend gestionar tantas consultas y al mismo tiempo ser sólido y receptivo? ¿Cuál es el ingrediente secreto que corre por sus venas?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Node.js&lt;/strong&gt;, además de utilizar el mismo motor que Google Chrome, opera con un enfoque de E/S &lt;em&gt;(Entrada/Salida)&lt;/em&gt; sin bloqueo y controlado por eventos. Es lo que impulsa aplicaciones en tiempo real como Netflix (servicios de transmisión), Discord bots (chatbots) y 8 Ball Pool (juegos en línea).&lt;/p&gt;
+&lt;p&gt;Imagine el modelo de E/S sin bloqueo y controlado por eventos como un superhéroe al que llamó Node-Man. Su habilidad única es manejar múltiples tareas y salvar personas sin sudar.&lt;/p&gt;
+&lt;p&gt;Su capacidad proviene del modelo de E/S, que maneja múltiples solicitudes sin esperar a que se complete una antes de pasar a la siguiente.Así es como Node Man supera a Flash y vence al Hombre de Acero.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a href="https://pinjarirehan.medium.com/why-node-js-is-the-ultimate-game-changer-for-backend-development-26415839bbe2" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Fuente
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Install NodeJS en MacOS con Homebrew</title><link>https://patojad.com.ar/post/2023/04/install-nodejs-en-macos-con-homebrew/</link><pubDate>Fri, 07 Apr 2023 07:56:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/04/install-nodejs-en-macos-con-homebrew/</guid><description>&lt;p&gt;Vamos a ver como realizar la instalación de &lt;strong&gt;NodeJS&lt;/strong&gt; de una forma muy simple y rápida utilizando &lt;em&gt;homebrew.&lt;/em&gt; De esta forma simple y rápida podemos obtener &lt;strong&gt;cualquier&lt;/strong&gt; versión de NodeJS y NPM.&lt;/p&gt;
+&lt;p&gt;Para poder realizar esto vamos a necesitar instalar previamente &lt;strong&gt;Homebrew&lt;/strong&gt;, pero no te preocupes, si no lo tenes te dejo a continuación un artículo donde te explico como instalarlo en MacOS.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://patojad.com.ar/post/2023/02/como-instalar-brew-en-macos/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Instalar Homebrew en MacOS
+&lt;/a&gt;&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="video"&gt;
+Video
+&lt;a href="#video" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El comando utilizado para esta ocasión es el que dejaré a continuación. En caso de querer pegar en la terminal de linux se suele hacer con &lt;code&gt;ctrl&lt;/code&gt;+&lt;code&gt;shift&lt;/code&gt;+&lt;code&gt;v&lt;/code&gt; sino podes utilizar el mouse con &lt;code&gt;click derecho&lt;/code&gt; -&amp;gt; &lt;code&gt;pegar&lt;/code&gt; dependiendo de tu terminal:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;brew install node
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Install NodeJS en Windows con Winget</title><link>https://patojad.com.ar/post/2023/03/install-nodejs-en-windows-con-winget/</link><pubDate>Tue, 28 Mar 2023 13:56:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/03/install-nodejs-en-windows-con-winget/</guid><description>&lt;p&gt;Vamos a ver como realizar la instalación de &lt;strong&gt;NodeJS&lt;/strong&gt; de una forma muy simple y rápida utilizando &lt;em&gt;winget.&lt;/em&gt; De esta forma simple y rápida podemos obtener &lt;strong&gt;cualquier&lt;/strong&gt; versión de NodeJS y NPM directamente desde winget.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalandolo"&gt;
+Instalandolo
+&lt;a href="#instalandolo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El comando utilizado para esta ocasión es el que dejaré a continuación. En caso de querer pegar en la terminal de windows se suele hacer con &lt;code&gt;ctrl&lt;/code&gt;+&lt;code&gt;v&lt;/code&gt; sino podes utilizar el mouse con &lt;code&gt;click derecho&lt;/code&gt; -&amp;gt; &lt;code&gt;pegar&lt;/code&gt; dependiendo de tu terminal:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;winget install -e --id OpenJS.NodeJS
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>¿Que es TypeScript? ¿En que se parece a JavaScript?</title><link>https://patojad.com.ar/post/2023/03/que-es-typescript-en-que-se-parece-a-javascript/</link><pubDate>Fri, 17 Mar 2023 09:40:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/03/que-es-typescript-en-que-se-parece-a-javascript/</guid><description>&lt;p&gt;&lt;strong&gt;TypeScript&lt;/strong&gt; es un &lt;em&gt;subconjunto azúcar sintáctico&lt;/em&gt; de &lt;strong&gt;JavaScript&lt;/strong&gt;. Básicamente es un código que transpila a &lt;strong&gt;JavaScript&lt;/strong&gt; y tiene como fin formalizar un poco los lineamientos a la hora de desarrollar con este lenguaje.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="principales-diferencias"&gt;
+Principales diferencias
+&lt;a href="#principales-diferencias" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Podemos situar grandes diferencias entre estos lenguajes pero para eso debemos entender que al momento de ejecución ambos terminan siendo &lt;strong&gt;JavaScript&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Objetos:&lt;/strong&gt; Si bien en &lt;strong&gt;JavaScript&lt;/strong&gt; podemos usar objetos y clases no son su mayor fuerte, sin embargo en &lt;strong&gt;TypeScript&lt;/strong&gt; vamos a estar programando Orientado a Objetos y este puede ser un punto fuerte para elegir, si lo que vamos a estar haciendo va a ser en POO &lt;strong&gt;TypeScript&lt;/strong&gt; es una gran opción.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Compilación:&lt;/strong&gt; Mientras que &lt;strong&gt;JavaScript&lt;/strong&gt; es interpretado &lt;strong&gt;TypeScript&lt;/strong&gt; requiere un proceso de &lt;em&gt;“compilación”&lt;/em&gt; (o mejor dicho transpilación) donde el código de &lt;strong&gt;TypeScript&lt;/strong&gt; se convierte en código &lt;strong&gt;JavaScript&lt;/strong&gt; que luego será interpretado ya sea por el servidor o el cliente.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tipado:&lt;/strong&gt; Una de las flexibilidades más grandes de &lt;strong&gt;JavaScript&lt;/strong&gt; es su tipado dinámico, sin embargo en &lt;strong&gt;TypeScript&lt;/strong&gt; vamos a tener un tipado estático y fuerte (que para ser sinceros podemos flexibilizar sin problemas) pero esto nos permite disminuir la cantidad de errores en tiempo de ejecución por el tipado.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Curva de Aprendizaje:&lt;/strong&gt; Si bien &lt;strong&gt;TypeScript&lt;/strong&gt; es un subconjunto azúcar sintáctico de &lt;strong&gt;JavaScript&lt;/strong&gt; este es un poco más complejo de aprender, según la comunidad, que &lt;strong&gt;JavaScript&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="cual-elegir"&gt;
+¿Cual Elegir?
+&lt;a href="#cual-elegir" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Es difícil poder definir cuál es la mejor opción sin tener un contexto. Siempre la mejor opción va a depender de nuestro expertis en cada uno, las necesidades del proyecto y los framework que vamos a estar utilizando. De todas formas a las diferencias que marcamos arriba voy a sumar, una serie de reglas que utilizo yo para definir, estas son solo en base a mi experiencia:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Tamaño del proyecto&lt;/em&gt;, si el proyecto es pequeño y rápido, bastará con usar &lt;strong&gt;JavaScript&lt;/strong&gt;, sin embargo en proyectos medianos y grandes &lt;strong&gt;TypeScript&lt;/strong&gt; puede ser más cómodo a largo plazo y ahorrar algunos dolores de cabeza.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Cantidad de miembros&lt;/em&gt;, si vamos a estar desarrollando nosotros solos &lt;strong&gt;JavaScript&lt;/strong&gt; puede resultar más práctico, pero si tenemos como objetivo que colaboren más personas &lt;strong&gt;TypeScript&lt;/strong&gt; puede ser muy bueno para manejar lineamientos similares y tener código más fácil de entender.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Compatibilidad&lt;/em&gt;, puede que &lt;strong&gt;TypeScript&lt;/strong&gt; no sea compatible con nuestro proyecto o la forma de encararlo, es una prueba interesante para tener en cuenta a la hora de elegirlo.&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Install NodeJS en Linux con Homebrew</title><link>https://patojad.com.ar/post/2023/02/install-nodejs-en-linux-con-homebrew/</link><pubDate>Mon, 27 Feb 2023 11:56:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/02/install-nodejs-en-linux-con-homebrew/</guid><description>&lt;p&gt;Vamos a ver como realizar la instalación de &lt;strong&gt;NodeJS&lt;/strong&gt; de una forma muy simple y rápida utilizando &lt;em&gt;homebrew.&lt;/em&gt; De esta forma simple y rápida podemos obtener &lt;strong&gt;cualquier&lt;/strong&gt; versión de NodeJS y NPM sin importar nuestra versión de linux, nuestro gestor de paquetes o la versión que estén disponible en los repositorios.&lt;/p&gt;
+&lt;p&gt;Para poder realizar esto vamos a necesitar instalar previamente Homebrew, pero no te preocupes, si no lo tenes te dejo a continuación un artículo donde te explico como instalarlo en tu distribución de GNU/Linux.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://patojad.com.ar/post/2023/01/como-instalar-brew-en-gnu/post/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Instalar Homebrew en GNU/Linux
+&lt;/a&gt;&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalandolo"&gt;
+Instalandolo
+&lt;a href="#instalandolo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El comando utilizado para esta ocasión es el que dejaré a continuación. En caso de querer pegar en la terminal de linux se suele hacer con &lt;code&gt;ctrl&lt;/code&gt;+&lt;code&gt;shift&lt;/code&gt;+&lt;code&gt;v&lt;/code&gt; sino podes utilizar el mouse con &lt;code&gt;click derecho&lt;/code&gt; -&amp;gt; &lt;code&gt;pegar&lt;/code&gt; dependiendo de tu terminal:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;brew install node
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Webservice NodeJS y MariaDB 6 - ABM en nuestra DB vía API</title><link>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-6-abm-en-nuestra-db-v%C3%ADa-api/</link><pubDate>Mon, 16 Aug 2021 10:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-6-abm-en-nuestra-db-v%C3%ADa-api/</guid><description>&lt;p&gt;Como última instancia vamos a terminar el ABM de nuestro webservice para poder controlar completamente la base de datos desde la API. Recordemos que esto es completamente extensible y que incluso puedo agregar querys con joins y demás.&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/KMeGAYhoYi4?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Así mismo, como siempre, dejo a continuación el código utilizado en el video, no con el fin de ser copiado (aunque esto es posible) Sino más bien como referencia para que construyan su propio código&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;router&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;route&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/user/add&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;post&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;async&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;res&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;await&lt;/span&gt; &lt;span class="nx"&gt;DBConnector&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;queryWithParams&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;INSERT INTO usuarios(dni, nombre, apellido, email) VALUES(?,?,?,?)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;body&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;dni&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;body&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;nombre&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;body&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;apellido&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;body&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;email&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;res&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;json&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;result&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;router&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;route&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/user/delete/:id&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;async&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;res&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;await&lt;/span&gt; &lt;span class="nx"&gt;DBConnector&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;queryWithParams&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;DELETE FROM usuarios WHERE id=?&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;params&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;id&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;res&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;json&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;result&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;router&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;route&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/user/update&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;post&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;async&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;res&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;await&lt;/span&gt; &lt;span class="nx"&gt;DBConnector&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;queryWithParams&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;UPDATE usuarios SET nombre=?, apellido=?, email=? WHERE ID=?&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;body&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;nombre&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;body&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;apellido&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;body&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;email&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;body&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;id&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;res&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;json&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;result&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Si te necesitas que te demos una mano o tienes alguna duda, podes encontrarnos en la comunidad de Telegram donde con mucha alegría te vamos a estar ayudando.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://t.me/PatoJADCommunity" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fab fa-telegram"&gt;&lt;/i&gt;&amp;nbsp;
+Grupo de Telegram
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Si te sirvio no te olvides de apoyar. Compartir, una suscripción o un like no cuestan nada pero valen mucho&amp;hellip;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Si sentís que el curso te sirvió y, queres apoyar aún más que con tu subscribirse al canal de youtube y en las redes sociales o simplemente quieres certificar puedes encontrarlo en Udemy. Lamentablemente no me permite ponerle menos precio, pero si te interesa el certificado no te olvides de seguirnos que vamos a estar ofreciendo gratis para que todos los que lo deseen puedan certificar.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.udemy.com/course/patojad-webservice-nodejs-y-mariadb/?referralCode=817BCD02D2C08DEC01DE" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Curso en Udemy
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Webservice NodeJS y MariaDB 5 - Accediendo a Nuestra DB mediante la API</title><link>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-5-accediendo-a-nuestra-db-mediante-la-api/</link><pubDate>Thu, 12 Aug 2021 10:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-5-accediendo-a-nuestra-db-mediante-la-api/</guid><description>&lt;p&gt;Ya teniendo nuestra API levantada vamos a empezar a interactuar con nuestra base de datos y responderlo mediante la API. En este punto podemos ver que ya esto es extremadamente extensible como para proyectar mucho más grande.&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/AAjfynGFUuE?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Dejo a continuación el código utilizado en el Video. Recuerden que se puede copiar con facilidad y ante cualquier duda podes encontrarnos en el grupo de telegram:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;router&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;route&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/users&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;async&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;res&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;await&lt;/span&gt; &lt;span class="nx"&gt;DBConnector&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;query&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;SELECT * FROM usuarios&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;res&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;json&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;result&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;router&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;route&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/user/:id&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;async&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;res&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;await&lt;/span&gt; &lt;span class="nx"&gt;DBConnector&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;queryWithParams&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;SELECT * FROM usuarios WHERE id=?&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;params&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;id&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;res&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;json&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;result&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a href="https://t.me/PatoJADCommunity" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fab fa-telegram"&gt;&lt;/i&gt;&amp;nbsp;
+Unite a nuestra comunidad
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Si te sirvio no te olvides de apoyar. Compartir, una suscripción o un like no cuestan nada pero valen mucho&amp;hellip;&lt;/p&gt;</description></item><item><title>Webservice NodeJS y MariaDB 4 - Levantando API con Express</title><link>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-4-levantando-api-con-express/</link><pubDate>Mon, 09 Aug 2021 10:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-4-levantando-api-con-express/</guid><description>&lt;p&gt;Ya estamos preparando lo último, aunque pueden ver que ya está todo bastante encaminado. En esta oportunidad vamos a dejar la API levantada para poder generar nuestras llamadas. Este paso es importante chequear que funciona correctamente para evitar cualquier problema posterior.&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/kV42bjGdsLQ?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Dejo a continuación el código utilizado en el video, recuerden que la explicación del video sirve para comprender cada parte y luego poder configurarlo a gusto dependiendo de las necesidades. Si bien el curso es básico, dispone del contenido necesario para levantar una api Completa.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;span class="lnt"&gt;24
+&lt;/span&gt;&lt;span class="lnt"&gt;25
+&lt;/span&gt;&lt;span class="lnt"&gt;26
+&lt;/span&gt;&lt;span class="lnt"&gt;27
+&lt;/span&gt;&lt;span class="lnt"&gt;28
+&lt;/span&gt;&lt;span class="lnt"&gt;29
+&lt;/span&gt;&lt;span class="lnt"&gt;30
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Importro requerimientos
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;express&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;express&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;cors&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;cors&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;bodyParser&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;body-parser&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Inicializo las apps
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;app&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;express&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;router&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;express&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;Router&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Seteo Puerto
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;port&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;process&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;env&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;PORT&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="mi"&gt;8484&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Preparo el APP
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;app&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;use&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;bodyParser&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;urlencoded&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt; &lt;span class="nx"&gt;extended&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt; &lt;span class="p"&gt;}));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;app&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;use&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;bodyParser&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;json&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;app&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;use&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;cors&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Seteo Ruta principal
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;app&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;use&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;router&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Configuro Rutas
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;router&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;route&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;get&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;res&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;res&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;json&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Nuesta API esta Funcionando&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Inicio la APP
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;app&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;listen&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;port&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Muestro Puero en consola
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Inicio en el puero &amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;port&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Webservice NodeJS y MariaDB 3 - Conector MariaDB en NodeJS</title><link>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-3-conector-mariadb-en-nodejs/</link><pubDate>Thu, 05 Aug 2021 10:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-3-conector-mariadb-en-nodejs/</guid><description>&lt;p&gt;Ya teniendo todo preparado vamos a crear nuestro conector entre NodeJS y Mariadb para poder realizar las consultas o Querys para obtener, modificar o actualizar datos&amp;hellip;&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/2P3jkH-HaKY?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Dejo a continuación el código correcto del objeto que creamos para poder manipular las consultas.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;span class="lnt"&gt;24
+&lt;/span&gt;&lt;span class="lnt"&gt;25
+&lt;/span&gt;&lt;span class="lnt"&gt;26
+&lt;/span&gt;&lt;span class="lnt"&gt;27
+&lt;/span&gt;&lt;span class="lnt"&gt;28
+&lt;/span&gt;&lt;span class="lnt"&gt;29
+&lt;/span&gt;&lt;span class="lnt"&gt;30
+&lt;/span&gt;&lt;span class="lnt"&gt;31
+&lt;/span&gt;&lt;span class="lnt"&gt;32
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;mariadb&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;mariadb&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;config&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;host&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;user&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;testwebserveruser&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;password&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;testwebserverpass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;database&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;webserverdb&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;connectionLimit&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;acquireTimeout&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;300&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;DBConnector&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;dbconnector&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;mariadb&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;createPool&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;config&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;async&lt;/span&gt; &lt;span class="nx"&gt;query&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;sQuery&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;conn&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;await&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;dbconnector&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getConnection&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;ret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;null&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;await&lt;/span&gt; &lt;span class="nx"&gt;conn&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;query&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;sQuery&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;then&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;ret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;conn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;end&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;catch&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="nx"&gt;err&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;err&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;conn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;end&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;ret&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;module&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;exports&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;DBConnector&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Webservice NodeJS y MariaDB 2 - Creando Base de Datos e iniciando Proyecto</title><link>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-2-creando-base-de-datos-e-iniciando-proyecto/</link><pubDate>Mon, 02 Aug 2021 10:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-2-creando-base-de-datos-e-iniciando-proyecto/</guid><description>&lt;p&gt;Sabiendo que ya tenemos instalado lo necesario vamos a preparar nuestro entorno creando la base de datos y subiendo los datos que necesitamos:&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/BllyitZzO0g?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Dejo a continuación el script que utilizamos:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;span class="lnt"&gt;24
+&lt;/span&gt;&lt;span class="lnt"&gt;25
+&lt;/span&gt;&lt;span class="lnt"&gt;26
+&lt;/span&gt;&lt;span class="lnt"&gt;27
+&lt;/span&gt;&lt;span class="lnt"&gt;28
+&lt;/span&gt;&lt;span class="lnt"&gt;29
+&lt;/span&gt;&lt;span class="lnt"&gt;30
+&lt;/span&gt;&lt;span class="lnt"&gt;31
+&lt;/span&gt;&lt;span class="lnt"&gt;32
+&lt;/span&gt;&lt;span class="lnt"&gt;33
+&lt;/span&gt;&lt;span class="lnt"&gt;34
+&lt;/span&gt;&lt;span class="lnt"&gt;35
+&lt;/span&gt;&lt;span class="lnt"&gt;36
+&lt;/span&gt;&lt;span class="lnt"&gt;37
+&lt;/span&gt;&lt;span class="lnt"&gt;38
+&lt;/span&gt;&lt;span class="lnt"&gt;39
+&lt;/span&gt;&lt;span class="lnt"&gt;40
+&lt;/span&gt;&lt;span class="lnt"&gt;41
+&lt;/span&gt;&lt;span class="lnt"&gt;42
+&lt;/span&gt;&lt;span class="lnt"&gt;43
+&lt;/span&gt;&lt;span class="lnt"&gt;44
+&lt;/span&gt;&lt;span class="lnt"&gt;45
+&lt;/span&gt;&lt;span class="lnt"&gt;46
+&lt;/span&gt;&lt;span class="lnt"&gt;47
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sql" data-lang="sql"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cm"&gt;/* CREADO POR https://patojad.com.ar/ */&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cm"&gt;/* Creo Base de Datos para el WebServer */&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;CREATE&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;DATABASE&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="n"&gt;webserverdb&lt;/span&gt;&lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cm"&gt;/* Creo el usuario para esta prueba publica */&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;CREATE&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;USER&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;testwebserveruser&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;IDENTIFIED&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;BY&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;testwebserverpass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cm"&gt;/* Le concedo permisos para conectarse */&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;GRANT&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;USAGE&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;ON&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;TO&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;testwebserveruser&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;@&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;IDENTIFIED&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;BY&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;testwebserverpass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cm"&gt;/* GRANT USAGE ON *.* TO &amp;#39;testwebserveruser&amp;#39;@&amp;#39;%&amp;#39; IDENTIFIED BY &amp;#39;testwebserverpass&amp;#39;; // Esto se usar en caso de que se requiera acceder fuera del localhost */&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cm"&gt;/* Se le da acceso al usuario a la Base de Datos */&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;GRANT&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;ALL&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;privileges&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;ON&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="n"&gt;webserverdb&lt;/span&gt;&lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;TO&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;testwebserveruser&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;@&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cm"&gt;/* Aplico los cambios */&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;FLUSH&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;PRIVILEGES&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cm"&gt;/* Selecciono la Base de Datos */&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;USE&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;webserverdb&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cm"&gt;/* Creo trabla para las pruebas */&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;CREATE&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;TABLE&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;usuarios&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;BIGINT&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;UNSIGNED&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;AUTO_INCREMENT&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;PRIMARY&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;KEY&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="cm"&gt;/* ID auto incrementable seteado como primary key*/&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;dni&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;VARCHAR&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;UNIQUE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="cm"&gt;/* Seteo DNI como unico */&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;nombre&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;VARCHAR&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;apellido&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;VARCHAR&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;email&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;VARCHAR&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cm"&gt;/* Inserto datos en la Tabla para realizar las pruebas */&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;INSERT&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;INTO&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;usuarios&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dni&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;nombre&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;apellido&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;email&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;VALUES&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;39493125&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Joaquin&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Decima&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;joaquin.decima@gmail.com&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;39423029&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Pato&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Decima&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;patojad96@gmail.com&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;11658488&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Julio&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Gnome&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;aguante@gnome.com&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;09547684&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Daniel&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Pancram&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;pancram@linuxitos.com&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;17685998&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Pipe&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Garcia&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;pipe@amomint.com&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;107685998&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Issac&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Garcia&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;elgran@issac.garcia&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;16587958&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;LPI&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;MilagrOS&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;lpi@milagros.com&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;36584929&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Nico&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Loco&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;nico@locosporlinux.com&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cm"&gt;/* Muestro los datos */&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;SELECT&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;FROM&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;usuarios&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cm"&gt;/* CREADO POR https://patojad.com.ar/ */&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;En caso de necesitar purgar la Base de Datos o limpiar todo, pueden correr el siguiente script que se encarga de limpiar la DB&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sql" data-lang="sql"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cm"&gt;/* EN CASO DE QUERER LIMPIAR LA BASE DE DATOS USAR LO SIGUIENTE */&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;USE&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;webserverdb&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;DROP&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;TABLE&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;usuarios&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;DROP&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;DATABASE&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;webserverdb&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;DROP&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;USER&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;testwebserveruser&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;@&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;DROP&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;USER&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;testwebserveruser&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;@&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;%&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Webservice NodeJS y MariaDB 1 - Instalacion de NodeJS NPM y MariaDB</title><link>https://patojad.com.ar/post/2021/07/webservice-nodejs-y-mariadb-1-instalacion-de-nodejs-npm-y-mariadb/</link><pubDate>Thu, 29 Jul 2021 09:50:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/07/webservice-nodejs-y-mariadb-1-instalacion-de-nodejs-npm-y-mariadb/</guid><description>&lt;p&gt;En esta primera etapa del curso vamos a instalar las dependencias necesarias para poder realizar el curso. En mi caso estoy usando una distribución basada en arch, pero en caso de que dispongan de otra distribucion voy a dejar la documentación de como instalar las dependencias&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/qWyRs1Zlevk?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="ubuntu"&gt;
+Ubuntu
+&lt;a href="#ubuntu" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo apt install -y build-essential
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl -fsSL https://deb.nodesource.com/setup_16.x &lt;span class="p"&gt;|&lt;/span&gt; sudo -E bash -
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install -y nodejs mariadb
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="rhel"&gt;
+RHEL
+&lt;a href="#rhel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo yum install gcc-c++ make mariadb
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl -fsSL https://rpm.nodesource.com/setup_16.x &lt;span class="p"&gt;|&lt;/span&gt; sudo bash -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="arch-linux-y-derivadas"&gt;
+Arch Linux y derivadas
+&lt;a href="#arch-linux-y-derivadas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Los paquetes para Node.js y npm están disponibles en el repositorio de la Comunidad.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pacman -S nodejs npm mariadb
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="gentoo"&gt;
+Gentoo
+&lt;a href="#gentoo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Node.js está disponible en portage.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;emerge nodejs mariadb
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="void-linux"&gt;
+Void Linux
+&lt;a href="#void-linux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Void Linux incluye la versión estable de Node.js en el repositorio principal.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;xbps-install -Sy nodejs mariadb
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="snap-no-recomendado"&gt;
+SNAP (No recomendado)
+&lt;a href="#snap-no-recomendado" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo snap install node --classic --channel&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-amber-500 text-3xl my-6" id="chequear-las-instalaciones"&gt;
+Chequear las instalaciones
+&lt;a href="#chequear-las-instalaciones" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;para poder chequear las instalaciones debemos correr el siguiente comando que nos retornara las versiones de npm nodejs y mariadb:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;npm --version &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; node --version &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; mariadb --version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Webservice NodeJS + MariaDB</title><link>https://patojad.com.ar/post/2021/07/webservice-nodejs--mariadb/</link><pubDate>Mon, 26 Jul 2021 14:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/07/webservice-nodejs--mariadb/</guid><description>&lt;p&gt;En esta oportunidad cuento con mucha alegría que me anime a dar de forma diferida mi “primer curso” online sobre cómo crear un WebService con NodeJS y MariaDB&lt;/p&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/4NXBdb3D/curso-flayer.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;De seguro todo esto requiere mucho más trabajo y los siguientes cursos, en caso de que siga dictandolos, sean mejores. Pero es un pequeño piloto que servirá para comenzar una nueva etapa donde planeo dejar un contenido más armado y estructurado.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-esperar-de-este-curso"&gt;
+¿Qué esperar de este curso?
+&lt;a href="#qu%c3%a9-esperar-de-este-curso" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Este curso es muy básico y sirve para comprender y poder crear nuestro webservice para exponer una base de datos MariaDB con una API creada en NodeJS. Lo que buscamos es mostrar un poco como funcionan estas tecnologías por encima con el fin de poder crear aplicaciones pequeñas y comenzar en el mundo del desarrollo.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="que-ofrece"&gt;
+Que ofrece
+&lt;a href="#que-ofrece" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Este curso es pequeño y es completamente gratis. Se dicta mediante Youtube y dispone de 6 videos y 6 artículos con todo el material generado en el curso:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;32 minutos de vídeos On Demand&lt;/li&gt;
+&lt;li&gt;6 Artículos con el código generado&lt;/li&gt;
+&lt;li&gt;Acceso de por vida Free&lt;/li&gt;
+&lt;li&gt;Acceso a los vídeos desde cualquier plataforma&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="clases"&gt;
+Clases
+&lt;a href="#clases" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2021/07/webservice-nodejs-y-mariadb-1-instalacion-de-nodejs-npm-y-mariadb/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Instalacion de NodeJS NPM y MariaDB
+&lt;/a&gt; (Disponible desde 29/07)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-2-creando-base-de-datos-e-iniciando-proyecto/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Creando Base de Datos e iniciando Proyecto
+&lt;/a&gt; (Disponible desde 02/08)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-3-conector-mariadb-en-nodejs/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Conector MariaDB en NodeJS
+&lt;/a&gt; (Disponible desde 05/08)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-4-levantando-api-con-express/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Levantando API con Express
+&lt;/a&gt; (Disponible desde 09/08)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-5-accediendo-a-nuestra-db-mediante-la-api/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Accediendo a Nuestra DB mediante la API
+&lt;/a&gt; (Disponible desde 12/08)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/aplicaciones/2021/08/instalacion-de-postam-en-linux/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Instalacion de Postman en Linux
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-6-abm-en-nuestra-db-v%c3%ada-api/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+ABM en nuestra DB vía API
+&lt;/a&gt; (Disponible desde 16/08)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="apoyo"&gt;
+Apoyo
+&lt;a href="#apoyo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Me gustaría saber que cuento con tu apoyo para crear más y nuevos cursos, en caso de ser así me gustaría que puedas suscribirte al canal. Comentar los videos y obviamente sabes que estamos para acompañarte durante el curso en nuestro grupo de Telegram y obviamente en los mismos comentarios&amp;hellip;&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="certificado"&gt;
+Certificado
+&lt;a href="#certificado" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Replicamos el curso en Udemy para que puedan ser certificados, en caso de necesitarlo te dejamos el link. Entendemos que no todos tienen la posibilidad de pagar el curso o no tienen el deseo, por lo cual vamos a estar poniéndolo gratis en ciertas ocasiones para que todos puedan certificar sin necesidad de pagar.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.udemy.com/course/patojad-webservice-nodejs-y-mariadb/?referralCode=817BCD02D2C08DEC01DE" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Curso en Udemy
+&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Si sentís que el curso te sirvió y, queres apoyar aún más que con tu subscribirse al canal de youtube y en las redes sociales o simplemente quieres certificar puedes encontrarlo en Udemy. Lamentablemente no me permite ponerle menos precio, pero si te interesa el certificado no te olvides de seguirnos que vamos a estar ofreciendo gratis para que todos los que lo deseen puedan certificar.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.udemy.com/course/patojad-webservice-nodejs-y-mariadb/?referralCode=817BCD02D2C08DEC01DE" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Curso en Udemy
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Genpress: El Worpress en Node</title><link>https://patojad.com.ar/post/2019/12/genpress-el-worpress-en-node/</link><pubDate>Wed, 18 Dec 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/12/genpress-el-worpress-en-node/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;Actualmente estoy trabajando en una plataforma de código abierto para blogs/sitios de contenido, que es más compatible con el siglo XXI, servicios en la nube, escalado, etc.&lt;/p&gt;
+&lt;p style="text-align: right;"&gt;
+davidmeirlevy
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;El proyecto se divide en microservicios, y tanto el panel de administración como la interfaz del blog están usando Vue.js (administrador escrito con Vue y blog-front con Nuxt, para SSR).&lt;/p&gt;
+&lt;p&gt;No está 100% listo, pero está disponible y puede ser útil en este momento para uso básico, tiene un entorno de desarrollo y scripts de producción, usando pm2. La próxima semana con docker y compose, y pronto también helm chart.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://greenpress.herokuapp.com/" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Demo
+&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Estaría más que feliz de obtener cualquier tipo de ayuda, contribuciones de código, errores, sugerencias, o incluso que lo usarán para ustedes mismos. Realmente funciona y es gratis.&lt;/p&gt;
+&lt;p style="text-align: right;"&gt;
+davidmeirlevy
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="es-el-futuro"&gt;
+¿Es el futuro?
+&lt;a href="#es-el-futuro" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Claramente los que somos desarrolladores y alguna vez utilizamos PHP sabemos que es un lenguaje que fue (y aun es) útil, peor no es para nada bueno. Con esto no quiero decir que JS sea bueno, pero podemos decir objetivamente que es levemente “menos peor”.
+PHP tiene popularidad solo porque corre en cualquier lado, y se encuentra funcionando en gran parte de la internet. Pero esto no quiere decir que sea bueno, simplemente es más utilizado.&lt;/p&gt;
+&lt;p&gt;Este proyecto procura poder ofrecer una solución a WP un tanto más renovada tecnológicamente. Dando así mejores posibilidades de desarrollo y crecimiento a nuestro emprendimiento (por ejemplo, un blog) Y puede, con ayuda de la comunidad, ser uno de los grandes proyectos que inicie el cambio en Internet.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="caracteristicas"&gt;
+Caracteristicas
+&lt;a href="#caracteristicas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Gestión de configuración.&lt;/li&gt;
+&lt;li&gt;La configuración debe tener opciones como:
+&lt;ul&gt;
+&lt;li&gt;Nombre del blog (predeterminado: &amp;ldquo;Mi sitio web Greenpress&amp;rdquo;)&lt;/li&gt;
+&lt;li&gt;Idioma (predeterminado: &amp;ldquo;en&amp;rdquo;)&lt;/li&gt;
+&lt;li&gt;Dirección del sitio (predeterminado: &amp;ldquo;ltr&amp;rdquo;)&lt;/li&gt;
+&lt;li&gt;Descripción: para metadatos y SEO.&lt;/li&gt;
+&lt;li&gt;Tema: debe implementar una API para obtener una lista de temas desde el frente del blog y reiniciar el frente del blog (con npm run build) para aplicar el tema en el cambio de campo.&lt;/li&gt;
+&lt;li&gt;Font url: define el uso de fuentes de cdn como google-fonts.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Búsqueda básica de publicaciones: necesaria tanto para frontend como administracion.&lt;/li&gt;
+&lt;li&gt;Características del administrador:
+&lt;ul&gt;
+&lt;li&gt;$notify para mensaje de éxito/error.&lt;/li&gt;
+&lt;li&gt;El panel de administración es más fácil de usar.&lt;/li&gt;
+&lt;li&gt;Administrar menús (crear / eliminar / actualizar)&lt;/li&gt;
+&lt;li&gt;Selector de categoría de usuario para elementos de menús.&lt;/li&gt;
+&lt;li&gt;Mejora UX, también compatible para uso móvil.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="https://github.com/greenpress" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+Proyecto
+&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>

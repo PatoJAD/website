@@ -1,0 +1,844 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Patojad on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/patojad/</link><description>Recent content in Patojad on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 30 Dec 2025 09:31:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/patojad/index.xml" rel="self" type="application/rss+xml"/><item><title>Cómo Optimizar Linux en 2026: 3 Tweaks Avanzados para un Sistema Ultra-Rápido</title><link>https://patojad.com.ar/post/2025/12/c%C3%B3mo-optimizar-linux-en-2026-3-tweaks-avanzados-para-un-sistema-ultra-r%C3%A1pido/</link><pubDate>Tue, 30 Dec 2025 09:31:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/12/c%C3%B3mo-optimizar-linux-en-2026-3-tweaks-avanzados-para-un-sistema-ultra-r%C3%A1pido/</guid><description>&lt;p&gt;¿Sientes que tu Linux podría ir más fluido? Aunque las distros modernas vienen bien configuradas, el hardware de 2025 (NVMe, procesadores multi-núcleo y mucha RAM) permite ajustes finos que marcan la diferencia.&lt;/p&gt;
+&lt;p&gt;En esta guía rápida, veremos cómo optimizar la gestión de memoria y el disco con ejemplos prácticos.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="swappiness-controlando-el-uso-de-la-ram"&gt;
+Swappiness: Controlando el uso de la RAM
+&lt;a href="#swappiness-controlando-el-uso-de-la-ram" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El valor de swappiness define qué tan pronto el sistema empieza a mover datos de la RAM al disco (Swap). En 2025, con sistemas de 16GB o 32GB de RAM, no queremos que el sistema use el disco innecesariamente.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;El Tweak:&lt;/strong&gt; Cambiar el valor por defecto (60) a algo más agresivo para mantener los datos en RAM (10).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Comando:&lt;/strong&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Bash" data-lang="Bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo sysctl -w vm.swappiness&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(Para hacerlo permanente, edita &lt;code&gt;/etc/sysctl.conf&lt;/code&gt;).&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="zram-swap-en-esteroides"&gt;
+zram: Swap en esteroides
+&lt;a href="#zram-swap-en-esteroides" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En lugar de usar una partición lenta en el disco, zram crea un dispositivo de intercambio comprimido en tu propia RAM. Es mucho más rápido y evita el desgaste de tu SSD.&lt;/p&gt;
+&lt;p&gt;Por qué usarlo: Comprime los datos en RAM antes de enviarlos a la Swap física.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="instalación-ubuntufedoraarch"&gt;
+Instalación (Ubuntu/Fedora/Arch):
+&lt;a href="#instalaci%c3%b3n-ubuntufedoraarch" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Bash" data-lang="Bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install zram-config &lt;span class="c1"&gt;# Ubuntu/Debian&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf install zram-generator &lt;span class="c1"&gt;# Fedora&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S zram-generator &lt;span class="c1"&gt;# Arch/Manjaro&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-amber-500 text-3xl my-6" id="io-scheduler-optimizando-el-disco"&gt;
+I/O Scheduler: Optimizando el disco
+&lt;a href="#io-scheduler-optimizando-el-disco" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si usas un SSD o NVMe, los planificadores antiguos como cfq solo estorban. Para discos modernos, buscamos &lt;strong&gt;none&lt;/strong&gt; o &lt;strong&gt;mq-deadline&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ver tu scheduler actual:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Bash" data-lang="Bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cat /sys/block/sdX/queue/scheduler
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;(Reemplaza sdX por tu disco, ej: nvme0n1).&lt;/li&gt;
+&lt;li&gt;Cambiarlo temporalmente:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Bash" data-lang="Bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; none &lt;span class="p"&gt;|&lt;/span&gt; sudo tee /sys/block/sdX/queue/scheduler
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(Para hacerlo permanente, crea una regla udev o edita el archivo de configuración del kernel&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="cómo-medir-el-éxito-benchmarks"&gt;
+¿Cómo medir el éxito? (Benchmarks)
+&lt;a href="#c%c3%b3mo-medir-el-%c3%a9xito-benchmarks" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;No confíes solo en tu sensación. Usa &lt;code&gt;systemd-analyze&lt;/code&gt; para medir el tiempo de arranque o realiza una compilación de código pesada antes y después de los cambios. La diferencia en la respuesta de la interfaz bajo carga será tu mejor métrica.&lt;/p&gt;</description></item><item><title>Introducción a la Arquitectura de Software: La Guía Esencial para Programadores</title><link>https://patojad.com.ar/post/2025/09/introducci%C3%B3n-a-la-arquitectura-de-software-la-gu%C3%ADa-esencial-para-programadores/</link><pubDate>Mon, 08 Sep 2025 09:32:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/09/introducci%C3%B3n-a-la-arquitectura-de-software-la-gu%C3%ADa-esencial-para-programadores/</guid><description>&lt;p&gt;¡Hola a todos, futuros arquitectos de software! 👋 Si ya dominas la programación y te sientes cómodo escribiendo código, es momento de subir al siguiente nivel. El siguiente paso en la evolución de un programador es empezar a pensar en el &amp;ldquo;panorama general&amp;rdquo; del software, y ahí es donde entra en juego la &lt;strong&gt;Arquitectura de Software&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Este artículo es el complemento perfecto de nuestro video &lt;strong&gt;&amp;ldquo;Qué es la ARQUITECTURA de Software: Guía COMPLETA para Programadores (¡Y por qué deberías aprenderla!)&amp;rdquo;&lt;/strong&gt;. Aquí profundizaremos en este rol crucial, sus principios fundamentales y te daré un mini-roadmap para empezar a pensar como un arquitecto.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-la-arquitectura-de-software-la-analogía-de-la-casa"&gt;
+¿Qué es la Arquitectura de Software? La Analogía de la Casa
+&lt;a href="#qu%c3%a9-es-la-arquitectura-de-software-la-analog%c3%ada-de-la-casa" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Imagina que quieres construir una casa.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Un &lt;strong&gt;programador&lt;/strong&gt; es como un constructor especializado: es un experto en colocar ladrillos, instalar la electricidad o el sistema de cañerías. Su enfoque es la implementación perfecta de una parte del proyecto.&lt;/li&gt;
+&lt;li&gt;Un &lt;strong&gt;Arquitecto de Software&lt;/strong&gt; es el arquitecto del edificio. Su trabajo es diseñar los planos generales, decidir la estructura, la cantidad de pisos, los cimientos, dónde irán los soportes principales y cómo se integrarán todos los sistemas.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;La &lt;strong&gt;Arquitectura de Software&lt;/strong&gt; es el conjunto de decisiones estructurales que definen un sistema, incluyendo sus componentes, sus relaciones, y las reglas que gobiernan su diseño y evolución. Es la &lt;strong&gt;columna vertebral&lt;/strong&gt; de cualquier proyecto, y una buena arquitectura es la diferencia entre un software que prospera y uno que se vuelve un desastre.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="programador-vs-arquitecto-de-software-roles-y-responsabilidades"&gt;
+Programador vs. Arquitecto de Software: Roles y Responsabilidades
+&lt;a href="#programador-vs-arquitecto-de-software-roles-y-responsabilidades" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Aunque ambos roles son fundamentales para el desarrollo, sus responsabilidades son distintas:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Rol&lt;/th&gt;
+&lt;th&gt;Enfoque Principal&lt;/th&gt;
+&lt;th&gt;Pregunta Clave&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Programador&lt;/td&gt;
+&lt;td&gt;Implementación, código, algoritmos.&lt;/td&gt;
+&lt;td&gt;&amp;ldquo;¿Cómo resuelvo este problema específico con código?&amp;rdquo;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Arquitecto&lt;/td&gt;
+&lt;td&gt;Estructura, diseño, patrones, escalabilidad.&lt;/td&gt;
+&lt;td&gt;&amp;ldquo;¿Por qué y cómo este diseño permitirá que el sistema crezca y se mantenga?&amp;rdquo;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;El programador se enfoca en la calidad del código a nivel de función o componente, mientras que el arquitecto se preocupa por la calidad a nivel de todo el sistema. Un arquitecto debe tener una sólida base de programación, pero también una visión a largo plazo para prever problemas futuros.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="principios-fundamentales-de-la-arquitectura-de-software"&gt;
+Principios Fundamentales de la Arquitectura de Software
+&lt;a href="#principios-fundamentales-de-la-arquitectura-de-software" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Un buen diseño arquitectónico no es solo un conjunto de decisiones técnicas; debe cumplir con ciertas &amp;ldquo;cualidades&amp;rdquo; clave para que el software sea robusto. Estos son los principios más importantes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Escalabilidad:&lt;/strong&gt; La capacidad del sistema de manejar un crecimiento de usuarios, transacciones o datos sin comprometer el rendimiento.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mantenibilidad:&lt;/strong&gt; La facilidad con la que el software puede ser entendido, modificado y depurado por el equipo de desarrollo.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Fiabilidad:&lt;/strong&gt; La capacidad del sistema para funcionar de forma consistente y sin fallos, incluso bajo condiciones adversas.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Seguridad:&lt;/strong&gt; La protección del sistema contra amenazas, vulnerabilidades y accesos no autorizados.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Rendimiento:&lt;/strong&gt; La rapidez y eficiencia con la que el sistema procesa las tareas y usa los recursos computacionales.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="patrones-arquitectónicos-monolítico-vs-microservicios"&gt;
+Patrones Arquitectónicos: Monolítico vs. Microservicios
+&lt;a href="#patrones-arquitect%c3%b3nicos-monol%c3%adtico-vs-microservicios" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Estos son dos de los patrones más comunes y opuestos que un arquitecto debe entender:&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="arquitectura-monolítica"&gt;
+Arquitectura Monolítica
+&lt;a href="#arquitectura-monol%c3%adtica" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;En este modelo, todo el software (la interfaz de usuario, la lógica de negocio, el acceso a datos) se empaqueta en una única y gran aplicación.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Ventajas:&lt;/strong&gt; Fácil de empezar a desarrollar y de desplegar. Todo está en un solo lugar.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Desventajas:&lt;/strong&gt; A medida que el proyecto crece, se vuelve muy complejo, difícil de escalar (tienes que escalar todo el sistema, incluso si solo una parte necesita más potencia) y un fallo en un componente puede tumbar toda la aplicación.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="arquitectura-de-microservicios"&gt;
+Arquitectura de Microservicios
+&lt;a href="#arquitectura-de-microservicios" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;En este modelo, el sistema se divide en pequeños servicios independientes, cada uno con una función específica, que se comunican entre sí.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Ventajas:&lt;/strong&gt; Cada servicio se puede desarrollar, desplegar y escalar de forma independiente. Si un servicio falla, los demás pueden seguir funcionando. Los equipos pueden trabajar en paralelo.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Desventajas:&lt;/strong&gt; Mucho más complejo de gestionar. Requiere una buena coordinación y sistemas para la comunicación entre servicios.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="el-camino-para-convertirte-en-un-arquitecto-de-software"&gt;
+El Camino para Convertirte en un Arquitecto de Software
+&lt;a href="#el-camino-para-convertirte-en-un-arquitecto-de-software" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si este rol te parece atractivo, aquí tienes un mini-roadmap para empezar a desarrollar una mentalidad de arquitecto:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Domina la Programación:&lt;/strong&gt; No puedes diseñar si no entiendes los cimientos. Sé un experto en tu lenguaje principal y domina los principios SOLID.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Aprende Patrones de Diseño:&lt;/strong&gt; Estudiá los patrones de diseño de software (los del &amp;ldquo;Gang of Four&amp;rdquo; son un buen punto de partida). Estos son las soluciones probadas a problemas comunes de diseño.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Entiende los Sistemas Distribuidos:&lt;/strong&gt; Familiarízate con la arquitectura cliente-servidor, las API REST, los conceptos de microservicios y las herramientas como Docker y Kubernetes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Desarrolla Habilidades Blandas:&lt;/strong&gt; Un arquitecto no solo codifica. Debe ser un líder, un comunicador y un solucionador de problemas. Aprende a explicar decisiones técnicas de manera clara a otros miembros del equipo y a stakeholders no técnicos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusión-el-rol-crucial-para-el-futuro-del-software"&gt;
+Conclusión: El Rol Crucial para el Futuro del Software
+&lt;a href="#conclusi%c3%b3n-el-rol-crucial-para-el-futuro-del-software" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La arquitectura de software es el arte de planificar y diseñar sistemas robustos y escalables. Es un paso natural en la carrera de cualquier programador que aspire a crecer y a tener un impacto significativo en proyectos a gran escala.&lt;/p&gt;
+&lt;p&gt;Esperamos que este video y artículo te inspiren a ir más allá del código y a empezar a pensar en el diseño global. Si te ha gustado, no olvides darle Me Gusta, suscribirte al canal de PatoJAD y compartir este contenido.&lt;/p&gt;
+&lt;p&gt;¡Déjanos un comentario con tus dudas o si te interesa que hablemos de algún patrón arquitectónico en particular!&lt;/p&gt;</description></item><item><title>Sitio Web de PatoJAD (Blog) en HugoCMS</title><link>https://patojad.com.ar/projects/patojad/</link><pubDate>Thu, 12 Dec 2024 00:00:00 -0500</pubDate><guid>https://patojad.com.ar/projects/patojad/</guid><description>&lt;p&gt;Este es el sitio web personal de PatoJAD, donde se publican articulos de tecnologia, programacion y otros temas. El sitio esta construido con HugoCMS y alojado en GitHub Pages.&lt;/p&gt;
+&lt;p&gt;Archivos de proyecto:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Sitio web del Proyecto
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/PatoJAD/website/" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+Repositorio en GitHub
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="diciembre-del-2024"&gt;
+Diciembre del 2024
+&lt;a href="#diciembre-del-2024" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En esta actualizacion del blog, se realizo un rebranding completo del sitio web, se cambio el logo, los colores y se mejoro la tipografia. Ademas, se mejoro la velocidad de carga del sitio. Este cambio fue realizado para mejorar la experiencia de usuario dando una interfaz mas limpia y moderna. Ademas se modifica el entorno del sitio web para ser mas enfocado en PatoJAD, su contenido y sus servicios.&lt;/p&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/d3X3yPTS/patojad.png" alt="PatoJAD" title="PatoJAD" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;El sitio cuenta con:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Seccion de Blog&lt;/li&gt;
+&lt;li&gt;Seccion Proyectos&lt;/li&gt;
+&lt;li&gt;Agrupacion por categorias&lt;/li&gt;
+&lt;li&gt;RSS&lt;/li&gt;
+&lt;li&gt;Selector de tema oscuro y claro&lt;/li&gt;
+&lt;li&gt;Buscador de articulos&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="noviembre-del-2021"&gt;
+Noviembre del 2021
+&lt;a href="#noviembre-del-2021" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Se modifica el sitio para dar una imagen mas profesional. Se agregan mas secciones como la de contacto. Se mejoran las transiciones y se agrega un menu de navegacion. Se mejora la tipografia y se cambia el color de fondo. Se agrega un logo personalizado.&lt;/p&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/vmqtNDR1/patojad-noviembre-2021.png" alt="PatoJAD" title="PatoJAD" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;El sitio cuenta con:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Seccion de Blog&lt;/li&gt;
+&lt;li&gt;Agrupacion por categorias&lt;/li&gt;
+&lt;li&gt;Seccion Autores&lt;/li&gt;
+&lt;li&gt;RSS&lt;/li&gt;
+&lt;li&gt;Contacto&lt;/li&gt;
+&lt;li&gt;Selector de tema oscuro y claro&lt;/li&gt;
+&lt;li&gt;Buscador de articulos&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="julio-2021"&gt;
+Julio 2021
+&lt;a href="#julio-2021" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Se crea nuevo theme usando tendencias modernas de diseño web. Se agrega soporte para dark mode y se mejora la tipografia. Se agrega soporte para comentarios en los articulos. Se mejora la velocidad de carga del sitio.&lt;/p&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/cH74JtsC/patojad-julio-2021.png" alt="PatoJAD" title="PatoJAD" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;El sitio cuenta con:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Seccion de Blog&lt;/li&gt;
+&lt;li&gt;Agrupacion por categorias&lt;/li&gt;
+&lt;li&gt;Seccion Autores&lt;/li&gt;
+&lt;li&gt;RSS&lt;/li&gt;
+&lt;li&gt;Contacto (solo informativo)&lt;/li&gt;
+&lt;li&gt;Selector de tema oscuro y claro&lt;/li&gt;
+&lt;li&gt;Buscador de articulos&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="enero-2020"&gt;
+Enero 2020
+&lt;a href="#enero-2020" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Se crea el sitio web con &lt;strong&gt;HugoCMS&lt;/strong&gt; y se publica en &lt;strong&gt;GitHub Pages&lt;/strong&gt;. Se publican los primeros articulos del blog. Se crea el logo del sitio web.&lt;/p&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/DZ73BjTf/patojad-enero-2020.png" alt="PatoJAD" title="PatoJAD" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;El sitio cuenta con:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Seccion de Blog&lt;/li&gt;
+&lt;li&gt;Agrupacion por categorias&lt;/li&gt;
+&lt;li&gt;Seccion Autores&lt;/li&gt;
+&lt;li&gt;RSS&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Mi terminal ZSH + PowerLevel10K</title><link>https://patojad.com.ar/post/2023/10/mi-terminal-zsh--powerlevel10k/</link><pubDate>Thu, 12 Oct 2023 12:22:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/10/mi-terminal-zsh--powerlevel10k/</guid><description>&lt;p&gt;Muchos me preguntaron sobre mi terminal en videos anteriores, en esta oportunidad quiero explicar como llegar a tener una terminal como la que uso yo, y específicamente, porque tener una terminal así.&lt;/p&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/performance.gif" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Dentro de mi profesión como developer es importante la velocidad y simplicidad de tareas cotidianas y una de esas es el uso de la terminal, la terminal la uso todo el dia y para prácticamente todo, por lo cual requiero una terminal que pueda personalizar para que se acomode y obviamente me simplifique todo lo que pueda…&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/DvcA_iFov54?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="zsh-un-shell-diferente"&gt;
+ZSH un shell diferente
+&lt;a href="#zsh-un-shell-diferente" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;ZSH (Z shell) es una terminal (o mejor dicho shell) para uso interactivo que nos permitirá ser más eficientes cuando estemos delante de la consola. Esta Shell nos permite interpretar, además de comandos, scripts lo cual puede volverse extremadamente útil. Y entre sus ventajas podemos enumerar:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Eficiencia&lt;/li&gt;
+&lt;li&gt;Completado de tabulador mejorado (para los que usamos tab con frecuencia esto es lo que mas me enamoro)&lt;/li&gt;
+&lt;li&gt;Expansión de nombres de fichero mejorada&lt;/li&gt;
+&lt;li&gt;Manejo de arrays mejorado&lt;/li&gt;
+&lt;li&gt;Totalmente personalizable (a los fanáticos de la belleza esto les va a encantar)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;La instalación es muy simple porque viene en los repositorios de la mayoría de las distros de linux. Lo cual nos permite hacerlo de una manera muy simple:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# debian/ubuntu&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install zsh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# archlinux&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S zsh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Si queremos definir este shell como shell por defecto (de esta forma al abrir la terminal iniciará este shell y no bash que suele ser el shell por defecto de la mayoría de las distros) ejecutamos el siguiente comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;chsh -s &lt;span class="sb"&gt;`&lt;/span&gt;which zsh&lt;span class="sb"&gt;`&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Sin embargo por sí solo puede ser un poco engorroso de configurar y puede llevarnos demasiado tiempo, pero como vivimos en el mundo del Software Libre y de la gente que no se queda quieta, podemos encontrar unas &lt;strong&gt;vitaminas&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="oh-my-zsh-al-rescate"&gt;
+Oh My ZSH al rescate
+&lt;a href="#oh-my-zsh-al-rescate" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.ivaylopavlov.com/wp-content/uploads/2017/04/Screenshot-2017-04-30-00.43.48.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Es un framework desarrollado por la comunidad para gestionar la configuración de ZSH. El cual viene a simplificar la tarea personalizar y añadir plugins y configurarlo a gusto, esto puede llegar a ser realmente muy útil y por supuesto simple de instalar, para iniciar debemos instalar sus dependencias:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# debian/ubuntu&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install git-core curl
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# archlinux&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S git curl
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;y a continuación instalamos directamente desde su git.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sh -c &lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;De esta forma se instalará este “aditivo” que permitirá configurarlo a nuestro gusto!&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="powerlevel-10k"&gt;
+PowerLevel 10k
+&lt;a href="#powerlevel-10k" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/prompt-styles-high-contrast.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Esto ya es 100% decicion mia, es un theme que me gusto y que suma un valor agregado con datos que muchas veces pueden ser interesantes que pueden leer en su documentación dentro de los cuales puedo resaltar:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tiempo de ejecución de script&lt;/li&gt;
+&lt;li&gt;Status de git&lt;/li&gt;
+&lt;li&gt;hora de comando&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Para instalarlos voy a indicar el paso a paso, no es obligatorio seguirlo así dado que algunos pasos son opcionales pero la verdad recomiendo hacerlo así para obtener una buena integración y performance… Iniciamos instalando las siguientes fonts y poniendo en nuestra terminal la font por defecto &lt;em&gt;Meslo Nerd Font&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+MesloLGS NF Regular
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+MesloLGS NF Bold
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+MesloLGS NF Italic
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+MesloLGS NF Bold Italic
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Luego desde la terminal descargamos el theme de PowerLevel10k desde su repositorio oficial:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git clone --depth&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; https://github.com/romkatv/powerlevel10k.git &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;ZSH_CUSTOM&lt;/span&gt;&lt;span class="k"&gt;:-&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;&lt;span class="p"&gt;/.oh-my-zsh/custom&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;/themes/powerlevel10k
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Por último queda modificar el archivo de configuracion para que inicie este theme, para hacerlo en este caso lo explicare con nano pero pueden usar el editor que quieran:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;nano ~/.zshrc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;ahi buscamos la linea que tenga lo siguiente&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cfg" data-lang="cfg"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;ZSH_THEME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;...&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Donde los puntos suspensivos &lt;em&gt;(&amp;hellip;)&lt;/em&gt; son cualquier texto. y lo remplazamos por la siguiente linea&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cfg" data-lang="cfg"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;ZSH_THEME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;powerlevel10k/powerlevel10k&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Ahora reiniciamos la terminal y nos abrira una configuracion paso a paso donde vamos a ir eligiendo entre ejemplos como se vera la terminal, las primeras preguntas son si vemos los iconos y luego nos mostrará opciones (casi siempre del 1 al 4) donde iremos estableciendo la visualización…&lt;/p&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/configuration-wizard.gif" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;En el caso de que no nos guste como quedo o queramos cambiarlo siempre se puede ejecutar el comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;p10k configure
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Que permitirá reconfigurar el theme nuevamente para dejarlo a nuestro gusto&amp;hellip; No te olvides de comentarnos que te parece y dejarnos la foto de tu terminal recien configurada! Te esperamos en Telegram&lt;/p&gt;</description></item><item><title>MacOS ¿Se parece mas a GNU/Linux o a Windows?</title><link>https://patojad.com.ar/post/2022/06/macos-se-parece-mas-a-gnu/linux-o-a-windows/</link><pubDate>Tue, 07 Jun 2022 10:41:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/06/macos-se-parece-mas-a-gnu/linux-o-a-windows/</guid><description>&lt;p&gt;Ya hace tiempo, me es más difícil crear contenido, a medida que aumentan las responsabilidades es mucho más difícil hacerse un tiempo para poder escribir o grabar. Sin embargo sigo con este método de tomar preguntas de diferentes lugares y responder o tomarla como disparador para hablar de algún tema. En este caso la pregunta es la siguiente:&lt;/p&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/pL5xYCPM/Screenshot-20220504-202955-Facebook-1.jpg" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="vídeo"&gt;
+Vídeo
+&lt;a href="#v%c3%addeo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Sin embargo la respuesta puede llegar a ser un poco… “simple” por lo cual no solo muestro un poco como funciona el sistema de instalación y los paquetes en MacOS pero también aprovechamos para hablar de algunos temas interesantes para el mundo de linux.&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/K5UM_BoszTE?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-info fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;Gracias por estar acá, si no es molestia te pido un ultimo favor mas, podrias unirte a la comunidad de telegram o apoyarme suscribiendote a youtube o a Odysee, es completamente gratis y vale muchisimo.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="appimage-vs-flatpack-vs-snap"&gt;
+AppImage vs Flatpack vs Snap
+&lt;a href="#appimage-vs-flatpack-vs-snap" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si bien esto se merece su propia publicación y probablemente lo tenga, de momento voy a dejar una lista con la comparación sobre estas 3 “tecnologías”&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;Característica&lt;/th&gt;
+&lt;th style="text-align: center"&gt;AppImage&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Snap&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Flatpak&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Aplicaciones de escritorio&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Herramientas de terminal&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Servicios&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;No&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Aplicación correcta de temas&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;No&lt;/td&gt;
+&lt;td style="text-align: center"&gt;No&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Librerías y dependencias&lt;/td&gt;
+&lt;td style="text-align: center"&gt;En la propia imagen&lt;/td&gt;
+&lt;td style="text-align: center"&gt;En la propia imagen o con complementos&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Uso de runtimes de las librerías principales&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Soporte&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Ninguno&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Canonical&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Red Hat y otros&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Sin confinamiento&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;No&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Puede utilizar diferentes confinamientos&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;No (solo AppArmor)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;No (solo Bubblewrap)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Ejecutable&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;No . Necesita instalación&lt;/td&gt;
+&lt;td style="text-align: center"&gt;No . Necesita instalación&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Sin root&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;No. Necesita root para instalar.&lt;/td&gt;
+&lt;td style="text-align: center"&gt;No. Necesita root para instalar.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Ejecutable desde comprimido&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;No&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Repositorio central&lt;/td&gt;
+&lt;td style="text-align: center"&gt;AppImageHub&lt;/td&gt;
+&lt;td style="text-align: center"&gt;SnapCraft&lt;/td&gt;
+&lt;td style="text-align: center"&gt;FlatHub&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Necesita repositorio&lt;/td&gt;
+&lt;td style="text-align: center"&gt;No&lt;/td&gt;
+&lt;td style="text-align: center"&gt;No&lt;/td&gt;
+&lt;td style="text-align: center"&gt;No&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Repositorios individuales&lt;/td&gt;
+&lt;td style="text-align: center"&gt;No&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Multiples versiones en paralelo&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Mecanismo de actualización&lt;/td&gt;
+&lt;td style="text-align: center"&gt;AppImageUpdate&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Repositorio&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Repositorio&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Actualizaciones incrementales&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Autoactualizaciones&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;No&lt;/td&gt;
+&lt;td style="text-align: center"&gt;No&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Aplicación en disco comprimida&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;No&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;LibreOffice 6.0.0&lt;/td&gt;
+&lt;td style="text-align: center"&gt;200 MB&lt;/td&gt;
+&lt;td style="text-align: center"&gt;200 MB&lt;/td&gt;
+&lt;td style="text-align: center"&gt;659 MB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description></item><item><title>Configurar GitLab Pages con CloudFlare</title><link>https://patojad.com.ar/post/2019/11/configurar-gitlab-pages-con-cloudflare/</link><pubDate>Wed, 06 Nov 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/11/configurar-gitlab-pages-con-cloudflare/</guid><description>&lt;p&gt;Vamos a ver cómo realizar la configuración entre Cloudflare y Gitlab. Antes que nada, recomiendo leer porque elegimos &lt;a href="https://patojad.com.ar/post/2019/10/gitlab-pages/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Gitlab
+&lt;/a&gt; y Porque elegimos &lt;a href="https://patojad.com.ar/post/2019/10/cloudflare-que-es-ventajas-y-desventajas/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Cloudflare
+&lt;/a&gt;. Una vez visto esto vamos a explicar cómo hacer para que nuestro dominio alojado el CloudFlare previamente realizado aquí.&lt;/p&gt;
+&lt;p&gt;Una vez habilitado el dominio en Cloudflare procedemos a crear los certificados para poder generar los registros correctamente.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="certificado"&gt;
+Certificado
+&lt;a href="#certificado" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/59C3kM1T/cert.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Nos dirigimos a SSL/TLS ahí dentro vamos a Origin Server Y podemos crear el Certificado. Para esto debemos elegir los dominios a los cuales apelara ese Certificado y el tiempo de duración de los mismos.&lt;/p&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/yNxhmMvf/cert1.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Y esto nos generara las respectivas claves que utilizaremos para asegurar la conexión. Esto es lo que nos certifica la seguridad del servidor al que se envían.&lt;/p&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/zfQC0xQq/cert2.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;En donde se encuentran los cuadros blancos verán su respectivo certificado y clave los cuales debemos guardar para utilizarlos en GitLab&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="agregar-dominio-a-gitlab"&gt;
+Agregar Dominio a Gitlab
+&lt;a href="#agregar-dominio-a-gitlab" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Dentro de nuestro proyecto en gitlab, (entendiendo que ya se encuentran configurados los CI para habilitar la sección Paginas) Nos dirigimos a configuración y a la sección de páginas.&lt;/p&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/WzLMPhjK/glab.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Ahí seleccionamos nuevo Dominio y completamos los campos como vemos a continuación. Es importante recalcar que el dominio va sin http ni https y que no gestionamos los certificados automáticamente (Ya que lo hacemos por cloudflare manualmente)&lt;/p&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/Gmcx28Yn/glab1.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Como requiere todos los certificados no olvidemos poner el del servidor de cloudflare el cual les dejo a continuación&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;-----BEGIN CERTIFICATE-----
+MIIEADCCAuigAwIBAgIID+rOSdTGfGcwDQYJKoZIhvcNAQELBQAwgYsxCzAJBgNV
+BAYTAlVTMRkwFwYDVQQKExBDbG91ZEZsYXJlLCBJbmMuMTQwMgYDVQQLEytDbG91
+ZEZsYXJlIE9yaWdpbiBTU0wgQ2VydGlmaWNhdGUgQXV0aG9yaXR5MRYwFAYDVQQH
+Ew1TYW4gRnJhbmNpc2NvMRMwEQYDVQQIEwpDYWxpZm9ybmlhMB4XDTE5MDgyMzIx
+MDgwMFoXDTI5MDgxNTE3MDAwMFowgYsxCzAJBgNVBAYTAlVTMRkwFwYDVQQKExBD
+bG91ZEZsYXJlLCBJbmMuMTQwMgYDVQQLEytDbG91ZEZsYXJlIE9yaWdpbiBTU0wg
+Q2VydGlmaWNhdGUgQXV0aG9yaXR5MRYwFAYDVQQHEw1TYW4gRnJhbmNpc2NvMRMw
+EQYDVQQIEwpDYWxpZm9ybmlhMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+AQEAwEiVZ/UoQpHmFsHvk5isBxRehukP8DG9JhFev3WZtG76WoTthvLJFRKFCHXm
+V6Z5/66Z4S09mgsUuFwvJzMnE6Ej6yIsYNCb9r9QORa8BdhrkNn6kdTly3mdnykb
+OomnwbUfLlExVgNdlP0XoRoeMwbQ4598foiHblO2B/LKuNfJzAMfS7oZe34b+vLB
+yrP/1bgCSLdc1AxQc1AC0EsQQhgcyTJNgnG4va1c7ogPlwKyhbDyZ4e59N5lbYPJ
+SmXI/cAe3jXj1FBLJZkwnoDKe0v13xeF+nF32smSH0qB7aJX2tBMW4TWtFPmzs5I
+lwrFSySWAdwYdgxw180yKU0dvwIDAQABo2YwZDAOBgNVHQ8BAf8EBAMCAQYwEgYD
+VR0TAQH/BAgwBgEB/wIBAjAdBgNVHQ4EFgQUJOhTV118NECHqeuU27rhFnj8KaQw
+HwYDVR0jBBgwFoAUJOhTV118NECHqeuU27rhFnj8KaQwDQYJKoZIhvcNAQELBQAD
+ggEBAHwOf9Ur1l0Ar5vFE6PNrZWrDfQIMyEfdgSKofCdTckbqXNTiXdgbHs+TWoQ
+wAB0pfJDAHJDXOTCWRyTeXOseeOi5Btj5CnEuw3P0oXqdqevM1/+uWp0CM35zgZ8
+VD4aITxity0djzE6Qnx3Syzz+ZkoBgTnNum7d9A66/V636x4vTeqbZFBr9erJzgz
+hhurjcoacvRNhnjtDRM0dPeiCJ50CP3wEYuvUzDHUaowOsnLCjQIkWbR7Ni6KEIk
+MOz2U0OBSif3FTkhCgZWQKOOLo1P42jHC3ssUZAtVNXrCk3fw9/E15k8NPkBazZ6
+0iykLhH1trywrKRMVw67F44IE8Y=
+-----END CERTIFICATE-----
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/3NX2rYxw/glab3.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Una vez finalizado esto vamos a ver lo siguiente lo cual nos da el registro txt que debemos agregar a nuestro cloudflare para completar con éxito la redirección.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="dns"&gt;
+DNS
+&lt;a href="#dns" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/28dxrF1x/dns.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Por ultimo debemos configurar los DNS para concretar la redirección. Esto debemos hacerlo desde Clodflare en la sección DNS&lt;/p&gt;
+&lt;p&gt;Y debemos completar primero la IP hacían donde va mirar nuestro dominio, en este caso estoy configurando &lt;a href="https://patojad.com.ar/" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+https://patojad.com.ar/
+&lt;/a&gt; lo cual seria mi dominio principal por lo cual el name del registro seria @ haciendo referencia a root. En caso de querer configurar un subdominio (por ejemplo &lt;a href="https://compartelibre.patojad.com.ar" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://compartelibre.patojad.com.ar
+&lt;/a&gt;) debemos poner solo el subdominio ej compartelibre.&lt;/p&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/rF29BYwm/dns1.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Una vez agregada la IP debemos agregar el registro TXT que nos dio gitlab.&lt;/p&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/dV4mTsmk/dns2.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Una vez agregado solo debemos volver a gitlab y verificarlo, si realizamos todo correctamente vamos a ver la siguiente pantalla. (ATENCION es posible que desde que agregue los registros pasen minutos hasta que la verificación se concluya.)&lt;/p&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/ZRyrgrkp/glab4.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Cuando concluimos con esto en pocas horas la redirección será exitosa.&lt;/p&gt;</description></item><item><title>La comunidad Opina: Publicidad</title><link>https://patojad.com.ar/post/2019/08/la-comunidad-opina-publicidad/</link><pubDate>Mon, 19 Aug 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/08/la-comunidad-opina-publicidad/</guid><description>&lt;p&gt;Esta es la primera publicación (Aunque debo recalcar que en el pasado muchas debieron estar acá) que inaugura esta sección. Como un sitio comunitario nos vamos adaptando a la comunidad y creemos que nuestros debates (en este caso en nuestro grupo de &lt;a href="https://t.me/PatoJADCommunity" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fab fa-telegram"&gt;&lt;/i&gt;&amp;nbsp;
+Telegram
+&lt;/a&gt;) pueden colaborar con los lectores que no pertenezcan a este grupo.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="bloqueador-de-publicidad"&gt;
+Bloqueador de publicidad
+&lt;a href="#bloqueador-de-publicidad" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El debate en la comunidad se debió a un usuario realizando una consulta debido a que en este mismo blog apareció contenido para adultos (publicidad que ya removí e incluso realicé un reclamo).&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Pato, me salió publicidad para adultos en tu página jajaja&lt;/p&gt;
+&lt;p style="text-align: right;"&gt;
+Marcelino
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;¿No tienes un bloqueador de anuncios? yo uso ublock&lt;/p&gt;
+&lt;p style="text-align: right;"&gt;
+🇻🇪 Alejandro F 🇻🇪
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Yo también uso ese bloqueador&lt;/p&gt;
+&lt;p style="text-align: right;"&gt;
+José Luis G.
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Aún no me ha pasado lo de las páginas +18&lt;/p&gt;
+&lt;p style="text-align: right;"&gt;
+🇻🇪 Alejandro F 🇻🇪
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Si entras con el ublock no sale, pero sin ublock si salen&lt;/p&gt;
+&lt;p style="text-align: right;"&gt;
+José Luis G.
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Si, por eso pregunté. ¡Es que si no tienes una mínima protección te pillan anuncios fastidiosos!&lt;/p&gt;
+&lt;p style="text-align: right;"&gt;
+🇻🇪 Alejandro F 🇻🇪
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Pues sí, muchas webs tienen anuncios bastaste molestos&lt;/p&gt;
+&lt;p style="text-align: right;"&gt;
+José Luis G.
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;Hasta este momento el debate fluia con una única ideología: “mantener las publicidades al margen de nuestra vida” Sin embargo hace tiempo que personalmente le di un uso diferete a los bloqueadores, y quise compartir mi punto de vista con el grupo.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;En algunos casos las Webs se sustentan con publicidad (ej mi blog) yo procuro que la publicidad no impida disfrutar del sitio, pero espero con esa publicidad conseguir un mejor host y un dominio que me permita ofrecer más cosas que solo un blog para los usuarios&lt;/p&gt;
+&lt;p style="text-align: right;"&gt;
+PatoJAD
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;(Si bien parece que solo defiendo mi blog mi idea era procurar la idea de que los sitios necesitan que estén ahí, en algunos casos)&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;En búsqueda del equilibrio. ¡Equilibrio de la fuerza! 😁&lt;/p&gt;
+&lt;p style="text-align: right;"&gt;
+🇻🇪 Alejandro F 🇻🇪
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;En tu punto de vista, ¿las propagandas de PatoJAD son invasivas?&lt;/p&gt;
+&lt;p style="text-align: right;"&gt;
+PatoJAD
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;No me he percatado. Suelo navegar siempre con bloqueador de anuncios. Son recursos necesarios para manutención del hospedaje (me refiero a webmaster hacer uso de publicidad). Pero hay sitios en los que son exageradamente persistentes.&lt;/p&gt;
+&lt;p style="text-align: right;"&gt;
+🇻🇪 Alejandro F 🇻🇪
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Coincido con eso, me molesta lo que es abuso&lt;/p&gt;
+&lt;p style="text-align: right;"&gt;
+PatoJAD
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hay paginas como por ejemplo &amp;ldquo;Así se ven los famosos despues de 100 años 😱&amp;rdquo; y son de dar &amp;ldquo;siguiente, siguiente&amp;rdquo; y mucha publicidad.&lt;/p&gt;
+&lt;p style="text-align: right;"&gt;
+Marcelino
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Son embargo en blogs que recurrimos siempre o páginas que solemos visitar (sea cual sea) creo que está bueno tener desbloqueado yo lo hago porque se lo que cuesta&lt;/p&gt;
+&lt;p style="text-align: right;"&gt;
+PatoJAD
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Sí, tengo excepciones mi amigo. ¡Como la tuya por ejemplo!&lt;/p&gt;
+&lt;p style="text-align: right;"&gt;
+🇻🇪 Alejandro F 🇻🇪
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;lt;3 Gracias!!!&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Yo procuro no entrar a esos tipos de sitios que tienen tanta publicidad y poca info, comprendo que es lo que cuesta tener un blog o &amp;ldquo;x&amp;rdquo; una de mis razones de no usar tanto bloqueador.&lt;/p&gt;
+&lt;p style="text-align: right;"&gt;
+Marcelino
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;A partir de este momento solo nos reímos con las publicidades que aparecían, no me había percatado de lo que aparecía dado que a mí solo me figuraban videojuegos (ando en la búsqueda de algún juego nuevo para mis entretiempos).&lt;/p&gt;
+&lt;p&gt;¿Qué opinas de las publicidades? ¿Las bloqueas en los sitios que lo merecen? Yo particularmente el desbloqueo de todos los sitios que dan buen contenido y/o comunidades en las que participo ¿Qué otras maneras deberían usar los blogs para sustentarse?&lt;/p&gt;</description></item><item><title>PatoJAD Rest Client</title><link>https://patojad.com.ar/post/2019/04/patojad-rest-client/</link><pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/04/patojad-rest-client/</guid><description>&lt;p&gt;¿Cuantas veces tenemos que testear una API? Y muchas veces lo hacemos desde equipos que no tienen los suficientes requisitos como para derrochar en una app solo para identificar un campo de respuesta.&lt;/p&gt;
+&lt;p&gt;Ante esta necesidad un tanto especifica me decidí a buscar una app que realicé esto por mí, y como pasa con todo lo Open Source comencé a realizar cambios. No solo el diseño de esta web es la novedad, me dedique a optimizar y traer algo cómodo lindo y bonito que se pueda usar tanto desde un dispositivo móvil o desde una pc o Tablet.&lt;/p&gt;
+&lt;p&gt;¿Qué te parece?&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://rest.patojad.com.ar/" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Ir a REST Client
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>¿Porqué nos importa la Libertad?</title><link>https://patojad.com.ar/post/2019/01/porqu%C3%A9-nos-importa-la-libertad/</link><pubDate>Tue, 15 Jan 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/01/porqu%C3%A9-nos-importa-la-libertad/</guid><description>&lt;p&gt;Buenas, hoy vamos a dejar un poco de lado a GNU/Linux y vamos a hablar de Libertad&amp;hellip; Para esto vamos a comprar un poco que nos sienta tan bien&amp;hellip;&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="nunca-dudaste"&gt;
+¿Nunca dudaste?
+&lt;a href="#nunca-dudaste" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;No te paso en algún momento de tu vida de dudar si la máquina para sacar peluches estaba trucada, o si el casino tambien estaba programado y no era simplemente azar (hablando de las máquinas digitales). Claramente si están programadas para dejar una ganancia, pero muchos no se dan cuenta de esto mismo. Sin embargo si todos pudiéramos ver como funciona, saberlo e incluso mejorarlo seria un poco mas justo y dejarían de robarnos&amp;hellip;&lt;/p&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://1.bp.blogspot.com/-9C3H_n_hPS4/XDzZ4gdHBuI/AAAAAAAAeuQ/d_MVcoqaf1ka2Afyzrkp2arSgDA5L6IPACLcBGAs/s320/duda_patojad.jpg" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="que-tiene-que-ver-esto-con-la-libertad"&gt;
+¿Que tiene que ver esto con la Libertad?
+&lt;a href="#que-tiene-que-ver-esto-con-la-libertad" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Bueno es muy simple, así como en el juego nos roban el dinero porque no tenemos la libertad de saber que pasa adentro en los sistemas informáticos nos pueden robar todo tipos de datos cuando no tenemos la libertad de saber que esta pasando adentro. Si bien a muchas personas no les interesa su privacidad es importante ser conscientes y como mínimo tener la potestad de elegir que hacer con nuestra privacidad&amp;hellip; Anteriormente hablamos de las libertades del software libre y vemos que esto abarca mucho mas que solo saber que pasa, habla de convertirnos en los actores principales de lo que usamos&amp;hellip; ¿Cuantas veces no te gustaba como funcionaba algo o estabas cansado de el mismo error? El software libre te da la libertad de poder corregir o brindar la informacion para que otros la solucionen&amp;hellip;&lt;/p&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/Qx15GcSy/duda-patojad.jpg" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="entonces-porqué-nos-interesa-la-libertad"&gt;
+Entonces&amp;hellip; ¿Porqué nos interesa la libertad?
+&lt;a href="#entonces-porqu%c3%a9-nos-interesa-la-libertad" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Básicamente, cuando decidimos usar Software Libre (algunas veces 100% libre y otras no) es porque queremos estar seguros de todo lo que pasa ahi dentro. No significa que veamos el código constantemente, pero sabemos el Software Libre suele tener una comunidad muy expectante de lo que sucede con ese programa y de alguna u otra forma nos protege&amp;hellip; Es como ir a un mecánico que no te puede mentir, imaginate cuanto nos ahorramos con eso&amp;hellip;
+Para ejercer nuestra libertad no existe solo GNU/Linux, tenemos muchas alternativas, incluso para los que están acostumbrados y enamorados de MS Windows pueden usar ReactOS.&lt;/p&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/9Q29WznF/software-libre-patojad.jpg" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="sobre-privacidad"&gt;
+Sobre Privacidad
+&lt;a href="#sobre-privacidad" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Cuando hablamos de privacidad nos encontramos con muchas respuestas que no valen la pena mencionar, sin embargo hay una respuesta que se merece que nos detengamos un segundo a pensar&amp;hellip;&lt;/p&gt;
+&lt;p&gt;Cual es el problema que sepan lo que hago si no tengo nada que esconder&lt;/p&gt;
+&lt;p&gt;Cada vez que alguien dice eso, esta cayendo en la simpleza de renunciar a un derecho solo porque cree que no lo necesita&amp;hellip; Imaginen que un político quite la libre expresión porque no tiene nada para decir&amp;hellip; Esto no funciona asi. Si uno quiere dar todos sus datos publicamente puede hacerlo, esta en su derecho. Sin embargo una empresa no puede tomar esa decisión por Uno y por mas que estemos de acuerdo en darle nuestros datos debería molestarnos, igual el hecho que no nos pregunte en ningún momento si queremos regalarle nuestra vida entera&amp;hellip;&lt;/p&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/d0tTypFb/privacidad-patojad.jpg" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;</description></item><item><title>RetroPie</title><link>https://patojad.com.ar/post/2018/12/retropie/</link><pubDate>Wed, 12 Dec 2018 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2018/12/retropie/</guid><description>&lt;p&gt;Muchos de nosotros crecimos con juegos de otra época, y tenemos cierta fidelidad a esos juegos. Soy de los que prefieren jugar al Pokemon Esmeralda al Pokemon GO. Y por suerte es algo que pude inculcar en mi familia. Siempre tenemos que volver a los orígenes.&lt;/p&gt;
+&lt;p&gt;En medio de esta &amp;ldquo;aventura&amp;rdquo; me encontre con el mundo feliz de &lt;em&gt;RetroPie&lt;/em&gt;, lo cual me permitió convertir mi PC en una consola retro para jugar con mi familia (con posibles peleas maritales ¡Luego de que te gana en el Street fighter!).&lt;/p&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/wBNvv4qp/Themes.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalación"&gt;
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Según &lt;em&gt;RetroPie&lt;/em&gt; deberías usar Ubuntu pero personalmente recomiendo Debian (si usas Arch tenes una alternativa genial con RetroArch) esta me dio menos problemas. Actualmente lo monte en un Raspberry y en Mi pc on Deepin.&lt;/p&gt;
+&lt;p&gt;Iniciamos actualizando nuestro sistema operativo (Es importante que nada te bloquee mas adelante ninguna instalación asi que recomiendo tener todo actualizado correctamente!)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-get update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo apt-get upgrade
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Vamos a instalar algunas dependencias necesarias para iniciar&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-get install -y git dialog unzip xmlstarlet
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Y ahora es donde uno agradece a la comunidad y al sistema Libre / OpenSource, la primera vez tuve dos horas buscando y compilando cosas para que quede todo ok, pero ahora hubo un loco que se dedicó a facilitarnos la vida y ¡Armo un script que soluciona todo con correrlo!. Por ende solo debemos descargar de su repositorio a dicho script:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git clone --depth&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; https://github.com/RetroPie/RetroPie-Setup.git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;¡ Y correrlo para que se instale todo!:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; RetroPie-Setup &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo ./retropie_setup.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Veremos una pantalla como esta:&lt;/p&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/XYdSBRCQ/c4e3da42-79c4-11e6-82a8-026afa67801b.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Eligiendo solo Basic Install tenemos todo para iniciar a jugar (el proceso puede demorar mucho dependiendo de velocidad de internet). Para saber mas les dejo la documentación correspondiente (en Inglés) lugar de donde saque la informacion.&lt;/p&gt;</description></item></channel></rss>

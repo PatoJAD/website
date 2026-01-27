@@ -1,0 +1,1582 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Archlinux on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/archlinux/</link><description>Recent content in Archlinux on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Fri, 25 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/archlinux/index.xml" rel="self" type="application/rss+xml"/><item><title>CachyOS vs Arch Linux: ¿Vale la pena su Kernel y Repositorios Optimizados?</title><link>https://patojad.com.ar/post/2025/04/cachyos-vs-arch-linux-vale-la-pena-su-kernel-y-repositorios-optimizados/</link><pubDate>Fri, 25 Apr 2025 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/04/cachyos-vs-arch-linux-vale-la-pena-su-kernel-y-repositorios-optimizados/</guid><description>&lt;p&gt;Si usas &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/02/qu%c3%a9-es-arch-linux-la-mejor-distribuci%c3%b3n-para-usuarios-avanzados/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Arch Linux
+&lt;/a&gt;&lt;/strong&gt;, sabes que su filosofía se basa en el &lt;strong&gt;control absoluto&lt;/strong&gt; y la simplicidad. Pero ¿qué pasa si quieres exprimir al máximo tu hardware sin perder horas en ajustes manuales? Ahí entra &lt;strong&gt;CachyOS&lt;/strong&gt;, una distribución basada en Arch que promete &lt;strong&gt;hasta un 30% más de rendimiento&lt;/strong&gt; gracias a su kernel y repositorios optimizados. En este artículo, exploraremos &lt;strong&gt;la ciencia detrás de sus mejoras&lt;/strong&gt; y si realmente vale la pena el cambio.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-el-kernel-de-cachyos-más-allá-de-los-parches"&gt;
+🔧 El Kernel de CachyOS: Más Allá de los Parches
+&lt;a href="#-el-kernel-de-cachyos-m%c3%a1s-all%c3%a1-de-los-parches" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="qué-lo-hace-diferente"&gt;
+¿Qué lo Hace Diferente?
+&lt;a href="#qu%c3%a9-lo-hace-diferente" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;El kernel de CachyOS (&lt;strong&gt;linux-cachyos&lt;/strong&gt;) no es solo una versión modificada del kernel genérico de &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/02/qu%c3%a9-es-arch-linux-la-mejor-distribuci%c3%b3n-para-usuarios-avanzados/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Arch Linux
+&lt;/a&gt;&lt;/strong&gt;. Incorpora tres optimizaciones clave:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;BORE Scheduler&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Problema que resuelve&lt;/strong&gt;: El scheduler por defecto de Linux (CFS) prioriza equidad (&lt;em&gt;fairness&lt;/em&gt;), lo que puede generar latencia en cargas explosivas (ej: juegos).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Solución&lt;/strong&gt;: BORE (&lt;strong&gt;B&lt;/strong&gt;urst &lt;strong&gt;O&lt;/strong&gt;riented &lt;strong&gt;R&lt;/strong&gt;esponsive &lt;strong&gt;E&lt;/strong&gt;nhancer) optimiza el &lt;em&gt;throughput&lt;/em&gt; y reduce la latencia, ideal para CPUs modernas.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Ejemplo práctico&lt;/em&gt;: En CS2, reduce el &lt;em&gt;input lag&lt;/em&gt; hasta en un 15%.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Compilación con -O3 y LTO&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;-O3&lt;/strong&gt;: Nivel máximo de optimización del compilador (GCC/Clang). Genera código más rápido, aunque con binarios más grandes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LTO (Link Time Optimization)&lt;/strong&gt;: Elimina código redundante durante el enlazado, mejorando el uso de la caché del CPU.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Beneficio&lt;/em&gt;: Aplicaciones como Blender o Firefox ven mejoras del 10-20%.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ajustes de Latencia&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Reduce &lt;em&gt;stuttering&lt;/em&gt; en audio/video mediante gestión optimizada de interrupciones (IRQs).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-repositorios-optimizados-la-magia-de-pgo-y--o3"&gt;
+📦 Repositorios Optimizados: La Magia de PGO y -O3
+&lt;a href="#-repositorios-optimizados-la-magia-de-pgo-y--o3" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="cómo-aceleran-los-paquetes"&gt;
+¿Cómo Aceleran los Paquetes?
+&lt;a href="#c%c3%b3mo-aceleran-los-paquetes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Mientras &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/02/qu%c3%a9-es-arch-linux-la-mejor-distribuci%c3%b3n-para-usuarios-avanzados/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Arch Linux
+&lt;/a&gt;&lt;/strong&gt; usa binarios compilados con &lt;strong&gt;-O2&lt;/strong&gt; (equilibrio entre velocidad y compatibilidad), CachyOS aplica:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Profile-Guided Optimization (PGO)&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Los paquetes se compilan &lt;strong&gt;dos veces&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Primero se ejecutan en escenarios reales (ej: LibreOffice procesando documentos).&lt;/li&gt;
+&lt;li&gt;Luego, el compilador usa esos datos para optimizar el código.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Resultado&lt;/em&gt;: Hasta un 30% más rápido en tareas repetitivas.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Optimizaciones Específicas para CPU&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Binarios con soporte para &lt;strong&gt;AVX2&lt;/strong&gt; (en CPUs modernas de Intel/AMD).&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Ventaja&lt;/em&gt;: Mejor rendimiento en aplicaciones que usan instrucciones vectorizadas (ej: HandBrake, FFmpeg).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Compilación con -O3 y LTO&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;-O3&lt;/strong&gt;: Nivel máximo de optimización del compilador (GCC/Clang). Genera código más rápido, aunque con binarios más grandes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LTO (Link Time Optimization)&lt;/strong&gt;: Elimina código redundante durante el enlazado, mejorando el uso de la caché del CPU.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Beneficio&lt;/em&gt;: Aplicaciones como Blender o Firefox ven mejoras del 10-20%.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="comparativa-con-aur"&gt;
+Comparativa con AUR
+&lt;a href="#comparativa-con-aur" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Característica&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;CachyOS&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;AUR (makepkg)&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Optimización&lt;/td&gt;
+&lt;td&gt;-O3 + LTO + PGO&lt;/td&gt;
+&lt;td&gt;Depende del usuario&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Tiempo de compilación&lt;/td&gt;
+&lt;td&gt;Cero (binarios prehechos)&lt;/td&gt;
+&lt;td&gt;Horas en paquetes grandes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Compatibilidad&lt;/td&gt;
+&lt;td&gt;Hardware moderno&lt;/td&gt;
+&lt;td&gt;Cualquier hardware&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-deberías-usar-cachyos-pros-y-contras"&gt;
+❓ ¿Deberías Usar CachyOS? Pros y Contras
+&lt;a href="#-deber%c3%adas-usar-cachyos-pros-y-contras" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="-casos-ideales"&gt;
+✅ Casos Ideales
+&lt;a href="#-casos-ideales" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Gamers&lt;/strong&gt;: Menos &lt;em&gt;input lag&lt;/em&gt; gracias a BORE.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Editores de video/audio&lt;/strong&gt;: Renderizado más rápido con PGO.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hardware moderno&lt;/strong&gt;: CPUs con AVX2, NVMe, ≥16GB RAM.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="-cuándo-evitarlo"&gt;
+❌ Cuándo Evitarlo
+&lt;a href="#-cu%c3%a1ndo-evitarlo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Hardware antiguo&lt;/strong&gt;: Las optimizaciones pueden ser contraproducentes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Servidores críticos&lt;/strong&gt;: Menos testing que &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/02/qu%c3%a9-es-arch-linux-la-mejor-distribuci%c3%b3n-para-usuarios-avanzados/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Arch Linux
+&lt;/a&gt;&lt;/strong&gt; estable.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="-alternativa-híbrida"&gt;
+🔄 Alternativa Híbrida
+&lt;a href="#-alternativa-h%c3%adbrida" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Instala solo el kernel de CachyOS en &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/02/qu%c3%a9-es-arch-linux-la-mejor-distribuci%c3%b3n-para-usuarios-avanzados/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Arch Linux
+&lt;/a&gt;&lt;/strong&gt; vanilla (disponible en AUR como &lt;code&gt;linux-cachyos&lt;/code&gt;). O instala sus repositorios en &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/02/qu%c3%a9-es-arch-linux-la-mejor-distribuci%c3%b3n-para-usuarios-avanzados/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Arch Linux
+&lt;/a&gt;&lt;/strong&gt; y obten mejoras de rendimiento sin cambiar la distro. &lt;a href="https://wiki.cachyos.org/features/optimized_repos/#adding-our-repositories-to-an-existing-arch-linux-install" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Informacion sobre la instalación
+&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="-conclusión-vale-la-pena-el-cambio"&gt;
+📊 Conclusión: ¿Vale la Pena el Cambio?
+&lt;a href="#-conclusi%c3%b3n-vale-la-pena-el-cambio" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;CachyOS es &lt;strong&gt;la mejor opción&lt;/strong&gt; si:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Buscas &lt;strong&gt;máximo rendimiento sin configurar &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/02/qu%c3%a9-es-arch-linux-la-mejor-distribuci%c3%b3n-para-usuarios-avanzados/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Arch Linux
+&lt;/a&gt;&lt;/strong&gt; manualmente&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Tienes hardware moderno que aproveche -O3/LTO/PGO.&lt;/li&gt;
+&lt;li&gt;No te importa depender de un equipo de mantenimiento externo.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Si prefieres el &lt;strong&gt;control total&lt;/strong&gt; o usas hardware antiguo, quédate con &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/02/qu%c3%a9-es-arch-linux-la-mejor-distribuci%c3%b3n-para-usuarios-avanzados/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Arch Linux
+&lt;/a&gt;&lt;/strong&gt; vanilla.&lt;/p&gt;</description></item><item><title>Cómo Monitorear y Optimizar el Rendimiento de tu Sistema Linux: Guía Paso a Paso 📊⚡</title><link>https://patojad.com.ar/post/2025/03/c%C3%B3mo-monitorear-y-optimizar-el-rendimiento-de-tu-sistema-linux-gu%C3%ADa-paso-a-paso/</link><pubDate>Mon, 03 Mar 2025 09:47:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/03/c%C3%B3mo-monitorear-y-optimizar-el-rendimiento-de-tu-sistema-linux-gu%C3%ADa-paso-a-paso/</guid><description>&lt;p&gt;¿Alguna vez has sentido que tu sistema Linux está lento o que no funciona tan bien como debería? No te preocupes, ¡estás en el lugar correcto! En este artículo, aprenderás cómo monitorear y optimizar el rendimiento de tu sistema Linux utilizando herramientas simples pero poderosas. Al final, podrás identificar problemas de rendimiento y solucionarlos fácilmente.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="por-qué-monitorear-el-rendimiento"&gt;
+¿Por Qué Monitorear el Rendimiento?
+&lt;a href="#por-qu%c3%a9-monitorear-el-rendimiento" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Monitorear el rendimiento de tu sistema es crucial para mantenerlo funcionando de manera eficiente. Al hacerlo, puedes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Identificar procesos que consumen muchos recursos:&lt;/strong&gt; Encuentra programas que estén usando demasiada CPU, memoria o disco.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Detectar cuellos de botella:&lt;/strong&gt; Resuelve problemas que ralentizan tu sistema.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mantener tu sistema limpio y eficiente:&lt;/strong&gt; Libera espacio y elimina archivos innecesarios.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Hoy vamos a usar herramientas simples pero efectivas que puedes ejecutar directamente desde la terminal.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="herramienta-1-top---monitorear-procesos-en-tiempo-real"&gt;
+Herramienta 1: &lt;code&gt;top&lt;/code&gt; - Monitorear Procesos en Tiempo Real
+&lt;a href="#herramienta-1-top---monitorear-procesos-en-tiempo-real" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La primera herramienta que exploraremos es &lt;code&gt;top&lt;/code&gt;. Este comando muestra una lista en tiempo real de todos los procesos que se están ejecutando en tu sistema, junto con su uso de CPU y memoria. Simplemente ejecuta:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;top
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Aquí puedes ver qué procesos están consumiendo más recursos. Si encuentras algo sospechoso, puedes detenerlo usando su ID de proceso (PID) con:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;kill&lt;/span&gt; &amp;lt;PID&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Es una herramienta esencial para diagnosticar problemas rápidamente.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="herramienta-2-htop---una-versión-mejorada-de-top"&gt;
+Herramienta 2: &lt;code&gt;htop&lt;/code&gt; - Una Versión Mejorada de &lt;code&gt;top&lt;/code&gt;
+&lt;a href="#herramienta-2-htop---una-versi%c3%b3n-mejorada-de-top" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si prefieres una interfaz más amigable, prueba&lt;code&gt;htop&lt;/code&gt;. Es como &lt;code&gt;top&lt;/code&gt;, pero con colores y opciones adicionales. Primero, instálalo:&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="en-distribuciones-basadas-en-debian-como-ubuntu"&gt;
+En distribuciones basadas en Debian (como Ubuntu):
+&lt;a href="#en-distribuciones-basadas-en-debian-como-ubuntu" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install htop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="en-distribuciones-basadas-en-red-hat-como-fedora"&gt;
+En distribuciones basadas en Red Hat (como Fedora):
+&lt;a href="#en-distribuciones-basadas-en-red-hat-como-fedora" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo yum install htop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="en-distribuciones-basadas-en-arch-como-endeavour"&gt;
+En distribuciones basadas en &lt;a href="https://patojad.com.ar/post/2025/02/qu%c3%a9-es-arch-linux-la-mejor-distribuci%c3%b3n-para-usuarios-avanzados/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Arch
+&lt;/a&gt; (como Endeavour):
+&lt;a href="#en-distribuciones-basadas-en-arch-como-endeavour" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S htop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;hr&gt;
+&lt;p&gt;Luego ejecútalo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;htop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Con &lt;code&gt;htop&lt;/code&gt;, puedes navegar por los procesos con las flechas del teclado, ordenarlos y detenerlos directamente desde la interfaz. Es perfecto para usuarios nuevos.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="herramienta-3-df-y-du---monitorear-el-uso-de-disco"&gt;
+Herramienta 3: df y du - Monitorear el Uso de Disco
+&lt;a href="#herramienta-3-df-y-du---monitorear-el-uso-de-disco" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Ahora, hablemos del almacenamiento. Para ver cuánto espacio ocupan tus discos, usa &lt;code&gt;df&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;df -h
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Esto muestra el uso de disco en formato legible. Si necesitas identificar archivos grandes que ocupan espacio, usa &lt;code&gt;du&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;du -sh /ruta/a/carpeta
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Estos comandos son ideales para liberar espacio y mantener tu sistema limpio.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="optimización-básica-limpieza-de-paquetes-innecesarios"&gt;
+Optimización Básica: Limpieza de Paquetes Innecesarios
+&lt;a href="#optimizaci%c3%b3n-b%c3%a1sica-limpieza-de-paquetes-innecesarios" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Finalmente, vamos a optimizar tu sistema eliminando paquetes innecesarios.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="en-distribuciones-basadas-en-debian-como-ubuntu-1"&gt;
+En distribuciones basadas en Debian (como Ubuntu):
+&lt;a href="#en-distribuciones-basadas-en-debian-como-ubuntu-1" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt autoremove
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt clean
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="en-distribuciones-basadas-en-red-hat-como-fedora-1"&gt;
+En distribuciones basadas en Red Hat (como Fedora):
+&lt;a href="#en-distribuciones-basadas-en-red-hat-como-fedora-1" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf autoremove
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf clean all
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="en-distribuciones-basadas-en-arch-como-endeavour-1"&gt;
+En distribuciones basadas en &lt;a href="https://patojad.com.ar/post/2025/02/qu%c3%a9-es-arch-linux-la-mejor-distribuci%c3%b3n-para-usuarios-avanzados/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Arch
+&lt;/a&gt; (como Endeavour):
+&lt;a href="#en-distribuciones-basadas-en-arch-como-endeavour-1" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Rns &lt;span class="k"&gt;$(&lt;/span&gt;pacman -Qtdq&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Sc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Esto elimina paquetes antiguos y libera espacio. Estos pasos simples pueden mejorar significativamente el rendimiento de tu sistema.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="consejos-adicionales-para-mantener-tu-sistema-óptimo"&gt;
+Consejos Adicionales para Mantener tu Sistema Óptimo
+&lt;a href="#consejos-adicionales-para-mantener-tu-sistema-%c3%b3ptimo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Actualiza regularmente tu sistema:&lt;/strong&gt; Usa sudo apt update &amp;amp;&amp;amp; sudo apt upgrade para asegurarte de tener las últimas versiones de software.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Desactiva servicios innecesarios:&lt;/strong&gt; Usa systemctl list-units &amp;ndash;type=service para identificar servicios que no necesitas.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Usa un tema ligero:&lt;/strong&gt; Si usas una interfaz gráfica, elige temas y aplicaciones que consuman menos recursos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Monitorear y optimizar el rendimiento de tu sistema &lt;strong&gt;Linux&lt;/strong&gt; no tiene que ser complicado. Con herramientas como &lt;code&gt;top&lt;/code&gt;, &lt;code&gt;htop&lt;/code&gt;, &lt;code&gt;df&lt;/code&gt; y &lt;code&gt;du&lt;/code&gt;, puedes identificar problemas y solucionarlos fácilmente. Además, siguiendo algunos consejos básicos de optimización, puedes mantener tu sistema rápido y eficiente.&lt;/p&gt;</description></item><item><title>¿Qué es Arch Linux? La Mejor Distribución para Usuarios Avanzados 🚀</title><link>https://patojad.com.ar/post/2025/02/qu%C3%A9-es-arch-linux-la-mejor-distribuci%C3%B3n-para-usuarios-avanzados/</link><pubDate>Thu, 13 Feb 2025 09:47:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/02/qu%C3%A9-es-arch-linux-la-mejor-distribuci%C3%B3n-para-usuarios-avanzados/</guid><description>&lt;p&gt;Si alguna vez has escuchado sobre Arch Linux , pero no estás seguro de qué se trata o por qué debería interesarte, ¡has llegado al lugar correcto! En este artículo, vamos a explorar qué hace que Arch Linux sea una de las distribuciones más populares entre los usuarios avanzados y cómo puede ser la opción perfecta si buscas personalización y control total sobre tu sistema operativo.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-arch-linux"&gt;
+¿Qué es Arch Linux?
+&lt;a href="#qu%c3%a9-es-arch-linux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Arch Linux es una distribución basada en el principio KISS (Keep It Simple, Stupid) . Esto significa que está diseñada para ser simple, minimalista y altamente personalizable. A diferencia de otras distribuciones como Ubuntu o Debian , Arch Linux no viene con software preinstalado ni interfaces gráficas predeterminadas. Tú decides qué instalar y cómo configurarlo.&lt;/p&gt;
+&lt;p&gt;Esto lo convierte en una excelente opción para usuarios que quieren aprender cómo funciona Linux desde cero y tener un control absoluto sobre su sistema. Sin embargo, también puede ser un desafío para principiantes, ya que requiere más conocimientos técnicos.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="ventajas-de-arch-linux"&gt;
+Ventajas de Arch Linux
+&lt;a href="#ventajas-de-arch-linux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="personalización-absoluta"&gt;
+Personalización Absoluta
+&lt;a href="#personalizaci%c3%b3n-absoluta" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Con Arch Linux , puedes construir tu sistema desde cero, eligiendo cada componente. Desde el kernel hasta el entorno de escritorio, todo está bajo tu control. Esta flexibilidad te permite crear un sistema que se adapte exactamente a tus necesidades.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="actualizaciones-continuas"&gt;
+Actualizaciones Continuas
+&lt;a href="#actualizaciones-continuas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Arch Linux utiliza un modelo de actualización continua (rolling release ), lo que significa que siempre tendrás la última versión de los paquetes disponibles. No hay que esperar por nuevas versiones mayores; simplemente mantén tu sistema actualizado y disfruta de las últimas características y mejoras.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="documentación-excelente"&gt;
+Documentación Excelente
+&lt;a href="#documentaci%c3%b3n-excelente" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;La Wiki de Arch Linux es una de las mejores fuentes de información sobre Linux . Es extremadamente detallada y cubre casi cualquier problema o configuración que puedas imaginar. Si te encuentras atascado, la Wiki probablemente tenga la respuesta.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="rendimiento-optimizado"&gt;
+Rendimiento Optimizado
+&lt;a href="#rendimiento-optimizado" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Al instalar solo lo que necesitas, obtienes un sistema más rápido y eficiente. No hay bloatware ni software innecesario que consuma recursos. Esto lo hace ideal para máquinas antiguas o para aquellos que buscan maximizar el rendimiento.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="comparativa-con-otras-distribuciones"&gt;
+Comparativa con Otras Distribuciones
+&lt;a href="#comparativa-con-otras-distribuciones" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para entender mejor por qué Arch Linux podría ser la opción adecuada para ti, hagamos una comparativa rápida con otras distribuciones populares:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Característica&lt;/th&gt;
+&lt;th&gt;Arch Linux&lt;/th&gt;
+&lt;th&gt;Ubuntu&lt;/th&gt;
+&lt;th&gt;Debian&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Facilidad de uso&lt;/td&gt;
+&lt;td&gt;Para usuarios avanzados&lt;/td&gt;
+&lt;td&gt;Amigable para principiantes&lt;/td&gt;
+&lt;td&gt;Estable y confiable&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Personalización&lt;/td&gt;
+&lt;td&gt;Total&lt;/td&gt;
+&lt;td&gt;Limitada&lt;/td&gt;
+&lt;td&gt;Moderada&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Modelo de actualización&lt;/td&gt;
+&lt;td&gt;Rolling release&lt;/td&gt;
+&lt;td&gt;Versiones LTS y no-LTS&lt;/td&gt;
+&lt;td&gt;Versiones estables&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Software preinstalado&lt;/td&gt;
+&lt;td&gt;Ninguno&lt;/td&gt;
+&lt;td&gt;Mucho software preinstalado&lt;/td&gt;
+&lt;td&gt;Software básico&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Como puedes ver, Arch Linux es la opción perfecta si buscas personalización y control, pero requiere más tiempo y esfuerzo para configurarlo.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="primeros-pasos-con-arch-linux"&gt;
+Primeros Pasos con Arch Linux
+&lt;a href="#primeros-pasos-con-arch-linux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si decides probar Arch Linux , aquí tienes un vistazo rápido de los primeros pasos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Descarga la ISO: Puedes obtenerla desde el sitio oficial archlinux.org .&lt;/li&gt;
+&lt;li&gt;Crea un USB booteable: Usa herramientas como Rufus (en Windows) o Etcher (multiplataforma).&lt;/li&gt;
+&lt;li&gt;Arranca desde el USB: Sigue el instalador y consulta la Wiki de Arch para detalles específicos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;En próximos videos y artículos, profundizaremos en la instalación paso a paso, así que asegúrate de suscribirte para no perderte nada.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Arch Linux es una distribución increíble para quienes buscan aprender y personalizar su sistema. Aunque puede ser un desafío para principiantes, ofrece un nivel de control y personalización que pocas distribuciones pueden igualar.&lt;/p&gt;
+&lt;p&gt;Si te gustó este artículo, no olvides compartirlo en tus redes sociales y seguirme en mis canales para más contenido sobre Linux , programación y desarrollo web .&lt;/p&gt;</description></item><item><title>Pacman vs Apt: Una guía para cambiar de gestor de paquetes</title><link>https://patojad.com.ar/post/2024/08/pacman-vs-apt-una-gu%C3%ADa-para-cambiar-de-gestor-de-paquetes/</link><pubDate>Tue, 20 Aug 2024 10:04:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/08/pacman-vs-apt-una-gu%C3%ADa-para-cambiar-de-gestor-de-paquetes/</guid><description>&lt;p&gt;Si estás pensando en cambiar de distribución Linux, es probable que te hayas encontrado con dos gestores de paquetes muy populares: pacman y apt. Ambos herramientas te permiten instalar, actualizar y eliminar software en tu sistema, pero tienen enfoques y sintaxis diferentes. En este artículo, exploraremos las principales diferencias entre pacman y apt para ayudarte a tomar una decisión informada.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-un-gestor-de-paquetes"&gt;
+¿Qué es un gestor de paquetes?
+&lt;a href="#qu%c3%a9-es-un-gestor-de-paquetes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Antes de adentrarnos en la comparación, es importante entender qué es un gestor de paquetes. Imagina una biblioteca de software, donde cada libro representa un programa. El gestor de paquetes es el bibliotecario que te ayuda a encontrar, tomar prestado y devolver los libros que necesitas.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="pacman-vs-apt-una-visión-general"&gt;
+Pacman vs. Apt: una visión general
+&lt;a href="#pacman-vs-apt-una-visi%c3%b3n-general" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pacman&lt;/strong&gt;: El gestor de paquetes utilizado en Arch Linux y sus derivados. Se caracteriza por su enfoque minimalista y su base de datos de paquetes plana.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Apt&lt;/strong&gt;: El gestor de paquetes utilizado en Debian y sus derivados, como Ubuntu. Es conocido por su sistema de dependencias sofisticado y su gran cantidad de paquetes disponibles.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="diferencias-clave"&gt;
+Diferencias clave
+&lt;a href="#diferencias-clave" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Antes de entrar en materia, es importante tener en cuenta que tanto &lt;code&gt;pacman&lt;/code&gt; como &lt;code&gt;apt&lt;/code&gt; son excelentes gestores de paquetes, cada uno con sus propias fortalezas y debilidades. La elección entre ambos dependerá de tus preferencias personales y necesidades específicas. A continuación, exploraremos algunas de las diferencias clave entre ambos:&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="filosofía"&gt;
+Filosofía
+&lt;a href="#filosof%c3%ada" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pacman&lt;/strong&gt;: Prioriza la simplicidad y la flexibilidad. Te da un mayor control sobre tu sistema, pero requiere una configuración inicial más detallada.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Apt&lt;/strong&gt;: Ofrece una experiencia más automatizada y orientada al usuario. Gestiona las dependencias de forma más estricta, lo que puede simplificar la instalación de software.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="sintaxis-de-los-comandos"&gt;
+Sintaxis de los comandos
+&lt;a href="#sintaxis-de-los-comandos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pacman&lt;/strong&gt;: Utiliza una sintaxis más concisa y directa. Por ejemplo, para instalar un paquete, se usa &lt;code&gt;sudo pacman -S nombre_del_paquete&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Apt&lt;/strong&gt;: Tiene una sintaxis más verbosa. Para instalar un paquete, se utiliza &lt;code&gt;sudo apt install nombre_del_paquete&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="base-de-datos-de-paquetes"&gt;
+Base de datos de paquetes
+&lt;a href="#base-de-datos-de-paquetes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pacman&lt;/strong&gt;: Mantiene una base de datos plana, lo que facilita la gestión de paquetes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Apt&lt;/strong&gt;: Utiliza una base de datos más compleja, con información sobre dependencias y conflictos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="actualizaciones"&gt;
+Actualizaciones
+&lt;a href="#actualizaciones" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pacman&lt;/strong&gt;: Ofrece un sistema de actualizaciones más flexible, permitiéndote elegir qué paquetes actualizar.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Apt&lt;/strong&gt;: Realiza actualizaciones de forma más automatizada, pero puede ser más restrictivo.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="tabla-comparativa"&gt;
+Tabla comparativa
+&lt;a href="#tabla-comparativa" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Característica&lt;/th&gt;
+&lt;th&gt;Pacman&lt;/th&gt;
+&lt;th&gt;Apt&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Filosofía&lt;/td&gt;
+&lt;td&gt;Minimalista, flexible&lt;/td&gt;
+&lt;td&gt;Automatizado, orientado al usuario&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sintaxis&lt;/td&gt;
+&lt;td&gt;Concisa&lt;/td&gt;
+&lt;td&gt;Verbosa&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Base de datos&lt;/td&gt;
+&lt;td&gt;Plana&lt;/td&gt;
+&lt;td&gt;Compleja&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Actualizaciones&lt;/td&gt;
+&lt;td&gt;Flexibles&lt;/td&gt;
+&lt;td&gt;Automatizadas&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="cuál-es-mejor"&gt;
+¿Cuál es mejor?
+&lt;a href="#cu%c3%a1l-es-mejor" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La elección entre pacman y apt depende de tus preferencias y necesidades. Si buscas un mayor control sobre tu sistema y prefieres una configuración más manual, pacman puede ser una buena opción. Si prefieres una experiencia más automatizada y una gran cantidad de paquetes disponibles, apt es una excelente elección.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="ejemplos-prácticos"&gt;
+Ejemplos prácticos
+&lt;a href="#ejemplos-pr%c3%a1cticos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Buscar paquetes:
+&lt;ul&gt;
+&lt;li&gt;Pacman:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pacman -Ss firefox
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Apt:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;apt search firefox
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Buscar paquetes por descripción:
+&lt;ul&gt;
+&lt;li&gt;Pacman:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pacman -F descripción_del_paquete
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Apt:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;apt-cache search descripción_del_paquete
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Instalar un paquete:
+&lt;ul&gt;
+&lt;li&gt;Pacman:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S firefox
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Apt:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install firefox
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Actualizar el sistema:
+&lt;ul&gt;
+&lt;li&gt;Pacman:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Syu
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Apt:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo apt upgrade
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Eliminar un paquete:
+&lt;ul&gt;
+&lt;li&gt;Pacman:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Rs firefox
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Apt:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt remove firefox
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Eliminar paquetes huérfanos:
+&lt;ul&gt;
+&lt;li&gt;Pacman:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Rns &lt;span class="k"&gt;$(&lt;/span&gt;pacman -Qdtq&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Apt:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt autoremove
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Limpiar caché:
+&lt;ul&gt;
+&lt;li&gt;Pacman:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Sc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Apt:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt clean
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Tanto &lt;code&gt;pacman&lt;/code&gt; como &lt;code&gt;apt&lt;/code&gt; son &lt;em&gt;gestores de paquetes&lt;/em&gt; excelentes, cada uno con sus propias fortalezas y debilidades. La mejor opción para ti dependerá de tus necesidades y preferencias personales. Al comprender las diferencias entre ambos, podrás elegir el gestor de paquetes que mejor se adapte a tu flujo de trabajo.&lt;/p&gt;</description></item><item><title>Explorando SystemD en el Mundo Linux: Críticas, Realidades y Controversias</title><link>https://patojad.com.ar/post/2024/03/explorando-systemd-en-el-mundo-linux-cr%C3%ADticas-realidades-y-controversias/</link><pubDate>Fri, 15 Mar 2024 18:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/03/explorando-systemd-en-el-mundo-linux-cr%C3%ADticas-realidades-y-controversias/</guid><description>&lt;p&gt;En el vasto y diverso ecosistema de Linux, cada componente del sistema es objeto de discusión y opinión, y el sistema de inicio no es la excepción. &lt;strong&gt;SystemD&lt;/strong&gt; ha sido un tema de controversia dentro de la comunidad, generando críticas y debates en línea. En este artículo, profundizaremos en qué es &lt;strong&gt;SystemD&lt;/strong&gt;, su evolución, y las razones detrás de las críticas que ha enfrentado.&lt;/p&gt;
+&lt;p&gt;Ya escribi algunos articulos planteando los problemas de &lt;strong&gt;SystemD&lt;/strong&gt; y las alternativas que existen, pero en esta ocasión quiero profundizar en el tema y explicar las razones de la resistencia que ha enfrentado &lt;strong&gt;SystemD&lt;/strong&gt;. Y la explicacion de las cosas buenas que tiene, porque no todo es malo.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2020/06/systemd-solucion-o-problema/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+SystemD ¿Solucion o Problema?
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2020/07/systemd-no-es-el-problema-respuesta-a-zatiel/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+¿SystemD no es el problema? Respuesta a Zatiel
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="desentrañando-systemd-y-su-rol-como-sistema-de-inicio"&gt;
+Desentrañando SystemD y su Rol como Sistema de Inicio
+&lt;a href="#desentra%c3%b1ando-systemd-y-su-rol-como-sistema-de-inicio" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En el corazón de todos los sistemas basados en Linux se encuentra un sistema de inicio, el primer proceso que entra en acción después de arrancar el sistema operativo. Este proceso trabaja en segundo plano, gestionando servicios y procesos esenciales. En este contexto, &lt;strong&gt;SystemD&lt;/strong&gt; se presenta como un sistema de inicio predominante en muchas distribuciones de Linux.&lt;/p&gt;
+&lt;p&gt;Iniciado en 2010 bajo el liderazgo de &lt;strong&gt;Red Hat&lt;/strong&gt; y &lt;strong&gt;Leonard Puttering&lt;/strong&gt;, &lt;strong&gt;SystemD&lt;/strong&gt; nació con la intención de reemplazar soluciones existentes como &lt;strong&gt;SysV&lt;/strong&gt; y &lt;strong&gt;Upstart&lt;/strong&gt;. Su enfoque principal era mejorar el rendimiento del sistema, acelerar los tiempos de arranque y reducir el consumo de recursos. Rápidamente, se convirtió en el sistema de inicio predeterminado para distros populares como &lt;em&gt;Fedora&lt;/em&gt;, &lt;em&gt;Arch Linux&lt;/em&gt;, &lt;em&gt;Debian&lt;/em&gt; y &lt;em&gt;Ubuntu&lt;/em&gt;, entre otras.&lt;/p&gt;
+&lt;p&gt;A pesar de su adopción generalizada, algunas distribuciones, como &lt;em&gt;Alpine Linux&lt;/em&gt;, &lt;em&gt;MX Linux&lt;/em&gt;, &lt;em&gt;&lt;a href="https://patojad.com.ar/post/2019/09/voidlinux-por-jos%c3%a9/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Void Linux
+&lt;/a&gt;&lt;/em&gt;, &lt;em&gt;&lt;a href="https://patojad.com.ar/post/2020/08/artix-linux/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Artix
+&lt;/a&gt;&lt;/em&gt;, &lt;em&gt;&lt;a href="https://patojad.com.ar/post/2020/06/instalcion-milagros/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+MilagOS
+&lt;/a&gt;&lt;/em&gt; y otras, han optado por no adoptar &lt;strong&gt;SystemD&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="explorando-las-razones-de-la-resistencia"&gt;
+Explorando las Razones de la Resistencia
+&lt;a href="#explorando-las-razones-de-la-resistencia" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="el-argumento-del-bloat"&gt;
+El Argumento del &amp;ldquo;Bloat&amp;rdquo;
+&lt;a href="#el-argumento-del-bloat" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Un argumento recurrente contra &lt;strong&gt;SystemD&lt;/strong&gt; es su expansión progresiva hacia funciones que tradicionalmente eran gestionadas por servicios individuales. Esta acumulación de características ha llevado a críticas sobre su conformidad con la filosofía &lt;strong&gt;UNIX&lt;/strong&gt;, que aboga por la simplicidad y la especialización de funciones.&lt;/p&gt;
+&lt;p&gt;Aunque &lt;strong&gt;SystemD&lt;/strong&gt; mantiene su modularidad (recordemos qeu son varios mini-binarios especificos), su crecimiento ha llevado a la percepción de ser una solución monolítica. Además, su actualización periódica y la adición de nuevas funciones pueden traducirse en un mayor uso de espacio y recursos, lo que preocupa a aquellos que buscan eficiencia (hablando en kb de recursos).&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="dependencia-omnipresente-y-restricciones-de-opciones"&gt;
+Dependencia Omnipresente y Restricciones de Opciones
+&lt;a href="#dependencia-omnipresente-y-restricciones-de-opciones" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;SystemD&lt;/strong&gt; se ha vuelto tan integral en muchos aspectos del sistema que su ausencia puede limitar la funcionalidad de otros componentes. Servicios como el inicio de sesión gráfico o la gestión de conexiones de red a menudo dependen de componentes de &lt;strong&gt;SystemD&lt;/strong&gt;. Aunque es posible prescindir de él, las distribuciones que optan por no implementarlo deben buscar, proporcionar y mantener alternativas.&lt;/p&gt;
+&lt;p&gt;No podemos culpar a los desarrolladres de las aplicaciones por usar el set de herramientas que les provee &lt;strong&gt;SystemD&lt;/strong&gt;. Sin embargo, esto puede ser un problema para aquellos que buscan una mayor diversidad de opciones. Aun asi, hay que entender que estos set de herramienta facilitan y simplifican el trabajo de los desarrolladores, permitiendoles enfocarse en la funcionalidad de sus aplicaciones.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="red-hat-como-dueño-de-systemd"&gt;
+Red Hat como &amp;ldquo;Dueño&amp;rdquo; de SystemD
+&lt;a href="#red-hat-como-due%c3%b1o-de-systemd" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Otra crítica común se dirige al hecho de que &lt;strong&gt;SystemD&lt;/strong&gt; es un proyecto de &lt;strong&gt;Red Hat&lt;/strong&gt;. Aunque comenzó como un proyecto de esta compañía, actualmente propiedad de IBM, algunas voces expresan preocupación sobre el control que una entidad única puede tener sobre la dirección del sistema de inicio en Linux. Las recientes transformaciones en la gestión de la comunidad por parte de &lt;strong&gt;Red Hat&lt;/strong&gt; han aumentado estas preocupaciones.&lt;/p&gt;
+&lt;p&gt;Aun asi, &lt;strong&gt;SystemD&lt;/strong&gt; es un proyecto de código abierto, y su desarrollo está abierto a la participación de la comunidad. Además, la adopción de &lt;strong&gt;SystemD&lt;/strong&gt; por parte de otras distribuciones, como Debian y Ubuntu, ha ayudado a mitigar estas preocupaciones dado que en la actualidad es un proyecto que va mas alla de &lt;strong&gt;Red Hat&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="restricción-de-opciones-y-seguridad-del-sistema"&gt;
+Restricción de Opciones y Seguridad del Sistema
+&lt;a href="#restricci%c3%b3n-de-opciones-y-seguridad-del-sistema" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;SystemD&lt;/strong&gt; ha sido señalado como un factor que contribuye a la uniformidad en los sistemas Linux, restringiendo la diversidad de opciones. También se argumenta que su presencia crea un riesgo de seguridad, al ser un objetivo único para posibles ataques.&lt;/p&gt;
+&lt;p&gt;Sin embargo, defensores de &lt;strong&gt;SystemD&lt;/strong&gt; contrarrestan estas preocupaciones destacando su integración con el kernel de Linux y su eficiencia. Aseguran que, aunque puede haber un riesgo potencial debido a su ubicuidad, la confianza en un proyecto bien mantenido y ampliamente utilizado puede superar estos desafíos. Y es una realidad que &lt;strong&gt;SystemD&lt;/strong&gt; es un proyecto bien mantenido y ampliamente utilizado con un desarrollo activo.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En resumen, las críticas hacia &lt;strong&gt;SystemD&lt;/strong&gt; abordan aspectos que van desde la filosofía &lt;strong&gt;UNIX&lt;/strong&gt; hasta preocupaciones sobre dependencias y seguridad. Aunque se presentan alternativas viables, la elección de utilizar &lt;strong&gt;SystemD&lt;/strong&gt; o no a menudo se reduce a la conveniencia, eficiencia y preferencias de cada usuario.&lt;/p&gt;</description></item><item><title>Instalar grafica NVIDIA integrada en Arch Linux</title><link>https://patojad.com.ar/post/2024/02/instalar-grafica-nvidia-integrada-en-arch-linux/</link><pubDate>Tue, 20 Feb 2024 14:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/02/instalar-grafica-nvidia-integrada-en-arch-linux/</guid><description>&lt;p&gt;Hola! Les comparto el método que encontré para hacer funcionar mi gráfica nvidia integrada con 10 años de antigüedad usando drivers privativo y Optimus Manager!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Ej.: mi gráfica es NVIDIA GeForge GTX770M y la versión compatible es la nvidia-470xx)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="detectando-tipo-de-controladores-de-video"&gt;
+Detectando tipo de controladores de video:
+&lt;a href="#detectando-tipo-de-controladores-de-video" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;lspci &lt;span class="p"&gt;|&lt;/span&gt; grep VGA
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;en mi caso responde: &lt;code&gt;00:02.0 VGA compatible controller: Intel Corporation 4th Gen Core Processor Integrated Graphics Controller (rev 06)&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;lspci -k &lt;span class="p"&gt;|&lt;/span&gt; grep VGA -A &lt;span class="m"&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;en mi caso responde:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;00:02.0 VGA compatible controller: Intel Corporation 4th Gen Core Processor Integrated Graphics Controller (rev 06)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Subsystem: Toshiba Corporation 4th Gen Core Processor Integrated Graphics Controller
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Kernel driver in use: i915
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="instalando-controlador-de-codigo-abieto-de-intel"&gt;
+Instalando controlador de Codigo abieto de Intel:
+&lt;a href="#instalando-controlador-de-codigo-abieto-de-intel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S xf86-video-intel intel-ucode
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="detectar-nvidia"&gt;
+Detectar Nvidia:
+&lt;a href="#detectar-nvidia" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Ver DRIVERS de VIDEO instalados:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;xrandr --listproviders
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Ver paquetes NVIDIA instalados:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Ss nvidia
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Ver paquete NVIDIA SETTINGS instalado:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Ss nvidia-settings
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="desinstalando-versiones-anteriores"&gt;
+Desinstalando versiones anteriores:
+&lt;a href="#desinstalando-versiones-anteriores" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Rns nombredelpaquete
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;ej.:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Rns nvidia-340xx
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-amber-500 text-3xl my-6" id="detectar-driver-compatible-con-la-gráfica-nvidia"&gt;
+Detectar Driver compatible con la gráfica NVIDIA:
+&lt;a href="#detectar-driver-compatible-con-la-gr%c3%a1fica-nvidia" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Hay que considerar dos factores de compatibilidad: &lt;strong&gt;Versión nvidia&lt;/strong&gt; y el &lt;strong&gt;Kernel&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="ver-lista-de-compatibilidad"&gt;
+Ver lista de compatibilidad:
+&lt;a href="#ver-lista-de-compatibilidad" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Entrar a la &lt;a href="https://www.nvidia.com/en-us/drivers/unix/legacy-gpu/" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+siguiente página
+&lt;/a&gt; y buscar tu modelo de nvidia dentro de la lista para saber con
+que versión es compatible.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="nvidia-según-el-kernel"&gt;
+Nvidia según el kernel:
+&lt;a href="#nvidia-seg%c3%ban-el-kernel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;kernel linux → nvidia&lt;/li&gt;
+&lt;li&gt;linux-lts → nvidia-lts&lt;/li&gt;
+&lt;li&gt;todos los kernel (construye dinámicamente los módulos del kernel) → nvidia-dkms&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ej: en mi caso como el modelo de la nvidia es viejo debo usar por compatibilidad el kernetl lts pero con nvidia-dkms&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="pasos-previos-a-la-instalación"&gt;
+Pasos previos a la instalación:
+&lt;a href="#pasos-previos-a-la-instalaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Habilitar Multilib para ejecutar aplicaciones 32 bits en sist. de 64 bits:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo nano /etc/pacman.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;(para habilitar hay que descomentar las dos lineas siguientes, borrar # y guardar)
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cfg" data-lang="cfg"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;[multilib]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;Include&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;/etc/pacman.d/mirrorlist&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;Para guardar cambios: Ctrol + o (letra), Para confirmar: enter, Para salir: Ctrol + x&lt;/li&gt;
+&lt;li&gt;Entrar al archivo sddm para editarlo (en el caso de que se use kde) con el siguiente comando:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo nano /etc/sddm.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;Agregar # a las dos líneas que estan debajo de [X11]:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cfg" data-lang="cfg"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;[X11]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# DisplayCommand&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# DisplayStopCommand&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;Ctrl + o
+Enter
+Ctrol + X&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="borrar-archivos-que-esten-dentro-de-la-carpeta-x11-para-que-no-interfieran"&gt;
+Borrar archivos que esten dentro de la carpeta X11 para que no interfieran:
+&lt;a href="#borrar-archivos-que-esten-dentro-de-la-carpeta-x11-para-que-no-interfieran" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Ir a la carpeta: &lt;code&gt;/etc/X11/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Ver si hay archivos xorg fuera de las carpetas.&lt;/li&gt;
+&lt;li&gt;Si hay archivos xorg: los vamos a borrar de la siguiente manera:
+&lt;ul&gt;
+&lt;li&gt;Hacer Click derecho y seleccionar abrir terminal aqui&lt;/li&gt;
+&lt;li&gt;Para Borrar los archivos y dejar las carpetas
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo rm xorg.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo mv xorg.conf xorg.conf0
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo rm xorg.conf.nvidia-xconfig-original
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="instalar-controlador-privativo-de-nvidia"&gt;
+Instalar controlador privativo de Nvidia:
+&lt;a href="#instalar-controlador-privativo-de-nvidia" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="nvidia-para-kernel-linux-última-versión"&gt;
+Nvidia para kernel linux (última versión)
+&lt;a href="#nvidia-para-kernel-linux-%c3%baltima-versi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S nvidia nvidia-utils
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="nvidia-para-kernel-linux-lts-para-nvidia-viejas-es-mejor-no-usar-lts"&gt;
+Nvidia para kernel linux-lts: (para nvidia viejas es mejor no usar lts)
+&lt;a href="#nvidia-para-kernel-linux-lts-para-nvidia-viejas-es-mejor-no-usar-lts" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S nvidia-lts
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="nvidia-para-kernel-linux-zen-sirve-para-todos-los-kernel-dkms"&gt;
+Nvidia para kernel linux-zen: (sirve para todos los kernel) dkms
+&lt;a href="#nvidia-para-kernel-linux-zen-sirve-para-todos-los-kernel-dkms" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S nvidia-dkms
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;ej: en mi caso compatible con GeForge GTX770M&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -S nvidia-470xx-dkms
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -S nvidia-470xx-utils
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -S lib32-nvidia-470xx-utils
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -S lib32-opencl-nvidia-470xx
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -S opencl-nvidia-470xx
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;En una linea todos los paquetes dkms para la versión 470xx:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -S nvidia-470xx-dkms nvidia-470xx-utils lib32-nvidia-470xx-utils lib32-opencl-nvidia-470xx opencl-nvidia-470xx
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-amber-500 text-3xl my-6" id="instalar-mhwd"&gt;
+Instalar MhWd:
+&lt;a href="#instalar-mhwd" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$ yay -S mhwd-nvidia-versión
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;ej: en mi caso compatible 470xx&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -S mhwd-nvidia-470xx
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-amber-500 text-3xl my-6" id="instalar-nvidia-settings"&gt;
+Instalar Nvidia Settings:
+&lt;a href="#instalar-nvidia-settings" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S nvidia-settings
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;ej.: Compatible 470xx:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -S nvidia-470xx-settings
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-amber-500 text-3xl my-6" id="instalar-bbswithc"&gt;
+Instalar bbswithc
+&lt;a href="#instalar-bbswithc" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="para-kernel-linux"&gt;
+Para kernel linux:
+&lt;a href="#para-kernel-linux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S bbswitch
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="para-kernel-linux-zen-o-si-usamos-las-nvidia-dkms"&gt;
+Para kernel linux-Zen o si usamos las nvidia-dkms:
+&lt;a href="#para-kernel-linux-zen-o-si-usamos-las-nvidia-dkms" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S bbswitch-dkms
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-amber-500 text-3xl my-6" id="instalar-optimus-manager"&gt;
+Instalar Optimus Manager:
+&lt;a href="#instalar-optimus-manager" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -S optimus-manager optimus-manager-qt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Actualizar:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Syyu
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Verificar el estado de Optimus Manager:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;systemctl status optimus-manager.service
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Para parar el proceso apretar: q&lt;/p&gt;
+&lt;p&gt;Reiniciar:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;reboot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="configurar-optimus-manager"&gt;
+Configurar Optimus Manager:
+&lt;a href="#configurar-optimus-manager" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Ir al Menú de aplicaciones y ejecutar Optimus manager&lt;/li&gt;
+&lt;li&gt;Va aparecer un icono en la barra.&lt;/li&gt;
+&lt;li&gt;Hacer Click derecho sobre el ícono de Optimus manager de la barra y entrar a Configuración.
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/ZYdrnpxr/image.png" alt="Optimus Manager" title="Optimus Manager" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/Gmh8FyGg/image.png" alt="Optimus Manager" title="Optimus Manager" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/VkGSDkFf/image.png" alt="Optimus Manager" title="Optimus Manager" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/FKYYqXPj/image.png" alt="Optimus Manager" title="Optimus Manager" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/ZqXWzsgX/image.png" alt="Optimus Manager" title="Optimus Manager" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;
+&lt;div class="w-full rounded-xl bg-yellow-600/75 text-yellow-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-warning fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;OJO: INICIAR SESIÓN CON X11 (Xorg de KDE) porque optimus manager no es compatible con wayland&lt;/p&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;Reiniciar el sistema:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;reboot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="comprobar-si-funciona-nvidia"&gt;
+Comprobar si funciona Nvidia:
+&lt;a href="#comprobar-si-funciona-nvidia" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Abrir la consola y poner el siguiente comando:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;optimus-manager --print-mode
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;ej: en mi caso responde:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Current GPU mode : nvidia
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Poner el siguiente comando:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glxgears -info
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;Se abre la siguiente ventana:
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/c1BLFJsp/image.png" alt="glxgears" title="glxgears" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Cerrar la ventana chicha y se frena el proceso.&lt;/li&gt;
+&lt;li&gt;Subir por la consola hasta donde se puso el comando para ver el resultado.
+Ej: en mi caso dio:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Running synchronized to the vertical refresh. The framerate should be
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;approximately the same as the monitor refresh rate.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;GL_RENDERER = NVIDIA GeForce GTX 770M/PCIe/SSE2
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;GL_VERSION = 4.6.0 NVIDIA 470.223.02
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;GL_VENDOR = NVIDIA Corporation
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="configurar-nvidia-settings"&gt;
+CONFIGURAR NVIDIA SETTINGS
+&lt;a href="#configurar-nvidia-settings" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Entrar al Menu de apliciones y abrir Nvidia X Server Settings&lt;/li&gt;
+&lt;li&gt;Entrar a “OpenGL Settings”&lt;/li&gt;
+&lt;li&gt;En la solapa Image Settings:&lt;/li&gt;
+&lt;li&gt;Poner la configuración deseada:
+High Performance (mejor rendimiento, elijo esta)
+High Quality (mejor calidad)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="instalar-el-controlador-gwe-controla-las-gpu-nvidia"&gt;
+INSTALAR EL CONTROLADOR GWE: controla las GPU NVIDIA
+&lt;a href="#instalar-el-controlador-gwe-controla-las-gpu-nvidia" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -S gwe
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Únete como Beta Tester y Ayuda a Mejorar Arch Linux</title><link>https://patojad.com.ar/post/2024/02/%C3%BAnete-como-beta-tester-y-ayuda-a-mejorar-arch-linux/</link><pubDate>Fri, 16 Feb 2024 10:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/02/%C3%BAnete-como-beta-tester-y-ayuda-a-mejorar-arch-linux/</guid><description>&lt;p&gt;¿Eres un usuario apasionado de &lt;strong&gt;Arch Linux&lt;/strong&gt; y te encantaría contribuir a su mejora? ¡Esta es tu oportunidad! &lt;strong&gt;Arch Linux&lt;/strong&gt; está en busca de Beta Testers que deseen probar nuevas versiones de aplicaciones y bibliotecas antes de su lanzamiento oficial al público.&lt;/p&gt;
+&lt;p&gt;Los Beta Testers desempeñan un papel crucial en la mejora de la estabilidad y calidad de &lt;strong&gt;Arch Linux&lt;/strong&gt;. Gracias a su arduo trabajo, la distribución ha experimentado mejoras significativas en los últimos años.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-un-beta-tester"&gt;
+¿Qué es un Beta Tester?
+&lt;a href="#qu%c3%a9-es-un-beta-tester" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Un Beta Tester es un usuario que prueba una versión de software antes de su lanzamiento oficial. Su tarea consiste en detectar errores y problemas que puedan surgir, con el objetivo de garantizar una experiencia de usuario óptima.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="el-anuncio"&gt;
+El Anuncio
+&lt;a href="#el-anuncio" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El anuncio original fue publicado en Reddit por &lt;a href="https://www.reddit.com/user/Antiz1996/" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fab fa-reddit-alien"&gt;&lt;/i&gt;&amp;nbsp;
+u/Antiz1996 (Robin Candau)
+&lt;/a&gt;, miembro del equipo de testing de Arch. En el anuncio, se invita a los usuarios a unirse al equipo de pruebas oficial de &lt;strong&gt;Arch Linux&lt;/strong&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hola,&lt;/p&gt;
+&lt;p&gt;Esperamos que hayan tenido un buen comienzo en el nuevo año 2024. Con el nuevo año suelen venir nuevas resoluciones. Si no tiene ninguno hasta ahora, tenemos uno para usted: ¿Qué pasaría si decidiera brindarle a Arch un poco de ayuda con las actualizaciones del paquete de prueba este año? 😃&lt;/p&gt;
+&lt;p&gt;Arch utiliza &lt;a href="https://wiki.archlinux.org/title/Official_repositories#Testing_repositories" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+repositorios de prueba
+&lt;/a&gt; como un búfer para las actualizaciones de paquetes principales/críticos (o cualquier otra actualización de paquetes que se beneficiaría de ser probada primero) antes de ingresar a los repositorios estables.&lt;/p&gt;
+&lt;p&gt;Probar estas actualizaciones de paquetes nos ayuda a detectar más errores por adelantado y garantiza actualizaciones impecables para los repositorios estables, ¡y ahí es donde usted puede ayudar!&lt;/p&gt;
+&lt;p&gt;Al unirse al &lt;a href="https://wiki.archlinux.org/title/Arch_Testing_Team" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+equipo de pruebas oficial de Arch Linux
+&lt;/a&gt;, tendrá la posibilidad de &amp;ldquo;aprobar&amp;rdquo; paquetes durante las pruebas después de garantizar su corrección (o &lt;a href="https://wiki.archlinux.org/title/Bug_reporting_guidelines" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+informar un error
+&lt;/a&gt; de otro modo). Esto ayuda a los mantenedores de paquetes de Arch a detectar posibles errores por adelantado y ayuda a sacar paquetes de los repositorios de prueba de manera más rápida y eficiente.&lt;/p&gt;
+&lt;p&gt;No necesariamente buscamos pruebas en profundidad. Verificar que un programa se inicia correctamente y que eres capaz de realizar tu rutina habitual con él ya es una buena prueba por sí sola. También puede consultar las &lt;a href="https://wiki.archlinux.org/title/Arch_Testing_Team#Guidelines" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+pautas generales de prueba
+&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Esta es una forma muy eficaz y bastante sencilla de contribuir a Arch Linux. Cuantos más probadores tengamos, más confiables serán las actualizaciones de paquetes.&lt;/p&gt;
+&lt;p&gt;¡Esperamos ver a algunos de ustedes allí! 😉&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Podes ver el anuncio original en &lt;a href="https://www.reddit.com/r/archlinux/comments/1aniloc/join_the_arch_testing_team_call_for_participation/?share_id=ix0fdh7Xw1cmkqPFbaAC0&amp;amp;utm_content=1&amp;amp;utm_medium=android_app&amp;amp;utm_name=androidcss&amp;amp;utm_source=share&amp;amp;utm_term=1" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fab fa-reddit-alien"&gt;&lt;/i&gt;&amp;nbsp;
+Reddit
+&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="cómo-aplicar"&gt;
+¿Cómo Aplicar?
+&lt;a href="#c%c3%b3mo-aplicar" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para convertirte en un tester oficial de Arch, simplemente contacta a &lt;a href="https://archlinux.org/people/developers/#bluewind" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Florian Pritz
+&lt;/a&gt; a través de &lt;a href="mailto:bluewind@xinu.at" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-envelope"&gt;&lt;/i&gt;&amp;nbsp;
+correo electrónico
+&lt;/a&gt; y solicita una cuenta de verificador.&lt;/p&gt;
+&lt;p&gt;Una vez que obtengas tu cuenta de verificador, podrás acceder a la &lt;a href="https://archlinux.org/devel" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+archweb
+&lt;/a&gt; y encontrarás una pestaña llamada &amp;ldquo;signoffs&amp;rdquo;. En esta sección, podrás ver una lista de paquetes que necesitan al menos dos firmas de aprobación (signoffs).&lt;/p&gt;
+&lt;p&gt;Prueba los paquetes listados localmente y, si funcionan correctamente, puedes firmarlos presionando el botón &amp;ldquo;signoff&amp;rdquo; en el paquete respectivo.&lt;/p&gt;
+&lt;p&gt;¡Únete hoy mismo y contribuye al crecimiento y desarrollo de &lt;strong&gt;Arch Linux&lt;/strong&gt;!&lt;/p&gt;</description></item><item><title>Instalación de Wine en GNU/Linux para Ejecutar Aplicaciones Windows</title><link>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</link><pubDate>Wed, 15 Nov 2023 12:02:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</guid><description>&lt;p&gt;La compatibilidad entre sistemas operativos es esencial, y Wine, una herramienta de código abierto, facilita la ejecución de aplicaciones Windows en entornos GNU/Linux. En esta guía, exploraremos qué es Wine, cómo instalarlo en distintas distribuciones y dónde se instalan las aplicaciones. ¡Descubre cómo ampliar las posibilidades de tu sistema operativo!&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="qué-es-wine"&gt;
+¿Qué es Wine?
+&lt;a href="#qu%c3%a9-es-wine" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Wine, que significa &amp;ldquo;Wine Is Not an Emulator&amp;rdquo; (Wine no es un emulador), es una capa de compatibilidad que permite ejecutar aplicaciones diseñadas para Microsoft Windows en sistemas operativos basados en Unix, como GNU/Linux. No es una máquina virtual ni emula un entorno Windows completo; en cambio, traduce llamadas de sistema de Windows a llamadas de sistema compatibles con Unix.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="por-qué-usar-wine"&gt;
+¿Por qué usar Wine?
+&lt;a href="#por-qu%c3%a9-usar-wine" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Wine es una herramienta muy útil para aquellos que necesitan ejecutar aplicaciones Windows en entornos GNU/Linux. Algunos ejemplos de casos de uso incluyen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ejecutar aplicaciones de productividad como Microsoft Office.&lt;/li&gt;
+&lt;li&gt;Ejecutar aplicaciones de diseño como Adobe Photoshop.&lt;/li&gt;
+&lt;li&gt;Ejecutar juegos de Windows.&lt;/li&gt;
+&lt;li&gt;Ejecutar aplicaciones de Windows que no tienen alternativas nativas en GNU/Linux.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="cómo-se-instala-wine"&gt;
+¿Cómo se instala Wine?
+&lt;a href="#c%c3%b3mo-se-instala-wine" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La instalación de Wine varía según la distribución de GNU/Linux que estés utilizando. A continuación, se detallan los pasos para algunas distribuciones populares.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="debianubuntu"&gt;
+Debian/Ubuntu
+&lt;a href="#debianubuntu" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dpkg --add-architecture i386
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install wine64 wine32
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="fedora"&gt;
+Fedora
+&lt;a href="#fedora" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf install wine
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="arch-linux-y-derivadas-como-manjaro"&gt;
+Arch Linux (y derivadas como Manjaro):
+&lt;a href="#arch-linux-y-derivadas-como-manjaro" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S wine
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="opensuse"&gt;
+OpenSUSE:
+&lt;a href="#opensuse" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo zypper install wine
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-amber-500 text-3xl my-6" id="dónde-se-instalan-las-aplicaciones-con-wine"&gt;
+¿Dónde se instalan las aplicaciones con Wine?
+&lt;a href="#d%c3%b3nde-se-instalan-las-aplicaciones-con-wine" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Las aplicaciones instaladas con Wine se almacenan en un directorio llamado &lt;code&gt;wineprefix&lt;/code&gt;. Por defecto, se encuentra en el directorio de inicio del usuario en una carpeta oculta llamada &lt;code&gt;.wine&lt;/code&gt;. Dentro de este directorio, encontrarás una estructura similar a la de un sistema Windows estándar, con carpetas como &lt;code&gt;Program Files&lt;/code&gt; y &lt;code&gt;Windows&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="proceso-de-instalación-básico-de-una-aplicación-con-wine"&gt;
+Proceso de instalación básico de una aplicación con Wine
+&lt;a href="#proceso-de-instalaci%c3%b3n-b%c3%a1sico-de-una-aplicaci%c3%b3n-con-wine" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Descarga el instalador de la aplicación Windows que deseas ejecutar.&lt;/li&gt;
+&lt;li&gt;Abre una terminal y navega hasta el directorio donde descargaste el instalador.&lt;/li&gt;
+&lt;li&gt;Ejecuta el siguiente comando:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;wine nombre_del_instalador.exe
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Sigue los pasos de instalación como lo harías en Windows.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="conclusiones"&gt;
+Conclusiones
+&lt;a href="#conclusiones" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Wine&lt;/strong&gt; es una herramienta invaluable para aquellos que necesitan ejecutar aplicaciones Windows en entornos GNU/Linux. Su capacidad para traducir llamadas de sistema y proporcionar un entorno de ejecución nativo es fundamental para mejorar la interoperabilidad entre diferentes sistemas operativos.&lt;/p&gt;</description></item><item><title>Cómo ver emojis correctamente en aplicaciones y sitios web</title><link>https://patojad.com.ar/post/2023/11/c%C3%B3mo-ver-emojis-correctamente-en-aplicaciones-y-sitios-web/</link><pubDate>Tue, 14 Nov 2023 14:06:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/11/c%C3%B3mo-ver-emojis-correctamente-en-aplicaciones-y-sitios-web/</guid><description>&lt;p&gt;Últimamente, me di cuenta de un problema después de la última instalación de mi sistema operativo: no podía ver correctamente los emojis en varios sitios web. Este inconveniente no solo afectaba a las plataformas en línea, sino también a las aplicaciones instaladas. A menudo, estas aplicaciones asumen que tenemos ciertos elementos instalados, pero no los marcan como dependencias.&lt;/p&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/tgVP6XSd/erroremoji.webp" alt="error en los iconos" title="error en los iconos" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Así que decidí documentar una solución para asegurarnos de tener todo lo necesario instalado y poder disfrutar de emojis perfectamente visibles tanto en aplicaciones como en sitios web.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="emojis"&gt;
+Emojis
+&lt;a href="#emojis" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Comencemos instalando la compatibilidad global de emojis, utilizando noto-fonts-emoji, uno de los proveedores de fuentes más importantes. Puedes instalarlo fácilmente desde tu gestor de paquetes con el siguiente comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -Sy noto-fonts-emoji
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/K8WB4KNv/emojis.webp" alt="instalacion de emojis" title="instalacion de emojis" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="banderas"&gt;
+Banderas
+&lt;a href="#banderas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Además de los emojis tradicionales, es común encontrarse con banderas, especialmente en sitios web con múltiples idiomas. Para esto, necesitamos instalar el paquete específico que contiene emojis de banderas: noto-fonts-emoji-flags.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -Sy noto-fonts-emoji-flags
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/wjMD65DG/flags.webp" alt="instalacion de banderas" title="instalacion de banderas" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="resumen"&gt;
+Resumen
+&lt;a href="#resumen" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Una vez que hayas instalado ambos paquetes sugeridos, simplemente reinicia tu aplicación o navegador. ¡Ahora podrás disfrutar de todos los emojis en los sitios web y aplicaciones sin problemas!&lt;/p&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/4dVzDJp4/flagok.webp" alt="emojis ok" title="emojis ok" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;</description></item><item><title>Mi terminal ZSH + PowerLevel10K</title><link>https://patojad.com.ar/post/2023/10/mi-terminal-zsh--powerlevel10k/</link><pubDate>Thu, 12 Oct 2023 12:22:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/10/mi-terminal-zsh--powerlevel10k/</guid><description>&lt;p&gt;Muchos me preguntaron sobre mi terminal en videos anteriores, en esta oportunidad quiero explicar como llegar a tener una terminal como la que uso yo, y específicamente, porque tener una terminal así.&lt;/p&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/performance.gif" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Dentro de mi profesión como developer es importante la velocidad y simplicidad de tareas cotidianas y una de esas es el uso de la terminal, la terminal la uso todo el dia y para prácticamente todo, por lo cual requiero una terminal que pueda personalizar para que se acomode y obviamente me simplifique todo lo que pueda…&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/DvcA_iFov54?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="zsh-un-shell-diferente"&gt;
+ZSH un shell diferente
+&lt;a href="#zsh-un-shell-diferente" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;ZSH (Z shell) es una terminal (o mejor dicho shell) para uso interactivo que nos permitirá ser más eficientes cuando estemos delante de la consola. Esta Shell nos permite interpretar, además de comandos, scripts lo cual puede volverse extremadamente útil. Y entre sus ventajas podemos enumerar:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Eficiencia&lt;/li&gt;
+&lt;li&gt;Completado de tabulador mejorado (para los que usamos tab con frecuencia esto es lo que mas me enamoro)&lt;/li&gt;
+&lt;li&gt;Expansión de nombres de fichero mejorada&lt;/li&gt;
+&lt;li&gt;Manejo de arrays mejorado&lt;/li&gt;
+&lt;li&gt;Totalmente personalizable (a los fanáticos de la belleza esto les va a encantar)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;La instalación es muy simple porque viene en los repositorios de la mayoría de las distros de linux. Lo cual nos permite hacerlo de una manera muy simple:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# debian/ubuntu&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install zsh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# archlinux&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S zsh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Si queremos definir este shell como shell por defecto (de esta forma al abrir la terminal iniciará este shell y no bash que suele ser el shell por defecto de la mayoría de las distros) ejecutamos el siguiente comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;chsh -s &lt;span class="sb"&gt;`&lt;/span&gt;which zsh&lt;span class="sb"&gt;`&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Sin embargo por sí solo puede ser un poco engorroso de configurar y puede llevarnos demasiado tiempo, pero como vivimos en el mundo del Software Libre y de la gente que no se queda quieta, podemos encontrar unas &lt;strong&gt;vitaminas&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="oh-my-zsh-al-rescate"&gt;
+Oh My ZSH al rescate
+&lt;a href="#oh-my-zsh-al-rescate" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.ivaylopavlov.com/wp-content/uploads/2017/04/Screenshot-2017-04-30-00.43.48.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Es un framework desarrollado por la comunidad para gestionar la configuración de ZSH. El cual viene a simplificar la tarea personalizar y añadir plugins y configurarlo a gusto, esto puede llegar a ser realmente muy útil y por supuesto simple de instalar, para iniciar debemos instalar sus dependencias:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# debian/ubuntu&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install git-core curl
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# archlinux&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S git curl
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;y a continuación instalamos directamente desde su git.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sh -c &lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;De esta forma se instalará este “aditivo” que permitirá configurarlo a nuestro gusto!&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="powerlevel-10k"&gt;
+PowerLevel 10k
+&lt;a href="#powerlevel-10k" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/prompt-styles-high-contrast.png" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Esto ya es 100% decicion mia, es un theme que me gusto y que suma un valor agregado con datos que muchas veces pueden ser interesantes que pueden leer en su documentación dentro de los cuales puedo resaltar:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tiempo de ejecución de script&lt;/li&gt;
+&lt;li&gt;Status de git&lt;/li&gt;
+&lt;li&gt;hora de comando&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Para instalarlos voy a indicar el paso a paso, no es obligatorio seguirlo así dado que algunos pasos son opcionales pero la verdad recomiendo hacerlo así para obtener una buena integración y performance… Iniciamos instalando las siguientes fonts y poniendo en nuestra terminal la font por defecto &lt;em&gt;Meslo Nerd Font&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+MesloLGS NF Regular
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+MesloLGS NF Bold
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+MesloLGS NF Italic
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf" target="_blank" rel="noopener noreferrer" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+MesloLGS NF Bold Italic
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Luego desde la terminal descargamos el theme de PowerLevel10k desde su repositorio oficial:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git clone --depth&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; https://github.com/romkatv/powerlevel10k.git &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;ZSH_CUSTOM&lt;/span&gt;&lt;span class="k"&gt;:-&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;&lt;span class="p"&gt;/.oh-my-zsh/custom&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;/themes/powerlevel10k
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Por último queda modificar el archivo de configuracion para que inicie este theme, para hacerlo en este caso lo explicare con nano pero pueden usar el editor que quieran:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;nano ~/.zshrc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;ahi buscamos la linea que tenga lo siguiente&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cfg" data-lang="cfg"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;ZSH_THEME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;...&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Donde los puntos suspensivos &lt;em&gt;(&amp;hellip;)&lt;/em&gt; son cualquier texto. y lo remplazamos por la siguiente linea&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cfg" data-lang="cfg"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;ZSH_THEME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;powerlevel10k/powerlevel10k&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Ahora reiniciamos la terminal y nos abrira una configuracion paso a paso donde vamos a ir eligiendo entre ejemplos como se vera la terminal, las primeras preguntas son si vemos los iconos y luego nos mostrará opciones (casi siempre del 1 al 4) donde iremos estableciendo la visualización…&lt;/p&gt;
+&lt;p&gt;&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/configuration-wizard.gif" alt="" title="" loading="lazy" decoding="async" class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;En el caso de que no nos guste como quedo o queramos cambiarlo siempre se puede ejecutar el comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;p10k configure
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Que permitirá reconfigurar el theme nuevamente para dejarlo a nuestro gusto&amp;hellip; No te olvides de comentarnos que te parece y dejarnos la foto de tu terminal recien configurada! Te esperamos en Telegram&lt;/p&gt;</description></item><item><title>Activar Descargas paralelas en Pacman</title><link>https://patojad.com.ar/post/2021/07/activar-descargas-paralelas-en-pacman/</link><pubDate>Thu, 15 Jul 2021 09:51:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/07/activar-descargas-paralelas-en-pacman/</guid><description>&lt;p&gt;Como mencionamos &lt;a href="https://patojad.com.ar/post/2021/06/lleg%c3%b3-pacman-v6-y-pamac-qued%c3%b3-anonadado/" class="text-amber-500 hover:text-amber-600 dark:text-amber-500 dark:hover:text-amber-600 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+hace un tiempo llegó pacman 6
+&lt;/a&gt;, y la primera impresión para algunos no fue buena porque pamac no estaba a la altura ni estaba preparado para esto. Sin embargo ya está todo solucionado y podemos comenzar a sacarle el mejor provecho a esto. En esta oportunidad vamos a hablar de una nueva opción que seguro queremos tener habilitada en nuestra distro…&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="descargas-en-paralelo"&gt;
+Descargas en paralelo
+&lt;a href="#descargas-en-paralelo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Claramente sabemos que son las descargas en paralelo y algunos no nos percatamos de que pacman no descargaba simultáneamente los paquetes pero hoy te damos el paso a paso para que habilites la descarga en paralelo en tu distro base arch preferida…&lt;/p&gt;
+&lt;h2 class="text-amber-500 text-3xl my-6" id="cómo-hacerlo"&gt;
+Cómo hacerlo
+&lt;a href="#c%c3%b3mo-hacerlo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Te dejo un video donde explico como realizar esto y claramente más abajo vas a poder ver los comandos utilizados:&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/xOeA9rx6HLA?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Primero abrimos, como administrador, el archivo de configuración:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo nano /etc/pacman.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Luego, como explica en el video, agregamos la siguiente linea:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;ParallelDownloads&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Donde 5 representa la cantidad de descargas en paralelo que queremos tener, este número lo podemos variar dependiendo nuestra velocidad de internet y necesidades.&lt;/p&gt;</description></item></channel></rss>
