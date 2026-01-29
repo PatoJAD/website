@@ -5,20 +5,20 @@
     <div id="information" class="col-span-2 w-full px-3 mb-4">
 
       {{ if eq .Params.type "video" }}
-      <h1 class="text-fuchsia-700 text-2xl font-bold mb-2 bg-gray-100 dark:bg-gray-800 p-4 rounded-xl">{{ .Title }}</h1>
+      <h1 class="text-fuchsia-700 text-2xl font-bold mb-2 background p-4 rounded-xl">{{ .Title }}</h1>
       <iframe src='https://www.youtube.com/embed/{{ .Params.videoId }}?rel=0'
         class="w-full h-auto rounded-xl aspect-video mb-4" title="Video de Youtube" allowfullscreen>
       </iframe>
       {{ end }}
 
-      <article class="bg-gray-100 dark:bg-gray-800 w-full mb-4 shadow-xl rounded-xl p-8">
+      <article class="background w-full mb-4 shadow-xl rounded-xl p-8">
         {{ if eq .Params.type "post" }}<h1 class="mb-4 text-fuchsia-700 text-5xl text-center">{{ .Title }}</h1>
         {{end}}
         {{ .Content }}
         {{ partial "components/widgets/social-share.html" . }}
       </article>
       {{ partial "components/articles/author.html" . }}
-      <div class="rounded-xl bg-gray-100 dark:bg-gray-800 p-2 flex content-center justify-center">
+      <div class="rounded-xl background p-2 flex content-center justify-center">
         <script defer src="https://i.emote.com/js/emote.js"></script>
         <div id="emote_com" class="m-0 p-0"></div>
       </div>

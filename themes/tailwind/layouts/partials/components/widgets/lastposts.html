@@ -1,5 +1,5 @@
 <div class="w-full mb-4">
-  <h3 class="text-2xl text-fuchsia-700 font-bold bg-gray-100 mb-2 dark:bg-gray-800 p-4 rounded-xl text-center">Últimos
+  <h3 class="text-2xl text-fuchsia-700 font-bold mb-2 background p-4 rounded-xl text-center">Últimos
     Artículos
   </h3>
   {{ $posts := first 6 .Site.RegularPages.ByDate.Reverse }}
@@ -20,13 +20,13 @@
     {{ range $i, $p := $posts }}
     {{ $isBig := in ($scratch.Get "bigIndices") $i }}
     <article
-      class="relative overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800 shadow-sm {{ if $isBig }}md:col-span-2 md:row-span-2{{ end }} aspect-square">
+      class="relative overflow-hidden rounded-xl background shadow-sm {{ if $isBig }}md:col-span-2 md:row-span-2{{ end }} aspect-square">
       <a href="{{ $p.RelPermalink }}" class="block w-full h-full">
         <img src="{{ with $p.Params.img }}{{ . }}{{ end }}" alt="{{ $p.Title }}" loading="lazy" decoding="async"
           class="w-full {{ if $isBig }}h-64 md:h-full object-cover{{ else }}aspect-square object-cover{{ end }}">
         <div class="absolute inset-0 flex items-end md:items-center p-4">
           <h3
-            class="bg-gray-100/80 dark:bg-gray-800/80  rounded-xl p-1 text-sm md:text-lg leading-tight {{ if $isBig }}font-bold{{else}}truncate{{ end }}">
+            class="background  rounded-xl p-1 text-sm md:text-lg leading-tight {{ if $isBig }}font-bold{{else}}truncate{{ end }}">
             {{ $p.Title }}</h3>
         </div>
       </a>

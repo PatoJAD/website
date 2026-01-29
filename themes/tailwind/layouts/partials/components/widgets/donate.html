@@ -1,5 +1,5 @@
 <div class="w-full mb-4">
-	<h3 class="text-2xl text-fuchsia-700 font-bold mb-2 bg-gray-100 dark:bg-gray-800 p-4 rounded-xl text-center">{{ .Site.Params.donate.title }}</h3>
+	<h3 class="text-2xl text-fuchsia-700 font-bold mb-2 background p-4 rounded-xl text-center">{{ .Site.Params.donate.title }}</h3>
 
 	{{ $items := .Site.Params.donate.main }}
 
@@ -18,7 +18,7 @@
 			{{ $isBig := eq $i 0 }}
 			{{ $classes := (cond $isBig "md:col-span-2 md:row-span-2 aspect-square" "aspect-square") }}
 			{{ $brand := "#4B5563" }}{{ with $d.params.color }}{{ $brand = . }}{{ end }}
-			<div style="--brand: {{ $brand }};" class="donate-tile relative rounded-xl overflow-hidden shadow-lg flex items-center justify-center p-4 {{ $classes }} bg-gray-100 dark:bg-gray-800">
+			<div style="--brand: {{ $brand }};" class="donate-tile relative rounded-xl overflow-hidden shadow-lg flex items-center justify-center p-4 {{ $classes }} background">
 				{{/* If crypto, open modal; else link out */}}
 				{{ $isCrypto := false }}{{ with $d.params.is_crypto }}{{ $isCrypto = . }}{{ end }}
 				{{ if $isCrypto }}
@@ -38,9 +38,9 @@
 
 	<!-- Modal (hidden by default) -->
 	<div id="donate-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40">
-		<div class="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-11/12 max-w-md p-6">
+		<div class="background rounded-xl shadow-xl w-11/12 max-w-md p-6">
 			<h4 class="text-lg font-semibold mb-3">Dirección de la billetera</h4>
-			<div id="donate-address" class="break-words bg-gray-100 dark:bg-gray-900 p-3 rounded-xl mb-4"></div>
+			<div id="donate-address" class="break-words background p-3 rounded-xl mb-4"></div>
 			<div class="flex justify-end gap-2">
 				<button id="donate-copy" class="px-3 py-2 bg-fuchsia-700 text-white rounded-xl">Copiar</button>
 				<button id="donate-close" class="px-3 py-2 bg-gray-200 dark:bg-gray-700 rounded-xl">Cerrar</button>

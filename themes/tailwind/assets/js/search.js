@@ -161,7 +161,7 @@ function executeQuery(term) {
       resultsHTML =
         resultsHTML +
         `<div class="mb-2 bg-cover bg-center bg-no-repeat p-3 rounded-2xl" style="background-image: url(${value.item.img});" id="result-${key}">
-          <a class="flex items-center px-3 py-2 rounded-2xl appearance-none bg-gray-200 dark:bg-gray-900 focus:outline-dotted focus:outline-transparent focus:outline-2 opacity-80" 
+          <a class="flex items-center px-3 py-2 rounded-2xl appearance-none background focus:outline-dotted focus:outline-transparent focus:outline-2 opacity-80" 
           ${linkconfig} tabindex="0">
             <div class="grow">
               <div class="-mb-1 text-lg font-bold text-fuchsia-700">

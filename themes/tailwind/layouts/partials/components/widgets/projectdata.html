@@ -1,5 +1,5 @@
 <div class="w-full mb-4">
-  <h3 class="text-2xl text-fuchsia-700 font-bold mb-4 bg-gray-100 dark:bg-gray-800 p-4 rounded-xl text-center">Informacion
+  <h3 class="text-2xl text-fuchsia-700 font-bold mb-4 background p-4 rounded-xl text-center">Informacion
     del Proyecto</h3>
 
   <!-- Layout: on md+ use 4 columns: left column for three small tiles (1 col width), right area 3 columns for big tile (3x3). On small screens it stacks. -->
@@ -7,7 +7,7 @@
 
     <!-- Main big tile: título + descripción (3x3) -->
     <div
-      class="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 shadow-lg flex flex-col justify-between md:col-span-3 md:row-span-3">
+      class="background rounded-xl p-6 shadow-lg flex flex-col justify-between md:col-span-3 md:row-span-3">
       <div>
         <h4 class="text-lg font-bold mb-2 text-gray-800 dark:text-gray-100">{{ .Params.title }}</h4>
         <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed line-clamp-6">{{ .Params.description }}</p>
@@ -21,17 +21,17 @@
     <!-- Left column: three small tiles stacked (on md take col-span-1 and rows) -->
     
       <div
-        class="bg-gray-100 dark:bg-gray-800 rounded-xl p-2 shadow-lg flex flex-col justify-center items-start aspect-square">
+        class="background rounded-xl p-2 shadow-lg flex flex-col justify-center items-start aspect-square">
         <span class="text-xs font-semibold text-gray-500 uppercase mb-2">Cliente</span>
         <span class="text-base font-medium text-gray-800 dark:text-gray-100">{{ .Params.client | default "—" }}</span>
       </div>
       <div
-        class="bg-gray-100 dark:bg-gray-800 rounded-xl p-2 shadow-lg flex flex-col justify-center items-start aspect-square">
+        class="background rounded-xl p-2 shadow-lg flex flex-col justify-center items-start aspect-square">
         <span class="text-xs font-semibold text-gray-500 uppercase mb-2">Estado</span>
         <span class="text-base font-medium text-gray-800 dark:text-gray-100">{{ .Params.status | default "—" }}</span>
       </div>
       <div
-        class="bg-gray-100 dark:bg-gray-800 rounded-xl p-2 shadow-lg flex flex-col justify-center items-start aspect-square">
+        class="background rounded-xl p-2 shadow-lg flex flex-col justify-center items-start aspect-square">
         <div class="text-sm">
           {{ if .Params.url }}
           <a href="{{ .Params.url }}" target="_blank" rel="noopener" class="text-fuchsia-700 font-medium break-words">{{
@@ -47,13 +47,13 @@
   </div>
 
   <!-- Technologies full-width row -->
-  <div class="mt-2 bg-gray-100 dark:bg-gray-800 rounded-xl p-2 shadow-lg">
+  <div class="mt-2 background rounded-xl p-2 shadow-lg">
     <span class="text-xs font-semibold text-gray-500 uppercase mb-2 inline-block">Tecnologías</span>
     <div class="flex flex-wrap gap-2 mt-2">
       {{ $technologies := .Params.technologies }}
       {{ range .Site.Params.technologies.main }}
       {{ if in $technologies .name }}
-      <div class="flex items-center gap-2 bg-gray-100 dark:bg-gray-900 rounded-xl px-3 py-2 shadow-inner">
+      <div class="flex items-center gap-2 background rounded-xl px-3 py-2 shadow-inner">
         <img src="{{ .image | safeURL }}" alt="{{ .name }}" loading="lazy" decoding="async"
           class="h-6 w-6 object-contain" />
         <span class="text-sm">{{ .name }}</span>
