@@ -156,7 +156,7 @@ function executeQuery(term) {
       var div = document.createElement("div");
       div.innerHTML = html;
       value.item.summary = div.textContent || div.innerText || "";
-      var title = value.item.externalUrl ? value.item.title + '<span class="text-xs ml-2 align-center cursor-default text-amber-500">' + value.item.externalUrl + '</span>' : value.item.title;
+      var title = value.item.externalUrl ? value.item.title + '<span class="text-xs ml-2 align-center cursor-default text-fuchsia-700">' + value.item.externalUrl + '</span>' : value.item.title;
       var linkconfig = value.item.externalUrl ? 'target="_blank" rel="noopener" href="' + value.item.externalUrl + '"' : 'href="' + value.item.permalink + '"';
       resultsHTML =
         resultsHTML +
@@ -164,10 +164,10 @@ function executeQuery(term) {
           <a class="flex items-center px-3 py-2 rounded-2xl appearance-none bg-gray-200 dark:bg-gray-900 focus:outline-dotted focus:outline-transparent focus:outline-2 opacity-80" 
           ${linkconfig} tabindex="0">
             <div class="grow">
-              <div class="-mb-1 text-lg font-bold text-amber-500">
+              <div class="-mb-1 text-lg font-bold text-fuchsia-700">
                 ${title}
               </div>
-              <div class="text-sm text-gray-500"><span class="px-2 text-amber-500"><em class="fas fa-calendar"></em></span>${value.item.date ? value.item.date : ""}</span></div>
+              <div class="text-sm text-gray-500"><span class="px-2 text-fuchsia-700"><em class="fas fa-calendar"></em></span>${value.item.date ? value.item.date : ""}</span></div>
               <div class="text-sm italic">${value.item.summary}</div>
             </div>
             <div class="ml-2 ltr:block rtl:hidden text-gray-500">&rarr;</div>
