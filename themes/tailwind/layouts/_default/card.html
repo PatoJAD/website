@@ -1,65 +1,141 @@
-<article class="rounded-xl overflow-hidden mb-6 mx-auto bg-transparent w-full h-full flex flex-col">
-  <a href="{{ .RelPermalink }}" class="block group flex-1">
-    <div class="relative rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
-      <div class="relative flex-1">
-        <img src="{{ .Params.img }}" alt="{{ .Title }}" title="{{ .Title }}" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover" />
-        <!-- overlay -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-95 group-hover:opacity-100 transition"></div>
-
-        <div class="absolute left-4 bottom-4 right-4 flex items-end justify-between gap-3">
-          <div class="flex flex-col max-w-[65%]">
-            <h3 class="text-white text-lg sm:text-xl font-bold leading-tight drop-shadow">{{ .Title }}</h3>
-            <div class="mt-1 flex gap-2 flex-wrap">
-              <style>
-                /* use CSS variables set per-badge to allow dynamic colors from front-matter */
-                .card-cat-badge{ background-color: var(--cat-bg, rgba(255,255,255,0.08)); color: var(--cat-color, #fff); }
-              </style>
-              {{ if .Params.categories }}
-                {{ range (.GetTerms "categories") }}
-                  {{ $cat := . }}
-                  {{ with .Params.style }}
-                    <span class="text-xs px-3 py-1 rounded-full card-cat-badge" style="--cat-bg: {{ .background }}; --cat-color: {{ .color }};">{{ $cat.LinkTitle }}</span>
-                  {{ else }}
-                    <span class="text-xs px-3 py-1 rounded-full card-cat-badge">{{ $cat.LinkTitle }}</span>
-                  {{ end }}
-                {{ end }}
-              {{ end }}
-            </div>
-          </div>
-
-          <!-- author small avatar and name inside overlay -->
-          <div class="flex items-center gap-3">
-            {{ $pages := .Site.Pages.ByPublishDate.Reverse }} {{ range .Params.authors }} {{ range where (where $pages "Type" "authors") ".Params.name" . }}
-              <div class="flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 backdrop-blur">
-                <img class="w-8 h-8 rounded-full object-cover" src="{{ .Params.photo }}" alt="{{ .Params.name }}">
-                <span class="text-sm text-white">{{ .Params.name }}</span>
-              </div>
-            {{ end }}{{ end }}
-          </div>
-        </div>
-      </div>
-    </div>
-  </a>
-
-  <!-- meta area -->
-  <div class="mt-3 flex items-center justify-between px-2 sm:px-4">
-    <div class="flex items-center gap-4 text-xs text-gray-500">
-      <span class="flex items-center gap-1"><em class="fa fa-clock-o" aria-hidden="true"></em>{{ .ReadingTime }} min</span>
-      <span class="flex items-center gap-1"><em class="fa fa-calendar" aria-hidden="true"></em>
+<article class="w-full p-4 background rounded-xl">
+  <div class="mb-4 overflow-hidden rounded-xl">
+    <img class="w-full transform hover:scale-125 transition duration-1000" src="{{ .Params.img }}" alt="{{ .Title }}"
+      title="{{ .Title }}" loading="lazy" decoding="async" />
+  </div>
+  <div class="flex flex-wrap items-center -m-2 mb-4">
+    <div class="w-auto p-2">
+      <span class="text-sm text-white font-medium tracking-tighter">
+        <em class="fa fa-calendar" aria-hidden="true"></em>
         {{ $formattedDate := .Date.Format "Friday, March 3, 2006" }}
         {{ $monthNumber := .Date.Month }} {{ $dayNumber := .Date.Weekday }}
         {{ if eq site.Language.Lang "es" }}
         {{ $monthNumber = index site.Data.meses (printf "%d" .Date.Month) }}
         {{ $dayNumber = index site.Data.dias (printf "%d" .Date.Weekday) }}
-        {{ $formattedDate = delimit (slice $dayNumber (printf "%d" .Date.Day) "de" $monthNumber "de" (printf "%d" .Date.Year)) " "}}
+        {{ $formattedDate = delimit (slice $dayNumber (printf "%d" .Date.Day) "de" $monthNumber "de" (printf "%d"
+        .Date.Year)) " "}}
         {{ end }}
         {{ $formattedDate }}
       </span>
     </div>
-
-    <div>
-      <a href="{{ .RelPermalink }}" class="inline-flex items-center gap-2 bg-fuchsia-700 text-white text-xs px-3 py-2 rounded-full hover:bg-fuchsia-800 transition">Leer artículo <span class="hidden sm:inline">→</span></a>
+    <div class="w-auto p-2">
+      <svg width="3" height="3" viewBox="0 0 3 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2.492 2.5H0.574V0.33H2.492V2.5Z" fill="white"></path>
+      </svg>
+    </div>
+    <div class="w-auto p-2">
+      <span class="text-sm text-white font-medium tracking-tighter"><em class="fa fa-clock-o" aria-hidden="true"></em>
+        {{ .ReadingTime }} min de lectura</span>
     </div>
   </div>
+  <a class="group block" href="{{ .RelPermalink }}">
+    <h3 class="font-heading mb-4 text-2xl text-white tracking-3xl hover:underline">{{ .Title }}</h3>
+  </a>
+  <p class="mb-6 text-white text-opacity-60">{{ .Summary }}</p>
+  <div class="flex flex-wrap -m-1.5">
+    <style>
+      /* use CSS variables set per-badge to allow dynamic colors from front-matter */
+      .card-cat-badge {
+        background-color: var(--cat-bg, rgba(255, 255, 255, 0.08));
+        color: var(--cat-color, #fff);
+      }
+    </style>
+    {{ if .Params.categories }}
+    {{ range (.GetTerms "categories") }}
+    {{ $cat := . }}
+    {{ with .Params.style }}
 
+    <div class="w-auto p-1.5">
+      <div
+        class="py-3.5 px-6 text-sm text-white hover:text-black font-medium tracking-tighter card-cat-badge rounded-full transition duration 300"
+        style="--cat-bg: {{ .background }}; --cat-color: {{ .color }};">
+        {{ $cat.LinkTitle }}</div>
+    </div>
+    {{ else }}
+    <div class="w-auto p-1.5">
+      <div
+        class="py-3.5 px-6 text-sm text-white hover:text-black font-medium tracking-tighter background rounded-full transition duration 300">
+        {{ $cat.LinkTitle }}</div>
+    </div>
+    {{ end }}
+    {{ end }}
+    {{ end }}
+  </div>
 </article>
+
+<!--
+  <article class="rounded-xl overflow-hidden mb-6 mx-auto bg-transparent w-full h-full flex flex-col">
+    <a href="{{ .RelPermalink }}" class="block group flex-1">
+      <div class="relative rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
+        <div class="relative flex-1">
+          <img src="{{ .Params.img }}" alt="{{ .Title }}" title="{{ .Title }}" loading="lazy" decoding="async"
+            class="absolute inset-0 w-full h-full object-cover" />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-95 group-hover:opacity-100 transition">
+          </div>
+  
+          <div class="absolute left-4 bottom-4 right-4 flex items-end justify-between gap-3">
+            <div class="flex flex-col max-w-[65%]">
+              <h3 class="text-white text-lg sm:text-xl font-bold leading-tight drop-shadow">{{ .Title }}</h3>
+              <div class="mt-1 flex gap-2 flex-wrap">
+                <style>
+                  /* use CSS variables set per-badge to allow dynamic colors from front-matter */
+                  .card-cat-badge {
+                    background-color: var(--cat-bg, rgba(255, 255, 255, 0.08));
+                    color: var(--cat-color, #fff);
+                  }
+                </style>
+                {{ if .Params.categories }}
+                {{ range (.GetTerms "categories") }}
+                {{ $cat := . }}
+                {{ with .Params.style }}
+                <span class="text-xs px-3 py-1 rounded-full card-cat-badge"
+                  style="--cat-bg: {{ .background }}; --cat-color: {{ .color }};">{{ $cat.LinkTitle }}</span>
+                {{ else }}
+                <span class="text-xs px-3 py-1 rounded-full card-cat-badge">{{ $cat.LinkTitle }}</span>
+                {{ end }}
+                {{ end }}
+                {{ end }}
+              </div>
+            </div>
+  
+            <div class="flex items-center gap-3">
+              {{ $pages := .Site.Pages.ByPublishDate.Reverse }} {{ range .Params.authors }} {{ range where (where $pages
+              "Type" "authors") ".Params.name" . }}
+              <div class="flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 backdrop-blur">
+                <img class="w-8 h-8 rounded-full object-cover" src="{{ .Params.photo }}" alt="{{ .Params.name }}">
+                <span class="text-sm text-white">{{ .Params.name }}</span>
+              </div>
+              {{ end }}{{ end }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <div class="mt-3 flex items-center justify-between px-2 sm:px-4">
+      <div class="flex items-center gap-4 text-xs text-gray-500">
+        <span class="flex items-center gap-1"><em class="fa fa-clock-o" aria-hidden="true"></em>{{ .ReadingTime }}
+          min</span>
+        <span class="flex items-center gap-1"><em class="fa fa-calendar" aria-hidden="true"></em>
+          {{ $formattedDate := .Date.Format "Friday, March 3, 2006" }}
+          {{ $monthNumber := .Date.Month }} {{ $dayNumber := .Date.Weekday }}
+          {{ if eq site.Language.Lang "es" }}
+          {{ $monthNumber = index site.Data.meses (printf "%d" .Date.Month) }}
+          {{ $dayNumber = index site.Data.dias (printf "%d" .Date.Weekday) }}
+          {{ $formattedDate = delimit (slice $dayNumber (printf "%d" .Date.Day) "de" $monthNumber "de" (printf "%d"
+          .Date.Year)) " "}}
+          {{ end }}
+          {{ $formattedDate }}
+        </span>
+      </div>
+  
+      <div>
+        <a href="{{ .RelPermalink }}"
+          class="inline-flex items-center gap-2 bg-fuchsia-700 text-white text-xs px-3 py-2 rounded-full hover:bg-fuchsia-800 transition">Leer
+          artículo <span class="hidden sm:inline">→</span></a>
+      </div>
+    </div>
+  
+  </article>
+-->
