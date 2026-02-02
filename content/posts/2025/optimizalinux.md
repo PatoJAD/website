@@ -32,7 +32,7 @@ tags:
     arch,
     manjaro,
   ]
-categories: ["Programacion"]
+categories: ["Linux"]
 img: "https://i.postimg.cc/rsDpcPPQ/optimizarlinuxweb.webp"
 ---
 
