@@ -2,8 +2,8 @@
 {{ range .Params.authors }}
 {{ range where (where $pages "Type" "authors") ".Params.name" . }}
 
-<div class=" overflow-hidden mb-4">
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-2">
+<div class="overflow-hidden mb-8">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
     <!-- Left: full-height image (not rounded) -->
     <div class="md:col-span-1 background p-0 rounded-xl overflow-hidden">
       <img src="{{ .Params.photo }}" alt="{{ .Params.name }}" loading="lazy" decoding="async"
@@ -11,13 +11,19 @@
     </div>
 
     <!-- Right: content -->
-    <div class="md:col-span-3 flex flex-col justify-between gap-2">
+    <div class="md:col-span-3 ">
       <h3 class="text-xl md:text-2xl lg:text-3xl font-bold flex gap-2">
-        <span class="background rounded-xl p-2">{{ .Params.name}}</span> <span class="text-fuchsia-700 font-semibold background rounded-xl p-2">{{ .Params.descriptionp }}</span>
+        <span class="ms-4">{{ .Params.name}}</span>
       </h3>
+      <div class="flex items-center">
+        <hr class="w-full h-1 rounded-xl bg-fuchsia-700">
+        <h3 class="text-xl text-fuchsia-700 font-bold mb-4 p-0 text-center">
+          {{ .Params.descriptionp }}
+        </h3>
+      </div>
 
-      <div class="background rounded-xl p-2">
-        <p class="text-sm text-gray-700 dark:text-gray-300">{{ .Params.description | default "" }}</p>
+      <div class="background rounded-xl p-4">
+        <p class="text-sm text-gray-700 dark:text-gray-300 p-0">{{ .Params.description | default "" }}</p>
       </div>
 
       <!-- Redes sociales eliminadas según solicitud -->
