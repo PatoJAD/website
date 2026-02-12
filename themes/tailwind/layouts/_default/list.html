@@ -1,42 +1,14 @@
 {{ define "main" }}
 
-<div class="flex flex-col justify-center items-center px-6 max-w-[1400px] m-auto">
+<div class="flex flex-col justify-center items-center px-12 md:px-6 py-24 w-full">
   <div class="grid grid-cols-1 md:grid-cols-3 py-12 w-full">
     <div id="information" class="col-span-2 w-full px-1 mb-4">
-      <div class="flex flex-col gap-2">
+      <div class="gap-4 grid grid-cols-1 md:grid-cols-2">
         {{ $paginator := .Paginate .Data.Pages.ByDate.Reverse }}
         {{ $pages := $paginator.Pages }}
-        {{ $total := len $pages }}
-
-        <style>
-          .card-cat-badge{ background-color: var(--cat-bg, rgba(255,255,255,0.08)); color: var(--cat-color, #fff); }
-        </style>
 
         {{ range $i, $p := $pages }}
-          {{ if eq (mod $i 3) 0 }}
-            {{ $group := div $i 3 }}
-            {{ $isEven := eq (mod $group 2) 0 }}
-
-            <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-2 items-stretch">
-              {{/* item A (i) */}}
-              <div class="{{ if $isEven }}md:col-start-1 md:col-span-2 md:row-start-1 md:row-span-1{{ else }}md:col-start-1 md:col-span-1 md:row-start-1 md:row-span-2{{ end }}">
-                {{ $a := index $pages $i }}
-                {{ if $a }}{{ partial "components/card-metro.html" (dict "page" $a) }}{{ end }}
-              </div>
-
-              {{/* item B (i+1) */}}
-              {{ if lt (add $i 1) $total }}
-                {{ $b := index $pages (add $i 1) }}
-                {{ if $b }}<div class="{{ if $isEven }}md:col-start-1 md:col-span-2 md:row-start-2 md:row-span-1{{ else }}md:col-start-2 md:col-span-2 md:row-start-1 md:row-span-1{{ end }}">{{ partial "components/card-metro.html" (dict "page" $b) }}</div>{{ end }}
-              {{ end }}
-
-              {{/* item C (i+2) */}}
-              {{ if lt (add $i 2) $total }}
-                {{ $c := index $pages (add $i 2) }}
-                {{ if $c }}<div class="{{ if $isEven }}md:col-start-3 md:col-span-1 md:row-start-1 md:row-span-2{{ else }}md:col-start-2 md:col-span-2 md:row-start-2 md:row-span-1{{ end }}">{{ partial "components/card-metro.html" (dict "page" $c) }}</div>{{ end }}
-              {{ end }}
-            </div>
-          {{ end }}
+          {{ .Render "card" }}
         {{ end }}
 
         {{- partial "components/pagination.html" . -}}

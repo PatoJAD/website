@@ -1,4 +1,4 @@
-<article class="rounded-xl overflow-hidden shadow-xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 h-full">
+<article class="rounded-xl overflow-hidden shadow-xl background h-full">
   <a href="{{ .RelPermalink }}" class="block group h-full">
     <div class="relative h-full overflow-hidden">
       <img src="{{ .Params.img }}" alt="{{ .Title }}" title="{{ .Title }}" loading="lazy" decoding="async" class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-600" />
@@ -7,30 +7,25 @@
       <div class="absolute inset-0 bg-linear-to-t from-black/60 to-transparent"></div>
 
       <!-- date ribbon (subtle) -->
-      <div class="absolute top-3 left-3 bg-amber-500 text-white text-xs font-semibold px-3 py-1 rounded-md drop-shadow">{{ printf "%d" .Date.Day }} {{ index site.Data.meses (printf "%d" .Date.Month) }}</div>
+      <div class="absolute top-3 left-3 bg-fuchsia-700 text-white text-xs font-semibold px-3 py-1 rounded-md drop-shadow">{{ printf "%d" .Date.Day }} {{ index site.Data.meses (printf "%d" .Date.Month) }} {{ printf "%d" .Date.Year }}</div>
 
       <!-- content overlay: title, badges, summary -->
       <div class="absolute left-0 right-0 bottom-0 p-4">
         <h3 class="text-lg md:text-xl font-bold text-white line-clamp-2">{{ .Title }}</h3>
 
-        <style>
-          .tech-badge { background-color: var(--tech-bg, #111827); color: white; }
-        </style>
         <div class="flex flex-wrap gap-2 mt-2">
           {{ $technologies := .Params.technologies }}
           {{ range .Site.Params.technologies.main }}
             {{ $usedTech := in $technologies .name }}
             {{ if $usedTech }}
               {{ $bg := .params.color | default "#111827" }}
-              <div class="tech-badge flex items-center gap-2 px-2 py-1 rounded-md text-xs font-semibold shadow-inner" style="--tech-bg: {{ $bg }};">
+              <div class="background flex items-center gap-2 px-4 py-2 rounded-md text-xs font-semibold shadow-inner" style="--tech-bg: {{ $bg }};">
                 <img src="{{ .image | safeURL }}" alt="{{ .name }}" title="{{ .name }}" class="h-5 w-5 object-contain" loading="lazy" decoding="async">
                 <span>{{ .name }}</span>
               </div>
             {{ end }}
           {{ end }}
         </div>
-
-        <div class="mt-2 text-sm text-gray-100 line-clamp-3">{{ .Summary }}</div>
       </div>
     </div>
   </a>

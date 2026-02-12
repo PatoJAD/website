@@ -1,8 +1,10 @@
 {{- $limit := default 40 .Params.limit -}}
 
 <div class="w-full mb-4">
-  <h3 class="text-2xl text-amber-500 font-bold mb-2 bg-gray-100 dark:bg-gray-800 p-4 rounded-xl text-center">Categorías
-  </h3>
+  <div class="flex items-center">
+    <h3 class="text-3xl text-fuchsia-700 font-bold mb-4 p-4">Categorías</h3>
+    <hr class="w-full h-1 rounded-xl bg-fuchsia-700">
+  </div>
   {{/* Prepare list and big-indices heuristic like social network */}}
   {{ $cats := first $limit .Site.Taxonomies.categories.ByCount }}
   {{ $count := len $cats }}
@@ -22,7 +24,7 @@
     {{ if $isBig }}
     <!-- Big tile: occupies 2x2 on md+; badge aligned to the right of text on md+ -->
     <a href="{{ $c.Page.RelPermalink }}"
-      class="relative bg-gray-100 dark:bg-gray-800 rounded-xl shadow-sm flex flex-col md:flex-row items-center md:items-center justify-center hover:bg-amber-500 hover:scale-[1.02] transition-transform p-4 md:col-span-2 md:row-span-2">
+      class="relative background rounded-xl shadow-sm flex flex-col md:flex-row items-center md:items-center justify-center hover:bg-fuchsia-700 hover:scale-[1.02] transition-transform p-4 md:col-span-2 md:row-span-2">
       <div class="flex flex-col items-center">
         <em class="{{ $c.Page.Params.icon }} text-6xl mb-2" aria-hidden="true"></em>
         <span class="text-sm font-semibold text-center md:text-left px-2">{{ $c.Page.Title }}</span>
@@ -34,7 +36,7 @@
     {{ else }}
     <!-- Small tile: on md+ becomes 1 row x 2 columns (wide rectangle) using aspect ratio 2/1 and col-span-2 -->
     <a href="{{ $c.Page.RelPermalink }}"
-      class="relative bg-gray-100 dark:bg-gray-800 rounded-xl shadow-sm flex items-center gap-3 justify-start hover:scale-[1.02] transition-transform p-4 md:col-span-2 md:aspect-[2/1] hover:bg-amber-500">
+      class="relative background rounded-xl shadow-sm flex items-center gap-3 justify-start hover:scale-[1.02] transition-transform p-4 md:col-span-2 md:aspect-[2/1] hover:bg-fuchsia-700">
       <em class="{{ $c.Page.Params.icon }} text-2xl" aria-hidden="true"></em>
       <span class="text-sm font-semibold truncate">{{ $c.Page.Title }}</span>
       <span class="ml-auto inline-flex items-center justify-center text-xs font-medium w-7 h-7">{{

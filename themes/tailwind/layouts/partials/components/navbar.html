@@ -1,25 +1,22 @@
-<div class="p-3 relative z-10">
+<header class="w-full flex justify-center h-24 z-10 fixed top-0 pt-4">
   <nav
-    class="p-3 common-text bg-gray-100 dark:bg-gray-800 rounded-xl shadow-lg font-medium capitalize flex content-center items-center">
-    <span class="px-2 mr-2 border-xl border-gray-700">
+    class="bg-linear-to-r from-zinc-800 to-zinc-900/20 px-6 flex align-middle justify-between p-2 rounded-full w-[90%] backdrop-blur-md border border-zinc-200/10">
+    <span class="my-auto">
       <img src="https://i.postimg.cc/L4Q8W1Wx/logo-patojad.png" title="Patojad" alt="Patojad" style="height: 42px;" loading="lazy" decoding="async" />
     </span>
     <div class="ml-auto mr-auto flex flex-wrap">
       {{ range .Site.Menus.main }}
       <a href="{{ .URL | relLangURL }}" {{ if eq .Params.newtab true }}target="_blank" {{ end }} title="{{- .Name -}} "
-        class="px-2 py-1 mx-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-900 hover:text-amber-500 text-sm rounded-xl flex content-center items-center">
-        <span class="flex justify-center items-center bg-gray-200 dark:bg-gray-900 rounded-full w-8 h-8"><em
-            class="{{- .Params.icon -}}"></em></span>
+        class="px-2 py-1 mx-2 cursor-pointer text-sm flex content-center items-center hover:text-fuchsia-700">
         <span class="mx-1 hidden md:block"> {{- .Name -}} </span>
       </a>
       {{ end }}
     </div>
     <div class="flex flex-wrap">
       <button id="search-button" aria-label="Search"
-        class="text-base hover:text-primary-600 dark:hover:text-primary-400 mr-2" title="Search">
+        class="text-base hover:text-fuchsia-700 mr-2" title="Search">
         <em class="fas fa-search"></em>
       </button>
-      {{ partial "helper/colorSchemeToggle.html" . }}
     </div>
   </nav>
-</div>
+</header>

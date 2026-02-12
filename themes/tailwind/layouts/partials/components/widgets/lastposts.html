@@ -1,36 +1,47 @@
 <div class="w-full mb-4">
-  <h3 class="text-2xl text-amber-500 font-bold bg-gray-100 mb-2 dark:bg-gray-800 p-4 rounded-xl text-center">Últimos
-    Artículos
-  </h3>
-  {{ $posts := first 6 .Site.RegularPages.ByDate.Reverse }}
-  {{ $count := len $posts }}
-  {{ $scratch := newScratch }}
-  {{/* For 6 posts prefer big indices [0,3] so after first big there are two smalls */}}
-  {{ if eq $count 6 }}
-  {{ $scratch.Set "bigIndices" (slice 0 3) }}
-  {{ else if ge $count 3 }}
-  {{ $scratch.Set "bigIndices" (slice 0 2) }}
-  {{ else if ge $count 1 }}
-  {{ $scratch.Set "bigIndices" (slice 0) }}
-  {{ else }}
-  {{ $scratch.Set "bigIndices" (slice) }}
-  {{ end }}
+  <div class="flex items-center">
+    <h3 class="text-3xl text-fuchsia-700 font-bold mb-4 p-4">Últimos Artículos</h3>
+    <hr class="w-full h-1 rounded-xl bg-fuchsia-700">
+  </div>
+  {{ $posts := first 3 .Site.RegularPages.ByDate.Reverse }}
 
-  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+  <div class="flex flex-wrap">
     {{ range $i, $p := $posts }}
-    {{ $isBig := in ($scratch.Get "bigIndices") $i }}
-    <article
-      class="relative overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800 shadow-sm {{ if $isBig }}md:col-span-2 md:row-span-2{{ end }} aspect-square">
-      <a href="{{ $p.RelPermalink }}" class="block w-full h-full">
-        <img src="{{ with $p.Params.img }}{{ . }}{{ end }}" alt="{{ $p.Title }}" loading="lazy" decoding="async"
-          class="w-full {{ if $isBig }}h-64 md:h-full object-cover{{ else }}aspect-square object-cover{{ end }}">
-        <div class="absolute inset-0 flex items-end md:items-center p-4">
-          <h3
-            class="bg-gray-100/80 dark:bg-gray-800/80  rounded-xl p-1 text-sm md:text-lg leading-tight {{ if $isBig }}font-bold{{else}}truncate{{ end }}">
-            {{ $p.Title }}</h3>
+    <div class="w-full md:w-1/2 lg:w-1/3 p-4">
+      <div class="relative mb-4 overflow-hidden rounded-xl">
+        <img
+          class="w-full transform hover:scale-125 transition duration-1000"
+          src="{{ with $p.Params.img }}{{ . }}{{ end }}" alt="{{ $p.Title }}" loading="lazy" decoding="async">
+        <div class="absolute bottom-0 left-0 w-full background p-4">
+          <div class="mb-4 flex gap-4">
+            <style>
+              /* use CSS variables set per-badge to allow dynamic colors from front-matter */
+              .card-cat-badge {
+                background-color: var(--cat-bg, rgba(255, 255, 255, 0.08));
+                color: var(--cat-color, #fff);
+              }
+            </style>
+            {{ if .Params.categories }}
+            {{ range (.GetTerms "categories") }}
+            {{ $cat := . }}
+            {{ with .Params.style }}
+            <span class="text-sm px-3 py-1 rounded-full card-cat-badge font-medium"
+              style="--cat-bg: {{ .background }}; --cat-color: {{ .color }};">{{ $cat.LinkTitle }}</span>
+            {{ else }}
+            <span class="text-sm px-3 py-1 rounded-full card-cat-badge font-medium">{{ $cat.LinkTitle }}</span>
+            {{ end }}
+            {{ end }}
+            {{ end }}
+          </div>
+          <a class="group inline-block max-w-sm" href="{{ $p.RelPermalink }}">
+            <h3 class="mb-4 text-2xl text-white tracking-xl hover:underline">{{ $p.Title }}</h3>
+          </a>
+          <a class="group inline-flex items-center" href="{{ $p.RelPermalink }}">
+            <span class="mr-3.5 text-white font-medium">Ver más</span>
+          </a>
         </div>
-      </a>
-    </article>
+      </div>
+    </div>
     {{ end }}
   </div>
 

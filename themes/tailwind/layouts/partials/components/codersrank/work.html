@@ -1,18 +1,20 @@
 {{ $data := site.Data.linkedin }}
 {{ $techList := .Site.Params.technologies.main }}
-<h3 class="text-2xl text-amber-500 font-bold mb-2 bg-gray-100 dark:bg-gray-800 p-4 rounded-xl text-center">
-  Experiencia Laboral
-</h3>
+<div class="flex items-center">
+  <h3 class="text-3xl text-fuchsia-700 font-bold mb-4 p-4">Experiencia Laboral</h3>
+  <hr class="w-full h-1 rounded-xl bg-fuchsia-700">
+</div>
+
 {{ $count := len $data.positions }}
 {{ if gt $count 0 }}
 {{ $first := index $data.positions 0 }}
-<div class="w-full mb-2">
-  <article class="bg-gray-100 dark:bg-gray-800 shadow rounded-xl p-4">
-    <div class="flex items-center gap-2">
+<div class="w-full mb-4 px-0 md:px-12">
+  <article class="background shadow rounded-xl p-4">
+    <div class="flex items-center gap-4">
       <img src="{{ $first.company_logo | default " /img/placeholder-company.png" }}" alt="{{ $first.company }} logo"
-        class="h-20 w-20 object-contain rounded-xl bg-gray-200 dark:bg-gray-900" loading="lazy" decoding="async">
+        class="h-20 w-20 object-contain rounded-xl background" loading="lazy" decoding="async">
       <div class="w-full">
-        <h3 class="text-2xl font-bold text-amber-500">{{ $first.company }}</h3>
+        <h3 class="text-2xl font-bold text-fuchsia-700">{{ $first.company }}</h3>
         <div class="text-sm text-gray-600 dark:text-gray-300">
           <em class="fa fa-location-pin"></em> {{ $first.location }}
         </div>
@@ -53,20 +55,20 @@
         {{ else }}
         {{ $companyEndDisplay = "Actualidad" }}
         {{ end }}
-        <div class="text-sm text-gray-600 dark:text-gray-300 flex items-center gap-2 mt-1">
+        <div class="text-sm text-gray-600 dark:text-gray-300 flex items-center gap-4 mt-1">
           <em class="fa fa-calendar"></em>
           <span>{{ $companyStartDisplay }} - {{ $companyEndDisplay }}</span>
         </div>
         {{ end }}
         {{ $firstRolesOdd := eq (mod $firstRolesCount 2) 1 }}
-        <div class="p-4 grid grid-cols-2 gap-2">
+        <div class="p-4 grid grid-cols-2 gap-4">
           {{ range $idx, $role := $first.roles }}
           {{ $spanClass := cond (and $firstRolesOdd (eq $idx 0)) "col-span-2" "" }}
-          <div class="bg-gray-200 dark:bg-gray-900 rounded-xl p-3 {{ $spanClass }}">
+          <div class="background rounded-xl p-3 {{ $spanClass }}">
             <div class="flex flex-col items-start justify-between gap-3">
               <div class="w-full">
                 <h4
-                  class="text-sm font-semibold text-amber-500 bg-gray-100 dark:bg-gray-800 rounded-xl w-full p-2 text-center mb-2">
+                  class="text-sm font-semibold text-fuchsia-700 background rounded-xl w-full p-2 text-center mb-2">
                   {{ $role.title }}</h4>
                 {{/* Calcular duración para roles del resto de empresas (igual lógica que arriba) */}}
                 {{ $monthsNames := slice "enero" "febrero" "marzo" "abril" "mayo" "junio" "julio" "agosto" "septiembre"
@@ -132,13 +134,13 @@
                 {{ $match := where $tl "name" $skill }}
                 {{ if gt (len $match) 0 }}
                 {{ $t := index $match 0 }}
-                <span class="flex items-center text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800">
+                <span class="flex items-center text-xs px-2 py-0.5 rounded-full background">
                   {{ if $t.image }}<img src="{{ $t.image }}" alt="{{ $t.name }} icon"
                     class="h-4 w-4 mr-1 inline-block object-contain" loading="lazy" decoding="async">{{ end }}
                   {{ $skill }}
                 </span>
                 {{ else }}
-                <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800">{{ $skill }}</span>
+                <span class="text-xs px-2 py-0.5 rounded-full background">{{ $skill }}</span>
                 {{ end }}
                 {{ end }}
               </div>
@@ -158,16 +160,16 @@
 
 {{ $rest := after 1 $data.positions }}
 {{ if gt (len $rest) 0 }}
-<section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-2 auto-rows-min grid-flow-dense">
+<section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-4 auto-rows-min grid-flow-dense px-0 md:px-12">
   {{ range $j, $company := $rest }}
   <div class="w-full col-span-1 md:col-span-3">
-    <article class="bg-gray-100 dark:bg-gray-800 h-full rounded-xl shadow overflow-hidden flex flex-col">
+    <article class="background h-full rounded-xl shadow overflow-hidden flex flex-col">
       <div class="p-4 flex items-center gap-4">
         <img src="{{ $company.company_logo | default " /img/placeholder-company.png" }}"
-          alt="{{ $company.company }} logo" class="h-16 w-16 object-contain rounded-xl bg-gray-200 dark:bg-gray-900"
+          alt="{{ $company.company }} logo" class="h-16 w-16 object-contain rounded-xl background"
           loading="lazy" decoding="async">
         <div class="flex-1">
-          <h4 class="text-lg font-bold text-amber-500">{{ $company.company }}</h4>
+          <h4 class="text-lg font-bold text-fuchsia-700">{{ $company.company }}</h4>
           <div class="text-sm text-gray-600 dark:text-gray-300">
             <em class="fa fa-location-pin"></em> {{ $company.location }}
           </div>
@@ -208,7 +210,7 @@
           {{ else }}
           {{ $companyEndDisplay = "Actualidad" }}
           {{ end }}
-          <div class="text-sm text-gray-600 dark:text-gray-300 flex items-center gap-2 mt-1">
+          <div class="text-sm text-gray-600 dark:text-gray-300 flex items-center gap-4 mt-1">
             <em class="fa fa-calendar"></em>
             <span>{{ $companyStartDisplay }} - {{ $companyEndDisplay }}</span>
           </div>
@@ -216,13 +218,13 @@
         </div>
       </div>
       {{ $companyRolesOdd := eq (mod $companyRolesCount 2) 1 }}
-      <div class="p-4 grid grid-cols-2 gap-2">
+      <div class="p-4 grid grid-cols-2 gap-4">
         {{ range $idx, $role := $company.roles }}
         {{ $spanClass := cond (and $companyRolesOdd (eq $idx 0)) "col-span-2" "" }}
-        <div class="bg-gray-200 dark:bg-gray-900 rounded-xl p-3 {{ $spanClass }}">
+        <div class="background rounded-xl p-3 {{ $spanClass }}">
           <div class="flex flex-col items-start justify-between gap-3">
             <div class="w-full">
-              <h4 class="text-sm font-semibold text-amber-500 bg-gray-100 dark:bg-gray-800 rounded-xl w-full p-2 text-center mb-2">{{ $role.title }}</h4>
+              <h4 class="text-sm font-semibold text-fuchsia-700 background rounded-xl w-full p-2 text-center mb-2">{{ $role.title }}</h4>
               {{/* Calcular duración para roles del resto de empresas (igual lógica que arriba) */}}
               {{ $monthsNames := slice "enero" "febrero" "marzo" "abril" "mayo" "junio" "julio" "agosto" "septiembre"
               "octubre" "noviembre" "diciembre" }}
@@ -287,12 +289,12 @@
               {{ $match := where $tl "name" $skill }}
               {{ if gt (len $match) 0 }}
               {{ $t := index $match 0 }}
-              <span class="flex items-center text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800">
+              <span class="flex items-center text-xs px-2 py-0.5 rounded-full background">
                 {{ if $t.image }}<img src="{{ $t.image }}" alt="{{ $t.name }} icon" class="h-4 w-4 mr-1 inline-block object-contain" loading="lazy" decoding="async">{{ end }}
                 {{ $skill }}
               </span>
               {{ else }}
-              <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800">{{ $skill }}</span>
+              <span class="text-xs px-2 py-0.5 rounded-full background">{{ $skill }}</span>
               {{ end }}
               {{ end }}
             </div>

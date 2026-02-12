@@ -1,37 +1,25 @@
 <div class="w-full mb-4">
-  <h3 class="text-2xl text-amber-500 font-bold bg-gray-100 mb-2 dark:bg-gray-800 p-4 rounded-xl text-center">
-    Contenido Relacionado
-  </h3>
-  {{ $posts := (where (.Site.RegularPages.Related .) "Params.hidden" "!=" true) | first 6 }}
-  {{ $count := len $posts }}
-  {{ $scratch := newScratch }}
-  {{/* For 6 posts prefer big indices [0,3] so after first big there are two smalls */}}
-  {{ if eq $count 6 }}
-  {{ $scratch.Set "bigIndices" (slice 0 3) }}
-  {{ else if ge $count 3 }}
-  {{ $scratch.Set "bigIndices" (slice 0 2) }}
-  {{ else if ge $count 1 }}
-  {{ $scratch.Set "bigIndices" (slice 0) }}
-  {{ else }}
-  {{ $scratch.Set "bigIndices" (slice) }}
-  {{ end }}
-
-  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
-    {{ range $i, $p := $posts }}
-    {{ $isBig := in ($scratch.Get "bigIndices") $i }}
-    <article
-      class="relative overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800 shadow-sm {{ if $isBig }}md:col-span-2 md:row-span-2{{ end }} aspect-square">
-      <a href="{{ $p.RelPermalink }}" class="block w-full h-full">
-        <img src="{{ with $p.Params.img }}{{ . }}{{ end }}" alt="{{ $p.Title }}" loading="lazy" decoding="async"
-          class="w-full {{ if $isBig }}h-64 md:h-full object-cover{{ else }}aspect-square object-cover{{ end }}">
-        <div class="absolute inset-0 flex items-end md:items-center p-4">
-          <h3
-            class="bg-gray-100/80 dark:bg-gray-800/80  rounded-xl p-1 text-sm md:text-lg leading-tight {{ if $isBig }}font-bold{{else}}truncate{{ end }}">
-            {{ $p.Title }}</h3>
-        </div>
-      </a>
-    </article>
-    {{ end }}
+  <div class="flex items-center">
+    <h3 class="text-3xl text-fuchsia-700 font-bold mb-4 p-4">Contenido Relacionado</h3>
+    <hr class="w-full h-1 rounded-xl bg-fuchsia-700">
   </div>
+  {{ $posts := (where (.Site.RegularPages.Related .) "Params.hidden" "!=" true) | first 3 }}
+
+  {{ range $i, $p := $posts }}
+  <a href="{{ $p.RelPermalink }}" class="background rounded-xl p-4 mb-4 flex items-center">
+    <div class="flex gap-4">
+      <div class="relative w-24 h-20 overflow-hidden rounded-xl shrink-0">
+        <img src="{{ with $p.Params.img }}{{ . }}{{ end }}" alt="{{ $p.Title }}" loading="lazy" decoding="async" data-nimg="fill" class="object-cover" sizes="100vw" style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
+      </div>
+      <div>
+        <h3 class="font-medium dark:text-white">{{ $p.Title }}</h3>
+        <p class="mt-2 text-sm text-gray-500">
+          <time class="" datetime="{{ $p.Date }}">{{ $p.Date.Format "January 2, 2006" }}</time>
+        </p>
+      </div>
+    </div>
+  </a>
+  {{ end }}
+  
 
 </div>
