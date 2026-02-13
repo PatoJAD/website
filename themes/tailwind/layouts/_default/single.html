@@ -11,9 +11,13 @@
         class="w-full h-auto rounded-xl aspect-video mb-4" title="Video de Youtube" allowfullscreen>
       </iframe>
       {{ end }}
+      {{ if eq .Params.type "project" }}
+      <img src="{{ .Params.img }}" alt="{{ .Title }}" class="w-full h-auto rounded-xl aspect-video mb-4" title="{{ .Title }}" loading="lazy" />
+      {{ end }}
 
       <article class="background w-full mb-8 shadow-xl rounded-xl p-8">
-        {{ if eq .Params.type "post" }}<h1 class="mb-4 text-fuchsia-700 text-5xl text-center">{{ .Title }}</h1>
+        {{ if or (eq .Params.type "post") (eq .Params.type "project") }}
+        <h1 class="mb-4 text-fuchsia-700 text-5xl text-center">{{ .Title }}</h1>
         {{end}}
         {{ .Content }}
         {{ partial "components/widgets/social-share.html" . }}
