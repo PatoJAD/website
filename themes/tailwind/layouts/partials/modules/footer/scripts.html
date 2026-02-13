@@ -10,12 +10,13 @@
 {{ $emblaAutoplay := resources.GetRemote "https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js" }}
 {{ $search := resources.Get "js/search.js" }}
 {{ $mobileMenu := resources.Get "js/mobile-menu.js" }}
+{{ $scrollProgress := resources.Get "js/scroll-progress.js" }}
 {{ $darkMode := resources.Get "js/darkmode.js" }}
 {{ $slides := resources.Get "js/slides.js" }}
 
 {{- $opts := dict "minify" hugo.IsProduction -}}
 
-{{ $fullscript := slice $fusejs $embla $emblaAutoplay $search $mobileMenu $darkMode $slides | resources.Concat "/js/vendor.js" |
+{{ $fullscript := slice $fusejs $embla $emblaAutoplay $search $mobileMenu $scrollProgress $darkMode $slides | resources.Concat "/js/vendor.js" |
 minify | fingerprint "sha512" }}
 <script async src="{{ $fullscript.RelPermalink }}"></script>
 
