@@ -4,7 +4,7 @@
     <span class="my-auto">
       <img src="https://i.postimg.cc/L4Q8W1Wx/logo-patojad.png" title="Patojad" alt="Patojad" style="height: 42px;" loading="lazy" decoding="async" />
     </span>
-    <div class="ml-auto mr-auto flex flex-wrap">
+    <div class="ml-auto mr-auto hidden md:flex flex-wrap">
       {{ range .Site.Menus.main }}
       <a href="{{ .URL | relLangURL }}" {{ if eq .Params.newtab true }}target="_blank" {{ end }} title="{{- .Name -}} "
         class="px-2 py-1 mx-2 cursor-pointer text-sm flex content-center items-center hover:text-fuchsia-700">
@@ -12,7 +12,13 @@
       </a>
       {{ end }}
     </div>
-    <div class="flex flex-wrap">
+    <div class="md:hidden ml-automr-auto flex flex-wrap">
+      <button id="mobile-menu-button" aria-label="Open menu" aria-controls="mobile-menu-modal" aria-expanded="false"
+        class="text-base hover:text-fuchsia-700 mr-2" title="Menu">
+        <em class="fas fa-bars"></em>
+      </button>
+    </div>
+    <div class="flex flex-wrap items-center">
       <button id="search-button" aria-label="Search"
         class="text-base hover:text-fuchsia-700 mr-2" title="Search">
         <em class="fas fa-search"></em>
@@ -20,3 +26,60 @@
     </div>
   </nav>
 </header>
+
+<div id="mobile-menu-modal" class="fixed inset-0 z-20 flex justify-center align-middle hidden" aria-hidden="true">
+  <div id="mobile-menu-overlay" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+  <div class="absolute inset-x-0 top-0 mt-28 mx-auto w-[92%] max-w-md rounded-2xl background p-4">
+    <div class="flex items-center justify-between">
+      <span class="text-sm uppercase tracking-wide text-zinc-300">Menu</span>
+      <button id="mobile-menu-close" aria-label="Close menu" class="text-base hover:text-fuchsia-700" title="Close">
+        <em class="fas fa-times"></em>
+      </button>
+    </div>
+    <div class="mt-3 flex flex-col">
+      {{ range .Site.Menus.main }}
+      <a href="{{ .URL | relLangURL }}" {{ if eq .Params.newtab true }}target="_blank" {{ end }} title="{{- .Name -}} "
+        class="px-3 py-2 rounded-xl text-sm hover:background hover:text-fuchsia-700">
+        <span>{{- .Name -}}</span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var openButton = document.getElementById('mobile-menu-button');
+    var closeButton = document.getElementById('mobile-menu-close');
+    var modal = document.getElementById('mobile-menu-modal');
+    var overlay = document.getElementById('mobile-menu-overlay');
+
+    if (!openButton || !closeButton || !modal || !overlay) {
+      return;
+    }
+
+    var toggleMenu = function (isOpen) {
+      modal.classList.toggle('hidden', !isOpen);
+      modal.setAttribute('aria-hidden', String(!isOpen));
+      openButton.setAttribute('aria-expanded', String(isOpen));
+    };
+
+    openButton.addEventListener('click', function () {
+      toggleMenu(true);
+    });
+
+    closeButton.addEventListener('click', function () {
+      toggleMenu(false);
+    });
+
+    overlay.addEventListener('click', function () {
+      toggleMenu(false);
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        toggleMenu(false);
+      }
+    });
+  })();
+</script>
