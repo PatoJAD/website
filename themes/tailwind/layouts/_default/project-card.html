@@ -1,7 +1,9 @@
 <article class="rounded-xl overflow-hidden shadow-xl background h-full transition-all duration-300 ease-in-out  hover:-translate-y-1  ">
+  {{ $isLcp := .Scratch.Get "isLcp" | default false }}
+  {{ $loading := cond $isLcp "eager" "lazy" }}
   <a href="{{ .RelPermalink }}" class="block group h-full">
     <div class="relative h-full overflow-hidden">
-      <img src="{{ .Params.img }}" alt="{{ .Title }}" title="{{ .Title }}" loading="lazy" decoding="async" class="w-full h-full object-cover object-center transform transition-transform duration-700 ease-in-out  group-hover:scale-105" />
+      <img src="{{ .Params.img }}" alt="{{ .Title }}" title="{{ .Title }}" loading="{{ $loading }}" {{ if $isLcp }}fetchpriority="high"{{ end }} decoding="async" class="w-full h-full object-cover object-center transform transition-transform duration-700 ease-in-out  group-hover:scale-105" />
 
       <!-- gradient overlay to improve contrast for text -->
       <div class="absolute inset-0 bg-linear-to-t from-black/60 to-transparent transition-opacity duration-300 ease-in-out  group-hover:opacity-100"></div>

@@ -8,6 +8,7 @@
         {{ $pages := $paginator.Pages }}
           
         {{ range $i, $p := $pages }}
+          {{ $p.Scratch.Set "isLcp" (eq $i 0) }}
           <div class="w-full">
             {{ $p.Render "project-card" }}
           </div>
