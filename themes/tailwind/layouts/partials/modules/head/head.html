@@ -38,17 +38,20 @@
   }}
   {{ with . | css.TailwindCSS $opts }}
   {{ if hugo.IsDevelopment }}
-  <link rel="stylesheet" href="{{ .RelPermalink }}" />
+  <link rel="preload" as="style" href="{{ .RelPermalink }}" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="{{ .RelPermalink }}" /></noscript>
   {{ else }}
   {{ with . | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" />
+  <link rel="preload" as="style" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" /></noscript>
   {{ end }}
   {{ end }}
   {{ end }}
   {{ end }}
 
   {{ $t.Stop }}
-  <script src="https://kit.fontawesome.com/02f5a0ef7c.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin />
+  <script defer src="https://kit.fontawesome.com/02f5a0ef7c.js" crossorigin="anonymous"></script>
 
   {{ partial "modules/head/seo.html" . }}
 </head>
