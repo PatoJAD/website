@@ -2,7 +2,7 @@
 
 <div class="flex flex-col justify-center items-center px-12 md:px-6 py-24 w-full">
   <div class="grid grid-cols-1 md:grid-cols-3 py-12 w-full">
-    <div id="information" class="col-span-2 w-full px-1 mb-4">
+    <div id="information" class="md:col-span-2 w-full px-1 mb-4">
       <div class="gap-4 grid grid-cols-1 md:grid-cols-2">
         {{ $paginator := .Paginate .Data.Pages.ByDate.Reverse }}
         {{ $pages := $paginator.Pages }}
@@ -11,8 +11,8 @@
           {{ .Render "card" }}
         {{ end }}
 
-        {{- partial "components/pagination.html" . -}}
       </div>
+      {{- partial "components/pagination.html" . -}}
     </div>
     {{- partial "components/lateralbar.html" . -}}
   </div>
