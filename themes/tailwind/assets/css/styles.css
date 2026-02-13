@@ -96,4 +96,56 @@ blockquote {
   @apply border-l-4 border-fuchsia-700 bg-zinc-900 p-4 my-6 rounded-r-xl;
 }
 
+.pagination-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.pagination-shine::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.18) 35%, transparent 70%);
+  transform: translateX(-120%);
+  animation: pagination-shine 2.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.navbar-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar-shine::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.12) 40%, transparent 70%);
+  transform: translateX(-140%);
+  animation: pagination-shine 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pagination-shine {
+  0% {
+    transform: translateX(-120%);
+  }
+  60% {
+    transform: translateX(120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pagination-shine::before {
+    animation: none;
+  }
+
+  .navbar-shine::before {
+    animation: none;
+  }
+}
+
 @import "components/markdown.css";
