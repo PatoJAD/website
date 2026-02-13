@@ -1,0 +1,828 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kde on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/kde/</link><description>Recent content in Kde on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 09 Mar 2021 09:21:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/kde/index.xml" rel="self" type="application/rss+xml"/><item><title>¿KDE? ¿Arch? ¿Problemas?</title><link>https://patojad.com.ar/post/2021/03/kde-arch-problemas/</link><pubDate>Tue, 09 Mar 2021 09:21:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/03/kde-arch-problemas/</guid><description>&lt;p&gt;Si usas KDE en Arch seguramente tras la última actualización en tu sistema (después del sábado 6 de marzo) cuando se actualizo el qt5-webengine seguramente comenzaste a experimentar problemas en tu KDE con aplicaciones como Kmail, Falkon, Konqueror, entre otras. Todas estas aplicaciones que utilizan en visualizador web de QT están simplemente no mostrando nada.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="la-terminal-me-confunde"&gt;
+La terminal me confunde
+&lt;a href="#la-terminal-me-confunde" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Actualmente estoy en un proyecto con QT5-WebEngine y experimente exactamente el mismo problema, pase horas del domingo y el inicio del lunes intentando solucionar el error en base a la información que arroja la terminal:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;88642:88642:0308/160848.959329:ERROR:network_service_instance_impl.cc&lt;span class="o"&gt;(&lt;/span&gt;286&lt;span class="o"&gt;)]&lt;/span&gt; Network service crashed, restarting service.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;88642:88642:0308/160848.964451:ERROR:network_service_instance_impl.cc&lt;span class="o"&gt;(&lt;/span&gt;286&lt;span class="o"&gt;)]&lt;/span&gt; Network service crashed, restarting service.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;88642:88642:0308/160848.969386:ERROR:network_service_instance_impl.cc&lt;span class="o"&gt;(&lt;/span&gt;286&lt;span class="o"&gt;)]&lt;/span&gt; Network service crashed, restarting service.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Podemos ver si abrimos cualquiera de estas apps, que dejaron de funcionar correctamente, por terminal el error anteriormente mencionado como un bucle infinito. Este error no daba mucha información sobre el error.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="nueva-versión-nuevo-problema"&gt;
+Nueva versión nuevo problema.
+&lt;a href="#nueva-versi%c3%b3n-nuevo-problema" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.lancetalent.com/blog/wp-content/uploads/actualizar-wordpress.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Se me dio por revisar la paqueteria de arch, donde siempre encuentro soluciones y esto sirvió para entender que el problema era de la versión qt5-webengine-5.15.3-2 que generaba este error en general. Por lo cual la solución no depende explícitamente de mi, o al menos hasta donde entendí.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cómo-lo-soluciono"&gt;
+¿Cómo lo soluciono?
+&lt;a href="#c%c3%b3mo-lo-soluciono" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/gjK49PGk/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Así como el tiempo cura todas las heridas hay que esperar a que se actualice a la nueva versión donde este error este. Ya, en lo que a Arch respecta, hay un ticket cargado y hay alguien que está llevando y esperamos que pronto obtengamos la actualización que nos permita solventar este error.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://bugs.archlinux.org/index.php?do=details&amp;amp;action=details.addvote&amp;amp;task_id=69902" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Reporte del BUG
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Guia para instalar Arch</title><link>https://patojad.com.ar/post/2020/10/guia-para-instalar-arch/</link><pubDate>Tue, 13 Oct 2020 10:46:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/10/guia-para-instalar-arch/</guid><description>&lt;p&gt;Siempre hablamos de esta distribución tan maravillosa y en esta oportunidad vamos a aprovechar que un usuario nos dejó una guía tan específica y tan perfecta que vamos a proceder con la instalación de Arch linux. Con esta guía solo basta seguir paso a paso.&lt;/p&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="atención-esta-guia-solo-sirve-para-instalarlo-sobre-disco-duro-y-no-sobre-ssd"&gt;
+Atención esta guia solo sirve para instalarlo sobre Disco Duro y no sobre SSD
+&lt;a href="#atenci%c3%b3n-esta-guia-solo-sirve-para-instalarlo-sobre-disco-duro-y-no-sobre-ssd" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="preparando-el-equipo"&gt;
+Preparando el equipo
+&lt;a href="#preparando-el-equipo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Una vez que hayamos booteado nuestro prendive con Arch linux vamos a poner nuestro teclado en español de la siguiente forma:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;loadkeys la-latin1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Teniendo el teclado en español ya podemos digitar sin mayores problemas por lo cual podemos proceder a conectarnos a internet siguiendo estos pasos si usaras WiFi en vez de cable.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;iwctl
+device list
+station wlan0 scan
+station wlan0 get-networks
+station wlan0 connect [&amp;quot;Nombre_de_la_Red&amp;quot;] PassDelWiFi
+exit
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este caso la wlan0 era la que me correspondía, si te sale otro número que no sea 0 solo cambialo por el que te sale por ejemplo wlan1. Para comprobar si ya tienes conexión activada&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ping patojad.com.ar
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Presiona las teclas Ctrl+C para parar el ping si todo funciona ok, en caso contrario debemos revisar el paso anterior. Antes de preparar el disco debemos identificar si realmente tenemos UEFI o BIOS (si es que no lo sabemos de antemano) esto podemos verlo de la siguiente manera:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ls /sys/firmware/efi/efivars
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Si te aparece una lista con varios identificadores es porque estás utilizando un ordenador UEFI y debes saltar hasta la parte de Preparando el Disco UEFI&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="preparando-el-disco-bios"&gt;
+Preparando el Disco BIOS
+&lt;a href="#preparando-el-disco-bios" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para particionar el disco basta con ingresar a la herramienta de terminal que nos permite particionarlo y eso podemos hacerlo de la siguiente forma&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cfdisk
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Seleccionar &lt;strong&gt;DOS&lt;/strong&gt; para crear una tabla de particiones para &lt;strong&gt;BIOS&lt;/strong&gt;. A continuación te dejo en detalle una de las formas recomendadas. Desde el expertise de cada uno sabe que puede omitir el home o el swap. Si no entendes mucho de las particiones te recomiendo la siguiente configuración&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sda1 /boot 512M
+sda2 /swap 4-6G | Vas a la opción Type y la marcas &amp;quot;Linux Swap&amp;quot;
+sda3 /root 30-60G
+sda4 /home |Lo que sobre
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Write para escribir cambios en el disco y quit para salir. Luego te recomiendo listar los discos duros y sus particiones, es para asegurarte que todo haya salido bien en el particionado&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;fdisk -l
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Si todo lo anterior salió correctamente es hora de formatear las particiones para poder usarlas y eso lo vamos a hacer de la siguiente manera (Este paso puede variar si no particionaste como recomendamos en el paso anterior)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkfs.ext2 /dev/sda1 ; mkfs.ext4 /dev/sda3 ; mkfs.ext4 /dev/sda4 ; mkswap /dev/sda2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Puedes hacerlo 1 por 1 también si te sientes más cómodo. Una vez formateados nos toca montar las particiones y swap:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mount /dev/sda3 /mnt ; mkdir /mnt/boot ; mount /dev/sda1 /mnt/boot ; mkdir /mnt/home ; mount /dev/sda4 /mnt/home ; mkswap /dev/sda2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Luego de esto escribes &amp;ldquo;swapon&amp;rdquo; para encender la swap. Puedes hacerlo 1 por 1 también si es que es más cómodo.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;swapon
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="preparando-el-disco-uefi"&gt;
+Preparando el Disco &lt;strong&gt;UEFI&lt;/strong&gt;
+&lt;a href="#preparando-el-disco-uefi" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Primero utilizamos el siguiente comando:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;fdisk /dev/sda
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A eso lo continuas escribiendo g luego w y q para salir. Seleccionar &lt;strong&gt;GPT&lt;/strong&gt; para crear una tabla de particiones para &lt;strong&gt;UEFI&lt;/strong&gt;. A continuación te dejo en detalle una de las formas recomendadas. Desde el expertise de cada uno sabe que puede omitir el home o el swap. Si no entendes mucho de las particiones te recomiendo la siguiente configuración&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sda1 /boot/efi 512M | La marcamos bootable | Luego vamos a Type y la marcamos &amp;quot;EFI System&amp;quot;
+sda2 /swap 4-6G | Vas a la opción Type y la marcas &amp;quot;Linux Swap&amp;quot;
+sda3 /root 30-60G
+sda4 /home |Lo que sobre
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Write para escribir cambios en el disco y quit para salir. Luego te recomiendo listar los discos duros y sus particiones, es para asegurarte que todo haya salido bien en el particionado&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;fdisk -l
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Si todo lo anterior salió correctamente es hora de formatear las particiones para poder usarlas y eso lo vamos a hacer de la siguiente manera (Este paso puede variar si no particionaste como recomendamos en el paso anterior)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkfs.vfat -F32 /dev/sda1 ; mkfs.ext4 /dev/sda3 ; mkfs.ext4 /dev/sda4 ; mkswap /dev/sda2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Puedes hacerlo 1 por 1 también si te sientes más cómodo. Una vez formateados nos toca montar las particiones y swap:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mount /dev/sda3 /mnt ; mkdir /mnt/boot/efi ; mount /dev/sda1 /mnt/boot/efi ; mkdir /mnt/home ; mount /dev/sda4 /mnt/home ; swapon /dev/sda2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación-del-sistema-bios"&gt;
+Instalación del Sistema BIOS
+&lt;a href="#instalaci%c3%b3n-del-sistema-bios" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Una vez que ya tengamos nuestras particiones funcionando de 10 debemos instalar el sistema y para eso vamos a hacerlo con el siguiente comando en el caso de que nuestro equipo sea &lt;strong&gt;BIOS&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacstrap /mnt base linux-lts linux-firmware linux-lts-headers grub networkmanager network-manager-applet netctl wireless_tools iw wpa_supplicant nano xdg-user-dirs dhcpcd base-devel xterm sudo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación-del-sistema-uefi"&gt;
+Instalación del Sistema UEFI
+&lt;a href="#instalaci%c3%b3n-del-sistema-uefi" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Una vez que ya tengamos nuestras particiones funcionando de 10 debemos instalar el sistema y para eso vamos a hacerlo con el siguiente comando en el caso de que nuestro equipo sea &lt;strong&gt;UEFI&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacstrap /mnt base linux-lts linux-firmware linux-lts-headers grub networkmanager network-manager-applet netctl wireless_tools iw wpa_supplicant nano xdg-user-dirs dhcpcd base-devel sudo xterm efibootmgr
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="configuraciones-varias"&gt;
+Configuraciones Varias
+&lt;a href="#configuraciones-varias" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Ahora llega una parte que vamos a realizar algunas configuraciones varias, esto aplica tanto a UEFI como a BIOS y se realizan de la misma manera. Lo primero que vamos a realizar es descomentar multilib e Include para esto vamos a usar nano de la siguiente manera:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nano /mnt/etc/pacman.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Presionar crtl+w | escribir multilib y descomentar ambas líneas. Para poder hacer uso del multilib&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[multilib]
+Include = /etc/pacman.de/mirrorlist
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A continuación vamos a generar fstab de la siguiente manera&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;genfstab -U /mnt &amp;gt;&amp;gt; /mnt/etc/fstab
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;No tenemos que olvidarnos de cambiar root al nuevo sistema con este simple comando&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;arch-chroot /mnt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Y por último procedemos con unas configuraciones varias en lo que respecta a locacion, hostname etc&amp;hellip;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ln -sf usr/share/zoneinfo/TuContinente/TuPais_o_Capital /etc/localtime
+hwclock -w
+nano /etc/locale.gen | crt+w escribir do | desmarcar #es_DO.UTF-8
+locale-gen
+echo CualquierNombre &amp;gt; /etc/hostname
+echo KEYMAP=es &amp;gt; /etc/vconsole.conf
+echo LANG=es_DO.UTF-8 &amp;gt; /etc/locale.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación-del-grub-en-bios"&gt;
+Instalación del GRUB en BIOS
+&lt;a href="#instalaci%c3%b3n-del-grub-en-bios" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Es importante instalar nuestro cargador de arranque para poder iniciar el sistema y esto lo podemos hacer con 2 simples comandos para &lt;strong&gt;BIOS&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;grub-install /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación-del-grub-en-uefi"&gt;
+Instalación del GRUB en UEFI
+&lt;a href="#instalaci%c3%b3n-del-grub-en-uefi" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En el caso de estar en &lt;strong&gt;UEFI&lt;/strong&gt; la instalación del cargador de arranque se realiza con los siguientes comandos:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;grub-install --efi-directory=/boot/efi --bootloader-id='Arch Linux' --target=x86_64-efi
+grub-mkconfig -o /boot/grub/grub.cfg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="configurando-el-usuario-y-el-sistema"&gt;
+Configurando el usuario y el sistema
+&lt;a href="#configurando-el-usuario-y-el-sistema" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Una vez instalado el GRUB podemos proceder a configurar los usuarios y el resto del sistema, para esto iniciamos configurando la contraseña root de la siguiente manera:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;passwd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Una vez configurada la contraseña podemos configurar ya el usuario y contraseña que vamos a utilizar:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;useradd -mUG wheel [tu usuario]
+passwd [tu usuario]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora sí ya podemos apagar todo y reiniciar para poder seguir con el sistema ya instalado!&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;exit
+reboot
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Una vez que haya reiniciado con éxito y estemos de nuevo en nuestro sistema vamos a configurar usuario sudoers de la siguiente forma (para esto debemos logearnos como root con su y la contraseña)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;EDITOR=nano visudo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ctrl+w | escribir: %wheel para buscar y luego procedemos a descomentar # %wheel. Ya habiendo configurado eso podemos proceder a activar internet de la siguiente manera:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;systemctl enable NetworkManager
+systemctl start NetworkManager.service
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Si usaste wifi en vez de cable escribe para obtener la lista de dispositivos y poder realizar la coneccion:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ip link
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Una vez que identifiquemos la placa wifi la usamos de la siguiente forma&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ip link set wlo1 up
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Con ese comando ya estaria prendida la placa WiFi y podemos conectarnos de la siguiente forma:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nmcli dev wifi connect PatoJADWiFi password p4t0j4d
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación-del-servidor-gráfico-y-driver-de-tu-gráfica"&gt;
+Instalación del servidor gráfico y driver de tu gráfica
+&lt;a href="#instalaci%c3%b3n-del-servidor-gr%c3%a1fico-y-driver-de-tu-gr%c3%a1fica" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Vamos a instalar nuestra servidor gráfico y placa, para esto vamos a dividirlo dependiendo de nuestra placa de video&lt;/p&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="intel"&gt;
+Intel
+&lt;a href="#intel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://hardzone.es/app/uploads-hardzone.es/2019/09/Intel-Cascade-Lake-X-intro.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo pacman -Syyu xf86-video-intel mesa-demos intel-ucode xorg pavucontrol pulseaudio
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="nvdia"&gt;
+Nvdia
+&lt;a href="#nvdia" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://hardzone.es/app/uploads-hardzone.es/2020/04/NVIDIA-Hotfix.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo pacman -Syyu xf86-video-nouveau mesa-demos mesa-libgl xorg pavucontrol pulseaudio
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="amd"&gt;
+AMD
+&lt;a href="#amd" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://hardzone.es/app/uploads-hardzone.es/2020/03/AMD-Ryzen-9.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo pacman -Syyu xf86-video-amdgpu mesa-vdpau mesa-demos xorg pavucontrol pulseaudio
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación-del-escritorio-y-sus-utilidades"&gt;
+Instalación del escritorio y sus utilidades
+&lt;a href="#instalaci%c3%b3n-del-escritorio-y-sus-utilidades" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;A continuación vamos a ver la instalación de los escritorios disponibles y sus utilidades te recomendamos escoger el que más te guste:&lt;/p&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-xfce4"&gt;
+Instalar XFCE4
+&lt;a href="#instalar-xfce4" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://docs.xfce.org/_media/xfce/4.12/slider-desktop.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;290MiB/RAM aproximadamente, un escritorio muy ligero y bastante personalizable&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S xfce4 xfce4-goodies network-manager-applet
+pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+pacman -S light-locker accountsservice
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-deepin"&gt;
+Instalar Deepin
+&lt;a href="#instalar-deepin" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.deepin.org/wp-content/uploads/2020/04/01-1.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;590MiB/RAM aproximadamente, es un escritorio muy estético aunque el nivel de personalización es bastante bajo&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S deepin deepin-extra
+pacman -S lightdm deepin-session-ui
+pacman -S light-locker accountsservice
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-budgie"&gt;
+Instalar Budgie
+&lt;a href="#instalar-budgie" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Ubuntu-budgie-18.04-cat.png/1280px-Ubuntu-budgie-18.04-cat.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;460MiB/RAM aproximadamente, un escritorio maleable y muy buscado&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S budgie-desktop gnome gnome-shell gnome-extra gdm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-cinnamon"&gt;
+Instalar Cinnamon
+&lt;a href="#instalar-cinnamon" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://erikdubois.be/wp-content/uploads/2017/01/arch-cinnamon-aureola-acros.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;450MiB/RAM aproximadamente, es un escritorio muy estético y fluido, con cada actualización este escritorio se renueva y nos soprende mas&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S cinnamon gdm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-enlightenment"&gt;
+Instalar Enlightenment
+&lt;a href="#instalar-enlightenment" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.stack.imgur.com/FvoTq.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;149MiB/RAM aproximadamente, es un escritorio muy liviano y muy optimizado, altamente recomendado para equipos viejos&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S enlightenment terminology gnu-free-fonts
+pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+pacman -S light-locker accountsservice
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-gnome"&gt;
+Instalar GNOME
+&lt;a href="#instalar-gnome" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.redd.it/qeu6pls7v7w11.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;740MiB/RAM aproximadamente, es un escritorio muy maleable y bastante fluido (es uno de los escritorios con más precarga pero lo vale en la usabilidad) es el preferido de &lt;strong&gt;Pipe&lt;/strong&gt; y &lt;strong&gt;Julio&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S gnome gnome-extra gdm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-gnomeflashback"&gt;
+Instalar GNOME/Flashback
+&lt;a href="#instalar-gnomeflashback" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;![](&lt;a href="https://external-preview.redd.it/38qPd6ZJGLQXB2HtQ6iL2ZEvOw-Dsg0VM05FOTc8O7I.png?auto=webp&amp;amp;s=bab6f84634f388e1abc83e14c954f94fe34b150d%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://external-preview.redd.it/38qPd6ZJGLQXB2HtQ6iL2ZEvOw-Dsg0VM05FOTc8O7I.png?auto=webp&amp;s=bab6f84634f388e1abc83e14c954f94fe34b150d"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;p&gt;435MiB/RAM aproximadamente, el diseño del escritorio y la tecnología subyacente es similar a GNOME 2. No utiliza la aceleración 3D en absoluto, por lo que generalmente es más rápido y requiere menos CPU&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S gnome-flashback gnome gnome-applets sensors-applet gdm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-lxde--gtk3"&gt;
+Instalar LXDE — GTK3
+&lt;a href="#instalar-lxde--gtk3" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://cdn.pling.com/img//hive/content-pre1/159897-1.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;175MiB/RAM aproximadamente, es un escritorio muy fluido y pueden lograrse estéticas únicas&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S lxde-gtk3 lxdm-gtk3 lxde-common
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-lxqt"&gt;
+Instalar LXQt
+&lt;a href="#instalar-lxqt" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://blog.desdelinux.net/wp-content/uploads/2014/05/lxqt-1.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;227MiB/RAM aproximadamente, es un escritorio fluido con un nivel de precarga bajo pero suficiente&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S lxqt sddm breeze-icons xdg-utils xscreensaver xautolock gnu-free-fonts
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-lxde--gtk2"&gt;
+Instalar LXDE — GTK2
+&lt;a href="#instalar-lxde--gtk2" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://blog.desdelinux.net/wp-content/uploads/2012/07/2012-07-17-194657_1440x900_scrot.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;170MiB/RAM aproximadamente, es la versión con GTK2 de lxde, en lo personal prefiero la versión con GTK3 pero eso va por cada uno.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S lxde lxdm lxde-common
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-mate"&gt;
+Instalar MATE
+&lt;a href="#instalar-mate" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://fc06.deviantart.net/fs71/f/2012/150/f/9/archlinux_mate_29_05_12_by_chetaahmc-d51p82z.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;332MiB/RAM aproximadamente, es uno de los escritorios con mejor relación consumo oferta y realmente es uno de los que personalmente más me gusta.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S mate mate-extra mate-media
+pacman -S mate-applet-dock mate-applet-streamer mate-power-manager
+pacman -S network-manager-applet system-config-printer
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;mate-extra &amp;gt; Paquete de programas para MATE (opcional)
+system-config-printer &amp;gt; Configuración de Impresoras (opcional)
+mate-power-manager &amp;gt; El backend UPower (opcional)&lt;/p&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-sugar"&gt;
+Instalar Sugar
+&lt;a href="#instalar-sugar" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://sugarlabs.org/assets/home-screenshot.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;260MiB/RAM aproximadamente, el escritorio pensado para niños (Si, no hay nada mejor que nuestro niño de 6 años use Arch, imaginense lo que va a ser a los 20) es ligero y pensado para ser muy simple de usar&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S sugar sugar-fructose sugar-runner network-manager-applet
+pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+pacman -S light-locker accountsservice
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-kde-plasma"&gt;
+Instalar KDE Plasma
+&lt;a href="#instalar-kde-plasma" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://arcolinuxd.com/wp-content/uploads/2018/06/archlinux-plasma-menu.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;700MiB/RAM aproximadamente, es un escritorio muy estético y personalizable, la precarga es baja pero en algunos casos puede ir aumentando en el uso.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S plasma gnu-free-fonts ttf-hack kde-applications sddm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;kde-applications &amp;gt; Paquete de programas para KDE (opcional)&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="iniciando-el-sistema"&gt;
+Iniciando el sistema
+&lt;a href="#iniciando-el-sistema" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para entrar al sistema solo escribes&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;systemctl enable lightdm|sddm|gdm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Depende de el escritorio que instales por ejemplo instalaste kde plasma entonces deberías poner&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;systemctl enable sddm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Y luego para poder iniciarlo también depende del escritorio que instales por ejemplo con kde&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;systemctl start sddm.service
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Deberías cambiar en ambos casos a sddm por el gestor de sesiones que hayas instalado para poder iniciarlo&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="créditos"&gt;
+Créditos
+&lt;a href="#cr%c3%a9ditos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El contenido de esta publicación no es mio, simplemente acomode y junte las 2 guías para llegar a esta publicación. Quiero agradecer a &lt;strong&gt;Im Rere =)&lt;/strong&gt; por permitirme usar sus guías.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Recorda &lt;strong&gt;apoyarnos&lt;/strong&gt; en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p&gt;</description></item><item><title>Los WM, el caso de Awesome</title><link>https://patojad.com.ar/post/2020/08/los-wm-el-caso-de-awesome/</link><pubDate>Thu, 20 Aug 2020 09:33:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/08/los-wm-el-caso-de-awesome/</guid><description>&lt;p&gt;Muchas veces hablamos de que escritorio es mejor y esas peleas que claramente no tienen ningún tipo de sentido más que disfrutar de “bardear” (Término argentino para &lt;em&gt;insultar&lt;/em&gt;) a algún amigo por el escritorio que usar, aprovechó la oportunidad para bardear a &lt;strong&gt;Julio&lt;/strong&gt; por usar Gnome…&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://wiki.manjaro.org/images/8/8f/Awesome-wm-18.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Sin embargo los que estamos en la tecnología hace un tiempo nos vamos &lt;strong&gt;limpiando de fanatismos&lt;/strong&gt; y entendemos que cada cosa tiene su función y para cada uno lo mejor es lo que le sirve y por eso estamos dispuestos a ver lo bueno en todos lados (Menos en Gnome porque lo usa Julio)&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="windows-manager"&gt;
+Windows Manager
+&lt;a href="#windows-manager" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En esta oportunidad la idea es darse un tiempo para entender sobre porque existen y cual es su función.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.redd.it/hid11qhbgkf21.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Muchos eligen sus escritorios por lo visual, sin embargo otros buscan productividad. Los WM (asi los llamaré desde ahora) están pensados para mejorar la productividad y la eficiencia optimizados en su mayoría para el uso puro y exclusivo del teclado.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.redd.it/okveie39rngy.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Estos son muy apreciados por programadores o por las personas que se acostumbran a hacer todo con el teclado muy rápido.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="algo-más"&gt;
+Algo más
+&lt;a href="#algo-m%c3%a1s" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.redd.it/szwemaesfu031.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Además de ser rápidos y performantes son muy personalizables lo cual lo vuelven perfectos para aquellos que les gusta acomodar los equipos para que se adapten a uno. Y esto se puede volver una particularidad que lo haga deseados por aquellos que deseen la personalización extrema. Incluso a quienes busquen un estilo 100% armado por ellos.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="bueno-bonito-y-barato"&gt;
+Bueno, Bonito y Barato
+&lt;a href="#bueno-bonito-y-barato" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/gnawesome.webp" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/lockscreen.webp" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Además de ser muy rápido y eficiente es muy personalizable y se pueden lograr cosas estéticamente mucho más lindas que los DE que conocemos actualmente…&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/big.webp" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/linear.webp" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Por lo cual podemos afirmar que la parte estética si bien no viene pulida de fabrica no es un limitante en estos WM&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/surreal.webp" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/exit-screen.webp" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;</description></item><item><title>¿Porque ya no amo Gnome?</title><link>https://patojad.com.ar/post/2020/07/porque-ya-no-amo-gnome/</link><pubDate>Fri, 31 Jul 2020 12:02:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/07/porque-ya-no-amo-gnome/</guid><description>&lt;p&gt;Cuando inicie en el mundo linux lo hice con MATE un hermoso escritorio Argentino, sin embargo luego conocí Gnome quien fue tal vez el escritorio que mas ame en ese momento (incluso KDE no me gustaba)&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://huayra.conectarigualdad.gob.ar/img/screens/3.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Sin embargo como ya muchos me conocen hoy en dia intento evitar Gnome desktop y hoy voy a hablar un poco más sobre esto!&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="del-odio-al-amor-kde"&gt;
+Del odio al amor (KDE)
+&lt;a href="#del-odio-al-amor-kde" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://kde.org/content/home/kde-main.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Como mencione antes KDE fue un escritorio que no me gusto para nada al inicio, por lo cual lo evite muchísimo tiempo. Pero debemos admitir que KDE hizo un enorme trabajo para mejorar y hoy es un escritorio completo, lindo, personalizable, fluido y liviano (seamos realista es muy liviano para todo lo que ofrece)&lt;/p&gt;
+&lt;p&gt;Este escritorio se &amp;ldquo;arruinó&amp;rdquo; con la versión 4 pero aprendieron de sus errores y plasma nos dieron uno de los mejores escritorios de la actualidad. Y con eso su comunidad creció mucho y se ganó un gran lugar entre los desktop elegidos&amp;hellip;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="del-amor-al-odio-gnome"&gt;
+Del amor al odio (Gnome)
+&lt;a href="#del-amor-al-odio-gnome" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://ubunlog.com/wp-content/uploads/2019/03/gnome-3.32-nuevos-iconos-830x467.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Sin embargo gnome tomó el camino opuesto&amp;hellip; Si bien se supone que intentan mejorar dia a dia cada versión no deja de ser más de lo mismo. El consumo de ram (si bien no es mucho para los equipos actuales) es muy elevado para ser solo un escritorio. Incluso más sabiendo que la gran parte de la personalización son de plugins externos y no nativos como por ejemplo KDE&lt;/p&gt;
+&lt;p&gt;Sin embargo eso no quiere decir que no lo recomiende o no lo use, creo que Gnome tiene un gran camino por delante y puede hacer grandes cosas, simplemente debería volver a escuchar a la comunidad y no tanto a las empresas&amp;hellip;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="mi-recomendación"&gt;
+Mi recomendación
+&lt;a href="#mi-recomendaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Sabemos que siempre las recomendaciones tiene que ver con lo que uno quiere o le gusta, y no suelen ser muy objetivas pero voy a ir intentando que no se noten los fanatismos&amp;hellip;&lt;/p&gt;
+&lt;p&gt;Si te gusta el blur y las transparencias entonces KDE es tu mejor opción, tiende a ser mucho más fácil de lograr estos efectos y las comunidades vienen trabajando mucho por estas cosas, también tiene un ecosistema mucho más completo e integrado, en particular esta bueno para ofrecerles a quienes arrancan y quieren todo configurado&amp;hellip;&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.ytimg.com/vi/86ro5Q0Fi34/maxresdefault.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Si te gusta la integración de apps de 3ros entonces te recomiendo Gnome, la mayorías de las apps están hechas con GTK y gracias a esto es fácil de integrar las apps de terceros con los themes que pongamos e instalamos. También es más fácil de editar los temas porque basta con saber un poco de &lt;a href="https://patojad.com.ar/post/2023/08/descubriendo-el-mundo-de-css/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+CSS
+&lt;/a&gt; (sin embargo te recomiendo ir sobrado de recursos para evitar que se pegue, 8gb de ram por ejemplo y un procesador que no sea tan viejo)&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.redd.it/uk9uihckcsd41.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Si vos queres algo altamente liviano y fluido entonces mate es tu mejor opción, se integra con la casi todos los themes de gnome y es muy rápido. En lo personal creo que me gusta porque fue mi primer escritorio&amp;hellip;&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.imgur.com/Q5L9GDc.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;</description></item><item><title>Tilling en kwin (Deepin)</title><link>https://patojad.com.ar/post/2020/06/tilling-en-kwin-deepin/</link><pubDate>Mon, 08 Jun 2020 08:45:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/06/tilling-en-kwin-deepin/</guid><description>&lt;p&gt;En esta oportunidad vamos a estar &lt;strong&gt;configurando nuestro desktop&lt;/strong&gt; para que se acomode en forma de grilla o como todos conocemos con el nombre de tilling. y en esta oportunidad vamos a hacerlo con nuestro Deepin.&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/rGom75QA_HA?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Para iniciar entendamos que este “tutorial” funciona en cualquier distro con kwin es decir que funciona con kde y en este caso lo vamos a hacer con &lt;strong&gt;Deepin&lt;/strong&gt;.&lt;/p&gt;
+&lt;h1 class="text-gray-500 text-3xl my-6" id="instalando-lo-necesario"&gt;
+Instalando lo necesario
+&lt;a href="#instalando-lo-necesario" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h1&gt;&lt;p&gt;Para arrancar tenemos que instalar (como explica el video) las configuraciones de KDE que son las que nos permite modificar o personalizar, en este caso, kwin. Recordemos que si vamos a hacerlo en KDE este paso no es necesario y puede seguir con el siguiente. En el caso de deepin debemos instalarlo y lo hacemos de la siguiente forma:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt update &amp;amp;&amp;amp; sudo apt install systemsettings
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 class="text-gray-500 text-3xl my-6" id="configurando-kwin"&gt;
+Configurando Kwin
+&lt;a href="#configurando-kwin" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h1&gt;&lt;p&gt;Una vez instalado vamos a abrir la configuración y nos dirigimos a la parte de gestión de ventana y de ahí a la sección de guiones de KWin.&lt;/p&gt;
+&lt;p&gt;Ahí vamos a Obtener nuevos guiones y buscamos “tilling” y vamos a instalarlo (Para ver la opción precisa verifiquen en el video) y luego podemos activarlo.&lt;/p&gt;</description></item><item><title>PlasmApple</title><link>https://patojad.com.ar/post/2020/05/plasmapple/</link><pubDate>Mon, 11 May 2020 09:22:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/05/plasmapple/</guid><description>&lt;p&gt;Este es un proyecto libre sin fines de Lucro, esta dedicado para aquellos que les gusta GNU/linux y lo que es el entorno Mac, ya que como muchos sabemos en Youtube la mayoría de vídeos que hay para personalizar están en ingles, y yo para innovar lo único que necesitaran es descargar el archivo y otras cosas sin necesidad de configurar.&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/JX3bh0XgTSE?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Quiero mencionar también que el bajo de calidad no se pudo arreglar por más que lo intente mi PC no logra resistir las animaciones y este tipo de calidad, aún así por buscar traerles el mejor contenido me di la tarea de hacerlo de esta manera, cualquier cosa respecto a lo que es la calidad así como tips para evitar el &amp;ldquo;lag&amp;rdquo; en los vídeos con gusto la miraré.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cosas-nuevas"&gt;
+Cosas nuevas&amp;hellip;
+&lt;a href="#cosas-nuevas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Implementación de la tipografía San Francisco para Linux&lt;/li&gt;
+&lt;li&gt;Bajo el consumo (siempre y cuando desactiven los programas que se ejecutan cuando prendes el PC entre ejemplos para mencionar Spotify, Discord y Steam)&lt;/li&gt;
+&lt;li&gt;Una pequeña separacion tanto arriba como abajo con los iconos que se encuentran en el panel superior&lt;/li&gt;
+&lt;li&gt;Se eliminaron muchas Apps que habían por defecto en el Dock de Abajo para aprovechar el espacio para que ustedes después puedan agregar sus lanzadores (Navegadores, programas como Steam, juegos, y otras cosas) ademas que en diferentes resoluciones se ve algo grande, así que es para no ocupar mucho espacio y se ve ha feo.&lt;/li&gt;
+&lt;li&gt;Se mostró las animaciones que serán opcionales si gustas activar&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="mi-opinion"&gt;
+Mi Opinion
+&lt;a href="#mi-opinion" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Existen muchos usuarios que aman el estilo del desktop de MacOS X (Seamos realista por mas que en linux existan miles de cosas mejores iOS tiene un entorno hermoso y a algunos les puede gustar y a otros no, en mi caso no&amp;hellip;) Y este usario nos trae a nosotros la posibilidad de poner nuestro desktop como el sistema de la manzana.&lt;/p&gt;
+&lt;p&gt;Muchos usuarios critican que imiten entornos de otros sistemas (MacOS o Win) Sin embargo es importante tener posibilidades&amp;hellip;&lt;/p&gt;
+&lt;p&gt;Contanos tu experiencia en nuestro grupo y apoyanos en nuestras redes sociales.&lt;/p&gt;</description></item><item><title>Komorebi</title><link>https://patojad.com.ar/post/2020/03/komorebi/</link><pubDate>Fri, 20 Mar 2020 09:07:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/03/komorebi/</guid><description>&lt;p&gt;Komorebi es un bonito e impresionante gestor de wallpapers para cualquier distro Linux, es de código abierto y fué desarrollado en Vala por Abraham Masri.&lt;/p&gt;
+&lt;p&gt;La herramienta cuenta con fondos personalizables que pueden ser configurados de diversas maneras y en cualquier momento, psoee múltiples fondos pantallas (animados, estáticos, degradados entre otros), los mismos son enriquecidos con diversas opciones que la herramienta nos ofrece.&lt;/p&gt;
+&lt;p&gt;Este gestor de wallpapers nos permite añadir a nuestro fondo las estadísticas de nuestro sistema (uso de memoria ram, disco,…), añadir un estilo dark, fecha y hora, optimizar el rendimiento de fondos, entre otras excelentes funcionalidades.&lt;/p&gt;
+&lt;p&gt;Su panel es muy sencillo de usar y los efectos de los fondos simplemente son geniales.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cómo-instalar-komorebi"&gt;
+Cómo instalar komorebi
+&lt;a href="#c%c3%b3mo-instalar-komorebi" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La instalacion es muy sencilla, para instalarlo en cualquier distribucion (realizando la compilacion a mano) es muy sencilla.&lt;/p&gt;
+&lt;p&gt;Primero instalamos las dependecias del proyecto (eso varia dependiendo de la base y el sistema de paquetesque tenga nuestra distro) pero los paquetes a instalar son libgtop2-dev, libgtk-3-dev, cmake, y valac&lt;/p&gt;
+&lt;p&gt;Despues de esto debemos correr los siguientes comandos los cuales ire explicando su funcionamiento. El primer comando nos permite clonar el proyecto de Git (su version en Master) y nos pociciona en la carpeta para poder seguir:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/iabem97/komorebi.git
+cd komorebi
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Creamos la carpeta build dentro del proyecto y nos pocicionamos dentro, esto nos sirve para poder compilar sin ensuciar el codigo fuente.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkdir build &amp;amp;&amp;amp; cd build
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Este comando ejecuta la compilacion y la instalacion del proyecto, esto recordemos que no varia entre distribuciones:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cmake .. &amp;amp;&amp;amp; sudo make install &amp;amp;&amp;amp; ./komorebi
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>Oranchelo</title><link>https://patojad.com.ar/post/2019/12/oranchelo/</link><pubDate>Mon, 09 Dec 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/12/oranchelo/</guid><description>&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="oranchelo"&gt;
+Oranchelo
+&lt;a href="#oranchelo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Oranchelo es un tema de iconos de diseño plano para XFCE4 basado en Super Flat Remix e inspirado en &amp;ldquo;Corny icons&amp;rdquo; de Patryk Goworowski. Si bien su destino es XFCE tras probarlo en otros desktops pudimos ver que se adaptan bien, a ser sincero es uno de los mejores que vi en Desktops nuevos como Deepin. Su uso es simple para cualquier distro gracias a su propio instalador que trae en su repositorio de git&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://2.bp.blogspot.com/-IHBM65dQ7yo/V7k0DL0NX_I/AAAAAAAAHvk/4lPzxcDtnJUQ8weAzBIo_P5xTIeWYiuyQCEw/s1920/oranchelo-2.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalacion"&gt;
+Instalacion
+&lt;a href="#instalacion" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="ubuntu-o-derivados"&gt;
+Ubuntu o derivados
+&lt;a href="#ubuntu-o-derivados" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;La instalacion se realiza mediante PPA, por lo cual no sirve para Debian y relacionados dado que las PPA solo funcionan en Ubuntu y sus derivados&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo add-apt-repository ppa:oranchelo/oranchelo-icon-theme
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-get update
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-get install oranchelo-icon-theme
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="arch-y-derivados"&gt;
+Arch y derivados
+&lt;a href="#arch-y-derivados" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Dentro de Arch el metodo de instalacion es simple mediante AUR&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -Sy oranchelo-icon-theme-git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="debian-y-fedora"&gt;
+Debian y Fedora
+&lt;a href="#debian-y-fedora" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Si bien los procesos de instalacion son diferentes ambos pueden descargar sus empaquetados desde el propio &lt;a href="https://github.com/OrancheloTeam/oranchelo-icon-theme/releases" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+git del proyecto
+&lt;/a&gt;. Luego deben instalarlo y cada usuario sabra como hacerlo dado que ya conocen su sistema.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="desde-el-codigo-fuente"&gt;
+Desde el codigo Fuente
+&lt;a href="#desde-el-codigo-fuente" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Esta es la opcion mas linda para todos, es ejecutar un .sh tan simple que nos deja los iconos instalados y listos para usar. Este proceso es simple, descargamso el &lt;a href="https://github.com/OrancheloTeam/oranchelo-icon-theme" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+codigo fuente del proyecto
+&lt;/a&gt;. Una vez que este deescargado abrimos una terminal en la carpeta del proyecto y ejecutamos el siguiente comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;./oranchelo-installer.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="100-manual"&gt;
+100% Manual
+&lt;a href="#100-manual" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;La opción más simple, aunque debo admitir que para mí es la menos recomendable es la instalación 100% manual. Para esto debemos descargar el código fuente mencionado con anterioridad y copiar las carpetas Oranchelo y Oranchelo-green en &lt;code&gt;/usr/share/icons&lt;/code&gt; o &lt;code&gt;~.local/share/icons&lt;/code&gt; para que solo el usuario actual pueda usarlos.&lt;/p&gt;</description></item><item><title>Shadow</title><link>https://patojad.com.ar/post/2019/09/shadow/</link><pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/09/shadow/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;Cambia la forma en que miras tu escritorio. Obtenga un tema de iconos cuidadosamente diseñado, brillante y limpio para Gnome Desktop.&lt;/p&gt;
+&lt;p style="text-align: right;"&gt;
+Equipo de Shadow
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://images.pling.com/img/00/00/32/82/41/1012532/2d5d5eb053c500f8cb4cdc9234db648c456d4c8568e06daf16772f1f9c6e55e21045.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Como ellos afirman son iconos cuidadosamente diseñado y pensados para generar un sutil pero notable cambio a nuestro escritorio. Sin embargo, si bien fueron diseñados para Gnome todos aquellos que utilizamos KDE tenemos la oportunidad de probarlos con un hermoso acabado final.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="nueva-solicitud-de-icono"&gt;
+Nueva solicitud de icono
+&lt;a href="#nueva-solicitud-de-icono" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="http://rudrab.github.io/Shadow/burn-in.gif" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Su equipo o mejor dicho su usuario creador nos da la posibilidad de realizar la petición de nuevos iconos. Si bien no nos asegura poder implementar todo lo que pidamos el promete hacer todo lo posible por tratar de expandir el theme de iconos. Esto podemos hacerlo a través de su GitHub, en su repositorio agregando un &lt;a href="https://github.com/rudrab/Shadow/issues" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+Issus
+&lt;/a&gt; con la etiqueta &amp;ldquo;Icon request&amp;rdquo;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalacion"&gt;
+Instalacion
+&lt;a href="#instalacion" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La instalacion la podemos hacer desde sus dos fuentes de descarga&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="github"&gt;
+GitHub
+&lt;a href="#github" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;La primera vez debermos realizarlo asi:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mkdir -p ~/.icons
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ~/.icons
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git clone https://github.com/rudrab/Shadow.git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Luego podemos actualizarlo de la siguiente manera:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ~/.icons/Shadow
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git pull
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a href="https://github.com/rudrab/Shadow" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+GitHub
+&lt;/a&gt;&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="gnome-look"&gt;
+Gnome Look
+&lt;a href="#gnome-look" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Lo descargamos desde Gnome look&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ~/.icons
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mkdir -p shadow
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; shadow
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tar -Jxvf &amp;lt;Your download path&amp;gt;/shadow&amp;lt;version&amp;gt;.tar.xz
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a href="https://www.gnome-look.org/content/show.php/Shadow?content=170398" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Genome Look
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Valve quiere desarrollar para Linux, ¿Y la comunidad?</title><link>https://patojad.com.ar/post/2019/08/valve-quiere-desarrollar-para-linux-y-la-comunidad/</link><pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/08/valve-quiere-desarrollar-para-linux-y-la-comunidad/</guid><description>&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.blogs.es/3ceaaf/modo-juego/450_1000.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;El revuelo reciente debido a la propuesta de valve a conformar parte de los desarrolladores del Kernel de Linux deja a muchas personas expresando disconformidad a una propuesta que no está 100% consolidada y como se me está haciendo costumbre aparezco entre las sombras con la idea de aclarar o postular un punto de vista más… Abstracto…&lt;/p&gt;
+&lt;p&gt;La realidad es que la propuesta es el anillo al dedo de nuestro amigo TUX, La industria del juego (o al menos la corporación que más recauda en esta industria) decide encaminar al pequeño Linux en su pata faltante que es gaming. Sin embargo, es una realidad el temor que plantearon los usuarios sobre el uso de software privativo que esto podía suponer para nuestro sistema operativo.&lt;/p&gt;
+&lt;p&gt;Por lo que se sabe de momento los desarrolladores simplemente optimizaran y mejoraran la compatibilidad sin la necesidad del uso de código privativo. Sin embargo, al SO final puede que aproveche mejor estas optimizaciones con el software privativo de STEAM. De mas esta decir que todos quieren llevar agua a su molino.&lt;/p&gt;
+&lt;p&gt;Si sacamos este pequeño detalle el Kernel Seguiria siendo libre y tomaría un camino más óptimo a la optimización, compatibilidad y eso sería un nuevo fututo que a mano del nuevo ecosistema que GTK y KDE tienen planeado podría implicar un paso grande para el pequeño TUX&lt;/p&gt;
+&lt;p&gt;¿Qué piensas?¿Qué opinas?&lt;/p&gt;</description></item><item><title>Alternativa a Krunner</title><link>https://patojad.com.ar/post/2019/03/alternativa-a-krunner/</link><pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/03/alternativa-a-krunner/</guid><description>&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.kdeblog.com/wp-content/uploads/2010/05/krunner-main-image.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;De KDE podemos destacar muchas cosas, hoy vamos a hablar de KRunner una aplicación que fue pensada 100% para la comodidad del usuario. Para quien no lo conozca, en KDE nosotros podemos tocar ctrl + space y nos abre un input que nos permite buscar aplicaciones, ejecutar un comando de la terminal etc… Si bien no suena como algo útil, es realmente muy útil y nos optimiza mucho el tiempo de uso de nuestro equipo.
+Me paso después de mucho tiempo de usarlo que otras distros me resultaban vuelteras y molestas dado que no contenían dicha funcionalidad, y el instalarlo en distribuciones no KDE me llevaban a instalar muchas dependencias.&lt;/p&gt;
+&lt;h1 class="text-gray-500 text-3xl my-6" id="alternativas-a-krunner"&gt;
+Alternativas a KRunner
+&lt;a href="#alternativas-a-krunner" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h1&gt;&lt;p&gt;Durante mucho tiempo iniciamos una búsqueda de las mejores opciones y traemos dos, que se adaptan a todos los tipos de uso. Ambos se probaron en diferentes circunstancias (junto a otras alternativas) para llegar a la información que les traemos hoy.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="ulauncher"&gt;
+Ulauncher
+&lt;a href="#ulauncher" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/FRxvXvkD/photo-2019-03-21-09-36-11.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Esta aplicación es la primera recomendación, tiene una interfaz muy intuitiva y es simple de usar. Nos permite migrar entre diferentes temas oscuros y claros para que se integre mejor con nuestro escritorio. Esta opción es la más linda, al escribir nos muestra los iconos y nombres de las apps que machan con nuestra búsqueda y trae un menú de configuraciones integrado que nos hace fácil editar su configuración.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/0jWqrCfS/photo-2019-03-21-09-36-14.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/x8T20ZKY/photo-2019-03-21-09-36-17.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Para instalarlo debemos descargar el instalador correspondiente de su &lt;a href="https://ulauncher.io/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+página
+&lt;/a&gt; (deb, rpm o aur) y seguir con el proceso de instalación que recomiendan en la página.&lt;/p&gt;
+&lt;p&gt;Es recomendable entrar a la configuración y seleccionar la opción para que inicie con el sistema operativo para ahorrarnos un paso.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="dmenu"&gt;
+Dmenu
+&lt;a href="#dmenu" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Otra de las pruebas se realizó en un equipo más modesto de recursos, donde el costo de mantener ulauncher se notaba. En este punto decidimos probar dmenu una aplicación que cumple exactamente la misma función, pero “sin tanta chicha”. Dmenu nos permite obtener esta misma función, pero no cuenta con themes ni mucha interfaz con iconos, simplemente se ejecuta se busca y se ejecuta&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://blog.desdelinux.net/wp-content/uploads/2011/10/dmenu-160408.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Dmenu sueles estar en los repositorios de la mayoría de las distribuciones, por lo cual basta con buscarlo y realizar la instalación (ej sudo apt install dmenu)&lt;/p&gt;</description></item><item><title>Uniform +</title><link>https://patojad.com.ar/post/2019/02/uniform-/</link><pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/02/uniform-/</guid><description>&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="uniform-"&gt;
+Uniform +(+)
+&lt;a href="#uniform-" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Les traigo una gama de iconos que modifiqué levemente para mejorar su integración (Probado en Deepin) y que la verdad, ¡Me resultan muy lindos!. Estos íconos me acompañan casi de distribución a distribución dado que siempre logran darle un gran cambio.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/y8g7Z3jG/demostra-patojad.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;La instalación es muy básica (aún asi mas adelante haré un paso a paso para aquellas personas que nunca hayan agregado íconos a mano), por ahora basta con dejar la carpeta en &lt;code&gt;~/.icons&lt;/code&gt; para que luego podamos elegir el pack.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.mediafire.com/file/ccz6k727wwznaue/Uniform_Pato_LatinLinux.tar.gz/file" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Descarga
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;¡Comentanos que te parecieron!&lt;/p&gt;</description></item></channel></rss>

@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Systemd on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/systemd/</link><description>Recent content in Systemd on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Fri, 15 Mar 2024 18:34:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/systemd/index.xml" rel="self" type="application/rss+xml"/><item><title>Explorando SystemD en el Mundo Linux: Críticas, Realidades y Controversias</title><link>https://patojad.com.ar/post/2024/03/explorando-systemd-en-el-mundo-linux-cr%C3%ADticas-realidades-y-controversias/</link><pubDate>Fri, 15 Mar 2024 18:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/03/explorando-systemd-en-el-mundo-linux-cr%C3%ADticas-realidades-y-controversias/</guid><description>&lt;p&gt;En el vasto y diverso ecosistema de Linux, cada componente del sistema es objeto de discusión y opinión, y el sistema de inicio no es la excepción. &lt;strong&gt;SystemD&lt;/strong&gt; ha sido un tema de controversia dentro de la comunidad, generando críticas y debates en línea. En este artículo, profundizaremos en qué es &lt;strong&gt;SystemD&lt;/strong&gt;, su evolución, y las razones detrás de las críticas que ha enfrentado.&lt;/p&gt;
+&lt;p&gt;Ya escribi algunos articulos planteando los problemas de &lt;strong&gt;SystemD&lt;/strong&gt; y las alternativas que existen, pero en esta ocasión quiero profundizar en el tema y explicar las razones de la resistencia que ha enfrentado &lt;strong&gt;SystemD&lt;/strong&gt;. Y la explicacion de las cosas buenas que tiene, porque no todo es malo.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2020/06/systemd-solucion-o-problema/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+SystemD ¿Solucion o Problema?
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2020/07/systemd-no-es-el-problema-respuesta-a-zatiel/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+¿SystemD no es el problema? Respuesta a Zatiel
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="desentrañando-systemd-y-su-rol-como-sistema-de-inicio"&gt;
+Desentrañando SystemD y su Rol como Sistema de Inicio
+&lt;a href="#desentra%c3%b1ando-systemd-y-su-rol-como-sistema-de-inicio" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En el corazón de todos los sistemas basados en Linux se encuentra un sistema de inicio, el primer proceso que entra en acción después de arrancar el sistema operativo. Este proceso trabaja en segundo plano, gestionando servicios y procesos esenciales. En este contexto, &lt;strong&gt;SystemD&lt;/strong&gt; se presenta como un sistema de inicio predominante en muchas distribuciones de Linux.&lt;/p&gt;
+&lt;p&gt;Iniciado en 2010 bajo el liderazgo de &lt;strong&gt;Red Hat&lt;/strong&gt; y &lt;strong&gt;Leonard Puttering&lt;/strong&gt;, &lt;strong&gt;SystemD&lt;/strong&gt; nació con la intención de reemplazar soluciones existentes como &lt;strong&gt;SysV&lt;/strong&gt; y &lt;strong&gt;Upstart&lt;/strong&gt;. Su enfoque principal era mejorar el rendimiento del sistema, acelerar los tiempos de arranque y reducir el consumo de recursos. Rápidamente, se convirtió en el sistema de inicio predeterminado para distros populares como &lt;em&gt;Fedora&lt;/em&gt;, &lt;em&gt;Arch Linux&lt;/em&gt;, &lt;em&gt;Debian&lt;/em&gt; y &lt;em&gt;Ubuntu&lt;/em&gt;, entre otras.&lt;/p&gt;
+&lt;p&gt;A pesar de su adopción generalizada, algunas distribuciones, como &lt;em&gt;Alpine Linux&lt;/em&gt;, &lt;em&gt;MX Linux&lt;/em&gt;, &lt;em&gt;&lt;a href="https://patojad.com.ar/post/2019/09/voidlinux-por-jos%c3%a9/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Void Linux
+&lt;/a&gt;&lt;/em&gt;, &lt;em&gt;&lt;a href="https://patojad.com.ar/post/2020/08/artix-linux/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Artix
+&lt;/a&gt;&lt;/em&gt;, &lt;em&gt;&lt;a href="https://patojad.com.ar/post/2020/06/instalcion-milagros/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+MilagOS
+&lt;/a&gt;&lt;/em&gt; y otras, han optado por no adoptar &lt;strong&gt;SystemD&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="explorando-las-razones-de-la-resistencia"&gt;
+Explorando las Razones de la Resistencia
+&lt;a href="#explorando-las-razones-de-la-resistencia" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="el-argumento-del-bloat"&gt;
+El Argumento del &amp;ldquo;Bloat&amp;rdquo;
+&lt;a href="#el-argumento-del-bloat" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Un argumento recurrente contra &lt;strong&gt;SystemD&lt;/strong&gt; es su expansión progresiva hacia funciones que tradicionalmente eran gestionadas por servicios individuales. Esta acumulación de características ha llevado a críticas sobre su conformidad con la filosofía &lt;strong&gt;UNIX&lt;/strong&gt;, que aboga por la simplicidad y la especialización de funciones.&lt;/p&gt;
+&lt;p&gt;Aunque &lt;strong&gt;SystemD&lt;/strong&gt; mantiene su modularidad (recordemos qeu son varios mini-binarios especificos), su crecimiento ha llevado a la percepción de ser una solución monolítica. Además, su actualización periódica y la adición de nuevas funciones pueden traducirse en un mayor uso de espacio y recursos, lo que preocupa a aquellos que buscan eficiencia (hablando en kb de recursos).&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="dependencia-omnipresente-y-restricciones-de-opciones"&gt;
+Dependencia Omnipresente y Restricciones de Opciones
+&lt;a href="#dependencia-omnipresente-y-restricciones-de-opciones" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;SystemD&lt;/strong&gt; se ha vuelto tan integral en muchos aspectos del sistema que su ausencia puede limitar la funcionalidad de otros componentes. Servicios como el inicio de sesión gráfico o la gestión de conexiones de red a menudo dependen de componentes de &lt;strong&gt;SystemD&lt;/strong&gt;. Aunque es posible prescindir de él, las distribuciones que optan por no implementarlo deben buscar, proporcionar y mantener alternativas.&lt;/p&gt;
+&lt;p&gt;No podemos culpar a los desarrolladres de las aplicaciones por usar el set de herramientas que les provee &lt;strong&gt;SystemD&lt;/strong&gt;. Sin embargo, esto puede ser un problema para aquellos que buscan una mayor diversidad de opciones. Aun asi, hay que entender que estos set de herramienta facilitan y simplifican el trabajo de los desarrolladores, permitiendoles enfocarse en la funcionalidad de sus aplicaciones.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="red-hat-como-dueño-de-systemd"&gt;
+Red Hat como &amp;ldquo;Dueño&amp;rdquo; de SystemD
+&lt;a href="#red-hat-como-due%c3%b1o-de-systemd" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Otra crítica común se dirige al hecho de que &lt;strong&gt;SystemD&lt;/strong&gt; es un proyecto de &lt;strong&gt;Red Hat&lt;/strong&gt;. Aunque comenzó como un proyecto de esta compañía, actualmente propiedad de IBM, algunas voces expresan preocupación sobre el control que una entidad única puede tener sobre la dirección del sistema de inicio en Linux. Las recientes transformaciones en la gestión de la comunidad por parte de &lt;strong&gt;Red Hat&lt;/strong&gt; han aumentado estas preocupaciones.&lt;/p&gt;
+&lt;p&gt;Aun asi, &lt;strong&gt;SystemD&lt;/strong&gt; es un proyecto de código abierto, y su desarrollo está abierto a la participación de la comunidad. Además, la adopción de &lt;strong&gt;SystemD&lt;/strong&gt; por parte de otras distribuciones, como Debian y Ubuntu, ha ayudado a mitigar estas preocupaciones dado que en la actualidad es un proyecto que va mas alla de &lt;strong&gt;Red Hat&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="restricción-de-opciones-y-seguridad-del-sistema"&gt;
+Restricción de Opciones y Seguridad del Sistema
+&lt;a href="#restricci%c3%b3n-de-opciones-y-seguridad-del-sistema" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;SystemD&lt;/strong&gt; ha sido señalado como un factor que contribuye a la uniformidad en los sistemas Linux, restringiendo la diversidad de opciones. También se argumenta que su presencia crea un riesgo de seguridad, al ser un objetivo único para posibles ataques.&lt;/p&gt;
+&lt;p&gt;Sin embargo, defensores de &lt;strong&gt;SystemD&lt;/strong&gt; contrarrestan estas preocupaciones destacando su integración con el kernel de Linux y su eficiencia. Aseguran que, aunque puede haber un riesgo potencial debido a su ubicuidad, la confianza en un proyecto bien mantenido y ampliamente utilizado puede superar estos desafíos. Y es una realidad que &lt;strong&gt;SystemD&lt;/strong&gt; es un proyecto bien mantenido y ampliamente utilizado con un desarrollo activo.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En resumen, las críticas hacia &lt;strong&gt;SystemD&lt;/strong&gt; abordan aspectos que van desde la filosofía &lt;strong&gt;UNIX&lt;/strong&gt; hasta preocupaciones sobre dependencias y seguridad. Aunque se presentan alternativas viables, la elección de utilizar &lt;strong&gt;SystemD&lt;/strong&gt; o no a menudo se reduce a la conveniencia, eficiencia y preferencias de cada usuario.&lt;/p&gt;</description></item><item><title>Instalar Preload en Arch</title><link>https://patojad.com.ar/post/2022/02/instalar-preload-en-arch/</link><pubDate>Thu, 03 Feb 2022 09:22:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/02/instalar-preload-en-arch/</guid><description>&lt;p&gt;Preload es una aplicación que toma estadísticas de nuestro uso de aplicaciones y precarga en memoria todas aquellas que más usamos al prender el equipo. Gracias a esto podemos ver una fluidez más amplia al abrir estas aplicaciones. Y a costa de esta fluidez nuestro sistema inicia con más memoria RAM ocupada. Muchos se debaten si esta técnica es útil o no y por eso te dejo primero un video con mi postura sobre esto.&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/HVCqSfdTdUs?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Dejando aclarada mi postura de más está decir que cualquier postura con fundamentos es válida y si preferís no ocupar RAM te recomiendo que no instales &lt;strong&gt;Preload&lt;/strong&gt; aunque vas a perderte la fluidez adicional que esto nos da.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="video"&gt;
+Video
+&lt;a href="#video" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En el siguiente video vemos como se realiza la instalación de preload (con yay en mi caso pero podes usar tu gestor favorito) y cómo habilitarlo en cualquier base &lt;strong&gt;Arch&lt;/strong&gt; con &lt;strong&gt;SystemD&lt;/strong&gt; y también en &lt;strong&gt;Artix&lt;/strong&gt; con &lt;strong&gt;OpenRC&lt;/strong&gt; (En esta oportunidad no use &lt;strong&gt;Runit&lt;/strong&gt; pero con una búsqueda simple podes adaptarlo)&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/6NoYA9Rtp2s?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="código"&gt;
+Código
+&lt;a href="#c%c3%b3digo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;A continuación dejo los comandos utilizados para que sea más simple copiar y pegar…&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -S preload
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="systemd"&gt;
+SystemD
+&lt;a href="#systemd" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;En el caso de usar distros con SystemD se habilita de la siguiente manera. Recuerda que esto nos pedirá la contraseña&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;systemctl &lt;span class="nb"&gt;enable&lt;/span&gt; preload
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="openrc"&gt;
+OpenRC
+&lt;a href="#openrc" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;En el caso de estar en &lt;strong&gt;Artix&lt;/strong&gt; (con &lt;strong&gt;OpenRC&lt;/strong&gt;) debemos crear el archivo del demonio de la siguiente manera:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo nano /etc/init.d/preload
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Y dentro del archivo debemos poner lo siguiente:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cfg" data-lang="cfg"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#!/sbin/openrc-run&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;command&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;/usr/bin/preload&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;command_args&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;$PRELOAD_OPTS&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;command_args_foreground&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;--foreground&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Esto lo guardamos y a continuación le damos permisos al archivo para poder iniciar el proceso.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo chmod &lt;span class="m"&gt;777&lt;/span&gt; /etc/init.d/preload
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="w-full rounded-xl bg-yellow-600/75 text-yellow-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-warning fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;OJO no es recomendable usar 777 para los permisos de este archivo, es una mala practica que hago personalmente para hacer pruebas, lo ideal es ponerle el mismo permiso que tienen el resto de los archivos en el folder /etc/init.d&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Y por último podemos inicializar el proceso de la siguiente manera:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo rc-service preload start
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Artix Linux</title><link>https://patojad.com.ar/post/2020/08/artix-linux/</link><pubDate>Tue, 11 Aug 2020 09:01:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/08/artix-linux/</guid><description>&lt;p&gt;En esta oportunidad quiero hablar de una distribución de GNU/Linux que muy probablemente no conozcas, no es nueva pero son pocos los usuarios que me dijeron conocerla cuando la nombre, y creo que esta distro debería ser tan popular como otras o tal vez más. Por eso hoy vamos a hablar de &lt;strong&gt;Artix&lt;/strong&gt; y si dije bien no es &lt;em&gt;Antix&lt;/em&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="sobre-artix"&gt;
+Sobre Artix
+&lt;a href="#sobre-artix" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Tipo de sistema operativo:&lt;/strong&gt; Linux&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Basado en:&lt;/strong&gt; Arch&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Origen:&lt;/strong&gt; Global&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Arquitectura:&lt;/strong&gt; x86_64&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Escritorios disponibles:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Cinnamon&lt;/li&gt;
+&lt;li&gt;LXDE&lt;/li&gt;
+&lt;li&gt;LXQt&lt;/li&gt;
+&lt;li&gt;MATE&lt;/li&gt;
+&lt;li&gt;KDE Plasma&lt;/li&gt;
+&lt;li&gt;Xfce&lt;/li&gt;
+&lt;li&gt;i3 (beta)&lt;/li&gt;
+&lt;li&gt;Gnome (beta)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Categoría:&lt;/strong&gt; Desktop, Live Medium&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Estado:&lt;/strong&gt; Activo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.ytimg.com/vi/lz8hsZjjNZY/maxresdefault.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Como remarca desde su web y así la identifica totalmente, &lt;strong&gt;Artix Linux&lt;/strong&gt; es una distro basada en Arch, por tanto sabemos que es rolling release, &lt;strong&gt;libre de systemd&lt;/strong&gt; y que reemplaza a este con &lt;strong&gt;Openrc&lt;/strong&gt;, &lt;strong&gt;s6&lt;/strong&gt; o &lt;strong&gt;runit&lt;/strong&gt;. Artix es la continuación de los icónicos ManjaroOpenRC y ArchOpenRC tomando una camino más firme con desarrollo continuo.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="va-dirigida"&gt;
+Va dirigida…
+&lt;a href="#va-dirigida" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En muchos lugares lei que Artix va dirigida a usuarios con mucho expertis en el mundo de GNU/Linux. Sin embargo creo que esta a nivel de aquellos que usan manjaro dia a dia. con la leve diferencia que deben arreglárselas para instalar el &lt;strong&gt;pamac&lt;/strong&gt; o el gestor gráfico de preferencia.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Artix_Community_FF-Inkscape_2020-02.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Viene con una instalación mínima lo cual nos permite de alguna forma elegir a nosotros las apps a utilizar, esto nos permite tener el sistema limpio para no arrastrar actualizaciones de aplicaciones que nunca usamos.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación"&gt;
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i0.wp.com/entornosgnulinux.com/wp-content/uploads/2019/03/Calamarares.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;La instalación se realiza mediante gestor gráfico (si es que descargaste la iso con algun escritorio disponible) conocido como &lt;strong&gt;calamares&lt;/strong&gt; uno de los más populares que existen hoy en dia.&lt;/p&gt;
+&lt;p&gt;Como la mayoría de las distros las instalaciones son una conjugación de siguientes y completar datos y ya podemos disfrutar de la distro. Te recomiendo descargarla y probarla, y si aceptas otro consejo recomiendo MATE como escritorio.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://artixlinux.org/download.php" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Descargar Artix
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>GameMode en Linux</title><link>https://patojad.com.ar/post/2020/08/gamemode-en-linux/</link><pubDate>Wed, 05 Aug 2020 09:17:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/08/gamemode-en-linux/</guid><description>&lt;p&gt;Yo recordaba con anterioridad haber hablado de esto, sin embargo no encontre registro en el blog de esto, por lo cual estimo que fue en mi periodo como fundador de LatinLinux. Ayer por la noche estaba mirando un hermoso stremeng de nuestro gran amigo Linux Gaming Español y se mencionó el mítico GameMode de linux para mejorar el rendimiento…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="que-es-gamemode"&gt;
+¿Que es GameMode?
+&lt;a href="#que-es-gamemode" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.profesionalreview.com/wp-content/uploads/2018/04/GameMode-mejora-el-rendimiento-de-los-juegos-en-Linux-1.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Básicamente es una herramienta que realiza modificaciones de configuración temporales para poder obtener un mejor rendimiento de los videojuegos en linux. Lo cual nos permite disfrutar de una mejor experiencia sin modificar kernel ni agregar adicionales. Entre las mejoras que podemos encontrar se recalcan las siguientes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cambiar el gobernador de la CPU.&lt;/li&gt;
+&lt;li&gt;Prioridad de O/I.&lt;/li&gt;
+&lt;li&gt;Programador de kernel (SCHED_ISO).&lt;/li&gt;
+&lt;li&gt;Protector de pantalla inhibido&lt;/li&gt;
+&lt;li&gt;Modo de rendimiento de GPU (NVIDIA y AMD), overclocking de GPU (NVIDIA),&lt;/li&gt;
+&lt;li&gt;Scripts personalizados.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Este maravilloso programa se encuentra para todas las distribuciones de linux y en esta oportunidad vamos a intentar generalizar la instalación.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;¡ATENCIÓN! - Este sistemita depende fielmente de systemD para iniciar. De momento no intente portearlo ni usarlo en distros sin systemd con capa de compatibilidad (cómo MX)&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="no-es-lo-mismo-que-hace-liquorix-y-xanmod"&gt;
+¿No es lo mismo que hace Liquorix y Xanmod?
+&lt;a href="#no-es-lo-mismo-que-hace-liquorix-y-xanmod" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La respuesta corta es, si, la diferencia es que GameMode solo selecciona esas configuraciones mientras estamos jugando y el resto del rato tenemos nuestro kernel en estado normal o como viene por defecto.&lt;/p&gt;
+&lt;p&gt;Sin embargo cabe recalcar que pueden ser utilizados en conjunto, y no genera conflictos. Los kernels, a diferencia de GameMode, están pensado para todos los usos del dia a dia, por lo cual el GameMode cambiara esas configs que para que en dicho momento funcione pura y exclusivamente como plataforma de juegos.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="como-lo-instalo"&gt;
+¿Como lo instalo?
+&lt;a href="#como-lo-instalo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para instalarlo basta con instalar las dependencias dependiendo de qué base tenemos, a continuación dejo las genéricas que suelen faltar (puede que te falte una más pero eso lo notarás al momento de compilar, ahi te marcara que es lo que falta)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Debian y derivados:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt install meson libsystemd-dev pkg-config ninja-build git libdbus-1-dev dbus-user-session
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Arch y derivados&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo pacman -S meson systemd git dbus
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Fedora y derivados&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo dnf install meson systemd-devel pkg-config git dbus-devel
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Gentoo&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;emerge --ask games-util/gamemode
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Una vez que las dependencias estén instaladas podemos proceder a instalar de su propio git la herramienta para comenzar a utilizarla.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd /tmp/
+git clone https://github.com/FeralInteractive/gamemode.git
+cd gamemode
+git checkout 1.5
+./bootstrap.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Como podemos ver clonamos el repositorio en la carpeta tmp (archivos temporales) y luego hacemos un checkout a la 1.5 (Si bien al actual es 1.5.1 dio errores al compilar, y no tiene cambios significativos) Y luego ejecutamos ./bootstrap.sh que nos permite realizar la instalacion mediante este script.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="como-lo-uso"&gt;
+¿Como lo uso?
+&lt;a href="#como-lo-uso" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Lo bueno de esto es que también es muy simple de utilizar y vamos a ver 2 ejemplos de uso que desde mi punto de vista son “los más usados” uno con los juegos nativos y otro mediante steam.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="juegos-nativos"&gt;
+Juegos nativos
+&lt;a href="#juegos-nativos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;La mayoría de los juegos nativos podemos ejecutarlos por la terminal, por lo cual como primera instancia bastaría con ejecutarlo por la terminal de la siguiente manera:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;gamemoderun supertuxkart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Si concluimos con que queremos tenerlo un poco más “automático” bastará con editar el lanzador del menú y modificar el comando agregandolo el gamemoderun anteriormente. De esta forma vamos a tener el GameMode tambien ejecutandolo desde el menú&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="steam-y-gamemode"&gt;
+Steam y GameMode
+&lt;a href="#steam-y-gamemode" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Como dije antes para &lt;strong&gt;Steam&lt;/strong&gt; también podemos activarlo y en este caso voy a explicar el paso a paso para evitar errores.&lt;/p&gt;
+&lt;p&gt;Lo primero que debemos hacer es ir a la Biblioteca y buscar el juego al cual queremos optimizar (recordemos que el mismo deberá estar instalado) Una vez que lo encontramos le damos click derecho e ingresamos en las propiedades&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/k5QnDL0X/Screenshot-20200805-091858.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;En esa ventana emergente que nos ejecuto vamos a seleccionar &lt;strong&gt;DEFINIR PARÁMETROS DE LANZAMIENTO&amp;hellip;&lt;/strong&gt; que nos volverá abrir una ventana emergente…&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/3R9YFmrs/Screenshot-20200805-092007.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;En esta ventana vamos a agregar el comando tal cual lo podemos ver en la parte de abajo, es importante que no te olvides de ninguna parte del mismo (en el caso de que ya hayas editado esto es posible mezclar configuraciones)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;gamemoderun %command%
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/9Mcc9J2P/Screenshot-20200805-092039.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Una vez agregado basta con guardarlo y ya podemos iniciar el juego desde steam que va a iniciar con GameMode. (Las imagenes se pueden ver diferentes dado que uso una Skin para Steam)&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cosas-raras"&gt;
+Cosas raras
+&lt;a href="#cosas-raras" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;A mi al ejecutar el juego se me pega un toque pero despues de unos segundos va “con de todo” por lo cual puedo asumir que tiene que ver con los cambios de configuraciones que realiza el GameMode&lt;/p&gt;
+&lt;p&gt;Ahora contanos vos ¿Lo Usaste? ¿Que te pareció? ¿Notaste una mejora?&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Recorda &lt;strong&gt;apoyarnos&lt;/strong&gt; en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p&gt;</description></item><item><title>¿SystemD no es el problema? Respuesta a Zatiel</title><link>https://patojad.com.ar/post/2020/07/systemd-no-es-el-problema-respuesta-a-zatiel/</link><pubDate>Mon, 06 Jul 2020 08:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/07/systemd-no-es-el-problema-respuesta-a-zatiel/</guid><description>&lt;p&gt;Ya en este blog es un poco recurrente hablar de inits, en especial del tan aclamado SystemD un init tan popular que muchas personas dudan de que puedan existir otros en su lugar. Las miradas sobre este init suelen ser muy divididas. Mientras existe un grupo de personas que lo defienden a muerte otros intentan extinguir a como dé lugar… Después estamos lo que estamos en un limbo bajo la teoría de “vive y deja vivir” donde si bien no procedemos a estar de acuerdo con SystemD en general tampoco linchamos a quienes lo usan…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="el-origen"&gt;
+El origen
+&lt;a href="#el-origen" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En esta ocasión no vengo a hablar de init simplemente por generar polémica(¿o si?), o porque sea un tema que suele generar bastantes entradas. Simplemente lo hago para responder el punto de vista de una de las estrellas Linuxtubers más famosas de los últimos tiempo. Sí, estoy hablando del único e inigualable Zatiel, el cual publicó hace unos días el siguiente Video:&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/iq1hyPOA0rA?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;En el cual plantea su idea sobre SystemD y es ampliamente válida…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="mi-respuesta"&gt;
+Mi respuesta
+&lt;a href="#mi-respuesta" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Siempre desde la amistad me tomé el atrevimiento de responder, no porque creo que Zatiel este confundido ni mucho menos, simplemente porque la concepción de “lo que está mal” de systemD no es la realidad de SystemD. Para lo cual lo hice el siguiente video:&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/x4EUIrLeA_0?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Antes de verlo recuerdo que estaría bueno ver el video de Zatiel si ya no lo viste…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="antecedentes"&gt;
+Antecedentes
+&lt;a href="#antecedentes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Como dije antes es recurrente en este blog hablar de inits, tal vez a estas alturas muchos ya los tengan entendido (a su funcionalidad) pero otros no para lo cual estoy dejando abajo todo lo que nosotros ya hablamos anteriormente con el fin de obtener más información&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2020/06/systemd-solucion-o-problema/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+https://patojad.com.ar/post/2020/06/systemd-solucion-o-problema/
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2019/04/systemd-al-volante-mata/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+https://patojad.com.ar/post/2019/04/systemd-al-volante-mata/
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2019/01/lo-que-la-gente-opina-sobre-los-inits/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+https://patojad.com.ar/post/2019/01/lo-que-la-gente-opina-sobre-los-inits/
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2019/01/lo-que-la-gente-opina-sobre-los-inits/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+https://patojad.com.ar/post/2019/01/lo-que-la-gente-opina-sobre-los-inits/
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>SystemD ¿Solucion o Problema?</title><link>https://patojad.com.ar/post/2020/06/systemd-solucion-o-problema/</link><pubDate>Fri, 26 Jun 2020 10:46:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/06/systemd-solucion-o-problema/</guid><description>&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://nosystemd.org/img/nosystemd.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Cuando escribo mis artículos trato de no ser fanático, incluso intento explicar mis puntos de vistas y comprender las personas que piensan diferente, en este caso la idea es explicar un poco el motivo por el cual yo &lt;strong&gt;no apoyo SystemD&lt;/strong&gt; y para hacerlo me voy a apoyar en otro sitio que obviamente se tomó el tiempo de hacer todo el trabajo que no hice yo…&lt;/p&gt;
+&lt;p&gt;Mi idea no es generar odiadores de systemd ni mucho menos, ni tampoco voy a ser extremista de pedir que nadie lo use (a muchos no les importa) Pero creo que sí es importante entender que SystemD no es algo que este muy bueno para nuestros equipos y &lt;strong&gt;facilitando esta información cada uno es dueño de sus decisiones…&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="que-es-systemd"&gt;
+¿Que es systemd?
+&lt;a href="#que-es-systemd" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;em&gt;SystemD&lt;/em&gt; afirma ser un reemplazo bueno y moderno para &lt;strong&gt;SysVinit&lt;/strong&gt;, un llamado &lt;em&gt;demonio&lt;/em&gt; init (o init para los amigos). Por lo general, el demonio init es el primer proceso generado por el núcleo y, por lo tanto, tiene el &lt;strong&gt;PID&lt;/strong&gt; #1 y es responsable de generar otros demonios que son necesarios para que el sistema operativo funcione, por ejemplo, redes, cron, syslog, etc.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://live.mrf.io/statics/i/ps/www.muylinux.com/wp-content/uploads/2018/05/systemd.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Ahora en criollo el init es el primer proceso y &lt;strong&gt;se encarga de que los demás inicien&lt;/strong&gt;&amp;hellip; Esto es muy importante la función del init es que lo demás inicie, un policía atrapa delincuentes, un bombero apaga incendios, un init inicia otros procesos…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="solución-o-problema"&gt;
+¿Solución o Problema?
+&lt;a href="#soluci%c3%b3n-o-problema" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;SystemD &lt;em&gt;intenta&lt;/em&gt; solucionar dificultades para los desarrolladores de linux, pero en su intento de hacer eso termino volviendo al sistema en algo totalmente dependiente y peligroso… Explico con un ejemplo…&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Supongamos&lt;/strong&gt; que nuestro sistema operativo es una ciudad… Y la policía se llama SystemD &lt;em&gt;(Porque se pone la gorra)&lt;/em&gt; y luego existen otros procesos u otras &lt;em&gt;“cosas”&lt;/em&gt;. Cada vez que los bomberos quieren salvar una vida dependen de que la policía (SystemD) les diga que si… Imaginemos el caos de que la policía no está disponible un tiempo… Sería el caos y media ciudad se prendería fuego…&lt;/p&gt;
+&lt;p&gt;Ahora existen otras ciudades donde los policías se implementan de otra forma (alternativas a systemd) y aquí nadie tiene que preguntarle a la policía nada, incluso una vez que la policía reconoció al cuartel de bomberos lo dejan cumplor sus funciones sin mas… Imaginence lo eficiente que es esto…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="alternativas-a-systemd"&gt;
+Alternativas a SystemD
+&lt;a href="#alternativas-a-systemd" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;SysVinit&lt;/li&gt;
+&lt;li&gt;OpenRC&lt;/li&gt;
+&lt;li&gt;Upstart&lt;/li&gt;
+&lt;li&gt;InitNG&lt;/li&gt;
+&lt;li&gt;cinit&lt;/li&gt;
+&lt;li&gt;runit&lt;/li&gt;
+&lt;li&gt;minit&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="como-eliminar-systemd"&gt;
+Como eliminar SystemD
+&lt;a href="#como-eliminar-systemd" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;De momento no realize ningun tutorial, sin embargo existen sitios donde explican de una forma impecable como liberarse de este &lt;em&gt;demonio&lt;/em&gt; (al que entendió entendió) y por lo cual voy a recomendar un sitio que explica como hacerlo&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://wiki.ubuntu.com/SystemdForUpstartUsers#Permanent_switch_back_to_upstart" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Como Cambiar SystemD
+&lt;/a&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="más-fácil"&gt;
+¿Más Fácil?
+&lt;a href="#m%c3%a1s-f%c3%a1cil" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Muchos no queremos ponernos a instalar y sabemos que esto puede generar errores así que existen otras alternativas que son más simples y voy a nombrar las que yo use y recomiendo…&lt;/p&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="devuan"&gt;
+Devuan
+&lt;a href="#devuan" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.blogs.es/bed4ed/devuan-jessie-screenshot/1366_2000.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Se ve a simple vista, devuan es el debian sin SystemD y en mi experiencia es uno de los más limpios y rápidos. La instalación no es difícil, pero tampoco es linda, su instalador es simple pero feo estéticamente… Esto puede generar algún rechazo al inicio pero es una opción impecable…&lt;/p&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="antix"&gt;
+Antix
+&lt;a href="#antix" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.ytimg.com/vi/B0NmniRxCpg/maxresdefault.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Antix es el revividor de ordenadores, está basado en Debian pero sin systemd (especie de devuan) Tiene escritorios como fluxbox que es extremadamente liviano y esta distro apenas llega a los 300 mb iniciados (con los conkys y todo eso..)&lt;/p&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="mx-linux"&gt;
+MX Linux
+&lt;a href="#mx-linux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.muylinux.com/wp-content/uploads/2019/05/mxlinux183.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Esta es una distro intentando ser el Mint del mundo SystemD, también usa Debs y trae muchas apps preinstaladas y configuradas para simplificar al usuario final. Si bien no tiene relación alguna con Mint es una linda comparación para entender a quien va Orientado. Sin embargo desde mi punto de vista es una distro muy cargada con muchas apps.&lt;/p&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="artix"&gt;
+Artix
+&lt;a href="#artix" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i0.wp.com/entornosgnulinux.com/wp-content/uploads/2019/03/Calamarares.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Si sos mas del palo de ARCH Artix es para vos, desde mi punto de vista es la mejor distro, rápida y una vez instalado KDE (en mi caso me gusta ponerle KDE) queda impecable, la instalacion es mas al estilo de manjaro porque es muy simple.&lt;/p&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="mención-especial"&gt;
+Mención Especial
+&lt;a href="#menci%c3%b3n-especial" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://proyectotictac.files.wordpress.com/2020/04/pantallazo-menu-milagros-2.0.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Este último no es una distro en si, o al menos eso aclara en su sitio, pero para mi vale mucho la pena dedicarle un tiempo porque es magnífica y está hecho por una de las personas mas importantes en este mundo de Linux hispanohablante. Hablo nada más ni nada menos de &lt;strong&gt;MilagrOS&lt;/strong&gt; la cual podemos ver en su web.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="mi-punto-de-vista"&gt;
+Mi punto de vista
+&lt;a href="#mi-punto-de-vista" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Existen alternativas y mucho se nota en el rendimiento… Pero cada cual debe buscar su propia opinión y formar su opinión. Ahora te toca contarnos tu punto de vista y que distro recomendarias vos&amp;hellip;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://nosystemd.org/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Mas info
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>VoidLinux por José</title><link>https://patojad.com.ar/post/2019/09/voidlinux-por-jos%C3%A9/</link><pubDate>Mon, 02 Sep 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/09/voidlinux-por-jos%C3%A9/</guid><description>&lt;p&gt;Hoy les hablaré un poco sobre una distribución muy subvalorada a mi parecer, una distribución Linux que mucha gente ni siquiera habrá nombrado mencionar y muchos menos la conocen siquiera. Hoy les voy a hablar sobra la magnífica &lt;a href="https://www.voidlinux.org" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Void Linux
+&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Void Linux es una distribución de Linux absolutamente independiente, construida sobre Scratch – por lo que es un desarrollo totalmente original. Fue creada por el español Juan Romero Pardines y su primera versión fue lanzada en el año 2008. Utiliza un gestor de paquetes único también, denominado XBPS (X Binary Package System) el cual también fue diseñado e implementado desde cero. XBPS es un sistema de paquetes con licencia libre BSD con ciertas similitudes con pacman en su sintaxis y al igual que pacman es muy rápido.&lt;/p&gt;
+&lt;p&gt;XBPS es capaz de manejar los mas de 6000 programas que están disponibles en los repos de Void Linux y es capaz de compilar directamente desde las fuentes del propio software (XBPSSRC). La compilación la realiza sin ser root necesariamente.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.ytimg.com/vi/hCgOsJ2cRTs/maxresdefault.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Void Linux es una distribución “rolling release”, que se distribuye en distintas .isos (32 y 64 bits) con una gran variedad de entornos de escritorio disponibles: hay imágenes .isos con: Cinnamon, LXQT, LXDE, MATE, XFCE y Enlightenment. También hay disponibles .isos sin entornos de escritorios disponibles, para quienes quieran armar un sistema a su medida.&lt;/p&gt;
+&lt;p&gt;Otra de las mejores cualidades de Void Linux, es que utiliza Runit cómo su init, siendo una notable excepción al pésimo init de moda adoptado por la mayoría de las distribuciones hoy en día. Runit es un sistema mucho mas simple y mucho mas rápido que el tristemente famoso SystemD. De hecho, cuando probé la distribución me sorprendió lo veloz que iba el sistema y la velocidad de inicio (arrancando varios servicios del sistema en paralelo) y apagado (en todos los casos, superior al init desarrollado por Red Hat). Ojalá otras distribuciones adoptaran este init, es excelente sin dudas.&lt;/p&gt;
+&lt;p&gt;![](&lt;a href="https://i2.wp.com/itsfoss.com/wp-content/uploads/2019/04/Void-Linux-Neofetch.png?resize=800%2C562&amp;amp;ssl=1%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://i2.wp.com/itsfoss.com/wp-content/uploads/2019/04/Void-Linux-Neofetch.png?resize=800%2C562&amp;ssl=1"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;p&gt;La instalación de Void Linux, me hace recordar a la mejor distribución que existe en la faz de la Tierra (opinión personal, claro). A la venerable Slackware. Todo se realiza en la terminal, no existen los instaladores gráficos en Void (nada de Calamares, Ubiquity u otros). Simplemente, se abre la terminal y se escribe sudo void-installer (la contraseña es voidlinux) y se van siguiendo los pasos en el orden que aparecen en la pantalla. No es complicada de instalar, pero recomiendo hacerlo siguiendo los innumerables tutoriales que se encuentran en toda la web tanto en páginas web cómo en videos que existen en YouTube.&lt;/p&gt;
+&lt;p&gt;Void Linux fue la distribución pionera en la implementación de LibreSSL el cual es desarrollado por la gente de OpenBSD, sustituyendo a OpenSSL – es un fork del mismo, (recuerdan el desagradable episodio de inseguridad Heartbleed).&lt;/p&gt;
+&lt;p&gt;Si todo lo que les he comentado en el presente artículo, les ha gustado… Recomiendo que le den una oportunidad y descarguen una imagen Live de la distro y la prueben. También otra particularidad mas que presenta Void Linux, es que cuando vayan a descargar la distro se van a topar con 2 tipos de imágenes: están las imágenes comunes las que contienen la biblioteca estándar en GNU/Linux (Biblioteca GNU C) proporcionada por GLIBC (cómo lo hacen todas las distribuciones Linux) y están las imágenes con MUSL la cual es otra biblioteca C mas estándar por llamarlo de alguna manera a la que se vincularán muchos programas FOSS. MUSL es más liviano y rápido que GLIBC, pero puede ser incompatible con cierto software que no está escrito estrictamente para el estándar C. El GLIBC es más grande y generalmente más lento, pero permite y puede acomodar software que no está escrito correctamente en el estándar C debido a su implementación más indulgente.&lt;/p&gt;
+&lt;p&gt;![](&lt;a href="https://i0.wp.com/techpadi.com/wp-content/uploads/2018/12/b7u0z2j3rloz.png?fit=1366%2C768%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://i0.wp.com/techpadi.com/wp-content/uploads/2018/12/b7u0z2j3rloz.png?fit=1366%2C768"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;p&gt;&lt;a href="www.voidlinux.org/download/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+Descargar
+&lt;/a&gt;&lt;/p&gt;
+&lt;center&gt; Al final de la mencionada página, van a encontrar varios mirrors de descargas.&lt;/center&gt;
+&lt;p&gt;Muy bien, esto ha sido todo por el momento. Como ya se habrán dado cuenta, no es obviamente una distribución Linux para todo el mundo, pero quienes busquen un sistema rápido, sin hinchazón de programas, muy novedoso y fiable, quizás Void Linux es lo que han estado buscando. Se los recomiendo. Hasta la próxima colegas….&lt;/p&gt;</description></item></channel></rss>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Opengl on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/opengl/</link><description>Recent content in Opengl on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 01 Sep 2020 09:42:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/opengl/index.xml" rel="self" type="application/rss+xml"/><item><title>Mejorar el Rendimiento de tu placa de Video</title><link>https://patojad.com.ar/post/2020/09/mejorar-el-rendimiento-de-tu-placa-de-video/</link><pubDate>Tue, 01 Sep 2020 09:42:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/09/mejorar-el-rendimiento-de-tu-placa-de-video/</guid><description>&lt;p&gt;No porque no tengamos la mejor placa de video del mundo significa que no podamos jugar, pero si debemos mejorar el rendimiento siempre al extremo… Si bien esto es algo que yo acostumbro hacer sin importar la placa de video que tenga en este caso voy a explicar el procedimiento que uso para poder aumentar la performance del equipo y de la placa de video…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="intel-hd"&gt;
+Intel HD
+&lt;a href="#intel-hd" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En mi caso soy un típico pobretón uso placas integradas… por lo cual en este caso vamos a ser específicos de Intel sin embargo esto es fácil de proyectar a cualquier otro tipo de placas basta con pensar un poco…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="limpiando-el-sistema"&gt;
+Limpiando el sistema
+&lt;a href="#limpiando-el-sistema" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Lo primero que tenemos que hacer, que si bien no parece importante, se nota mucho la diferencia con solo borrar algunos paquetes que no están aprovechados. En este caso voy a usar synaptic para facilitar la tarea. Los que debemos eliminar son xserver-xorg-video-* que no correspondan a nuestra placa de video en este caso seria algo asi:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt remove xserver-xorg-video-radeon xserver-xorg-video-nouveau xserver-xorg-video-ati xserver-xorg-video-amdgpu xserver-xorg-video-all
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este caso eliminará estos controladores mejorando la performance y el consumo de xserver (No uso wayland pero debería revisarse en dicho caso)&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="eligiendo-opengl"&gt;
+Eligiendo OpenGL
+&lt;a href="#eligiendo-opengl" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si bien muchas placas soportan las últimas versiones de OpenGL muchas tienen como recomendadas la versión 3.0 o 3.2 (No quiere decir que otras no sirvan simplemente significa que no se hicieron homologaciones sobre estas placas o que no lo intentan porque son integradas) Sin embargo podemos comprobar en internet que el rendimiento mejora abismalmente desde la 3.3 o posteriores por lo cual, si lo soporta, podemos usarlo y ahora viene un trucaso para poder elegir la versión de OpenGL que queramos tener…&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;RECUERDA: Para esto debes tener instalado mesa&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;MESA_GL_VERSION_OVERRIDE=4.6 glxinfo | grep OpenGL
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En la parte donde dice 4.6 debemos poner la versión que queremos que ejecute, para saber cual es la máxima soportada solo nos basta con ejecutar:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;glxinfo| grep OpenGL
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Y veremos una salida como esta donde debemos revisar la linea resaltada a continuación:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;OpenGL vendor string: Intel
+OpenGL renderer string: Mesa Intel(R) UHD Graphics 620 (WHL GT2)
+**OpenGL core profile version string: 4.6 (Core Profile) Mesa 20.0.8**
+OpenGL core profile shading language version string: 4.60
+OpenGL core profile context flags: (none)
+OpenGL core profile profile mask: core profile
+OpenGL core profile extensions:
+OpenGL version string: 4.6 (Compatibility Profile) Mesa 20.0.8
+OpenGL shading language version string: 4.60
+OpenGL context flags: (none)
+OpenGL profile mask: compatibility profile
+OpenGL extensions:
+OpenGL ES profile version string: OpenGL ES 3.2 Mesa 20.0.8
+OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.20
+OpenGL ES profile extensions:
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Y esa es línea muestra la versión más nueva disponible en nuestra placa de Video, podemos elegir cualquiera en el rango.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="usar-vulkan"&gt;
+Usar Vulkan
+&lt;a href="#usar-vulkan" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Bueno ahora debemos definir cuándo usar OpenGL y cuándo usar Vulcan… Lamentablemente no desarrollé todavía un algoritmo perfecto de como hacerlo, pero pude descifrar cuándo es conveniente probar…&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/P_I8an8jXuM?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Más allá de todo lo que pasa por detrás &lt;strong&gt;en general&lt;/strong&gt; vulkan va a bajar 2 o 3 fps pero esto no es lo importante, lo importante o la elección de usar vulkan es la estabilidad, si nosotros notamos que durante situaciones específicas (Una TeamFight o la aglomeración de personajes/npc) nos reduce los FPS drásticamente lo mejor es migrar a Vulkan que tiende a controlar más esto evitando las bajas de FPS y mejorando la performance bajo alta presión.&lt;/p&gt;</description></item><item><title>Glava</title><link>https://patojad.com.ar/post/2020/05/glava/</link><pubDate>Fri, 29 May 2020 08:53:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/05/glava/</guid><description>&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://camo.githubusercontent.com/a4d7fd8c67e2e061f508c492fbe1f12187196bb9/68747470733a2f2f7468756d62732e6766796361742e636f6d2f44656669616e74496e666f726d616c496e6469616e7370696e796c6f6163682d73697a655f726573747269637465642e676966" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;GLava es un visualizador de espectro de audio OpenGL &lt;strong&gt;altamente configurable&lt;/strong&gt; y de uso general para X11. &lt;strong&gt;El desarrollo es activo&lt;/strong&gt; y se alienta la presentación de informes sobre problemas.&lt;/p&gt;
+&lt;p&gt;Un visualizador de audio funciona extrayendo información de forma de onda y / o frecuencia del audio y alimenta esta información a través de algunas reglas de visualización, que producen lo que ve en la pantalla. Las imágenes generalmente &lt;strong&gt;se generan y se representan en tiempo real&lt;/strong&gt; y de manera sincronizada con la música a medida que se reproduce.&lt;/p&gt;
+&lt;div style="width: 100%; height: 0px; position: relative; padding-bottom: 56.250%; border-radius: 20px;"&gt;
+&lt;iframe
+src='https://streamable.com/e/dgpj8'
+title='https://streamable.com/e/dgpj8'
+width="100%"
+height="100%"
+allowfullscreen
+style="width: 100%; height: 100%; position: absolute;"&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;p&gt;GLava hace que un visualizador de audio en tiempo real aparezca como si estuviera incrustado en el fondo de su escritorio o en una ventana. Cuando se muestra como fondo, se mostrará en la parte superior de su fondo de pantalla, dando la apariencia de un fondo de pantalla &lt;strong&gt;animado y en vivo&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="configuración"&gt;
+Configuración
+&lt;a href="#configuraci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;GLava ofrece &lt;strong&gt;5 módulos diferentes&lt;/strong&gt;. Si queres probar los otros visualizadores, ejecutalos con el indicador &lt;code&gt;-m&lt;/code&gt; o edita el archivo &lt;code&gt;~/.config/glava/rc.glsl&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Si te qieres cambiar a algo diferente, podes probar el visualizador radial. Comparte similitudes con las barras, excepto que las barras se dibujan alrededor de un círculo.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;glava -m radial
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Se puede probar de esa forma&amp;hellip;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="otras-características"&gt;
+Otras características
+&lt;a href="#otras-caracter%c3%adsticas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Podes incrustar el visualizador de espectro de audio GLava OpenGL en el fondo del escritorio. Usar la bandera de escritorio. El software detecta el entorno de escritorio que está ejecutando y establece las propiedades apropiadas.&lt;/li&gt;
+&lt;li&gt;Configura los módulos, editando los archivos (que están en GLSL 1 ). Cambia los colores, la transparencia y mucho más.&lt;/li&gt;
+&lt;li&gt;Capacidad para transmitir tipos simples de datos a GLava en tiempo de ejecución a través de la función –pipe.&lt;/li&gt;
+&lt;li&gt;Admite la mayoría de los administradores de ventanas compatibles con EWMH. Incluyen Mutter (GNOME, Budgie), KWin (KDE), Openbox (LXDE), Xfwm (XFCE), Fluxbox, IceWM y Bspwm. Algunos administradores de ventanas no son totalmente compatibles o necesitan pruebas como Enlightenment y Xmonad.&lt;/li&gt;
+&lt;li&gt;Podes crear tus propios módulos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalacion"&gt;
+Instalacion
+&lt;a href="#instalacion" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La instalación, nuevamente &lt;strong&gt;gracias a la comunidad&lt;/strong&gt;, es más simple y no requiere andar compilando nada, basta con tener instalado nuestro repositorio. y podrás simplemente instalarlo de la siguiente manera:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt install glava
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;El único detalle a marcar es que está pensado para x11, por lo cual no se puede asegurar ni negar, de momento, su funcionamiento el wayland.&lt;/p&gt;</description></item></channel></rss>

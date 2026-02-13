@@ -1,0 +1,1414 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Manjaro on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/manjaro/</link><description>Recent content in Manjaro on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 30 Dec 2025 09:31:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/manjaro/index.xml" rel="self" type="application/rss+xml"/><item><title>Cómo Optimizar Linux en 2026: 3 Tweaks Avanzados para un Sistema Ultra-Rápido</title><link>https://patojad.com.ar/post/2025/12/c%C3%B3mo-optimizar-linux-en-2026-3-tweaks-avanzados-para-un-sistema-ultra-r%C3%A1pido/</link><pubDate>Tue, 30 Dec 2025 09:31:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/12/c%C3%B3mo-optimizar-linux-en-2026-3-tweaks-avanzados-para-un-sistema-ultra-r%C3%A1pido/</guid><description>&lt;p&gt;¿Sientes que tu Linux podría ir más fluido? Aunque las distros modernas vienen bien configuradas, el hardware de 2025 (NVMe, procesadores multi-núcleo y mucha RAM) permite ajustes finos que marcan la diferencia.&lt;/p&gt;
+&lt;p&gt;En esta guía rápida, veremos cómo optimizar la gestión de memoria y el disco con ejemplos prácticos.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="swappiness-controlando-el-uso-de-la-ram"&gt;
+Swappiness: Controlando el uso de la RAM
+&lt;a href="#swappiness-controlando-el-uso-de-la-ram" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El valor de swappiness define qué tan pronto el sistema empieza a mover datos de la RAM al disco (Swap). En 2025, con sistemas de 16GB o 32GB de RAM, no queremos que el sistema use el disco innecesariamente.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;El Tweak:&lt;/strong&gt; Cambiar el valor por defecto (60) a algo más agresivo para mantener los datos en RAM (10).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Comando:&lt;/strong&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Bash" data-lang="Bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo sysctl -w vm.swappiness&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(Para hacerlo permanente, edita &lt;code&gt;/etc/sysctl.conf&lt;/code&gt;).&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="zram-swap-en-esteroides"&gt;
+zram: Swap en esteroides
+&lt;a href="#zram-swap-en-esteroides" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En lugar de usar una partición lenta en el disco, zram crea un dispositivo de intercambio comprimido en tu propia RAM. Es mucho más rápido y evita el desgaste de tu SSD.&lt;/p&gt;
+&lt;p&gt;Por qué usarlo: Comprime los datos en RAM antes de enviarlos a la Swap física.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="instalación-ubuntufedoraarch"&gt;
+Instalación (Ubuntu/Fedora/Arch):
+&lt;a href="#instalaci%c3%b3n-ubuntufedoraarch" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Bash" data-lang="Bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install zram-config &lt;span class="c1"&gt;# Ubuntu/Debian&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf install zram-generator &lt;span class="c1"&gt;# Fedora&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S zram-generator &lt;span class="c1"&gt;# Arch/Manjaro&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="io-scheduler-optimizando-el-disco"&gt;
+I/O Scheduler: Optimizando el disco
+&lt;a href="#io-scheduler-optimizando-el-disco" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si usas un SSD o NVMe, los planificadores antiguos como cfq solo estorban. Para discos modernos, buscamos &lt;strong&gt;none&lt;/strong&gt; o &lt;strong&gt;mq-deadline&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ver tu scheduler actual:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Bash" data-lang="Bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cat /sys/block/sdX/queue/scheduler
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;(Reemplaza sdX por tu disco, ej: nvme0n1).&lt;/li&gt;
+&lt;li&gt;Cambiarlo temporalmente:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Bash" data-lang="Bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; none &lt;span class="p"&gt;|&lt;/span&gt; sudo tee /sys/block/sdX/queue/scheduler
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(Para hacerlo permanente, crea una regla udev o edita el archivo de configuración del kernel&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cómo-medir-el-éxito-benchmarks"&gt;
+¿Cómo medir el éxito? (Benchmarks)
+&lt;a href="#c%c3%b3mo-medir-el-%c3%a9xito-benchmarks" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;No confíes solo en tu sensación. Usa &lt;code&gt;systemd-analyze&lt;/code&gt; para medir el tiempo de arranque o realiza una compilación de código pesada antes y después de los cambios. La diferencia en la respuesta de la interfaz bajo carga será tu mejor métrica.&lt;/p&gt;</description></item><item><title>CachyOS vs Arch Linux: ¿Vale la pena su Kernel y Repositorios Optimizados?</title><link>https://patojad.com.ar/post/2025/04/cachyos-vs-arch-linux-vale-la-pena-su-kernel-y-repositorios-optimizados/</link><pubDate>Fri, 25 Apr 2025 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/04/cachyos-vs-arch-linux-vale-la-pena-su-kernel-y-repositorios-optimizados/</guid><description>&lt;p&gt;Si usas &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/02/qu%c3%a9-es-arch-linux-la-mejor-distribuci%c3%b3n-para-usuarios-avanzados/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Arch Linux
+&lt;/a&gt;&lt;/strong&gt;, sabes que su filosofía se basa en el &lt;strong&gt;control absoluto&lt;/strong&gt; y la simplicidad. Pero ¿qué pasa si quieres exprimir al máximo tu hardware sin perder horas en ajustes manuales? Ahí entra &lt;strong&gt;CachyOS&lt;/strong&gt;, una distribución basada en Arch que promete &lt;strong&gt;hasta un 30% más de rendimiento&lt;/strong&gt; gracias a su kernel y repositorios optimizados. En este artículo, exploraremos &lt;strong&gt;la ciencia detrás de sus mejoras&lt;/strong&gt; y si realmente vale la pena el cambio.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-el-kernel-de-cachyos-más-allá-de-los-parches"&gt;
+🔧 El Kernel de CachyOS: Más Allá de los Parches
+&lt;a href="#-el-kernel-de-cachyos-m%c3%a1s-all%c3%a1-de-los-parches" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="qué-lo-hace-diferente"&gt;
+¿Qué lo Hace Diferente?
+&lt;a href="#qu%c3%a9-lo-hace-diferente" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;El kernel de CachyOS (&lt;strong&gt;linux-cachyos&lt;/strong&gt;) no es solo una versión modificada del kernel genérico de &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/02/qu%c3%a9-es-arch-linux-la-mejor-distribuci%c3%b3n-para-usuarios-avanzados/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Arch Linux
+&lt;/a&gt;&lt;/strong&gt;. Incorpora tres optimizaciones clave:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;BORE Scheduler&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Problema que resuelve&lt;/strong&gt;: El scheduler por defecto de Linux (CFS) prioriza equidad (&lt;em&gt;fairness&lt;/em&gt;), lo que puede generar latencia en cargas explosivas (ej: juegos).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Solución&lt;/strong&gt;: BORE (&lt;strong&gt;B&lt;/strong&gt;urst &lt;strong&gt;O&lt;/strong&gt;riented &lt;strong&gt;R&lt;/strong&gt;esponsive &lt;strong&gt;E&lt;/strong&gt;nhancer) optimiza el &lt;em&gt;throughput&lt;/em&gt; y reduce la latencia, ideal para CPUs modernas.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Ejemplo práctico&lt;/em&gt;: En CS2, reduce el &lt;em&gt;input lag&lt;/em&gt; hasta en un 15%.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Compilación con -O3 y LTO&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;-O3&lt;/strong&gt;: Nivel máximo de optimización del compilador (GCC/Clang). Genera código más rápido, aunque con binarios más grandes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LTO (Link Time Optimization)&lt;/strong&gt;: Elimina código redundante durante el enlazado, mejorando el uso de la caché del CPU.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Beneficio&lt;/em&gt;: Aplicaciones como Blender o Firefox ven mejoras del 10-20%.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ajustes de Latencia&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Reduce &lt;em&gt;stuttering&lt;/em&gt; en audio/video mediante gestión optimizada de interrupciones (IRQs).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-repositorios-optimizados-la-magia-de-pgo-y--o3"&gt;
+📦 Repositorios Optimizados: La Magia de PGO y -O3
+&lt;a href="#-repositorios-optimizados-la-magia-de-pgo-y--o3" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="cómo-aceleran-los-paquetes"&gt;
+¿Cómo Aceleran los Paquetes?
+&lt;a href="#c%c3%b3mo-aceleran-los-paquetes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Mientras &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/02/qu%c3%a9-es-arch-linux-la-mejor-distribuci%c3%b3n-para-usuarios-avanzados/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Arch Linux
+&lt;/a&gt;&lt;/strong&gt; usa binarios compilados con &lt;strong&gt;-O2&lt;/strong&gt; (equilibrio entre velocidad y compatibilidad), CachyOS aplica:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Profile-Guided Optimization (PGO)&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Los paquetes se compilan &lt;strong&gt;dos veces&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Primero se ejecutan en escenarios reales (ej: LibreOffice procesando documentos).&lt;/li&gt;
+&lt;li&gt;Luego, el compilador usa esos datos para optimizar el código.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Resultado&lt;/em&gt;: Hasta un 30% más rápido en tareas repetitivas.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Optimizaciones Específicas para CPU&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Binarios con soporte para &lt;strong&gt;AVX2&lt;/strong&gt; (en CPUs modernas de Intel/AMD).&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Ventaja&lt;/em&gt;: Mejor rendimiento en aplicaciones que usan instrucciones vectorizadas (ej: HandBrake, FFmpeg).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Compilación con -O3 y LTO&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;-O3&lt;/strong&gt;: Nivel máximo de optimización del compilador (GCC/Clang). Genera código más rápido, aunque con binarios más grandes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LTO (Link Time Optimization)&lt;/strong&gt;: Elimina código redundante durante el enlazado, mejorando el uso de la caché del CPU.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Beneficio&lt;/em&gt;: Aplicaciones como Blender o Firefox ven mejoras del 10-20%.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="comparativa-con-aur"&gt;
+Comparativa con AUR
+&lt;a href="#comparativa-con-aur" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Característica&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;CachyOS&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;AUR (makepkg)&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Optimización&lt;/td&gt;
+&lt;td&gt;-O3 + LTO + PGO&lt;/td&gt;
+&lt;td&gt;Depende del usuario&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Tiempo de compilación&lt;/td&gt;
+&lt;td&gt;Cero (binarios prehechos)&lt;/td&gt;
+&lt;td&gt;Horas en paquetes grandes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Compatibilidad&lt;/td&gt;
+&lt;td&gt;Hardware moderno&lt;/td&gt;
+&lt;td&gt;Cualquier hardware&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-deberías-usar-cachyos-pros-y-contras"&gt;
+❓ ¿Deberías Usar CachyOS? Pros y Contras
+&lt;a href="#-deber%c3%adas-usar-cachyos-pros-y-contras" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="-casos-ideales"&gt;
+✅ Casos Ideales
+&lt;a href="#-casos-ideales" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Gamers&lt;/strong&gt;: Menos &lt;em&gt;input lag&lt;/em&gt; gracias a BORE.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Editores de video/audio&lt;/strong&gt;: Renderizado más rápido con PGO.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hardware moderno&lt;/strong&gt;: CPUs con AVX2, NVMe, ≥16GB RAM.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="-cuándo-evitarlo"&gt;
+❌ Cuándo Evitarlo
+&lt;a href="#-cu%c3%a1ndo-evitarlo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Hardware antiguo&lt;/strong&gt;: Las optimizaciones pueden ser contraproducentes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Servidores críticos&lt;/strong&gt;: Menos testing que &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/02/qu%c3%a9-es-arch-linux-la-mejor-distribuci%c3%b3n-para-usuarios-avanzados/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Arch Linux
+&lt;/a&gt;&lt;/strong&gt; estable.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="-alternativa-híbrida"&gt;
+🔄 Alternativa Híbrida
+&lt;a href="#-alternativa-h%c3%adbrida" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Instala solo el kernel de CachyOS en &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/02/qu%c3%a9-es-arch-linux-la-mejor-distribuci%c3%b3n-para-usuarios-avanzados/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Arch Linux
+&lt;/a&gt;&lt;/strong&gt; vanilla (disponible en AUR como &lt;code&gt;linux-cachyos&lt;/code&gt;). O instala sus repositorios en &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/02/qu%c3%a9-es-arch-linux-la-mejor-distribuci%c3%b3n-para-usuarios-avanzados/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Arch Linux
+&lt;/a&gt;&lt;/strong&gt; y obten mejoras de rendimiento sin cambiar la distro. &lt;a href="https://wiki.cachyos.org/features/optimized_repos/#adding-our-repositories-to-an-existing-arch-linux-install" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Informacion sobre la instalación
+&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-conclusión-vale-la-pena-el-cambio"&gt;
+📊 Conclusión: ¿Vale la Pena el Cambio?
+&lt;a href="#-conclusi%c3%b3n-vale-la-pena-el-cambio" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;CachyOS es &lt;strong&gt;la mejor opción&lt;/strong&gt; si:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Buscas &lt;strong&gt;máximo rendimiento sin configurar &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/02/qu%c3%a9-es-arch-linux-la-mejor-distribuci%c3%b3n-para-usuarios-avanzados/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Arch Linux
+&lt;/a&gt;&lt;/strong&gt; manualmente&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Tienes hardware moderno que aproveche -O3/LTO/PGO.&lt;/li&gt;
+&lt;li&gt;No te importa depender de un equipo de mantenimiento externo.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Si prefieres el &lt;strong&gt;control total&lt;/strong&gt; o usas hardware antiguo, quédate con &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/02/qu%c3%a9-es-arch-linux-la-mejor-distribuci%c3%b3n-para-usuarios-avanzados/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Arch Linux
+&lt;/a&gt;&lt;/strong&gt; vanilla.&lt;/p&gt;</description></item><item><title>Cómo Monitorear y Optimizar el Rendimiento de tu Sistema Linux: Guía Paso a Paso 📊⚡</title><link>https://patojad.com.ar/post/2025/03/c%C3%B3mo-monitorear-y-optimizar-el-rendimiento-de-tu-sistema-linux-gu%C3%ADa-paso-a-paso/</link><pubDate>Mon, 03 Mar 2025 09:47:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/03/c%C3%B3mo-monitorear-y-optimizar-el-rendimiento-de-tu-sistema-linux-gu%C3%ADa-paso-a-paso/</guid><description>&lt;p&gt;¿Alguna vez has sentido que tu sistema Linux está lento o que no funciona tan bien como debería? No te preocupes, ¡estás en el lugar correcto! En este artículo, aprenderás cómo monitorear y optimizar el rendimiento de tu sistema Linux utilizando herramientas simples pero poderosas. Al final, podrás identificar problemas de rendimiento y solucionarlos fácilmente.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="por-qué-monitorear-el-rendimiento"&gt;
+¿Por Qué Monitorear el Rendimiento?
+&lt;a href="#por-qu%c3%a9-monitorear-el-rendimiento" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Monitorear el rendimiento de tu sistema es crucial para mantenerlo funcionando de manera eficiente. Al hacerlo, puedes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Identificar procesos que consumen muchos recursos:&lt;/strong&gt; Encuentra programas que estén usando demasiada CPU, memoria o disco.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Detectar cuellos de botella:&lt;/strong&gt; Resuelve problemas que ralentizan tu sistema.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mantener tu sistema limpio y eficiente:&lt;/strong&gt; Libera espacio y elimina archivos innecesarios.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Hoy vamos a usar herramientas simples pero efectivas que puedes ejecutar directamente desde la terminal.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="herramienta-1-top---monitorear-procesos-en-tiempo-real"&gt;
+Herramienta 1: &lt;code&gt;top&lt;/code&gt; - Monitorear Procesos en Tiempo Real
+&lt;a href="#herramienta-1-top---monitorear-procesos-en-tiempo-real" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La primera herramienta que exploraremos es &lt;code&gt;top&lt;/code&gt;. Este comando muestra una lista en tiempo real de todos los procesos que se están ejecutando en tu sistema, junto con su uso de CPU y memoria. Simplemente ejecuta:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;top
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Aquí puedes ver qué procesos están consumiendo más recursos. Si encuentras algo sospechoso, puedes detenerlo usando su ID de proceso (PID) con:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;kill&lt;/span&gt; &amp;lt;PID&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Es una herramienta esencial para diagnosticar problemas rápidamente.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="herramienta-2-htop---una-versión-mejorada-de-top"&gt;
+Herramienta 2: &lt;code&gt;htop&lt;/code&gt; - Una Versión Mejorada de &lt;code&gt;top&lt;/code&gt;
+&lt;a href="#herramienta-2-htop---una-versi%c3%b3n-mejorada-de-top" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si prefieres una interfaz más amigable, prueba&lt;code&gt;htop&lt;/code&gt;. Es como &lt;code&gt;top&lt;/code&gt;, pero con colores y opciones adicionales. Primero, instálalo:&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="en-distribuciones-basadas-en-debian-como-ubuntu"&gt;
+En distribuciones basadas en Debian (como Ubuntu):
+&lt;a href="#en-distribuciones-basadas-en-debian-como-ubuntu" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install htop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="en-distribuciones-basadas-en-red-hat-como-fedora"&gt;
+En distribuciones basadas en Red Hat (como Fedora):
+&lt;a href="#en-distribuciones-basadas-en-red-hat-como-fedora" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo yum install htop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="en-distribuciones-basadas-en-arch-como-endeavour"&gt;
+En distribuciones basadas en &lt;a href="https://patojad.com.ar/post/2025/02/qu%c3%a9-es-arch-linux-la-mejor-distribuci%c3%b3n-para-usuarios-avanzados/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Arch
+&lt;/a&gt; (como Endeavour):
+&lt;a href="#en-distribuciones-basadas-en-arch-como-endeavour" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S htop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;hr&gt;
+&lt;p&gt;Luego ejecútalo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;htop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Con &lt;code&gt;htop&lt;/code&gt;, puedes navegar por los procesos con las flechas del teclado, ordenarlos y detenerlos directamente desde la interfaz. Es perfecto para usuarios nuevos.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="herramienta-3-df-y-du---monitorear-el-uso-de-disco"&gt;
+Herramienta 3: df y du - Monitorear el Uso de Disco
+&lt;a href="#herramienta-3-df-y-du---monitorear-el-uso-de-disco" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Ahora, hablemos del almacenamiento. Para ver cuánto espacio ocupan tus discos, usa &lt;code&gt;df&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;df -h
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Esto muestra el uso de disco en formato legible. Si necesitas identificar archivos grandes que ocupan espacio, usa &lt;code&gt;du&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;du -sh /ruta/a/carpeta
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Estos comandos son ideales para liberar espacio y mantener tu sistema limpio.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="optimización-básica-limpieza-de-paquetes-innecesarios"&gt;
+Optimización Básica: Limpieza de Paquetes Innecesarios
+&lt;a href="#optimizaci%c3%b3n-b%c3%a1sica-limpieza-de-paquetes-innecesarios" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Finalmente, vamos a optimizar tu sistema eliminando paquetes innecesarios.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="en-distribuciones-basadas-en-debian-como-ubuntu-1"&gt;
+En distribuciones basadas en Debian (como Ubuntu):
+&lt;a href="#en-distribuciones-basadas-en-debian-como-ubuntu-1" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt autoremove
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt clean
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="en-distribuciones-basadas-en-red-hat-como-fedora-1"&gt;
+En distribuciones basadas en Red Hat (como Fedora):
+&lt;a href="#en-distribuciones-basadas-en-red-hat-como-fedora-1" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf autoremove
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf clean all
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="en-distribuciones-basadas-en-arch-como-endeavour-1"&gt;
+En distribuciones basadas en &lt;a href="https://patojad.com.ar/post/2025/02/qu%c3%a9-es-arch-linux-la-mejor-distribuci%c3%b3n-para-usuarios-avanzados/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Arch
+&lt;/a&gt; (como Endeavour):
+&lt;a href="#en-distribuciones-basadas-en-arch-como-endeavour-1" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Rns &lt;span class="k"&gt;$(&lt;/span&gt;pacman -Qtdq&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Sc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Esto elimina paquetes antiguos y libera espacio. Estos pasos simples pueden mejorar significativamente el rendimiento de tu sistema.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="consejos-adicionales-para-mantener-tu-sistema-óptimo"&gt;
+Consejos Adicionales para Mantener tu Sistema Óptimo
+&lt;a href="#consejos-adicionales-para-mantener-tu-sistema-%c3%b3ptimo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Actualiza regularmente tu sistema:&lt;/strong&gt; Usa sudo apt update &amp;amp;&amp;amp; sudo apt upgrade para asegurarte de tener las últimas versiones de software.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Desactiva servicios innecesarios:&lt;/strong&gt; Usa systemctl list-units &amp;ndash;type=service para identificar servicios que no necesitas.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Usa un tema ligero:&lt;/strong&gt; Si usas una interfaz gráfica, elige temas y aplicaciones que consuman menos recursos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Monitorear y optimizar el rendimiento de tu sistema &lt;strong&gt;Linux&lt;/strong&gt; no tiene que ser complicado. Con herramientas como &lt;code&gt;top&lt;/code&gt;, &lt;code&gt;htop&lt;/code&gt;, &lt;code&gt;df&lt;/code&gt; y &lt;code&gt;du&lt;/code&gt;, puedes identificar problemas y solucionarlos fácilmente. Además, siguiendo algunos consejos básicos de optimización, puedes mantener tu sistema rápido y eficiente.&lt;/p&gt;</description></item><item><title>¿Qué es Arch Linux? La Mejor Distribución para Usuarios Avanzados 🚀</title><link>https://patojad.com.ar/post/2025/02/qu%C3%A9-es-arch-linux-la-mejor-distribuci%C3%B3n-para-usuarios-avanzados/</link><pubDate>Thu, 13 Feb 2025 09:47:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/02/qu%C3%A9-es-arch-linux-la-mejor-distribuci%C3%B3n-para-usuarios-avanzados/</guid><description>&lt;p&gt;Si alguna vez has escuchado sobre Arch Linux , pero no estás seguro de qué se trata o por qué debería interesarte, ¡has llegado al lugar correcto! En este artículo, vamos a explorar qué hace que Arch Linux sea una de las distribuciones más populares entre los usuarios avanzados y cómo puede ser la opción perfecta si buscas personalización y control total sobre tu sistema operativo.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-arch-linux"&gt;
+¿Qué es Arch Linux?
+&lt;a href="#qu%c3%a9-es-arch-linux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Arch Linux es una distribución basada en el principio KISS (Keep It Simple, Stupid) . Esto significa que está diseñada para ser simple, minimalista y altamente personalizable. A diferencia de otras distribuciones como Ubuntu o Debian , Arch Linux no viene con software preinstalado ni interfaces gráficas predeterminadas. Tú decides qué instalar y cómo configurarlo.&lt;/p&gt;
+&lt;p&gt;Esto lo convierte en una excelente opción para usuarios que quieren aprender cómo funciona Linux desde cero y tener un control absoluto sobre su sistema. Sin embargo, también puede ser un desafío para principiantes, ya que requiere más conocimientos técnicos.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="ventajas-de-arch-linux"&gt;
+Ventajas de Arch Linux
+&lt;a href="#ventajas-de-arch-linux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="personalización-absoluta"&gt;
+Personalización Absoluta
+&lt;a href="#personalizaci%c3%b3n-absoluta" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Con Arch Linux , puedes construir tu sistema desde cero, eligiendo cada componente. Desde el kernel hasta el entorno de escritorio, todo está bajo tu control. Esta flexibilidad te permite crear un sistema que se adapte exactamente a tus necesidades.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="actualizaciones-continuas"&gt;
+Actualizaciones Continuas
+&lt;a href="#actualizaciones-continuas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Arch Linux utiliza un modelo de actualización continua (rolling release ), lo que significa que siempre tendrás la última versión de los paquetes disponibles. No hay que esperar por nuevas versiones mayores; simplemente mantén tu sistema actualizado y disfruta de las últimas características y mejoras.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="documentación-excelente"&gt;
+Documentación Excelente
+&lt;a href="#documentaci%c3%b3n-excelente" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;La Wiki de Arch Linux es una de las mejores fuentes de información sobre Linux . Es extremadamente detallada y cubre casi cualquier problema o configuración que puedas imaginar. Si te encuentras atascado, la Wiki probablemente tenga la respuesta.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="rendimiento-optimizado"&gt;
+Rendimiento Optimizado
+&lt;a href="#rendimiento-optimizado" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Al instalar solo lo que necesitas, obtienes un sistema más rápido y eficiente. No hay bloatware ni software innecesario que consuma recursos. Esto lo hace ideal para máquinas antiguas o para aquellos que buscan maximizar el rendimiento.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="comparativa-con-otras-distribuciones"&gt;
+Comparativa con Otras Distribuciones
+&lt;a href="#comparativa-con-otras-distribuciones" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para entender mejor por qué Arch Linux podría ser la opción adecuada para ti, hagamos una comparativa rápida con otras distribuciones populares:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Característica&lt;/th&gt;
+&lt;th&gt;Arch Linux&lt;/th&gt;
+&lt;th&gt;Ubuntu&lt;/th&gt;
+&lt;th&gt;Debian&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Facilidad de uso&lt;/td&gt;
+&lt;td&gt;Para usuarios avanzados&lt;/td&gt;
+&lt;td&gt;Amigable para principiantes&lt;/td&gt;
+&lt;td&gt;Estable y confiable&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Personalización&lt;/td&gt;
+&lt;td&gt;Total&lt;/td&gt;
+&lt;td&gt;Limitada&lt;/td&gt;
+&lt;td&gt;Moderada&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Modelo de actualización&lt;/td&gt;
+&lt;td&gt;Rolling release&lt;/td&gt;
+&lt;td&gt;Versiones LTS y no-LTS&lt;/td&gt;
+&lt;td&gt;Versiones estables&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Software preinstalado&lt;/td&gt;
+&lt;td&gt;Ninguno&lt;/td&gt;
+&lt;td&gt;Mucho software preinstalado&lt;/td&gt;
+&lt;td&gt;Software básico&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Como puedes ver, Arch Linux es la opción perfecta si buscas personalización y control, pero requiere más tiempo y esfuerzo para configurarlo.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="primeros-pasos-con-arch-linux"&gt;
+Primeros Pasos con Arch Linux
+&lt;a href="#primeros-pasos-con-arch-linux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si decides probar Arch Linux , aquí tienes un vistazo rápido de los primeros pasos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Descarga la ISO: Puedes obtenerla desde el sitio oficial archlinux.org .&lt;/li&gt;
+&lt;li&gt;Crea un USB booteable: Usa herramientas como Rufus (en Windows) o Etcher (multiplataforma).&lt;/li&gt;
+&lt;li&gt;Arranca desde el USB: Sigue el instalador y consulta la Wiki de Arch para detalles específicos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;En próximos videos y artículos, profundizaremos en la instalación paso a paso, así que asegúrate de suscribirte para no perderte nada.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Arch Linux es una distribución increíble para quienes buscan aprender y personalizar su sistema. Aunque puede ser un desafío para principiantes, ofrece un nivel de control y personalización que pocas distribuciones pueden igualar.&lt;/p&gt;
+&lt;p&gt;Si te gustó este artículo, no olvides compartirlo en tus redes sociales y seguirme en mis canales para más contenido sobre Linux , programación y desarrollo web .&lt;/p&gt;</description></item><item><title>Pacman vs Apt: Una guía para cambiar de gestor de paquetes</title><link>https://patojad.com.ar/post/2024/08/pacman-vs-apt-una-gu%C3%ADa-para-cambiar-de-gestor-de-paquetes/</link><pubDate>Tue, 20 Aug 2024 10:04:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/08/pacman-vs-apt-una-gu%C3%ADa-para-cambiar-de-gestor-de-paquetes/</guid><description>&lt;p&gt;Si estás pensando en cambiar de distribución Linux, es probable que te hayas encontrado con dos gestores de paquetes muy populares: pacman y apt. Ambos herramientas te permiten instalar, actualizar y eliminar software en tu sistema, pero tienen enfoques y sintaxis diferentes. En este artículo, exploraremos las principales diferencias entre pacman y apt para ayudarte a tomar una decisión informada.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-un-gestor-de-paquetes"&gt;
+¿Qué es un gestor de paquetes?
+&lt;a href="#qu%c3%a9-es-un-gestor-de-paquetes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Antes de adentrarnos en la comparación, es importante entender qué es un gestor de paquetes. Imagina una biblioteca de software, donde cada libro representa un programa. El gestor de paquetes es el bibliotecario que te ayuda a encontrar, tomar prestado y devolver los libros que necesitas.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="pacman-vs-apt-una-visión-general"&gt;
+Pacman vs. Apt: una visión general
+&lt;a href="#pacman-vs-apt-una-visi%c3%b3n-general" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pacman&lt;/strong&gt;: El gestor de paquetes utilizado en Arch Linux y sus derivados. Se caracteriza por su enfoque minimalista y su base de datos de paquetes plana.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Apt&lt;/strong&gt;: El gestor de paquetes utilizado en Debian y sus derivados, como Ubuntu. Es conocido por su sistema de dependencias sofisticado y su gran cantidad de paquetes disponibles.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="diferencias-clave"&gt;
+Diferencias clave
+&lt;a href="#diferencias-clave" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Antes de entrar en materia, es importante tener en cuenta que tanto &lt;code&gt;pacman&lt;/code&gt; como &lt;code&gt;apt&lt;/code&gt; son excelentes gestores de paquetes, cada uno con sus propias fortalezas y debilidades. La elección entre ambos dependerá de tus preferencias personales y necesidades específicas. A continuación, exploraremos algunas de las diferencias clave entre ambos:&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="filosofía"&gt;
+Filosofía
+&lt;a href="#filosof%c3%ada" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pacman&lt;/strong&gt;: Prioriza la simplicidad y la flexibilidad. Te da un mayor control sobre tu sistema, pero requiere una configuración inicial más detallada.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Apt&lt;/strong&gt;: Ofrece una experiencia más automatizada y orientada al usuario. Gestiona las dependencias de forma más estricta, lo que puede simplificar la instalación de software.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="sintaxis-de-los-comandos"&gt;
+Sintaxis de los comandos
+&lt;a href="#sintaxis-de-los-comandos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pacman&lt;/strong&gt;: Utiliza una sintaxis más concisa y directa. Por ejemplo, para instalar un paquete, se usa &lt;code&gt;sudo pacman -S nombre_del_paquete&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Apt&lt;/strong&gt;: Tiene una sintaxis más verbosa. Para instalar un paquete, se utiliza &lt;code&gt;sudo apt install nombre_del_paquete&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="base-de-datos-de-paquetes"&gt;
+Base de datos de paquetes
+&lt;a href="#base-de-datos-de-paquetes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pacman&lt;/strong&gt;: Mantiene una base de datos plana, lo que facilita la gestión de paquetes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Apt&lt;/strong&gt;: Utiliza una base de datos más compleja, con información sobre dependencias y conflictos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="actualizaciones"&gt;
+Actualizaciones
+&lt;a href="#actualizaciones" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Pacman&lt;/strong&gt;: Ofrece un sistema de actualizaciones más flexible, permitiéndote elegir qué paquetes actualizar.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Apt&lt;/strong&gt;: Realiza actualizaciones de forma más automatizada, pero puede ser más restrictivo.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="tabla-comparativa"&gt;
+Tabla comparativa
+&lt;a href="#tabla-comparativa" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Característica&lt;/th&gt;
+&lt;th&gt;Pacman&lt;/th&gt;
+&lt;th&gt;Apt&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Filosofía&lt;/td&gt;
+&lt;td&gt;Minimalista, flexible&lt;/td&gt;
+&lt;td&gt;Automatizado, orientado al usuario&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sintaxis&lt;/td&gt;
+&lt;td&gt;Concisa&lt;/td&gt;
+&lt;td&gt;Verbosa&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Base de datos&lt;/td&gt;
+&lt;td&gt;Plana&lt;/td&gt;
+&lt;td&gt;Compleja&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Actualizaciones&lt;/td&gt;
+&lt;td&gt;Flexibles&lt;/td&gt;
+&lt;td&gt;Automatizadas&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cuál-es-mejor"&gt;
+¿Cuál es mejor?
+&lt;a href="#cu%c3%a1l-es-mejor" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La elección entre pacman y apt depende de tus preferencias y necesidades. Si buscas un mayor control sobre tu sistema y prefieres una configuración más manual, pacman puede ser una buena opción. Si prefieres una experiencia más automatizada y una gran cantidad de paquetes disponibles, apt es una excelente elección.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="ejemplos-prácticos"&gt;
+Ejemplos prácticos
+&lt;a href="#ejemplos-pr%c3%a1cticos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Buscar paquetes:
+&lt;ul&gt;
+&lt;li&gt;Pacman:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pacman -Ss firefox
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Apt:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;apt search firefox
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Buscar paquetes por descripción:
+&lt;ul&gt;
+&lt;li&gt;Pacman:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pacman -F descripción_del_paquete
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Apt:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;apt-cache search descripción_del_paquete
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Instalar un paquete:
+&lt;ul&gt;
+&lt;li&gt;Pacman:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S firefox
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Apt:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install firefox
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Actualizar el sistema:
+&lt;ul&gt;
+&lt;li&gt;Pacman:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Syu
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Apt:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo apt upgrade
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Eliminar un paquete:
+&lt;ul&gt;
+&lt;li&gt;Pacman:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Rs firefox
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Apt:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt remove firefox
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Eliminar paquetes huérfanos:
+&lt;ul&gt;
+&lt;li&gt;Pacman:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Rns &lt;span class="k"&gt;$(&lt;/span&gt;pacman -Qdtq&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Apt:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt autoremove
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Limpiar caché:
+&lt;ul&gt;
+&lt;li&gt;Pacman:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Sc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Apt:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt clean
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Tanto &lt;code&gt;pacman&lt;/code&gt; como &lt;code&gt;apt&lt;/code&gt; son &lt;em&gt;gestores de paquetes&lt;/em&gt; excelentes, cada uno con sus propias fortalezas y debilidades. La mejor opción para ti dependerá de tus necesidades y preferencias personales. Al comprender las diferencias entre ambos, podrás elegir el gestor de paquetes que mejor se adapte a tu flujo de trabajo.&lt;/p&gt;</description></item><item><title>Exportando Claves GPG: Protegiendo tu información en cualquier sistema operativo</title><link>https://patojad.com.ar/post/2024/05/exportando-claves-gpg-protegiendo-tu-informaci%C3%B3n-en-cualquier-sistema-operativo/</link><pubDate>Wed, 15 May 2024 11:13:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/05/exportando-claves-gpg-protegiendo-tu-informaci%C3%B3n-en-cualquier-sistema-operativo/</guid><description>&lt;p&gt;En el mundo digital actual, la seguridad de la información es primordial. Las claves GPG (GnuPG) son una herramienta fundamental para proteger tus datos confidenciales, ya sea que estés enviando correos electrónicos, compartiendo archivos o almacenando información sensible. Exportar tus claves GPG te permite respaldarlas y utilizarlas en diferentes dispositivos o sistemas operativos.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-son-las-claves-gpg"&gt;
+¿Qué son las claves GPG?
+&lt;a href="#qu%c3%a9-son-las-claves-gpg" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Las claves GPG, como ya vimos en &lt;a href="https://patojad.com.ar/post/2024/05/exportando-claves-gpg-protegiendo-tu-informaci%c3%b3n-en-cualquier-sistema-operativo/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Cómo Generar una Clave GPG para Firmar Archivos
+&lt;/a&gt;, son pares de claves criptográficas que se utilizan para cifrar y descifrar información. La clave pública se comparte con otros usuarios para que puedan enviarte mensajes cifrados que solo tú podrás descifrar con tu clave privada. La clave privada debe mantenerse en secreto, ya que es la única que te permite acceder a la información cifrada.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="por-qué-exportar-las-claves-gpg"&gt;
+¿Por qué exportar las claves GPG?
+&lt;a href="#por-qu%c3%a9-exportar-las-claves-gpg" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Exportar las claves GPG tiene varios beneficios:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Respaldo:&lt;/strong&gt; Si tu computadora falla o pierdes tu dispositivo, puedes restaurar tus claves GPG desde una copia de seguridad y seguir accediendo a tu información cifrada.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Portabilidad:&lt;/strong&gt; Puedes usar tus claves GPG en diferentes dispositivos o sistemas operativos, lo que te permite cifrar y descifrar información sin importar dónde te encuentres.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Colaboración:&lt;/strong&gt; Puedes compartir tu clave pública con otros usuarios para que puedan enviarte mensajes cifrados de forma segura.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cómo-exportar-las-claves-gpg-en-diferentes-sistemas-operativos"&gt;
+¿Cómo exportar las claves GPG en diferentes sistemas operativos?
+&lt;a href="#c%c3%b3mo-exportar-las-claves-gpg-en-diferentes-sistemas-operativos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El proceso de exportar las claves GPG varía ligeramente según el sistema operativo que estés utilizando. A continuación, se detallan los pasos generales para exportar las claves GPG en Windows, macOS y Linux:&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="windows"&gt;
+Windows:
+&lt;a href="#windows" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Instala &lt;strong&gt;Gpg4win&lt;/strong&gt;, una suite de software GPG para Windows.&lt;/li&gt;
+&lt;li&gt;Abre &lt;strong&gt;Kleopatra&lt;/strong&gt;, la aplicación de gestión de claves GPG incluida en &lt;strong&gt;Gpg4win&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Selecciona la clave que deseas exportar en el panel izquierdo.&lt;/li&gt;
+&lt;li&gt;Haz clic en el botón &amp;ldquo;Exportar certificado&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;Elige la opción &amp;ldquo;Exportar clave&amp;rdquo; y guarda el archivo .asc en una ubicación segura.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="macos"&gt;
+MacOS:
+&lt;a href="#macos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Instala &lt;strong&gt;GPG Suite&lt;/strong&gt;, una suite de software GPG para macOS.&lt;/li&gt;
+&lt;li&gt;Abre &lt;strong&gt;GPG Keychain Access&lt;/strong&gt;, la aplicación de gestión de claves GPG incluida en &lt;strong&gt;GPG Suite&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Selecciona la clave que deseas exportar en la lista de claves.&lt;/li&gt;
+&lt;li&gt;Haz clic en el menú &amp;ldquo;Archivo&amp;rdquo; y selecciona &amp;ldquo;Exportar&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;Elige la opción &amp;ldquo;Exportar clave&amp;rdquo; y guarda el archivo .asc en una ubicación segura.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="linux"&gt;
+Linux:
+&lt;a href="#linux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Abre una terminal y escribe el siguiente comando para exportar tu clave pública:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gpg --output public.gpg --armor --export jdecima@vasak.net.ar
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Para exportar tu clave privada, escribe el siguiente comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gpg --output private.gpg --armor --export-secret-key jdecima@vasak.net.ar
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-info fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;Utiliza el correo que utilizaste a la hora de crearlo, el comando es un ejemplo de como debe usarse&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="w-full rounded-xl bg-yellow-600/75 text-yellow-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-warning fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;Recuerda: La clave privada debe mantenerse en secreto y nunca debe compartirse con nadie.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>Install NodeJS en Linux con Homebrew</title><link>https://patojad.com.ar/post/2023/02/install-nodejs-en-linux-con-homebrew/</link><pubDate>Mon, 27 Feb 2023 11:56:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/02/install-nodejs-en-linux-con-homebrew/</guid><description>&lt;p&gt;Vamos a ver como realizar la instalación de &lt;strong&gt;NodeJS&lt;/strong&gt; de una forma muy simple y rápida utilizando &lt;em&gt;homebrew.&lt;/em&gt; De esta forma simple y rápida podemos obtener &lt;strong&gt;cualquier&lt;/strong&gt; versión de NodeJS y NPM sin importar nuestra versión de linux, nuestro gestor de paquetes o la versión que estén disponible en los repositorios.&lt;/p&gt;
+&lt;p&gt;Para poder realizar esto vamos a necesitar instalar previamente Homebrew, pero no te preocupes, si no lo tenes te dejo a continuación un artículo donde te explico como instalarlo en tu distribución de GNU/Linux.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://patojad.com.ar/post/2023/01/como-instalar-brew-en-gnu/post/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Instalar Homebrew en GNU/Linux
+&lt;/a&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalandolo"&gt;
+Instalandolo
+&lt;a href="#instalandolo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El comando utilizado para esta ocasión es el que dejaré a continuación. En caso de querer pegar en la terminal de linux se suele hacer con &lt;code&gt;ctrl&lt;/code&gt;+&lt;code&gt;shift&lt;/code&gt;+&lt;code&gt;v&lt;/code&gt; sino podes utilizar el mouse con &lt;code&gt;click derecho&lt;/code&gt; -&amp;gt; &lt;code&gt;pegar&lt;/code&gt; dependiendo de tu terminal:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;brew install node
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Agregar Repositorio de SteamOS a Arch</title><link>https://patojad.com.ar/post/2022/09/agregar-repositorio-de-steamos-a-arch/</link><pubDate>Tue, 13 Sep 2022 11:48:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/09/agregar-repositorio-de-steamos-a-arch/</guid><description>&lt;p&gt;Vamos a agregar los repositorios de SteamOS (Holo y jupiter) a nuestra distribución de Arch Linux favorita. Esto puede sernos útil para poder acceder a sus apps, configuraciones y personalizaciones.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://steamdeck-packages.steamos.cloud/archlinux-mirror/jupiter/os/x86_64/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-steam"&gt;&lt;/i&gt;&amp;nbsp;
+Repositorio Jupiter
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://steamdeck-packages.steamos.cloud/archlinux-mirror/holo/os/x86_64/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-steam"&gt;&lt;/i&gt;&amp;nbsp;
+Repositorio Holo
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://steamdeck-packages.steamos.cloud/archlinux-mirror/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-steam"&gt;&lt;/i&gt;&amp;nbsp;
+Todos los Repositorios
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://steamdeck-packages.steamos.cloud/archlinux-mirror/iso/latest/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-steam"&gt;&lt;/i&gt;&amp;nbsp;
+Ultimas ISO
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Antes que nada te dejo el link donde vas a poder ver los repositorios posibles y los paquetes que tiene cada uno de estos.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="video"&gt;
+Video
+&lt;a href="#video" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;iframe src='https://www.youtube.com/embed/dY6ISmFUlTY?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="comandos"&gt;
+Comandos
+&lt;a href="#comandos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Lo primero que vamos a hacer es abrir nuestro &lt;code&gt;pacman.conf&lt;/code&gt; para poder agregar los repositorios, esto lo hacemos desde la terminal y como administrador para poder guardar los cambios de la siguiente manera:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo nano /etc/pacman.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Luego agregamos las siguientes 2 líneas al final del archivo. En mi caso estaban comentadas pero tu debes agregarlas (se pega con ctrl+shift+v)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cfg" data-lang="cfg"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;[jupiter]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;Server&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;https://steamdeck-packages.steamos.cloud/archlinux-mirror/$repo/os/$arch&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;SigLevel&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;Never&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;[holo]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;Server&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;https://steamdeck-packages.steamos.cloud/archlinux-mirror/$repo/os/$arch&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;SigLevel&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;Never&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Luego guardamos (ctrl+o y después enter) y cerramos, ya podemos actualizar para descargar la información de nuestros repositorios&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Syyu
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Y ya podemos instalar desde los repositorios de SteamOS&lt;/p&gt;</description></item><item><title>Instalar Preload en Arch</title><link>https://patojad.com.ar/post/2022/02/instalar-preload-en-arch/</link><pubDate>Thu, 03 Feb 2022 09:22:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/02/instalar-preload-en-arch/</guid><description>&lt;p&gt;Preload es una aplicación que toma estadísticas de nuestro uso de aplicaciones y precarga en memoria todas aquellas que más usamos al prender el equipo. Gracias a esto podemos ver una fluidez más amplia al abrir estas aplicaciones. Y a costa de esta fluidez nuestro sistema inicia con más memoria RAM ocupada. Muchos se debaten si esta técnica es útil o no y por eso te dejo primero un video con mi postura sobre esto.&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/HVCqSfdTdUs?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Dejando aclarada mi postura de más está decir que cualquier postura con fundamentos es válida y si preferís no ocupar RAM te recomiendo que no instales &lt;strong&gt;Preload&lt;/strong&gt; aunque vas a perderte la fluidez adicional que esto nos da.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="video"&gt;
+Video
+&lt;a href="#video" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En el siguiente video vemos como se realiza la instalación de preload (con yay en mi caso pero podes usar tu gestor favorito) y cómo habilitarlo en cualquier base &lt;strong&gt;Arch&lt;/strong&gt; con &lt;strong&gt;SystemD&lt;/strong&gt; y también en &lt;strong&gt;Artix&lt;/strong&gt; con &lt;strong&gt;OpenRC&lt;/strong&gt; (En esta oportunidad no use &lt;strong&gt;Runit&lt;/strong&gt; pero con una búsqueda simple podes adaptarlo)&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/6NoYA9Rtp2s?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="código"&gt;
+Código
+&lt;a href="#c%c3%b3digo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;A continuación dejo los comandos utilizados para que sea más simple copiar y pegar…&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -S preload
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="systemd"&gt;
+SystemD
+&lt;a href="#systemd" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;En el caso de usar distros con SystemD se habilita de la siguiente manera. Recuerda que esto nos pedirá la contraseña&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;systemctl &lt;span class="nb"&gt;enable&lt;/span&gt; preload
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="openrc"&gt;
+OpenRC
+&lt;a href="#openrc" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;En el caso de estar en &lt;strong&gt;Artix&lt;/strong&gt; (con &lt;strong&gt;OpenRC&lt;/strong&gt;) debemos crear el archivo del demonio de la siguiente manera:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo nano /etc/init.d/preload
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Y dentro del archivo debemos poner lo siguiente:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cfg" data-lang="cfg"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#!/sbin/openrc-run&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;command&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;/usr/bin/preload&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;command_args&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;$PRELOAD_OPTS&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;command_args_foreground&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;--foreground&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Esto lo guardamos y a continuación le damos permisos al archivo para poder iniciar el proceso.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo chmod &lt;span class="m"&gt;777&lt;/span&gt; /etc/init.d/preload
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="w-full rounded-xl bg-yellow-600/75 text-yellow-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-warning fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;OJO no es recomendable usar 777 para los permisos de este archivo, es una mala practica que hago personalmente para hacer pruebas, lo ideal es ponerle el mismo permiso que tienen el resto de los archivos en el folder /etc/init.d&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Y por último podemos inicializar el proceso de la siguiente manera:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo rc-service preload start
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Instalar PARU y YAY</title><link>https://patojad.com.ar/post/2022/01/instalar-paru-y-yay/</link><pubDate>Thu, 27 Jan 2022 15:12:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/01/instalar-paru-y-yay/</guid><description>&lt;p&gt;Ya hablamos con anterioridad sobre &lt;a href="https://patojad.com.ar/aplicaciones/2022/01/paru-vs-yay-cual-elegir/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+PARU y YAY
+&lt;/a&gt;. En esa oportunidad di mi opinión sobre cuál deberíamos elegir, aunque esto siempre es a gusto y placer de la persona que lo utilice. Por eso en esta oportunidad vamos a ver la manera más simple de instalar ambas aplicaciones.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="requisitos-previos"&gt;
+Requisitos previos
+&lt;a href="#requisitos-previos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Para poder realizar la instalación tenemos unos requisitos previos para que todo salga mas que bien, te dejo a continuación ambos links que explicaran como hacer esto (El primero no es obligatorio pero está bueno saber cual elegir antes de instalar alguno)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/aplicaciones/2022/01/paru-vs-yay-cual-elegir/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Paru VS YAY ¿Cual elegir?
+&lt;/a&gt; (Opcional)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2022/01/instalar-chaotic-aur/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Instalar Chaotic AUR
+&lt;/a&gt; (Obligatorio)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="video"&gt;
+Video
+&lt;a href="#video" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Claramente siempre genero un pequeño video para poder ser un poco más gráfico, de todas formas en la parte inferior voy a dejar los comandos utilizados. Es muy importante tener los repositorios de chaotic para poder instalarlo de esta manera.&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/DF8IAz5WoXg?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-info fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;Si el video te sirvió pegale una subscribirda al canal que es muchísimo apoyo y es totalmente gratuito.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="comandos"&gt;
+Comandos
+&lt;a href="#comandos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Para la instalación de yay:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Sy yay
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Para la instalación de paru:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Sy paru
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;En caso de que vayamos a instalar los 2 podemos hacerlo de una sola vez usando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Sy yay paru
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Para desinstalar yay:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Rs yay
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Para desinstalar paru:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Rs paru
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Para desinstalar ambos:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Rs yay paru
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Instalar Chaotic AUR</title><link>https://patojad.com.ar/post/2022/01/instalar-chaotic-aur/</link><pubDate>Wed, 12 Jan 2022 09:45:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/01/instalar-chaotic-aur/</guid><description>&lt;p&gt;Chaotic es un repositorio que busca traer los paquetes de AUR, o al menos los de mayor uso desde el punto de vista del creador, para administrarlos de forma simple con pacman. Sin tener que instalar los AUR ni configurarlos y mucho menos usar los AURHelpers. Estos son algunos de los detalles a tener en cuenta sobre Chaotic:&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/vZr3rN4_ZDc?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;ul&gt;
+&lt;li&gt;La mayoría de los paquetes disponibles en este repositorio se crean automáticamente a partir de su paquete fuente AUR respectivo. Sin embargo, hay algunas excepciones, consulte &lt;a href="https://github.com/chaotic-aur/packages" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+https://github.com/chaotic-aur/packages
+&lt;/a&gt; para averiguar cuáles.&lt;/li&gt;
+&lt;li&gt;El clúster de construcción principal es un nodo en el centro de datos de UFSCars que está alojado en San Carlos, San Paulo, Brazil.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="comandos"&gt;
+Comandos
+&lt;a href="#comandos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En el video muestro como se realiza y que podemos ver el resultado dentro de nuestros repositorios en &lt;strong&gt;pacman&lt;/strong&gt; por esto mismo voy a dejar a continuación los comandos.&lt;/p&gt;
+&lt;p&gt;Instalación o descarga de las Key del repositorio para chequear los paquetes:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pacman-key --lsign-key FBA220DFC880C036
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Instalación de los paquetes con pacman (En el video los instalo por separado, sin embargo el comando de abajo los instala a los dos juntos)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pacman -U &lt;span class="s1"&gt;&amp;#39;https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst&amp;#39;&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Por último tenemos que agregar el repositorio en la configuración de pacman. Para esto debemos editarla con permisos de administrador, por ejemplo de la siguiente manera &lt;code&gt;sudo nano /etc/pacman.conf&lt;/code&gt; y agregamos lo siguiente en la sección de repositorios:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cfg" data-lang="cfg"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;[chaotic-aur]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;Include&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;/etc/pacman.d/chaotic-mirrorlist&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="recomendaciones"&gt;
+Recomendaciones
+&lt;a href="#recomendaciones" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Las siguientes recomendaciones son propias de los desarrolladores de &lt;strong&gt;ChaoticAUR&lt;/strong&gt; con alguna que otra modificación:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Si sos usuario de powerpill y queres usarlo para realizar todas las descargas desde todos los mirrors se recomienda realizar la actualización de la siguiente manera:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Sy &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo powerpill -Su &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; paru -Su
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;Asegúrese de insertar todos los espejos en su pacman.conf o use caotic-mirrorlist con todos ellos activos si usa powerpill.&lt;/li&gt;
+&lt;li&gt;Si está utilizando otros repositorios de terceros, le recomendamos que coloque Chaotic-AUR antes que ellos en &lt;code&gt;/etc/pacman.conf&lt;/code&gt;. Dado que actualizamos la mayoría de los paquetes cada hora y seguimos los &lt;code&gt;PKGBUILD&lt;/code&gt; de &lt;strong&gt;AUR&lt;/strong&gt;, este repositorio es más adecuado como primera opción al descargar paquetes.&lt;/li&gt;
+&lt;li&gt;Si necesita omitir la actualización de un paquete para usar las creadas localmente (por ejemplo, con optimizaciones nativas), puede agregar &lt;code&gt;'IgnorePkg = ...'&lt;/code&gt; a la sección del repositorio en &lt;code&gt;/etc/pacman.conf&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Puede elegir el repositorio desde el que descargar un paquete de esta manera: &lt;code&gt;pacman -S chaotic-aur/dxvk-mingw-git&lt;/code&gt;. Algunos ayudantes de AUR también lo admiten, por ejemplo: &lt;code&gt;paru -S aur/firefox-hg&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="w-full rounded-xl bg-yellow-600/75 text-yellow-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-warning fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;Debe tener habilitado el repositorio multilib.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>Paru VS YAY ¿Cual elegir?</title><link>https://patojad.com.ar/post/2022/01/paru-vs-yay-cual-elegir/</link><pubDate>Mon, 03 Jan 2022 09:22:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/01/paru-vs-yay-cual-elegir/</guid><description>&lt;p&gt;Es común que al utilizar cualquier distribución basada en Arch (Artix, endeavour, manjaro, etc) queramos usar los AUR dado que ahí disponemos de una cantidad de paquetes increíbles. Y a la hora de usarlo podemos elegir entre múltiples AUR Helpers. En esta oportunidad vamos a hablar de 2 de estos. El conocido YAY que lleva mucho tiempo con nosotros. Y el no tan nuevo PARU que llega con una propuesta interesante para los amantes de los AUR.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="comparación"&gt;
+Comparación
+&lt;a href="#comparaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;YAY está escrito en GO un lenguaje de programación que tiene una fácil lectura y es extensible. Una gran ventaja es que su compilación es realmente rápida y muy simple. Toma como inspiración yaourt, apacman y pacmaur. Paru, en cambio, está escrito en Rust y toma como inspiración a YAY por lo cual es muy simple de migrar de uno a otro.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/xTvdwb1M/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Si bien YAY es mucho más popular y tiene una comunidad mucho más grande, actualmente paru es, por no mucho, más activo. Lo cual supone ser una ventaja, sin embargo, para los usuarios finales esto no afecta en gran cantidad. Sin embargo una de las diferencias que note es que paru es, efectivamente, más rápido que YAY. Lo cual es útil si tenemos equipos de pocos recursos. Sin embargo, en lo personal creo que yay tiene una sintaxis más feliz que paru. Es más simple y rápido escribir yay, incluso para autocompletar. Sin embargo, paru puede volverse un poco tosco y molesto.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Codigo Fuente&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Revision de Archivos&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Diff&lt;/th&gt;
+&lt;th style="text-align: center"&gt;GIT&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Shells&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Paru&lt;/td&gt;
+&lt;td style="text-align: center"&gt;GO&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;bash, fish, zsh&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;YAY&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Rust&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;bash, fish, zsh&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="mi-opinión"&gt;
+Mi Opinión
+&lt;a href="#mi-opini%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Personalmente le veo mucho potencial a paru, pero no ofrece nada muy diferente a otros. Y siento la sintaxis un tanto incómoda, sin embargo, es recomendable para equipos que son bastantes lentos porque en esa circunstancia es muy provechoso el tiempo que optimiza y nos permite aprovechar mejor los recursos.&lt;/p&gt;
+&lt;p&gt;Yo me voy a quedar con yay, al menos de momento pero me gustaría saber tu opinion y analisis sobre estas dos apps&lt;/p&gt;</description></item><item><title>Activar Descargas paralelas en Pacman</title><link>https://patojad.com.ar/post/2021/07/activar-descargas-paralelas-en-pacman/</link><pubDate>Thu, 15 Jul 2021 09:51:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/07/activar-descargas-paralelas-en-pacman/</guid><description>&lt;p&gt;Como mencionamos &lt;a href="https://patojad.com.ar/post/2021/06/lleg%c3%b3-pacman-v6-y-pamac-qued%c3%b3-anonadado/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+hace un tiempo llegó pacman 6
+&lt;/a&gt;, y la primera impresión para algunos no fue buena porque pamac no estaba a la altura ni estaba preparado para esto. Sin embargo ya está todo solucionado y podemos comenzar a sacarle el mejor provecho a esto. En esta oportunidad vamos a hablar de una nueva opción que seguro queremos tener habilitada en nuestra distro…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="descargas-en-paralelo"&gt;
+Descargas en paralelo
+&lt;a href="#descargas-en-paralelo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Claramente sabemos que son las descargas en paralelo y algunos no nos percatamos de que pacman no descargaba simultáneamente los paquetes pero hoy te damos el paso a paso para que habilites la descarga en paralelo en tu distro base arch preferida…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cómo-hacerlo"&gt;
+Cómo hacerlo
+&lt;a href="#c%c3%b3mo-hacerlo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Te dejo un video donde explico como realizar esto y claramente más abajo vas a poder ver los comandos utilizados:&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/xOeA9rx6HLA?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Primero abrimos, como administrador, el archivo de configuración:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo nano /etc/pacman.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Luego, como explica en el video, agregamos la siguiente linea:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;ParallelDownloads&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Donde 5 representa la cantidad de descargas en paralelo que queremos tener, este número lo podemos variar dependiendo nuestra velocidad de internet y necesidades.&lt;/p&gt;</description></item><item><title>Instalar el Zen Kernel</title><link>https://patojad.com.ar/post/2021/05/instalar-el-zen-kernel/</link><pubDate>Thu, 27 May 2021 09:18:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/05/instalar-el-zen-kernel/</guid><description>&lt;p&gt;Dentro del mundo de &lt;strong&gt;GNU/Linux&lt;/strong&gt; existe muchísimo software libre incluso &lt;strong&gt;Linux&lt;/strong&gt; el kernel de este sistema, y al ser libre cualquiera puede compilarlo y configurarlo como quiera, incluso publicarlo. En esta oportunidad vamos a ver cómo instalar un kernel modificado por la comunidad para mejorar el rendimiento bajo demanda, es un kernel muy bueno para quienes les gusta jugar, entre otras cosas.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/gkd80yH4/image.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="sobre-zen"&gt;
+Sobre Zen
+&lt;a href="#sobre-zen" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Zen es el kernel conocido como Liquorix compilado para Arch y este kernel presenta muchísimas mejoras entre las que podemos ver:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Liquorix es un reemplazo del kernel de distribución creado con la mejor configuración y fuentes de kernel para cargas de trabajo de escritorio, multimedia y juegos.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Zen Interactive Tuning:&lt;/strong&gt; ajusta el kernel para mejorar la capacidad de respuesta a costa del rendimiento y el uso de energía.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;--- Virtual Memory Subsystem ---------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Mem dirty before &lt;span class="nb"&gt;bg&lt;/span&gt; writeback..: &lt;span class="m"&gt;10&lt;/span&gt; % -&amp;gt; &lt;span class="m"&gt;20&lt;/span&gt; %
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Mem dirty before sync writeback: &lt;span class="m"&gt;20&lt;/span&gt; % -&amp;gt; &lt;span class="m"&gt;50&lt;/span&gt; %
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;--- Block Layer ----------------------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Default MQ scheduler......: mq-deadline -&amp;gt; bfq
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;--- CPU Scheduler &lt;span class="o"&gt;(&lt;/span&gt;CFS&lt;span class="o"&gt;)&lt;/span&gt; --------------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Scheduling latency.............: &lt;span class="m"&gt;6&lt;/span&gt; -&amp;gt; &lt;span class="m"&gt;3&lt;/span&gt; ms
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Minimal granularity............: 0.75 -&amp;gt; 0.3 ms
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Wakeup granularity.............: &lt;span class="m"&gt;1&lt;/span&gt; -&amp;gt; 0.5 ms
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;CPU migration cost.............: 0.5 -&amp;gt; 0.25 ms
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Bandwidth slice size...........: &lt;span class="m"&gt;5&lt;/span&gt; -&amp;gt; &lt;span class="m"&gt;3&lt;/span&gt; ms
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;--- CPU Scheduler &lt;span class="o"&gt;(&lt;/span&gt;MuQSS&lt;span class="o"&gt;)&lt;/span&gt; ------------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Scheduling interval............: &lt;span class="m"&gt;6&lt;/span&gt; -&amp;gt; &lt;span class="m"&gt;4&lt;/span&gt; ms
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ISO task max realtime use......: &lt;span class="m"&gt;70&lt;/span&gt; % -&amp;gt; &lt;span class="m"&gt;25&lt;/span&gt; %
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Programador de procesos MuQSS:&lt;/strong&gt; programador de procesos justo para juegos, multimedia y cargas en tiempo real.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Programación de alta resolución:&lt;/strong&gt; tiempos de espera de alta resolución y frecuencia de tick de 1000 Hz para una programación precisa de tareas con baja fluctuación.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RCU jerárquica basada en árboles no garantizada:&lt;/strong&gt; implementación de RCU para sistemas en tiempo real.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Prevención de kernel duro:&lt;/strong&gt; Prevención de kernel más agresiva antes de requerir parches en tiempo real. Garantiza un sistema receptivo en escenarios de cargas de trabajo mixtas de alta intensidad.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Budget Fair Queue:&lt;/strong&gt; programador de disco adecuado optimizado para el uso de escritorio, alto rendimiento / baja latencia.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Control de congestión TCP BBR2:&lt;/strong&gt; Control de congestión rápido, maximiza el rendimiento, garantizando velocidades más altas que Cubic.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reemplazo directo del núcleo de distribución:&lt;/strong&gt; configuración de estilo de distribución adecuada que admite la selección más amplia de hardware. Opciones de paravirtualización habilitadas para reducir la sobrecarga bajo virtualización.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Depuración mínima:&lt;/strong&gt; número mínimo de opciones de depuración habilitadas para aumentar el rendimiento del kernel.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación"&gt;
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;iframe src='https://www.youtube.com/embed/OLiOcArU5fM?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Primero debemos instalar el kernel, esto lo podemos hacer con pacman o con yay de la siguiente manera:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -S linux-zen linux-zen-header
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S linux-zen linux-zen-header
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Si venís de distribuciones basadas en Debian ya intentaste reiniciar, pero como se demuestra en el video no funciona asi, por lo cual es necesario actualizar el GRUB.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo update-grub
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Manjaro WebDad</title><link>https://patojad.com.ar/post/2021/02/manjaro-webdad/</link><pubDate>Fri, 26 Feb 2021 08:53:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/02/manjaro-webdad/</guid><description>&lt;p&gt;Hace ya un tiempo di mi opinión sobre &lt;a href="https://patojad.com.ar/instalaciones/2020/11/ubuntu-web-remix/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Ubuntu web
+&lt;/a&gt;, y en los recientes días, con el aumento del uso de ChromeOS parece ser que esta distro es una excelente idea. Sin embargo, por otro camino diferente existe un joven que desarrolló un escritorio que lo podríamos definir como &amp;ldquo;Lo que Ubuntu Web no pudo&amp;rdquo; dado que es aún más embebible con esta idea.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="manjaro-webdad"&gt;
+Manjaro WebDad
+&lt;a href="#manjaro-webdad" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Vamos a hablar de este sabor de manjaro que viene con el escritorio JADE. En particular no voy a extenderme con las novedades de su escritorio, dado que ya mucho lo hicieron en youtube. Pero si quiero plantar lo que puede llegar a significar este tipo de cambio y perspectiva.&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/jGdmbYL3JB4?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Como prometí en el video voy a dejar algunos datos sobre la distro que pueden llegar a ser muy interesantes.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="su-propio-launcher"&gt;
+Su propio launcher
+&lt;a href="#su-propio-launcher" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://raw.githubusercontent.com/codesardine/Jadesktop/master/jade.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;JADE nos ofrece un launcher que corre nativamente en su desktop, el mismo es &lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+HTML
+&lt;/a&gt; y es realmente muy fluido y no consume tantos recursos como, por ejemplo, &lt;a href="https://patojad.com.ar/aplicaciones/2020/05/ulauncher/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+ulanucher
+&lt;/a&gt; o &lt;a href="https://patojad.com.ar/aplicaciones/2020/05/cerebro/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+cerebro
+&lt;/a&gt; que son dos grandes launchers.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="fondos-en-movimiento"&gt;
+Fondos en movimiento
+&lt;a href="#fondos-en-movimiento" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Adicional a esto también nos ofrece los tan populares fondos en movimiento que muchos agregan con apps como Komorebi. Pero nuevamente lo hace desde una etiqueta &lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+HTML
+&lt;/a&gt; lo cual es mucho menos costoso que desarrollar una app que lo haga.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="altamente-personalizable"&gt;
+Altamente personalizable.
+&lt;a href="#altamente-personalizable" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/MGMv0q6W/Captura-de-pantalla-de-2020-11-20-15-52-06.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Este Escritorio, al estar desarrollado en &lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+HTML
+&lt;/a&gt; (En lo que a su interfaz respecta) permitiría que cualquiera con un buen conocimiento en este lenguaje de etiquetas lo personalice al máximo obteniendo increíbles resultados&lt;/p&gt;</description></item><item><title>Artix Linux</title><link>https://patojad.com.ar/post/2020/08/artix-linux/</link><pubDate>Tue, 11 Aug 2020 09:01:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/08/artix-linux/</guid><description>&lt;p&gt;En esta oportunidad quiero hablar de una distribución de GNU/Linux que muy probablemente no conozcas, no es nueva pero son pocos los usuarios que me dijeron conocerla cuando la nombre, y creo que esta distro debería ser tan popular como otras o tal vez más. Por eso hoy vamos a hablar de &lt;strong&gt;Artix&lt;/strong&gt; y si dije bien no es &lt;em&gt;Antix&lt;/em&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="sobre-artix"&gt;
+Sobre Artix
+&lt;a href="#sobre-artix" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Tipo de sistema operativo:&lt;/strong&gt; Linux&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Basado en:&lt;/strong&gt; Arch&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Origen:&lt;/strong&gt; Global&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Arquitectura:&lt;/strong&gt; x86_64&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Escritorios disponibles:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Cinnamon&lt;/li&gt;
+&lt;li&gt;LXDE&lt;/li&gt;
+&lt;li&gt;LXQt&lt;/li&gt;
+&lt;li&gt;MATE&lt;/li&gt;
+&lt;li&gt;KDE Plasma&lt;/li&gt;
+&lt;li&gt;Xfce&lt;/li&gt;
+&lt;li&gt;i3 (beta)&lt;/li&gt;
+&lt;li&gt;Gnome (beta)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Categoría:&lt;/strong&gt; Desktop, Live Medium&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Estado:&lt;/strong&gt; Activo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.ytimg.com/vi/lz8hsZjjNZY/maxresdefault.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Como remarca desde su web y así la identifica totalmente, &lt;strong&gt;Artix Linux&lt;/strong&gt; es una distro basada en Arch, por tanto sabemos que es rolling release, &lt;strong&gt;libre de systemd&lt;/strong&gt; y que reemplaza a este con &lt;strong&gt;Openrc&lt;/strong&gt;, &lt;strong&gt;s6&lt;/strong&gt; o &lt;strong&gt;runit&lt;/strong&gt;. Artix es la continuación de los icónicos ManjaroOpenRC y ArchOpenRC tomando una camino más firme con desarrollo continuo.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="va-dirigida"&gt;
+Va dirigida…
+&lt;a href="#va-dirigida" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En muchos lugares lei que Artix va dirigida a usuarios con mucho expertis en el mundo de GNU/Linux. Sin embargo creo que esta a nivel de aquellos que usan manjaro dia a dia. con la leve diferencia que deben arreglárselas para instalar el &lt;strong&gt;pamac&lt;/strong&gt; o el gestor gráfico de preferencia.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Artix_Community_FF-Inkscape_2020-02.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Viene con una instalación mínima lo cual nos permite de alguna forma elegir a nosotros las apps a utilizar, esto nos permite tener el sistema limpio para no arrastrar actualizaciones de aplicaciones que nunca usamos.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación"&gt;
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i0.wp.com/entornosgnulinux.com/wp-content/uploads/2019/03/Calamarares.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;La instalación se realiza mediante gestor gráfico (si es que descargaste la iso con algun escritorio disponible) conocido como &lt;strong&gt;calamares&lt;/strong&gt; uno de los más populares que existen hoy en dia.&lt;/p&gt;
+&lt;p&gt;Como la mayoría de las distros las instalaciones son una conjugación de siguientes y completar datos y ya podemos disfrutar de la distro. Te recomiendo descargarla y probarla, y si aceptas otro consejo recomiendo MATE como escritorio.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://artixlinux.org/download.php" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Descargar Artix
+&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>

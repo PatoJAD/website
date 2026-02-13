@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>No-Ip on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/no-ip/</link><description>Recent content in No-Ip on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Fri, 24 Apr 2020 09:48:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/no-ip/index.xml" rel="self" type="application/rss+xml"/><item><title>Como instalar NO-IP en Linux</title><link>https://patojad.com.ar/post/2020/04/como-instalar-no-ip-en-linux/</link><pubDate>Fri, 24 Apr 2020 09:48:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/04/como-instalar-no-ip-en-linux/</guid><description>&lt;p&gt;No-IP ofrece servicios de DNS, correo electrónico, monitoreo de red y certificados SSL. El producto principal de No-IP son los &lt;strong&gt;servicios dinámicos de DNS&lt;/strong&gt; (&amp;ldquo;DDNS&amp;rdquo;). Los servicios DNS dinámicos básicos que usan un dominio propiedad de No-IP son de uso &lt;strong&gt;gratuito siempre que la cuenta permanezca activa&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Las direcciones &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2020/01/direcciones-ips-nuestra-huella-en-la-red/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+IP
+&lt;/a&gt; dinámicas&lt;/strong&gt; son comunes en las cuentas de banda ancha de &lt;strong&gt;cable residencial&lt;/strong&gt; o DSL. El servicio gratuito permite a los usuarios configurar entre &lt;strong&gt;uno y tres nombres de host&lt;/strong&gt; en un nombre de dominio proporcionado por No-IP. El nombre del host se resolverá en la dirección IP actual de la computadora de ese usuario.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="api-dns-dinámica"&gt;
+API DNS dinámica
+&lt;a href="#api-dns-din%c3%a1mica" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Un nombre de host &lt;strong&gt;DNS dinámico&lt;/strong&gt; está vinculado a la dirección &lt;a href="https://patojad.com.ar/post/2020/02/qu%c3%a9-hay-detr%c3%a1s-de-una-ip/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+IP dinámica
+&lt;/a&gt; del usuario. Cada vez que &lt;strong&gt;cambie la IP&lt;/strong&gt;, un cliente DNS dinámico enviará una actualización a No-IP con la dirección IP actual y luego No-IP propagará el cambio de DNS a Internet en cuestión de segundos.&lt;/p&gt;
+&lt;p&gt;Para facilitar las actualizaciones de direcciones IP, No-IP tiene un protocolo abierto que permite a los desarrolladores de software y fabricantes de hardware comunicarse a través de HTTP para notificarles sobre un cambio de dirección IP.&lt;/p&gt;
+&lt;p&gt;Muchos fabricantes de enrutadores brindan soporte integrado para el protocolo DNS dinámico de No-IP, por ejemplo, Asus, D-Link, Dovado, Edimax, SonicWall, SMC, y TP-Link .&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="como-instalarlo"&gt;
+Como instalarlo
+&lt;a href="#como-instalarlo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Una vez que haya abierto la ventana de su Terminal, inicie sesión como usuario &amp;ldquo;root&amp;rdquo;. Es necesario para poder realizar la Instalacion&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo -s
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;antes de instalarlo debemos asegurarnos de instalar algunas &lt;strong&gt;dependecias&lt;/strong&gt; (la instalacion se realiza mediante make install de un precompilado) por lo cual de momento no puedo generar el deb.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt install gcc make
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Luego podemos realizar la descarga e instalacion correspondiente de la siguiente forma&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd /usr/local/src/
+wget http://www.noip.com/client/post/noip-duc-linux.tar.gz
+tar xf noip-duc-linux.tar.gz
+cd noip-2.1.9-1/
+make install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora iniciara la instalacion para lo cual nos pedirá que inicie sesión con su nombre de usuario y contraseña de cuenta No-IP.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="configurar-el-cliente"&gt;
+Configurar el cliente
+&lt;a href="#configurar-el-cliente" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Como root nuevamente (o con sudo) emita el siguiente comando:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/usr/local/bin/noip2 -C
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;(guión C mayúscula, esto creará el archivo de configuración predeterminado)&lt;/p&gt;
+&lt;p&gt;Luego nos va a pedir nuestro nombre de usuario y contraseña NO-IP, así como los nombres de host que deseamos actualizar. Hay que tener cuidado, una de las preguntas es &amp;ldquo;¿Desea actualizar TODOS los hosts&amp;rdquo;. Si respondemos incorrectamente, esto podría afectar a los nombres de host en nuestra cuenta que apuntan a otras ubicaciones.&lt;/p&gt;
+&lt;p&gt;Ahora que el cliente está instalado y configurado, solo necesitamos iniciarlo. Simplemente con este comando final para iniciar el cliente en segundo plano:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/usr/local/bin/noip2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ya con esto tenemos nuestro cliente de NO-IP actualizando la IP constantemente. Sin embargo, si tenes algun problema te esperamos en nuestro grupo para debatir.&lt;/p&gt;</description></item></channel></rss>

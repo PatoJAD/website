@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SysV on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/sysv/</link><description>Recent content in SysV on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Fri, 15 Mar 2024 18:34:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/sysv/index.xml" rel="self" type="application/rss+xml"/><item><title>Explorando SystemD en el Mundo Linux: Críticas, Realidades y Controversias</title><link>https://patojad.com.ar/post/2024/03/explorando-systemd-en-el-mundo-linux-cr%C3%ADticas-realidades-y-controversias/</link><pubDate>Fri, 15 Mar 2024 18:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/03/explorando-systemd-en-el-mundo-linux-cr%C3%ADticas-realidades-y-controversias/</guid><description>&lt;p&gt;En el vasto y diverso ecosistema de Linux, cada componente del sistema es objeto de discusión y opinión, y el sistema de inicio no es la excepción. &lt;strong&gt;SystemD&lt;/strong&gt; ha sido un tema de controversia dentro de la comunidad, generando críticas y debates en línea. En este artículo, profundizaremos en qué es &lt;strong&gt;SystemD&lt;/strong&gt;, su evolución, y las razones detrás de las críticas que ha enfrentado.&lt;/p&gt;
+&lt;p&gt;Ya escribi algunos articulos planteando los problemas de &lt;strong&gt;SystemD&lt;/strong&gt; y las alternativas que existen, pero en esta ocasión quiero profundizar en el tema y explicar las razones de la resistencia que ha enfrentado &lt;strong&gt;SystemD&lt;/strong&gt;. Y la explicacion de las cosas buenas que tiene, porque no todo es malo.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2020/06/systemd-solucion-o-problema/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+SystemD ¿Solucion o Problema?
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2020/07/systemd-no-es-el-problema-respuesta-a-zatiel/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+¿SystemD no es el problema? Respuesta a Zatiel
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="desentrañando-systemd-y-su-rol-como-sistema-de-inicio"&gt;
+Desentrañando SystemD y su Rol como Sistema de Inicio
+&lt;a href="#desentra%c3%b1ando-systemd-y-su-rol-como-sistema-de-inicio" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En el corazón de todos los sistemas basados en Linux se encuentra un sistema de inicio, el primer proceso que entra en acción después de arrancar el sistema operativo. Este proceso trabaja en segundo plano, gestionando servicios y procesos esenciales. En este contexto, &lt;strong&gt;SystemD&lt;/strong&gt; se presenta como un sistema de inicio predominante en muchas distribuciones de Linux.&lt;/p&gt;
+&lt;p&gt;Iniciado en 2010 bajo el liderazgo de &lt;strong&gt;Red Hat&lt;/strong&gt; y &lt;strong&gt;Leonard Puttering&lt;/strong&gt;, &lt;strong&gt;SystemD&lt;/strong&gt; nació con la intención de reemplazar soluciones existentes como &lt;strong&gt;SysV&lt;/strong&gt; y &lt;strong&gt;Upstart&lt;/strong&gt;. Su enfoque principal era mejorar el rendimiento del sistema, acelerar los tiempos de arranque y reducir el consumo de recursos. Rápidamente, se convirtió en el sistema de inicio predeterminado para distros populares como &lt;em&gt;Fedora&lt;/em&gt;, &lt;em&gt;Arch Linux&lt;/em&gt;, &lt;em&gt;Debian&lt;/em&gt; y &lt;em&gt;Ubuntu&lt;/em&gt;, entre otras.&lt;/p&gt;
+&lt;p&gt;A pesar de su adopción generalizada, algunas distribuciones, como &lt;em&gt;Alpine Linux&lt;/em&gt;, &lt;em&gt;MX Linux&lt;/em&gt;, &lt;em&gt;&lt;a href="https://patojad.com.ar/post/2019/09/voidlinux-por-jos%c3%a9/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Void Linux
+&lt;/a&gt;&lt;/em&gt;, &lt;em&gt;&lt;a href="https://patojad.com.ar/post/2020/08/artix-linux/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Artix
+&lt;/a&gt;&lt;/em&gt;, &lt;em&gt;&lt;a href="https://patojad.com.ar/post/2020/06/instalcion-milagros/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+MilagOS
+&lt;/a&gt;&lt;/em&gt; y otras, han optado por no adoptar &lt;strong&gt;SystemD&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="explorando-las-razones-de-la-resistencia"&gt;
+Explorando las Razones de la Resistencia
+&lt;a href="#explorando-las-razones-de-la-resistencia" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="el-argumento-del-bloat"&gt;
+El Argumento del &amp;ldquo;Bloat&amp;rdquo;
+&lt;a href="#el-argumento-del-bloat" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Un argumento recurrente contra &lt;strong&gt;SystemD&lt;/strong&gt; es su expansión progresiva hacia funciones que tradicionalmente eran gestionadas por servicios individuales. Esta acumulación de características ha llevado a críticas sobre su conformidad con la filosofía &lt;strong&gt;UNIX&lt;/strong&gt;, que aboga por la simplicidad y la especialización de funciones.&lt;/p&gt;
+&lt;p&gt;Aunque &lt;strong&gt;SystemD&lt;/strong&gt; mantiene su modularidad (recordemos qeu son varios mini-binarios especificos), su crecimiento ha llevado a la percepción de ser una solución monolítica. Además, su actualización periódica y la adición de nuevas funciones pueden traducirse en un mayor uso de espacio y recursos, lo que preocupa a aquellos que buscan eficiencia (hablando en kb de recursos).&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="dependencia-omnipresente-y-restricciones-de-opciones"&gt;
+Dependencia Omnipresente y Restricciones de Opciones
+&lt;a href="#dependencia-omnipresente-y-restricciones-de-opciones" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;SystemD&lt;/strong&gt; se ha vuelto tan integral en muchos aspectos del sistema que su ausencia puede limitar la funcionalidad de otros componentes. Servicios como el inicio de sesión gráfico o la gestión de conexiones de red a menudo dependen de componentes de &lt;strong&gt;SystemD&lt;/strong&gt;. Aunque es posible prescindir de él, las distribuciones que optan por no implementarlo deben buscar, proporcionar y mantener alternativas.&lt;/p&gt;
+&lt;p&gt;No podemos culpar a los desarrolladres de las aplicaciones por usar el set de herramientas que les provee &lt;strong&gt;SystemD&lt;/strong&gt;. Sin embargo, esto puede ser un problema para aquellos que buscan una mayor diversidad de opciones. Aun asi, hay que entender que estos set de herramienta facilitan y simplifican el trabajo de los desarrolladores, permitiendoles enfocarse en la funcionalidad de sus aplicaciones.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="red-hat-como-dueño-de-systemd"&gt;
+Red Hat como &amp;ldquo;Dueño&amp;rdquo; de SystemD
+&lt;a href="#red-hat-como-due%c3%b1o-de-systemd" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Otra crítica común se dirige al hecho de que &lt;strong&gt;SystemD&lt;/strong&gt; es un proyecto de &lt;strong&gt;Red Hat&lt;/strong&gt;. Aunque comenzó como un proyecto de esta compañía, actualmente propiedad de IBM, algunas voces expresan preocupación sobre el control que una entidad única puede tener sobre la dirección del sistema de inicio en Linux. Las recientes transformaciones en la gestión de la comunidad por parte de &lt;strong&gt;Red Hat&lt;/strong&gt; han aumentado estas preocupaciones.&lt;/p&gt;
+&lt;p&gt;Aun asi, &lt;strong&gt;SystemD&lt;/strong&gt; es un proyecto de código abierto, y su desarrollo está abierto a la participación de la comunidad. Además, la adopción de &lt;strong&gt;SystemD&lt;/strong&gt; por parte de otras distribuciones, como Debian y Ubuntu, ha ayudado a mitigar estas preocupaciones dado que en la actualidad es un proyecto que va mas alla de &lt;strong&gt;Red Hat&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="restricción-de-opciones-y-seguridad-del-sistema"&gt;
+Restricción de Opciones y Seguridad del Sistema
+&lt;a href="#restricci%c3%b3n-de-opciones-y-seguridad-del-sistema" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;SystemD&lt;/strong&gt; ha sido señalado como un factor que contribuye a la uniformidad en los sistemas Linux, restringiendo la diversidad de opciones. También se argumenta que su presencia crea un riesgo de seguridad, al ser un objetivo único para posibles ataques.&lt;/p&gt;
+&lt;p&gt;Sin embargo, defensores de &lt;strong&gt;SystemD&lt;/strong&gt; contrarrestan estas preocupaciones destacando su integración con el kernel de Linux y su eficiencia. Aseguran que, aunque puede haber un riesgo potencial debido a su ubicuidad, la confianza en un proyecto bien mantenido y ampliamente utilizado puede superar estos desafíos. Y es una realidad que &lt;strong&gt;SystemD&lt;/strong&gt; es un proyecto bien mantenido y ampliamente utilizado con un desarrollo activo.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En resumen, las críticas hacia &lt;strong&gt;SystemD&lt;/strong&gt; abordan aspectos que van desde la filosofía &lt;strong&gt;UNIX&lt;/strong&gt; hasta preocupaciones sobre dependencias y seguridad. Aunque se presentan alternativas viables, la elección de utilizar &lt;strong&gt;SystemD&lt;/strong&gt; o no a menudo se reduce a la conveniencia, eficiencia y preferencias de cada usuario.&lt;/p&gt;</description></item></channel></rss>

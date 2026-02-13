@@ -1,0 +1,1099 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sysadmin on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/sysadmin/</link><description>Recent content in Sysadmin on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Sat, 03 May 2025 10:00:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/sysadmin/index.xml" rel="self" type="application/rss+xml"/><item><title>Configurar Firewall en AlmaLinux con firewalld: Guía de Seguridad 2025</title><link>https://patojad.com.ar/post/2025/05/configurar-firewall-en-almalinux-con-firewalld-gu%C3%ADa-de-seguridad-2025/</link><pubDate>Sat, 03 May 2025 10:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/05/configurar-firewall-en-almalinux-con-firewalld-gu%C3%ADa-de-seguridad-2025/</guid><description>&lt;p&gt;&lt;strong&gt;firewalld&lt;/strong&gt; es el firewall predeterminado en AlmaLinux/RHEL porque:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;✅ Gestión dinámica de reglas sin reiniciar servicios&lt;/li&gt;
+&lt;li&gt;✅ Soporte para zonas de red (pública, DMZ, etc.)&lt;/li&gt;
+&lt;li&gt;✅ Integración nativa con systemd y NetworkManager&lt;/li&gt;
+&lt;li&gt;✅ Compatibilidad con IPv4/IPv6&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;📊 &lt;strong&gt;Dato clave&lt;/strong&gt;: Reduce ataques bruteforce en un 72% cuando se configura correctamente (Fuente: Red Hat Security Report 2025)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-configuración-básica"&gt;
+🛠️ Configuración Básica
+&lt;a href="#-configuraci%c3%b3n-b%c3%a1sica" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="1-verificar-estado"&gt;
+1. Verificar estado
+&lt;a href="#1-verificar-estado" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo systemctl status firewalld
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo firewall-cmd --state
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="2-habilitar-e-iniciar"&gt;
+2. Habilitar e iniciar
+&lt;a href="#2-habilitar-e-iniciar" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo systemctl &lt;span class="nb"&gt;enable&lt;/span&gt; --now firewalld
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="3-zonas-predeterminadas"&gt;
+3. Zonas predeterminadas
+&lt;a href="#3-zonas-predeterminadas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo firewall-cmd --list-all-zones
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-reglas-para-servicios-web"&gt;
+🌐 Reglas para Servicios Web
+&lt;a href="#-reglas-para-servicios-web" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="permitir-httphttps-y-ssh"&gt;
+Permitir HTTP/HTTPS y SSH
+&lt;a href="#permitir-httphttps-y-ssh" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo firewall-cmd --permanent --add-service&lt;span class="o"&gt;=&lt;/span&gt;http
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo firewall-cmd --permanent --add-service&lt;span class="o"&gt;=&lt;/span&gt;https
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo firewall-cmd --permanent --add-service&lt;span class="o"&gt;=&lt;/span&gt;ssh
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo firewall-cmd --reload
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="verificar-reglas-activas"&gt;
+Verificar reglas activas
+&lt;a href="#verificar-reglas-activas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo firewall-cmd --list-all
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-reglas-avanzadas"&gt;
+🔒 Reglas Avanzadas
+&lt;a href="#-reglas-avanzadas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="1-restricción-por-ip-para-ssh"&gt;
+1. Restricción por IP para SSH
+&lt;a href="#1-restricci%c3%b3n-por-ip-para-ssh" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo firewall-cmd --permanent --remove-service&lt;span class="o"&gt;=&lt;/span&gt;ssh
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo firewall-cmd --permanent --add-rich-rule&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;rule family=&amp;#34;ipv4&amp;#34; source address=&amp;#34;192.168.1.100&amp;#34; service name=&amp;#34;ssh&amp;#34; accept&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="2-abrir-puerto-personalizado-ej-3000-para-nodejs"&gt;
+2. Abrir puerto personalizado (Ej: 3000 para Node.js)
+&lt;a href="#2-abrir-puerto-personalizado-ej-3000-para-nodejs" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo firewall-cmd --permanent --add-port&lt;span class="o"&gt;=&lt;/span&gt;3000/tcp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="3-bloquear-país-completo-requiere-ipset"&gt;
+3. Bloquear país completo (Requiere ipset)
+&lt;a href="#3-bloquear-pa%c3%ads-completo-requiere-ipset" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo firewall-cmd --permanent --zone&lt;span class="o"&gt;=&lt;/span&gt;drop --add-source&lt;span class="o"&gt;=&lt;/span&gt;country:cn
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-monitoreo-y-troubleshooting"&gt;
+📊 Monitoreo y Troubleshooting
+&lt;a href="#-monitoreo-y-troubleshooting" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="conexiones-activas"&gt;
+Conexiones activas
+&lt;a href="#conexiones-activas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo ss -tulnp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="tráfico-bloqueado"&gt;
+Tráfico bloqueado
+&lt;a href="#tr%c3%a1fico-bloqueado" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo journalctl -u firewalld --no-pager &lt;span class="p"&gt;|&lt;/span&gt; grep DROP
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="resetear-configuración"&gt;
+Resetear configuración
+&lt;a href="#resetear-configuraci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo firewall-cmd --reset-to-defaults
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-tabla-de-servicios-comunes"&gt;
+📌 Tabla de Servicios Comunes
+&lt;a href="#-tabla-de-servicios-comunes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Servicio&lt;/th&gt;
+&lt;th&gt;Puerto&lt;/th&gt;
+&lt;th&gt;Comando firewalld&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;HTTP&lt;/td&gt;
+&lt;td&gt;80&lt;/td&gt;
+&lt;td&gt;&amp;ndash;add-service=http&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;HTTPS&lt;/td&gt;
+&lt;td&gt;443&lt;/td&gt;
+&lt;td&gt;&amp;ndash;add-service=https&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SSH&lt;/td&gt;
+&lt;td&gt;22&lt;/td&gt;
+&lt;td&gt;&amp;ndash;add-service=ssh&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MySQL&lt;/td&gt;
+&lt;td&gt;3306&lt;/td&gt;
+&lt;td&gt;&amp;ndash;add-service=mysql&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;PostgreSQL&lt;/td&gt;
+&lt;td&gt;5432&lt;/td&gt;
+&lt;td&gt;&amp;ndash;add-service=postgresql&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-solución-de-problemas"&gt;
+🚨 Solución de Problemas
+&lt;a href="#-soluci%c3%b3n-de-problemas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="error-firewalld-is-not-running"&gt;
+Error: &amp;ldquo;FirewallD is not running&amp;rdquo;
+&lt;a href="#error-firewalld-is-not-running" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo systemctl start firewalld
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="reglas-no-persisten"&gt;
+Reglas no persisten
+&lt;a href="#reglas-no-persisten" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo firewall-cmd --runtime-to-permanent
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-conclusión"&gt;
+📌 Conclusión
+&lt;a href="#-conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Con esta guía has aprendido a:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Configurar reglas básicas y avanzadas&lt;/li&gt;
+&lt;li&gt;Restringir acceso por IP/país&lt;/li&gt;
+&lt;li&gt;Monitorear conexiones sospechosas&lt;/li&gt;
+&lt;li&gt;Solucionar errores comunes&lt;/li&gt;
+&lt;li&gt;Próximo paso: Hardening avanzado con SELinux&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;💡 Tip profesional: Usa &lt;code&gt;--timeout=300&lt;/code&gt; en reglas temporales para pruebas (ej: &lt;code&gt;sudo firewall-cmd --add-port=8080/tcp --timeout=300&lt;/code&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>Configurar Apache HTTPD en AlmaLinux: Stack LAMP Completo 2025</title><link>https://patojad.com.ar/post/2025/04/configurar-apache-httpd-en-almalinux-stack-lamp-completo-2025/</link><pubDate>Mon, 28 Apr 2025 08:30:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/04/configurar-apache-httpd-en-almalinux-stack-lamp-completo-2025/</guid><description>&lt;p&gt;Apache HTTPD sigue siendo relevante para:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Compatibilidad&lt;/strong&gt;: Soporte nativo para .htaccess y aplicaciones legacy&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flexibilidad&lt;/strong&gt;: Módulos dinámicos (PHP, Python, Perl)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Soporte empresarial&lt;/strong&gt;: Ideal para sistemas con software antiguo&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Facilidad de uso&lt;/strong&gt;: Configuración más intuitiva que Nginx&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;📊 &lt;strong&gt;Estadística&lt;/strong&gt;: 31% de los sitios web usan Apache según Netcraft (2025)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-instalación-básica-de-apache"&gt;
+🛠️ Instalación Básica de Apache
+&lt;a href="#-instalaci%c3%b3n-b%c3%a1sica-de-apache" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="instalar-paquetes-necesarios"&gt;
+Instalar paquetes necesarios
+&lt;a href="#instalar-paquetes-necesarios" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf install httpd httpd-tools -y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="iniciar-y-habilitar-el-servicio"&gt;
+Iniciar y habilitar el servicio
+&lt;a href="#iniciar-y-habilitar-el-servicio" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo systemctl &lt;span class="nb"&gt;enable&lt;/span&gt; --now httpd
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="verificar-estado"&gt;
+Verificar estado
+&lt;a href="#verificar-estado" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo systemctl status httpd
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Salida esperada: &lt;code&gt;Active: active (running)&lt;/code&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-estructura-de-directorios-clave"&gt;
+📂 Estructura de Directorios Clave
+&lt;a href="#-estructura-de-directorios-clave" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Ruta&lt;/th&gt;
+&lt;th&gt;Propósito&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/etc/httpd/conf/httpd.conf&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Configuración principal&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/etc/httpd/conf.d/&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Configs adicionales&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/var/www/html/&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Contenido web por defecto&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/var/log/httpd/&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Logs de acceso/errores&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-configurar-virtual-hosts"&gt;
+🖥️ Configurar Virtual Hosts
+&lt;a href="#-configurar-virtual-hosts" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Ejemplo básico (/etc/httpd/conf.d/misitio.conf):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;span class="lnt"&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-apache" data-lang="apache"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;&amp;lt;VirtualHost&lt;/span&gt; &lt;span class="s"&gt;*:80&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;ServerName&lt;/span&gt; misitio.com
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;DocumentRoot&lt;/span&gt; &lt;span class="sx"&gt;/var/www/html/misitio&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;lt;Directory&lt;/span&gt; &lt;span class="s"&gt;/var/www/html/misitio&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;Options&lt;/span&gt; Indexes FollowSymLinks
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;AllowOverride&lt;/span&gt; &lt;span class="k"&gt;All&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;Require&lt;/span&gt; &lt;span class="k"&gt;all&lt;/span&gt; granted
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;lt;/Directory&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;&amp;lt;/VirtualHost&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Comandos para aplicar cambios:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo systemctl restart httpd
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo firewall-cmd --add-service&lt;span class="o"&gt;=&lt;/span&gt;http --permanent
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo firewall-cmd --reload
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-stack-lamp-completo"&gt;
+🧩 Stack LAMP Completo
+&lt;a href="#-stack-lamp-completo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="instalar-php-y-mysql"&gt;
+Instalar PHP y MySQL
+&lt;a href="#instalar-php-y-mysql" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf install php php-mysqlnd php-json mariadb-server -y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="configurar-mariadb"&gt;
+Configurar MariaDB
+&lt;a href="#configurar-mariadb" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo systemctl &lt;span class="nb"&gt;enable&lt;/span&gt; --now mariadb
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo mysql_secure_installation
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="probar-php"&gt;
+Probar PHP
+&lt;a href="#probar-php" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;&amp;lt;?php phpinfo(); ?&amp;gt;&amp;#34;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sudo tee /var/www/html/misitio/info.php
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-comparativa-apache-vs-nginx-2025"&gt;
+⚖️ Comparativa Apache vs Nginx (2025)
+&lt;a href="#-comparativa-apache-vs-nginx-2025" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Característica&lt;/th&gt;
+&lt;th&gt;Apache&lt;/th&gt;
+&lt;th&gt;Nginx&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Modo de trabajo&lt;/td&gt;
+&lt;td&gt;Proceso/Thread&lt;/td&gt;
+&lt;td&gt;Evento&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Rendimiento PHP&lt;/td&gt;
+&lt;td&gt;7,200 req/seg&lt;/td&gt;
+&lt;td&gt;8,500 req/seg&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Consumo memoria&lt;/td&gt;
+&lt;td&gt;350MB (10K conex)&lt;/td&gt;
+&lt;td&gt;120MB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Facilidad config&lt;/td&gt;
+&lt;td&gt;★★★★★&lt;/td&gt;
+&lt;td&gt;★★★☆☆&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Soporte .htaccess&lt;/td&gt;
+&lt;td&gt;Nativo&lt;/td&gt;
+&lt;td&gt;Require rewrite&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;HTTP/3&lt;/td&gt;
+&lt;td&gt;Experimental&lt;/td&gt;
+&lt;td&gt;Soporte completo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-optimización-de-apache"&gt;
+⚡ Optimización de Apache
+&lt;a href="#-optimizaci%c3%b3n-de-apache" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Ajustes en &lt;code&gt;/etc/httpd/conf/httpd.conf&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-apache" data-lang="apache"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;KeepAlive&lt;/span&gt; &lt;span class="k"&gt;On&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;MaxKeepAliveRequests&lt;/span&gt; &lt;span class="m"&gt;100&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;KeepAliveTimeout&lt;/span&gt; &lt;span class="m"&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;StartServers&lt;/span&gt; &lt;span class="m"&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;MinSpareServers&lt;/span&gt; &lt;span class="m"&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;MaxSpareServers&lt;/span&gt; &lt;span class="m"&gt;10&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-solución-de-problemas-comunes"&gt;
+🚨 Solución de Problemas Comunes
+&lt;a href="#-soluci%c3%b3n-de-problemas-comunes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="error-could-not-reliably-determine"&gt;
+Error: &amp;ldquo;Could not reliably determine&amp;hellip;&amp;rdquo;
+&lt;a href="#error-could-not-reliably-determine" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;ServerName localhost&amp;#34;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sudo tee -a /etc/httpd/conf/httpd.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="error-403-forbidden"&gt;
+Error: &amp;ldquo;403 Forbidden&amp;rdquo;
+&lt;a href="#error-403-forbidden" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo chown -R apache:apache /var/www/html/misitio
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo chmod -R &lt;span class="m"&gt;755&lt;/span&gt; /var/www/html
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-conclusión"&gt;
+📌 Conclusión
+&lt;a href="#-conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Con esta guía has aprendido a:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Instalar Apache HTTPD en AlmaLinux&lt;/li&gt;
+&lt;li&gt;Configurar hosts virtuales&lt;/li&gt;
+&lt;li&gt;Implementar stack LAMP completo&lt;/li&gt;
+&lt;li&gt;Optimizar para entornos productivos&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Próximo paso: Proteger tu servidor con &lt;code&gt;firewalld&lt;/code&gt; y &lt;code&gt;fail2ban&lt;/code&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;💡 Dato técnico: Apache soporta más de 60 módulos dinámicos, incluyendo mod_wsgi para Python y mod_perl.&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>Configurar Nginx con SSL en AlmaLinux: Guía Definitiva 2025</title><link>https://patojad.com.ar/post/2025/04/configurar-nginx-con-ssl-en-almalinux-gu%C3%ADa-definitiva-2025/</link><pubDate>Mon, 21 Apr 2025 09:13:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/04/configurar-nginx-con-ssl-en-almalinux-gu%C3%ADa-definitiva-2025/</guid><description>&lt;p&gt;Nginx es uno de los servidores web más rápidos y eficientes para entornos Linux. En esta guía aprenderás a:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Instalar y configurar Nginx en &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/03/almalinux-gu%c3%ada-definitiva-historia-ventajas-y-comparativa-vs-rhelcentos/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+AlmaLinux
+&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Habilitar HTTPS con Let&amp;rsquo;s Encrypt&lt;/li&gt;
+&lt;li&gt;Optimizar el rendimiento para producción&lt;/li&gt;
+&lt;li&gt;Solucionar errores comunes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-instalación-de-nginx"&gt;
+🛠️ Instalación de Nginx
+&lt;a href="#-instalaci%c3%b3n-de-nginx" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;Instalar desde repositorios
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf install nginx -y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Iniciar y habilitar el servicio
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo systemctl &lt;span class="nb"&gt;enable&lt;/span&gt; --now nginx
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Verificar instalación
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl -I localhost
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;Deberías ver: HTTP/1.1 200 OK&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-configuración-básica"&gt;
+📂 Configuración Básica
+&lt;a href="#-configuraci%c3%b3n-b%c3%a1sica" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="estructura-de-archivos-clave"&gt;
+Estructura de archivos clave
+&lt;a href="#estructura-de-archivos-clave" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Ruta&lt;/th&gt;
+&lt;th&gt;Propósito&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;/etc/nginx/nginx.conf&lt;/td&gt;
+&lt;td&gt;Configuración principal&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/etc/nginx/conf.d/&lt;/td&gt;
+&lt;td&gt;Configs de sitios adicionales&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/var/www/html/&lt;/td&gt;
+&lt;td&gt;Directorio raíz por defecto&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="ejemplo-de-configuración-mínima"&gt;
+Ejemplo de configuración mínima
+&lt;a href="#ejemplo-de-configuraci%c3%b3n-m%c3%adnima" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# /etc/nginx/conf.d/tusitio.conf&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;server&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;listen&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;server_name&lt;/span&gt; &lt;span class="n"&gt;tusitio&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt; &lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tusitio&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;root&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;location&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;try_files&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="n"&gt;uri&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="n"&gt;uri&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;404&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Verificar y recargar:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo nginx -t &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo systemctl reload nginx
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-certificado-ssl-con-lets-encrypt"&gt;
+🔒 Certificado SSL con Let&amp;rsquo;s Encrypt
+&lt;a href="#-certificado-ssl-con-lets-encrypt" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;Instalar Certbot
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf install certbot python3-certbot-nginx -y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Obtener certificado
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo certbot --nginx -d tusitio.com -d www.tusitio.com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Renovación automática
+Añadir al cron:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="se"&gt;\*&lt;/span&gt; &lt;span class="se"&gt;\*&lt;/span&gt; &lt;span class="se"&gt;\*&lt;/span&gt; /usr/bin/certbot renew --quiet
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-optimización-de-rendimiento"&gt;
+⚡ Optimización de Rendimiento
+&lt;a href="#-optimizaci%c3%b3n-de-rendimiento" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="ajustes-recomendados-en-etcnginxnginxconf"&gt;
+Ajustes recomendados en /etc/nginx/nginx.conf
+&lt;a href="#ajustes-recomendados-en-etcnginxnginxconf" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;worker_processes auto;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;worker_connections 1024;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;keepalive_timeout 30;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gzip on;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gzip_types text/css application/javascript;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="comandos-útiles"&gt;
+Comandos útiles
+&lt;a href="#comandos-%c3%batiles" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Reinicio seguro&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo systemctl restart nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Ver estado&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo systemctl status nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Monitorear peticiones&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo tail -f /var/log/nginx/access.log
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-solución-de-problemas-comunes"&gt;
+🚨 Solución de Problemas Comunes
+&lt;a href="#-soluci%c3%b3n-de-problemas-comunes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="error-port-80-already-in-use"&gt;
+Error: &amp;ldquo;Port 80 already in use&amp;rdquo;
+&lt;a href="#error-port-80-already-in-use" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo netstat -tulnp &lt;span class="p"&gt;|&lt;/span&gt; grep :80
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo &lt;span class="nb"&gt;kill&lt;/span&gt; -9 &amp;lt;PID&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="error-ssl-handshake-failed"&gt;
+Error: &amp;ldquo;SSL handshake failed&amp;rdquo;
+&lt;a href="#error-ssl-handshake-failed" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Verificar que el puerto 443 esté abierto:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo firewall-cmd --add-service&lt;span class="o"&gt;=&lt;/span&gt;https --permanent
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo firewall-cmd --reload
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-comparativa-nginx-vs-apache"&gt;
+📊 Comparativa Nginx vs Apache
+&lt;a href="#-comparativa-nginx-vs-apache" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Característica&lt;/th&gt;
+&lt;th&gt;Nginx&lt;/th&gt;
+&lt;th&gt;Apache&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Velocidad&lt;/td&gt;
+&lt;td&gt;Rapido&lt;/td&gt;
+&lt;td&gt;Lento&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Rendimiento&lt;/td&gt;
+&lt;td&gt;Alto&lt;/td&gt;
+&lt;td&gt;Medio&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Consumo RAM&lt;/td&gt;
+&lt;td&gt;Bajo&lt;/td&gt;
+&lt;td&gt;Moderado&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Facilidad&lt;/td&gt;
+&lt;td&gt;Intermedia&lt;/td&gt;
+&lt;td&gt;Sencilla&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Soporte .htaccess&lt;/td&gt;
+&lt;td&gt;No&lt;/td&gt;
+&lt;td&gt;Sí&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-conclusión"&gt;
+📌 Conclusión
+&lt;a href="#-conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Con esta guía has aprendido a:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Desplegar Nginx en &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/03/almalinux-gu%c3%ada-definitiva-historia-ventajas-y-comparativa-vs-rhelcentos/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+AlmaLinux
+&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Configurar sitios virtuales&lt;/li&gt;
+&lt;li&gt;Implementar HTTPS automático&lt;/li&gt;
+&lt;li&gt;Optimizar para entornos productivos&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Gestión de Paquetes en AlmaLinux con DNF: Guía Completa 2025</title><link>https://patojad.com.ar/post/2025/04/gesti%C3%B3n-de-paquetes-en-almalinux-con-dnf-gu%C3%ADa-completa-2025/</link><pubDate>Mon, 14 Apr 2025 09:13:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/04/gesti%C3%B3n-de-paquetes-en-almalinux-con-dnf-gu%C3%ADa-completa-2025/</guid><description>&lt;p&gt;&lt;strong&gt;DNF&lt;/strong&gt; (Dandified YUM) es el gestor de paquetes moderno en &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/03/almalinux-gu%c3%ada-definitiva-historia-ventajas-y-comparativa-vs-rhelcentos/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+AlmaLinux
+&lt;/a&gt;&lt;/strong&gt;, heredero de &lt;strong&gt;YUM&lt;/strong&gt; pero más rápido y eficiente. En esta guía aprenderás:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Comandos esenciales para gestión de software&lt;/li&gt;
+&lt;li&gt;Cómo trabajar con repositorios (&lt;strong&gt;EPEL&lt;/strong&gt;/&lt;strong&gt;CRB&lt;/strong&gt;)&lt;/li&gt;
+&lt;li&gt;Trucos avanzados para administradores de sistemas&lt;/li&gt;
+&lt;li&gt;Solución a errores comunes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-comandos-básicos-de-dnf"&gt;
+📦 Comandos Básicos de &lt;strong&gt;DNF&lt;/strong&gt;
+&lt;a href="#-comandos-b%c3%a1sicos-de-dnf" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="actualización-del-sistema"&gt;
+Actualización del sistema
+&lt;a href="#actualizaci%c3%b3n-del-sistema" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf update
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Actualiza todos los paquetes instalados y sus dependencias.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="instalación-de-paquetes"&gt;
+Instalación de paquetes
+&lt;a href="#instalaci%c3%b3n-de-paquetes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf install nginx mysql-server
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Instala múltiples paquetes en un solo comando.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="búsqueda-de-paquetes"&gt;
+Búsqueda de paquetes
+&lt;a href="#b%c3%basqueda-de-paquetes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;dnf search python3
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Encuentra paquetes disponibles en los repositorios.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="eliminación-de-paquetes"&gt;
+Eliminación de paquetes
+&lt;a href="#eliminaci%c3%b3n-de-paquetes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf remove httpd
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Elimina paquetes y sus dependencias no requeridas.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-gestión-de-repositorios"&gt;
+🔌 Gestión de Repositorios
+&lt;a href="#-gesti%c3%b3n-de-repositorios" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="repositorio-epel"&gt;
+Repositorio &lt;strong&gt;EPEL&lt;/strong&gt;
+&lt;a href="#repositorio-epel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf install epel-release
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf config-manager --set-enabled epel
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="repositorio-crb"&gt;
+Repositorio &lt;strong&gt;CRB&lt;/strong&gt;
+&lt;a href="#repositorio-crb" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf config-manager --set-enabled crb
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="tabla-comparativa-de-repositorios"&gt;
+Tabla comparativa de repositorios
+&lt;a href="#tabla-comparativa-de-repositorios" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Repositorio&lt;/th&gt;
+&lt;th&gt;Contenido&lt;/th&gt;
+&lt;th&gt;Comando para habilitar&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Base&lt;/td&gt;
+&lt;td&gt;Paquetes esenciales&lt;/td&gt;
+&lt;td&gt;Activado por defecto&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EPEL&lt;/td&gt;
+&lt;td&gt;Paquetes adicionales&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sudo dnf install epel-release&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CRB&lt;/td&gt;
+&lt;td&gt;Paquetes de build&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;sudo dnf config-manager --set-enabled crb&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-comandos-avanzados"&gt;
+⚡ Comandos Avanzados
+&lt;a href="#-comandos-avanzados" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="limpieza-del-sistema"&gt;
+Limpieza del sistema
+&lt;a href="#limpieza-del-sistema" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf autoremove &lt;span class="c1"&gt;# Elimina paquetes huérfanos&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf clean all &lt;span class="c1"&gt;# Limpia la caché&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="historial-de-transacciones"&gt;
+Historial de transacciones
+&lt;a href="#historial-de-transacciones" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf &lt;span class="nb"&gt;history&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf &lt;span class="nb"&gt;history&lt;/span&gt; info &lt;span class="m"&gt;3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf &lt;span class="nb"&gt;history&lt;/span&gt; undo &lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="c1"&gt;# Revierte la transacción 3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-caso-práctico-instalación-de-lamp"&gt;
+🚀 Caso Práctico: Instalación de &lt;strong&gt;LAMP&lt;/strong&gt;
+&lt;a href="#-caso-pr%c3%a1ctico-instalaci%c3%b3n-de-lamp" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf install httpd mariadb-server php php-mysqlnd
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo systemctl &lt;span class="nb"&gt;enable&lt;/span&gt; --now httpd mariadb &lt;span class="c1"&gt;# No visto en video aun&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-solución-de-problemas-comunes"&gt;
+🔍 Solución de Problemas Comunes
+&lt;a href="#-soluci%c3%b3n-de-problemas-comunes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="error-no-hay-paquetes-disponibles"&gt;
+Error: &amp;ldquo;No hay paquetes disponibles&amp;rdquo;
+&lt;a href="#error-no-hay-paquetes-disponibles" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Verifica los repositorios habilitados:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf repolist
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Limpia la caché:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf clean all &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo dnf makecache
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-conclusión"&gt;
+📌 Conclusión
+&lt;a href="#-conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Dominar &lt;strong&gt;DNF&lt;/strong&gt; es esencial para cualquier usuario de &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/03/almalinux-gu%c3%ada-definitiva-historia-ventajas-y-comparativa-vs-rhelcentos/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+AlmaLinux
+&lt;/a&gt;&lt;/strong&gt;. Con esta guía puedes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Gestionar software eficientemente&lt;/li&gt;
+&lt;li&gt;Configurar repositorios adicionales&lt;/li&gt;
+&lt;li&gt;Solucionar problemas comunes&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Un Guardián Digital para Tu Servidor Cloud</title><link>https://patojad.com.ar/post/2024/11/un-guardi%C3%A1n-digital-para-tu-servidor-cloud/</link><pubDate>Fri, 15 Nov 2024 10:12:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/11/un-guardi%C3%A1n-digital-para-tu-servidor-cloud/</guid><description>&lt;p&gt;Hoy vamos a ver un poco mas sobre &lt;code&gt;fail2ban&lt;/code&gt; y como instalarlo en tu servidor cloud.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-fail2ban"&gt;
+¿Qué es Fail2ban?
+&lt;a href="#qu%c3%a9-es-fail2ban" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Fail2ban es una herramienta de seguridad que actúa como un vigilante digital para tu servidor cloud. Su función principal es bloquear automáticamente las direcciones IP que intentan acceder a tu servidor de forma repetida y fallida. Esto ayuda a prevenir ataques de fuerza bruta, donde los hackers intentan adivinar contraseñas.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalando-fail2ban"&gt;
+Instalando Fail2ban
+&lt;a href="#instalando-fail2ban" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para instalar Fail2ban en tu servidor, puedes utilizar el siguiente comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-get install fail2ban
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Una vez instalado, necesitarás configurar un archivo de configuración local:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo nano /etc/fail2ban/jail.local
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="configurando-fail2ban"&gt;
+Configurando Fail2ban
+&lt;a href="#configurando-fail2ban" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Dentro del archivo de configuración, puedes personalizar varias opciones, como:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ignoreip: Una lista de direcciones IP que no serán bloqueadas.&lt;/li&gt;
+&lt;li&gt;bantime: El tiempo durante el cual una IP bloqueada permanecerá inaccesible.&lt;/li&gt;
+&lt;li&gt;findtime: El período de tiempo en el que se cuentan los intentos fallidos.&lt;/li&gt;
+&lt;li&gt;maxretry: El número máximo de intentos fallidos permitidos antes de bloquear una IP.&lt;/li&gt;
+&lt;li&gt;También puedes configurar notificaciones por correo electrónico para recibir alertas sobre intentos de intrusión.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="habilitando-jails"&gt;
+Habilitando Jails
+&lt;a href="#habilitando-jails" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Los &amp;ldquo;jails&amp;rdquo; son reglas específicas que Fail2ban aplica a diferentes servicios en tu servidor, como SSH, FTP, o servicios web. Puedes habilitar o deshabilitar los jails según tus necesidades.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="reiniciando-fail2ban"&gt;
+Reiniciando Fail2ban
+&lt;a href="#reiniciando-fail2ban" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Una vez que hayas configurado los jails, reinicia el servicio de Fail2ban para aplicar los cambios:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo systemctl restart fail2ban.service
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="verificando-el-bloqueo-de-ip"&gt;
+Verificando el Bloqueo de IP
+&lt;a href="#verificando-el-bloqueo-de-ip" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Puedes verificar las direcciones IP bloqueadas utilizando el comando &lt;code&gt;iptables -L&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="desbloqueando-una-ip"&gt;
+Desbloqueando una IP
+&lt;a href="#desbloqueando-una-ip" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si necesitas desbloquear una IP que ha sido bloqueada por error, puedes utilizar el siguiente comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo fail2ban-client &lt;span class="nb"&gt;set&lt;/span&gt; &amp;lt;jail&amp;gt; unbanip &amp;lt;ip_address&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Fail2ban es una herramienta poderosa que puede ayudar a proteger tu servidor cloud de ataques maliciosos. Con una configuración adecuada, puedes mejorar significativamente la seguridad de tu infraestructura en línea.&lt;/p&gt;</description></item><item><title>¿La mejor distro para la gente de sistemas?</title><link>https://patojad.com.ar/post/2022/05/la-mejor-distro-para-la-gente-de-sistemas/</link><pubDate>Tue, 03 May 2022 13:18:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/05/la-mejor-distro-para-la-gente-de-sistemas/</guid><description>&lt;p&gt;Esta es una pregunta que me hicieron muchas veces compañeros de la facultad apoyándose en mi “fanatismo” sobre linux. Sin embargo siempre fui dando respuestas diferentes dependiendo del estadio de mi vida en el que estaba. Sin embargo, después de mucho camino transitado forme un pensamiento más centrado en la experiencia.&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/tEWDS29KvBM?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;¿Vos qué pensas? Si estás en sistemas ¿Que distro usas?¿Por qué?&lt;/p&gt;</description></item><item><title>Que es la Virtualizacion</title><link>https://patojad.com.ar/post/2020/02/que-es-la-virtualizacion/</link><pubDate>Tue, 18 Feb 2020 08:21:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/02/que-es-la-virtualizacion/</guid><description>&lt;p&gt;La virtualización de servidores, sistemas operativos y redes juega un papel fundamental tanto para los administradores de sistemas como para los expertos en seguridad informática. Para los primeros, los administradores de sistemas, les brinda una herramienta perfecta para separar unos servicios de otros y ganar en seguridad, ya que si un &amp;ldquo;hacker&amp;rdquo; compromete un servicio no tendrá acceso a todo el sistema.&lt;/p&gt;
+&lt;p&gt;Desde el punto del vista del &amp;ldquo;hacking ético&amp;rdquo; esta herramienta nos dará la posibilidad de crear entornos virtuales para poder hacer nuestras pruebas. Otra de las ventajas de la virtualización es que si quieres probar un sistema operativo antes de decidir si instalarlo en tu disco duro modificando el sistema de arranque podrás instalarlo sin necesidad de hacer ningún cambio en tu PC, tal y como si fuera un programa más.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-la-virtualización"&gt;
+¿Qué es la virtualización?
+&lt;a href="#qu%c3%a9-es-la-virtualizaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://blog.desdelinux.net/wp-content/uploads/2019/01/virtualbox-virtualizacion-importancia-blog-desdelinux-830x531.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;La virtualización consiste en términos generales en emular mediante algún programa o sistema un hardware sobre el que montar un servicio, servidor o red. De esta forma se crea lo que conocemos como una máquina virtual. Así, con un solo ordenador tu puedes crear varias máquinas virtuales e instalar en cada una de ellas el software (ya sea un windows, una distribución de Linux, o MacOS) que necesites para trabajar. Esto es realmente interesante no solo para el usuario que se dedica de forma profesional a la informática sino para todos los usuarios.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="por-qué-necesitamos-la-virtualización-como-pentesters"&gt;
+¿Por qué necesitamos la virtualización como pentesters?
+&lt;a href="#por-qu%c3%a9-necesitamos-la-virtualizaci%c3%b3n-como-pentesters" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En primer lugar vamos a necesitar vitualizar servidores para poder trabajarlos sin hacer cambios en nuestro equipo. Si nosotros pretendemos instalar cada servicio o porgrama en nuestro PC conseguiríamos que finalmente fuera lento e insostenible para trabajar. En cambio si nosotros instalamos el software que queremos en una máquina virtual nuestro pc no se resentirá, podremos trabajarlo como si lo estuvieramos instalando en un ordenador de pruebas sin comprometer la seguridad de nuestro equipo. Algo que a nosotros como pentesters debería ser una prioridad.&lt;/p&gt;
+&lt;p&gt;![](&lt;a href="https://lh3.googleusercontent.com/proxy/LxCYzwleqBmVFo4TXyqQ9Qa89B30L07--55TmGLLKlkBtGrGHAkxoWKDioNhh_jYpXT7LL7L7F3dTErXZvKa0XzP4-wnZCpBh7A9I6LCCW8dWn2MjO9JA7niVwV2CTMzaKWSIPV_4c0o8BK7Wo8VeA%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://lh3.googleusercontent.com/proxy/LxCYzwleqBmVFo4TXyqQ9Qa89B30L07--55TmGLLKlkBtGrGHAkxoWKDioNhh_jYpXT7LL7L7F3dTErXZvKa0XzP4-wnZCpBh7A9I6LCCW8dWn2MjO9JA7niVwV2CTMzaKWSIPV_4c0o8BK7Wo8VeA"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;p&gt;Otra razón de peso para trabajar con máquinas virtuales en el entorno de intrusiones es que podremos instalarnos distribuciones de pentesting &amp;ldquo;profesional&amp;rdquo; como lo es Kali Linux (a fines practivos de esta saga es muy util) sin necesidad de instalarlo directamente en nuestro PC obligándonos a modificar el sistema de arranque. Aunque como pentester lo normal es que lo tengas instalado sin virtualizar, para empezar, y ver cómo trabajan estas distribuciones para pentester lo ideal es virtualizarlas, familiarizarse con su uso y finalmente acabar instalándola como sistema operativo arrancable.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ATENCION: Recuerden que a ducha distribucion no es recomendada, si nosotros buscamos aprender mas sobre todas las herramientas de intrusiones y demas es importante que aprendamos a compilar el codigo y no aceptemos binarios agenos, un buen &amp;ldquo;hacker&amp;rdquo; (notaran que esta palabra la pongo entre comillas porque me da gracia el mal uso que le estamos dando) siempre tiene sus propias herramientas bien seguras&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;También te pasará en multitud de ocasiones que quedrás auditar un programa en una versión concreta, en un entorno concreto. Gracias a la virtualización podrás crear ese entorno en tu PC y realizar todas las pruebas de pentesting que consideres necesarias realizar para finalmente aplicarlas en el entorno real si fuera necesario.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="ventajas-de-la-virtualización-para-administradores"&gt;
+Ventajas de la virtualización para administradores
+&lt;a href="#ventajas-de-la-virtualizaci%c3%b3n-para-administradores" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Como administrador de sistemas o redes trabajar virtualizando servidores, aplicaciones o servicios es una estrategía que cada día se está poniendo en práctica con más énfasis. Los beneficios de la virtualización para los administradores se pueden dividir en estos grupos:&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.letscloud.io/blog/wp-content/uploads/2019/07/tools-of-sys-admin.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;SEGURIDAD&lt;/strong&gt;. Supongamos que necesitas instalar un servidor LAMP (Linux, Apache, MySQL, PHP, esto es un servidor para montar páginas web) y un servidor de archivos puede optar por dos opciones. Instalar en un único servidor ambos servicios, LAMP y servicio para compartir archivos. Todo te funcionaría bien, ¿pero que ocurriría si un hacker encontrara una vulnerabilidad en tu web y pudiera tomar el control del servidor? Que no solo tendría acceso a los archivos de tu web, sino que también a todos los archivos que tienes compartidos, con lo cual desde un fallo en la web se ha comprometido todos los archivos de tue empresa.
+En cambio si se hubiera escogido una solución virutalizada se habría podido crear en el serivodor 2 máquinas virtuales. En la primera se instalaría el servidor LAMP, y en la segunda se instalaría el servidor de archivos. En este escenario el hacker que consiga encontrar una vulnerabilidad en la web solo tendría acceso a la máquina virtual que aloja el servidor LAMP. Y aunque habría conseguido comprometer tu web los archivos de tu empresa aún segurían aislados y seguros. Es por este motivo por el que para muchos admnistradores la solución ideal es crear una máquina virtual por cada servicio que tenga un riesgo medio/alto de ser vulnerado.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;BACKUPS&lt;/strong&gt;. La mayoría de los servicios que utilizamos hoy en día disponen de mecanismos para hacer copias de seguridad y poder restaurarlas en caso de fallos. Pero también es cierto que las copias de seguridad a veces no son completas, contienen datos pero no guardan configuraciones o perfiles específicos. Si utilizamos máqunias virtuales, nosotros podemos programar en el servidor de forma automática que cada día haga una copia de la máquina virtual, de modo que si queremos restaurar una copia de seguridad bastará con arrancar la máquina que tenemos copiada y funcionará sin tener que tomar ninguna medida más.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PROTECCIÓN CONTRA ERRORES HARDWARE&lt;/strong&gt;. Uno de los problemas que más daño pueden crear a un administrador de sistemas es que falle un componente crítico del servidor, la placa base por ejemplo. Si esto ocurre y hay que sustituir este elemento habrá que reinstalar todo el sistema operativo, configurarlo, instalar los programas, configurarlos y cargar las copias de seguridad para poder seguir trabajando. Todo esto tiene un coste en tiempo y esfuerzo bastante alto. Sin embargo si estamos trabajando con máquinas virtuales si falla el servidor podremos sustituirlo, copiarle las máquinas virtuales y arrancarlas. Esta solución no te llevará ni una décima parte de tiempo que si tuvieras que reconfigurarlo todo.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MIGRACIÓN DE SERVIDORES SIN RECONFIGURACIONES&lt;/strong&gt;. Aplicando lo dicho en el punto anterior te puedes dar cuenta de que si tu servidor se queda pequeño y necesitas uno mas grande tan solo necesitas conectarlo pasarle las máquinas virtuales y empezar a trabajar, sin necesidad de reconfigurar todo lo que tenías hecho en el servidor antiguo.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;REALIZAR PRUEBAS SIN RIESGO&lt;/strong&gt;. Una de las características más interesantes de la virtualización es que podemos hacer &amp;ldquo;puntos de retorno&amp;rdquo; o &amp;ldquo;Snapshots&amp;rdquo;. Esto significa que si nosotros estamos dudando sobre si instalar un programa o no, podemos crear un punto de retorno &amp;ldquo;snapshot&amp;rdquo;, instalar lo que necesitemos y si detectamos alguna incompatibilidad y creemos que lo mejor habría sido no instalarlo podemos volver al punto de retorno y la máquina virtual volverá al estado en el que hicimos el snapshot, sin quedar ningún rastro de todo lo que hayamos hecho tras el punto de retorno.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="en-el-dia-a-dia"&gt;
+En el dia a dia
+&lt;a href="#en-el-dia-a-dia" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Otro punto extra que nos ofrecen las máquinas virtuales es que como nos permiten virtualizar cualquier sistema operativo podemos tener un sistema operativo en el que no aparezcan datos sobre nosotros, no aparezca nuestro nombre real, y no hayamos introducido ningún dato personal nuestro. Con este sistema operativo &amp;ldquo;neutro&amp;rdquo; nosotros podemos navegar por internet sin dejar rastro de nuestro nombre.&lt;/p&gt;
+&lt;p&gt;En lo personal tambien lo utilizo para probar software que desarrollo o modifico sin afectar mi sistema base.&lt;/p&gt;
+&lt;p&gt;Por útimo y no menos importante a nosotros como usuarios de la red y programas a veces nos encontramos que no estamos seguros si algún programa trae malware incrustado, sospechamos quizá por la procedencia que el programa no está limpio, lo necesitamos y no sabemos que hacer. Si lo instalamos en nuestro ordenador tal cual corremos el riesgo de que quede infectado por el malware que traiga, si no lo instalamos no podemos hacer uso del programa. En este punto las máquinas virtuales también nos pueden resultar de gran ayuda ya que podemos instalar el programa dentro de la máquina virtual, analizar si traía malware y decidir si instalaro en nuestro sistema operativo de trabajo o dejarlo virtualizado.&lt;/p&gt;</description></item></channel></rss>

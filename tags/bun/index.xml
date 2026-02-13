@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Bun on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/bun/</link><description>Recent content in Bun on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 27 Jan 2026 09:31:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/bun/index.xml" rel="self" type="application/rss+xml"/><item><title>Patrones de Diseño en Node.js: Arquitectura Profesional con Bun y TypeScript</title><link>https://patojad.com.ar/post/2026/01/patrones-de-dise%C3%B1o-en-node.js-arquitectura-profesional-con-bun-y-typescript/</link><pubDate>Tue, 27 Jan 2026 09:31:00 +0000</pubDate><guid>https://patojad.com.ar/post/2026/01/patrones-de-dise%C3%B1o-en-node.js-arquitectura-profesional-con-bun-y-typescript/</guid><description>&lt;p&gt;En el desarrollo de software, los patrones de diseño no son reglas rígidas, sino soluciones probadas a problemas comunes. En 2026, con entornos de alta velocidad como Bun, el cuello de botella ya no es el runtime, sino la deuda técnica.&lt;/p&gt;
+&lt;p&gt;A continuación, detallamos los 4 patrones que transforman un script en una aplicación de grado producción.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="singleton-creacional"&gt;
+Singleton (Creacional)
+&lt;a href="#singleton-creacional" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;El Problema:&lt;/strong&gt; Instanciar múltiples veces clases que gestionan recursos pesados (conexiones a DB, configuraciones, clientes de caché) agota la memoria y crea estados inconsistentes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;La Solución:&lt;/strong&gt; Garantizar que una clase tenga una única instancia y proveer un punto de acceso global a ella.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Implementación en TS:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-ts" data-lang="ts"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;ConfigManager&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;private&lt;/span&gt; &lt;span class="kr"&gt;static&lt;/span&gt; &lt;span class="nx"&gt;instance&lt;/span&gt;: &lt;span class="kt"&gt;ConfigManager&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;private&lt;/span&gt; &lt;span class="nx"&gt;settings&lt;/span&gt;: &lt;span class="kt"&gt;Record&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="na"&gt;string&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;private&lt;/span&gt; &lt;span class="kr"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// Carga inicial de variables de entorno
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;settings&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;apiKey&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;12345&amp;#34;&lt;/span&gt; &lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;static&lt;/span&gt; &lt;span class="nx"&gt;getInstance&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;ConfigManager&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nx"&gt;ConfigManager&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;ConfigManager&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;ConfigManager&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;ConfigManager&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;key&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;string&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;settings&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;key&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Uso: const config = ConfigManager.getInstance();
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Caso de uso real: Mantener una única conexión activa a una base de datos o un gestor de logs.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="factory-method-creacional"&gt;
+Factory Method (Creacional)
+&lt;a href="#factory-method-creacional" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;El Problema:&lt;/strong&gt; El código se llena de condicionales (if/else) cada vez que necesitamos crear diferentes tipos de objetos que comparten una interfaz.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;La Solución:&lt;/strong&gt; Delegar la lógica de instanciación a una clase &amp;ldquo;Fábrica&amp;rdquo; que decide qué objeto crear basándose en un parámetro.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Implementación en TS:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-ts" data-lang="ts"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;interface&lt;/span&gt; &lt;span class="nx"&gt;Notifier&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;send&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;message&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;EmailNotifier&lt;/span&gt; &lt;span class="kr"&gt;implements&lt;/span&gt; &lt;span class="nx"&gt;Notifier&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;send&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;msg&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sb"&gt;`Enviando Email: &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nx"&gt;msg&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;SMSNotifier&lt;/span&gt; &lt;span class="kr"&gt;implements&lt;/span&gt; &lt;span class="nx"&gt;Notifier&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;send&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;msg&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sb"&gt;`Enviando SMS: &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nx"&gt;msg&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;NotifierFactory&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;static&lt;/span&gt; &lt;span class="nx"&gt;create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;type&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;email&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;sms&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;Notifier&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;type&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;email&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;EmailNotifier&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;SMSNotifier&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Caso de uso real: Integrar múltiples pasarelas de pago (Stripe, PayPal) o proveedores de storage (S3, Local, Azure).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="repository-estructuralcomportamiento"&gt;
+Repository (Estructural/Comportamiento)
+&lt;a href="#repository-estructuralcomportamiento" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;El Problema:&lt;/strong&gt; La lógica de negocio está &amp;ldquo;casada&amp;rdquo; con la base de datos. Si cambias de motor de base de datos o de librería (ORM), tienes que reescribir toda la aplicación.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;La Solución:&lt;/strong&gt; Crear una capa intermedia que abstraiga el acceso a los datos. La lógica de negocio solo habla con el &amp;ldquo;Repositorio&amp;rdquo;, no con la base de datos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Implementación en TS:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-ts" data-lang="ts"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;interface&lt;/span&gt; &lt;span class="nx"&gt;User&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;id&lt;/span&gt;: &lt;span class="kt"&gt;number&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;name&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;interface&lt;/span&gt; &lt;span class="nx"&gt;IUserRepository&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;findById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;id&lt;/span&gt;: &lt;span class="kt"&gt;number&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;Promise&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;User&lt;/span&gt; &lt;span class="err"&gt;|&lt;/span&gt; &lt;span class="na"&gt;null&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;UserRepository&lt;/span&gt; &lt;span class="kr"&gt;implements&lt;/span&gt; &lt;span class="nx"&gt;IUserRepository&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;async&lt;/span&gt; &lt;span class="nx"&gt;findById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;id&lt;/span&gt;: &lt;span class="kt"&gt;number&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;Promise&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;User&lt;/span&gt; &lt;span class="err"&gt;|&lt;/span&gt; &lt;span class="na"&gt;null&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// Aquí iría la consulta real (SQL, NoSQL, etc.)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;name&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Pato&amp;#34;&lt;/span&gt; &lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Caso de uso real: Proyectos que necesitan ser testeables (haciendo un Mock del repositorio) o que prevén migrar su infraestructura de datos.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="decorator-estructural"&gt;
+Decorator (Estructural)
+&lt;a href="#decorator-estructural" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;El Problema:&lt;/strong&gt; Necesitas añadir funcionalidades (logs, validaciones, caché) a métodos existentes sin modificar su código original para no violar el principio de Responsabilidad Única.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;La Solución:&lt;/strong&gt; &amp;ldquo;Envolver&amp;rdquo; el método o clase original para añadirle comportamiento extra antes o después de su ejecución.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Implementación en TS:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-ts" data-lang="ts"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;Logger&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;target&lt;/span&gt;: &lt;span class="kt"&gt;any&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;propertyKey&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;descriptor&lt;/span&gt;: &lt;span class="kt"&gt;PropertyDescriptor&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;originalMethod&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;descriptor&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;value&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;descriptor&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;(...&lt;/span&gt;&lt;span class="nx"&gt;args&lt;/span&gt;: &lt;span class="kt"&gt;any&lt;/span&gt;&lt;span class="p"&gt;[])&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sb"&gt;`Ejecutando &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nx"&gt;propertyKey&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt; con:`&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;args&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;originalMethod&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;apply&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;args&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;UserService&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kd"&gt;@Logger&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;saveUser&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;name&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sb"&gt;`Usuario &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nx"&gt;name&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt; guardado.`&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Caso de uso real: Medir el tiempo de ejecución de funciones, validar permisos de usuario o transformar datos de salida automáticamente.&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>Bun vs Node.js: ¿Cuál Es Mejor Para Backend en 2025? 🤔</title><link>https://patojad.com.ar/post/2025/02/bun-vs-node.js-cu%C3%A1l-es-mejor-para-backend-en-2025/</link><pubDate>Thu, 20 Feb 2025 10:32:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/02/bun-vs-node.js-cu%C3%A1l-es-mejor-para-backend-en-2025/</guid><description>&lt;p&gt;¿Estás buscando el mejor entorno de ejecución para tu backend en &lt;strong&gt;JavaScript&lt;/strong&gt;? En este artículo, comparo &lt;strong&gt;Bun&lt;/strong&gt; y &lt;strong&gt;Node.js&lt;/strong&gt; , dos de las opciones más populares para desarrollo backend en 2025. Analizamos rendimiento, compatibilidad y facilidad de uso, además de crear un servidor básico con ambos. ¡Descubre cuál es la mejor opción para tus proyectos!&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-son-bun-y-nodejs"&gt;
+¿Qué son Bun y Node.js?
+&lt;a href="#qu%c3%a9-son-bun-y-nodejs" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="nodejs"&gt;
+Node.js
+&lt;a href="#nodejs" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Node.js&lt;/strong&gt; es un entorno de ejecución de &lt;strong&gt;JavaScript&lt;/strong&gt; que ha sido la opción estándar durante años. Es ampliamente utilizado, tiene una comunidad masiva y es compatible con casi todas las bibliotecas y frameworks. Su madurez lo convierte en una opción confiable para proyectos de cualquier tamaño.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="bun"&gt;
+Bun
+&lt;a href="#bun" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Por otro lado, Bun es un nuevo jugador en el mercado. Promete ser más rápido que &lt;strong&gt;Node.js&lt;/strong&gt; y ofrece características como soporte nativo para &lt;a href="https://patojad.com.ar/post/2023/03/que-es-typescript-en-que-se-parece-a-javascript/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+TypeScript
+&lt;/a&gt; y una API simplificada. Además, Bun no solo es un entorno de ejecución, sino también un administrador de paquetes y un bundler.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="comparativa"&gt;
+Comparativa
+&lt;a href="#comparativa" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="rendimiento"&gt;
+Rendimiento
+&lt;a href="#rendimiento" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Según pruebas recientes, &lt;strong&gt;Bun&lt;/strong&gt; puede ser hasta 3 veces más rápido que Node.js en ciertas tareas, como la inicialización de servidores y la ejecución de scripts. Esto lo hace ideal para aplicaciones que requieren alta velocidad. Sin embargo, &lt;strong&gt;Node.js&lt;/strong&gt; sigue siendo más estable y maduro, con una compatibilidad casi universal.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Característica&lt;/th&gt;
+&lt;th&gt;Bun&lt;/th&gt;
+&lt;th&gt;Node.js&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Rendimiento&lt;/td&gt;
+&lt;td&gt;🚀 Más rápido&lt;/td&gt;
+&lt;td&gt;⚡️ Estable y probado&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Compatibilidad&lt;/td&gt;
+&lt;td&gt;📈 En crecimiento&lt;/td&gt;
+&lt;td&gt;✅ Amplia compatibilidad&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Facilidad de Uso&lt;/td&gt;
+&lt;td&gt;🧩 Sintaxis limpia y simplificada&lt;/td&gt;
+&lt;td&gt;🛠️ Requiere más configuración&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="compatibilidad-y-facilidad-de-uso"&gt;
+Compatibilidad y Facilidad de Uso
+&lt;a href="#compatibilidad-y-facilidad-de-uso" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;En términos de compatibilidad, &lt;strong&gt;Node.js&lt;/strong&gt; gana por su madurez. Casi todas las bibliotecas y frameworks funcionan sin problemas. Por otro lado, Bun está creciendo rápidamente, pero aún carece de compatibilidad con algunas herramientas específicas.&lt;/p&gt;
+&lt;p&gt;En cuanto a facilidad de uso, &lt;strong&gt;Bun&lt;/strong&gt; tiene una ventaja clara. Su sintaxis es más limpia y simplifica muchas tareas, como la instalación de dependencias y la creación de servidores.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="demostración-práctica-crear-un-servidor-básico"&gt;
+Demostración Práctica: Crear un Servidor Básico
+&lt;a href="#demostraci%c3%b3n-pr%c3%a1ctica-crear-un-servidor-b%c3%a1sico" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="servidor-en-nodejs"&gt;
+Servidor en Node.js
+&lt;a href="#servidor-en-nodejs" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;span class="lnt"&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;http&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;http&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;server&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;http&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;createServer&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;res&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;res&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;end&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Hola desde Node.js&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;server&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;listen&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Servidor corriendo en http://localhost:3000&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="servidor-en-bun"&gt;
+Servidor en Bun
+&lt;a href="#servidor-en-bun" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-TypeScript" data-lang="TypeScript"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;Bun&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;serve&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;port&lt;/span&gt;: &lt;span class="kt"&gt;3000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;fetch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Response&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Hola desde Bun&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Como puedes ver, &lt;strong&gt;Bun&lt;/strong&gt; simplifica mucho el proceso.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Ambos tienen sus pros y contras. Si buscas rendimiento y simplicidad, &lt;strong&gt;Bun&lt;/strong&gt; es una excelente opción. Pero si necesitas estabilidad y compatibilidad, Node.js sigue siendo una apuesta segura.&lt;/p&gt;
+&lt;p&gt;Si te gustó este artículo, no olvides compartirlo en tus redes sociales y seguirme en mis canales para más contenido sobre Linux , programación y desarrollo web.&lt;/p&gt;</description></item><item><title>Cómo instalar Bun.js en MacOS con Homebrew</title><link>https://patojad.com.ar/post/2024/11/c%C3%B3mo-instalar-bun.js-en-macos-con-homebrew/</link><pubDate>Fri, 01 Nov 2024 10:24:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/11/c%C3%B3mo-instalar-bun.js-en-macos-con-homebrew/</guid><description>&lt;p&gt;Instalar &lt;strong&gt;Bun.js&lt;/strong&gt; en MacOS puede hacerse de varias maneras, y en este artículo exploraremos cómo hacerlo con Homebrew, un gestor de paquetes que simplifica la instalación de herramientas en Mac. Aunque hay otros métodos, en mi caso he optado por usar Brew por preferencia personal, y en este tutorial te guiaré paso a paso en el proceso. Además, agregaré información básica sobre &lt;strong&gt;Bun.js&lt;/strong&gt; y su utilidad, así como algunos consejos útiles para la instalación.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-bunjs-y-por-qué-usarlo"&gt;
+¿Qué es &lt;strong&gt;Bun.js&lt;/strong&gt; y por qué usarlo?
+&lt;a href="#qu%c3%a9-es-bunjs-y-por-qu%c3%a9-usarlo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Bun.js&lt;/strong&gt; es un runtime y gestor de paquetes todo en uno para JavaScript, desarrollado con el objetivo de ofrecer una alternativa ultrarrápida a Node.js y npm. Su principal ventaja es la velocidad, ya que está diseñado desde cero para mejorar el rendimiento en aplicaciones web y herramientas de desarrollo. Gracias a su enfoque optimizado en operaciones comunes, &lt;strong&gt;Bun.js&lt;/strong&gt; resulta ideal para desarrolladores que buscan una alternativa a otros runtimes y desean mayor rapidez en sus aplicaciones.&lt;/p&gt;
+&lt;p&gt;Para profundizar en &lt;strong&gt;Bun.js&lt;/strong&gt; y su ecosistema, pronto estaré publicando un artículo que detallará todas sus características y ventajas.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="requisitos-previos-instalar-homebrew"&gt;
+Requisitos previos: Instalar Homebrew
+&lt;a href="#requisitos-previos-instalar-homebrew" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Antes de comenzar con la instalación de &lt;strong&gt;Bun.js&lt;/strong&gt;, necesitarás tener Homebrew instalado en tu Mac. Si aún no lo tienes, puedes hacerlo siguiendo los pasos del tutorial que te dejo en este &lt;a href="https://patojad.com.ar/post/2023/02/como-instalar-brew-en-macos/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+enlace
+&lt;/a&gt;. Homebrew es un gestor de paquetes para MacOS que facilita la instalación de software y herramientas en tu sistema. Una vez que lo tengas instalado, podrás instalar &lt;strong&gt;Bun.js&lt;/strong&gt; y otros paquetes con un simple comando en la terminal.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación"&gt;
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;A continuación, te muestro cómo instalar &lt;strong&gt;Bun.js&lt;/strong&gt; en MacOS, para esto voy a dejarte los comandos que usamos en el video y otra opcion que tambien comentamos para que vos utilices la que creas mas conveniente.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="usando-homebrew"&gt;
+Usando Homebrew
+&lt;a href="#usando-homebrew" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Sigue estos pasos para instalar &lt;strong&gt;Bun.js&lt;/strong&gt; utilizando Homebrew:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Abre la Terminal y ejecuta el siguiente comando para instalar &lt;strong&gt;Bun.js&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;brew install bun
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Para verificar que &lt;strong&gt;Bun.js&lt;/strong&gt; se haya instalado correctamente, utiliza el siguiente comando:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bun --version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Si ves la versión de &lt;strong&gt;Bun.js&lt;/strong&gt; en pantalla, significa que la instalación fue exitosa.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="otros-métodos-para-instalar-bunjs-en-macos"&gt;
+Otros métodos para instalar &lt;strong&gt;Bun.js&lt;/strong&gt; en MacOS
+&lt;a href="#otros-m%c3%a9todos-para-instalar-bunjs-en-macos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Aunque Brew es una opción rápida y práctica, existen otros métodos para instalar &lt;strong&gt;Bun.js&lt;/strong&gt; en MacOS:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Instalación directa desde el script de Bun: Ejecuta el siguiente comando en la Terminal para una instalación rápida:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl -fsSL https://bun.sh/install &lt;span class="p"&gt;|&lt;/span&gt; bash
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# En caso de querer instalar una version específica&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl -fsSL https://bun.sh/install &lt;span class="p"&gt;|&lt;/span&gt; bash -s &lt;span class="s2"&gt;&amp;#34;bun-v1.0.0&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;Este script se encargará de descargar e instalar &lt;strong&gt;Bun.js&lt;/strong&gt; directamente desde su sitio oficial.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="solución-de-problemas-comunes"&gt;
+Solución de problemas comunes
+&lt;a href="#soluci%c3%b3n-de-problemas-comunes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Es posible que te encuentres con algunos problemas durante la instalación. A continuación, presento algunos problemas comunes y cómo solucionarlos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Error al ejecutar comandos de Brew: Si Brew no está reconocido en tu Terminal, asegúrate de que está en tu PATH. Puedes añadirlo con:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;eval &amp;#34;$(/opt/homebrew/bin/brew shellenv)&amp;#34;&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; ~/.zprofile
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;eval&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;/opt/homebrew/bin/brew shellenv&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Error de permisos: Si encuentras problemas de permisos, intenta ejecutar el comando con sudo, aunque esto no suele ser necesario en instalaciones estándar de Brew.
+&lt;ul&gt;
+&lt;li&gt;Comando ‘bun’ no encontrado después de la instalación: Si la Terminal no reconoce el comando bun después de instalarlo, intenta cerrar y reabrir la Terminal, o añade el PATH de &lt;strong&gt;Bun.js&lt;/strong&gt; manualmente:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;/opt/homebrew/bin:&lt;/span&gt;&lt;span class="nv"&gt;$PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Instalar &lt;strong&gt;Bun.js&lt;/strong&gt; en MacOS con Homebrew es una manera sencilla y práctica para iniciarse con este potente runtime de JavaScript. No obstante, existen otros métodos de instalación, como el script directo o la descarga manual desde GitHub, que también puedes considerar según tus preferencias.&lt;/p&gt;
+&lt;p&gt;No olvides visitar el video en YouTube para ver el proceso en acción, y asegúrate de tener Brew correctamente configurado para evitar problemas. Espero que esta guía te haya resultado útil, ¡y te animo a explorar todo el potencial de &lt;strong&gt;Bun.js&lt;/strong&gt; en tus próximos proyectos de desarrollo!&lt;/p&gt;</description></item><item><title>Bun o Node.js en 2024: ¿Cuál es la mejor opción para desarrollo web?</title><link>https://patojad.com.ar/post/2024/04/bun-o-node.js-en-2024-cu%C3%A1l-es-la-mejor-opci%C3%B3n-para-desarrollo-web/</link><pubDate>Wed, 10 Apr 2024 09:04:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/04/bun-o-node.js-en-2024-cu%C3%A1l-es-la-mejor-opci%C3%B3n-para-desarrollo-web/</guid><description>&lt;p&gt;Cuando se trata de desarrollo web, ¡Hay tantas herramientas! Pero la opción más popular y ampliamente utilizada es &lt;strong&gt;Node.js&lt;/strong&gt;. Sin embargo, &lt;strong&gt;Bun&lt;/strong&gt;, una nueva herramienta, también trae muchos beneficios.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="deberías-cambiar-de-nodejs-a-bun-en-2024"&gt;
+¿Deberías cambiar de Node.js a Bun en 2024?
+&lt;a href="#deber%c3%adas-cambiar-de-nodejs-a-bun-en-2024" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Hoy estamos aquí para analizar las diferencias clave y ayudarnos a decidir cuál podría ser la mejor opción para este 2024. Así que, ¡toma una taza de café ☕️, pon tu lista de reproducción de codificación favorita y vamos a darle!&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="comprendiendo-bun-el-novato-en-el-barrio"&gt;
+Comprendiendo Bun: El Novato en el Barrio
+&lt;a href="#comprendiendo-bun-el-novato-en-el-barrio" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Imagina a &lt;strong&gt;Bun&lt;/strong&gt; como tu fiel compañero, siempre listo para simplificar tus aventuras de desarrollo web. Este moderno y liviano entorno de ejecución es un nuevo entorno de ejecución de &lt;strong&gt;JavaScript&lt;/strong&gt; completamente escrito en el lenguaje de programación &lt;strong&gt;Zig&lt;/strong&gt;, como una brisa fresca en un día caluroso de verano: refrescante y eficiente. &lt;strong&gt;Bun&lt;/strong&gt; está diseñado para ser un reemplazo directo de &lt;strong&gt;Node.js&lt;/strong&gt; y soporta la mayoría de las mismas API y características. Con &lt;strong&gt;Bun&lt;/strong&gt;, construir aplicaciones web se vuelve muy fácil gracias a su sintaxis intuitiva y características simplificadas.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="explorando-nodejs-el-guerrero-veterano"&gt;
+Explorando Node.js: El Guerrero Veterano
+&lt;a href="#explorando-nodejs-el-guerrero-veterano" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Ahora, imagina a &lt;strong&gt;Node.js&lt;/strong&gt; como el guerrero veterano del reino del desarrollo web, probado en batalla y confiable. Este entorno de ejecución es tu elección para aplicaciones escalables y de alto rendimiento. Su modelo de I/O no bloqueante y basado en eventos es como tener un superpoder para manejar múltiples tareas simultáneamente. Esto lo hace adecuado para manejar conexiones concurrentes y procesar grandes volúmenes de datos. Con su vasto ecosistema de módulos y bibliotecas, &lt;strong&gt;Node.js&lt;/strong&gt; capacita a los desarrolladores para crear una amplia gama de aplicaciones, desde servidores web hasta dispositivos IoT.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="comparación-de-características-bun-vs-nodejs"&gt;
+Comparación de características: Bun vs. Node.js
+&lt;a href="#comparaci%c3%b3n-de-caracter%c3%adsticas-bun-vs-nodejs" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Rendimiento:&lt;/strong&gt; Node.js brilla en el manejo de miles de conexiones con facilidad, como un superhéroe manejando una ciudad bulliciosa. Por otro lado, Bun, aunque más nuevo, se defiende bien y es perfecto para cargas de trabajo moderadas.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Facilidad de uso:&lt;/strong&gt; Bun es tu guía amigable del barrio, haciendo del desarrollo web un paseo alegre con su simplicidad. Mientras tanto, Node.js ofrece una inmersión más profunda en el mundo de la programación asincrónica, como dominar un rompecabezas complejo.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Escalabilidad:&lt;/strong&gt; Tanto Bun como Node.js son tus compañeros confiables para escalar aplicaciones. Node.js destaca en el manejo de conexiones concurrentes, mientras que Bun hereda esta fortaleza y se adapta a varios entornos sin problemas.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="escenarios-del-mundo-real-dónde-brillan"&gt;
+Escenarios del Mundo Real: ¿Dónde Brillan?
+&lt;a href="#escenarios-del-mundo-real-d%c3%b3nde-brillan" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Bun:&lt;/strong&gt; Ideal para startups y equipos pequeños, Bun es tu compañero ágil para construir aplicaciones web y APIs livianas. Es como tener una varita mágica para prototipos rápidos sin comprometer el rendimiento.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Node.js:&lt;/strong&gt; Ampliamente utilizado en diversas industrias, Node.js es tu aliado versátil para aplicaciones diversas, desde servidores web hasta dispositivos IoT. Su capacidad para manejar tareas de I/O lo convierte en el favorito entre las empresas para construir soluciones robustas y de alto rendimiento.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="pensamientos-finales-eligiendo-tu-compañero-de-desarrollo-web"&gt;
+Pensamientos Finales: Eligiendo tu Compañero de Desarrollo Web
+&lt;a href="#pensamientos-finales-eligiendo-tu-compa%c3%b1ero-de-desarrollo-web" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En la batalla de &lt;strong&gt;Bun&lt;/strong&gt; vs. &lt;strong&gt;Node.js&lt;/strong&gt;, la elección es tuya según tu búsqueda en el reino del desarrollo web. Ya sea que busques simplicidad y velocidad o potencia y escalabilidad, tanto &lt;strong&gt;Bun&lt;/strong&gt; como &lt;strong&gt;Node.js&lt;/strong&gt; están listos para acompañarte en tus aventuras de desarrollo web.&lt;/p&gt;
+&lt;p&gt;Entonces, queridos desarrolladores, ¿qué compañero elegirás para tu próxima aventura de desarrollo web?&lt;/p&gt;</description></item></channel></rss>

@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Informatica on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/informatica/</link><description>Recent content in Informatica on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Fri, 15 Nov 2024 10:12:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/informatica/index.xml" rel="self" type="application/rss+xml"/><item><title>Un Guardián Digital para Tu Servidor Cloud</title><link>https://patojad.com.ar/post/2024/11/un-guardi%C3%A1n-digital-para-tu-servidor-cloud/</link><pubDate>Fri, 15 Nov 2024 10:12:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/11/un-guardi%C3%A1n-digital-para-tu-servidor-cloud/</guid><description>&lt;p&gt;Hoy vamos a ver un poco mas sobre &lt;code&gt;fail2ban&lt;/code&gt; y como instalarlo en tu servidor cloud.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-fail2ban"&gt;
+¿Qué es Fail2ban?
+&lt;a href="#qu%c3%a9-es-fail2ban" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Fail2ban es una herramienta de seguridad que actúa como un vigilante digital para tu servidor cloud. Su función principal es bloquear automáticamente las direcciones IP que intentan acceder a tu servidor de forma repetida y fallida. Esto ayuda a prevenir ataques de fuerza bruta, donde los hackers intentan adivinar contraseñas.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalando-fail2ban"&gt;
+Instalando Fail2ban
+&lt;a href="#instalando-fail2ban" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para instalar Fail2ban en tu servidor, puedes utilizar el siguiente comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-get install fail2ban
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Una vez instalado, necesitarás configurar un archivo de configuración local:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo nano /etc/fail2ban/jail.local
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="configurando-fail2ban"&gt;
+Configurando Fail2ban
+&lt;a href="#configurando-fail2ban" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Dentro del archivo de configuración, puedes personalizar varias opciones, como:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ignoreip: Una lista de direcciones IP que no serán bloqueadas.&lt;/li&gt;
+&lt;li&gt;bantime: El tiempo durante el cual una IP bloqueada permanecerá inaccesible.&lt;/li&gt;
+&lt;li&gt;findtime: El período de tiempo en el que se cuentan los intentos fallidos.&lt;/li&gt;
+&lt;li&gt;maxretry: El número máximo de intentos fallidos permitidos antes de bloquear una IP.&lt;/li&gt;
+&lt;li&gt;También puedes configurar notificaciones por correo electrónico para recibir alertas sobre intentos de intrusión.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="habilitando-jails"&gt;
+Habilitando Jails
+&lt;a href="#habilitando-jails" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Los &amp;ldquo;jails&amp;rdquo; son reglas específicas que Fail2ban aplica a diferentes servicios en tu servidor, como SSH, FTP, o servicios web. Puedes habilitar o deshabilitar los jails según tus necesidades.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="reiniciando-fail2ban"&gt;
+Reiniciando Fail2ban
+&lt;a href="#reiniciando-fail2ban" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Una vez que hayas configurado los jails, reinicia el servicio de Fail2ban para aplicar los cambios:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo systemctl restart fail2ban.service
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="verificando-el-bloqueo-de-ip"&gt;
+Verificando el Bloqueo de IP
+&lt;a href="#verificando-el-bloqueo-de-ip" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Puedes verificar las direcciones IP bloqueadas utilizando el comando &lt;code&gt;iptables -L&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="desbloqueando-una-ip"&gt;
+Desbloqueando una IP
+&lt;a href="#desbloqueando-una-ip" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si necesitas desbloquear una IP que ha sido bloqueada por error, puedes utilizar el siguiente comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo fail2ban-client &lt;span class="nb"&gt;set&lt;/span&gt; &amp;lt;jail&amp;gt; unbanip &amp;lt;ip_address&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Fail2ban es una herramienta poderosa que puede ayudar a proteger tu servidor cloud de ataques maliciosos. Con una configuración adecuada, puedes mejorar significativamente la seguridad de tu infraestructura en línea.&lt;/p&gt;</description></item><item><title>Onlyoffice DocSpace 2.0 lanzado con salas públicas, complementos, reasignación de datos, interfaz RTL y otras mejoras</title><link>https://patojad.com.ar/post/2023/12/onlyoffice-docspace-2.0-lanzado-con-salas-p%C3%BAblicas-complementos-reasignaci%C3%B3n-de-datos-interfaz-rtl-y-otras-mejoras/</link><pubDate>Wed, 13 Dec 2023 15:56:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/12/onlyoffice-docspace-2.0-lanzado-con-salas-p%C3%BAblicas-complementos-reasignaci%C3%B3n-de-datos-interfaz-rtl-y-otras-mejoras/</guid><description>&lt;p&gt;Después de un gran lanzamiento de ONLYOFFICE DocSpace 1.0 en abril de 2023, los desarrolladores lanzaron la versión 2.0 del entorno colaborativo basado en salas con la pila tecnológica actualizada y muchas características nuevas.&lt;/p&gt;
+&lt;p&gt;El &lt;strong&gt;ONLYOFFICE DocSpace&lt;/strong&gt; actualizado viene con muchas novedades en toda la plataforma, que incluyen un nuevo tipo de salas para compartir públicamente, administración mejorada de salas, complementos para funcionalidad adicional, una página de perfil más intuitiva, reasignación de datos, más teclas de acceso rápido, herramientas de desarrollador extendidas y más.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="salas-publicas"&gt;
+Salas publicas
+&lt;a href="#salas-publicas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Las salas públicas recientemente agregadas facilitan mucho el trabajo en documentos con cualquier tercero. Permiten invitar a usuarios a través de enlaces externos para permitirles ver archivos sin registrarse. Si es necesario, los usuarios pueden generar múltiples enlaces externos con diferentes parámetros para establecer varios permisos de acceso. Para proteger documentos en una sala pública, se encuentran disponibles protección con contraseña, restricción de copia de contenido de archivos, así como restricción de descarga e impresión de archivos.&lt;/p&gt;
+&lt;p&gt;Además, las salas públicas se pueden integrar en cualquier interfaz web a través de herramientas de desarrollo. De esta forma, los usuarios del sitio web o servicio correspondiente pueden acceder a los archivos de la sala directamente desde el frontend web.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="nuevas-funciones-para-la-gestión-de-salas"&gt;
+Nuevas funciones para la gestión de salas.
+&lt;a href="#nuevas-funciones-para-la-gesti%c3%b3n-de-salas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;ONLYOFFICE DocSpace 2.0&lt;/strong&gt; ofrece la posibilidad de crear una sala basada en archivos y carpetas personales. Si solo se selecciona una carpeta, su contenido se copia a la sala creada.&lt;/p&gt;
+&lt;p&gt;Entre otras opciones nuevas para la gestión de salas se encuentran la descarga de salas , el filtrado por sala en la Papelera y la posibilidad de abandonar una sala y cambiar su propietario .&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="reasignación-de-datos"&gt;
+Reasignación de datos
+&lt;a href="#reasignaci%c3%b3n-de-datos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;A partir de ahora, los administradores de SOLAMENTE OFFICE DocSpace pueden reasignar salas y archivos almacenados dentro de las salas que pertenecen a los usuarios con el estado Desactivado. Los datos se reasignan al administrador que está realizando la operación.&lt;/p&gt;
+&lt;p&gt;También es posible seleccionar manualmente otro usuario de destino para reasignarlo. Esta característica permite elegir si eliminar un usuario o no al reasignar datos. Si se elimina un usuario y se reasignan sus datos, se eliminarán sus archivos personales. Es posible cancelar el proceso de reasignación ya iniciado haciendo clic en el botón correspondiente.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="complementos-para-funciones-adicionales"&gt;
+Complementos para funciones adicionales
+&lt;a href="#complementos-para-funciones-adicionales" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La última actualización trae complementos integrados del sistema que permiten ampliar la funcionalidad de DocSpace. El propietario y los administradores de DocSpace pueden habilitar dichos complementos a través de la configuración de Integración. Una vez habilitados, los complementos están disponibles para todos los usuarios.&lt;/p&gt;
+&lt;p&gt;La versión actual incluye PDF Converter para convertir documentos, hojas, diapositivas y formularios a PDF , draw.io para trabajar con diagramas de aspecto profesional y el complemento. que convierte la voz de archivos de audio y video en texto.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="página-de-perfil-rediseñada"&gt;
+Página de perfil rediseñada
+&lt;a href="#p%c3%a1gina-de-perfil-redise%c3%b1ada" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para que la navegación dentro de los perfiles de usuario sea más intuitiva, los desarrolladores organizaron todas las configuraciones personales en cuatro pestañas. La pestaña Iniciar sesión permite realizar un seguimiento de las sesiones activas y cerrar sesión si es necesario. Las notificaciones se habilitan o deshabilitan a través de la pestaña correspondiente. El cambio entre temas claros, oscuros o del sistema se realiza a través de la pestaña Tema de la interfaz.&lt;/p&gt;
+&lt;p&gt;La pestaña Gestión de archivos comprende las configuraciones movidas desde el panel lateral izquierdo y permite activar, por ejemplo, una opción para guardar la copia del archivo también en el formato original.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="mejoras-para-trabajar-con-formularios"&gt;
+Mejoras para trabajar con formularios
+&lt;a href="#mejoras-para-trabajar-con-formularios" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La galería de formularios incorporada, que brinda acceso rápido a las plantillas de formulario listas para usar, obtiene una navegación más conveniente gracias al filtrado agregado por categoría, idioma y nombre junto con ordenar por nombre y fecha de última modificación. Es más, ahora es posible enviar plantillas creadas por usuarios a la Galería de formularios y obtener una recompensa.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="múltiples-actualizaciones-para-elementos-y-diseño-de-la-interfaz"&gt;
+Múltiples actualizaciones para elementos y diseño de la interfaz.
+&lt;a href="#m%c3%baltiples-actualizaciones-para-elementos-y-dise%c3%b1o-de-la-interfaz" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para una experiencia de usuario más cómoda, el equipo de ONLYOFFICE implementó más teclas de acceso rápido, miniaturas de videos , lenguajes RTL para la interfaz en el modo beta, navegación de 2 niveles , vista móvil para las páginas de configuración de Apariencia, Marca, Inicio de sesión único y SDK de Javascript. .&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="actualizaciones-de-la-pila-tecnológica"&gt;
+Actualizaciones de la pila tecnológica
+&lt;a href="#actualizaciones-de-la-pila-tecnol%c3%b3gica" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para ONLYOFFICE DocSpac e , los desarrolladores utilizan componentes y motores actualizados , incluidos .NET Core y la última versión de .NET para el lado del servidor, un backend confiable, y React para el lado del cliente para garantizar una apariencia moderna y compatibilidad con dispositivos móviles .&lt;/p&gt;
+&lt;p&gt;En la versión 2.0, la pila tecnológica se actualiza en consecuencia para garantizar un trabajo más confiable, incluido React v18 , soporte para OpenSearch y la última versión de Elasticsearch, Storybook actualizado y descripciones de componentes , y más.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="regiones-de-nube-pública"&gt;
+Regiones de nube pública
+&lt;a href="#regiones-de-nube-p%c3%bablica" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El dominio .com de ONLYOFFICE DocSpace Cloud ahora comprende dos regiones. Junto con Oregón, se añade la ubicación del servidor de datos de Frankfurt para garantizar un trabajo más fluido para los usuarios en Europa.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="herramientas-e-integración-para-desarrolladores"&gt;
+Herramientas e integración para desarrolladores
+&lt;a href="#herramientas-e-integraci%c3%b3n-para-desarrolladores" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Además de activar los complementos del sistema, ahora los desarrolladores pueden crear y agregar sus propios complementos a DocSpace utilizando el SDK de complementos y los ejemplos de código disponibles.&lt;/p&gt;
+&lt;p&gt;La configuración de webhooks agregada permite realizar acciones personalizadas en el costado de cualquier aplicación o sitio web en función de varios eventos en DocSpace. Además, el onlyoffice DocSpace autohospedado también presenta una nueva sección en la configuración de integración donde es posible conectar onlyoffice docs. Esta configuración será útil para aquellos que tienen instalado un Document Server independiente y necesitan integrarlo con su DocSpace.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="acerca-de-solamenteoffice-docspace"&gt;
+Acerca de SOLAMENTEOFFICE DocSpace
+&lt;a href="#acerca-de-solamenteoffice-docspace" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;SOLAMENTEOFFICE DocSpace&lt;/strong&gt; está destinado a mejorar la colaboración en documentos de Office y otros contenidos con diversas personas con las que los usuarios necesitan interactuar, como sus colegas, compañeros de equipo, clientes, socios, contratistas, patrocinadores, etc.&lt;/p&gt;
+&lt;p&gt;La plataforma proporciona un entorno de sala para organizar una estructura de archivos clara según las necesidades de los usuarios o los objetivos del proyecto. Los permisos de acceso flexibles y los roles de usuario permiten ajustar el acceso a todo el espacio o a habitaciones separadas.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="enlaces-útiles"&gt;
+Enlaces útiles
+&lt;a href="#enlaces-%c3%batiles" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Sitio oficial : &lt;a href="https://www.onlyoffice.com" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://www.onlyoffice.com
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Página oficial del proyecto - &lt;a href="https://www.onlyoffice.com/docspace.aspx" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://www.onlyoffice.com/docspace.aspx
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Registro — &lt;a href="https://www.onlyoffice.com/docspace-registration.aspx" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://www.onlyoffice.com/docspace-registration.aspx
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Facebook - &lt;a href="https://facebook.com/profile.php?id=100064155187996" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-facebook"&gt;&lt;/i&gt;&amp;nbsp;
+https://facebook.com/profile.php?id=100064155187996
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Twitter - &lt;a href="https://twitter.com/only_office" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-twitter"&gt;&lt;/i&gt;&amp;nbsp;
+https://twitter.com/only_office
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Linkedin - &lt;a href="https://linkedin.com/company/ascensio-system-sia/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-linkedin"&gt;&lt;/i&gt;&amp;nbsp;
+https://linkedin.com/company/ascensio-system-sia/
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Instagram - &lt;a href="https://instagram.com/the_onlyoffice/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-instagram"&gt;&lt;/i&gt;&amp;nbsp;
+https://instagram.com/the_onlyoffice/
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;TikTok - &lt;a href="https://tiktok.com/@only_office" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://tiktok.com/@only_office
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>La Historia de GNU/Linux</title><link>https://patojad.com.ar/post/2023/07/la-historia-de-gnu/linux/</link><pubDate>Mon, 31 Jul 2023 14:06:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/07/la-historia-de-gnu/linux/</guid><description>&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="introducción"&gt;
+Introducción
+&lt;a href="#introducci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;GNU/Linux, un sistema operativo de código abierto ampliamente utilizado en la actualidad, tiene una historia fascinante detrás de su creación. En este artículo, exploraremos cómo surgió este revolucionario sistema, los protagonistas detrás de su desarrollo y qué lo hace único en el mundo de la tecnología. Desde sus modestos comienzos hasta convertirse en una poderosa fuerza en el mundo informático, la historia de GNU/Linux destaca el poder de la colaboración y el software libre.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-linux-y-su-historia"&gt;
+¿Qué es Linux y su historia?
+&lt;a href="#qu%c3%a9-es-linux-y-su-historia" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/T1pFkGj2/historialinux1.webp" alt="Historia de GNU/Linux" title="Historia de GNU/Linux"
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Linux es un sistema operativo de código abierto basado en el núcleo desarrollado por &lt;strong&gt;Linus Torvalds&lt;/strong&gt; en 1991. Sin embargo, para entender completamente su historia, es esencial retroceder unos años antes. En la década de 1980, &lt;strong&gt;Richard Stallman&lt;/strong&gt; inició el Proyecto &lt;strong&gt;GNU&lt;/strong&gt; con el objetivo de crear un sistema operativo completo y libre, donde los usuarios pudieran acceder y modificar el software a voluntad.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cuándo-se-creó-el-sistema-operativo-gnulinux"&gt;
+¿Cuándo se creó el sistema operativo GNU/Linux?
+&lt;a href="#cu%c3%a1ndo-se-cre%c3%b3-el-sistema-operativo-gnulinux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El hito clave en la historia de GNU/Linux ocurrió en 1991, cuando &lt;strong&gt;Linus Torvalds&lt;/strong&gt;, un estudiante finlandés, desarrolló un núcleo (kernel) compatible con el sistema operativo GNU. Este núcleo fue denominado &amp;ldquo;Linux&amp;rdquo;, una fusión de su nombre y &lt;em&gt;&amp;ldquo;Unix&amp;rdquo;&lt;/em&gt;. La combinación del núcleo Linux con los componentes del Proyecto GNU resultó en un sistema operativo completo, conocido como GNU/Linux.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="quién-desarrolló-gnulinux"&gt;
+¿Quién desarrolló GNU/Linux?
+&lt;a href="#qui%c3%a9n-desarroll%c3%b3-gnulinux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/1X2T2TMG/historialinux2.webp" alt="Linus Torvalds" title="Linus Torvalds"
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;El sistema operativo GNU/Linux fue el resultado de la colaboración de muchos desarrolladores apasionados y dedicados. &lt;strong&gt;Linus Torvalds&lt;/strong&gt; lideró el desarrollo del núcleo Linux, mientras que &lt;strong&gt;Richard Stallman&lt;/strong&gt; y la &lt;strong&gt;Free Software Foundation (FSF)&lt;/strong&gt; jugaron un papel fundamental proporcionando las herramientas y componentes del Proyecto GNU.&lt;/p&gt;
+&lt;p&gt;El enfoque en el software libre y la filosofía de compartir conocimiento sentó las bases para una comunidad activa de desarrolladores en todo el mundo. Contribuyeron con código, solucionaron problemas y compartieron sus conocimientos para mejorar el sistema continuamente.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-un-sistema-gnulinux"&gt;
+¿Qué es un sistema GNU/Linux?
+&lt;a href="#qu%c3%a9-es-un-sistema-gnulinux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Un sistema GNU/Linux es un conjunto completo de software que incluye el núcleo Linux junto con las aplicaciones y herramientas del Proyecto GNU. A diferencia de los sistemas operativos propietarios, GNU/Linux ofrece libertad a los usuarios para usar, estudiar, modificar y compartir el software de acuerdo con las licencias de software libre. Esta flexibilidad ha dado lugar a una amplia gama de distribuciones de GNU/Linux, cada una adaptada para diversas necesidades y preferencias de los usuarios.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La historia de GNU/Linux es una prueba viviente de la importancia del software libre y la colaboración en la industria tecnológica. La visión de Richard Stallman y el ingenio de Linus Torvalds dieron lugar a un sistema operativo que ha transformado la forma en que interactuamos con la tecnología. Desde sus humildes inicios hasta la poderosa comunidad de desarrolladores de hoy en día, GNU/Linux sigue siendo un ejemplo inspirador de cómo el trabajo en equipo y la pasión por el conocimiento pueden cambiar el mundo de la tecnología para mejor.&lt;/p&gt;</description></item><item><title>¿Por qué estudiamos informática?</title><link>https://patojad.com.ar/post/2023/05/por-qu%C3%A9-estudiamos-inform%C3%A1tica/</link><pubDate>Wed, 10 May 2023 09:56:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/05/por-qu%C3%A9-estudiamos-inform%C3%A1tica/</guid><description>&lt;p&gt;Como algunos sabrán yo estudio en una universidad pública desde hace tiempo, al menos en Argentina las carreras no suelen durar lo que dicen los papeles, más que nada cuando uno trabaja, tiene familia y para colmo se mete en diversos proyectos…&lt;/p&gt;
+&lt;p&gt;El año pasado participé de una encuesta realizada por la fundación sadosky (y compañía) donde se buscaba conocer la evolución de la informática a nivel académico.&lt;/p&gt;
+&lt;p&gt;Si bien los resultados están segmentados en mi país de origen es interesante ver la evolución del campo académico que es el que se encarga, al menos desde mi perspectiva, de generar profesionales de alto nivel, es decir desarrolladores y no sólo programadores.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="resumen"&gt;
+Resumen
+&lt;a href="#resumen" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Claramente el estudio es muy largo, y su resumen también, por lo cual te dejo el resumen del resumen en el cual destacó lo que me pareció más interesante.&lt;/p&gt;
+&lt;p&gt;Entre los hallazgos se encuentra que la oferta de carreras informáticas ha crecido de manera sostenida en el ámbito público y que además se ha diversificado, contando hoy con muchas más opciones cortas, además de las carreras tradicionales y más largas. Desde 2016, el número de inscriptos ha aumentado continuamente y es particularmente significativo el crecimiento de nuevas inscriptas mujeres. Más de la mitad trabajan y la mayoría lo hace en el área de sistemas, y afirma estar conforme con su espacio de trabajo y haber adquirido los conocimientos necesarios (en sus primeros años de carrera) para desempeñarse con autonomía. Las y los estudiantes reconocen también los esfuerzos de las instituciones académicas para favorecer la permanencia y la terminalidad: becas, tutorías y pasantías son algunas de las más mencionadas.&lt;/p&gt;
+&lt;p&gt;Aunque también hay que recalcar que las mujeres siguen siendo, en porcentaje, mucho menor que los hombres en estas carreras, y (opinión personal) puede tener que ver más con un tema social que con un tema de interés.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://program.ar/wp-content/uploads/2023/05/Por-que-estudiamos-informatica-Version-Completa.pdf" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Informe completo
+&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;fuente: &lt;a href="https://program.ar/por-que-estudiamos-informatica/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+program.ar
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Password Cracking</title><link>https://patojad.com.ar/post/2020/12/password-cracking/</link><pubDate>Sat, 05 Dec 2020 09:28:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/12/password-cracking/</guid><description>&lt;iframe src='https://www.youtube.com/embed/vqmMbVblovE?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;&lt;strong&gt;Password Cracking&lt;/strong&gt; es el proceso de recuperación de contraseñas a partir de datos que han sido transmitidos por un sistema informático o almacenados en el. El propósito es ayudar al usuario a &lt;strong&gt;recuperar una contraseña olvidada o perdida&lt;/strong&gt;, aunque también puede ser utilizada como medida &lt;strong&gt;preventiva por los administradores de sistemas&lt;/strong&gt; para corroborar la seguridad de los usuarios y así poder evitar el ingreso de no autorizado.&lt;/p&gt;
+&lt;p&gt;Estos tipos de ataques tienen formas técnicas que son las que eventualmente utilizan los administradores de sistemas o pentesters para probar la seguridad de sus usuarios. Sin embargo existen muchas otras formas de intentar “dar” con la contraseña correcta, que pueden ser menos técnicas, en esta oportunidad vamos a intentar pasar por todas estas con una breve repasada.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Ataques no Técnicos&lt;/th&gt;
+&lt;th&gt;Ataques Técnicos&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Shoulder Surfing&lt;/td&gt;
+&lt;td&gt;Ataque de fuerza bruta&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Ingeniería Social&lt;/td&gt;
+&lt;td&gt;Ataque de diccionario&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Dumpster Diving&lt;/td&gt;
+&lt;td&gt;Ataque híbrido&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Rainbow Tables&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Troyano&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Man-In-The-Middle&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="ataques-no-técnicos"&gt;
+Ataques no Técnicos
+&lt;a href="#ataques-no-t%c3%a9cnicos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://alpinesecurity.com/wp-content/uploads/2017/03/online-password-cracking.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Estos “ataques” son realizados sin necesidad de tener una preparación técnica y suelen estar guiados por el “azar” o el conocimiento sobre el usuario afectado. Eventualmente puede estar involucrada la ingeniería social o el poco cuidado de los usuarios para con su información.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="shoulder-surfing"&gt;
+Shoulder Surfing
+&lt;a href="#shoulder-surfing" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://miro.medium.com/max/1003/1*oK1M8qrk-ETnmJNNAnaNng.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Como su nombre lo indica, consiste literalmente en mirar por encima del hombro sin que el objetivo se de cuenta, para tratar de conseguir información. Pero a pesar de que parezca una idea producto de Hollywood, existen numerosos casos en los que este método ha sido efectivo. Las empresas más pequeñas son quizás las que corren mayor riesgo de sufrir esto, dado que no pueden controlar sus sitios con la misma eficacia que una organización más grande. Los expertos en seguridad advirtieron recientemente sobre una vulnerabilidad en el proceso de autenticación utilizado por WhatsApp. Los usuarios que intentan usar WhatsApp en un dispositivo nuevo primero deben ingresar un código único que se envía a través de un mensaje de texto, que se puede usar para restaurar la cuenta de un usuario y el historial de chat desde una copia de seguridad. Se descubrió que si un pirata informático pudo obtener el número de teléfono de un usuario, puede descargar la aplicación en un dispositivo limpio y emitir un mensaje para un nuevo código, que, si está a distancia de espionaje, podría copiarlo. llega al propio dispositivo del usuario.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="ingeniería-social"&gt;
+Ingeniería Social
+&lt;a href="#ingenier%c3%ada-social" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/RFThqTTS/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;La Ingeniería Social es una de las mejores técnicas que ofrece la rama de los ataques no técnicos. La Ingeniería Social consiste en recopilar cada vez más información sobre una persona mediante técnicas psicológicas y el engaño. Muchas veces aplica convertirse en parte de un círculo medianamente cercano de la persona objetivo, conociendo así sus gustos, patrones, información, historia y datos; esto acompañado de información que se puede sacar de internet, como por ejemplo sus redes sociales, historial de navegación, y más; puede permitirnos descubrir las contraseñas que utiliza.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="dumpster-diving"&gt;
+Dumpster Diving
+&lt;a href="#dumpster-diving" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/Hsn0DJpc/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;En la técnica de buceo en el contenedor, tratamos de recopilar todo tipo de información revisando contenedores de basura, estos pueden encontrarse en espacios públicos o áreas de acceso restringido que requieran de una entrada no autorizada. El buceo en basureros depende de una debilidad humana: la falta de conocimientos sobre seguridad. Es por esto que se pueden encontrar muchas cosas buceando en contenedores de basura (por ejemplo, CDs, DVDs, discos duros, documentos de empresas, etc.), tales elementos pueden ser de gran utilidad al momento de descifrar contraseñas.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="ataques-técnicos"&gt;
+Ataques Técnicos
+&lt;a href="#ataques-t%c3%a9cnicos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://assets.skyfilabs.com/images/blog/password-cracker-using-python.webp" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;La diferentes técnicas que existen en el mercado son muchas, por la cual se han tomado algunas para ser analizadas, dependiendo de sus diferentes procesos a realizar.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="ataque-de-fuerza-bruta"&gt;
+Ataque de Fuerza Bruta
+&lt;a href="#ataque-de-fuerza-bruta" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;El ataque por &lt;strong&gt;fuerza bruta&lt;/strong&gt; es el método para averiguar una contraseña probando todas las posibles cadenas, que cuentan con determinada longitud y están compuestas por un conjunto de caracteres específico, hasta dar con la correcta. Dicho ataque, La teoría garantiza una &lt;strong&gt;tasa de éxito del 100%&lt;/strong&gt;. Sin embargo, al intentar un ataque de fuerza bruta a una contraseña de más de 8 caracteres, el tiempo necesario para realizarlo se vuelve inviable debido al crecimiento exponencial de posibles cadenas con la adición de cada carácter extra. Hydra, Medusa y Ncrack, pueden ser una de las variadas herramientas que performan ataques a servicios activos cliente/servidor (como ftp, http, mysql, ssh, etc) utilizando esta técnica.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://1.bp.blogspot.com/-s8qbBu1e8FA/XufVG8vcGyI/AAAAAAAAHBs/BOES6gu9WsoJTcKj2A721P2-MMEUM2WuQCNcBGAsYHQ/s1600/2_hydra-fuerza-bruta-wordlist-ftp.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Por último, los ataques de fuerza bruta son una de las &lt;strong&gt;técnicas más habituales&lt;/strong&gt; de robo de contraseñas en Internet dado que &lt;strong&gt;no es necesario tener grandes conocimientos&lt;/strong&gt;. En contrapartida, este tipo de ataque es extremadamente ineficiente porque intenta muchas cadenas que es poco probable que produzcan una coincidencia.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="ataque-con-diccionario"&gt;
+Ataque Con Diccionario
+&lt;a href="#ataque-con-diccionario" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;El ataque por diccionario es el siguiente mejor ataque para vulnerar una contraseña. Este, utiliza un diccionario de palabras para llevar a cabo su cometido. Los diccionarios son básicamente archivos de texto cuyo contenido es una palabra o frase por línea, cada línea es una posible versión de la contraseña. La diferencia entre un diccionario y un ataque de fuerza bruta es que un diccionario contiene una lista de coincidencias probables en lugar de todas las posibles combinaciones, logrando así una mejor optimización. Además, un diccionario debe estar bien elaborado, de lo contrario si se incluye cualquier combinación se corre el riesgo de convertirse en un ataque de fuerza bruta y pierde su eficacia.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://cdn.arstechnica.net/wp-content/uploads/2013/03/IMG_1667.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Las listas de palabras con la mejor tasa de éxito son las que se componen de contraseñas reales tomadas de diferentes fuentes públicas o bases de datos divulgadas previamente. &lt;strong&gt;Una lista de palabras bien optimizada&lt;/strong&gt; puede marcar la diferencia respecto a todos los ataques descritos. Hay muchos lugares donde se pueden descargar diccionarios genéricos o temáticos y una breve búsqueda en internet revelará estas fuentes. Sin embargo, cuando se precisa de un diccionario más específico, las cosas se vuelven un poco más difíciles y es necesario un proceso de investigación, para elaborarlo. Un diccionario se puede generar a partir de cualquier cosa, se puede generar a partir de artículos, noticias, búsqueda de Google, resultados, contenido del sitio web, registros y cualquier cosa que esté formada por &amp;ldquo;palabras&amp;rdquo;. Entonces, si quisiéramos agregar ahora un conjunto de palabras específicas a nuestro Diccionario, buscaríamos en Google a nuestra víctima, tomaríamos los resultados y los agregamos. También nos interesa todo el texto de cada enlace devuelto. También se puede tratar de encontrar documentos o registros en el servidor de las víctimas y agregarlas. Cuanta más información tengamos, más grande será el Diccionario.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="ataque-híbrido"&gt;
+Ataque Híbrido
+&lt;a href="#ataque-h%c3%adbrido" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Un ataque híbrido es una combinación de un ataque de fuerza bruta y un ataque de diccionario. este tipo de ataques, toma un Diccionario como entrada y agrega cadenas mediante fuerza bruta, a cada entrada del diccionario. Por lo tanto, para cada cadena en el Diccionario, este ataque produce varias otras cadenas. Por ejemplo si nuestra cadena original en el diccionario es &amp;ldquo;apple&amp;rdquo;, se termina produciendo &amp;ldquo;111apple&amp;rdquo;, &amp;ldquo;112apple&amp;rdquo; hasta &amp;ldquo;999apple&amp;rdquo;, si es que estamos utilizando una fuerza bruta que antepone tres números a cada entrada.&lt;/p&gt;
+&lt;p&gt;Un ataque de diccionario híbrido también resulta en un aumento exponencial de los cálculos y el tiempo en función de la cantidad de caracteres que se concatenan con cada entrada de diccionario.&lt;/p&gt;
+&lt;p&gt;También cabe destacar, que su principal diferencia con el ataque de diccionario basado en reglas es que este otro, en lugar de agregar, mediante fuerza bruta, una cadena con todas sus combinaciones posibles, usa reglas para transformar cada entrada del Diccionario o concatenarla con prefijos y sufijos, lo que termina traduciéndose como menos tiempo de ejecución.&lt;/p&gt;</description></item><item><title>Cibercrimen</title><link>https://patojad.com.ar/post/2020/12/cibercrimen/</link><pubDate>Tue, 01 Dec 2020 08:13:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/12/cibercrimen/</guid><description>&lt;p&gt;Vamos a hablar un poco del cibercrimen, que es realmente y cómo se moviliza este mundo del cibercrimen. Para entender esto debemos comprender cómo funciona y cómo piensan estos cibercriminales, sus motivaciones y perspectivas.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="premisas-del-ciberdelincuente"&gt;
+Premisas del Ciberdelincuente
+&lt;a href="#premisas-del-ciberdelincuente" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://newsbook.es/wp-content/uploads/2020/03/phishing-1068x580.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Busca dinero:&lt;/strong&gt; Esto lo comparte realmente con todos los delincuentes, la meta es obtener alguna ganancia y como tal todo lo que ellos buscan tiene de alguna forma u otra algún Valor.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;El dinero está en la gente y las empresas:&lt;/strong&gt; Claramente esto, que suena lógico, es una premisa, entender que el dinero (fácil) se encuentra en las personas que ya lo ganaron por nosotros o en las empresas que lo generan.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;El Usuario es el eslabón más débil:&lt;/strong&gt; Ya sea a nivel empresa o personal el eslabón que se prefiere atacar es a la persona, muchos sistemas son seguros y difíciles de sobrepasar, pero las personas suelen ser distraídas o arrebatadas y es la oportunidad para el ciberdelincuente.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="dónde-está-la-gente"&gt;
+¿Dónde está la gente?
+&lt;a href="#d%c3%b3nde-est%c3%a1-la-gente" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Como dijimos antes el dinero está donde está la gente, y estos lugares/medios son los utilizados para realizar ataques, ya que por ahí el índice de éxito es más alto:&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://accolombianlawyers.com/noticias/wp-content/uploads/2019/03/DATOS-PERSONALES-1024x849.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Email&lt;/li&gt;
+&lt;li&gt;Redes sociales&lt;/li&gt;
+&lt;li&gt;Comunidades y Foros (Si gente, nuestra comunidad vale Oro)&lt;/li&gt;
+&lt;li&gt;Servicios de mensajería instantánea (Por eso debemos cuidar lo que pasa en nuestro Telegram)&lt;/li&gt;
+&lt;li&gt;Home Banking&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;En este tipo de obtención de datos podemos discriminar 2 formas, una un poco más obvia donde &lt;strong&gt;el delincuente va hacia las personas&lt;/strong&gt; y otra un poco más peculiar pero no menos común en la que &lt;strong&gt;las personas van hacia los delincuentes&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;El delincuente va hacia las personas:&lt;/strong&gt; En este caso se realizan técnicas activas, el envío de un mensaje por ejemplo, que dispare la interacción con una página web. Estas técnicas suelen dejar rastros que sirven para mitigar el ataque. Las técnicas de defensa en este caso son más simples.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Las personas van hacia los delincuentes:&lt;/strong&gt; Son mucho más creíbles que lo cuál hace más difícil la sospecha. El tipo de protección es mucho más difícil porque requiere un usuario mucho más entrenado. Son realmente mucho más sigilosos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cómo-hacen-esto"&gt;
+¿Cómo hacen esto?
+&lt;a href="#c%c3%b3mo-hacen-esto" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Realmente existen muchas formas de hacer esto y todas se encuentran activas en la actualidad dado que los usuarios siguen cayendo en las trampas, como mencionamos antes esto se suele deber a la falta de atención o no conocer estas técnicas.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.redeszone.net/app/uploads-redeszone.net/2020/01/phishing-apertura.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Email:&lt;/strong&gt; Esto suele darse mediante links o adjuntos en correos que dan acceso parcial o total al ciberdelincuente sobre nuestros datos.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reemplazo de sitios webs:&lt;/strong&gt; Se suele copiar sitios webs para ser idénticos y de esta forma el usuario confundido ingresa sus datos.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Impersonalización de Usuarios&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Impersonalización de Dominio&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Link Falsos&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="dónde-está-el-dinero-en-todo-esto"&gt;
+¿Dónde está el dinero en todo esto?
+&lt;a href="#d%c3%b3nde-est%c3%a1-el-dinero-en-todo-esto" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Ya hablamos de cómo lo hacen y que hacen, pero en todo esto nos olvidamos de hablar dónde está el dinero. La ciberdelincuencia va más allá de lo que imaginamos que es sacarle la plata a una persona de su cuenta, si bien esto forma parte existe muchas cosas más interesantes que tiene un alto valor más allá de que no nos demos cuenta por ejemplo:&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://blog.dataprius.com/wp-content/uploads/2019/09/secuestro-de-datos-wanna-cry.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Robo de servicios que manipulan dinero:&lt;/strong&gt; Tal vez el más obvio y el que todos imaginamos, robando cuentas de home banking o de servicios como mercadopago y paypal&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Robo de identidad:&lt;/strong&gt; No solo tu dinero es el importante, tu identidad tiene mucho valor dado que existe mucho que se puede hacer con ella&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Robo de Tarjetas de crédito:&lt;/strong&gt; Muchas veces las roban para venderlas o simplemente para uso personal, pero suelen ser cautelosos con el uso que le dan.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Venta de Productos:&lt;/strong&gt; Esto lo hacen incluso algunas empresas, pero muchas veces utilizan el spam como medio cautivador para vender algún producto.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hackeo de cuentas a pedido:&lt;/strong&gt; Muchas veces piden el hackeo de una cuenta y esa puede ser la tuya por eso mismo debemos tener cuidado con los datos que damos. Nunca falta el novio tóxico que quiere entrar en instagram de su pareja.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Secuestro extorsivo de la información:&lt;/strong&gt; Cuantas veces salieron publicadas fotos íntimas de personas que previamente fueron extorsionadas, y muchas tantas no nos enteramos. El secuestro extorsivo de la información suele ser muy rentable para aquellos que inician.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Venta de Software y contenido ilegal:&lt;/strong&gt; Suele venderse licencias piratas, películas, o cualquier tipo de contenido ilegalmente.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Venta de información confidencial:&lt;/strong&gt; Esto es común entre empresas o gente que manipula información sensible.&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Vulnerability Research</title><link>https://patojad.com.ar/post/2020/11/vulnerability-research/</link><pubDate>Thu, 26 Nov 2020 08:22:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/11/vulnerability-research/</guid><description>&lt;p&gt;Antes de arrancar vamos a ir con 2 definiciones que podríamos decir que son &lt;em&gt;de manual&lt;/em&gt; pero nos permitirán de acá en adelante saber de qué estamos hablando.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Vulnerabilidades:&lt;/strong&gt; La entendemos como una ausencia de un control o una falla o debilidad en un control.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Exploit:&lt;/strong&gt; Es un software que tiene la capacidad de explotar una Vulnerabilidad. Entendemos que un exploit explota solo una vulnerabilidad.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="entre-lo-bueno-y-lo-malo"&gt;
+Entre lo bueno y lo malo
+&lt;a href="#entre-lo-bueno-y-lo-malo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Cada exploit existente o cada app que es utilizada para realizar pruebas de seguridad está disponible para quien la quiera usar. Indiferentemente de si sos un Hacker Chino (y cuando hablamos de hacker lo hacemos de verdad no de gente que usa Kali para lo cual te recomiendo leer &lt;a href="https://patojad.com.ar/posts/2020/09/que-es-un-hacker/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+¿qué es un hacker?
+&lt;/a&gt;), un empleado de seguridad defensiva, o un ciberdelincuente de la DeepWeb. Lo cual hace que el trabajo, al ser mayormente colaborativo, se vea reflejado para todos los “bandos”.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-vulnerability-research"&gt;
+¿Qué es Vulnerability Research?
+&lt;a href="#qu%c3%a9-es-vulnerability-research" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Usar una traducción literal acá nos alejaría del significado real. Básicamente Vulnerability Research es la búsqueda (o también llamado investigación) de vulnerabilidades. Estas búsquedas suelen extenderse mucho más allá de lo que nosotros creemos. Se suelen hacer en:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Software:&lt;/strong&gt; Aplicaciones, programas de uso diario, etc.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dispositivos:&lt;/strong&gt; Celulares, computadores, routers, etc.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Procesos:&lt;/strong&gt; Esto se ve mayormente en empresas, aceptación de pagos, o formas de verificar, etc.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Entornos Físicos:&lt;/strong&gt; Alarmas, cerraduras electrónicas, una puerta que no cierre bien, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Y más allá de estos tipos de vulnerabilidades que debemos investigar existe una forma de clasificarlos y estas formas son:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Explotabilidad&lt;/li&gt;
+&lt;li&gt;Impacto&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Veremos más adelante en profundidad estos dos tipos. Lo interesante de Vulnerability Research es que más allá de las conocidas que podemos encontrar en los exploit o en las listas, al encontrar nuevas vulnerabilidades marcan hacia donde moverse la industria en el dia a dia.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="quienes-hacen-esto"&gt;
+¿Quienes hacen esto?
+&lt;a href="#quienes-hacen-esto" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Claramente los profesionales no son los únicos que se dedican a esto. Existen muchas personas independientes o entusiastas que se dedican a esto por diversos motivos, los cuales pueden ser, diversión, curiosidad, dinero, autosuperación, etc. Muchas herramientas son libre, gratuitas o estan a disponibilidad de todos. Por ejemplo podemos encontrar:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Kali Linux:&lt;/strong&gt; Una distro basada en Debian que busca posicionarse como la más importante en seguridad, desde mi punto de vista es que su comunidad está llena de gente que se cree hacker por usar &lt;code&gt;nmap&lt;/code&gt; o &lt;code&gt;airodump-ng&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ReadOS:&lt;/strong&gt; Una distro basada en Arch que contiene todo lo necesario para iniciarnos en el mundo de la seguridad informática&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="ciclo-de-vida-de-una-vulnerabilidad"&gt;
+Ciclo de vida de una Vulnerabilidad
+&lt;a href="#ciclo-de-vida-de-una-vulnerabilidad" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Las vulnerabilidades tienen un ciclo de vida &lt;em&gt;definido&lt;/em&gt; en cuanto a proceso o método, sin embargo el tiempo en que cada etapa existe es completamente diferente en cada caso y así mismo su resolución final.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Aplicación liberada al mercado:&lt;/strong&gt; Si bien decimos &lt;em&gt;la aplicación&lt;/em&gt; puede deberse a un producto (hardware, como los populares intel que les encanta tener vulnerabilidades) y no necesariamente es durante el lanzamiento puede estar relacionado también a una actualización.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Descubrimiento de vulnerabilidad:&lt;/strong&gt; El descubrimiento puede darse por parte de la misma empresa o por un tercero. Si bien muchas veces es público, algunas veces deciden mantener el exploit en privado.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Conocimiento del fabricante:&lt;/strong&gt; En caso de que no lo haya descubierto el mismo fabricante, esta etapa lleva un tiempo adicional que está relacionado a cuánto tarda en enterarse de dicha vulnerabilidad.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Liberación de la solución:&lt;/strong&gt; La solución está desarrollada y liberada&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Gestión de la actualización:&lt;/strong&gt; Se gestiona y distribuye la actualización con el parche correspondiente.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Recorda &lt;strong&gt;apoyarnos&lt;/strong&gt; en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p&gt;</description></item><item><title>7 errores comunes de ciberseguridad</title><link>https://patojad.com.ar/post/2020/10/7-errores-comunes-de-ciberseguridad/</link><pubDate>Fri, 30 Oct 2020 10:44:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/10/7-errores-comunes-de-ciberseguridad/</guid><description>&lt;p&gt;Como es de “común conocimiento” siempre una cadena se rompe por el eslabón más débil. En pleno siglo XXI la tecnología avanza a grandes pasos y cada vez el usuario es este eslabón fácil de romper. Una de las propuestas de este blog es intentar mejorar el día a día de sus lectores, ya sean recurrentes o casuales. Y muchas veces esto lo hacemos, como en este caso, replicando información realmente útil. Por lo cual hoy vamos a compartir información brindada por &lt;strong&gt;CSIRT-CV&lt;/strong&gt; de España. Sin más preámbulo veamos estos 7 errores comunes que debemos evitar.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="error-1-tienes-la-misma-contraseña-para-todas-tus-cuentas"&gt;
+ERROR 1: ¿Tienes la misma contraseña para todas tus cuentas?
+&lt;a href="#error-1-tienes-la-misma-contrase%c3%b1a-para-todas-tus-cuentas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.lavanguardia.com/r/GODO/LV/p6/WebSite/2019/06/04/Recortada/img_ppons_20190604-103420_imagenes_lv_colaboradores_istock-921526892-kWCH-U462671425033IgG-992x558@LaVanguardia-Web.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Usar la misma contraseña para acceder a tus redes sociales y a tu cuenta de banco no es una buena idea. Serás un blanco muy fácil para cualquier ciberdelincuente o persona malintencionada con la que te cruces en la Red.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Acá es donde todos dicen “Pero Pato, con suerte me acuerdo la fecha de mi cumpleaños como voy a manejar todas estas contraseñas” Bueno yo pensaba exactamente lo mismo y si bien la respuesta es fácil me la tuvo que decir un grande de la seguridad informática para que comience a aplicar esta maravilla. &lt;strong&gt;Usa un gestor de contraseñas&lt;/strong&gt; solo vas a tener que acordarte 1 contraseña y ahí adentro el programa solo se va a acordar de todas las demás…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="error-2-te-conectas-a-redes-wifi-públicas"&gt;
+ERROR 2: ¿Te conectas a redes WIFI públicas?
+&lt;a href="#error-2-te-conectas-a-redes-wifi-p%c3%bablicas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://jefflovesjessica.com/images/best-vpn-for-public-wifi-hotspots.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Evita conectarte a redes WIFI públicas, sobre todo, si vas a realizar operaciones bancarias. En estas redes abiertas, cualquier ciberdelincuente podría estar espiando la red y robarte contraseñas tan importantes como la de acceso a tu cuenta bancaria.&lt;/p&gt;
+&lt;p&gt;Si aún así lo haces, fíjate que sea siempre a través de HTTPS (busca el candado cerrado) para que la información vaya cifrada.&lt;/p&gt;
+&lt;p&gt;Ya lo sabes, la próxima vez, antes de engancharte a un wifi público, piénsatelo dos veces.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Entonces después de leer esto vos me decis “Pato los datos no son gratis y hay muchas redes abiertas que dan diferentes instituciones” Bueno yo hable anteriormente de la importancia de los datos. El uso de redes abiertas deberíamos hacerlo teniendo en cuenta el cifrado de las aplicaciones que usemos, o la baja importancia de un dato (No me molesta que me roben un meme, pero si me molesta que me roben el texto plano con mis futuras publicaciones, si existiera)&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="error-3-usas-contraseñas-inseguras"&gt;
+ERROR 3: ¿Usas contraseñas inseguras?
+&lt;a href="#error-3-usas-contrase%c3%b1as-inseguras" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.pandasecurity.com/es/mediacenter/src/uploads/2016/11/pandasecurity-gestor-contrase%C3%B1as-1024x683.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Parece increíble que una de las contraseñas más frecuentes siga siendo 123456. Es un error muy habitual utilizar nombre y año de nacimiento e incluso el nombre de una mascota.&lt;/p&gt;
+&lt;p&gt;Una contraseña robusta tiene que tener 8 o más caracteres, mayúsculas y minúsculas, signos de puntuación y caracteres especiales (%, $, &amp;amp;,…) y sobre todo, cámbialas periódicamente y así tus cuentas estarán siempre seguras.&lt;/p&gt;
+&lt;p&gt;No se lo pongas fácil a los ciberdelincuentes.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;“Pato, otra vez con esto, no me voy a acordar de esas contraseñas” Si estás pensando eso te recomiendo releer el error 1, acordate que solo 1 contraseña (Una que debería ser bastante compleja como T0d05!L05_D145@L330_3l_Bl0G@P4t0J4D) y todas las demás pueden ser hashes o cosas raras que tu gestor de contraseñas pueden guardarlas tranquilamente.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="error-4-cuidado-con-los-adjuntos-que-recibes-por-email"&gt;
+ERROR 4: ¡Cuidado con los adjuntos que recibes por email!
+&lt;a href="#error-4-cuidado-con-los-adjuntos-que-recibes-por-email" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://blog.ida.cl/wp-content/uploads/sites/5/2019/05/email_internet-655x470.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Si recibes un fichero adjunto desde una cuenta desconocida ¡no lo abras nunca! Probablemente sea malicioso.&lt;/p&gt;
+&lt;p&gt;Si te lo envía un conocido pero te parece “extraño”, consúltale antes de abrirlo. ¡No seas víctima del phishing!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Hoy en día no somos muchos quienes seguimos usando el email activamente (La mayoría solo tiene uno porque es requisito para registrarse) Pero aun así muchos caen en estas trampas que apelan al apuro y al poco recaudo de las personas. Tomate un tiempo y chequea las cosas solo eso basta…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="error-5-denuncia-si-eres-víctima-de-un-ciberdelito"&gt;
+ERROR 5: ¡Denuncia si eres víctima de un ciberdelito!
+&lt;a href="#error-5-denuncia-si-eres-v%c3%adctima-de-un-ciberdelito" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;![](&lt;a href="https://i1.wp.com/aldiaargentina.microjuris.com/wp-content/uploads/2020/06/shutterstock_1354181000-1.jpg?fit=800%2C421&amp;amp;ssl=1%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://i1.wp.com/aldiaargentina.microjuris.com/wp-content/uploads/2020/06/shutterstock_1354181000-1.jpg?fit=800%2C421&amp;ssl=1"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;No pienses que no se puede hacer nada. Si han suplantado tu identidad en Redes Sociales, denúncialo cuanto antes.&lt;/p&gt;
+&lt;p&gt;Tampoco pagues el rescate a los secuestradores para recuperar tu información si eres víctima de un ransomware, DENÚNCIALO. ¡No lo olvides!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Parece que no, pero es realmente denunciar esto, o hacer denuncias masivas impulsadas por la comunidad (Sólo en casos reales) Para no dejar impune a estos delincuentes&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="error-6-recuerda-mantener-la-privacidad"&gt;
+ERROR 6: ¡Recuerda mantener la privacidad!
+&lt;a href="#error-6-recuerda-mantener-la-privacidad" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.consolidatedcredit.org/es/wp-content/uploads/2019/02/Fotolia_180085577_Subscription_Monthly_M-Privacidad-de-Datos.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Un error muy común es no ser cuidadosos con la información que manejamos en nuestro lugar de trabajo y es algo que te puede traer consecuencias nefastas en cualquier carrera profesional.&lt;/p&gt;
+&lt;p&gt;Toma ciertas precauciones como cerrar siempre todas las sesiones de tus cuentas de redes sociales o de cualquier otro servicio y si te ausentas un momento, recuerda bloquear siempre tu equipo.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Creo que es algo que todos sabemos pero nunca está de más repetirlo (Nunca está demás repetirlo). No hay mucho para agregar dado que es muy claro con lo que dice.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="error-7-contraseñas-por-defecto"&gt;
+ERROR 7: ¿Contraseñas por defecto?
+&lt;a href="#error-7-contrase%c3%b1as-por-defecto" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://aurora.com.gt/wp-content/uploads/2015/06/ip-router-nexxt-aurora.com_.gt_.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;¿Has cambiado la contraseña que viene por defecto en el router de tu casa o negocio?&lt;/p&gt;
+&lt;p&gt;Si la respuesta es no, cámbiala lo antes posible y te ahorrarás muchos quebraderos de cabeza en el caso de que ciberdelincuentes consigan acceder a la información de la compañía a la que pertenece tu dispositivo.&lt;/p&gt;
+&lt;p&gt;Además, recuerda mantener siempre actualizado su firmware. Tanto el cambio de contraseña como la actualización del firmware lo deberías hacer en cualquier dispositivo IoT que tengas en casa.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;No sé si es peor que esto siga pasando o que también pase en grandes empresas… Esta clase de cosas puede hacer que nuestro wifi quede inaccesible lo cual es realmente molesto… Siempre se deben cambiar las contraseñas por defecto (Se los digo yo que deje la contraseña del wifi que venía en el equipo)&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Recorda &lt;strong&gt;apoyarnos&lt;/strong&gt; en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p&gt;</description></item><item><title>Intro a la Seguridad Informática</title><link>https://patojad.com.ar/post/2020/06/intro-a-la-seguridad-inform%C3%A1tica/</link><pubDate>Mon, 01 Jun 2020 08:10:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/06/intro-a-la-seguridad-inform%C3%A1tica/</guid><description>&lt;p&gt;En esta ocasión de alguna forma nos permitimos listar una serie de publicaciones relacionada entre sí con el fin de generar unos &lt;strong&gt;conceptos básicos&lt;/strong&gt; como base para la seguridad informática. Muchos relacionan esto con el “hacking” lo cual por tener las mismas bases es perfectamente válido.&lt;/p&gt;
+&lt;p&gt;El contenido es netamente lectura, sin videos de por medios porque comprende muchos conceptos que son requeridos para comenzar a entender si queremos entrar en este mundo. En el campo de la informática una forma de aprender es probando y realizando cosas. Sin embargo &lt;strong&gt;soy partidario de que debemos tener un poco de conocimiento teórico previo&lt;/strong&gt; que nos ayudará a entender que pasa y muchas veces a resolver inconvenientes.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="las-publicaciones"&gt;
+Las publicaciones
+&lt;a href="#las-publicaciones" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/posts/2020/01/direcciones-ips-nuestra-huella-en-la-red/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Direcciones IP: Nuestra Huella en la Red
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/posts/2020/02/qu%c3%a9-hay-detr%c3%a1s-de-una-ip/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+¿Qué hay detrás de una IP?
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/posts/2020/02/servidor-ftp-qu%c3%a9-es-instalando-nuestro-propio-servidor/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Servidor FTP qué es, instalando nuestro propio servidor
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/posts/2020/02/comandos-ftp/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Comandos FTP
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/posts/2020/02/ftp-problemas-de-conexion-port-y-pasv/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+FTP problemas de conexion, PORT y PASV
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2020/02/ingenieria-social-informatica/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Ingenieria social informatica
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/posts/2020/02/que-es-la-virtualizacion/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+¿Qué es la Virtualización?
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/posts/2020/04/el-papel-de-javascript-en-la-seguridad/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+El papel de Javascript en la seguridad
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/posts/2020/04/servidor-proxy.-oculta-tu-identidad/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Servidor proxy. Oculta tu identidad
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Con estas pocas lecturas alcanza para comenzar a entender los conceptos iniciales de la seguridad informática.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="bonus"&gt;
+Bonus
+&lt;a href="#bonus" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En este mundo es importante estar al día con los datos y las actualizaciones, por lo cual te dejamos un bonus que es realmente interesante para todos los usuarios centrados en la seguridad&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/posts/2020/03/http/3-una-internet-mas-rapida/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+HTTP/3 ¿Una internet mas rapida?
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Recorda &lt;strong&gt;apoyarnos&lt;/strong&gt; en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p&gt;</description></item><item><title>Que es la Virtualizacion</title><link>https://patojad.com.ar/post/2020/02/que-es-la-virtualizacion/</link><pubDate>Tue, 18 Feb 2020 08:21:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/02/que-es-la-virtualizacion/</guid><description>&lt;p&gt;La virtualización de servidores, sistemas operativos y redes juega un papel fundamental tanto para los administradores de sistemas como para los expertos en seguridad informática. Para los primeros, los administradores de sistemas, les brinda una herramienta perfecta para separar unos servicios de otros y ganar en seguridad, ya que si un &amp;ldquo;hacker&amp;rdquo; compromete un servicio no tendrá acceso a todo el sistema.&lt;/p&gt;
+&lt;p&gt;Desde el punto del vista del &amp;ldquo;hacking ético&amp;rdquo; esta herramienta nos dará la posibilidad de crear entornos virtuales para poder hacer nuestras pruebas. Otra de las ventajas de la virtualización es que si quieres probar un sistema operativo antes de decidir si instalarlo en tu disco duro modificando el sistema de arranque podrás instalarlo sin necesidad de hacer ningún cambio en tu PC, tal y como si fuera un programa más.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-la-virtualización"&gt;
+¿Qué es la virtualización?
+&lt;a href="#qu%c3%a9-es-la-virtualizaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://blog.desdelinux.net/wp-content/uploads/2019/01/virtualbox-virtualizacion-importancia-blog-desdelinux-830x531.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;La virtualización consiste en términos generales en emular mediante algún programa o sistema un hardware sobre el que montar un servicio, servidor o red. De esta forma se crea lo que conocemos como una máquina virtual. Así, con un solo ordenador tu puedes crear varias máquinas virtuales e instalar en cada una de ellas el software (ya sea un windows, una distribución de Linux, o MacOS) que necesites para trabajar. Esto es realmente interesante no solo para el usuario que se dedica de forma profesional a la informática sino para todos los usuarios.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="por-qué-necesitamos-la-virtualización-como-pentesters"&gt;
+¿Por qué necesitamos la virtualización como pentesters?
+&lt;a href="#por-qu%c3%a9-necesitamos-la-virtualizaci%c3%b3n-como-pentesters" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En primer lugar vamos a necesitar vitualizar servidores para poder trabajarlos sin hacer cambios en nuestro equipo. Si nosotros pretendemos instalar cada servicio o porgrama en nuestro PC conseguiríamos que finalmente fuera lento e insostenible para trabajar. En cambio si nosotros instalamos el software que queremos en una máquina virtual nuestro pc no se resentirá, podremos trabajarlo como si lo estuvieramos instalando en un ordenador de pruebas sin comprometer la seguridad de nuestro equipo. Algo que a nosotros como pentesters debería ser una prioridad.&lt;/p&gt;
+&lt;p&gt;![](&lt;a href="https://lh3.googleusercontent.com/proxy/LxCYzwleqBmVFo4TXyqQ9Qa89B30L07--55TmGLLKlkBtGrGHAkxoWKDioNhh_jYpXT7LL7L7F3dTErXZvKa0XzP4-wnZCpBh7A9I6LCCW8dWn2MjO9JA7niVwV2CTMzaKWSIPV_4c0o8BK7Wo8VeA%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://lh3.googleusercontent.com/proxy/LxCYzwleqBmVFo4TXyqQ9Qa89B30L07--55TmGLLKlkBtGrGHAkxoWKDioNhh_jYpXT7LL7L7F3dTErXZvKa0XzP4-wnZCpBh7A9I6LCCW8dWn2MjO9JA7niVwV2CTMzaKWSIPV_4c0o8BK7Wo8VeA"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;p&gt;Otra razón de peso para trabajar con máquinas virtuales en el entorno de intrusiones es que podremos instalarnos distribuciones de pentesting &amp;ldquo;profesional&amp;rdquo; como lo es Kali Linux (a fines practivos de esta saga es muy util) sin necesidad de instalarlo directamente en nuestro PC obligándonos a modificar el sistema de arranque. Aunque como pentester lo normal es que lo tengas instalado sin virtualizar, para empezar, y ver cómo trabajan estas distribuciones para pentester lo ideal es virtualizarlas, familiarizarse con su uso y finalmente acabar instalándola como sistema operativo arrancable.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ATENCION: Recuerden que a ducha distribucion no es recomendada, si nosotros buscamos aprender mas sobre todas las herramientas de intrusiones y demas es importante que aprendamos a compilar el codigo y no aceptemos binarios agenos, un buen &amp;ldquo;hacker&amp;rdquo; (notaran que esta palabra la pongo entre comillas porque me da gracia el mal uso que le estamos dando) siempre tiene sus propias herramientas bien seguras&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;También te pasará en multitud de ocasiones que quedrás auditar un programa en una versión concreta, en un entorno concreto. Gracias a la virtualización podrás crear ese entorno en tu PC y realizar todas las pruebas de pentesting que consideres necesarias realizar para finalmente aplicarlas en el entorno real si fuera necesario.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="ventajas-de-la-virtualización-para-administradores"&gt;
+Ventajas de la virtualización para administradores
+&lt;a href="#ventajas-de-la-virtualizaci%c3%b3n-para-administradores" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Como administrador de sistemas o redes trabajar virtualizando servidores, aplicaciones o servicios es una estrategía que cada día se está poniendo en práctica con más énfasis. Los beneficios de la virtualización para los administradores se pueden dividir en estos grupos:&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.letscloud.io/blog/wp-content/uploads/2019/07/tools-of-sys-admin.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;SEGURIDAD&lt;/strong&gt;. Supongamos que necesitas instalar un servidor LAMP (Linux, Apache, MySQL, PHP, esto es un servidor para montar páginas web) y un servidor de archivos puede optar por dos opciones. Instalar en un único servidor ambos servicios, LAMP y servicio para compartir archivos. Todo te funcionaría bien, ¿pero que ocurriría si un hacker encontrara una vulnerabilidad en tu web y pudiera tomar el control del servidor? Que no solo tendría acceso a los archivos de tu web, sino que también a todos los archivos que tienes compartidos, con lo cual desde un fallo en la web se ha comprometido todos los archivos de tue empresa.
+En cambio si se hubiera escogido una solución virutalizada se habría podido crear en el serivodor 2 máquinas virtuales. En la primera se instalaría el servidor LAMP, y en la segunda se instalaría el servidor de archivos. En este escenario el hacker que consiga encontrar una vulnerabilidad en la web solo tendría acceso a la máquina virtual que aloja el servidor LAMP. Y aunque habría conseguido comprometer tu web los archivos de tu empresa aún segurían aislados y seguros. Es por este motivo por el que para muchos admnistradores la solución ideal es crear una máquina virtual por cada servicio que tenga un riesgo medio/alto de ser vulnerado.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;BACKUPS&lt;/strong&gt;. La mayoría de los servicios que utilizamos hoy en día disponen de mecanismos para hacer copias de seguridad y poder restaurarlas en caso de fallos. Pero también es cierto que las copias de seguridad a veces no son completas, contienen datos pero no guardan configuraciones o perfiles específicos. Si utilizamos máqunias virtuales, nosotros podemos programar en el servidor de forma automática que cada día haga una copia de la máquina virtual, de modo que si queremos restaurar una copia de seguridad bastará con arrancar la máquina que tenemos copiada y funcionará sin tener que tomar ninguna medida más.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PROTECCIÓN CONTRA ERRORES HARDWARE&lt;/strong&gt;. Uno de los problemas que más daño pueden crear a un administrador de sistemas es que falle un componente crítico del servidor, la placa base por ejemplo. Si esto ocurre y hay que sustituir este elemento habrá que reinstalar todo el sistema operativo, configurarlo, instalar los programas, configurarlos y cargar las copias de seguridad para poder seguir trabajando. Todo esto tiene un coste en tiempo y esfuerzo bastante alto. Sin embargo si estamos trabajando con máquinas virtuales si falla el servidor podremos sustituirlo, copiarle las máquinas virtuales y arrancarlas. Esta solución no te llevará ni una décima parte de tiempo que si tuvieras que reconfigurarlo todo.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MIGRACIÓN DE SERVIDORES SIN RECONFIGURACIONES&lt;/strong&gt;. Aplicando lo dicho en el punto anterior te puedes dar cuenta de que si tu servidor se queda pequeño y necesitas uno mas grande tan solo necesitas conectarlo pasarle las máquinas virtuales y empezar a trabajar, sin necesidad de reconfigurar todo lo que tenías hecho en el servidor antiguo.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;REALIZAR PRUEBAS SIN RIESGO&lt;/strong&gt;. Una de las características más interesantes de la virtualización es que podemos hacer &amp;ldquo;puntos de retorno&amp;rdquo; o &amp;ldquo;Snapshots&amp;rdquo;. Esto significa que si nosotros estamos dudando sobre si instalar un programa o no, podemos crear un punto de retorno &amp;ldquo;snapshot&amp;rdquo;, instalar lo que necesitemos y si detectamos alguna incompatibilidad y creemos que lo mejor habría sido no instalarlo podemos volver al punto de retorno y la máquina virtual volverá al estado en el que hicimos el snapshot, sin quedar ningún rastro de todo lo que hayamos hecho tras el punto de retorno.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="en-el-dia-a-dia"&gt;
+En el dia a dia
+&lt;a href="#en-el-dia-a-dia" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Otro punto extra que nos ofrecen las máquinas virtuales es que como nos permiten virtualizar cualquier sistema operativo podemos tener un sistema operativo en el que no aparezcan datos sobre nosotros, no aparezca nuestro nombre real, y no hayamos introducido ningún dato personal nuestro. Con este sistema operativo &amp;ldquo;neutro&amp;rdquo; nosotros podemos navegar por internet sin dejar rastro de nuestro nombre.&lt;/p&gt;
+&lt;p&gt;En lo personal tambien lo utilizo para probar software que desarrollo o modifico sin afectar mi sistema base.&lt;/p&gt;
+&lt;p&gt;Por útimo y no menos importante a nosotros como usuarios de la red y programas a veces nos encontramos que no estamos seguros si algún programa trae malware incrustado, sospechamos quizá por la procedencia que el programa no está limpio, lo necesitamos y no sabemos que hacer. Si lo instalamos en nuestro ordenador tal cual corremos el riesgo de que quede infectado por el malware que traiga, si no lo instalamos no podemos hacer uso del programa. En este punto las máquinas virtuales también nos pueden resultar de gran ayuda ya que podemos instalar el programa dentro de la máquina virtual, analizar si traía malware y decidir si instalaro en nuestro sistema operativo de trabajo o dejarlo virtualizado.&lt;/p&gt;</description></item><item><title>Ingenieria social informatica</title><link>https://patojad.com.ar/post/2020/02/ingenieria-social-informatica/</link><pubDate>Mon, 17 Feb 2020 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/02/ingenieria-social-informatica/</guid><description>&lt;p&gt;En el mundo &amp;ldquo;hacking&amp;rdquo; no hay programa o métodología estándar para conseguir hacer una intrusión a cualquier tipo de sistema, existen un conjunto de técnicas, métodos y/o herramientas que bien utilizadas pueden dar con mayor o menor posibilidades el éxito en este tipo de busquedas. El uso de esta técnica está al alcance de cualquiera ya que no se necesitan conocimientos previos para poder llevarla a cabo. Ahora bien, si la está utilizando un usuario experto o con mucha practica podrá obtener información relevante para poder alcanzar sus objetivos con una mayor efectivadad.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-la-ingenieria-social"&gt;
+¿Qué es la ingenieria social?
+&lt;a href="#qu%c3%a9-es-la-ingenieria-social" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;La definición de ingeniería social es el arte de sacar información a alguien sin que la persona que está siendo &amp;ldquo;atacada&amp;rdquo; se de cuenta&lt;/strong&gt;. Este sería el resumen corto, y en un sentido mas ámplio se utiliza también para inducir al usuario a realizar acciones que o bien le pondrán en una posición de baja seguridad o bien nos ayudará a crear una situación en la que nosotros como atacantes estamos en posicón ventajosa para lograr el objetivo que estamos persiguiendo. Esto no es algo que se aplique exclusivamente en el ámbito informático, es una técnica basada en el engaño y la confianza por parte de la víctima.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cómo-puede-afectarte-la-ingenería-social-si-tienes-un-hijo"&gt;
+¿Cómo puede afectarte la ingenería social si tienes un hijo?
+&lt;a href="#c%c3%b3mo-puede-afectarte-la-ingener%c3%ada-social-si-tienes-un-hijo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si eres padre de un menor de edad que está empezando a coquetar en internet deberías poder ser capaz de ver con quien se está relaccionando, ya que por desgracia para todos sabemos que puede convertirse en el objetivo de algún adulto con malas intenciones. Al igual que a todos nos han dicho alguna vez &amp;ldquo;no hables con desconocidos&amp;rdquo; en la red ocurre lo mismo. Solo que en la red es mas dificil detectar para el crío saber si realmente está hablando con otro chaval o con alguien que se &lt;strong&gt;está haciendo pasar por un niño&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="http://cursohacker.es/sites/default/files/styles/large/public/images/20140901015913.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Esta gente suele ganarse la confianza de tus hijos haciéndoloes creer que son también menores y poco a poco se los van llevando a su terreno hasta que tu hijo hará exactamente lo que el adulto pretendía desde el principio.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="ingeniería-social-aplicada-a-empresas"&gt;
+Ingeniería social aplicada a empresas
+&lt;a href="#ingenier%c3%ada-social-aplicada-a-empresas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si eres un empresario ten presente desde ya la siguiente frase en mente &amp;ldquo;&lt;strong&gt;una cadena es tan fuerte como eslabón mas débil&lt;/strong&gt;&amp;rdquo;. Esto es, de nada te servirá que tu red sea la más segura de la zona si tus empleados no está bien educados. Si no tienes un protocolo de actuación bien definido un atacante ducho en ingeniería social podría sacar información suficiente de tu empresa sin ser descubierto en tan solo unas horas.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="http://cursohacker.es/sites/default/files/images/20140901020210.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;El siguiente es un ejemplo de &lt;strong&gt;ingeniería social&lt;/strong&gt; real que se ha dado y se dará en multitud de ocasiones.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Un atacante digamos que quiere acceder a las entrañas de la empresa &amp;ldquo;Inseguridad informática SL&amp;rdquo; descubre que tiene una web &lt;a href="http://www.inseguridadinformaticasl.com" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+www.inseguridadinformaticasl.com
+&lt;/a&gt; y en ella ve que aparece el típico logo de la empresa que le ha creado la web. Ve además que que la web tiene un formlario de contacto y que no está muy protegido contra el spam. Con este escenario su objetivo será colarse en la empresa para instalar un software de control remoto (un troyano) en un ordenador de dentro de la empresa. ¿Cómo podría actuar? En primer lugar podría utilizar el formulario de contacto para ver si hay alguien al otro lado que responde a los correos que llegan. Lo que está buscando es dar con la persona que hay detrás de la web en la empresa. Una vez verifica que hay alguien ya sabe que mediante ese formulario interactúa con un empleado y esto ya aunque no lo creas es la primera vía de entrada a la empresa. Si es hábil podrá averiguar el nombre de la persona que responde a ese formulario de contacto e incluso si tiene una extensión telefónica dentro de la empresa. Ya lo ha hecho, tras unos días haciendo esta indagación ya sabe que Manolo Garrido con la extensión 001 es quien gestiona el formulario de contacto de la web. Siguiente paso, poner nervioso a Manolo. Mediante algún programa de SPAM podría hacer que le llegaran cientos de peticiones falsas mediante este formulario de contacto. Manolo no sabe bien qué está ocurriendo y se está poniendo nervioso, evidentemente no sospecha nada de que esto es parte de una estrategía de ataque mayor. En mitad de este caos el atacante podría hacer una llamada a la empresa diciendo que es alguien de la empresa que le ha hecho la página web y que le han dicho que hable con Manolo porque han detectado una incidencia (se la está jugando, porque podría ser que Manolo ya estuviera en contacto con la empresa de la web por el caos en el que está inmerso pero lo único que puede pasar es que su ataque falle y tenga que buscar otra estrategía). Lo normal sería que Manolo aún esté un poco sin saber bien que hacer, le pasan una llamada, y le dicen &amp;ldquo;te paso a Juan (nuestro atacante) es de la empresa que ha hecho la web&amp;rdquo;. Ya tenemos a nuestro atacante hablando directamente con Manolo. Ahora Juan le podrá decir a Manolo que ha detectado que la web está funcionando mal y que se está generando un montón de correos porque en el ordenador de Manolo está ocurriendo el problema de turno que se le ocurra a Juan, su objetivo concertar una cita con Manolo dentro de la empresa. Juan llega a la empresa, pregunta por Manolo y le llevan a su despacho, Manolo le dice que está que no puede trabajar debido a todo lo que le está entrando y Juan le pide que le deje ver su ordenador para ver qué está ocurriendo ya que ha detectado en la web que su PC se están haciendo peticiones extrañas, mete su pendrive con su &amp;ldquo;antivirus&amp;rdquo; y acaba de hacer que el ordenador de Manolo sea controlable de forma remota desde cualquier lugar del mundo, a la par que hace esto detiene su programa que estaba haciendo SPAM, Manolo ve que realmente el problema se ha solucionado y le da las gracias a Juan. Juan vuelve a casa y ya puede conectarse al PC de Manolo, acaba de hacer una intrusión sin que Manolo sospeche lo mas mínimo. Esto es solo un ejemplo de intrusión real mediante ingenería social aplicada a empresas.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="ingeniería-social-aplicada-a-obtener-contraseñas-de-correo"&gt;
+Ingeniería social aplicada a obtener contraseñas de correo
+&lt;a href="#ingenier%c3%ada-social-aplicada-a-obtener-contrase%c3%b1as-de-correo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si bien que cada vez que abrimos una cuenta de correo electrónico con el proveedor que sea nos obliga a crear una contraseña también nos suele dar un método alternativo en caso de que olvidemos la contraseña. Este método alternativo suele ser escoger una pregunta a la cual solo nosotros conozcamos la respuesta y nos sea fácil recordar. Esto tiene un problema y que muchas personas eligen preguntas del tipo: &amp;ldquo;Mi profesor favorito&amp;rdquo;, &amp;ldquo;Mi equipo de futbol favorito&amp;rdquo;, &amp;ldquo;Mi actor favoríto&amp;rdquo; &amp;ldquo;Nombre de mi abuela materna&amp;rdquo;&amp;hellip; Evidentemente si pierdes tu clave, le das a recuperar contraseña olvidada y el sistema te hace cualquiera de esas preguntas las vas a poder responder sin muchos problemas. Pero precisamente este es el problema&amp;hellip;&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://rincondelgeek.com/wp-content/uploads/2019/01/tecnicas-de-ingenieria-social.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Si un atacante descubre que tienes una pregunta de ese estilo podrá entablar una conversación contigo y sacarte el tema de forma disimulada para que tu mismo le des la respuesta. En cuanto tu le des la respuesta estará en posición de hacerse pasar por tí respondiendo correctamente a la pregunta que el sistema de recuperación de claves le está formulado. Este método no suele ser muy efectivo, pero si que es cierto que si el atacante conoce a la víctima y la pregunta es sencilla podrá hacer un par de pruebas que le llevarán menos de 5 minutos antes de descartar el método.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="ingeniería-social-aplicada-a-intrusión-en-equipos"&gt;
+Ingeniería social aplicada a intrusión en equipos
+&lt;a href="#ingenier%c3%ada-social-aplicada-a-intrusi%c3%b3n-en-equipos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El objetivo en este tipo de escenarios es inducir a la víctima a descargar malware en su equipo. En función de los conocimientos informaticos de la posible víctima al atacante le será más fácil o difícil engañar a su objetivo. Un ejemplo muy común es colgar una web falsa con algún tipo de software malicioso, y después ya sea por correo electrónico, chat o cualquier medio generarle un interés a la víctima para que visite la web, si además se conoce el navegador que suele utilizar se podría prepara un exploit que con solo visitar la web se le instalara el malware. De ahí que si el atacante es capaz de hacer una página con esas características y suma la ingenería social podrá lograr su objetivo.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="ingenieria-social-resumen-de-ejemplos"&gt;
+Ingenieria social resumen de ejemplos
+&lt;a href="#ingenieria-social-resumen-de-ejemplos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Como habrás podido comprobar la ingeniería social es casi siempre una técnica de apoyo a otras técnicas, y es haciendo la suma de todas como ciertos atacantes logran sus objetivos. En ciertas ocasiones buscar una vulnerabilidad en un software, red o servidor puede ser una tarea tediosa, llevarte horas y horas y nadie te garantiza tener éxito en la intrusión. Sin embargo la vulnerabilidad puede estar en la persona, es decir si la persona es vulnerable a estos ataques será el esabón más débil de la cadena y será ese eslabón el que habrá comprometido la seguridad de todo el sistema. &lt;strong&gt;Las redes sociales, sobre todo si tienes un perfil público&lt;/strong&gt; pueden ser una mina de información para alguien que busca la pieza que le falta para poder poner en marcha su estrategía de ataque. Ten en cuenta esta posibilidad en tu día a día y plantéate siempre la información que estás dando y a quién.&lt;/p&gt;</description></item></channel></rss>

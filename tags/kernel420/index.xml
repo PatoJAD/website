@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kernel420 on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/kernel420/</link><description>Recent content in Kernel420 on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Mon, 24 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/kernel420/index.xml" rel="self" type="application/rss+xml"/><item><title>Esta Navidad nos llegó el Kernel 4.20</title><link>https://patojad.com.ar/post/2018/12/esta-navidad-nos-lleg%C3%B3-el-kernel-4.20/</link><pubDate>Mon, 24 Dec 2018 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2018/12/esta-navidad-nos-lleg%C3%B3-el-kernel-4.20/</guid><description>&lt;p&gt;Hace pocas horas y después de dos meses de desarrollo, &lt;strong&gt;Linus Torvalds anunció la nueva versión del Kernel de Linux 4.20&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Que entre los cambios más notables en esta nueva versión del Kernel 4.20 se encuentran diversas correcciones en cuanto a errores y sobre todo soporte a diversos dispositivos.&lt;/p&gt;
+&lt;p&gt;En esta nueva versión del Kernel de Linux se hicieron 14.997 parches de 1857 Desarrolladores a la nueva versión, el tamaño del parche fue de 49 MB (los cambios afectaron a 11,402 archivos, se agregaron 686,104 líneas de código, 318945 líneas se eliminaron).&lt;/p&gt;
+&lt;p&gt;Aproximadamente el 47% de todos los cambios presentados en 4.20 están relacionados con los controladores de dispositivos, aproximadamente el 17% de los cambios están relacionados con la actualización de códigos específicos para arquitecturas de hardware, el 14% están relacionados con la pila de red, el 3% son sistemas de archivos y el 4% son subsistemas internos del Kernel.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/zB7WMNjX/Linux-kernel-4-20-released.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-hay-de-nuevo-en-el-kernel-de-linux-420"&gt;
+¿Qué hay de nuevo en el Kernel de Linux 4.20?
+&lt;a href="#qu%c3%a9-hay-de-nuevo-en-el-kernel-de-linux-420" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Lo primero que merece la pena mencionar es el soporte para los aceleradores gráficos incluidos en las APU Picasso y Raven 2, además de haber avanzado en el soporte de las futuras GPU Vega 20. Es bueno saber que aparentemente no se tendrá que esperar demasiados meses para ver las futuras gráficas bien soportadas en Linux. Además, también tenemos mejoras en el rendimiento de GPUVM en AMDGPU (el driver libre para GPU “recientes” de AMD) y aceleración de JPEG en VCN en las APU Raven Ridge si se combina con Mesa 18.3, ya que la versión del driver del kernel utilizada puede condicionar hasta qué punto podemos exprimir la pila encarga de las API gráficas. En CPU nos encontramos con un soporte muy inicial de Zen 2.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="speck-se-ha-ido"&gt;
+Speck se ha ido
+&lt;a href="#speck-se-ha-ido" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El controvertido Speck recientemente agregado con Linux 4.17 en el algoritmo de encriptación del Kernel fue eliminado en Linux 4.20.&lt;/p&gt;
+&lt;p&gt;Dado que Google privó de la confianza del código de Android realmente destinado. Esto no se debió a la tecnología, ya que el algoritmo fue desarrollado por la NSA.&lt;/p&gt;
+&lt;p&gt;Y la estandarización de este se le negó, ya que la NSA no estaba dispuesta a responder preguntas detalladas sobre el algoritmo.&lt;/p&gt;
+&lt;p&gt;Además, la virtualización se ha mejorado con KVM, que ahora permite máquinas virtuales a través de la virtualización anidada en una máquina virtual.&lt;/p&gt;
+&lt;p&gt;El soporte también está disponible para el Raspberry Pi Model 3. En el futuro, la pila TCP entregará paquetes con un nuevo algoritmo, que no solo debería ser más rápido sino también más seguro.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="nuevos-protocolos"&gt;
+Nuevos protocolos
+&lt;a href="#nuevos-protocolos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En este Kernel se implementó un nuevo programador de tráfico &lt;em&gt;“taprio”&lt;/em&gt;, que permite administrar el envío de paquetes de acuerdo con las series de tiempo generadas anteriormente.&lt;/p&gt;
+&lt;p&gt;El método de programación se define en la especificación IEEE 802.1Qbv, tiene en cuenta los requisitos para la transmisión de tráfico sensible al tiempo de entrega de paquetes (por ejemplo, flujos de video y audio) y utiliza diferentes intervalos de tiempo para diferentes clases de tráfico.&lt;/p&gt;
+&lt;p&gt;Para el protocolo rtnetlink, se implementa un modo de comprobación estricta (“comprobación rígida”), que permite garantizar que la información relevante se transmita al espacio del usuario correspondiente a la solicitud entrante;&lt;/p&gt;
+&lt;p&gt;Se agregó la capacidad de filtrar volcados con información de enrutamiento por los protocolos utilizados (por ejemplo, para separar rutas de diferentes demonios de enrutamiento), tipos de rutas (por ejemplo, para asignar unicast)&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="el-id-de-la-tabla-de-enrutamiento-y-la-puerta-de-enlace-más-cercana-nexthop"&gt;
+El ID de la tabla de enrutamiento y la puerta de enlace más cercana (nexthop).
+&lt;a href="#el-id-de-la-tabla-de-enrutamiento-y-la-puerta-de-enlace-m%c3%a1s-cercana-nexthop" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Dichos filtros han sido soportados durante mucho tiempo en iproute2, pero se implementaron en el espacio del usuario. Mover los filtros al espacio del kernel le permite aumentar la eficiencia de los grandes sistemas de enrutamiento basados ​​en Linux.&lt;/p&gt;
+&lt;p&gt;En la implementación de puentes de red (subsistema de puentes), se ha agregado la capacidad de ver estadísticas de VLAN en el contexto de puertos individuales.&lt;/p&gt;
+&lt;p&gt;El soporte para 5 y 6 canales para la banda de 60 GHz se ha agregado a la pila inalámbrica ieee80211, así como la capacidad de habilitar la funcionalidad FTM Responder desde el espacio del usuario.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/WbCZxXMr/Linux-Kernel-5-featured.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="y-el-kernel-50-para-cuando"&gt;
+¿Y el Kernel 5.0 para cuando?
+&lt;a href="#y-el-kernel-50-para-cuando" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Finalmente, muchos esperaban que el nuevo Kernel sería análogo al cambio a 4.0 puesto que después del 4.19 ahora se esperaba la versión 5.0.&lt;/p&gt;
+&lt;p&gt;Sin embargo, dado que Torvalds no quiere ser arreglado en un esquema, se dijo que Linux 5.0 vendrá en 2019. Aunque en una fecha estimada no se sabe, ya que de momento los planes para la próxima versión continúan para la versión 4.21.&lt;/p&gt;</description></item></channel></rss>

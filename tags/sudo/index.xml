@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sudo on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/sudo/</link><description>Recent content in Sudo on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Wed, 17 Jun 2020 09:36:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/sudo/index.xml" rel="self" type="application/rss+xml"/><item><title>Vaciar la papelera de root</title><link>https://patojad.com.ar/post/2020/06/vaciar-la-papelera-de-root/</link><pubDate>Wed, 17 Jun 2020 09:36:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/06/vaciar-la-papelera-de-root/</guid><description>&lt;p&gt;No se si realmente esto le pasa a todos pero alguna vez nos queda en la papelera ese archivo que el filemanager no puede borrar y se asienta ahí como un archivo intocable ocupando una parte de nuestro disco (aunque sea mínimo) pero estando siempre ahí para molestarnos con su presencia&amp;hellip;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="solución"&gt;
+Solución
+&lt;a href="#soluci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Lamentablemente para todos aquellos que no son fanáticos de la terminal yo sí lo soy, no porque crea que todos debieran usarla, sino porque en mi tiempo en linux entendí que es la forma mas rapida y sencilla de solucionar algunos problemas. Por lo cual lo que traigo hoy es esa línea de la terminal que nos permite vaciar la papelera como root para que no quede nada vivo, y esto podemos hacerlo de la siguiente forma:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo rm -rf ~/.local/share/Trash/*
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;¡ATENCIÓN!&lt;/strong&gt; Esto no tiene vuelta atrás por lo cual es posible que si borras algo que querías recuperar no puedas hacerlo de forma sencilla, te recomiendo saber bien que tenes en la papelera para evitar problemas…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="entender-para-hacer"&gt;
+Entender para hacer
+&lt;a href="#entender-para-hacer" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Como siempre digo es importante entender lo que estamos haciendo porque lo más importante es aprenderlo (&lt;em&gt;OJO no digo aprender de memoria pero siempre que leemos para qué funciona algo después nuestro cerebro nos da la info cuando lo vemos y es más fácil entender qué está pasando en muchos casos…&lt;/em&gt;). Por lo cual dejamos una &lt;strong&gt;mínima&lt;/strong&gt; explicacion de que es cada parte de este comando que dejamos ahí…&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;sudo&lt;/strong&gt; muy popular es ya el comando que nos permite obtener todos los &lt;strong&gt;privilegios&lt;/strong&gt; de administrador&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;rm&lt;/strong&gt;: nos sirve para eliminar archivos o carpetas &lt;em&gt;por lo tanto debe ejecutarse con mucho cuidado, especialmente si estás como superusuario porque es amigo fiel de las cagadas&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-f&lt;/strong&gt;: esa &lt;em&gt;«f»&lt;/em&gt; es de &lt;strong&gt;«force»&lt;/strong&gt;, porque no nos gusta las terminales que hacen demasiadas preguntas, a la hora de borrar archivos. Es más bien como un “si a todo” con posibilidad de venderle el alma al demonio!&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-r&lt;/strong&gt;: tiene una función recursiva, elimina las carpetas contenidas contenidas en la papelera (Trash) y todo su contenido. Digamos que limpiamos hasta lo mas recóndito del directorio&amp;hellip;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;~/.local/share/Trash/*:&lt;/strong&gt; Es la dirección donde está la papelera, el símbolo inicial (creo que se llama &lt;em&gt;«virgulilla»&lt;/em&gt;) nos sirve para identificar el directorio principal del usuario root y el asterisco final es una especie de comodín para eliminar todas las carpetas incluidas en Trash.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="bonus"&gt;
+Bonus
+&lt;a href="#bonus" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Ya entendiendo el comando por ahí queramos jugar un poco más con la terminal, por lo cual vamos (antes de borrar) a revisar que tiene nuestra papelera desde la terminal, comando de terminal muy importante que nos va a servir muchisimo…&lt;/p&gt;
+&lt;p&gt;Primero nos logueamos como &lt;strong&gt;superusuario&lt;/strong&gt; &lt;em&gt;(el guión nos va a servir para cambiarnos al directorio de root)&lt;/em&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;su -
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;nos vamos a la papelera con el conocido &lt;em&gt;cd&lt;/em&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd ~/.local/share/Trash/*
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;y echamos un vistazo a lo que contiene &lt;em&gt;ls&lt;/em&gt; (incluyendo los archivos ocultos &lt;em&gt;-a&lt;/em&gt;):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ls -a
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;en especial a la carpeta &lt;em&gt;carpeta&lt;/em&gt; siendo carpeta el nombre de cualquier carpeta que tengamos nosotros dentro de la papelera:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ls -a carpeta
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Fuente: La Mirada del Replicante&lt;/p&gt;</description></item></channel></rss>

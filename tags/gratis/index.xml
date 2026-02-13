@@ -1,0 +1,1469 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gratis on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/gratis/</link><description>Recent content in Gratis on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Wed, 30 Aug 2023 11:23:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/gratis/index.xml" rel="self" type="application/rss+xml"/><item><title>Cómo Actualizar aaPanel y Mantener tu Servidor Web al Día</title><link>https://patojad.com.ar/post/2023/08/c%C3%B3mo-actualizar-aapanel-y-mantener-tu-servidor-web-al-d%C3%ADa/</link><pubDate>Wed, 30 Aug 2023 11:23:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/08/c%C3%B3mo-actualizar-aapanel-y-mantener-tu-servidor-web-al-d%C3%ADa/</guid><description>&lt;p&gt;Mantener tu servidor web actualizado es esencial para garantizar su rendimiento, seguridad y funcionalidad. En este artículo, aprenderás cómo actualizar &lt;strong&gt;aaPanel&lt;/strong&gt;, una herramienta de panel de control que simplifica la administración de servidores web, y te proporciona una guía paso a paso para llevar a cabo este proceso.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-aapanel"&gt;
+¿Qué es aaPanel?
+&lt;a href="#qu%c3%a9-es-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;aaPanel&lt;/strong&gt; es un panel de control de hosting web gratuito y de código abierto que facilita la administración de servidores. Proporciona una interfaz gráfica intuitiva y amigable que permite a los usuarios gestionar servicios como &lt;strong&gt;Apache&lt;/strong&gt;, &lt;strong&gt;Nginx&lt;/strong&gt;, &lt;strong&gt;PHP&lt;/strong&gt;, bases de datos y más, sin necesidad de conocimientos técnicos avanzados.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="importancia-de-actualizar-aapanel"&gt;
+Importancia de Actualizar aaPanel
+&lt;a href="#importancia-de-actualizar-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La actualización regular de aaPanel es crucial por varias razones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Seguridad:&lt;/strong&gt; Las actualizaciones suelen incluir parches de seguridad que protegen tu servidor contra amenazas potenciales. Mantener aaPanel actualizado reduce la superficie de ataque y mantiene tus datos y aplicaciones seguros.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Rendimiento:&lt;/strong&gt; Las actualizaciones pueden mejorar el rendimiento de aaPanel al corregir errores, optimizar el código y agregar nuevas características que optimizan la eficiencia.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Funcionalidad:&lt;/strong&gt; Las versiones más recientes de aaPanel suelen ofrecer nuevas funciones y mejoras en la interfaz, lo que puede mejorar la experiencia de administración del servidor.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="pasos-para-actualizar-aapanel"&gt;
+Pasos para Actualizar aaPanel
+&lt;a href="#pasos-para-actualizar-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si bien en el video se muestra como actualizar &lt;strong&gt;aaPanel&lt;/strong&gt; desde la interfaz web, en este articulo se muestra como hacerlo desde la terminal.&lt;/p&gt;
+&lt;p&gt;A continuación, se detallan los pasos para actualizar aaPanel a la última versión en caso de querer hacerlo desde la terminal conectadose al servidor por &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+SSH
+&lt;/a&gt;:&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="acceder-al-servidor"&gt;
+Acceder al Servidor
+&lt;a href="#acceder-al-servidor" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Inicia sesión en tu servidor a través de &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+SSH
+&lt;/a&gt; utilizando un cliente como PuTTY (en el caso de estar en Windows) o la terminal en sistemas Unix o Unix-Like como Linux.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ssh username@server_ip
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="respaldo-de-datos-opcional-pero-recomendado"&gt;
+Respaldo de Datos (Opcional pero Recomendado)
+&lt;a href="#respaldo-de-datos-opcional-pero-recomendado" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Antes de actualizar, realiza una copia de seguridad de tus datos importantes, como archivos del sitio web y bases de datos, para evitar pérdidas accidentales. Si bien este paso es opcional, se recomienda encarecidamente realizar una copia de seguridad de tus datos antes de actualizar. Puedes utilizar el siguiente comando para crear una copia de seguridad de tu sitio web:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tar -czvf backup.tar.gz /home/wwwroot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="actualización"&gt;
+Actualización
+&lt;a href="#actualizaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Ejecuta el siguiente comando para ejecutar el script de actualización:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;service bt &lt;span class="m"&gt;16&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Sigue las instrucciones en pantalla para completar el proceso de actualización.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="verificación"&gt;
+Verificación
+&lt;a href="#verificaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Después de la actualización, verifica que &lt;strong&gt;aaPanel&lt;/strong&gt; esté funcionando correctamente accediendo a la interfaz de administración a través de tu navegador web.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Mantener &lt;strong&gt;aaPanel&lt;/strong&gt; actualizado es esencial para garantizar la seguridad y el rendimiento de tu servidor web. Sigue estos pasos para realizar una actualización exitosa y asegúrate de respaldar tus datos antes de comenzar. Un &lt;strong&gt;aaPanel&lt;/strong&gt; actualizado no solo protege tu servidor de posibles amenazas, sino que también te permite acceder a nuevas características y mejoras en la administración de tu sitio web. ¡Mantén tu servidor al día y disfruta de un entorno en línea seguro y eficiente!&lt;/p&gt;</description></item><item><title>Cómo Configurar un Sitio PHP en aaPanel</title><link>https://patojad.com.ar/post/2023/08/c%C3%B3mo-configurar-un-sitio-php-en-aapanel/</link><pubDate>Fri, 18 Aug 2023 08:01:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/08/c%C3%B3mo-configurar-un-sitio-php-en-aapanel/</guid><description>&lt;p&gt;En el vertiginoso mundo de la informática, la elección de una plataforma de alojamiento web sólida y eficiente es fundamental para el éxito de cualquier proyecto en línea. &lt;strong&gt;aaPanel&lt;/strong&gt;, una herramienta de panel de control gratuita y de código abierto, ha ganado popularidad por su capacidad para simplificar la administración de servidores y sitios web. En este artículo, te guiaré a través de los pasos para configurar un sitio &lt;strong&gt;PHP&lt;/strong&gt; en &lt;strong&gt;aaPanel&lt;/strong&gt;, maximizando así el rendimiento y la accesibilidad de tu proyecto web.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-aapanel"&gt;
+¿Qué es aaPanel?
+&lt;a href="#qu%c3%a9-es-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;aaPanel&lt;/strong&gt; es un panel de control de hosting web gratuito y de código abierto que facilita la administración de servidores. Proporciona una interfaz gráfica intuitiva y amigable que permite a los usuarios gestionar servicios como &lt;strong&gt;Apache&lt;/strong&gt;, &lt;strong&gt;Nginx&lt;/strong&gt;, &lt;strong&gt;PHP&lt;/strong&gt;, bases de datos y más, sin necesidad de conocimientos técnicos avanzados.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación-de-aapanel"&gt;
+Instalación de aaPanel
+&lt;a href="#instalaci%c3%b3n-de-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El primer paso es instalar aaPanel en tu servidor. Asegúrate de tener acceso a un servidor compatible con los requisitos de aaPanel, como &lt;strong&gt;Debian&lt;/strong&gt;, &lt;strong&gt;Ubuntu&lt;/strong&gt; o &lt;strong&gt;CentOS&lt;/strong&gt;. Una vez que hayas instalado el sistema operativo, puedes instalar aaPanel siguiendo los pasos detallados en el siguiente artículo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2023/06/instalar-aapanel/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Instalar aaPanel
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2023/07/abrir-puertos-aapanel/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Abrir puertos aaPanel
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2023/07/primer-ingreso-a-aapanel/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Primer ingreso a aaPanel
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="agregar-un-sitio-dinamico"&gt;
+Agregar un Sitio Dinamico
+&lt;a href="#agregar-un-sitio-dinamico" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Una vez que aaPanel esté instalado, es hora de agregar tu dominio y configurar un sitio web PHP:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Inicia sesión en aaPanel usando la URL y credenciales proporcionadas durante la instalación.&lt;/li&gt;
+&lt;li&gt;Navega a &lt;code&gt;Website&lt;/code&gt; y haz clic en &lt;code&gt;Add Website&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Ingresa los detalles de tu dominio, como el nombre del dominio y la ruta de la carpeta raíz del sitio (como se muestra en el video).&lt;/li&gt;
+&lt;li&gt;Selecciona &lt;code&gt;PHP&lt;/code&gt; como tipo de sitio web y elige la versión de &lt;strong&gt;PHP&lt;/strong&gt; deseada.&lt;/li&gt;
+&lt;li&gt;Selecciona si deseas habilitar &lt;strong&gt;SSL&lt;/strong&gt; para tu sitio web.&lt;/li&gt;
+&lt;li&gt;Selecciona si deseas habilitar &lt;strong&gt;FTP&lt;/strong&gt; para tu sitio web.&lt;/li&gt;
+&lt;li&gt;Selecciona si deseas crear una Base de Datos para tu sitio web.&lt;/li&gt;
+&lt;li&gt;Haz clic en &lt;code&gt;Add Website&lt;/code&gt; para completar el proceso.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="ajustes-avanzados-y-seguridad"&gt;
+Ajustes Avanzados y Seguridad
+&lt;a href="#ajustes-avanzados-y-seguridad" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para optimizar aún más tu sitio PHP y garantizar su seguridad, considera implementar las siguientes medidas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SSL Certificate:&lt;/strong&gt; Habilita un certificado SSL gratuito para cifrar las comunicaciones entre el navegador del usuario y el servidor.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Firewall:&lt;/strong&gt; Configura un firewall para proteger tu servidor contra amenazas cibernéticas.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Backups:&lt;/strong&gt; Establece una política de respaldo regular para asegurar que los datos estén protegidos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Configurar un sitio &lt;strong&gt;PHP&lt;/strong&gt; en &lt;strong&gt;aaPanel&lt;/strong&gt; puede parecer una tarea desafiante al principio, pero con la guía adecuada, es un proceso simplificado que mejora significativamente la administración y el rendimiento de tu proyecto web. Siguiendo los pasos mencionados en esta guía, estarás en camino de tener un sitio web en funcionamiento con todas las ventajas que ofrece &lt;strong&gt;aaPanel&lt;/strong&gt;. Mantén tu proyecto seguro, optimizado y accesible, y observa cómo crece y prospera en el competitivo mundo en línea.&lt;/p&gt;</description></item><item><title>Cómo Crear un Sitio Estático con aaPanel</title><link>https://patojad.com.ar/post/2023/08/c%C3%B3mo-crear-un-sitio-est%C3%A1tico-con-aapanel/</link><pubDate>Wed, 09 Aug 2023 11:54:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/08/c%C3%B3mo-crear-un-sitio-est%C3%A1tico-con-aapanel/</guid><description>&lt;p&gt;En el mundo en constante evolución de la tecnología web, la creación de sitios estáticos se ha convertido en una opción popular para aquellos que buscan un enfoque simplificado y de alto rendimiento para su presencia en línea. A través del uso de herramientas como &lt;strong&gt;aaPanel&lt;/strong&gt;, puedes crear y administrar sitios estáticos de manera eficiente y efectiva. En esta guía paso a paso, te mostraremos cómo crear un sitio estático utilizando &lt;strong&gt;aaPanel&lt;/strong&gt;, aprovechando su potencial para alcanzar un sitio web rápido y seguro.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-aapanel"&gt;
+¿Qué es aaPanel?
+&lt;a href="#qu%c3%a9-es-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;aaPanel&lt;/strong&gt; es un panel de control de hosting web gratuito y de código abierto que facilita la administración de servidores. Proporciona una interfaz gráfica intuitiva y amigable que permite a los usuarios gestionar servicios como &lt;strong&gt;Apache&lt;/strong&gt;, &lt;strong&gt;Nginx&lt;/strong&gt;, &lt;strong&gt;PHP&lt;/strong&gt;, bases de datos y más, sin necesidad de conocimientos técnicos avanzados.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="introducción-a-aapanel-y-preparación-del-entorno"&gt;
+Introducción a &lt;strong&gt;aaPanel&lt;/strong&gt; y Preparación del Entorno
+&lt;a href="#introducci%c3%b3n-a-aapanel-y-preparaci%c3%b3n-del-entorno" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para comenzar, asegúrate de haber instalado &lt;strong&gt;aaPanel&lt;/strong&gt; en tu servidor, siguiendo los pasos detallados en los siguientes articulos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2023/06/instalar-aapanel/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Instalar aaPanel
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2023/07/abrir-puertos-aapanel/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Abrir puertos aaPanel
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2023/07/primer-ingreso-a-aapanel/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Primer ingreso a aaPanel
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Una vez que hayas configurado &lt;strong&gt;aaPanel&lt;/strong&gt;, estarás listo para crear tu sitio estático.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="creación-del-sitio-estático"&gt;
+Creación del Sitio Estático
+&lt;a href="#creaci%c3%b3n-del-sitio-est%c3%a1tico" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Inicia sesión en tu panel de control &lt;strong&gt;aaPanel&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;En la sección &lt;em&gt;Web&lt;/em&gt;, selecciona &lt;em&gt;Sitios web&lt;/em&gt; y haz clic en &lt;em&gt;Agregar sitio web&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Completa la información requerida, como el nombre del dominio y la ubicación de los archivos.&lt;/li&gt;
+&lt;li&gt;Asegúrate de seleccionar &lt;em&gt;Estático&lt;/em&gt; como el tipo de sitio web.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="configuración-y-personalización"&gt;
+Configuración y Personalización
+&lt;a href="#configuraci%c3%b3n-y-personalizaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/Tw7sKwbR/siteconfig.webp" alt="siteconfig.webp" title="siteconfig.webp"
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Una vez que hayas creado el sitio estático, podrás acceder a la configuración detallada.&lt;/li&gt;
+&lt;li&gt;Utiliza las opciones disponibles para personalizar aspectos como las reglas de reescritura, la protección de directorios y la gestión de acceso.&lt;/li&gt;
+&lt;li&gt;Añade cualquier archivo necesario para tu sitio estático, como &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+HTML
+&lt;/a&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2023/08/descubriendo-el-mundo-de-css/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+CSS
+&lt;/a&gt;&lt;/strong&gt;, y archivos de imágenes en la ubicación designada.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="implementación-de-seguridad"&gt;
+Implementación de Seguridad
+&lt;a href="#implementaci%c3%b3n-de-seguridad" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/ZRKgY3C7/securityaapanel.webp" alt="securityaapanel.webp" title="securityaapanel.webp"
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;En la sección &lt;em&gt;Seguridad&lt;/em&gt;, asegúrate de habilitar medidas de seguridad sólidas, como el firewall y la protección contra ataques DDoS.
+Considera la posibilidad de implementar un certificado SSL para garantizar la seguridad de la comunicación en tu sitio. Si bien el que mostramos en el video es suficiente para algunos sitios se recomienda utilizar uno privado.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="publicación-y-monitoreo"&gt;
+Publicación y Monitoreo
+&lt;a href="#publicaci%c3%b3n-y-monitoreo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/wBkZdFTR/metricsaapanel.webp" alt="metricsaapanel.webp" title="metricsaapanel.webp"
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Una vez que hayas completado la configuración, haz clic en &lt;em&gt;Guardar&lt;/em&gt; para aplicar los cambios.&lt;/li&gt;
+&lt;li&gt;Sube tus archivos estáticos al directorio designado utilizando herramientas FTP o el administrador de archivos en &lt;strong&gt;aaPanel&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Monitorea el rendimiento de tu sitio estático a través de las herramientas de monitoreo proporcionadas por &lt;strong&gt;aaPanel&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Crear un sitio estático con &lt;strong&gt;aaPanel&lt;/strong&gt; es un proceso simplificado que te brinda un sitio web rápido y seguro. Al seguir esta guía paso a paso y aprovechar el video tutorial, estarás en camino de lanzar tu propio sitio estático con éxito. Aprovecha la potencia de &lt;strong&gt;aaPanel&lt;/strong&gt; para simplificar la administración y lograr un rendimiento excepcional en tu presencia en línea. ¡Comienza hoy mismo y disfruta de los beneficios de un sitio web estático de alto rendimiento!&lt;/p&gt;</description></item><item><title>App Store de aaPanel</title><link>https://patojad.com.ar/post/2023/07/app-store-de-aapanel/</link><pubDate>Thu, 27 Jul 2023 11:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/07/app-store-de-aapanel/</guid><description>&lt;p&gt;Ya vimos como realizar la instalacion de aaPanel y como abrir los puertos necesarios. Tambien realizamos el primer ingreso y la instalacion de LAMP o LNMP segun deseemos. Ahora veremos el appstore de aaPanel. Y realiamos instalaciones desde diferentes areas de modulos o complemento.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-aapanel"&gt;
+¿Qué es aaPanel?
+&lt;a href="#qu%c3%a9-es-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;aaPanel&lt;/strong&gt; es un panel de control de hosting web gratuito y de código abierto que facilita la administración de servidores. Proporciona una interfaz gráfica intuitiva y amigable que permite a los usuarios gestionar servicios como &lt;strong&gt;Apache&lt;/strong&gt;, &lt;strong&gt;Nginx&lt;/strong&gt;, &lt;strong&gt;PHP&lt;/strong&gt;, bases de datos y más, sin necesidad de conocimientos técnicos avanzados.&lt;/p&gt;
+&lt;p&gt;En el video podemos apreciar y recorrer un poco mas la seccion de appstore de aapanel. En esta seccion podemos encontrar complementos para nuestro panel, como tambien para nuestros sitios web.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="imagenes"&gt;
+Imagenes
+&lt;a href="#imagenes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/nrhLsCmh/aapanelstore1.webp" alt="aapanel" title="aapanel"
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/5yK28b5q/aapanelstore2.webp" alt="aapanel" title="aapanel"
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/76V6YgfR/aapanelstore3.webp" alt="aapanel" title="aapanel"
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a href="https://www.aapanel.com/new/feature.html#shop" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Fuente
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Primer ingreso a aaPanel</title><link>https://patojad.com.ar/post/2023/07/primer-ingreso-a-aapanel/</link><pubDate>Thu, 13 Jul 2023 10:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/07/primer-ingreso-a-aapanel/</guid><description>&lt;p&gt;Ya vimos como realizar la instalacion de aaPanel y como abrir los puertos necesarios, ahora veremos como ingresar por primera vez y realizar la instalacion de LAMP o LNMP segun deseemos. Con esto nuestro panel estara listo para ser usado.&lt;/p&gt;
+&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-info fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;Recuerda que tanto la url del panel como los datos de ingreso son los que arroja la terminal durante la instalacion, estos podras modificarlos despues del primer ingreso para mejorar la seguridad de tu panel&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a href="https://www.aapanel.com/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Fuente
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Abrir puertos aaPanel</title><link>https://patojad.com.ar/post/2023/07/abrir-puertos-aapanel/</link><pubDate>Fri, 07 Jul 2023 11:54:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/07/abrir-puertos-aapanel/</guid><description>&lt;p&gt;Vamos a ver que puertos tenemos que tener habilitados para que aapanel funcione correctamente. Y como abrirlos en nuestro servidor utilizando &lt;code&gt;ufw&lt;/code&gt;. Recuerda que si instalaste tal como lo vimos en el video anterior de &lt;a href="https://patojad.com.ar/post/2023/06/instalar-aapanel/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+instalar aapanel
+&lt;/a&gt; y no estas pudiendo ingresar a la url que dio el panel entonces es porque alguno de estos puertos no se encuentra abierto.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-aapanel"&gt;
+¿Qué es aaPanel?
+&lt;a href="#qu%c3%a9-es-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;aaPanel&lt;/strong&gt; es un panel de control de hosting web gratuito y de código abierto que facilita la administración de servidores. Proporciona una interfaz gráfica intuitiva y amigable que permite a los usuarios gestionar servicios como &lt;strong&gt;Apache&lt;/strong&gt;, &lt;strong&gt;Nginx&lt;/strong&gt;, &lt;strong&gt;PHP&lt;/strong&gt;, bases de datos y más, sin necesidad de conocimientos técnicos avanzados.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="puertos"&gt;
+Puertos
+&lt;a href="#puertos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Los puertos que tenemos que abrir son los siguientes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;20&lt;/strong&gt; - FTP&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;21&lt;/strong&gt; - FTP&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;80&lt;/strong&gt; - HTTP&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;443&lt;/strong&gt; - HTTPS&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;888&lt;/strong&gt; - aaPanel&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;3306&lt;/strong&gt; - MySQL // Si necesitas acceder desde fuera del servidor&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;8888&lt;/strong&gt; - phpMyAdmin&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;7800&lt;/strong&gt; - aaPanel&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="comandos"&gt;
+Comandos
+&lt;a href="#comandos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;A continuacion dejo los comandos utilizados en el video.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ufw allow &lt;span class="m"&gt;20&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ufw allow &lt;span class="m"&gt;21&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ufw allow &lt;span class="m"&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ufw allow &lt;span class="m"&gt;443&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ufw allow &lt;span class="m"&gt;888&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ufw allow &lt;span class="m"&gt;3306&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#ufw allow 8888 // En mi caso no&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ufw allow &lt;span class="m"&gt;7800&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;hr&gt;
+&lt;p&gt;Fuente: &lt;a href="https://www.aapanel.com/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://www.aapanel.com/
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Instalar aaPanel</title><link>https://patojad.com.ar/post/2023/06/instalar-aapanel/</link><pubDate>Wed, 21 Jun 2023 11:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/06/instalar-aapanel/</guid><description>&lt;p&gt;aaPanel es un software que mejora la eficiencia de la gestión de servidores admite más de 100 funciones, como LEMP/LNMP/monitor/FTP/base de datos con un solo clic Después de más de 80 iteraciones, es completamente funcional y seguro, y ha sido aprobado e instalado por millones de usuarios en todo el mundo.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="caracteristicas"&gt;
+Caracteristicas
+&lt;a href="#caracteristicas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Website Manager:&lt;/strong&gt; Cree un sitio web de administración a través del panel y complete varias configuraciones de manera fácil y sencilla.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Database Manager:&lt;/strong&gt; Un clic para crear, configurar, respaldar, restaurar la base de datos.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;File Manager:&lt;/strong&gt; Un administrador de archivos conveniente y eficiente que admite carga, descarga, empaquetado, descompresión y edición y visualización de archivos.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;App Store:&lt;/strong&gt; El software del servidor utilizado para la instalación se puede administrar fácilmente a través de la interfaz web.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="http://demo.aapanel.com/fdgi87jbn" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Demo
+&lt;/a&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="planes"&gt;
+Planes
+&lt;a href="#planes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="basico"&gt;
+Basico
+&lt;a href="#basico" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Precio:&lt;/strong&gt; Gratis&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sitios:&lt;/strong&gt; Ilimitados&lt;/li&gt;
+&lt;li&gt;Número &lt;strong&gt;ilimitado&lt;/strong&gt; de dominios&lt;/li&gt;
+&lt;li&gt;Certificado SSL ilimitado (Let&amp;rsquo;s Encrypt)&lt;/li&gt;
+&lt;li&gt;Protección de seguridad básica&lt;/li&gt;
+&lt;li&gt;Administrador de archivos con todas las funciones&lt;/li&gt;
+&lt;li&gt;Editor de archivos en línea&lt;/li&gt;
+&lt;li&gt;Use todos los complementos gratuitos&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="profesional"&gt;
+Profesional
+&lt;a href="#profesional" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Precio:&lt;/strong&gt; 14.5 USD/mes - 118.32 USD/año&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sitios:&lt;/strong&gt; Ilimitados&lt;/li&gt;
+&lt;li&gt;Número &lt;strong&gt;ilimitado&lt;/strong&gt; de dominios&lt;/li&gt;
+&lt;li&gt;Certificado SSL ilimitado (Let&amp;rsquo;s Encrypt)&lt;/li&gt;
+&lt;li&gt;Protección de seguridad básica&lt;/li&gt;
+&lt;li&gt;Administrador de archivos con todas las funciones&lt;/li&gt;
+&lt;li&gt;Editor de archivos en línea&lt;/li&gt;
+&lt;li&gt;Use todos los complementos gratuitos&lt;/li&gt;
+&lt;li&gt;Use todos los complementos profesionales
+&lt;ul&gt;
+&lt;li&gt;Nginx/Apache WAF&lt;/li&gt;
+&lt;li&gt;Aplicación de teléfono móvil&lt;/li&gt;
+&lt;li&gt;Sistema de endurecimiento&lt;/li&gt;
+&lt;li&gt;Estadísticas del sitio web&lt;/li&gt;
+&lt;li&gt;etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a href="https://www.aapanel.com/new/pricing.html" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Mas información
+&lt;/a&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalacion"&gt;
+Instalacion
+&lt;a href="#instalacion" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="comandos-utilizados"&gt;
+Comandos Utilizados
+&lt;a href="#comandos-utilizados" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Para centos:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yum install -y wget &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; wget -O install.sh http://www.aapanel.com/script/install_6.0_en.sh &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; bash install.sh aapanel
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Para deepin/ubuntu:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;wget -O install.sh http://www.aapanel.com/script/install-ubuntu_6.0_en.sh &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo bash install.sh aapanel
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Para debian:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;wget -O install.sh http://www.aapanel.com/script/install-ubuntu_6.0_en.sh &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; bash install.sh aapanel
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="w-full rounded-xl bg-yellow-600/75 text-yellow-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-warning fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;Asegúrese de que es un sistema operativo limpio, no hay otro entorno con Apache/Nginx/php/MySQL instalado (el entorno existente no se puede instalar)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-info fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;Se recomienda utilizar los navegadores Chrome, Firefox y edge para acceder a la dirección de inicio de sesión del panel&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a href="https://www.aapanel.com/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Fuente
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Email Profesional GRATIS - Saliente</title><link>https://patojad.com.ar/post/2022/10/email-profesional-gratis-saliente/</link><pubDate>Thu, 20 Oct 2022 11:05:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/10/email-profesional-gratis-saliente/</guid><description>&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="usar-email-para-salida-de-correos"&gt;
+Usar email para salida de correos
+&lt;a href="#usar-email-para-salida-de-correos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si bien &lt;a href="https://patojad.com.ar/post/2022/09/email-profesional-gratis/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+esto ya es muy profesional
+&lt;/a&gt;, también resultaría interesante poder responder utilizando el correo que creamos. En este caso voy a mostrar cómo agregarlo a &lt;strong&gt;GMAIL&lt;/strong&gt; para poder utilizarlo como correo saliente.&lt;/p&gt;
+&lt;p&gt;Para esto debemos ingresar en nuestra cuenta de Gmail e ir a las configuraciones de la misma para poder agregar una nueva cuenta de correo saliente. Esto lo hacemos desde &lt;strong&gt;Ajustes&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Ver todos los Ajustes&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Cuentas e Importación&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Enviar como:&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Añadir otra dirección de correo electrónico&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/ZKSKp7Lw/gmailconf.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Añadimos el correo, con el nombre que utilizaremos para identificarlo de la siguiente manera (recuerda que los datos son a modo ejemplo, tu debes completarlo con tus datos particulares)&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/ncGVk4Rp/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Luego vamos a completar los campos con los datos de nuestra cuenta de Gmail (en este caso la cuenta que los recibe y la que envía van a ser la misma) de la siguiente manera:&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/q7zk49kv/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Donde:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Servidor SMTP:&lt;/strong&gt; smtp.gmail.com&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nombre de Usuario:&lt;/strong&gt; El nombre de usuario de Gmail ( si tu correo es &lt;a href="mailto:user@gmail.com" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-envelope"&gt;&lt;/i&gt;&amp;nbsp;
+user@gmail.com
+&lt;/a&gt;, user es tu nombre de usuario).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Contraseña:&lt;/strong&gt; Contraseña de GMAIL.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Puerto:&lt;/strong&gt; 465.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="w-full rounded-xl bg-yellow-600/75 text-yellow-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-warning fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;ATENCIÓN: En el caso de que tengas el doble factor activado, la contraseña deberá ser una nueva creada para este fin, lo cual veremos cómo hacerlo a continuación.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a href="https://patojad.com.ar/posts/2022/07/crear-contrase%c3%b1a-para-apps-en-google/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Crear contraseña para apps en Google
+&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Ya con esto podemos enviar desde nuestro Gmail utilizando nuestro correo profesional.&lt;/p&gt;</description></item><item><title>Email Profesional GRATIS</title><link>https://patojad.com.ar/post/2022/09/email-profesional-gratis/</link><pubDate>Mon, 12 Sep 2022 08:25:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/09/email-profesional-gratis/</guid><description>&lt;p&gt;Ya hable con anterioridad sobre Cloudflare allá por el 2019. Y creo que quedó fuertemente asentado que lo recomiendo fuertemente más allá de sus contras. Dejo la información hablada con anterioridad sobre esto:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2019/10/cloudflare-que-es-ventajas-y-desventajas/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+CloudFlare ¿Que es? Ventajas y Desventajas
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2019/11/configurar-gitlab-pages-con-cloudflare/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Configurar GitLab Pages con CloudFlare
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Como siempre cloudflare avanza a pasos agigantados y gracias a esto nos ofrece nuevas funcionalidades y una de las más interesantes es la posibilidad de tener un email profesional &lt;em&gt;(@tudominio)&lt;/em&gt; completamente &lt;strong&gt;GRATIS&lt;/strong&gt;. Y si bien de entrada esta opción parece que solo es para forwardear correos a uno ya existente (por ejemplo tu gmail) es muy interesante conocer la mejor forma de configurarlo para poder enviar correos con tu dominio “profesional” desde, en este caso, nuestro gmail.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="primeros-pasos"&gt;
+Primeros pasos
+&lt;a href="#primeros-pasos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Como primeros pasos debemos tener nuestro dominio en &lt;strong&gt;CloudFlare&lt;/strong&gt; ya configurado &lt;em&gt;(Lo cual podemos verlo en guías anteriores)&lt;/em&gt; y debemos solicitar la BETA del &lt;strong&gt;Enrutamiento de correos electrónicos&lt;/strong&gt; la cual es completamente gratuita con sus respectivos límites.&lt;/p&gt;
+&lt;p&gt;Una vez que hayamos sido aceptados, basta con configurar los DNS. Si los estamos administrado con CloudFlare (Lo cual sería lo correcto) Basta con un solo botón que configura todo &lt;em&gt;automágicamente&lt;/em&gt; en la sección &lt;strong&gt;correo electrónico&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Configuración&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Iniciar la activación&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/d1VVkLmw/image.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Luego debemos agregar la dirección de destino en la cual queremos recibir los correos electrónicos (Es decir un email ya existente y funcionando, en mi caso utilizo mi gmail personal para recibir los correos) esto lo hacemos desde &lt;strong&gt;correo electrónico&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Rutas&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Agregar la dirección de destino&lt;/strong&gt;. Esto nos enviará un email de confirmación para saber que se encuentra funcionando. Una vez activado lo veremos con el estado &lt;em&gt;verificado&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/fLzJcHZ4/mailverificado.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Ya teniendo correctamente configurado el correo de destino debemos agregar (o crear) la dirección de correo custom que queremos, lo cual lo podemos hacer desde: &lt;strong&gt;correo electrónico&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Rutas&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Crear dirección&lt;/strong&gt;. En esta parte es completamente intuitivo y solo nos aparecerá como destino en &lt;strong&gt;Acciones&lt;/strong&gt; aquellos correos que ya estén verificados.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/zvR5KWLZ/mailadd.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Una vez que hayamos realizado estos pasos ya podemos recibir correos a nuestro nuevo email profesional desde nuestra casilla personal.&lt;/p&gt;</description></item><item><title>Ya esta Disponible Pokémon Unite</title><link>https://patojad.com.ar/post/2021/09/ya-esta-disponible-pok%C3%A9mon-unite/</link><pubDate>Thu, 23 Sep 2021 11:23:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/09/ya-esta-disponible-pok%C3%A9mon-unite/</guid><description>&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://esports.eldesmarque.com/wp-content/uploads/2020/06/Pokemon-Unite-2.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Ya está disponible Pokémon unite para Android y iOS. Todos los que vimos este juego y nos gustan un poco los moba y Pokémon teníamos que jugarlo. Es un juego que se esperaba que este solo para celulares gamas alta pero se puede jugar en celulares con muchos recursos sin ningún tipo de problema.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="mi-experiencia"&gt;
+Mi experiencia
+&lt;a href="#mi-experiencia" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.blogs.es/bad99a/1366_2000/450_1000.jpeg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;El juego se puede jugar a 30fps sin problemas por lo cual no es necesario tratar de meter más, los comandos no son del todo cómodos, más para quienes lo probamos en la Nintendo. Sin embargo, la jugabilidad es muy buena y realmente uno se termina acostumbrando. El único consejo es que antes de comenzar a jugar se tomen un momento para configurar bien los mandos y traten de usar las opciones avanzadas porque son muy útiles.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="sobre-el-juego"&gt;
+Sobre el juego
+&lt;a href="#sobre-el-juego" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Aúna fuerzas y avasalla a tus rivales en el primer juego de combates por equipos 5 contra 5 de Pokémon!
+Únete a Entrenadores de todo el mundo para competir en los Combates Unite que se celebran en Æos. En este tipo de contienda con altas dosis de estrategia, dos equipos de cinco miembros cada uno se enfrentan para obtener la mayor puntuación dentro del límite de tiempo. La cooperación será fundamental a la hora de derrotar a Pokémon salvajes, subir de nivel, hacer evolucionar a tu propio Pokémon y también para evitar que los rivales anoten. ¡Pon a prueba tu espíritu de equipo y hazte con la victoria!&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://assets.pokemon.com/assets/cms2-es-es/img/video-games/video-games/pokemon_unite/screenshots/06.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://play.google.com/store/apps/details?id=jp.pokemon.pokemonunite&amp;amp;hl=es_AR&amp;amp;gl=US" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Ver en la Play Store
+&lt;/a&gt;&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="características-clave"&gt;
+Características clave:
+&lt;a href="#caracter%c3%adsticas-clave" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2021/09/22/614af4e375a17.jpeg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DERROCHA ESTILO EN COMBATE:&lt;/strong&gt; ¡Sé el centro de atención con tu holoatuendo! Gracias a una tecnología especial que emplea la energía Æos, los Entrenadores pueden vestir a sus Pokémon con toda clase de indumentarias holográficas. ¡Y el catálogo seguirá creciendo!&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MOVIMIENTOS UNITE:&lt;/strong&gt; ¡Desata el verdadero poder de tus Pokémon con los movimientos Unite! Aprovecha estos movimientos Pokémon nunca vistos, exclusivos de los Combates Unite, e inclina la balanza a tu favor cuando estés contra las cuerdas.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SUBE DE RANGO:&lt;/strong&gt; ¿Quieres demostrar tu pericia? ¡Participa en los combates clasificatorios y acumula puntos para ascender en la clasificación mundial!&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LA COMUNICACIÓN ES ESENCIAL:&lt;/strong&gt; Incluso los Entrenadores más experimentados reconocen lo importante que es la comunicación para el éxito de su equipo. Utiliza el chat rápido, las alertas y (por primera vez en un título de Pokémon) el chat de voz para que tus compañeros y tú estéis siempre en la misma onda.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;JUEGO MULTIPLATAFORMA:&lt;/strong&gt; Participa en Combates Unite contra Entrenadores de todo el mundo en la consola Nintendo SwitchTM o en un dispositivo móvil compatible gracias a su función multiplataforma. Los jugadores podrán usar su cuenta del Club de Entrenadores Pokémon o su cuenta Nintendo tanto en su Nintendo Switch como en su dispositivo móvil para mantener su progreso sincronizado en ambos dispositivos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="https://unite.pokemon.com/es-mx/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Ver en la Web
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Libre ¿Es gratis?</title><link>https://patojad.com.ar/post/2021/09/libre-es-gratis/</link><pubDate>Thu, 09 Sep 2021 08:10:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/09/libre-es-gratis/</guid><description>&lt;p&gt;En estos días recordé un viejo debate que creí que estaba erradicado. Y por esto mismo propuse realizar una encuesta en el canal de telegram y la distribui por diversos grupos&amp;hellip;&lt;/p&gt;
+&lt;script
+async
+src="https://telegram.org/js/telegram-widget.js?15"
+data-telegram-post='PatoJADBlog/379'
+data-width="100%"
+data-color='8B01CC'
+data-dark="1"&gt;
+&lt;/script&gt;
+&lt;p&gt;Viendo los resultados de la encuesta, comprendí que muchos realmente no comprenden realmente las 4 libertades del software libre, así que antes de ver el video de la descarga que hice en este momento por ahi seria bueno que veas el siguiente artículo y, porque no, ver el video&amp;hellip;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://patojad.com.ar/post/2021/03/las-4-libertades-del-software-libre/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Las 4 Libertades del Software Libre
+&lt;/a&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="lo-nuevo"&gt;
+Lo nuevo
+&lt;a href="#lo-nuevo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Lamentablemente la gente entiende por software libre “Software Gratis” y en base a eso se niega a colaborar, y no solo hablamos de dinero, se niega a colaborar con su tiempo. Por eso mismo realicé este video, por ahi un tanto largo a lo que estoy acostumbrado, pero permite entender un poco el detrás de una app y porqué no, invitarnos a una reflexión.&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/y8jAcqDZYu4?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Durante todo el video hago algunas referencia a material de terceros, o anuncio múltiples veces que no es algo que yo saco de la galera, por eso mismo dejo a continuación material al que referencio explícitamente o implícitamente.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="material-de-lectura-adicional"&gt;
+Material de lectura adicional
+&lt;a href="#material-de-lectura-adicional" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/QC9wNS4s/photo-2021-09-08-09-29-33.webp" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.gnu.org/philosophy/selling.html" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Información Oficial desde GNU
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Webservice NodeJS + MariaDB</title><link>https://patojad.com.ar/post/2021/07/webservice-nodejs--mariadb/</link><pubDate>Mon, 26 Jul 2021 14:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/07/webservice-nodejs--mariadb/</guid><description>&lt;p&gt;En esta oportunidad cuento con mucha alegría que me anime a dar de forma diferida mi “primer curso” online sobre cómo crear un WebService con NodeJS y MariaDB&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/4NXBdb3D/curso-flayer.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;De seguro todo esto requiere mucho más trabajo y los siguientes cursos, en caso de que siga dictandolos, sean mejores. Pero es un pequeño piloto que servirá para comenzar una nueva etapa donde planeo dejar un contenido más armado y estructurado.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-esperar-de-este-curso"&gt;
+¿Qué esperar de este curso?
+&lt;a href="#qu%c3%a9-esperar-de-este-curso" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Este curso es muy básico y sirve para comprender y poder crear nuestro webservice para exponer una base de datos MariaDB con una API creada en NodeJS. Lo que buscamos es mostrar un poco como funcionan estas tecnologías por encima con el fin de poder crear aplicaciones pequeñas y comenzar en el mundo del desarrollo.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="que-ofrece"&gt;
+Que ofrece
+&lt;a href="#que-ofrece" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Este curso es pequeño y es completamente gratis. Se dicta mediante Youtube y dispone de 6 videos y 6 artículos con todo el material generado en el curso:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;32 minutos de vídeos On Demand&lt;/li&gt;
+&lt;li&gt;6 Artículos con el código generado&lt;/li&gt;
+&lt;li&gt;Acceso de por vida Free&lt;/li&gt;
+&lt;li&gt;Acceso a los vídeos desde cualquier plataforma&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="clases"&gt;
+Clases
+&lt;a href="#clases" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2021/07/webservice-nodejs-y-mariadb-1-instalacion-de-nodejs-npm-y-mariadb/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Instalacion de NodeJS NPM y MariaDB
+&lt;/a&gt; (Disponible desde 29/07)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-2-creando-base-de-datos-e-iniciando-proyecto/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Creando Base de Datos e iniciando Proyecto
+&lt;/a&gt; (Disponible desde 02/08)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-3-conector-mariadb-en-nodejs/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Conector MariaDB en NodeJS
+&lt;/a&gt; (Disponible desde 05/08)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-4-levantando-api-con-express/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Levantando API con Express
+&lt;/a&gt; (Disponible desde 09/08)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-5-accediendo-a-nuestra-db-mediante-la-api/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Accediendo a Nuestra DB mediante la API
+&lt;/a&gt; (Disponible desde 12/08)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/aplicaciones/2021/08/instalacion-de-postam-en-linux/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Instalacion de Postman en Linux
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-6-abm-en-nuestra-db-v%c3%ada-api/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+ABM en nuestra DB vía API
+&lt;/a&gt; (Disponible desde 16/08)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="apoyo"&gt;
+Apoyo
+&lt;a href="#apoyo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Me gustaría saber que cuento con tu apoyo para crear más y nuevos cursos, en caso de ser así me gustaría que puedas suscribirte al canal. Comentar los videos y obviamente sabes que estamos para acompañarte durante el curso en nuestro grupo de Telegram y obviamente en los mismos comentarios&amp;hellip;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="certificado"&gt;
+Certificado
+&lt;a href="#certificado" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Replicamos el curso en Udemy para que puedan ser certificados, en caso de necesitarlo te dejamos el link. Entendemos que no todos tienen la posibilidad de pagar el curso o no tienen el deseo, por lo cual vamos a estar poniéndolo gratis en ciertas ocasiones para que todos puedan certificar sin necesidad de pagar.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.udemy.com/course/patojad-webservice-nodejs-y-mariadb/?referralCode=817BCD02D2C08DEC01DE" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Curso en Udemy
+&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Si sentís que el curso te sirvió y, queres apoyar aún más que con tu subscribirse al canal de youtube y en las redes sociales o simplemente quieres certificar puedes encontrarlo en Udemy. Lamentablemente no me permite ponerle menos precio, pero si te interesa el certificado no te olvides de seguirnos que vamos a estar ofreciendo gratis para que todos los que lo deseen puedan certificar.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.udemy.com/course/patojad-webservice-nodejs-y-mariadb/?referralCode=817BCD02D2C08DEC01DE" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Curso en Udemy
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>¿Como jugar al WoW en Linux?</title><link>https://patojad.com.ar/post/2020/11/como-jugar-al-wow-en-linux/</link><pubDate>Mon, 30 Nov 2020 11:29:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/11/como-jugar-al-wow-en-linux/</guid><description>&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://cadenaser00.epimg.net/ser/imagenes/2019/08/27/ser_madrid_sur/1566920041_790600_1566920146_noticia_normal.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Todos conocemos este gran juego o la gran mayoría, yo creo que junto al &lt;strong&gt;Lineage 2&lt;/strong&gt; y el &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2019/05/como-instalar-mu-online-en-linux/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+MU
+&lt;/a&gt;&lt;/strong&gt; son los &lt;em&gt;MMORPG&lt;/em&gt; que marcaron mi infancia, y hoy por hoy sigue siendo uno de los juegos que nos sorprenden y nos dan mucha emoción a cambio de horas de nuestra vida.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="hasta-donde-llego"&gt;
+¿Hasta donde llego?
+&lt;a href="#hasta-donde-llego" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Actualmente existen muchas versiones del WoW pero no todas podemos jugarla en linux, en mi basta experiencia (Aunque muchos me puedan contradecir y eso me gustaria) el soporte de Wine para 64bits es deplorable. Al punto tal de que solo podemos correr perfectamente aplicaciones de 32bits y este es nuestro limitante.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/QVLFXMzs/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Desde la versión del WoW conocida como &lt;strong&gt;Battle of Azeroth&lt;/strong&gt; se eliminó completamente el soporte para 32bits por lo cual no podemos avanzar hasta que wine no mejore su compatibilidad con 64bits. Esto nos impide, de momento, jugar en el servidor oficial de blizzard.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://gamedustria.com/wp-content/uploads/2016/09/WoWLEgion.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;En esta oportunidad voy a explicar como utilizar este magnifico juego pero obviamente desde un servidor privado con una de las últimas versiones que nos soportan los 32bits que no es nada más ni nada menos que &lt;strong&gt;Legion&lt;/strong&gt; donde podemos disfrutar la historia de Illidan.&lt;/p&gt;
+&lt;p&gt;![](&lt;a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtPtNMJoMaEVWXxKzq-lzloVmnrJ7C_FGrLAlIAB4GiRJYQ2lvT7_kVj4-9_pk1Bb4bDmA9lFPTTxk3-IzmIwCT9rosCDkxcA&amp;amp;usqp=CAU&amp;amp;ec=45732302%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtPtNMJoMaEVWXxKzq-lzloVmnrJ7C_FGrLAlIAB4GiRJYQ2lvT7_kVj4-9_pk1Bb4bDmA9lFPTTxk3-IzmIwCT9rosCDkxcA&amp;usqp=CAU&amp;ec=45732302"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ATENCIÓN: Si bien existen videos de como instalar el original con Lutris esto crashea muchísimo en raids y situaciones específicas por lo cual no recomiendo pagar una suscripción hasta que no esté mejorado el soporte a 64 bits para evitar golpes de ira&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="mi-maquina-se-lo-banca"&gt;
+¿Mi maquina se lo banca?
+&lt;a href="#mi-maquina-se-lo-banca" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Por suerte el Wow es un juego que no requiere mucho hardware para jugar, poniendo todo al minimo (low). Y existe una gran diferencia con jugarlo todo en “ultra” pero este “sacrificio” de estética nos permite disfrutarlo en equipos que no sean meramente gamers.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;CPU (Procesador):&lt;/strong&gt; Intel Core2 Duo E8500 o AMD Phenom II X3 720&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GPU (Gráficos):&lt;/strong&gt; NVIDIA GeForce GT 440 – AMD Radeon HD 5670 – Intel HD Graphics 5000&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Memoria RAM:&lt;/strong&gt; 2GB&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Espacio en el Disco Duro:&lt;/strong&gt; 45GB&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.guiaswow.com/wp-content/uploads/2016/02/Zu7dsO3.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Como vemos es realmente poco lo que pide y seguramente nosotros cumplamos estos requisitos, pero vale aclarar que si lo que vamos a usar es la placa de video integrada recomiendo tener un mínimo de 4GB de ram dado que la integrada utiliza nuestra ram como VRAM.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalar-winehq"&gt;
+Instalar WineHQ
+&lt;a href="#instalar-winehq" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://linuxhint.com/wp-content/uploads/2020/06/1-12.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Lo primero que debemos hacer es instalar WineHQ en nuestra distribución, para esto debemos agregar las librerías y ejecutar la instalación.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="debian"&gt;
+Debian
+&lt;a href="#debian" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Habilitamos los 32 bits&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo dpkg --add-architecture i386
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Descargamos e instalamos a Key&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;wget -nc https://dl.winehq.org/wine-builds/winehq.key
+sudo apt-key add winehq.key
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Agregamos el repositorio dependiendo de nuestra versión&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Version&lt;/th&gt;
+&lt;th&gt;Agregar a /etc/apt/sources.list:&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Debian 8 (Jessie)&lt;/td&gt;
+&lt;td&gt;deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://dl.winehq.org/wine-builds/debian/
+&lt;/a&gt; jessie main&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Debian 9 (Stretch)&lt;/td&gt;
+&lt;td&gt;deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://dl.winehq.org/wine-builds/debian/
+&lt;/a&gt; stretch main&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Debian 10 (currently Testing) (Buster)&lt;/td&gt;
+&lt;td&gt;deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://dl.winehq.org/wine-builds/debian/
+&lt;/a&gt; buster main&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Actualizamos el Sistema&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt update
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Instalamos uno de los paquetes&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;version&lt;/th&gt;
+&lt;th&gt;comando&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Stable branch&lt;/td&gt;
+&lt;td&gt;sudo apt install &amp;ndash;install-recommends winehq-stable&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Development branch&lt;/td&gt;
+&lt;td&gt;sudo apt install &amp;ndash;install-recommends winehq-devel&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Staging branch&lt;/td&gt;
+&lt;td&gt;sudo apt install &amp;ndash;install-recommends winehq-staging&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="fedora"&gt;
+Fedora
+&lt;a href="#fedora" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Agregamos los repositories&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;version&lt;/th&gt;
+&lt;th&gt;comando&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Fedora 29&lt;/td&gt;
+&lt;td&gt;dnf config-manager &amp;ndash;add-repo &lt;a href="https://dl.winehq.org/wine-builds/fedora/29/winehq.repo" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://dl.winehq.org/wine-builds/fedora/29/winehq.repo
+&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Fedora 30&lt;/td&gt;
+&lt;td&gt;dnf config-manager &amp;ndash;add-repo &lt;a href="https://dl.winehq.org/wine-builds/fedora/30/winehq.repo" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://dl.winehq.org/wine-builds/fedora/30/winehq.repo
+&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;E instalamos la version que deseamos&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;version&lt;/th&gt;
+&lt;th&gt;comando&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Stable branch&lt;/td&gt;
+&lt;td&gt;dnf install winehq-stable&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Development branch&lt;/td&gt;
+&lt;td&gt;dnf install winehq-devel&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Staging branch&lt;/td&gt;
+&lt;td&gt;dnf install winehq-staging&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Para otras distribuciones o BDS o MacOS revisar en su &lt;a href="https://wiki.winehq.org/Download" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+sitio oficial
+&lt;/a&gt;&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="arch"&gt;
+Arch
+&lt;a href="#arch" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Si estás en una distro basada en arch lo que recomiendo es instalar wine-staging que es, personalmente la instalación que me dio un mejor rendimiento. En mi caso lo hice con yay pero puedes hacerlo directamente con pacman&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;yay -S wine-staging
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="volviendo-al-wow"&gt;
+Volviendo al WoW
+&lt;a href="#volviendo-al-wow" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.ytimg.com/vi/XwkaeAQcWRw/maxresdefault.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Volviendo al juego, en mi caso elegí un servidor especifico, conocido como &lt;a href="https://www.wow-freakz.com/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Freakz
+&lt;/a&gt; que no es un paytowin y en el cual no hay colas largas para jugar. Una vez descargado lo descomprimimos en la carpeta que querramos en mi caso utilizo el directorio&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;~/Juegos/WoW
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Y una vez ahí ejecutamos el launcher. La primera vez que lo ejecutemos tardará bastante en configurar wine y algunas cosas del juego, también puede tirar el épico error de “dejo de funcionar” pero al abrirlo nuevamente ya podemos entrar sin problemas. Si elegimos la opción minimalista que descarga el juego mientras jugamos puede ser un poco más lento pero nos permite jugar desde el momento 0 es perfecto para impacientes.&lt;/p&gt;</description></item><item><title>Double Action: Boogaloo</title><link>https://patojad.com.ar/post/2020/11/double-action-boogaloo/</link><pubDate>Thu, 19 Nov 2020 08:19:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/11/double-action-boogaloo/</guid><description>&lt;p&gt;Double Action es un elegante juego multijugador gratuito sobre bucear, voltear y deslizarse hacia el caos de las películas de acción.&lt;/p&gt;
+&lt;p&gt;![](&lt;a href="https://cdn.cloudflare.steamstatic.com/steam/apps/317360/ss_39480620e2bdffe9e354143bab51403417d7d5df.600x338.jpg?t=1447363023%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://cdn.cloudflare.steamstatic.com/steam/apps/317360/ss_39480620e2bdffe9e354143bab51403417d7d5df.600x338.jpg?t=1447363023"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cómo-es-la-doble-acción"&gt;
+¿Cómo es la doble acción?
+&lt;a href="#c%c3%b3mo-es-la-doble-acci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Imagínese haciendo una voltereta hacia atrás en la cara de un tipo y luego zambulléndose a través de una ventana, con pistolas chapadas en oro disparando a cámara lenta. Hay una explosión detrás de ti y alguien ha robado tu maletín lleno de dinero.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://cdn.cloudflare.steamstatic.com/steam/apps/317360/ss_226821a1200b41a01e21241a696a6de4d8ca4528.600x338.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;¿Es suficiente acción para ti? Multiplíquelo por dos para obtener doble acción.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cual-es-el-objetivo"&gt;
+¿Cual es el objetivo?
+&lt;a href="#cual-es-el-objetivo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Double Action es una batalla real sin límites intercalados con objetivos para sobrevivir a los puntos de control, capturar el maletín lleno de dinero y cazar al criminal buscado.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://cdn.cloudflare.steamstatic.com/steam/apps/317360/ss_eb0ff5103793ea8e3985c769066bf7f78fa24f14.600x338.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="me-gustan-las-armas"&gt;
+Me gustan las armas
+&lt;a href="#me-gustan-las-armas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://cdn.cloudflare.steamstatic.com/steam/apps/317360/ss_446d33ec3a1ae51f9b8cf328d474084e3553b443.600x338.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;The Sentinel 9&lt;/strong&gt; - Una (o dos) pistola(s) de 9 mm&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Stallion .45&lt;/strong&gt; - Una (o dos) pistola(s) calibre .45&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Undertaker&lt;/strong&gt; - Una metralleta de 9 mm&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Mac Daddy&lt;/strong&gt; - Una ametralladora calibre .45&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Persuader&lt;/strong&gt; - Una escopeta de combate&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Vindicator&lt;/strong&gt; - Un rifle completamente automático&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Black Magic&lt;/strong&gt; - Un rifle de ráfaga&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Your Fists&lt;/strong&gt; - Tienen un gran impacto&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The High Explosive Grenade&lt;/strong&gt; - Para cuando todo lo demás falla&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="corre-en-mi-tostadora"&gt;
+¿Corre en mi tostadora?
+&lt;a href="#corre-en-mi-tostadora" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Procesador:&lt;/strong&gt; 1.7 GHz&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Memoria:&lt;/strong&gt; 512 MB de RAM&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Red:&lt;/strong&gt; Conexión de banda ancha a Internet&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Almacenamiento:&lt;/strong&gt; 5 GB de espacio disponible&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="text-center"&gt;
+&lt;iframe
+src='https://store.steampowered.com/widget/317360/'
+width="646"
+height="190"
+title="Juego en Steam"
+style="border-radius:20px;"&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;p&gt;Si estas interesado en jugarlo no te olvides de meterte en nuestros grupos para que juguemos juntos! Podemos incluso hacer algun Stream&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://discord.gg/n8XtgN3" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-discord"&gt;&lt;/i&gt;&amp;nbsp;
+Discord
+&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Recorda &lt;strong&gt;apoyarnos&lt;/strong&gt; en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p&gt;</description></item><item><title>Krunker.io</title><link>https://patojad.com.ar/post/2020/10/krunker.io/</link><pubDate>Wed, 21 Oct 2020 08:02:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/10/krunker.io/</guid><description>&lt;p&gt;Muchas veces en la sección de videojuegos tratamos de explicar cómo portear un juego o mostrar un juego nativo. Sin embargo me olvido con el fin que lo cree en su tiempo, no solo sirve para estos juegos sino que pretende mostrar grandes hazañas realizadas a la hora de hacer un juego y hoy traigo una de esas&amp;hellip;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="el-juego"&gt;
+El juego
+&lt;a href="#el-juego" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Krunker.io es un juego caricaturizado de disparos en primera persona en el cual asumes el papel de un soldado de pixel en medio de la batalla. Usa tus tácticas de guerra y puntería para acabar con todos tus enemigos. Mata a tus enemigos y gana puntos.
+Antes de luchar, elige entre 11 clases diferentes entre las que se incluyen el detective, el cañonero, el agente, el corredor, el arquero y el cazador. Cada clase cuenta con trajes y estilos diferentes, además de armas primarias y secundarias distintas.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.ytimg.com/vi/9q3YZC-pFGg/maxresdefault.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Aparte de la gran variedad de clases, el juego también cuenta con una gran selección de armas increíbles. Prueba armas letales como el rifle de asalto, el rifle de francotirador, la escopeta, el revólver o las uzis. Todas tienen distintas ventajas: por ejemplo, el rifle de francotirador tiene una mirilla y es perfecto para el combate a distancia.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.ytimg.com/vi/6_DwUSl28LE/maxresdefault.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Krunker es un shooter en primera persona muy original en cuanto a su jugabilidad. Se trata también de un juego caótico de ritmo muy rápido: los personajes deben moverse a toda velocidad y permanecer alerta para no recibir disparos. Además, los jugadores necesitarán ser rápidos a la hora de apuntar y tener un buen pulso (como en la mayoría de los juegos FPS).&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://images.sftcdn.net/images/t_app-cover-l,f_auto/p/7cb9fcff-89c4-4648-8496-96e90331f1e7/1261880317/krunker-screenshot.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Dispondrás de una enorme selección de mapas, creados tanto por los desarrolladores del juego como por los fans. Los usuarios pueden enviar sus propias creaciones y elegir entre cientos de mapas ingeniados por otros jugadores. La creatividad de los diseños de los mapas es asombrosa: podrás encontrarte de todo, desde paisajes de lava hasta antiguas pirámides aztecas.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://static.miniclipcdn.com/images/big-images/krunker_444x285.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Finalmente, los jugadores pueden comprobar sus puntuaciones en la sección social, que incluye clasificaciones y varias estadísticas. Intenta conseguir un puesto en la tabla con tus dotes para la batalla pixelada.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="características"&gt;
+Características
+&lt;a href="#caracter%c3%adsticas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Más de 5 personajes con los que jugar&lt;/li&gt;
+&lt;li&gt;Puedes pintar con el atomizador&lt;/li&gt;
+&lt;li&gt;Jugabilidad rápida&lt;/li&gt;
+&lt;li&gt;Controles suaves&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="consejos"&gt;
+Consejos
+&lt;a href="#consejos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Prueba diferentes armas, elige una dependiendo de las circunstancias.&lt;/li&gt;
+&lt;li&gt;Busca refugio cuando estés recargando.&lt;/li&gt;
+&lt;li&gt;¡Si saltas mientras le disparas a alguien puedes ganar puntos extra!&lt;/li&gt;
+&lt;li&gt;¡Practica mucho! Es un gran juego pero requiere habilidad que sólo tendrás si practicas.&lt;/li&gt;
+&lt;li&gt;¡Registrate en la plataforma! Es interesante guardar tu progreso y conseguir monedas para personalizarte más.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="https://krunker.io/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Jugar
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Blockpost</title><link>https://patojad.com.ar/post/2020/10/blockpost/</link><pubDate>Fri, 02 Oct 2020 08:11:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/10/blockpost/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;Disparador 3D cúbico procedimental en las mejores tradiciones del género. El juego es un rico cóctel que consta de las soluciones de juego más populares y funcionales. Personalización de personajes, apertura de casos y mejora del arsenal existente&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://cdn.cloudflare.steamstatic.com/steam/apps/706990/ss_68e64bfe0dccd3e570cb6f975b686637bd5d973f.600x338.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Así se define este juego en su portada Steam. Si bien este juego no es de esos que uno juega en 4K para sorprenderse por los gráficos, es realmente interesante porque si bien es muy básico y liviano es realmente divertido. Y lo más emocionante es que no requiere de un gran equipo para poder jugar ni de mucho espacio en el disco, lo cual nos permite incluir a esos compañeros que tampoco juegan seguido y echarse unas risas.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="características"&gt;
+Características
+&lt;a href="#caracter%c3%adsticas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Entre otras cosas que más que detallar conviene entrar y probarlas, las principales características del juego son:&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://cdn.cloudflare.steamstatic.com/steam/apps/706990/ss_6e84078fde2dc1a4b12f1f7242d1af805a0e30f3.600x338.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;7 modos de juego con conjuntos únicos de ubicaciones (mapas)&lt;/li&gt;
+&lt;li&gt;Más de 20 ubicaciones de juegos&lt;/li&gt;
+&lt;li&gt;Más de 100 tipos de armas de fuego&lt;/li&gt;
+&lt;li&gt;Sistema de clan (equipo)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="requisitos"&gt;
+Requisitos
+&lt;a href="#requisitos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Como dijimos antes los requisitos para poder jugar a este juego son realmente bajos y por lo cual cualquier persona con una pc de hace 5 años aprox podría jugar a este maravilloso juego.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://cdn.cloudflare.steamstatic.com/steam/apps/706990/ss_77ef2a3f336663ff7b57fa39f047b405c9201d7d.600x338.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SO: Windows 7&lt;/li&gt;
+&lt;li&gt;Procesador: Core 2 Duo E6600&lt;/li&gt;
+&lt;li&gt;Memoria: 2048 MB de RAM&lt;/li&gt;
+&lt;li&gt;Gráficos: GeForce GTS 450&lt;/li&gt;
+&lt;li&gt;DirectX: Versión 9.0&lt;/li&gt;
+&lt;li&gt;Red: Conexión de banda ancha a Internet&lt;/li&gt;
+&lt;li&gt;Almacenamiento: 100 MB de espacio disponible&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Este juego como vemos este juego es nativo pura y exclusivamente en Windows, sin embargo si estas en Linux recordemos que valve creo protom para poder jugar igual y en este caso funciona de 10&lt;/p&gt;
+&lt;div class="text-center"&gt;
+&lt;iframe
+src='https://store.steampowered.com/widget/706990/'
+width="646"
+height="190"
+title="Juego en Steam"
+style="border-radius:20px;"&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalarlo-en-linux"&gt;
+Instalarlo en Linux
+&lt;a href="#instalarlo-en-linux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Una vez que lo descargamos, y &lt;strong&gt;ANTES&lt;/strong&gt; de iniciarlo debemos agregar algunos parámetros para que funcione correctamente, para eso vamos a darle click derecho al juego y seleccionamos &lt;strong&gt;Propiedades&lt;/strong&gt;&amp;hellip;&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/cH3V889S/Captura-de-pantalla-2020-09-01-22-51-14.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;En esta sección debemos ir a Parámetros de lanzamiento y agregar tal cual el siguiente comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;PROTON_USE_WINED3D=1 %command%
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Por último volvemos a reiniciar steam y ya podemos jugar tranquilamente, recomiendo traducir al español el juego si no tienes un gran dominio del inglés! Y si estas interesado en jugarlo no te olvides de meterte en nuestros grupos para que juguemos juntos!&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://discord.gg/n8XtgN3" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-discord"&gt;&lt;/i&gt;&amp;nbsp;
+Discord
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>14 Razones para utilizar Linux en lugar de Windows</title><link>https://patojad.com.ar/post/2020/08/14-razones-para-utilizar-linux-en-lugar-de-windows/</link><pubDate>Mon, 24 Aug 2020 10:44:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/08/14-razones-para-utilizar-linux-en-lugar-de-windows/</guid><description>&lt;p&gt;Saben que me gusta mucho recorrer otros blogs y más si son antiguos, me gusta saber que se hablaba de Linux en aquellos tiempos en los que no lo conocía y en esta oportunidad encontré una hermosa publicación del &lt;strong&gt;2008&lt;/strong&gt; que nos cuenta: &lt;strong&gt;14 Razones para utilizar Linux en lugar de Windows&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Como todos sabemos suelo comentar los puntos de vista para hacer un contraste con la diferencia temporal. Por lo cual, vamos a eso…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="publicación"&gt;
+Publicación
+&lt;a href="#publicaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Aquí les pongo un pequeño resumen que alguien hizo sobre el por qué utilizar Linux y no Windows:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;El autor nos ofrece comentarnos sus razones por lo cual no le gusta usar Windows y si utiliza Linux, en esta ocasión lo va dividir en 14 ítems que comentaremos uno a uno, así que vamos a ello&amp;hellip;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;01.- &lt;strong&gt;Funcionalidad:&lt;/strong&gt; comenzando podemos decir que Linux posee exactamente todas las funcionalidades que posee actualmente Windows Vista.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;En el 2008 el exponente de Windows era el vista… Una de las peores versiones de Windows junto al 8 (desde mi punto de vista), y actualmente el exponente es windows 10 y la verdad es que no tiene grandes novedades en funcionalidades que no estén disponibles en GNU/Linux. Sin embargo al día de hoy el punto débil de GNU/Linux es el área de juegos debido a la ausencia de natividad (sí seguramente no exista esa palabra)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;02.- &lt;strong&gt;Librerías:&lt;/strong&gt; Linux cuenta con librerías publicadas en Internet, con las cuales podemos modificar cualquier aspecto del sistema operativo para mejora personal.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Al día de hoy esto sigue siendo real y existen muchas cosas más seguramente que en 2008. También tenemos que admitir en su contracara sistems como ReactOS, Windows o MacOS no quieren que los personalicen como linux que es tan editable por lo cual es realmente fuerte en este punto al igual que BDS y otros sistemas así&amp;hellip;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;03.- &lt;strong&gt;Adiós errores:&lt;/strong&gt; No verás más el mensaje “Se recomienda cerrar todas las aplicaciones antes de continuar” ya que en Linux no es necesario.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Bueno, siempre que te mantengas lejos de &lt;strong&gt;Ubuntu&lt;/strong&gt; esto es realmente viable… Fuera de chiste hay que reconocer que Windows aprendió a manejar mucho mejor sus errores en las últimas versiones. Y también tenemos que reconocer que &lt;strong&gt;todos&lt;/strong&gt; los SO son propensos a errores, aunque los basados en UNIX o Unix-Like tienden a aislarlos mejor y eso es una gran ventaja&amp;hellip;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;04.- &lt;strong&gt;Rapidez y Recursos:&lt;/strong&gt; Si comparamos con Windows Vista, Linux es ampliamente más rápido, necesitando menos recursos en cuanto a hardware.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Volvemos a ver la diferencia en generaciones de Windows, la Versión 10 está más optimizada que la versión Vista… Aun asi es real que GNU/Linux esta mucho mas optimizada y con un DE liviano o un WM y lo corres en una comodore.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;05.- &lt;strong&gt;Rendimiento:&lt;/strong&gt; Adiós a herramientas para aumentar el rendimiento de nuestro sistema operativo, o de herramientas para desfragmentar nuestro disco duro.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;El mantenimiento de los equipos es necesario indiferentemente de los SO que tengamos instalados y eso es ley, si uno no cuida correctamente y mantiene buenas prácticas siempre se puede llenar de basura o funcionar mar, aun así es real los menores niveles de fragmentación.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;06.- &lt;strong&gt;Instalación:&lt;/strong&gt; La instalación del sistema operativo dura la mitad, tan solo debemos reiniciar una vez, contra las cuatro o cinco veces del Windows Vista.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Si, pero no. Es verdad y solo se reinicia para iniciar el SO ya instalado no es algo que moleste, o al menos desde mi punto yo solo instalo mientras hago otras cosas por lo cual no lo espero con tantas ansias…&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;07.- &lt;strong&gt;Reinicio tras instalación:&lt;/strong&gt; No tendrás que reiniciar tu ordenador cada vez que instales un programa, dispositivo o actualización.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Bueno, a ver intentamos ser realistas, no siempre hay que reiniciar en DOS solamente cuando instalamos algo que impacta en la ejecución del kernel, y en Ubuntu por ejemplo algunas cosas piden reiniciar también. Por lo cual si bien es verdad que es GNU/Linux eso lo pide mucho menos tampoco es cada 5 min en DOS&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;08.- &lt;strong&gt;Antivirus:&lt;/strong&gt; No es normal instalar algún tipo de antivirus o antispyware, y en caso de instalarlo no es necesario actualizarlo.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;En ningún SO es necesario si realmente somos usuarios responsables, pero decir que en linux no es necesario y no existen virus es realmente una mentira. Y creo que debemos ser realistas. Qué son los menos es verdad, pero ningún sistema no es infalible (más si usas intel que está lleno de errores)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;09.- &lt;strong&gt;Claves y cracks:&lt;/strong&gt; No necesitarás buscar y descargar claves o parches de páginas de dudosas procedencias, lo que lleva a la infección de nuestro ordenador.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;En ningún sistema es necesario esto, existen apps libres para Todos y bueno, el sistema tenes que pagarlo, porque es lo correcto&amp;hellip; Uno puede estar a favor o en contra, pero el hecho de crackear en Windows ya implica tener un virus dentro&amp;hellip;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;10.- &lt;strong&gt;Drivers:&lt;/strong&gt; Al enchufar un dispositivo, por ejemplo una impresora, memoria flash, disco externo, etc. empezará a funcionar automáticamente sin necesidad de instalar su respectivo driver.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Linux en SO no es &lt;strong&gt;Hogwarts&lt;/strong&gt; por lo cual la magia no existe, la mayoría de los dispositivos arrancan de una pero si hay que instalar drivers en algunos, y es mas a dia de hoy existen drivers que no sirven o son muy complejos de hacerlos funcionar… Pero al instalar un Linux suele arrancar con el 90% de funcionalidad&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;11.- &lt;strong&gt;Todo gratis:&lt;/strong&gt; Todas las aplicaciones serán totalmente gratuitas, no necesitarás piratear ninguna aplicación para su uso.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Volvemos a lo anterior LibreOffice y demás están Para Windows también, Además en Linux existen increíbles apps de pago que son impecables. Pagar o no por una app es elección y piratearla también lo es estemos o no de acuerdo&amp;hellip;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;12.- &lt;strong&gt;Paquete de aplicaciones:&lt;/strong&gt; Linux por defecto trae gran cantidad de aplicaciones con las cuales podemos hacer cualquier tipo de tarea.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Esto depende de la distribución, algunas vienen muy limpias y otras llenas de Apps. La gran mayoría trae todo para poder funcionar y hacer de todo sin ningún problema. por lo cual sigue siendo un punto a favor. Algo que no me gusta de Windows es que trae muchas apps que nadie quiere… (Pero esto es meramente personal)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;13.- &lt;strong&gt;Descarga de aplicaciones:&lt;/strong&gt; Si en las utilidades que trae Linux por defecto no encontramos una herramienta adecuada, podremos descargarla de Internet totalmente gratis.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Bueno esto es lo que decíamos de antes… En GNU/Linux hay apps gratis al igual que en linux y por ahí la ventaja acá es el gestor de paquetes que facilita mucho y de alguna forma controla las versiones&amp;hellip;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;14.- &lt;strong&gt;Clasificación:&lt;/strong&gt; Las aplicaciones en el menú inicio se encuentran clasificadas en forma lógica, no como en Windows que se encuentran todas las aplicaciones.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Bueno esto depende del menú en específico que usemos y de la distro, pero es verdad que vienen más organizadas en GNU/Linux aunque para los que usamos launchers es casi lo mismo esto&amp;hellip;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;En resumen, les puedo decir que varios pueden cuestionar, lo cierto es que cada uno es libre de optar por la tecnología que mejor resultados les ofrezca.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;El resumen es impecable, esta persona nos cuenta su punto de vista y nosotros podemos discrepar, pero la realidad al fin de cuenta es que siempre depende de que es lo que el usuario quiera y a que se adapte mejor.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://principiante-linux.blogspot.com/2008/06/14-razones-para-utilizar-linux-en-lugar.html" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Fuente
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Unturned</title><link>https://patojad.com.ar/post/2020/08/unturned/</link><pubDate>Wed, 19 Aug 2020 10:16:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/08/unturned/</guid><description>&lt;p&gt;Existe el mito de que en GNU/Linux no se puede jugar, como siempre digo hay muchos canales que demuestran lo contrario, pero desde mi posición tengo ganas de colaborar con la causa y creo que una de las mejores formas es recomendar algunos juegos &lt;strong&gt;Free To Play&lt;/strong&gt; que son nativos para nuestro amado GNU/Linux.&lt;/p&gt;
+&lt;p&gt;Probablemente muchos juegos que recomiende sean &lt;strong&gt;Steam&lt;/strong&gt; o al menos es el caso de hoy. Puede que existan muchos juegos y no necesariamente de esta plataforma, si te parece correcto publicar también esos juegos y notas que yo me los paso por arriba no dudes en intervenir para que no me olvide de ninguno…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="el-juego-de-hoy"&gt;
+El juego de Hoy
+&lt;a href="#el-juego-de-hoy" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://cdn.cloudflare.steamstatic.com/steam/apps/304930/header.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;El juego de hoy es un juego que siempre me negué a probar, no me parecía interesante o parecía aburrido. Pero a modo de investigación lo descargue y lo probe… Debo admitir que el juego es realmente entretenido y es realmente interesante.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="mantente-con-vida"&gt;
+Mantente con vida
+&lt;a href="#mantente-con-vida" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Eres uno de los pocos que aún no se ha convertido en un zombi, y mantenerse así será todo un reto.&lt;/p&gt;
+&lt;p&gt;![](&lt;a href="https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_2754a9cdb632e6ed242799e073711fe6306a4245.600x338.jpg?t=1590451726%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_2754a9cdb632e6ed242799e073711fe6306a4245.600x338.jpg?t=1590451726"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dispárale a todo y atrae la atención de todos, no importa si están vivos o muertos.&lt;/li&gt;
+&lt;li&gt;Acércate con sigilo utilizando distracciones.&lt;/li&gt;
+&lt;li&gt;Enfréntate y aprende a contrarrestar habilidades especiales como la invisibilidad, aliento de fuego o ataques relámpago.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="lucha-contra-la-naturaleza"&gt;
+Lucha contra la naturaleza
+&lt;a href="#lucha-contra-la-naturaleza" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;A parte de los zombis, el mundo natural también hace la vida difícil.&lt;/p&gt;
+&lt;p&gt;![](&lt;a href="https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_db70f87c3635d930580b1365101952a72a14bd4e.600x338.jpg?t=1590451726%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_db70f87c3635d930580b1365101952a72a14bd4e.600x338.jpg?t=1590451726"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Busca frutas y vegetales silvestres.&lt;/li&gt;
+&lt;li&gt;Caza animales para conseguir pieles y carne. También puede que seas la presa en dadas ocasiones.&lt;/li&gt;
+&lt;li&gt;Pesca para conseguir comida… y basura.&lt;/li&gt;
+&lt;li&gt;Cosecha tus propias plantas y asegúrate de que obtengan agua.&lt;/li&gt;
+&lt;li&gt;Busca refugios para mantenerte cálido durante las tormentas.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="interactúa-con-otros-jugadores"&gt;
+Interactúa con otros jugadores
+&lt;a href="#interact%c3%baa-con-otros-jugadores" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Ya sean amigos o enemigos, hay mucha gente interesante en línea.&lt;/p&gt;
+&lt;p&gt;![](&lt;a href="https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_6daaf570bf9b57647e44349a7f36e1f74064ca82.116x65.jpg?t=1590451726%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_6daaf570bf9b57647e44349a7f36e1f74064ca82.116x65.jpg?t=1590451726"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Arresta a ladrones con esposas y véndales los ojos para subyugarlos con una estrategia no letal.&lt;/li&gt;
+&lt;li&gt;Lucha usando todo tipo de arma que te encuentres en el camino. Espadas, ametralladoras, rifles, misiles, minas, todo es bueno.&lt;/li&gt;
+&lt;li&gt;Asalta campamentos enemigos usando cargas y detonadores para saquear sus provisiones.&lt;/li&gt;
+&lt;li&gt;Juega en el modo arena para sobrevivir en una batalla de jugador contra jugador donde solo uno saldrá con vida o juega en paz y en equipo en el modo jugador contra el mundo.&lt;/li&gt;
+&lt;li&gt;Usa servidores Roleplay que motivan a los jugadores a que se mantengan usando a un personaje específico y creen una historia juntos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="ayuda-a-la-nueva-sociedad"&gt;
+Ayuda a la nueva sociedad
+&lt;a href="#ayuda-a-la-nueva-sociedad" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Hay muchas cosas que hacer, aunque juegues desconectado o tu solo.&lt;/p&gt;
+&lt;p&gt;![](&lt;a href="https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_de07d47b7f81d0f53100398369ac49803d0570bf.116x65.jpg?t=1590451726%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_de07d47b7f81d0f53100398369ac49803d0570bf.116x65.jpg?t=1590451726"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Conoce, habla y comercia con los NPCs.&lt;/li&gt;
+&lt;li&gt;Completa misiones para continuar con la historia y ayudar a los NPCs.&lt;/li&gt;
+&lt;li&gt;Defiéndete de las hordas de zombis y mantente firme hasta que no quede ninguno.&lt;/li&gt;
+&lt;li&gt;Asegura los suministros que lleguen en paracaídas.&lt;/li&gt;
+&lt;li&gt;Consigue equipos como máscaras antigás para explorar las áreas radioactivas.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="crea-tu-fortaleza"&gt;
+Crea tu fortaleza
+&lt;a href="#crea-tu-fortaleza" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Construye un lugar donde tú y tu equipo se puedan relajar, esconderse y planear lo que quieren hacer ya sea en la tierra o en el agua (literalmente).&lt;/p&gt;
+&lt;p&gt;![](&lt;a href="https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_dab75d876be53346a0a5a1fc5e3ae1a4b54ea926.116x65.jpg?t=1590451726%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_dab75d876be53346a0a5a1fc5e3ae1a4b54ea926.116x65.jpg?t=1590451726"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Construye barricadas, muebles, trampas, maquinarias y mucho más.&lt;/li&gt;
+&lt;li&gt;Bloquea las ventanas de edificios para sobrevivir la noche en ese lugar.&lt;/li&gt;
+&lt;li&gt;Construye edificios y objetos nuevos usando los suministros que colectes.&lt;/li&gt;
+&lt;li&gt;Convierte tu vehículo en una fortaleza andante construyendo sobre él.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="viaja-por-tierra-mar-y-aire"&gt;
+Viaja por tierra, mar y aire
+&lt;a href="#viaja-por-tierra-mar-y-aire" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Viaja como quieras cuando llenes tu garaje de vehículos distintos.&lt;/p&gt;
+&lt;p&gt;![](&lt;a href="https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_e9b5d9c8b1afc2aabd3e33ac9407a09bd9bffccb.600x338.jpg?t=1590451726%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_e9b5d9c8b1afc2aabd3e33ac9407a09bd9bffccb.600x338.jpg?t=1590451726"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hay vehículos de tierra incluyendo tanques, cuatrimotos y motos de nieve.&lt;/li&gt;
+&lt;li&gt;Hay vehículos de aire, incluyendo helicópteros, hidroaviones y aviones de combate.&lt;/li&gt;
+&lt;li&gt;Hay vehículos de agua, como motos acuáticas y aerodeslizadores.&lt;/li&gt;
+&lt;li&gt;Mantén tus vehículos listos para la acción con llantas, baterías y gasolina.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="explora-un-mundo-gigantesco"&gt;
+Explora un mundo gigantesco
+&lt;a href="#explora-un-mundo-gigantesco" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Con cinco comunidades oficialmente activas y una comunidad supervisada, hemos creado un mapa sandbox con localidades enormes y listas para ser descubiertas:&lt;/p&gt;
+&lt;p&gt;![](&lt;a href="https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_e3e31ca656cbe3b2d186e6644588bee9fe59f1df.600x338.jpg?t=1590451726%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_e3e31ca656cbe3b2d186e6644588bee9fe59f1df.600x338.jpg?t=1590451726"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Las islas del Príncipe Eduardo&lt;/li&gt;
+&lt;li&gt;El territorio del Yukón&lt;/li&gt;
+&lt;li&gt;Washington&lt;/li&gt;
+&lt;li&gt;Rusia&lt;/li&gt;
+&lt;li&gt;Hawái&lt;/li&gt;
+&lt;li&gt;Alemania&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="modifica-todo"&gt;
+¡Modifica todo!
+&lt;a href="#modifica-todo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Unturned fue creado desde el principio con la idea de crear mods.&lt;/p&gt;
+&lt;p&gt;![](&lt;a href="https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_b1cf12ba306180da433dcf199f6f4a2fa74e48bd.600x338.jpg?t=1590451726%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_b1cf12ba306180da433dcf199f6f4a2fa74e48bd.600x338.jpg?t=1590451726"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Descarga contenido creado por otros jugadores, desde armas a vehículos y hasta niveles nuevos para explorar. Incluso tú puedes crear y subir lo que quieras.&lt;/li&gt;
+&lt;li&gt;Crea tus propios mapas con el editor de mapas incluido. Todos nuestros mapas fueron creados con las mismas herramientas que tiene disponibles.&lt;/li&gt;
+&lt;li&gt;Escribe Plugins usando nuestros sistemas o sistemas de servicio de terceros.&lt;/li&gt;
+&lt;li&gt;Crea tus trajes y pieles en el Workshop para que otros voten por ellos. Si ganan se considerarán para ser vendidos en la tienda.&lt;/li&gt;
+&lt;li&gt;Haz equipo con otros creadores para desarrollar tus propias actualizaciones, las cuales podrían ser consideradas para uso oficial.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="más-cosas"&gt;
+Más cosas
+&lt;a href="#m%c3%a1s-cosas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Hay otras cosas que hacer que no supimos donde incluir. Esta es una breve lista de algunos ejemplos:&lt;/p&gt;
+&lt;p&gt;![](&lt;a href="https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_f634649eb2a50b49bc98f7cc27314b671c8cbff5.600x338.jpg?t=1590451726%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://cdn.cloudflare.steamstatic.com/steam/apps/304930/ss_f634649eb2a50b49bc98f7cc27314b671c8cbff5.600x338.jpg?t=1590451726"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;La mayoría de los objetos se pueden destruir para crear caminos nuevos.&lt;/li&gt;
+&lt;li&gt;Para una mejor inmersión, puedes llevar una radio de frecuencias en el juego para comunicarte con tus amigos en vez de usar programas externos para chat de voz.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="mi-opinión"&gt;
+Mi opinión
+&lt;a href="#mi-opini%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Soy una persona que le encanta el Rol y en este juego ya tenemos servidores de RolePlay. Por lo cual me parece ideal para iniciar en el mundo del RolePlay. El juego tiene muchos mecanismos por lo cual si bien sus gráficos no son ideales la jugabilidad es el cielo… Y los que de verdad jugamos nos fijamos en esto y no en los gráficos.&lt;/p&gt;</description></item><item><title>AdBlock Spotify</title><link>https://patojad.com.ar/post/2020/07/adblock-spotify/</link><pubDate>Tue, 07 Jul 2020 09:23:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/07/adblock-spotify/</guid><description>&lt;p&gt;Muchos de nosotros usamos diferentes reproductores de música, y algunos de nosotros incluso usamos servicios de música online, en este caso vamos a hablar de una en específico: &lt;strong&gt;Spotify&lt;/strong&gt;, un servicio de música online que cuenta con una versión Free la cual nos permite escuchar música &lt;em&gt;100% gratis&lt;/em&gt; con unas publicidades que suelen ser tolerables al inicio pero cada vez son más invasivas&amp;hellip;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="una-comunidad-que-no-quiere-publicidad"&gt;
+Una comunidad que no quiere Publicidad
+&lt;a href="#una-comunidad-que-no-quiere-publicidad" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La comunidad &lt;strong&gt;no quiere publicidad&lt;/strong&gt; cuando escucha música. Y como siempre la comunidad encuentra la forma de obtener lo que quiere. Y en esta solución que ofrecemos hoy es nada más ni nada menos que un filtro que bloquea la publicidad en el momento de su obtención.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación"&gt;
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La instalación de este &lt;em&gt;&amp;ldquo;complemento&amp;rdquo;&lt;/em&gt; como nos marcan en su README se realiza mediante la compilación del mismo, lo cual suena realmente más difícil de lo que es, bastará con correr algunos comandos. Sin embargo, &lt;strong&gt;nosotros armamos un deb&lt;/strong&gt; para simplificar un poco la instalación. El mismo lo pueden descargar a continuación.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.mediafire.com/file/ag5vyxovkv53f15/spotify-adblock_1-PatoJAD_amd64.deb/file" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Descargar en formato DEB
+&lt;/a&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cómo-utilizarlo"&gt;
+Cómo utilizarlo
+&lt;a href="#c%c3%b3mo-utilizarlo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Se puede utilizar simplemente con la línea de comandos, o terminal, o shell. Recuerden que esto se utiliza teniendo instalado Spotify y desde la terminal lo podemos hacer con el siguiente comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;LD_PRELOAD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/usr/local/lib/spotify-adblock.so spotify
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Sin embargo, es molesto cada vez que queramos usarlo tener que ejecutar este comando por lo cual podemos, por única vez, armar este archivo que nos permite generar un lanzador en nuestro menú, que nos permite ejecutar todo esto desde un simple botón.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;nano ~/.local/share/applications/spotify-adblock.desktop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Y dentro de ese archivo que creamos debemos poner lo siguiente.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cfg" data-lang="cfg"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;[Desktop Entry]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;Type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Application&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;Name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Spotify (PatoJAD)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;GenericName&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Music Player&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;Icon&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;spotify-client&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;TryExec&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;spotify&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;Exec&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;env LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify %U&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;Terminal&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;MimeType&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;x-scheme-handler/spotify;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;Categories&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Audio;Music;Player;AudioVideo;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;StartupWMClass&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;spotify&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Es posible que ni bien después de crearlo no aparezca en el menú esto puede llegar a demorar unos minutos (Hasta que se refresque o se reinicie) sin embargo obtendremos dentro del menú un nuevo &amp;ldquo;Spotify&amp;rdquo; que inicia con el bloqueador de una&lt;/p&gt;</description></item><item><title>Estranged I y II Free</title><link>https://patojad.com.ar/post/2019/03/estranged-i-y-ii-free/</link><pubDate>Tue, 19 Mar 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/03/estranged-i-y-ii-free/</guid><description>&lt;iframe src='https://www.youtube.com/embed/08gE99Nucto?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;En esta oportunidad tenemos este impecable juego que viene con la novedad de su seguna parte como acceso anticipado. En esta segunda parte podemos seguir con la aventura de nuestro protagonista esta vez con un crecimiento importante en el desarrollo y el tiempo dedicado a esta segunda entrega&lt;/p&gt;
+&lt;p&gt;![](&lt;a href="https://steamcdn-a.akamaihd.net/steam/apps/582890/ss_be3dc947a7dfc521ad4cccdffdc92b37d62c8a0f.600x338.jpg?t=1552600294%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-steam"&gt;&lt;/i&gt;&amp;nbsp;
+https://steamcdn-a.akamaihd.net/steam/apps/582890/ss_be3dc947a7dfc521ad4cccdffdc92b37d62c8a0f.600x338.jpg?t=1552600294"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="sobre-el-juego"&gt;
+Sobre el juego
+&lt;a href="#sobre-el-juego" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Estranged cuenta la historia de un pescador solitario, cuyo barco queda varado en una isla misteriosa durante una violenta tormenta.&lt;/p&gt;
+&lt;p&gt;Explora los ricos ambientes y conoce a los curiosos habitantes de la isla mientras buscas un camino de regreso a tierra firme. Planta cara al riesgo y a la intriga en esta peligrosa aventura, donde pronto te darás cuenta de que no todo es tan normal como parece.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="características"&gt;
+Características:
+&lt;a href="#caracter%c3%adsticas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Insólita jugabilidad e historia - El juego cuenta con alrededor de una hora de aventuras impulsadas por una historia. Incluye un elenco completamente original, con un guión cuidadosamente elaborado para traer el mundo de Estranged a la vida.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Gráficos alucinantes - Estranged se basa en el mismo motor gráfico que Half-Life 2, con algunas características adicionales. Hemos ampliado el sistema de iluminación dinámica, lo que nos permite iluminar nuestros niveles de una manera realista. Además, hemos incluido efectos tales como el granulado de película y el reflejo en la lente para ayudar a crear ambiente en el juego.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Banda sonora original - La banda sonora ha sido compuesta especialmente para Estranged y fue diseñada junto a los niveles del juego. La música concuerda con la jugabilidad y ayuda a conjugar la atmósfera de Estranged para llevar la historia a la vida.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;![](&lt;a href="https://steamcdn-a.akamaihd.net/steam/apps/582890/ss_43e3996ffa64c8d7b818bcb990f1d73c7c567b2b.600x338.jpg?t=1552600294%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-steam"&gt;&lt;/i&gt;&amp;nbsp;
+https://steamcdn-a.akamaihd.net/steam/apps/582890/ss_43e3996ffa64c8d7b818bcb990f1d73c7c567b2b.600x338.jpg?t=1552600294"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="requisitos"&gt;
+Requisitos
+&lt;a href="#requisitos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;SO: Ubuntu 16.04 LTS and above, fully updated&lt;/li&gt;
+&lt;li&gt;Procesador: Quad-core Intel or AMD, 2.5 GHz&lt;/li&gt;
+&lt;li&gt;Memoria: 4 GB de RAM&lt;/li&gt;
+&lt;li&gt;Gráficos: GeForce GTX 470 and above with NVIDIA drivers&lt;/li&gt;
+&lt;li&gt;Almacenamiento: 10 GB de espacio disponible&lt;/li&gt;
+&lt;li&gt;Notas adicionales: Requires newer hardware than Act I, AMD GPUs may work but are not supported&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(Los requisitos del primero son menores)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Procesador: 2.2 GHz Processor&lt;/li&gt;
+&lt;li&gt;Memoria: 1024 MB de RAM&lt;/li&gt;
+&lt;li&gt;Gráficos: NVIDIA GeForce 8 or higher, ATI X1600 or higher&lt;/li&gt;
+&lt;li&gt;Almacenamiento: 6 GB de espacio disponible&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;![](&lt;a href="https://steamcdn-a.akamaihd.net/steam/apps/261820/ss_3a9a4e2ec4f0a14a901594f0270e93dc0f4afd7d.600x338.jpg?t=1515275082%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-steam"&gt;&lt;/i&gt;&amp;nbsp;
+https://steamcdn-a.akamaihd.net/steam/apps/261820/ss_3a9a4e2ec4f0a14a901594f0270e93dc0f4afd7d.600x338.jpg?t=1515275082"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;p&gt;El segundo juego es la continuación del primero (Es ideal jugarlo para entender el mundo en el que estamos) y un juego muy recomendable. El progreso del juego está muy bien logrado y la hambientalizacion es digna de dedicarle nuestros mejores auriculares y una habitación obscura para la completa inmersión en este título.&lt;/p&gt;
+&lt;div class="text-center"&gt;
+&lt;iframe
+src='https://store.steampowered.com/widget/261820/'
+width="646"
+height="190"
+title="Juego en Steam"
+style="border-radius:20px;"&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;div class="text-center"&gt;
+&lt;iframe
+src='https://store.steampowered.com/widget/582890/'
+width="646"
+height="190"
+title="Juego en Steam"
+style="border-radius:20px;"&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;</description></item><item><title>Spiral Knights</title><link>https://patojad.com.ar/post/2018/12/spiral-knights/</link><pubDate>Wed, 12 Dec 2018 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2018/12/spiral-knights/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;Los Spiral Knights han despertado en un mundo desconocido. Sus reservas de equipo y su nave han sido saqueadas y su nave, el Skylark, no podrá recuperarse del accidente. Ahora deberán trabajar juntos para sobrevivir en una aventura que los llevará al núcleo mismo de este mundo.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="a-las-armas"&gt;
+¡A las armas!
+&lt;a href="#a-las-armas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://media.spiralknights.com/v/20180726125121/images/about/take_up_arms.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Cradle es un planeta hostil lleno de toda clase de criaturas extrañas. Cualquier esperanza de supervivencia que tengas depende de tu habilidad de amasar un arsenal de armas y equipo que te de las opciones apropiadas para cualquier ambiente. ¡Como Spiral Knight tienes toda la libertad de personalizar y usar el arsenal de la manera que desees!&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="únete-a-los-otros-caballeros-en-haven"&gt;
+Únete a los otros caballeros en Haven
+&lt;a href="#%c3%banete-a-los-otros-caballeros-en-haven" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://media.spiralknights.com/v/20180726125121/images/about/haven.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Alguna vez un puesto minero, Haven sirve ahora como campamento base para el Cuartel General Spiral. Desde la seguridad de sus paredes, los caballeros pueden encontrar una gran variedad de artículos y servicios ofrecidos. ¡Todo, desde compar nuevas armas y equipo hasta crear poderosos artículos por medio de la alquimia está a tu alcance!&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="explora-los-misterios-de-los-mecanismos"&gt;
+Explora los misterios de los Mecanismos
+&lt;a href="#explora-los-misterios-de-los-mecanismos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://media.spiralknights.com/v/20180726125121/images/about/clockworks.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Más allá de Haven se despliegan los Mecanismos, un enorme complejo subterráneo lleno de piezas de mundos extraños, criaturas peligrosas y tesoros fabulosos. ¿Será que tu y tus compañeros responderán a su llamado a la aventura?&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="domina-el-poder-del-arcade"&gt;
+Domina el poder del Arcade
+&lt;a href="#domina-el-poder-del-arcade" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://media.spiralknights.com/v/20180726125121/images/about/arcade.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Lleno de extraños mecanismos alimentados por los Minerales que se han encontrado en los mundos más abajo, el Arcade de Haven es usado por los Spiral Knights para construir sus propias entradas que marcan caminos únicos a los Mecanismos subterráneos. (¡No existen dos gates iguales!)&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="lleva-las-aventuras-hasta-el-core"&gt;
+¡Lleva las aventuras hasta el Core!
+&lt;a href="#lleva-las-aventuras-hasta-el-core" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://media.spiralknights.com/v/20180726125121/images/about/core.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;El Cuartel General de Spiral está recibiendo una fuerte señal de energía desde el centro del Core del planeta. ¿Eres lo suficientemente valiente para enfrentar los peligros que se encuentran entre los secretos de este misterioso nuevo mundo y tu?&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.spiralknights.com/?locale=es" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Web Oficial
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>RunScape</title><link>https://patojad.com.ar/post/2018/12/runscape/</link><pubDate>Tue, 11 Dec 2018 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2018/12/runscape/</guid><description>&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="elige-tu-lucha"&gt;
+Elige tu Lucha
+&lt;a href="#elige-tu-lucha" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El combate de RuneScape es emocionante y desafiante, con muchas opciones y capacidades diferentes para elegir. Hay disponibles miles de combinaciones de armaduras y armas, y los jugadores más fuertes son aquellos que se preparan bien para la batalla. Los jugadores pueden tratar de derrotar a cientos de NPC diferentes a medida que avanzan en su aventura o pueden participar en combates con otros jugadores en áreas específicas de PvP. Sigue leyendo para descubrir por qué Combat es una parte tan importante del juego de RuneScape.&lt;/p&gt;
+&lt;p&gt;![](&lt;a href="https://images.ctfassets.net/ra5kw4ubxdsf/5VDo7YuJQo3KdqQDvSUdvp/e639ecc171bd6c4de47392202b7e633c/RS3_Device_Tablet_450x615.webp?q=75&amp;amp;w=680%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://images.ctfassets.net/ra5kw4ubxdsf/5VDo7YuJQo3KdqQDvSUdvp/e639ecc171bd6c4de47392202b7e633c/RS3_Device_Tablet_450x615.webp?q=75&amp;w=680"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="evolución-del-combate"&gt;
+Evolución del combate
+&lt;a href="#evoluci%c3%b3n-del-combate" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Un sistema de combate dinámico y moderno basado en las habilidades de hacer clic. Se puede jugar completamente de forma manual o semiautomatizada, y permite batallas emocionantes y visualmente impresionantes. Es una excelente forma de jugar en todos los niveles, y se recomienda encarecidamente para los desafiantes encuentros de jefes finales del juego. Hay tres tipos de habilidades:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Básico: estas habilidades son rápidas, generalmente basadas en daños, que pueden generar adrenalina. La adrenalina se usa para realizar habilidades más avanzadas y más fuertes, como el umbral y el final.&lt;/li&gt;
+&lt;li&gt;Umbral: las habilidades de umbral hacen más daño que las habilidades básicas, pero también agotan el 15% de tu adrenalina cuando se lanzan. Las habilidades de umbral requieren 50% de adrenalina para usar.&lt;/li&gt;
+&lt;li&gt;Ultimate: estas son las habilidades más poderosas. La mayoría de estas habilidades borran completamente tu barra de adrenalina y no generan adrenalina.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;La mayoría de las habilidades se desbloquean a medida que entrenas tus habilidades de combate, pero algunas se pueden obtener de otras maneras: como gotas de criaturas poderosas o al completar misiones.&lt;/p&gt;
+&lt;p&gt;También puedes elegir automatizar tus habilidades seleccionando Revolution como tu modo de combate&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://play.runescape.com/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Sitio Web
+&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>

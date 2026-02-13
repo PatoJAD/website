@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux Avanzado on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/linux-avanzado/</link><description>Recent content in Linux Avanzado on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 30 Dec 2025 09:31:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/linux-avanzado/index.xml" rel="self" type="application/rss+xml"/><item><title>Cómo Optimizar Linux en 2026: 3 Tweaks Avanzados para un Sistema Ultra-Rápido</title><link>https://patojad.com.ar/post/2025/12/c%C3%B3mo-optimizar-linux-en-2026-3-tweaks-avanzados-para-un-sistema-ultra-r%C3%A1pido/</link><pubDate>Tue, 30 Dec 2025 09:31:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/12/c%C3%B3mo-optimizar-linux-en-2026-3-tweaks-avanzados-para-un-sistema-ultra-r%C3%A1pido/</guid><description>&lt;p&gt;¿Sientes que tu Linux podría ir más fluido? Aunque las distros modernas vienen bien configuradas, el hardware de 2025 (NVMe, procesadores multi-núcleo y mucha RAM) permite ajustes finos que marcan la diferencia.&lt;/p&gt;
+&lt;p&gt;En esta guía rápida, veremos cómo optimizar la gestión de memoria y el disco con ejemplos prácticos.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="swappiness-controlando-el-uso-de-la-ram"&gt;
+Swappiness: Controlando el uso de la RAM
+&lt;a href="#swappiness-controlando-el-uso-de-la-ram" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El valor de swappiness define qué tan pronto el sistema empieza a mover datos de la RAM al disco (Swap). En 2025, con sistemas de 16GB o 32GB de RAM, no queremos que el sistema use el disco innecesariamente.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;El Tweak:&lt;/strong&gt; Cambiar el valor por defecto (60) a algo más agresivo para mantener los datos en RAM (10).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Comando:&lt;/strong&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Bash" data-lang="Bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo sysctl -w vm.swappiness&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(Para hacerlo permanente, edita &lt;code&gt;/etc/sysctl.conf&lt;/code&gt;).&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="zram-swap-en-esteroides"&gt;
+zram: Swap en esteroides
+&lt;a href="#zram-swap-en-esteroides" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En lugar de usar una partición lenta en el disco, zram crea un dispositivo de intercambio comprimido en tu propia RAM. Es mucho más rápido y evita el desgaste de tu SSD.&lt;/p&gt;
+&lt;p&gt;Por qué usarlo: Comprime los datos en RAM antes de enviarlos a la Swap física.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="instalación-ubuntufedoraarch"&gt;
+Instalación (Ubuntu/Fedora/Arch):
+&lt;a href="#instalaci%c3%b3n-ubuntufedoraarch" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Bash" data-lang="Bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install zram-config &lt;span class="c1"&gt;# Ubuntu/Debian&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf install zram-generator &lt;span class="c1"&gt;# Fedora&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S zram-generator &lt;span class="c1"&gt;# Arch/Manjaro&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="io-scheduler-optimizando-el-disco"&gt;
+I/O Scheduler: Optimizando el disco
+&lt;a href="#io-scheduler-optimizando-el-disco" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si usas un SSD o NVMe, los planificadores antiguos como cfq solo estorban. Para discos modernos, buscamos &lt;strong&gt;none&lt;/strong&gt; o &lt;strong&gt;mq-deadline&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ver tu scheduler actual:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Bash" data-lang="Bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cat /sys/block/sdX/queue/scheduler
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;(Reemplaza sdX por tu disco, ej: nvme0n1).&lt;/li&gt;
+&lt;li&gt;Cambiarlo temporalmente:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Bash" data-lang="Bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; none &lt;span class="p"&gt;|&lt;/span&gt; sudo tee /sys/block/sdX/queue/scheduler
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(Para hacerlo permanente, crea una regla udev o edita el archivo de configuración del kernel&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cómo-medir-el-éxito-benchmarks"&gt;
+¿Cómo medir el éxito? (Benchmarks)
+&lt;a href="#c%c3%b3mo-medir-el-%c3%a9xito-benchmarks" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;No confíes solo en tu sensación. Usa &lt;code&gt;systemd-analyze&lt;/code&gt; para medir el tiempo de arranque o realiza una compilación de código pesada antes y después de los cambios. La diferencia en la respuesta de la interfaz bajo carga será tu mejor métrica.&lt;/p&gt;</description></item><item><title>Dominar SELinux en AlmaLinux: Guía Definitiva 2025</title><link>https://patojad.com.ar/post/2025/05/dominar-selinux-en-almalinux-gu%C3%ADa-definitiva-2025/</link><pubDate>Mon, 12 May 2025 09:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/05/dominar-selinux-en-almalinux-gu%C3%ADa-definitiva-2025/</guid><description>&lt;p&gt;&lt;strong&gt;SELinux&lt;/strong&gt; (Security-Enhanced Linux) es una característica de seguridad avanzada en sistemas Linux, especialmente en distribuciones como AlmaLinux. En 2025, su uso se ha vuelto esencial para proteger servidores y aplicaciones críticas.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-por-qué-selinux-es-crucial-en-2025"&gt;
+🔍 ¿Por qué SELinux es crucial en 2025?
+&lt;a href="#-por-qu%c3%a9-selinux-es-crucial-en-2025" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Security-Enhanced Linux (SELinux)&lt;/strong&gt; proporciona:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;✅ Control de acceso obligatorio (MAC)&lt;/li&gt;
+&lt;li&gt;✅ Aislamiento de procesos y archivos&lt;/li&gt;
+&lt;li&gt;✅ Protección contra exploits zero-day&lt;/li&gt;
+&lt;li&gt;✅ Cumplimiento de normativas (HIPAA, PCI DSS)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;📊 &lt;strong&gt;Dato&lt;/strong&gt;: El 78% de las brechas de seguridad en servidores sin SELinux ocurren por permisos incorrectos (Fuente: Red Hat Security Report 2025)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-configuración-básica"&gt;
+🛠️ Configuración Básica
+&lt;a href="#-configuraci%c3%b3n-b%c3%a1sica" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="estados-de-selinux"&gt;
+Estados de SELinux
+&lt;a href="#estados-de-selinux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Ver estado actual&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo getenforce
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Cambiar temporalmente a Permissive&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo setenforce &lt;span class="m"&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Hacer cambio permanente (en /etc/selinux/config)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo sed -i &lt;span class="s1"&gt;&amp;#39;s/SELINUX=.*/SELINUX=enforcing/&amp;#39;&lt;/span&gt; /etc/selinux/config
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-casos-prácticos-comunes"&gt;
+🚨 Casos Prácticos Comunes
+&lt;a href="#-casos-pr%c3%a1cticos-comunes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="error-httpd-no-puede-acceder-a-archivos"&gt;
+Error: &amp;ldquo;HTTPD no puede acceder a archivos&amp;rdquo;
+&lt;a href="#error-httpd-no-puede-acceder-a-archivos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Diagnosticar&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo ausearch -m avc -ts recent &lt;span class="p"&gt;|&lt;/span&gt; grep httpd
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Solución (cambiar contexto)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo semanage fcontext -a -t httpd_sys_content_t &lt;span class="s2"&gt;&amp;#34;/ruta/a/tu/app(/.*)?&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo restorecon -Rv /ruta/a/tu/app
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="servicio-no-puede-usar-puerto-personalizado"&gt;
+Servicio no puede usar puerto personalizado
+&lt;a href="#servicio-no-puede-usar-puerto-personalizado" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Permitir a Nginx usar puerto 3000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo semanage port -a -t http_port_t -p tcp &lt;span class="m"&gt;3000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-comandos-esenciales"&gt;
+📋 Comandos Esenciales
+&lt;a href="#-comandos-esenciales" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Comando&lt;/th&gt;
+&lt;th&gt;Descripción&lt;/th&gt;
+&lt;th&gt;Ejemplo&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;chcon&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Cambiar contexto&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;chcon -t httpd_sys_content_t archivo.html&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;semanage&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Gestionar políticas&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;semanage port -l | grep http&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;audit2allow&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Crear módulos&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;grep denied /var/log/audit/audit.log | audit2allow -M mi_politica&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-troubleshooting-avanzado"&gt;
+🔧 Troubleshooting Avanzado
+&lt;a href="#-troubleshooting-avanzado" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="analizar-logs-con-sealert"&gt;
+Analizar logs con sealert
+&lt;a href="#analizar-logs-con-sealert" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo sealert -a /var/log/audit/audit.log
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="crear-política-personalizada"&gt;
+Crear política personalizada
+&lt;a href="#crear-pol%c3%adtica-personalizada" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;grep &lt;span class="s2"&gt;&amp;#34;avc: denied&amp;#34;&lt;/span&gt; /var/log/audit/audit.log &lt;span class="p"&gt;|&lt;/span&gt; audit2allow -M mi_politica
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo semodule -i mi_politica.pp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="-tabla-de-contextos-comunes"&gt;
+📌 Tabla de Contextos Comunes
+&lt;a href="#-tabla-de-contextos-comunes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Contexto&lt;/th&gt;
+&lt;th&gt;Uso Típico&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;httpd_sys_content_t&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Archivos web estáticos&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;mysqld_db_t&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Bases de datos MySQL&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;user_home_t&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Archivos en &lt;code&gt;/home&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;var_log_t&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Archivos de logs&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-solución-de-problemas"&gt;
+⚠️ Solución de Problemas
+&lt;a href="#-soluci%c3%b3n-de-problemas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="selinux-está-bloqueando-mi-aplicación"&gt;
+&amp;ldquo;SELinux está bloqueando mi aplicación&amp;rdquo;
+&lt;a href="#selinux-est%c3%a1-bloqueando-mi-aplicaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Identificar el error:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo grep &lt;span class="s2"&gt;&amp;#34;avc: denied&amp;#34;&lt;/span&gt; /var/log/audit/audit.log
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Solución temporal (solo para pruebas):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo setenforce &lt;span class="m"&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Solución permanente:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Usar las recomendaciones de sealert&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo sealert -l &lt;span class="s2"&gt;&amp;#34;*&amp;#34;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; grep -A &lt;span class="m"&gt;10&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Sugerencia&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-conclusión"&gt;
+📌 Conclusión
+&lt;a href="#-conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Con esta guía has aprendido a:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Configurar SELinux en modo enforcing&lt;/li&gt;
+&lt;li&gt;Diagnosticar y solucionar errores comunes&lt;/li&gt;
+&lt;li&gt;Crear políticas personalizadas&lt;/li&gt;
+&lt;li&gt;Trabajar con contextos de archivos&lt;/li&gt;
+&lt;li&gt;Próximo paso: Hardening avanzado de AlmaLinux&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;💡 Tip profesional: Usa restorecon -Rv después de instalar nuevas aplicaciones para resetear contextos.&lt;/p&gt;
+&lt;/blockquote&gt;</description></item></channel></rss>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Windows 11 on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/windows-11/</link><description>Recent content in Windows 11 on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Mon, 05 Jun 2023 10:45:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/windows-11/index.xml" rel="self" type="application/rss+xml"/><item><title>Como instalar MongoDB en Windows</title><link>https://patojad.com.ar/post/2023/06/como-instalar-mongodb-en-windows/</link><pubDate>Mon, 05 Jun 2023 10:45:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/06/como-instalar-mongodb-en-windows/</guid><description>&lt;p&gt;Vamos a ver como realizar la instalacion de &lt;strong&gt;MongoDB&lt;/strong&gt; en Windows (ya sea 10 o 11) con winget desde nuestra terminal.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="comandos-utilizados"&gt;
+Comandos Utilizados
+&lt;a href="#comandos-utilizados" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Este es el comendo que utilizamos para realizar la instalacion de MongoDB en Windows 10 o 11 utilizando winget:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;winget install -e --id MongoDB.Server
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="ejecute-mongodb-community-edition-desde-la-terminal"&gt;
+Ejecute MongoDB Community Edition desde la terminal
+&lt;a href="#ejecute-mongodb-community-edition-desde-la-terminal" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para ejecutar MongoDB (o mongo) desde la terminal de Windows, debemos ejecutar el siguiente comando para crear la carpeta donde se guardaran los datos de la base de datos:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; C:&lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;md &lt;span class="s2"&gt;&amp;#34;\data\db&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Luego ejecutamos el siguiente comando para ejecutar mongo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="s2"&gt;&amp;#34;C:\Program Files\MongoDB\Server\6.0\bin\mongod.exe&amp;#34;&lt;/span&gt; --dbpath&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;c:\data\db&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-info fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;En este caso usamos c:\data\db pero pueden elegir el directorio que quieran&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="agregar-binarios-de-mongodb-a-la-path-del-sistema"&gt;
+Agregar binarios de MongoDB a la PATH del sistema
+&lt;a href="#agregar-binarios-de-mongodb-a-la-path-del-sistema" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si agrega &lt;code&gt;C:\Archivos de programa\MongoDB\Server\6.0\bin&lt;/code&gt; a su PATH del sistema, puede omitir la ruta completa a los archivos binarios del servidor MongoDB. También debe agregar la ruta a &lt;code&gt;mongosh&lt;/code&gt; si aún no lo ha hecho.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Fuente: &lt;a href="https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Install GIT en Windows con Winget</title><link>https://patojad.com.ar/post/2023/04/install-git-en-windows-con-winget/</link><pubDate>Mon, 10 Apr 2023 10:06:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/04/install-git-en-windows-con-winget/</guid><description>&lt;p&gt;hoy vamos a ver como instalar &lt;strong&gt;git&lt;/strong&gt; en &lt;strong&gt;Windows&lt;/strong&gt; utilizando &lt;em&gt;winget&lt;/em&gt; el gestor de paquetes de microsoft.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="comando"&gt;
+Comando
+&lt;a href="#comando" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para que sea mucho mas facil te dejo el comando para que puedas copiar y pegar en tu terminal&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;winget install -e --id Git.Git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Install VS Code en Windows con Winget</title><link>https://patojad.com.ar/post/2023/04/install-vs-code-en-windows-con-winget/</link><pubDate>Tue, 04 Apr 2023 10:06:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/04/install-vs-code-en-windows-con-winget/</guid><description>&lt;p&gt;Vamos a ver como realizar la instalación de &lt;strong&gt;Visual Studio Code&lt;/strong&gt; de una forma muy simple y rápida utilizando &lt;em&gt;winget&lt;/em&gt;.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalandolo"&gt;
+Instalandolo
+&lt;a href="#instalandolo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El comando utilizado para esta ocasión es el que dejaré a continuación. En caso de querer pegar en la terminal de windows se suele hacer con &lt;code&gt;ctrl&lt;/code&gt;+&lt;code&gt;v&lt;/code&gt; sino podes utilizar el mouse con &lt;code&gt;click derecho&lt;/code&gt; -&amp;gt; &lt;code&gt;pegar&lt;/code&gt; dependiendo de tu terminal:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;winget install -e --id Microsoft.VisualStudioCode
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Install NodeJS en Windows con Winget</title><link>https://patojad.com.ar/post/2023/03/install-nodejs-en-windows-con-winget/</link><pubDate>Tue, 28 Mar 2023 13:56:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/03/install-nodejs-en-windows-con-winget/</guid><description>&lt;p&gt;Vamos a ver como realizar la instalación de &lt;strong&gt;NodeJS&lt;/strong&gt; de una forma muy simple y rápida utilizando &lt;em&gt;winget.&lt;/em&gt; De esta forma simple y rápida podemos obtener &lt;strong&gt;cualquier&lt;/strong&gt; versión de NodeJS y NPM directamente desde winget.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalandolo"&gt;
+Instalandolo
+&lt;a href="#instalandolo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El comando utilizado para esta ocasión es el que dejaré a continuación. En caso de querer pegar en la terminal de windows se suele hacer con &lt;code&gt;ctrl&lt;/code&gt;+&lt;code&gt;v&lt;/code&gt; sino podes utilizar el mouse con &lt;code&gt;click derecho&lt;/code&gt; -&amp;gt; &lt;code&gt;pegar&lt;/code&gt; dependiendo de tu terminal:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;winget install -e --id OpenJS.NodeJS
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>¿La función que no esta en GNU/Linux?</title><link>https://patojad.com.ar/post/2021/11/la-funci%C3%B3n-que-no-esta-en-gnu/linux/</link><pubDate>Sun, 28 Nov 2021 08:15:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/11/la-funci%C3%B3n-que-no-esta-en-gnu/linux/</guid><description>&lt;p&gt;El otro día leí un artículo de Genbeta que enuncia &lt;strong&gt;&lt;em&gt;&lt;a href="https://www.genbeta.com/windows/mi-funcion-favorita-windows-10-11-sigue-estar-linux-macos-asi-puedes-anadir-te-mejore-vida" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+“Mi función favorita de Windows 10 y 11 sigue sin estar en Linux y macOS”
+&lt;/a&gt;&lt;/em&gt;&lt;/strong&gt;. Como desarrollador me llamó mucho la atención. Yo estoy seguro de que existen muchas funciones que no están disponibles en GNU/Linux y me gustaría poder portearlas. Sin embargo, este artículo, solo demuestra un poco de desconocimiento o descontento con GNU/Linux y no una realidad.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.blogs.es/d6b8bd/portapapeles-windows-11/1366_2000.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Habla básicamente, sobre el historial del portapapeles. Una funcionalidad que en KDE esta hace… ¿7 años aprox? Y debo decir que yo la descubrí ahí y si bien es muy interesante no me pareció la gran cosa.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="mi-opinión-sobre-el-historial-del-portapapeles"&gt;
+Mi opinión sobre el historial del portapapeles
+&lt;a href="#mi-opini%c3%b3n-sobre-el-historial-del-portapapeles" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Esto es meramente mi punto de vista sobre esta funcionalidad que , más o menos deseada, es realmente útil. Sin embargo, pesa aclarar que la funcionalidad es realmente útil para casos específicos. Los usuarios más básicos de los sistemas operativos no recurren a estas funcionalidades que suelen ser bastantes escondidas (Más que nada en windows donde uno depende de un keybind para acceder). Esta funcionalidad existe, aunque no nativamente, en el resto de los escritorios de GNU/Linux y en MacOS, por lo cual cualquier usuario de estos sistemas que desee tenerlo puede hacerlo con una simple instalación y en el caso más complejo con una búsqueda en su navegador favorito.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="http://www.kdeblog.com/wp-content/uploads/2016/03/Klipper.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Si bien ya mencione que no es unico tambien quiero dejar en claro que desde mi perspectiva no es una funcionalidad tan reveladora como para darle tanto peso, y muchos menos como para ponerse a desarrollar algo así, entiendo que existen más funcionalidades que son más interesantes.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="el-artículo-en-sí"&gt;
+El artículo en sí
+&lt;a href="#el-art%c3%adculo-en-s%c3%ad" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Es verdad que el artículo es el punto de vista del escritor, tal como este artículo es mi punto de vista. Por lo cual no estoy diciendo que este mal, todo lo contrario, es muy bueno porque incluso al final del artículo aclara que se puede hacer en todos los sistemas operativos (lo cual se contradice con el título, pero quien no puso un título amarillista alguna vez)
+Te invito a leer el artículo en cuestión y comentarme tu opinión.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.genbeta.com/windows/mi-funcion-favorita-windows-10-11-sigue-estar-linux-macos-asi-puedes-anadir-te-mejore-vida" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Articulo
+&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>

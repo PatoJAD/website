@@ -1,0 +1,754 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Wine on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/wine/</link><description>Recent content in Wine on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Wed, 15 Nov 2023 12:02:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/wine/index.xml" rel="self" type="application/rss+xml"/><item><title>Instalación de Wine en GNU/Linux para Ejecutar Aplicaciones Windows</title><link>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</link><pubDate>Wed, 15 Nov 2023 12:02:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</guid><description>&lt;p&gt;La compatibilidad entre sistemas operativos es esencial, y Wine, una herramienta de código abierto, facilita la ejecución de aplicaciones Windows en entornos GNU/Linux. En esta guía, exploraremos qué es Wine, cómo instalarlo en distintas distribuciones y dónde se instalan las aplicaciones. ¡Descubre cómo ampliar las posibilidades de tu sistema operativo!&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-wine"&gt;
+¿Qué es Wine?
+&lt;a href="#qu%c3%a9-es-wine" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Wine, que significa &amp;ldquo;Wine Is Not an Emulator&amp;rdquo; (Wine no es un emulador), es una capa de compatibilidad que permite ejecutar aplicaciones diseñadas para Microsoft Windows en sistemas operativos basados en Unix, como GNU/Linux. No es una máquina virtual ni emula un entorno Windows completo; en cambio, traduce llamadas de sistema de Windows a llamadas de sistema compatibles con Unix.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="por-qué-usar-wine"&gt;
+¿Por qué usar Wine?
+&lt;a href="#por-qu%c3%a9-usar-wine" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Wine es una herramienta muy útil para aquellos que necesitan ejecutar aplicaciones Windows en entornos GNU/Linux. Algunos ejemplos de casos de uso incluyen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ejecutar aplicaciones de productividad como Microsoft Office.&lt;/li&gt;
+&lt;li&gt;Ejecutar aplicaciones de diseño como Adobe Photoshop.&lt;/li&gt;
+&lt;li&gt;Ejecutar juegos de Windows.&lt;/li&gt;
+&lt;li&gt;Ejecutar aplicaciones de Windows que no tienen alternativas nativas en GNU/Linux.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cómo-se-instala-wine"&gt;
+¿Cómo se instala Wine?
+&lt;a href="#c%c3%b3mo-se-instala-wine" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La instalación de Wine varía según la distribución de GNU/Linux que estés utilizando. A continuación, se detallan los pasos para algunas distribuciones populares.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="debianubuntu"&gt;
+Debian/Ubuntu
+&lt;a href="#debianubuntu" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dpkg --add-architecture i386
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install wine64 wine32
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="fedora"&gt;
+Fedora
+&lt;a href="#fedora" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf install wine
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="arch-linux-y-derivadas-como-manjaro"&gt;
+Arch Linux (y derivadas como Manjaro):
+&lt;a href="#arch-linux-y-derivadas-como-manjaro" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S wine
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="opensuse"&gt;
+OpenSUSE:
+&lt;a href="#opensuse" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo zypper install wine
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="dónde-se-instalan-las-aplicaciones-con-wine"&gt;
+¿Dónde se instalan las aplicaciones con Wine?
+&lt;a href="#d%c3%b3nde-se-instalan-las-aplicaciones-con-wine" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Las aplicaciones instaladas con Wine se almacenan en un directorio llamado &lt;code&gt;wineprefix&lt;/code&gt;. Por defecto, se encuentra en el directorio de inicio del usuario en una carpeta oculta llamada &lt;code&gt;.wine&lt;/code&gt;. Dentro de este directorio, encontrarás una estructura similar a la de un sistema Windows estándar, con carpetas como &lt;code&gt;Program Files&lt;/code&gt; y &lt;code&gt;Windows&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="proceso-de-instalación-básico-de-una-aplicación-con-wine"&gt;
+Proceso de instalación básico de una aplicación con Wine
+&lt;a href="#proceso-de-instalaci%c3%b3n-b%c3%a1sico-de-una-aplicaci%c3%b3n-con-wine" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Descarga el instalador de la aplicación Windows que deseas ejecutar.&lt;/li&gt;
+&lt;li&gt;Abre una terminal y navega hasta el directorio donde descargaste el instalador.&lt;/li&gt;
+&lt;li&gt;Ejecuta el siguiente comando:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;wine nombre_del_instalador.exe
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Sigue los pasos de instalación como lo harías en Windows.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusiones"&gt;
+Conclusiones
+&lt;a href="#conclusiones" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Wine&lt;/strong&gt; es una herramienta invaluable para aquellos que necesitan ejecutar aplicaciones Windows en entornos GNU/Linux. Su capacidad para traducir llamadas de sistema y proporcionar un entorno de ejecución nativo es fundamental para mejorar la interoperabilidad entre diferentes sistemas operativos.&lt;/p&gt;</description></item><item><title>Bottles ¿Lo mejor de wine?</title><link>https://patojad.com.ar/post/2022/04/bottles-lo-mejor-de-wine/</link><pubDate>Tue, 12 Apr 2022 08:47:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/04/bottles-lo-mejor-de-wine/</guid><description>&lt;p&gt;Tras lo charlado la semana anterior en &lt;a href="https://patojad.com.ar/post/2022/04/usar-wine-o-emular/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+¿Usar Wine o Emular?
+&lt;/a&gt; se disparó una pregunta sobre si bottles era recomendable o perjudicaba el trabajo de wine. ¿Si es tan bueno algo malo debe tener? fue una de las dudas que planteaban por lo cual decidí charlar un poco de este tema.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="video"&gt;
+Video
+&lt;a href="#video" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En el video hablo sobre nuestro amigo Zatiel del cual &lt;strong&gt;puedes ver su canal en la sección de sitios amigos&lt;/strong&gt; y te dejo el &lt;a href="https://clips.twitch.tv/IncredulousPiercingBubbleteaRickroll-CAbDyyKFPB6Ulww2?tt_content=url&amp;amp;tt_medium=clips_api" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+link al clip
+&lt;/a&gt; donde realiza el reclamo por no estar accidentalmente en esta sección&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/nWNe8Dr0a8w?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;No te olvides de comentar que es lo que pensas sobre el tema y de dar temas para refleccionar&lt;/p&gt;</description></item><item><title>¿Usar Wine o Emular?</title><link>https://patojad.com.ar/post/2022/04/usar-wine-o-emular/</link><pubDate>Mon, 04 Apr 2022 11:53:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/04/usar-wine-o-emular/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;¿Porque siempre hablan del uso de wine y porque no el uso de una máquina virtual con windows para el uso de programas o juegos? ¿Qué inconvenientes tendría el uso de cualquiera de estos?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/wT3V7DXh/photo-2022-04-04-08-11-27-2.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;En base a estas preguntas de un usuario en la red social de Facebook nace este video que intenta exponer las pro y contras&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/Cdqy0e2PB40?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;No te olvides de comentarnos qué es lo que pensas vos y apoyarnos uniéndote a nuestras comunidades y suscribiéndote al canal.&lt;/p&gt;</description></item><item><title>Easy Anti-Cheat y lo que esto conlleva</title><link>https://patojad.com.ar/post/2021/09/easy-anti-cheat-y-lo-que-esto-conlleva/</link><pubDate>Tue, 28 Sep 2021 09:33:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/09/easy-anti-cheat-y-lo-que-esto-conlleva/</guid><description>&lt;p&gt;Estos días se hizo furor la noticia de Easy Anti-Cheat y su arribo en GNU/Linux y MacOS. O más interesante su soporte para Proton o Wine. Sin embargo, desde mi perspectiva, en muchas ocasiones se analizan algunas cosas por caminos sinuosos, o no se tienen en vista todos los parámetros. En esta oportunidad propongo mi punto de vista con el fin de ver que piensan los demás y que creen sobre todo esto.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="video"&gt;
+Video
+&lt;a href="#video" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En esta oportunidad voy a desarrollar en video, aunque como siempre voy a divagar un poco en el medio pero el punto en algún momento se entiende.&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/CTGnaiTbk_U?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Este anticheat está en muchos juegos grandes y populares que no arribaron en linux aun pero gracias a este avance, podrían estar llegando, o al menos eso es lo que se especula en muchos videos, canales y blogs. Entre estos juegos podemos encontrar:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fornite&lt;/li&gt;
+&lt;li&gt;Fall Guys&lt;/li&gt;
+&lt;li&gt;Apex Legends&lt;/li&gt;
+&lt;li&gt;Far Cray 5&lt;/li&gt;
+&lt;li&gt;Rust&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;![](&lt;a href="https://img-21.ccm2.net/yif027yhQBE2S6hyumWpyA4HVz4=/570x/afa432eef8564ffda583916015ee5313/ccm-faq/eac2.JPG%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://img-21.ccm2.net/yif027yhQBE2S6hyumWpyA4HVz4=/570x/afa432eef8564ffda583916015ee5313/ccm-faq/eac2.JPG"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;</description></item><item><title>¿Como instalar Wine?</title><link>https://patojad.com.ar/post/2021/04/como-instalar-wine/</link><pubDate>Fri, 16 Apr 2021 09:36:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/04/como-instalar-wine/</guid><description>&lt;p&gt;Ya con anterioridad me consultaron de como instalar Wine en Artix, esto me llevó a armar el video y obviamente siempre a explicar mi perspectiva o punto de vista sobre el uso de wine. En esta oportunidad el video es específico de distros basadas en Arch. Sin embargo, en la parte inferior van a poder encontrar la instalación para otras distros de linux.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="pre-requisitos"&gt;
+Pre requisitos
+&lt;a href="#pre-requisitos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si venis por Artix o cualquier distro de Arch te recomiendo que veas de antemano las instalaciones y configuraciones de las que hago uso en el video y doy por sabido estas son&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2021/03/activar-multilib-artix/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Multilib
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2020/10/instalar-yay-en-artix-linux/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+yay
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="video"&gt;
+Video
+&lt;a href="#video" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Como siempre disfruto mucho de armar videos y dejar mi opinion asi que sin rodeos los dejo con el video&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/47A2KBLgj6I?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalar-winehq"&gt;
+Instalar WineHQ
+&lt;a href="#instalar-winehq" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://linuxhint.com/wp-content/uploads/2020/06/1-12.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Lo primero que debemos hacer es instalar WineHQ en nuestra distribución, para esto debemos agregar las librerías y ejecutar la instalación.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="debian"&gt;
+Debian
+&lt;a href="#debian" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Habilitamos los 32 bits&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dpkg --add-architecture i386
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Descargamos e instalamos a Key&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;wget -nc https://dl.winehq.org/wine-builds/winehq.key
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-key add winehq.key
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Agregamos el repositorio dependiendo de nuestra versión&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Version&lt;/th&gt;
+&lt;th&gt;Agregar a /etc/apt/sources.list:&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Debian 8 (Jessie)&lt;/td&gt;
+&lt;td&gt;deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://dl.winehq.org/wine-builds/debian/
+&lt;/a&gt; jessie main&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Debian 9 (Stretch)&lt;/td&gt;
+&lt;td&gt;deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://dl.winehq.org/wine-builds/debian/
+&lt;/a&gt; stretch main&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Debian 10 (currently Testing) (Buster)&lt;/td&gt;
+&lt;td&gt;deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://dl.winehq.org/wine-builds/debian/
+&lt;/a&gt; buster main&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Actualizamos el Sistema&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Instalamos uno de los paquetes&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;version&lt;/th&gt;
+&lt;th&gt;comando&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Stable branch&lt;/td&gt;
+&lt;td&gt;sudo apt install &amp;ndash;install-recommends winehq-stable&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Development branch&lt;/td&gt;
+&lt;td&gt;sudo apt install &amp;ndash;install-recommends winehq-devel&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Staging branch&lt;/td&gt;
+&lt;td&gt;sudo apt install &amp;ndash;install-recommends winehq-staging&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="fedora"&gt;
+Fedora
+&lt;a href="#fedora" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Agregamos los repositories&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;version&lt;/th&gt;
+&lt;th&gt;comando&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Fedora 29&lt;/td&gt;
+&lt;td&gt;dnf config-manager &amp;ndash;add-repo &lt;a href="https://dl.winehq.org/wine-builds/fedora/29/winehq.repo" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://dl.winehq.org/wine-builds/fedora/29/winehq.repo
+&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Fedora 30&lt;/td&gt;
+&lt;td&gt;dnf config-manager &amp;ndash;add-repo &lt;a href="https://dl.winehq.org/wine-builds/fedora/30/winehq.repo" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://dl.winehq.org/wine-builds/fedora/30/winehq.repo
+&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;E instalamos la version que deseamos&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;version&lt;/th&gt;
+&lt;th&gt;comando&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Stable branch&lt;/td&gt;
+&lt;td&gt;dnf install winehq-stable&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Development branch&lt;/td&gt;
+&lt;td&gt;dnf install winehq-devel&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Staging branch&lt;/td&gt;
+&lt;td&gt;dnf install winehq-staging&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Para otras distribuciones o BDS o MacOS revisar en su &lt;a href="https://wiki.winehq.org/Download" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+sitio oficial
+&lt;/a&gt;&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="arch"&gt;
+Arch
+&lt;a href="#arch" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Si estás en una distro basada en arch lo que recomiendo es instalar wine-staging que es, personalmente la instalación que me dio un mejor rendimiento. En mi caso lo hice con yay pero puedes hacerlo directamente con pacman&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -S wine-staging
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Activar Multilib Artix</title><link>https://patojad.com.ar/post/2021/03/activar-multilib-artix/</link><pubDate>Wed, 24 Mar 2021 17:03:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/03/activar-multilib-artix/</guid><description>&lt;p&gt;En esta oportunidad volvemos con un tutorial orientado a Artix Linux o mejor dicho a Arch en general. Si bien puede que los usuarios más habituales esto lo tengan incorporado. Puede que los usuarios nuevos no lo sepan o ignoren esto por lo cual quería dejar un video conciso.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="el-video"&gt;
+El Video
+&lt;a href="#el-video" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Como estoy intentando actualizarse con los videos estoy intentando ser conciso y dar la información sin divagar mucho.&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/OusBLacPkPA?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="adicional"&gt;
+Adicional
+&lt;a href="#adicional" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Les dejo los comandos que utilizo en el video y que es lo que hacen. Esto es util si no estas acostumbrado a escribir comandos en la terminal:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Si multilib
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Sirve para averiguar si se encuentra habilitado o no el repositorio.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo cat /etc/pacman.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Imprime en pantalla la configuración del archivo localizado en /etc/pacman.conf&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo nano /etc/pacman.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Permite editar el archivo de configuracion&lt;/p&gt;</description></item><item><title>¿Como jugar al WoW en Linux?</title><link>https://patojad.com.ar/post/2020/11/como-jugar-al-wow-en-linux/</link><pubDate>Mon, 30 Nov 2020 11:29:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/11/como-jugar-al-wow-en-linux/</guid><description>&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://cadenaser00.epimg.net/ser/imagenes/2019/08/27/ser_madrid_sur/1566920041_790600_1566920146_noticia_normal.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Todos conocemos este gran juego o la gran mayoría, yo creo que junto al &lt;strong&gt;Lineage 2&lt;/strong&gt; y el &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2019/05/como-instalar-mu-online-en-linux/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+MU
+&lt;/a&gt;&lt;/strong&gt; son los &lt;em&gt;MMORPG&lt;/em&gt; que marcaron mi infancia, y hoy por hoy sigue siendo uno de los juegos que nos sorprenden y nos dan mucha emoción a cambio de horas de nuestra vida.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="hasta-donde-llego"&gt;
+¿Hasta donde llego?
+&lt;a href="#hasta-donde-llego" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Actualmente existen muchas versiones del WoW pero no todas podemos jugarla en linux, en mi basta experiencia (Aunque muchos me puedan contradecir y eso me gustaria) el soporte de Wine para 64bits es deplorable. Al punto tal de que solo podemos correr perfectamente aplicaciones de 32bits y este es nuestro limitante.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/QVLFXMzs/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Desde la versión del WoW conocida como &lt;strong&gt;Battle of Azeroth&lt;/strong&gt; se eliminó completamente el soporte para 32bits por lo cual no podemos avanzar hasta que wine no mejore su compatibilidad con 64bits. Esto nos impide, de momento, jugar en el servidor oficial de blizzard.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://gamedustria.com/wp-content/uploads/2016/09/WoWLEgion.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;En esta oportunidad voy a explicar como utilizar este magnifico juego pero obviamente desde un servidor privado con una de las últimas versiones que nos soportan los 32bits que no es nada más ni nada menos que &lt;strong&gt;Legion&lt;/strong&gt; donde podemos disfrutar la historia de Illidan.&lt;/p&gt;
+&lt;p&gt;![](&lt;a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtPtNMJoMaEVWXxKzq-lzloVmnrJ7C_FGrLAlIAB4GiRJYQ2lvT7_kVj4-9_pk1Bb4bDmA9lFPTTxk3-IzmIwCT9rosCDkxcA&amp;amp;usqp=CAU&amp;amp;ec=45732302%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtPtNMJoMaEVWXxKzq-lzloVmnrJ7C_FGrLAlIAB4GiRJYQ2lvT7_kVj4-9_pk1Bb4bDmA9lFPTTxk3-IzmIwCT9rosCDkxcA&amp;usqp=CAU&amp;ec=45732302"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ATENCIÓN: Si bien existen videos de como instalar el original con Lutris esto crashea muchísimo en raids y situaciones específicas por lo cual no recomiendo pagar una suscripción hasta que no esté mejorado el soporte a 64 bits para evitar golpes de ira&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="mi-maquina-se-lo-banca"&gt;
+¿Mi maquina se lo banca?
+&lt;a href="#mi-maquina-se-lo-banca" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Por suerte el Wow es un juego que no requiere mucho hardware para jugar, poniendo todo al minimo (low). Y existe una gran diferencia con jugarlo todo en “ultra” pero este “sacrificio” de estética nos permite disfrutarlo en equipos que no sean meramente gamers.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;CPU (Procesador):&lt;/strong&gt; Intel Core2 Duo E8500 o AMD Phenom II X3 720&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GPU (Gráficos):&lt;/strong&gt; NVIDIA GeForce GT 440 – AMD Radeon HD 5670 – Intel HD Graphics 5000&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Memoria RAM:&lt;/strong&gt; 2GB&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Espacio en el Disco Duro:&lt;/strong&gt; 45GB&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.guiaswow.com/wp-content/uploads/2016/02/Zu7dsO3.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Como vemos es realmente poco lo que pide y seguramente nosotros cumplamos estos requisitos, pero vale aclarar que si lo que vamos a usar es la placa de video integrada recomiendo tener un mínimo de 4GB de ram dado que la integrada utiliza nuestra ram como VRAM.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalar-winehq"&gt;
+Instalar WineHQ
+&lt;a href="#instalar-winehq" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://linuxhint.com/wp-content/uploads/2020/06/1-12.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Lo primero que debemos hacer es instalar WineHQ en nuestra distribución, para esto debemos agregar las librerías y ejecutar la instalación.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="debian"&gt;
+Debian
+&lt;a href="#debian" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Habilitamos los 32 bits&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo dpkg --add-architecture i386
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Descargamos e instalamos a Key&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;wget -nc https://dl.winehq.org/wine-builds/winehq.key
+sudo apt-key add winehq.key
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Agregamos el repositorio dependiendo de nuestra versión&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Version&lt;/th&gt;
+&lt;th&gt;Agregar a /etc/apt/sources.list:&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Debian 8 (Jessie)&lt;/td&gt;
+&lt;td&gt;deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://dl.winehq.org/wine-builds/debian/
+&lt;/a&gt; jessie main&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Debian 9 (Stretch)&lt;/td&gt;
+&lt;td&gt;deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://dl.winehq.org/wine-builds/debian/
+&lt;/a&gt; stretch main&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Debian 10 (currently Testing) (Buster)&lt;/td&gt;
+&lt;td&gt;deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://dl.winehq.org/wine-builds/debian/
+&lt;/a&gt; buster main&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Actualizamos el Sistema&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt update
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Instalamos uno de los paquetes&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;version&lt;/th&gt;
+&lt;th&gt;comando&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Stable branch&lt;/td&gt;
+&lt;td&gt;sudo apt install &amp;ndash;install-recommends winehq-stable&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Development branch&lt;/td&gt;
+&lt;td&gt;sudo apt install &amp;ndash;install-recommends winehq-devel&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Staging branch&lt;/td&gt;
+&lt;td&gt;sudo apt install &amp;ndash;install-recommends winehq-staging&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="fedora"&gt;
+Fedora
+&lt;a href="#fedora" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Agregamos los repositories&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;version&lt;/th&gt;
+&lt;th&gt;comando&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Fedora 29&lt;/td&gt;
+&lt;td&gt;dnf config-manager &amp;ndash;add-repo &lt;a href="https://dl.winehq.org/wine-builds/fedora/29/winehq.repo" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://dl.winehq.org/wine-builds/fedora/29/winehq.repo
+&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Fedora 30&lt;/td&gt;
+&lt;td&gt;dnf config-manager &amp;ndash;add-repo &lt;a href="https://dl.winehq.org/wine-builds/fedora/30/winehq.repo" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://dl.winehq.org/wine-builds/fedora/30/winehq.repo
+&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;E instalamos la version que deseamos&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;version&lt;/th&gt;
+&lt;th&gt;comando&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Stable branch&lt;/td&gt;
+&lt;td&gt;dnf install winehq-stable&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Development branch&lt;/td&gt;
+&lt;td&gt;dnf install winehq-devel&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Staging branch&lt;/td&gt;
+&lt;td&gt;dnf install winehq-staging&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Para otras distribuciones o BDS o MacOS revisar en su &lt;a href="https://wiki.winehq.org/Download" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+sitio oficial
+&lt;/a&gt;&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="arch"&gt;
+Arch
+&lt;a href="#arch" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Si estás en una distro basada en arch lo que recomiendo es instalar wine-staging que es, personalmente la instalación que me dio un mejor rendimiento. En mi caso lo hice con yay pero puedes hacerlo directamente con pacman&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;yay -S wine-staging
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="volviendo-al-wow"&gt;
+Volviendo al WoW
+&lt;a href="#volviendo-al-wow" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.ytimg.com/vi/XwkaeAQcWRw/maxresdefault.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Volviendo al juego, en mi caso elegí un servidor especifico, conocido como &lt;a href="https://www.wow-freakz.com/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Freakz
+&lt;/a&gt; que no es un paytowin y en el cual no hay colas largas para jugar. Una vez descargado lo descomprimimos en la carpeta que querramos en mi caso utilizo el directorio&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;~/Juegos/WoW
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Y una vez ahí ejecutamos el launcher. La primera vez que lo ejecutemos tardará bastante en configurar wine y algunas cosas del juego, también puede tirar el épico error de “dejo de funcionar” pero al abrirlo nuevamente ya podemos entrar sin problemas. Si elegimos la opción minimalista que descarga el juego mientras jugamos puede ser un poco más lento pero nos permite jugar desde el momento 0 es perfecto para impacientes.&lt;/p&gt;</description></item><item><title>Genshin Impact en Linux</title><link>https://patojad.com.ar/post/2020/10/genshin-impact-en-linux/</link><pubDate>Tue, 27 Oct 2020 09:11:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/10/genshin-impact-en-linux/</guid><description>&lt;p&gt;Ya hace un tiempo comenzó a resonar este magnífico juego en nuestros oídos. Como siempre existe una hermosa comunidad de Linuxnautas que se esfuerzan por traerte todas las soluciones que las empresas no quieren darte y en este caso es nuestro amigo Diego Pardo el Gran Youtuber estrella que nos trae la guía definitiva para poder jugarlo en linux.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="el-juego"&gt;
+El Juego
+&lt;a href="#el-juego" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Genshin Impact es un juego de acción RPG de mundo abierto con mecánica de monetización Gacha para conseguir elementos adicionales como armas y otros recursos.&lt;/p&gt;
+&lt;p&gt;![](&lt;a href="https://blog.latam.playstation.com/tachyon/sites/3/2020/09/50382753728_4bd6b35aa4_ka.jpg?resize=1088,612&amp;amp;crop_strategy=smart%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://blog.latam.playstation.com/tachyon/sites/3/2020/09/50382753728_4bd6b35aa4_ka.jpg?resize=1088,612&amp;crop_strategy=smart"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;p&gt;Está ambientado en un mundo llamado &amp;ldquo;Teyvat&amp;rdquo;, donde las personas elegidas por los dioses recibirán el poder elemental otorgado por &amp;ldquo;Ojo de dios&amp;rdquo;. En Teyvat, los jugadores se embarcarán en varias aventuras como forasteros y viajarán con diferentes personajes con habilidades únicas que van encontrando en el camino para explorar lo desconocido y descubrir los secretos de Genshin en esta tierra. Los jugadores, al comienzo del juego, pueden elegir ser un hermano o una hermana que se adentra en la aventura en búsqueda de su familia.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="parecido-con-zelda"&gt;
+Parecido con Zelda
+&lt;a href="#parecido-con-zelda" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Lo primero que salta a la vista al jugar este juego es el extremo parecido que tiene con el exitoso “Legend of Zelda: Breath of the Wild”, debido principalmente a su estilo, ambos juegos destacan por su animación caricaturesca pero realista, y donde se sitúa la historia, un mundo fantástico y extremadamente amplio.&lt;/p&gt;
+&lt;p&gt;![](&lt;a href="https://blog.latam.playstation.com/tachyon/sites/3/2019/08/48424849972_628c19f246_oa.jpg?resize=1088,612&amp;amp;crop_strategy=smart%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://blog.latam.playstation.com/tachyon/sites/3/2019/08/48424849972_628c19f246_oa.jpg?resize=1088,612&amp;crop_strategy=smart"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;p&gt;Si a eso se le suma el hecho de que su mapa, Genshin Impact es un juego de “mundo abierto” donde se puede explorar sin tener que seguir una línea argumental, es extremadamente grande y variado, se entiende por qué consiguió tantas descargas a pesar de haber salido hace poco menos de un mes.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://media.ambito.com/adjuntos/239/imagenes/038/128/0038128173.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="requisitos"&gt;
+Requisitos
+&lt;a href="#requisitos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;PROCESADOR:&lt;/strong&gt; Intel Core i5 y superior o similar&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MEMORIA RAM:&lt;/strong&gt; 8 GB&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;TARJETA GRÁFICA:&lt;/strong&gt; GeForce GT 1030 y superior o similar&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DISCO DURO:&lt;/strong&gt; 30 GB&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación"&gt;
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;iframe src='https://www.youtube.com/embed/ZHh4Zpr59aU?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;</description></item><item><title>Anbox ¿La solución definitiva?</title><link>https://patojad.com.ar/post/2020/06/anbox-la-soluci%C3%B3n-definitiva/</link><pubDate>Wed, 10 Jun 2020 09:52:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/06/anbox-la-soluci%C3%B3n-definitiva/</guid><description>&lt;p&gt;Parece que últimamente estoy haciendo saga de los mismos temas, pero esto suele pasar cuando uno investiga y busca nuevas alternativas, y hoy vamos a estar un poco cargaditos de críticas hacia ubuntu distro que yo no recomiendo pero admito que es muy buena para el target de usuarios al que apunta…&lt;/p&gt;
+&lt;p&gt;Ya ayer hablamos de Shashlik una app que nos permite ejecutar aplicaciones android en nuestro sistema operativo sin emularlo completamente, sin embargo esta aplicación se encuentra abandonada desde 2016, y si bien aún puede levantar aplicaciones sin problemas muchas veces lo ideal es mantenernos actualizados por seguridad y funcionalidad, por lo cual decidí traer su &lt;strong&gt;equivalente actualizado&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Sin embargo de esta app hay cosas que no me gustan aunque entiendo su decisión y es ahí donde vamos a &lt;strong&gt;bardear un poco&lt;/strong&gt; a Ubuntu así que… Vamos a eso!&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="sobre-la-app"&gt;
+Sobre la app
+&lt;a href="#sobre-la-app" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Como dijimos anteriormente esta aplicación no utiliza QEMU ni ningún otro emulado para levantar una aplicación por lo cual mejora el rendimiento haciéndolo más &lt;strong&gt;PERFORMANTE&lt;/strong&gt; (Abrazo a todos los que me &lt;em&gt;bardearon&lt;/em&gt; de forma cariñosa por usar performante y les tengo que dar la derecha es una palabra que no existe pero que todo Linuxnauta entiende) Por lo cual lo vuelve una de las &lt;strong&gt;mejores opciones&lt;/strong&gt; porque sería una capa de compatibilidad (Como wine) que hace que nuestro sistema no baje el rendimiento bruscamente&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://c1.staticflickr.com/1/913/41527912900_68ce4a25d5_o.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Anbox es una solución &lt;strong&gt;convergente&lt;/strong&gt;. Funciona de igual forma en una computadora portátil y un teléfono móvil, siempre que ejecuten alguna variante de Linux, claramente. Sin ir muy lejos, los orígenes de esta iniciativa radica en &lt;strong&gt;Ubuntu Touch&lt;/strong&gt; por lo cual podemos ver hasta donde planean alcanzar la compatibilidad…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="su-lado-negativo-aprende-ubuntu"&gt;
+Su lado Negativo (Aprende Ubuntu)
+&lt;a href="#su-lado-negativo-aprende-ubuntu" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La instalación es directamente snap, esto es algo que no me agrada a simple vista dado que snap podría llegar reiterar librerias y demas sin ningun tipo de sentido al igual que sus hermanos como flatpack y demás…&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://cdn.lignux.com/wp-content/uploads/2018/07/anbox-1.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Sin embargo después de revisar cómo está implementado este increíble proyecto comprendí que es &lt;strong&gt;realmente importante&lt;/strong&gt; que esto sea así dado que necesita versiones muy específicas y una actualización podría llegar a rompernos todo y al ser una app tan delicada con una función tan importante (Piensen en un smart donde se use wpp laboralmente instalado en Anbox no debería romper nunca) por lo cual podemos decir que Anbox es &lt;strong&gt;un buen ejemplo&lt;/strong&gt; de cómo se debe usar snap&lt;/p&gt;
+&lt;p&gt;Ubuntu tomó la decisión de poner snap como defecto (Cosa que no quiero comentar mucho) Pero esto no está bueno porque desaprovechamos muchas cualidades de las bibliotecas compartidas. Está bien usar snap, pero en casos como los de Anbox.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación"&gt;
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Ahora el repo de la comunidad no pudo hacer nada por nosotros pero si podemos explicarte paso a paso cómo hacer para tener una instalación simple y funcional… Por lo cual vamos a proceder a eso:&lt;/p&gt;
+&lt;p&gt;Debemos agregar un repositorio que es una &lt;strong&gt;ppa&lt;/strong&gt;, pero con el fin de hacer mas lindo el tuto vamos a agregarlo &lt;em&gt;a mano&lt;/em&gt; de la siguiente forma&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; deb http://ppa.launchpad.net/morphis/anbox-support/ubuntu bionic main &lt;span class="p"&gt;|&lt;/span&gt; sudo tee /etc/apt/sources.list.d/anbox.list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Una vez que este agregado debemos agregar la &lt;strong&gt;clave pública&lt;/strong&gt; para poder acceder al repositorio y esto lo hacemos de la siguiente forma&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 21C6044A875B67B7
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Y teniendo esto ya estamos preparados para seguir con el siguiente paso! que es nada más ni nada menos que instalar &lt;strong&gt;los módulos del kernel&lt;/strong&gt;. Esto nos agrega 2 módulos que se actualizan automáticamente cuando se actualiza el kernel.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install anbox-modules-dkms
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Después de instalar el paquete anbox-modules-dkms, debe cargar manualmente los módulos del kernel. &lt;em&gt;La próxima vez que se inicie su sistema, se cargarán automáticamente&lt;/em&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo modprobe ashmem_linux
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo modprobe binder_linux
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://vidatecno.net/wp-content/uploads/2019/05/como-ejecutar-aplicaciones-android-en-ubuntu-linux-con-anbox-1.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Ahora debería tener dos nuevos nodos en su directorio de sistemas /dev el cual podemos probar con el siguiente comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ls -1 /dev/&lt;span class="o"&gt;{&lt;/span&gt;ashmem,binder&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Donde vamos a estar esperando una salida como la que vemos a continuación.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/dev/ashmem
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/dev/binder
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;El segundo paso &lt;em&gt;instalará el complemento Anbox&lt;/em&gt; de la tienda y le dará todo lo que necesita para ejecutar la experiencia completa de Anbox. Instalar el complemento de Anbox es muy simple:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo snap install --devmode --beta anbox
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Por el momento, requerimos el uso de &amp;ndash;devmode ya que el complemento de Anbox aún no está completamente limitado. Se ha comenzado a trabajar con el proyecto snapd upstream para obtener soporte para el confinamiento completo. Como efecto secundario del uso de &amp;ndash;devmode, el ajuste &lt;strong&gt;no se actualizará automáticamente&lt;/strong&gt;. Para actualizar a una versión más nueva, puede ejecutar:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo snap refresh --beta --devmode anbox
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalar-aplicaciones"&gt;
+Instalar aplicaciones
+&lt;a href="#instalar-aplicaciones" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://instatecno.com/wp-content/uploads/2020/02/Anbox-700x400.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Ya teniendo instalado Anbox tenemos que instalar aplicaciones, o mejor dicho queremos por lo cual debemos proseguir de la siguiente forma. Requerimos tener el adb instalado si no lo tenes podes hacerlo asi:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install android-tools-adb
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Anbox &lt;strong&gt;no proporciona ninguna funcionalidad para obtener aplicaciones de Android&lt;/strong&gt;. Necesitamos obtenerlos de una fuente en Internet. Una vez que tenga el paquete &lt;em&gt;APK&lt;/em&gt; para la aplicación, puede instalarlo en el contenedor de Android con el siguiente comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;adb install aplicacion.apk
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Si el contenedor de Anbox aún &lt;em&gt;no se está ejecutando&lt;/em&gt;, podemos comenzar cargando la aplicación del administrador de aplicaciones:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;anbox.appmgr
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item></channel></rss>

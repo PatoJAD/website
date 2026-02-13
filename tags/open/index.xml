@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Open on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/open/</link><description>Recent content in Open on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Mon, 05 Jul 2021 10:17:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/open/index.xml" rel="self" type="application/rss+xml"/><item><title>Open Assistant un asistente Open Source</title><link>https://patojad.com.ar/post/2021/07/open-assistant-un-asistente-open-source/</link><pubDate>Mon, 05 Jul 2021 10:17:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/07/open-assistant-un-asistente-open-source/</guid><description>&lt;p&gt;Siempre se habla de los asistentes, muchos sistemas tienen su sistema y en linux, por alguna extraña razón no es altamente explotado. En cuanto a Windows podemos encontrar a Cortana, que por suerte ya no viene por defecto en Windows 11. Para Android, tenemos a Google Assistant que no va tan mal. Y los que tienen el dinero como para regocijarse en Apple tienen a Siri, un asistente que es de los más humanizados que existe. Y existen varios más, pero hoy vamos a hablar de uno que no escuche mucho nombrar&amp;hellip;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="mi-punto-de-vista"&gt;
+Mi punto de vista
+&lt;a href="#mi-punto-de-vista" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Yo no soy un gran fanatico de los asistentes, no pude nunca sacarle el jugo que quiero, porque los asistentes que probé no se integraban bien desde mi perspectiva. Claramente no soy un gran conocedor pero debo admitir que es cómodo poder estar haciendo algo con el teclado (Ejemplo codeando como un campeón) Y pedirle al asistente que cambie la canción que estamos escuchando. Por esto creo que los asistentes (Siempre y cuando no sean como Cortana que te lentea hasta una master race) son una muy buena herramienta para tener instaladas y acostumbrarnos a utilizarlo. Además mientras más mañana nos demos y más curioso seamos existen algunos asistentes que pueden volverse muy útiles y muy manipulables para obtener mejores resultados.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="oa"&gt;
+OA
+&lt;a href="#oa" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;OA&lt;/strong&gt; o también conocido como Open Assistant es un asistente, que claramente corre en GNU/Linux, escrito en python, que tiene la particularidad de ser completamente extensible. Esto nos permite tener un asistente con un lenguaje que casi cualquier persona pueda extender.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="instalar-oa"&gt;
+Instalar OA
+&lt;a href="#instalar-oa" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Lo primero que debemos hacer es instalar las dependencias necesarias para poder correr OA de la siguiente manera:&lt;/p&gt;
+&lt;h5 class="text-gray-500 text-3xl my-6" id="ubuntudebian"&gt;
+Ubuntu/Debian
+&lt;a href="#ubuntudebian" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h5&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-get install -y python3 python3-dev python3-pip build-essential swig git libpulse-dev espeak libasound2-dev
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h5 class="text-gray-500 text-3xl my-6" id="arch"&gt;
+Arch
+&lt;a href="#arch" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h5&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S swig espeak python
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Una vez que tengamos las dependencias instaladas debemos descargar el paquete y descomprimirlo, para descargarlo podemos hacerlo desde el siguiente link:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/openassistant/oa-core/archive/master.zip%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+Descargar OA
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Una ves que lo descomprimimos pasamos a la carpeta e instalamos las dependencias de python que necesita el proyecto, esto lo podemos hacer con el siguiente comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pip install -r requirements.txt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-info fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;En caso de estar en Debian, Ubuntu o derivadas. Deben sustituir pip por pip3 para ejecutarlo con esta versión en especifico&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;A continuación de esto, ya podemos iniciar el proyecto, para esto lo podemos hacer de la siguiente manera:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;python -m oa
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-info fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;En caso de estar en Debian, Ubuntu o derivadas. Deben sustituir python por python3 para ejecutarlo con esta versión en especifico&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Y ya estaría funcionando, para ver más sobre comandos o como agregar nuestros propios comandos por voz les dejo el link a su repo donde está la documentación.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/openassistant/oa-core" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+Mas Info
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://openassistant.org/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+La Web
+&lt;/a&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="tu-opinión"&gt;
+Tu opinión
+&lt;a href="#tu-opini%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Sabemos que no todos pensamos igual y siempre queremos conocer tu opinión sobre estos temas, ¿Que piensas sobre los asistentes virtuales? ¿Usas alguno? ¿Usarias OA?&lt;/p&gt;</description></item><item><title>Las 4 Libertades del Software Libre</title><link>https://patojad.com.ar/post/2021/03/las-4-libertades-del-software-libre/</link><pubDate>Fri, 05 Mar 2021 10:10:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/03/las-4-libertades-del-software-libre/</guid><description>&lt;p&gt;El Software Libre es todo programa informático cuyo código fuente puede ser estudiado, modificado, y utilizado libremente con cualquier fin y redistribuido con o sin cambios o mejoras. De acuerdo con la definición establecida por Richard Stallman, un Software es &lt;em&gt;&amp;ldquo;libre&amp;rdquo;&lt;/em&gt; cuando garantiza las siguientes 4 libertades:&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/XYKvx8xn/software-libre-competenciadigital-4-728.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Estas son las cuatro libertades esenciales de los usuarios tal y como las define la FSF:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;La libertad de ejecutar el programa como se desea, con cualquier propósito (libertad 0).&lt;/li&gt;
+&lt;li&gt;La libertad de estudiar cómo funciona el programa, y cambiarlo para que haga lo que usted quiera (libertad 1). El acceso al código fuente es una condición necesaria para ello.&lt;/li&gt;
+&lt;li&gt;La libertad de redistribuir copias para ayudar a su prójimo (libertad 2).&lt;/li&gt;
+&lt;li&gt;La libertad de distribuir copias de sus versiones modificadas a terceros (libertad 3). Esto le permite ofrecer a toda la comunidad la oportunidad de beneficiarse de las modificaciones. El acceso al código fuente es una condición necesaria para ello.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="video"&gt;
+Video
+&lt;a href="#video" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;iframe src='https://www.youtube.com/embed/psnWhp--IaI?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="libertad-de-uso"&gt;
+Libertad de uso
+&lt;a href="#libertad-de-uso" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;La primera libertad es la que nos permite darle a un programa el uso que Nosotros deseemos. Esto a lo largo de la historia muchas veces fue un arma de doble filo dado que muchos sistemas fueron utilizados con malas intenciones. Aun asi la limitación de la libertad no es la solución por eso mismo esta sigue siendo la primer libertad y una de las mas importantes.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="libertad-de-estudio"&gt;
+Libertad de estudio
+&lt;a href="#libertad-de-estudio" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Aquí ya empezamos a hacer uso del código fuente, dado que el mismo tiene que estar disponible para su estudio, saber como funciona, que es lo que hace y que contiene dentro. Es importante en este caso aclarar que tiene que estar el 100% del código y no solo una parte (ej. Telegram que solo nos ofrece el código del cliente y no del servidor)&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="libertad-de-distribución"&gt;
+Libertad de distribución
+&lt;a href="#libertad-de-distribuci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Esta libertad nos permite distribuir el programa ya sea gratuitamente o de pago. Recordemos que el Software Libre no significa software gratuito. Muchas veces puede ser de pago y aun así respeta todas las libertades (Parece ser un negocio que no cierra pero esta ganando terreno).&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="libertad-de-mejora"&gt;
+Libertad de mejora
+&lt;a href="#libertad-de-mejora" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Cualquier miembro de la comunidad puede compartir mejoras del sistema y con ella enriquecer el proyecto.&lt;/p&gt;
+&lt;p&gt;Estas son las 4 libertades que deben cumplir un sistema para ser tomado como Software Libre.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="open-source"&gt;
+Open Source
+&lt;a href="#open-source" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Así como la ética del Software Libre se define en cuatro puntos, la Open Source Iniciative tiene diez requisitos a cumplir por parte de un proyecto o las licencias bajo las que se publica para que pueda ser definido como de código abierto:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Libre redistribución&lt;/strong&gt;: La licencia del software no debe impedir que este sea regalado o vendido libremente como parte de una distribución mayor que contenga programas de diferentes fuentes. Tampoco debe exigir un pago por hacerlo.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Código fuente&lt;/strong&gt;: A la hora de publicar un programa tiene que incluirse su código fuente íntegro o permitir acceder libremente a él.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Trabajos derivados&lt;/strong&gt;: Las licencias deben permitir modificaciones y trabajos derivados, y debe permitir que estos se distribuyan bajo los mismos términos que el software original.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Integridad del código fuente del autor&lt;/strong&gt;: Se puede impedir la distribución de modificaciones únicamente si se permite la distribución de tales como parches. También se puede requerir que trabajos derivados cambien de nombre o número de versión.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sin discriminación de personas o grupos&lt;/strong&gt;: No se puede discriminar a ninguna persona o grupo a la hora de acceder a un programa o su código.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sin discriminación de áreas de iniciativa&lt;/strong&gt;: Tampoco le se puede restringir su acceso a ninguna iniciativa. Las empresas o grupos de investigación tienen tanto derecho como el resto a utilizar el software.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Distribución de la licencia&lt;/strong&gt;: Los derechos asociados en las licencias de los programas deben aplicarse a todos a los que lo redistribuyan sin necesidad de pedir una licencia adicional.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;La licencia no debe ser específica de un producto&lt;/strong&gt;: Un programa no puede licenciarse únicamente como parte de un software mayor. Podrá ser extraído y utilizado libremente y con todos los derechos en otras soluciones.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;La licencia no debe restringir otro software&lt;/strong&gt;: El hecho de que un proyecto sea de código abierto no puede obligar a que los programas en los que se incluye sean también de código abierto.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;La licencia debe ser tecnológicamente neutral&lt;/strong&gt;: Ninguna disposición de la licencia puede basarse en la tecnología o un estilo de interfaz, con lo que, por ejemplo, no se debe requerir su aceptación mediante gestos explícitos como clicks de ratón.&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Thrive el Spore Open Sorce</title><link>https://patojad.com.ar/post/2020/05/thrive-el-spore-open-sorce/</link><pubDate>Thu, 21 May 2020 06:37:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/05/thrive-el-spore-open-sorce/</guid><description>&lt;p&gt;Remontando a mi infancia, puedo recordar pasarme horas jugando al un hermoso juego llamado spore, consiste básicamente en evolucionar tu célula hasta, prácticamente, dominar el mundo.&lt;/p&gt;
+&lt;p&gt;Pasado el tiempo uno crece y con eso deja algunas cosas de lados, por ejemplo, el sistema operativo que venia en la máquina para instalar Linux o los juegos que jugaba de joven.&lt;/p&gt;
+&lt;p&gt;Sin embargo navegando por internet me encontré con algo que merece una publicación por muchos motivos, y como digo siempre si tienes que compartirlo hazlo…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="mas-que-una-alternativa"&gt;
+Mas que una alternativa
+&lt;a href="#mas-que-una-alternativa" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Encontre navegando en internet lo que a simple vista era una alternativa a este juegazo que acompañó los años dorados de mi secundaria… Pero al investigar bien me di cuenta que es mucho más que un juego parecido… Es una alternativa Open Source que es nativa en linux y eso no es para menos…&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/Yyzmh-FmKos?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="a-lo-que-vinimos"&gt;
+A lo que vinimos!!
+&lt;a href="#a-lo-que-vinimos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;![](&lt;a href="https://i0.wp.com/revolutionarygamesstudio.com/wp-content/uploads/2015/01/Ocean-Slide-1.jpg?w=1080&amp;amp;ssl=1%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://i0.wp.com/revolutionarygamesstudio.com/wp-content/uploads/2015/01/Ocean-Slide-1.jpg?w=1080&amp;ssl=1"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;p&gt;Desde los bajos pozos de marea de su planeta natal, ascenderá al dominio cósmico. En cada paso, las potentes herramientas de creación y la mecánica de simulación profunda ayudarán al desarrollo de su especie. Revolutionary Games es el equipo de código abierto de voluntarios dedicados con el objetivo de hacer que Thrive sea una realidad.&lt;/p&gt;
+&lt;p&gt;Nuestro equipo busca lograr dos objetivos principales: crear un juego atractivo y convincente que respete la inteligencia de nuestros jugadores y que sea lo más preciso posible en nuestra descripción de la teoría científica conocida sin comprometer la primera.&lt;/p&gt;
+&lt;p&gt;![](&lt;a href="https://i2.wp.com/revolutionarygamesstudio.com/wp-content/uploads/2015/01/Lizard-Slide-1.jpg?w=1079&amp;amp;ssl=1%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://i2.wp.com/revolutionarygamesstudio.com/wp-content/uploads/2015/01/Lizard-Slide-1.jpg?w=1079&amp;ssl=1"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;p&gt;Thrive encapsulará al jugador en las maravillas de la ciencia y el universo, permitiéndole manipular el mundo virtual a su alrededor con editores para modificar la tecnología, la cultura, los organismos y los sistemas solares completos. Se planean siete etapas: microbio, multicelular, consciente, despertar, sociedad, industrial y espacial, aunque por el momento solo nos estamos centrando en la primera de ellas, ya que todo el proyecto es una empresa masiva.&lt;/p&gt;
+&lt;p&gt;Thrive toma muchos juegos como inspiración, desde roguelikes hasta juegos de gran estrategia, pero planeamos seguir nuestro propio camino con muchas mecánicas de juego. No esperes un clon.&lt;/p&gt;
+&lt;p&gt;![](&lt;a href="https://i1.wp.com/revolutionarygamesstudio.com/wp-content/uploads/25b746db34e91b981a22486b2fa72a371aeac0fb.jpeg?fit=1080%2C763&amp;amp;ssl=1%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://i1.wp.com/revolutionarygamesstudio.com/wp-content/uploads/25b746db34e91b981a22486b2fa72a371aeac0fb.jpeg?fit=1080%2C763&amp;ssl=1"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;p&gt;Nuestro objetivo es explorar las posibilidades de simulación dentro del contexto del juego, enfrentando al jugador contra el entorno del juego mientras ejercen las fuerzas de la evolución. Los jugadores crearán y editarán un organismo en su viaje desde la insignificancia hasta las estrellas, utilizando múltiples herramientas de creación para elevarse por encima de sus adversarios, ellos mismos productos de la evolución por selección natural en el ecosistema más amplio del juego.&lt;/p&gt;
+&lt;p&gt;Al recolectar sustancias del medio ambiente y procesarlas con un metabolismo simulado, puede aumentar la calificación de aptitud de su especie, creando resistencia contra la extinción. Los caminos evolutivos menos exitosos desaparecerán, y solo uno puede progresar a través de cada paso transformador crucial hacia la cohesión celular, la conquista terrestre, la sensibilidad, los asentamientos y los viajes espaciales. ¿Prosperarás?&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/Revolutionary-Games/Thrive/releases" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+Descargar Juego
+&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>

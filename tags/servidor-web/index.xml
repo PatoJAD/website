@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Servidor Web on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/servidor-web/</link><description>Recent content in Servidor Web on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Wed, 30 Aug 2023 11:23:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/servidor-web/index.xml" rel="self" type="application/rss+xml"/><item><title>Cómo Actualizar aaPanel y Mantener tu Servidor Web al Día</title><link>https://patojad.com.ar/post/2023/08/c%C3%B3mo-actualizar-aapanel-y-mantener-tu-servidor-web-al-d%C3%ADa/</link><pubDate>Wed, 30 Aug 2023 11:23:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/08/c%C3%B3mo-actualizar-aapanel-y-mantener-tu-servidor-web-al-d%C3%ADa/</guid><description>&lt;p&gt;Mantener tu servidor web actualizado es esencial para garantizar su rendimiento, seguridad y funcionalidad. En este artículo, aprenderás cómo actualizar &lt;strong&gt;aaPanel&lt;/strong&gt;, una herramienta de panel de control que simplifica la administración de servidores web, y te proporciona una guía paso a paso para llevar a cabo este proceso.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-aapanel"&gt;
+¿Qué es aaPanel?
+&lt;a href="#qu%c3%a9-es-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;aaPanel&lt;/strong&gt; es un panel de control de hosting web gratuito y de código abierto que facilita la administración de servidores. Proporciona una interfaz gráfica intuitiva y amigable que permite a los usuarios gestionar servicios como &lt;strong&gt;Apache&lt;/strong&gt;, &lt;strong&gt;Nginx&lt;/strong&gt;, &lt;strong&gt;PHP&lt;/strong&gt;, bases de datos y más, sin necesidad de conocimientos técnicos avanzados.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="importancia-de-actualizar-aapanel"&gt;
+Importancia de Actualizar aaPanel
+&lt;a href="#importancia-de-actualizar-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La actualización regular de aaPanel es crucial por varias razones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Seguridad:&lt;/strong&gt; Las actualizaciones suelen incluir parches de seguridad que protegen tu servidor contra amenazas potenciales. Mantener aaPanel actualizado reduce la superficie de ataque y mantiene tus datos y aplicaciones seguros.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Rendimiento:&lt;/strong&gt; Las actualizaciones pueden mejorar el rendimiento de aaPanel al corregir errores, optimizar el código y agregar nuevas características que optimizan la eficiencia.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Funcionalidad:&lt;/strong&gt; Las versiones más recientes de aaPanel suelen ofrecer nuevas funciones y mejoras en la interfaz, lo que puede mejorar la experiencia de administración del servidor.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="pasos-para-actualizar-aapanel"&gt;
+Pasos para Actualizar aaPanel
+&lt;a href="#pasos-para-actualizar-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si bien en el video se muestra como actualizar &lt;strong&gt;aaPanel&lt;/strong&gt; desde la interfaz web, en este articulo se muestra como hacerlo desde la terminal.&lt;/p&gt;
+&lt;p&gt;A continuación, se detallan los pasos para actualizar aaPanel a la última versión en caso de querer hacerlo desde la terminal conectadose al servidor por &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+SSH
+&lt;/a&gt;:&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="acceder-al-servidor"&gt;
+Acceder al Servidor
+&lt;a href="#acceder-al-servidor" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Inicia sesión en tu servidor a través de &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+SSH
+&lt;/a&gt; utilizando un cliente como PuTTY (en el caso de estar en Windows) o la terminal en sistemas Unix o Unix-Like como Linux.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ssh username@server_ip
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="respaldo-de-datos-opcional-pero-recomendado"&gt;
+Respaldo de Datos (Opcional pero Recomendado)
+&lt;a href="#respaldo-de-datos-opcional-pero-recomendado" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Antes de actualizar, realiza una copia de seguridad de tus datos importantes, como archivos del sitio web y bases de datos, para evitar pérdidas accidentales. Si bien este paso es opcional, se recomienda encarecidamente realizar una copia de seguridad de tus datos antes de actualizar. Puedes utilizar el siguiente comando para crear una copia de seguridad de tu sitio web:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tar -czvf backup.tar.gz /home/wwwroot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="actualización"&gt;
+Actualización
+&lt;a href="#actualizaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Ejecuta el siguiente comando para ejecutar el script de actualización:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;service bt &lt;span class="m"&gt;16&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Sigue las instrucciones en pantalla para completar el proceso de actualización.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="verificación"&gt;
+Verificación
+&lt;a href="#verificaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Después de la actualización, verifica que &lt;strong&gt;aaPanel&lt;/strong&gt; esté funcionando correctamente accediendo a la interfaz de administración a través de tu navegador web.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Mantener &lt;strong&gt;aaPanel&lt;/strong&gt; actualizado es esencial para garantizar la seguridad y el rendimiento de tu servidor web. Sigue estos pasos para realizar una actualización exitosa y asegúrate de respaldar tus datos antes de comenzar. Un &lt;strong&gt;aaPanel&lt;/strong&gt; actualizado no solo protege tu servidor de posibles amenazas, sino que también te permite acceder a nuevas características y mejoras en la administración de tu sitio web. ¡Mantén tu servidor al día y disfruta de un entorno en línea seguro y eficiente!&lt;/p&gt;</description></item><item><title>Cómo Crear un Sitio Estático con aaPanel</title><link>https://patojad.com.ar/post/2023/08/c%C3%B3mo-crear-un-sitio-est%C3%A1tico-con-aapanel/</link><pubDate>Wed, 09 Aug 2023 11:54:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/08/c%C3%B3mo-crear-un-sitio-est%C3%A1tico-con-aapanel/</guid><description>&lt;p&gt;En el mundo en constante evolución de la tecnología web, la creación de sitios estáticos se ha convertido en una opción popular para aquellos que buscan un enfoque simplificado y de alto rendimiento para su presencia en línea. A través del uso de herramientas como &lt;strong&gt;aaPanel&lt;/strong&gt;, puedes crear y administrar sitios estáticos de manera eficiente y efectiva. En esta guía paso a paso, te mostraremos cómo crear un sitio estático utilizando &lt;strong&gt;aaPanel&lt;/strong&gt;, aprovechando su potencial para alcanzar un sitio web rápido y seguro.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-aapanel"&gt;
+¿Qué es aaPanel?
+&lt;a href="#qu%c3%a9-es-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;aaPanel&lt;/strong&gt; es un panel de control de hosting web gratuito y de código abierto que facilita la administración de servidores. Proporciona una interfaz gráfica intuitiva y amigable que permite a los usuarios gestionar servicios como &lt;strong&gt;Apache&lt;/strong&gt;, &lt;strong&gt;Nginx&lt;/strong&gt;, &lt;strong&gt;PHP&lt;/strong&gt;, bases de datos y más, sin necesidad de conocimientos técnicos avanzados.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="introducción-a-aapanel-y-preparación-del-entorno"&gt;
+Introducción a &lt;strong&gt;aaPanel&lt;/strong&gt; y Preparación del Entorno
+&lt;a href="#introducci%c3%b3n-a-aapanel-y-preparaci%c3%b3n-del-entorno" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para comenzar, asegúrate de haber instalado &lt;strong&gt;aaPanel&lt;/strong&gt; en tu servidor, siguiendo los pasos detallados en los siguientes articulos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2023/06/instalar-aapanel/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Instalar aaPanel
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2023/07/abrir-puertos-aapanel/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Abrir puertos aaPanel
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2023/07/primer-ingreso-a-aapanel/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Primer ingreso a aaPanel
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Una vez que hayas configurado &lt;strong&gt;aaPanel&lt;/strong&gt;, estarás listo para crear tu sitio estático.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="creación-del-sitio-estático"&gt;
+Creación del Sitio Estático
+&lt;a href="#creaci%c3%b3n-del-sitio-est%c3%a1tico" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Inicia sesión en tu panel de control &lt;strong&gt;aaPanel&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;En la sección &lt;em&gt;Web&lt;/em&gt;, selecciona &lt;em&gt;Sitios web&lt;/em&gt; y haz clic en &lt;em&gt;Agregar sitio web&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Completa la información requerida, como el nombre del dominio y la ubicación de los archivos.&lt;/li&gt;
+&lt;li&gt;Asegúrate de seleccionar &lt;em&gt;Estático&lt;/em&gt; como el tipo de sitio web.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="configuración-y-personalización"&gt;
+Configuración y Personalización
+&lt;a href="#configuraci%c3%b3n-y-personalizaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/Tw7sKwbR/siteconfig.webp" alt="siteconfig.webp" title="siteconfig.webp"
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Una vez que hayas creado el sitio estático, podrás acceder a la configuración detallada.&lt;/li&gt;
+&lt;li&gt;Utiliza las opciones disponibles para personalizar aspectos como las reglas de reescritura, la protección de directorios y la gestión de acceso.&lt;/li&gt;
+&lt;li&gt;Añade cualquier archivo necesario para tu sitio estático, como &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+HTML
+&lt;/a&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2023/08/descubriendo-el-mundo-de-css/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+CSS
+&lt;/a&gt;&lt;/strong&gt;, y archivos de imágenes en la ubicación designada.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="implementación-de-seguridad"&gt;
+Implementación de Seguridad
+&lt;a href="#implementaci%c3%b3n-de-seguridad" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/ZRKgY3C7/securityaapanel.webp" alt="securityaapanel.webp" title="securityaapanel.webp"
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;En la sección &lt;em&gt;Seguridad&lt;/em&gt;, asegúrate de habilitar medidas de seguridad sólidas, como el firewall y la protección contra ataques DDoS.
+Considera la posibilidad de implementar un certificado SSL para garantizar la seguridad de la comunicación en tu sitio. Si bien el que mostramos en el video es suficiente para algunos sitios se recomienda utilizar uno privado.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="publicación-y-monitoreo"&gt;
+Publicación y Monitoreo
+&lt;a href="#publicaci%c3%b3n-y-monitoreo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/wBkZdFTR/metricsaapanel.webp" alt="metricsaapanel.webp" title="metricsaapanel.webp"
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Una vez que hayas completado la configuración, haz clic en &lt;em&gt;Guardar&lt;/em&gt; para aplicar los cambios.&lt;/li&gt;
+&lt;li&gt;Sube tus archivos estáticos al directorio designado utilizando herramientas FTP o el administrador de archivos en &lt;strong&gt;aaPanel&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Monitorea el rendimiento de tu sitio estático a través de las herramientas de monitoreo proporcionadas por &lt;strong&gt;aaPanel&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Crear un sitio estático con &lt;strong&gt;aaPanel&lt;/strong&gt; es un proceso simplificado que te brinda un sitio web rápido y seguro. Al seguir esta guía paso a paso y aprovechar el video tutorial, estarás en camino de lanzar tu propio sitio estático con éxito. Aprovecha la potencia de &lt;strong&gt;aaPanel&lt;/strong&gt; para simplificar la administración y lograr un rendimiento excepcional en tu presencia en línea. ¡Comienza hoy mismo y disfruta de los beneficios de un sitio web estático de alto rendimiento!&lt;/p&gt;</description></item></channel></rss>

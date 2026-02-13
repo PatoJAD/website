@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Generar on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/generar/</link><description>Recent content in Generar on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Thu, 02 Apr 2020 10:14:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/generar/index.xml" rel="self" type="application/rss+xml"/><item><title>¿Como crear un deb con dpkg?</title><link>https://patojad.com.ar/post/2020/04/como-crear-un-deb-con-dpkg/</link><pubDate>Thu, 02 Apr 2020 10:14:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/04/como-crear-un-deb-con-dpkg/</guid><description>&lt;p&gt;Existen muchas formas de crear un instalable .deb para nuestros sistemas. En este caso vamos a ver uno de los metodos, probablemente el mas simple de todos y uno de los mas utiles por su practicidad.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="como-funciona"&gt;
+¿Como funciona?
+&lt;a href="#como-funciona" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;iframe src='https://www.youtube.com/embed/mHqRbo1A5MM?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Como se puede apreciar en el video lo que debemos hacer es organizar las carpetas de nuestro programa como si estuvieramso en el directorio raiz (en el caso practico en la carpeta deb tomamos como si fuera raiz para posicionar todos los archivos en la pocicion que deben quedar post intalacion)&lt;/p&gt;
+&lt;p&gt;Luego debemos crear el directorio DEBIAN en &amp;ldquo;nuestro root&amp;rdquo; y dentro de el crear el archivo control, el cual podemos hacerlo de la siguiente forma:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkdir DEBIAN
+cd DEBIAN
+vim control
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;(En el ultimo punto podemos usar vim, vi, pluma, gedit, deepin-editor o el que querramos para que nos quede comodo editar el archivo). Inmediatamente despues basta con agregar lo siguiente personalizando los datos claramente:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Package: lynxos-gtk-theme
+Priority: optional
+Section: graphics
+Maintainer: PatoJAD &amp;lt;jdecima@disroot.org&amp;gt;
+Architecture: amd64
+Version: 0.0.4
+Depends: lynxos-icons-theme, lynxos-wallpapers
+Description: Tema de GTK para LynxOS
+LynxOS un thema GTK integrado con su trabajo en el escritorio
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Recorda que en el video se explica mucho mejor como funcionan los campos. Realmente es importante completarlos bien para evitar errores futuros. En la ultima linea (la descripcion larga) es importante dejar el espacio como inicio de linea.&lt;/p&gt;
+&lt;p&gt;Despeus de esto basta con ejecutar el comando dpkg que empaqueta el archivo dejando listo nuestro instalador de la siguiente forma:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;dpkg -b ./ ../lynxos-gtk-theme-0.0.4_amd64.deb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Donde dpkg -b recibe 2 parametos el 1 es el directorio que tomamoscomo raiz para crear nuestro deb (en el caso practico deb) y el 2 donde queremos que quede el deb con el respectivo nombre.&lt;/p&gt;</description></item></channel></rss>

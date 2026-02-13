@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Migrar a Almalinux on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/migrar-a-almalinux/</link><description>Recent content in Migrar a Almalinux on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Mon, 07 Apr 2025 15:45:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/migrar-a-almalinux/index.xml" rel="self" type="application/rss+xml"/><item><title>Instalación de AlmaLinux Paso a Paso</title><link>https://patojad.com.ar/post/2025/04/instalaci%C3%B3n-de-almalinux-paso-a-paso/</link><pubDate>Mon, 07 Apr 2025 15:45:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/04/instalaci%C3%B3n-de-almalinux-paso-a-paso/</guid><description>&lt;p&gt;&lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/03/almalinux-gu%c3%ada-definitiva-historia-ventajas-y-comparativa-vs-rhelcentos/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+AlmaLinux
+&lt;/a&gt;&lt;/strong&gt; se ha consolidado como una de las mejores alternativas gratuitas a &lt;strong&gt;RHEL&lt;/strong&gt; y &lt;strong&gt;CentOS&lt;/strong&gt;. en este artículo, te guiaré paso a paso en su instalación, desde la descarga hasta la configuración inicial, ideal tanto para principiantes como para usuarios avanzados.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-requisitos-previos"&gt;
+📥 Requisitos previos
+&lt;a href="#-requisitos-previos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Antes de comenzar, necesitarás:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Mínimo 2 gb de ram (4 gb recomendado para entornos gráficos).&lt;/li&gt;
+&lt;li&gt;20 gb de espacio en disco.&lt;/li&gt;
+&lt;li&gt;USB de 8 gb o más para crear el medio de instalación.&lt;/li&gt;
+&lt;li&gt;Conexión a internet (opcional durante la instalación).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-paso-1-descargar-la-iso-de-almalinux"&gt;
+🔽 Paso 1: Descargar la ISO de &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/03/almalinux-gu%c3%ada-definitiva-historia-ventajas-y-comparativa-vs-rhelcentos/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+AlmaLinux
+&lt;/a&gt;&lt;/strong&gt;
+&lt;a href="#-paso-1-descargar-la-iso-de-almalinux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Visita el sitio oficial:&lt;a href="https://almalinux.org/download" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+almalinux.org/download
+&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Elige entre &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/03/almalinux-gu%c3%ada-definitiva-historia-ventajas-y-comparativa-vs-rhelcentos/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+AlmaLinux
+&lt;/a&gt;&lt;/strong&gt; 9 (última versión estable) o 8 (para compatibilidad con software heredado).&lt;/li&gt;
+&lt;li&gt;Descarga la iso según tu arquitectura (x86_64 para la mayoría de los casos).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-info fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;💡 tip: verifica la integridad del archivo con el checksum sha256 proporcionado en el sitio.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-paso-2-crear-usb-booteable"&gt;
+🛠️ Paso 2: Crear USB booteable
+&lt;a href="#-paso-2-crear-usb-booteable" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="opción-a-usar-balenaetcher-windowsmacoslinux"&gt;
+Opción A: Usar balenaetcher (Windows/macOS/linux)
+&lt;a href="#opci%c3%b3n-a-usar-balenaetcher-windowsmacoslinux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Descarga e instala &lt;a href="https://etcher.balena.io/#download-etcher" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+balenaetcher
+&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Selecciona la iso de &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/03/almalinux-gu%c3%ada-definitiva-historia-ventajas-y-comparativa-vs-rhelcentos/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+AlmaLinux
+&lt;/a&gt;&lt;/strong&gt; y la usb.&lt;/li&gt;
+&lt;li&gt;Haz clic en Flash! y espera a que termine.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="opción-b-usar-línea-de-comandos-linux"&gt;
+Opción B: Usar línea de comandos (linux)
+&lt;a href="#opci%c3%b3n-b-usar-l%c3%adnea-de-comandos-linux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dd &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;almalinux-9.x-x86_64.iso &lt;span class="nv"&gt;of&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/sdX &lt;span class="nv"&gt;bs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;4M &lt;span class="nv"&gt;status&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;progress &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sync
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="w-full rounded-xl bg-yellow-600/75 text-yellow-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-warning fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;Importante: reemplaza /dev/sdX con la ruta correcta de tu usb (usa lsblk para identificarla).&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="uso-de-ventoy"&gt;
+Uso de Ventoy
+&lt;a href="#uso-de-ventoy" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;iframe src='https://www.youtube.com/embed/0BgO2y138oc?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;O tambien puedes verlo en su &lt;a href="https://patojad.com.ar/post/2021/04/ventoy-armando-un-usb-multiboot/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+articulo
+&lt;/a&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-paso-3-instalar-almalinux"&gt;
+💻 Paso 3: Instalar &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/03/almalinux-gu%c3%ada-definitiva-historia-ventajas-y-comparativa-vs-rhelcentos/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+AlmaLinux
+&lt;/a&gt;&lt;/strong&gt;
+&lt;a href="#-paso-3-instalar-almalinux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;Arranca desde la usb (presiona F12/ESC/DEL según tu placa base para seleccionar el dispositivo).&lt;/li&gt;
+&lt;li&gt;Sigue estos pasos en el instalador:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Idioma/teclado: Elige español o inglés.&lt;/li&gt;
+&lt;li&gt;Particionado:
+&lt;ul&gt;
+&lt;li&gt;Automático: Recomendado para principiantes.&lt;/li&gt;
+&lt;li&gt;Manual: Para avanzados (crea /, /home, y swap).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Configuración de red: Actívala y asigna un nombre al equipo.&lt;/li&gt;
+&lt;li&gt;Usuario y contraseña: Crea un usuario con privilegios de administrador.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start="3"&gt;
+&lt;li&gt;Inicia la instalación y espera a que finalice (≈10-15 minutos).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-paso-4-configuración-post-instalación"&gt;
+⚙️ Paso 4: Configuración post-instalación
+&lt;a href="#-paso-4-configuraci%c3%b3n-post-instalaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Una vez instalado, ejecuta estos comandos esenciales:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Actualizar el sistema &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf update -y
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Instalar herramientas básicas &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf install -y nano git curl wget
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Verificar la versión &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cat /etc/redhat-release
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-info fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;🔥 Consejo: si usas almalinux en un servidor, instala también fail2ban y configura el firewall.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-conclusión"&gt;
+📌 Conclusión
+&lt;a href="#-conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Ahora tienes &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/03/almalinux-gu%c3%ada-definitiva-historia-ventajas-y-comparativa-vs-rhelcentos/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+AlmaLinux
+&lt;/a&gt;&lt;/strong&gt; listo para usar. en el próximo artículo, exploraremos cómo gestionar paquetes con dnf y configurar repositorios adicionales.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="-recursos-útiles"&gt;
+🔗 Recursos útiles:
+&lt;a href="#-recursos-%c3%batiles" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://wiki.almalinux.org/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Documentación oficial de almalinux
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://almalinux.org/community/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Foro de la comunidad
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>AlmaLinux: Guía Definitiva – Historia, Ventajas y Comparativa vs RHEL(CentOS)</title><link>https://patojad.com.ar/post/2025/03/almalinux-gu%C3%ADa-definitiva-historia-ventajas-y-comparativa-vs-rhelcentos/</link><pubDate>Mon, 31 Mar 2025 09:47:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/03/almalinux-gu%C3%ADa-definitiva-historia-ventajas-y-comparativa-vs-rhelcentos/</guid><description>&lt;p&gt;&lt;strong&gt;AlmaLinux&lt;/strong&gt; se ha convertido en una de las distribuciones &lt;strong&gt;Linux&lt;/strong&gt; más populares para servidores y entornos empresariales, especialmente después de los cambios en &lt;strong&gt;CentOS&lt;/strong&gt;. Pero, ¿qué lo hace tan especial? En este artículo, exploraremos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Qué es AlmaLinux y por qué nació.&lt;/li&gt;
+&lt;li&gt;Sus ventajas clave frente a RHEL, CentOS y Rocky Linux.&lt;/li&gt;
+&lt;li&gt;Casos de uso reales (¿para quién es ideal?).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-almalinux"&gt;
+¿Qué es AlmaLinux?
+&lt;a href="#qu%c3%a9-es-almalinux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;AlmaLinux&lt;/strong&gt; es un sistema operativo gratuito y de código abierto, basado en Red Hat Enterprise Linux (RHEL). Surgió en 2021 como alternativa estable tras el anuncio de Red Hat de discontinuar CentOS tradicional.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="-datos-clave"&gt;
+🔍 Datos clave
+&lt;a href="#-datos-clave" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Creado por:&lt;/strong&gt; CloudLinux Inc. y la comunidad.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Compatibilidad:&lt;/strong&gt; 1:1 con RHEL (mismo código base, sin costos).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Lanzamiento estable:&lt;/strong&gt; Abril de 2021 (versión 8.3).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-info fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;💡 ¿Por qué elegirlo? AlmaLinux ofrece 10 años de soporte por versión, igual que RHEL, pero sin licencias.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="historia-de-almalinux-por-qué-reemplaza-a-centos"&gt;
+Historia de AlmaLinux: ¿Por qué reemplaza a CentOS?
+&lt;a href="#historia-de-almalinux-por-qu%c3%a9-reemplaza-a-centos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="-línea-de-tiempo-clave"&gt;
+📅 Línea de tiempo clave:
+&lt;a href="#-l%c3%adnea-de-tiempo-clave" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;2014: Red Hat adquiere CentOS, prometiendo mantenerlo estable.&lt;/li&gt;
+&lt;li&gt;Diciembre 2020: Red Hat anuncia que CentOS Stream será su único enfoque (rolling release, menos estable).&lt;/li&gt;
+&lt;li&gt;Marzo 2021: Lanzamiento de AlmaLinux 8.3, financiado por CloudLinux.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-almalinux-vs-rhel-vs-rocky-linux-cuál-elegir"&gt;
+⚖️ AlmaLinux vs RHEL vs Rocky Linux: ¿Cuál elegir?
+&lt;a href="#-almalinux-vs-rhel-vs-rocky-linux-cu%c3%a1l-elegir" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Característica&lt;/th&gt;
+&lt;th&gt;AlmaLinux&lt;/th&gt;
+&lt;th&gt;RHEL&lt;/th&gt;
+&lt;th&gt;Rocky Linux&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Costo&lt;/td&gt;
+&lt;td&gt;Gratuito&lt;/td&gt;
+&lt;td&gt;De pago&lt;/td&gt;
+&lt;td&gt;Gratuito&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Soporte&lt;/td&gt;
+&lt;td&gt;10 años&lt;/td&gt;
+&lt;td&gt;10 años&lt;/td&gt;
+&lt;td&gt;10 años&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Compatibilidad&lt;/td&gt;
+&lt;td&gt;RHEL 100%&lt;/td&gt;
+&lt;td&gt;N/A (es RHEL)&lt;/td&gt;
+&lt;td&gt;100%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Respaldo&lt;/td&gt;
+&lt;td&gt;CloudLinux + Comunidad&lt;/td&gt;
+&lt;td&gt;Red Hat&lt;/td&gt;
+&lt;td&gt;Comunidad&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-info fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;🔥 Conclusión: AlmaLinux es ideal si buscas estabilidad gratuita con soporte empresarial opcional. Rocky Linux es similar, pero con menos respaldo corporativo.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="5-ventajas-clave-de-almalinux"&gt;
+5 Ventajas Clave de AlmaLinux
+&lt;a href="#5-ventajas-clave-de-almalinux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;🔐 &lt;strong&gt;Compatibilidad total con RHEL:&lt;/strong&gt; Migra aplicaciones sin cambios.&lt;/li&gt;
+&lt;li&gt;⏳ &lt;strong&gt;Largo ciclo de vida:&lt;/strong&gt; Actualizaciones hasta 2032 para AlmaLinux 9.&lt;/li&gt;
+&lt;li&gt;🆓 &lt;strong&gt;100% gratuito:&lt;/strong&gt; Sin licencias ocultas (a diferencia de RHEL).&lt;/li&gt;
+&lt;li&gt;🛠️ &lt;strong&gt;Soporte profesional:&lt;/strong&gt; Opcional mediante CloudLinux.&lt;/li&gt;
+&lt;li&gt;🌍 &lt;strong&gt;Comunidad activa:&lt;/strong&gt; Foros, documentación y updates rápidos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="quién-debería-usar-almalinux-casos-de-uso"&gt;
+¿Quién debería usar AlmaLinux? (Casos de uso)
+&lt;a href="#qui%c3%a9n-deber%c3%ada-usar-almalinux-casos-de-uso" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DevOps/SysAdmins:&lt;/strong&gt; Para servidores web (Apache/Nginx), bases de datos (MySQL/MariaDB), o Kubernetes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Empresas:&lt;/strong&gt; Migración desde CentOS sin costos adicionales.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Desarrolladores:&lt;/strong&gt; Entorno estable para testing/producción.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-info fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;📌 Ejemplo real: Empresas como AWS, Microsoft Azure y cPanel ya soportan AlmaLinux oficialmente.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="-conclusión-vale-la-pena-migrar"&gt;
+📌 Conclusión: ¿Vale la pena migrar?
+&lt;a href="#-conclusi%c3%b3n-vale-la-pena-migrar" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;AlmaLinux es la mejor opción si:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Necesitas un RHEL gratuito y estable.&lt;/li&gt;
+&lt;li&gt;Quieres soporte a largo plazo (10 años).&lt;/li&gt;
+&lt;li&gt;Prefieres respaldo corporativo (CloudLinux) + comunidad.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script type="application/ld+json"&gt;
+{
+"@context": "https://schema.org",
+"@type": "FAQPage",
+"mainEntity": [
+{
+"@type": "Question",
+"name": "¿AlmaLinux es gratuito?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Sí, AlmaLinux es 100% gratuito y de código abierto, a diferencia de RHEL que requiere licencia."
+}
+},
+{
+"@type": "Question",
+"name": "¿AlmaLinux es estable?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Totalmente. AlmaLinux está diseñado para entornos de producción, con soporte de hasta 10 años."
+}
+}
+]
+}
+&lt;/script&gt;</description></item></channel></rss>

@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Desarrollo De Software on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/desarrollo-de-software/</link><description>Recent content in Desarrollo De Software on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 27 Jan 2026 09:31:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/desarrollo-de-software/index.xml" rel="self" type="application/rss+xml"/><item><title>Patrones de Diseño en Node.js: Arquitectura Profesional con Bun y TypeScript</title><link>https://patojad.com.ar/post/2026/01/patrones-de-dise%C3%B1o-en-node.js-arquitectura-profesional-con-bun-y-typescript/</link><pubDate>Tue, 27 Jan 2026 09:31:00 +0000</pubDate><guid>https://patojad.com.ar/post/2026/01/patrones-de-dise%C3%B1o-en-node.js-arquitectura-profesional-con-bun-y-typescript/</guid><description>&lt;p&gt;En el desarrollo de software, los patrones de diseño no son reglas rígidas, sino soluciones probadas a problemas comunes. En 2026, con entornos de alta velocidad como Bun, el cuello de botella ya no es el runtime, sino la deuda técnica.&lt;/p&gt;
+&lt;p&gt;A continuación, detallamos los 4 patrones que transforman un script en una aplicación de grado producción.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="singleton-creacional"&gt;
+Singleton (Creacional)
+&lt;a href="#singleton-creacional" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;El Problema:&lt;/strong&gt; Instanciar múltiples veces clases que gestionan recursos pesados (conexiones a DB, configuraciones, clientes de caché) agota la memoria y crea estados inconsistentes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;La Solución:&lt;/strong&gt; Garantizar que una clase tenga una única instancia y proveer un punto de acceso global a ella.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Implementación en TS:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-ts" data-lang="ts"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;ConfigManager&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;private&lt;/span&gt; &lt;span class="kr"&gt;static&lt;/span&gt; &lt;span class="nx"&gt;instance&lt;/span&gt;: &lt;span class="kt"&gt;ConfigManager&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;private&lt;/span&gt; &lt;span class="nx"&gt;settings&lt;/span&gt;: &lt;span class="kt"&gt;Record&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="na"&gt;string&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;private&lt;/span&gt; &lt;span class="kr"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// Carga inicial de variables de entorno
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;settings&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;apiKey&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;12345&amp;#34;&lt;/span&gt; &lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;static&lt;/span&gt; &lt;span class="nx"&gt;getInstance&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;ConfigManager&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nx"&gt;ConfigManager&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;ConfigManager&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;ConfigManager&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;ConfigManager&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;key&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;string&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;settings&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;key&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Uso: const config = ConfigManager.getInstance();
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Caso de uso real: Mantener una única conexión activa a una base de datos o un gestor de logs.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="factory-method-creacional"&gt;
+Factory Method (Creacional)
+&lt;a href="#factory-method-creacional" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;El Problema:&lt;/strong&gt; El código se llena de condicionales (if/else) cada vez que necesitamos crear diferentes tipos de objetos que comparten una interfaz.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;La Solución:&lt;/strong&gt; Delegar la lógica de instanciación a una clase &amp;ldquo;Fábrica&amp;rdquo; que decide qué objeto crear basándose en un parámetro.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Implementación en TS:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-ts" data-lang="ts"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;interface&lt;/span&gt; &lt;span class="nx"&gt;Notifier&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;send&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;message&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;EmailNotifier&lt;/span&gt; &lt;span class="kr"&gt;implements&lt;/span&gt; &lt;span class="nx"&gt;Notifier&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;send&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;msg&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sb"&gt;`Enviando Email: &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nx"&gt;msg&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;SMSNotifier&lt;/span&gt; &lt;span class="kr"&gt;implements&lt;/span&gt; &lt;span class="nx"&gt;Notifier&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;send&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;msg&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sb"&gt;`Enviando SMS: &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nx"&gt;msg&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;NotifierFactory&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;static&lt;/span&gt; &lt;span class="nx"&gt;create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;type&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;email&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;sms&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;Notifier&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;type&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;email&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;EmailNotifier&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;SMSNotifier&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Caso de uso real: Integrar múltiples pasarelas de pago (Stripe, PayPal) o proveedores de storage (S3, Local, Azure).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="repository-estructuralcomportamiento"&gt;
+Repository (Estructural/Comportamiento)
+&lt;a href="#repository-estructuralcomportamiento" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;El Problema:&lt;/strong&gt; La lógica de negocio está &amp;ldquo;casada&amp;rdquo; con la base de datos. Si cambias de motor de base de datos o de librería (ORM), tienes que reescribir toda la aplicación.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;La Solución:&lt;/strong&gt; Crear una capa intermedia que abstraiga el acceso a los datos. La lógica de negocio solo habla con el &amp;ldquo;Repositorio&amp;rdquo;, no con la base de datos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Implementación en TS:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-ts" data-lang="ts"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;interface&lt;/span&gt; &lt;span class="nx"&gt;User&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;id&lt;/span&gt;: &lt;span class="kt"&gt;number&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;name&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;interface&lt;/span&gt; &lt;span class="nx"&gt;IUserRepository&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;findById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;id&lt;/span&gt;: &lt;span class="kt"&gt;number&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;Promise&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;User&lt;/span&gt; &lt;span class="err"&gt;|&lt;/span&gt; &lt;span class="na"&gt;null&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;UserRepository&lt;/span&gt; &lt;span class="kr"&gt;implements&lt;/span&gt; &lt;span class="nx"&gt;IUserRepository&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;async&lt;/span&gt; &lt;span class="nx"&gt;findById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;id&lt;/span&gt;: &lt;span class="kt"&gt;number&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;Promise&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;User&lt;/span&gt; &lt;span class="err"&gt;|&lt;/span&gt; &lt;span class="na"&gt;null&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// Aquí iría la consulta real (SQL, NoSQL, etc.)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;name&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Pato&amp;#34;&lt;/span&gt; &lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Caso de uso real: Proyectos que necesitan ser testeables (haciendo un Mock del repositorio) o que prevén migrar su infraestructura de datos.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="decorator-estructural"&gt;
+Decorator (Estructural)
+&lt;a href="#decorator-estructural" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;El Problema:&lt;/strong&gt; Necesitas añadir funcionalidades (logs, validaciones, caché) a métodos existentes sin modificar su código original para no violar el principio de Responsabilidad Única.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;La Solución:&lt;/strong&gt; &amp;ldquo;Envolver&amp;rdquo; el método o clase original para añadirle comportamiento extra antes o después de su ejecución.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Implementación en TS:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-ts" data-lang="ts"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;Logger&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;target&lt;/span&gt;: &lt;span class="kt"&gt;any&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;propertyKey&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;descriptor&lt;/span&gt;: &lt;span class="kt"&gt;PropertyDescriptor&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;originalMethod&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;descriptor&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;value&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;descriptor&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;(...&lt;/span&gt;&lt;span class="nx"&gt;args&lt;/span&gt;: &lt;span class="kt"&gt;any&lt;/span&gt;&lt;span class="p"&gt;[])&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sb"&gt;`Ejecutando &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nx"&gt;propertyKey&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt; con:`&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;args&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;originalMethod&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;apply&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;args&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;UserService&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kd"&gt;@Logger&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;saveUser&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;name&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sb"&gt;`Usuario &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nx"&gt;name&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt; guardado.`&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Caso de uso real: Medir el tiempo de ejecución de funciones, validar permisos de usuario o transformar datos de salida automáticamente.&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>Benchmark: Emuladores de terminal en MacOS y GNU/Linux</title><link>https://patojad.com.ar/post/2024/04/benchmark-emuladores-de-terminal-en-macos-y-gnu/linux/</link><pubDate>Fri, 19 Apr 2024 11:13:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/04/benchmark-emuladores-de-terminal-en-macos-y-gnu/linux/</guid><description>&lt;script&gt;
+window.onload = function () {
+const linuxbench = new CanvasJS.Chart("linuxCharts", {
+exportEnabled: true,
+animationEnabled: true,
+title:{
+text: "Terminales Linux Benchmark - 2014"
+},
+subtitles: [{
+text: "Terminales de GNU/Linux usadas para el benchmark en 2014 "
+}],
+axisX: {
+title: "States"
+},
+axisY: {
+title: "Demora - segundos",
+titleFontColor: "#4F81BC",
+lineColor: "#4F81BC",
+labelFontColor: "#4F81BC",
+tickColor: "#4F81BC",
+includeZero: true
+},
+toolTip: {
+shared: true
+},
+legend: {
+cursor: "pointer",
+itemclick: toggleDataSeries
+},
+data: [{
+type: "column",
+name: "Warp",
+showInLegend: true,
+yValueFormatString: "#,##0.# s",
+dataPoints: [
+{ label: "Solo caracteres ASCII", y: 3.45 },
+{ label: "Caracteres Unicode", y: 3.48 },
+{ label: "Códigos CSI con pocos caracteres", y: 2.59 },
+{ label: "Códigos de escape largos", y: 8.21 },
+{ label: "Imágenes", y: 2.75 }
+]
+},
+{
+type: "column",
+name: "kgx",
+axisYType: "secondary",
+showInLegend: true,
+yValueFormatString: "#,##0.# s",
+dataPoints: [
+{ label: "Solo caracteres ASCII", y: 1.28 },
+{ label: "Caracteres Unicode", y: 1.67 },
+{ label: "Códigos CSI con pocos caracteres", y: 3.05 },
+{ label: "Códigos de escape largos", y: 5.37 },
+{ label: "Imágenes", y: 3.46 }
+]
+},
+{
+type: "column",
+name: "Kitty",
+axisYType: "secondary",
+showInLegend: true,
+yValueFormatString: "#,##0.# s",
+dataPoints: [
+{ label: "Solo caracteres ASCII", y: 3.29 },
+{ label: "Caracteres Unicode", y: 3.04 },
+{ label: "Códigos CSI con pocos caracteres", y: 1.67 },
+{ label: "Códigos de escape largos", y: 2.4 },
+{ label: "Imágenes", y: 1.81 }
+]
+}
+]
+});
+const macosbench = new CanvasJS.Chart("macosCharts", {
+exportEnabled: true,
+animationEnabled: true,
+title:{
+text: "Terminales MacOS Benchmark - 2014"
+},
+subtitles: [{
+text: "Terminales de MacOS usadas para el benchmark en 2014 "
+}],
+axisX: {
+title: "States"
+},
+axisY: {
+title: "Demora - segundos",
+titleFontColor: "#4F81BC",
+lineColor: "#4F81BC",
+labelFontColor: "#4F81BC",
+tickColor: "#4F81BC",
+includeZero: true
+},
+toolTip: {
+shared: true
+},
+legend: {
+cursor: "pointer",
+itemclick: toggleDataSeries
+},
+data: [{
+type: "column",
+name: "Warp",
+showInLegend: true,
+yValueFormatString: "#,##0.# s",
+dataPoints: [
+{ label: "Solo caracteres ASCII", y: 3.02 },
+{ label: "Caracteres Unicode", y: 2.55 },
+{ label: "Códigos CSI con pocos caracteres", y: 2.38 },
+{ label: "Códigos de escape largos", y: 7.08 },
+{ label: "Imágenes", y: 2.67 }
+]
+},
+{
+type: "column",
+name: "Apple Terminal",
+axisYType: "secondary",
+showInLegend: true,
+yValueFormatString: "#,##0.# s",
+dataPoints: [
+{ label: "Solo caracteres ASCII", y: 7.2 },
+{ label: "Caracteres Unicode", y: 4.43 },
+{ label: "Códigos CSI con pocos caracteres", y: 3.71 },
+{ label: "Códigos de escape largos", y: 28.22 },
+{ label: "Imágenes", y: 9.07 }
+]
+},
+{
+type: "column",
+name: "Kitty",
+axisYType: "secondary",
+showInLegend: true,
+yValueFormatString: "#,##0.# s",
+dataPoints: [
+{ label: "Solo caracteres ASCII", y: 1.68 },
+{ label: "Caracteres Unicode", y: 2.77 },
+{ label: "Códigos CSI con pocos caracteres", y: 2 },
+{ label: "Códigos de escape largos", y: 3.41 },
+{ label: "Imágenes", y: 2.41 }
+]
+}
+]
+});
+linuxbench.render();
+macosbench.render();
+function toggleDataSeries(e) {
+if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+e.dataSeries.visible = false;
+} else {
+e.dataSeries.visible = true;
+}
+e.chart.render();
+}
+}
+&lt;/script&gt;
+&lt;p&gt;Medir el rendimiento del emulador de terminal es fundamental para los usuarios que buscan una experiencia fluida y eficiente. En este sentido, se centra en tres aspectos principales: el consumo de energía en tareas habituales, la latencia del teclado a la pantalla y el rendimiento al procesar grandes cantidades de datos.&lt;/p&gt;
+&lt;p&gt;Kitty tiene un &amp;ldquo;kitten&amp;rdquo; integrado para medir el rendimiento de transferencia. Funciona mediante la carga de grandes cantidades de datos de diferentes tipos en el dispositivo tty y midiendo qué tan rápido el terminal analiza y responde a ellos. Las mediciones a continuación se realizaron con la misma fuente, tamaño de fuente y tamaño de ventana para todos los terminales, y con la configuración predeterminada, en la misma computadora.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="replicar-el-proceso"&gt;
+Replicar el proceso
+&lt;a href="#replicar-el-proceso" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para replicar el proceso de medición de rendimiento, primero necesitas instalar &lt;code&gt;kitty&lt;/code&gt; en tu sistema. Luego, ejecuta el siguiente comando en tu terminal:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;kitten __benchmark__ --render
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="entendiéndo-los-resultados"&gt;
+Entendiéndo los resultados
+&lt;a href="#entendi%c3%a9ndo-los-resultados" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Los resultados de las pruebas se dividen en cinco categorías: solo caracteres ASCII, caracteres Unicode, códigos CSI con pocos caracteres, códigos de escape largos e imágenes. Cada categoría representa un tipo diferente de datos que se procesan en el terminal.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="solo-caracteres-ascii"&gt;
+Solo caracteres ASCII
+&lt;a href="#solo-caracteres-ascii" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Los caracteres ASCII son aquellos que pertenecen al conjunto de caracteres ASCII estándar, que incluye letras, números, signos de puntuación y algunos caracteres especiales. Estos caracteres se representan mediante un código numérico de 7 bits. Se utilizan comúnmente en la entrada y salida de datos en la mayoría de los entornos de terminal y son compatibles con una amplia gama de dispositivos y sistemas.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="caracteres-unicode"&gt;
+Caracteres Unicode
+&lt;a href="#caracteres-unicode" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Los caracteres Unicode son aquellos que pertenecen al estándar Unicode, que es un estándar de codificación de caracteres que permite representar la mayoría de los sistemas de escritura del mundo, así como símbolos y caracteres especiales. Los caracteres Unicode se utilizan cuando se necesita admitir una amplia variedad de idiomas y símbolos en la entrada y salida de datos en la terminal.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="códigos-csi-con-pocos-caracteres"&gt;
+Códigos CSI con pocos caracteres
+&lt;a href="#c%c3%b3digos-csi-con-pocos-caracteres" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Los códigos CSI (Control Sequence Introducer) son secuencias de escape que se utilizan para controlar aspectos de la apariencia y el comportamiento de la terminal. Los códigos CSI con pocos caracteres son aquellos que consisten en una secuencia de escape de control simple que realiza una acción específica, como cambiar el color del texto o mover el cursor a una posición específica en la pantalla.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="códigos-de-escape-largos"&gt;
+Códigos de escape largos
+&lt;a href="#c%c3%b3digos-de-escape-largos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Los códigos de escape largos son secuencias de escape más complejas que los códigos CSI con pocos caracteres. Estos códigos pueden realizar acciones más avanzadas, como cambiar las propiedades de la terminal, realizar operaciones de formato de texto más complejas o controlar dispositivos periféricos conectados a la terminal.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="imágenes"&gt;
+Imágenes
+&lt;a href="#im%c3%a1genes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;En algunas terminales avanzadas, es posible mostrar imágenes directamente en la pantalla utilizando códigos de escape específicos. Estas imágenes pueden ser gráficos simples, como iconos o logotipos, y se utilizan para mejorar la experiencia visual del usuario en la terminal.
+En resumen, cada uno de estos tipos se utiliza en la terminal para diferentes propósitos, desde la representación de caracteres básicos hasta el control avanzado de la apariencia y el comportamiento de la terminal, e incluso la visualización de imágenes directamente en la pantalla. Su uso depende de las necesidades específicas de la aplicación o del entorno de trabajo en la terminal.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="resultados-en-macos"&gt;
+Resultados en MacOS
+&lt;a href="#resultados-en-macos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En MacOS se realizaron las pruebas con los siguientes terminales: Warp, Apple Terminal y Kitty. Sirviendo Kitty y Warp para comparar con las pruebas realizadas en GNU/Linux. A continuación, se presentan los resultados obtenidos:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Terminal&lt;/th&gt;
+&lt;th&gt;Solo caracteres ASCII&lt;/th&gt;
+&lt;th&gt;Caracteres Unicode&lt;/th&gt;
+&lt;th&gt;Códigos CSI con pocos caracteres&lt;/th&gt;
+&lt;th&gt;Códigos de escape largos&lt;/th&gt;
+&lt;th&gt;Imágenes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Warp&lt;/td&gt;
+&lt;td&gt;3.02&lt;/td&gt;
+&lt;td&gt;2.55&lt;/td&gt;
+&lt;td&gt;2.38&lt;/td&gt;
+&lt;td&gt;7.08&lt;/td&gt;
+&lt;td&gt;2.67&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Apple Terminal&lt;/td&gt;
+&lt;td&gt;7.2&lt;/td&gt;
+&lt;td&gt;4.43&lt;/td&gt;
+&lt;td&gt;3.71&lt;/td&gt;
+&lt;td&gt;28.22&lt;/td&gt;
+&lt;td&gt;9.07&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Kitty&lt;/td&gt;
+&lt;td&gt;1.68&lt;/td&gt;
+&lt;td&gt;2.77&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;3.41&lt;/td&gt;
+&lt;td&gt;2.41&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;En esta tabla, cada columna representa diferentes tipos de datos. La columna CSI es para datos que consisten en una combinación de códigos de escape de formato típicos y algo de texto solo ASCII.&lt;/p&gt;
+&lt;div id="macosCharts" style="height: 600px; width: 100%;"&gt;&lt;/div&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="resultados-en-gnulinux"&gt;
+Resultados en GNU/Linux
+&lt;a href="#resultados-en-gnulinux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En GNU/Linux se realizaron las pruebas con los siguientes terminales: Warp, kgx y Kitty. Siendo kgx la relativamente &lt;em&gt;nueva&lt;/em&gt; terminal de Gnome. A continuación, se presentan los resultados obtenidos:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Terminal&lt;/th&gt;
+&lt;th&gt;Solo caracteres ASCII&lt;/th&gt;
+&lt;th&gt;Caracteres Unicode&lt;/th&gt;
+&lt;th&gt;Códigos CSI con pocos caracteres&lt;/th&gt;
+&lt;th&gt;Códigos de escape largos&lt;/th&gt;
+&lt;th&gt;Imágenes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Warp&lt;/td&gt;
+&lt;td&gt;3.45&lt;/td&gt;
+&lt;td&gt;3.48&lt;/td&gt;
+&lt;td&gt;2.59&lt;/td&gt;
+&lt;td&gt;8.21&lt;/td&gt;
+&lt;td&gt;2.75&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;kgx&lt;/td&gt;
+&lt;td&gt;1.28&lt;/td&gt;
+&lt;td&gt;1.67&lt;/td&gt;
+&lt;td&gt;3.05&lt;/td&gt;
+&lt;td&gt;5.37&lt;/td&gt;
+&lt;td&gt;3.46&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Kitty&lt;/td&gt;
+&lt;td&gt;3.29&lt;/td&gt;
+&lt;td&gt;3.04&lt;/td&gt;
+&lt;td&gt;1.67&lt;/td&gt;
+&lt;td&gt;2.4&lt;/td&gt;
+&lt;td&gt;1.81&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;En esta tabla, cada columna representa diferentes tipos de datos. La columna CSI es para datos que consisten en una combinación de códigos de escape de formato típicos y algo de texto solo ASCII.&lt;/p&gt;
+&lt;div id="linuxCharts" style="height: 600px; width: 100%;"&gt;&lt;/div&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Los resultados de nuestra comparativa demuestran que Kitty destaca en términos de rendimiento en ambos sistemas operativos. Con tiempos de procesamiento más rápidos y una menor latencia, Kitty ofrece una experiencia superior en la mayoría de las métricas evaluadas. Si buscas un emulador de terminal que priorice el rendimiento, Kitty es una opción sólida tanto en MacOS como en GNU/Linux.&lt;/p&gt;
+&lt;script src="https://cdn.canvasjs.com/canvasjs.min.js"&gt;&lt;/script&gt;</description></item><item><title>Únete como Beta Tester y Ayuda a Mejorar Arch Linux</title><link>https://patojad.com.ar/post/2024/02/%C3%BAnete-como-beta-tester-y-ayuda-a-mejorar-arch-linux/</link><pubDate>Fri, 16 Feb 2024 10:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/02/%C3%BAnete-como-beta-tester-y-ayuda-a-mejorar-arch-linux/</guid><description>&lt;p&gt;¿Eres un usuario apasionado de &lt;strong&gt;Arch Linux&lt;/strong&gt; y te encantaría contribuir a su mejora? ¡Esta es tu oportunidad! &lt;strong&gt;Arch Linux&lt;/strong&gt; está en busca de Beta Testers que deseen probar nuevas versiones de aplicaciones y bibliotecas antes de su lanzamiento oficial al público.&lt;/p&gt;
+&lt;p&gt;Los Beta Testers desempeñan un papel crucial en la mejora de la estabilidad y calidad de &lt;strong&gt;Arch Linux&lt;/strong&gt;. Gracias a su arduo trabajo, la distribución ha experimentado mejoras significativas en los últimos años.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-un-beta-tester"&gt;
+¿Qué es un Beta Tester?
+&lt;a href="#qu%c3%a9-es-un-beta-tester" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Un Beta Tester es un usuario que prueba una versión de software antes de su lanzamiento oficial. Su tarea consiste en detectar errores y problemas que puedan surgir, con el objetivo de garantizar una experiencia de usuario óptima.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="el-anuncio"&gt;
+El Anuncio
+&lt;a href="#el-anuncio" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El anuncio original fue publicado en Reddit por &lt;a href="https://www.reddit.com/user/Antiz1996/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-reddit-alien"&gt;&lt;/i&gt;&amp;nbsp;
+u/Antiz1996 (Robin Candau)
+&lt;/a&gt;, miembro del equipo de testing de Arch. En el anuncio, se invita a los usuarios a unirse al equipo de pruebas oficial de &lt;strong&gt;Arch Linux&lt;/strong&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hola,&lt;/p&gt;
+&lt;p&gt;Esperamos que hayan tenido un buen comienzo en el nuevo año 2024. Con el nuevo año suelen venir nuevas resoluciones. Si no tiene ninguno hasta ahora, tenemos uno para usted: ¿Qué pasaría si decidiera brindarle a Arch un poco de ayuda con las actualizaciones del paquete de prueba este año? 😃&lt;/p&gt;
+&lt;p&gt;Arch utiliza &lt;a href="https://wiki.archlinux.org/title/Official_repositories#Testing_repositories" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+repositorios de prueba
+&lt;/a&gt; como un búfer para las actualizaciones de paquetes principales/críticos (o cualquier otra actualización de paquetes que se beneficiaría de ser probada primero) antes de ingresar a los repositorios estables.&lt;/p&gt;
+&lt;p&gt;Probar estas actualizaciones de paquetes nos ayuda a detectar más errores por adelantado y garantiza actualizaciones impecables para los repositorios estables, ¡y ahí es donde usted puede ayudar!&lt;/p&gt;
+&lt;p&gt;Al unirse al &lt;a href="https://wiki.archlinux.org/title/Arch_Testing_Team" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+equipo de pruebas oficial de Arch Linux
+&lt;/a&gt;, tendrá la posibilidad de &amp;ldquo;aprobar&amp;rdquo; paquetes durante las pruebas después de garantizar su corrección (o &lt;a href="https://wiki.archlinux.org/title/Bug_reporting_guidelines" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+informar un error
+&lt;/a&gt; de otro modo). Esto ayuda a los mantenedores de paquetes de Arch a detectar posibles errores por adelantado y ayuda a sacar paquetes de los repositorios de prueba de manera más rápida y eficiente.&lt;/p&gt;
+&lt;p&gt;No necesariamente buscamos pruebas en profundidad. Verificar que un programa se inicia correctamente y que eres capaz de realizar tu rutina habitual con él ya es una buena prueba por sí sola. También puede consultar las &lt;a href="https://wiki.archlinux.org/title/Arch_Testing_Team#Guidelines" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+pautas generales de prueba
+&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Esta es una forma muy eficaz y bastante sencilla de contribuir a Arch Linux. Cuantos más probadores tengamos, más confiables serán las actualizaciones de paquetes.&lt;/p&gt;
+&lt;p&gt;¡Esperamos ver a algunos de ustedes allí! 😉&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Podes ver el anuncio original en &lt;a href="https://www.reddit.com/r/archlinux/comments/1aniloc/join_the_arch_testing_team_call_for_participation/?share_id=ix0fdh7Xw1cmkqPFbaAC0&amp;amp;utm_content=1&amp;amp;utm_medium=android_app&amp;amp;utm_name=androidcss&amp;amp;utm_source=share&amp;amp;utm_term=1" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-reddit-alien"&gt;&lt;/i&gt;&amp;nbsp;
+Reddit
+&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cómo-aplicar"&gt;
+¿Cómo Aplicar?
+&lt;a href="#c%c3%b3mo-aplicar" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para convertirte en un tester oficial de Arch, simplemente contacta a &lt;a href="https://archlinux.org/people/developers/#bluewind" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Florian Pritz
+&lt;/a&gt; a través de &lt;a href="mailto:bluewind@xinu.at" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-envelope"&gt;&lt;/i&gt;&amp;nbsp;
+correo electrónico
+&lt;/a&gt; y solicita una cuenta de verificador.&lt;/p&gt;
+&lt;p&gt;Una vez que obtengas tu cuenta de verificador, podrás acceder a la &lt;a href="https://archlinux.org/devel" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+archweb
+&lt;/a&gt; y encontrarás una pestaña llamada &amp;ldquo;signoffs&amp;rdquo;. En esta sección, podrás ver una lista de paquetes que necesitan al menos dos firmas de aprobación (signoffs).&lt;/p&gt;
+&lt;p&gt;Prueba los paquetes listados localmente y, si funcionan correctamente, puedes firmarlos presionando el botón &amp;ldquo;signoff&amp;rdquo; en el paquete respectivo.&lt;/p&gt;
+&lt;p&gt;¡Únete hoy mismo y contribuye al crecimiento y desarrollo de &lt;strong&gt;Arch Linux&lt;/strong&gt;!&lt;/p&gt;</description></item><item><title>Gather: Herramienta de Gestión de Proyectos para Equipos de Desarrollo</title><link>https://patojad.com.ar/post/2023/10/gather-herramienta-de-gesti%C3%B3n-de-proyectos-para-equipos-de-desarrollo/</link><pubDate>Mon, 02 Oct 2023 13:46:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/10/gather-herramienta-de-gesti%C3%B3n-de-proyectos-para-equipos-de-desarrollo/</guid><description>&lt;p&gt;En el vertiginoso mundo del desarrollo de software, la gestión de proyectos es esencial para mantener el rumbo, optimizar los recursos y cumplir con los plazos. En esta búsqueda constante de herramientas que impulsen la eficiencia en los equipos de desarrollo, surge &amp;ldquo;Gather&amp;rdquo;, una plataforma que ha ganado popularidad en el último tiempo por su capacidad para facilitar la colaboración, la organización y la comunicación en proyectos de desarrollo. En este artículo, exploraremos las razones detrás del éxito de Gather y por qué es una herramienta indispensable para los equipos de desarrollo de hoy en día.&lt;/p&gt;
+&lt;center&gt;&lt;blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Cx5pbY_IBXg/?utm_source=ig_embed&amp;amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:10px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"&gt;&lt;div style="padding:16px;"&gt; &lt;a href="https://www.instagram.com/p/Cx5pbY_IBXg/?utm_source=ig_embed&amp;amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"&gt; &lt;div style=" display: flex; flex-direction: row; align-items: center;"&gt; &lt;div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"&gt;&lt;/div&gt; &lt;div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"&gt; &lt;div style=" background-color: #F4F4F4; border-radius: 10px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"&gt;&lt;/div&gt; &lt;div style=" background-color: #F4F4F4; border-radius: 10px; flex-grow: 0; height: 14px; width: 60px;"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style="padding: 19% 0;"&gt;&lt;/div&gt; &lt;div style="display:block; height:50px; margin:0 auto 12px; width:50px;"&gt;&lt;svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"&gt;&lt;g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"&gt;&lt;g transform="translate(-511.000000, -20.000000)" fill="#000000"&gt;&lt;g&gt;&lt;path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"&gt;&lt;/path&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;&lt;/div&gt;&lt;div style="padding-top: 8px;"&gt; &lt;div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;"&gt;Ver esta publicación en Instagram&lt;/div&gt;&lt;/div&gt;&lt;div style="padding: 12.5% 0;"&gt;&lt;/div&gt; &lt;div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"&gt;&lt;div&gt; &lt;div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"&gt;&lt;/div&gt; &lt;div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"&gt;&lt;/div&gt; &lt;div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style="margin-left: 8px;"&gt; &lt;div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"&gt;&lt;/div&gt; &lt;div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style="margin-left: auto;"&gt; &lt;div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"&gt;&lt;/div&gt; &lt;div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"&gt;&lt;/div&gt; &lt;div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; &lt;div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"&gt; &lt;div style=" background-color: #F4F4F4; border-radius: 10px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"&gt;&lt;/div&gt; &lt;div style=" background-color: #F4F4F4; border-radius: 10px; flex-grow: 0; height: 14px; width: 144px;"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"&gt;&lt;a href="https://www.instagram.com/p/Cx5pbY_IBXg/?utm_source=ig_embed&amp;amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank"&gt;Una publicación compartida por Vasak Group (@vasakgroup)&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;/blockquote&gt; &lt;script async src="//www.instagram.com/embed.js"&gt;&lt;/script&gt;&lt;/center&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="gather-qué-es-y-cómo-funciona"&gt;
+Gather: ¿Qué es y cómo funciona?
+&lt;a href="#gather-qu%c3%a9-es-y-c%c3%b3mo-funciona" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Gather es una plataforma de gestión de proyectos diseñada específicamente para equipos de desarrollo de software. Su enfoque principal es proporcionar un espacio centralizado donde los equipos puedan planificar, realizar un seguimiento y colaborar en proyectos de manera eficiente. A continuación, destacaremos algunas de las características clave que hacen que Gather sea tan valioso para los equipos de desarrollo:&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="gestión-de-tareas-simplificada"&gt;
+Gestión de Tareas Simplificada
+&lt;a href="#gesti%c3%b3n-de-tareas-simplificada" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Gather permite a los equipos crear y asignar tareas de manera intuitiva. Los miembros del equipo pueden establecer prioridades, fechas límite y responsables para cada tarea, lo que facilita la supervisión del progreso y la gestión de la carga de trabajo.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="comunicación-eficiente"&gt;
+Comunicación Eficiente
+&lt;a href="#comunicaci%c3%b3n-eficiente" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;La comunicación es fundamental en cualquier proyecto de desarrollo. Gather incluye herramientas de comunicación integradas, como comentarios en tareas y discusiones, que permiten a los miembros del equipo colaborar de manera efectiva sin tener que recurrir a múltiples aplicaciones de mensajería o correos electrónicos dispersos.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="integraciones-potentes"&gt;
+Integraciones Potentes
+&lt;a href="#integraciones-potentes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Gather se integra con una variedad de herramientas populares utilizadas en el desarrollo de software, como GitHub, GitLab, Jira y Slack. Esto facilita la sincronización de datos y la consolidación de información importante en un solo lugar.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="visualización-de-proyectos"&gt;
+Visualización de Proyectos
+&lt;a href="#visualizaci%c3%b3n-de-proyectos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;La capacidad de visualizar el progreso del proyecto es esencial. Gather ofrece gráficos y tableros personalizables que permiten a los equipos ver de un vistazo el estado de un proyecto, lo que ayuda a identificar áreas que requieren atención inmediata.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="acceso-en-cualquier-momento-y-en-cualquier-lugar"&gt;
+Acceso en Cualquier Momento y en Cualquier Lugar
+&lt;a href="#acceso-en-cualquier-momento-y-en-cualquier-lugar" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Gather es una plataforma basada en la nube, lo que significa que los equipos pueden acceder a sus proyectos desde cualquier dispositivo con conexión a Internet. Esto facilita la colaboración y la gestión de proyectos en equipos distribuidos.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="por-qué-los-equipos-de-desarrollo-adoptan-gather"&gt;
+¿Por qué los Equipos de Desarrollo Adoptan Gather?
+&lt;a href="#por-qu%c3%a9-los-equipos-de-desarrollo-adoptan-gather" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Entonces, ¿por qué Gather se ha convertido en una herramienta esencial para los equipos de desarrollo? Aquí hay algunas razones clave:&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="mayor-productividad"&gt;
+Mayor Productividad
+&lt;a href="#mayor-productividad" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Gather simplifica la gestión de proyectos, lo que permite a los equipos centrarse en la ejecución de tareas en lugar de lidiar con complicadas herramientas de gestión.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="colaboración-mejorada"&gt;
+Colaboración Mejorada
+&lt;a href="#colaboraci%c3%b3n-mejorada" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;La comunicación eficiente y la capacidad de asignar tareas fácilmente fomentan la colaboración entre los miembros del equipo, incluso cuando trabajan de forma remota.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="mayor-visibilidad"&gt;
+Mayor Visibilidad
+&lt;a href="#mayor-visibilidad" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;La visualización clara del progreso del proyecto permite a los equipos identificar rápidamente posibles obstáculos y tomar medidas para abordarlos.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="integraciones-con-herramientas-familiares"&gt;
+Integraciones con Herramientas Familiares
+&lt;a href="#integraciones-con-herramientas-familiares" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;La capacidad de integrarse con las herramientas que los equipos ya utilizan agiliza el flujo de trabajo y evita la duplicación de esfuerzos.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="escalabilidad"&gt;
+Escalabilidad
+&lt;a href="#escalabilidad" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Gather es adecuado tanto para equipos pequeños como para grandes empresas, lo que lo convierte en una solución versátil que puede crecer con la empresa.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Gather ha demostrado ser una herramienta invaluable para los equipos de desarrollo de software al simplificar la gestión de proyectos, mejorar la colaboración y proporcionar una mayor visibilidad en el progreso del trabajo. Su capacidad para integrarse con otras herramientas populares y su enfoque en la eficiencia hacen que Gather sea una elección lógica para los equipos que buscan optimizar sus procesos de desarrollo. Si tu equipo aún no ha explorado Gather, podría ser el momento de considerar su implementación y aprovechar sus beneficios para impulsar la eficiencia en el desarrollo de software.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a href="https://gather.town/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Fuente
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>La Historia de GNU/Linux</title><link>https://patojad.com.ar/post/2023/07/la-historia-de-gnu/linux/</link><pubDate>Mon, 31 Jul 2023 14:06:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/07/la-historia-de-gnu/linux/</guid><description>&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="introducción"&gt;
+Introducción
+&lt;a href="#introducci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;GNU/Linux, un sistema operativo de código abierto ampliamente utilizado en la actualidad, tiene una historia fascinante detrás de su creación. En este artículo, exploraremos cómo surgió este revolucionario sistema, los protagonistas detrás de su desarrollo y qué lo hace único en el mundo de la tecnología. Desde sus modestos comienzos hasta convertirse en una poderosa fuerza en el mundo informático, la historia de GNU/Linux destaca el poder de la colaboración y el software libre.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-linux-y-su-historia"&gt;
+¿Qué es Linux y su historia?
+&lt;a href="#qu%c3%a9-es-linux-y-su-historia" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/T1pFkGj2/historialinux1.webp" alt="Historia de GNU/Linux" title="Historia de GNU/Linux"
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Linux es un sistema operativo de código abierto basado en el núcleo desarrollado por &lt;strong&gt;Linus Torvalds&lt;/strong&gt; en 1991. Sin embargo, para entender completamente su historia, es esencial retroceder unos años antes. En la década de 1980, &lt;strong&gt;Richard Stallman&lt;/strong&gt; inició el Proyecto &lt;strong&gt;GNU&lt;/strong&gt; con el objetivo de crear un sistema operativo completo y libre, donde los usuarios pudieran acceder y modificar el software a voluntad.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cuándo-se-creó-el-sistema-operativo-gnulinux"&gt;
+¿Cuándo se creó el sistema operativo GNU/Linux?
+&lt;a href="#cu%c3%a1ndo-se-cre%c3%b3-el-sistema-operativo-gnulinux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El hito clave en la historia de GNU/Linux ocurrió en 1991, cuando &lt;strong&gt;Linus Torvalds&lt;/strong&gt;, un estudiante finlandés, desarrolló un núcleo (kernel) compatible con el sistema operativo GNU. Este núcleo fue denominado &amp;ldquo;Linux&amp;rdquo;, una fusión de su nombre y &lt;em&gt;&amp;ldquo;Unix&amp;rdquo;&lt;/em&gt;. La combinación del núcleo Linux con los componentes del Proyecto GNU resultó en un sistema operativo completo, conocido como GNU/Linux.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="quién-desarrolló-gnulinux"&gt;
+¿Quién desarrolló GNU/Linux?
+&lt;a href="#qui%c3%a9n-desarroll%c3%b3-gnulinux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/1X2T2TMG/historialinux2.webp" alt="Linus Torvalds" title="Linus Torvalds"
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;El sistema operativo GNU/Linux fue el resultado de la colaboración de muchos desarrolladores apasionados y dedicados. &lt;strong&gt;Linus Torvalds&lt;/strong&gt; lideró el desarrollo del núcleo Linux, mientras que &lt;strong&gt;Richard Stallman&lt;/strong&gt; y la &lt;strong&gt;Free Software Foundation (FSF)&lt;/strong&gt; jugaron un papel fundamental proporcionando las herramientas y componentes del Proyecto GNU.&lt;/p&gt;
+&lt;p&gt;El enfoque en el software libre y la filosofía de compartir conocimiento sentó las bases para una comunidad activa de desarrolladores en todo el mundo. Contribuyeron con código, solucionaron problemas y compartieron sus conocimientos para mejorar el sistema continuamente.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-un-sistema-gnulinux"&gt;
+¿Qué es un sistema GNU/Linux?
+&lt;a href="#qu%c3%a9-es-un-sistema-gnulinux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Un sistema GNU/Linux es un conjunto completo de software que incluye el núcleo Linux junto con las aplicaciones y herramientas del Proyecto GNU. A diferencia de los sistemas operativos propietarios, GNU/Linux ofrece libertad a los usuarios para usar, estudiar, modificar y compartir el software de acuerdo con las licencias de software libre. Esta flexibilidad ha dado lugar a una amplia gama de distribuciones de GNU/Linux, cada una adaptada para diversas necesidades y preferencias de los usuarios.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La historia de GNU/Linux es una prueba viviente de la importancia del software libre y la colaboración en la industria tecnológica. La visión de Richard Stallman y el ingenio de Linus Torvalds dieron lugar a un sistema operativo que ha transformado la forma en que interactuamos con la tecnología. Desde sus humildes inicios hasta la poderosa comunidad de desarrolladores de hoy en día, GNU/Linux sigue siendo un ejemplo inspirador de cómo el trabajo en equipo y la pasión por el conocimiento pueden cambiar el mundo de la tecnología para mejor.&lt;/p&gt;</description></item></channel></rss>

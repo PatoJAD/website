@@ -1,0 +1,1545 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Javascript on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/javascript/</link><description>Recent content in Javascript on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 27 Jan 2026 09:31:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/javascript/index.xml" rel="self" type="application/rss+xml"/><item><title>Patrones de Diseño en Node.js: Arquitectura Profesional con Bun y TypeScript</title><link>https://patojad.com.ar/post/2026/01/patrones-de-dise%C3%B1o-en-node.js-arquitectura-profesional-con-bun-y-typescript/</link><pubDate>Tue, 27 Jan 2026 09:31:00 +0000</pubDate><guid>https://patojad.com.ar/post/2026/01/patrones-de-dise%C3%B1o-en-node.js-arquitectura-profesional-con-bun-y-typescript/</guid><description>&lt;p&gt;En el desarrollo de software, los patrones de diseño no son reglas rígidas, sino soluciones probadas a problemas comunes. En 2026, con entornos de alta velocidad como Bun, el cuello de botella ya no es el runtime, sino la deuda técnica.&lt;/p&gt;
+&lt;p&gt;A continuación, detallamos los 4 patrones que transforman un script en una aplicación de grado producción.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="singleton-creacional"&gt;
+Singleton (Creacional)
+&lt;a href="#singleton-creacional" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;El Problema:&lt;/strong&gt; Instanciar múltiples veces clases que gestionan recursos pesados (conexiones a DB, configuraciones, clientes de caché) agota la memoria y crea estados inconsistentes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;La Solución:&lt;/strong&gt; Garantizar que una clase tenga una única instancia y proveer un punto de acceso global a ella.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Implementación en TS:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-ts" data-lang="ts"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;ConfigManager&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;private&lt;/span&gt; &lt;span class="kr"&gt;static&lt;/span&gt; &lt;span class="nx"&gt;instance&lt;/span&gt;: &lt;span class="kt"&gt;ConfigManager&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;private&lt;/span&gt; &lt;span class="nx"&gt;settings&lt;/span&gt;: &lt;span class="kt"&gt;Record&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="na"&gt;string&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;private&lt;/span&gt; &lt;span class="kr"&gt;constructor&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// Carga inicial de variables de entorno
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;settings&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;apiKey&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;12345&amp;#34;&lt;/span&gt; &lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;static&lt;/span&gt; &lt;span class="nx"&gt;getInstance&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;ConfigManager&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nx"&gt;ConfigManager&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;ConfigManager&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;instance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;ConfigManager&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;ConfigManager&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;key&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;string&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;settings&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;key&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Uso: const config = ConfigManager.getInstance();
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Caso de uso real: Mantener una única conexión activa a una base de datos o un gestor de logs.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="factory-method-creacional"&gt;
+Factory Method (Creacional)
+&lt;a href="#factory-method-creacional" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;El Problema:&lt;/strong&gt; El código se llena de condicionales (if/else) cada vez que necesitamos crear diferentes tipos de objetos que comparten una interfaz.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;La Solución:&lt;/strong&gt; Delegar la lógica de instanciación a una clase &amp;ldquo;Fábrica&amp;rdquo; que decide qué objeto crear basándose en un parámetro.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Implementación en TS:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-ts" data-lang="ts"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;interface&lt;/span&gt; &lt;span class="nx"&gt;Notifier&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;send&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;message&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;EmailNotifier&lt;/span&gt; &lt;span class="kr"&gt;implements&lt;/span&gt; &lt;span class="nx"&gt;Notifier&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;send&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;msg&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sb"&gt;`Enviando Email: &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nx"&gt;msg&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;SMSNotifier&lt;/span&gt; &lt;span class="kr"&gt;implements&lt;/span&gt; &lt;span class="nx"&gt;Notifier&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;send&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;msg&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sb"&gt;`Enviando SMS: &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nx"&gt;msg&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;NotifierFactory&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;static&lt;/span&gt; &lt;span class="nx"&gt;create&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;type&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;email&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;sms&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;Notifier&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;type&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;email&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;EmailNotifier&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;SMSNotifier&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Caso de uso real: Integrar múltiples pasarelas de pago (Stripe, PayPal) o proveedores de storage (S3, Local, Azure).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="repository-estructuralcomportamiento"&gt;
+Repository (Estructural/Comportamiento)
+&lt;a href="#repository-estructuralcomportamiento" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;El Problema:&lt;/strong&gt; La lógica de negocio está &amp;ldquo;casada&amp;rdquo; con la base de datos. Si cambias de motor de base de datos o de librería (ORM), tienes que reescribir toda la aplicación.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;La Solución:&lt;/strong&gt; Crear una capa intermedia que abstraiga el acceso a los datos. La lógica de negocio solo habla con el &amp;ldquo;Repositorio&amp;rdquo;, no con la base de datos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Implementación en TS:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-ts" data-lang="ts"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;interface&lt;/span&gt; &lt;span class="nx"&gt;User&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;id&lt;/span&gt;: &lt;span class="kt"&gt;number&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;name&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;interface&lt;/span&gt; &lt;span class="nx"&gt;IUserRepository&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;findById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;id&lt;/span&gt;: &lt;span class="kt"&gt;number&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;Promise&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;User&lt;/span&gt; &lt;span class="err"&gt;|&lt;/span&gt; &lt;span class="na"&gt;null&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;UserRepository&lt;/span&gt; &lt;span class="kr"&gt;implements&lt;/span&gt; &lt;span class="nx"&gt;IUserRepository&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;async&lt;/span&gt; &lt;span class="nx"&gt;findById&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;id&lt;/span&gt;: &lt;span class="kt"&gt;number&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;Promise&lt;/span&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;User&lt;/span&gt; &lt;span class="err"&gt;|&lt;/span&gt; &lt;span class="na"&gt;null&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// Aquí iría la consulta real (SQL, NoSQL, etc.)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;name&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Pato&amp;#34;&lt;/span&gt; &lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Caso de uso real: Proyectos que necesitan ser testeables (haciendo un Mock del repositorio) o que prevén migrar su infraestructura de datos.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="decorator-estructural"&gt;
+Decorator (Estructural)
+&lt;a href="#decorator-estructural" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;El Problema:&lt;/strong&gt; Necesitas añadir funcionalidades (logs, validaciones, caché) a métodos existentes sin modificar su código original para no violar el principio de Responsabilidad Única.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;La Solución:&lt;/strong&gt; &amp;ldquo;Envolver&amp;rdquo; el método o clase original para añadirle comportamiento extra antes o después de su ejecución.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Implementación en TS:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-ts" data-lang="ts"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;Logger&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;target&lt;/span&gt;: &lt;span class="kt"&gt;any&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;propertyKey&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;descriptor&lt;/span&gt;: &lt;span class="kt"&gt;PropertyDescriptor&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;originalMethod&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;descriptor&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;value&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;descriptor&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;(...&lt;/span&gt;&lt;span class="nx"&gt;args&lt;/span&gt;: &lt;span class="kt"&gt;any&lt;/span&gt;&lt;span class="p"&gt;[])&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sb"&gt;`Ejecutando &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nx"&gt;propertyKey&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt; con:`&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;args&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;originalMethod&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;apply&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;args&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;UserService&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kd"&gt;@Logger&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;saveUser&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;name&lt;/span&gt;: &lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sb"&gt;`Usuario &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nx"&gt;name&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt; guardado.`&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;Caso de uso real: Medir el tiempo de ejecución de funciones, validar permisos de usuario o transformar datos de salida automáticamente.&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>Frontend vs. Backend: La Guía Definitiva para Elegir Tu Camino de Desarrollo</title><link>https://patojad.com.ar/post/2025/10/frontend-vs.-backend-la-gu%C3%ADa-definitiva-para-elegir-tu-camino-de-desarrollo/</link><pubDate>Tue, 07 Oct 2025 08:02:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/10/frontend-vs.-backend-la-gu%C3%ADa-definitiva-para-elegir-tu-camino-de-desarrollo/</guid><description>&lt;p&gt;¡Hola a todos, futuros devs! 👋 Si recién te sumerges en el universo de la programación, la primera pregunta es casi siempre la misma: &lt;em&gt;¿Qué camino debo elegir?&lt;/em&gt; ¿&lt;strong&gt;Frontend&lt;/strong&gt; o &lt;strong&gt;Backend&lt;/strong&gt;?&lt;/p&gt;
+&lt;p&gt;En este artículo, que complementa nuestro video &amp;ldquo;FRONTEND vs BACKEND: La Guía DEFINITIVA para Programadores&amp;rdquo;, vamos a desmitificar estos dos mundos, comparando sus roles, sus tecnologías y sus responsabilidades.&lt;/p&gt;
+&lt;p&gt;Si ya viste &lt;a href="https://youtu.be/rRuK7YmqI2U" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+nuestro video sobre Arquitectura de Software
+&lt;/a&gt;, sabes que un sistema es complejo; ahora vamos a ver las dos mitades que lo componen.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="el-frontend-el-arte-de-la-interacción-lo-que-el-usuario-ve"&gt;
+El Frontend: El Arte de la Interacción (Lo que el Usuario Ve)
+&lt;a href="#el-frontend-el-arte-de-la-interacci%c3%b3n-lo-que-el-usuario-ve" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El Frontend se conoce como el desarrollo del &amp;ldquo;lado del cliente&amp;rdquo;. Es todo lo que el usuario final ve, toca y con lo que interactúa en el navegador: los colores, los menús, las animaciones de un botón, la tipografía y los formularios.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="responsabilidades-clave"&gt;
+Responsabilidades Clave:
+&lt;a href="#responsabilidades-clave" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Experiencia de Usuario (UX):&lt;/strong&gt; Asegurar que la aplicación sea intuitiva y fácil de usar.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Diseño Responsivo:&lt;/strong&gt; Garantizar que la web se vea bien en cualquier dispositivo (móvil, tablet, PC).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Optimización del Rendimiento:&lt;/strong&gt; Lograr que la página cargue rápido.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="tecnologías-fundamentales-el-trío-sagrado"&gt;
+Tecnologías Fundamentales (El Trío Sagrado):
+&lt;a href="#tecnolog%c3%adas-fundamentales-el-tr%c3%ado-sagrado" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+HTML
+&lt;/a&gt;:&lt;/strong&gt; La estructura y el contenido (el esqueleto).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2023/08/descubriendo-el-mundo-de-css/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+CSS
+&lt;/a&gt;:&lt;/strong&gt; El estilo y el diseño (la piel).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;JavaScript:&lt;/strong&gt; La interactividad y la lógica de la interfaz (el sistema nervioso).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;También te puede interesar &lt;a href="https://patojad.com.ar/post/2023/09/es-html-un-lenguaje-de-programaci%C3%B3n-desmitificando-su-naturaleza/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+¿Es HTML un Lenguaje de Programación?
+&lt;/a&gt; y &lt;a href="https://patojad.com.ar/post/2023/03/que-es-typescript-en-que-se-parece-a-javascript/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+¿Que es TypeScript? ¿En que se parece a JavaScript?
+&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Para proyectos modernos, los desarrolladores Frontend usan librerías y frameworks como &lt;strong&gt;React&lt;/strong&gt;, &lt;strong&gt;Angular&lt;/strong&gt; o &lt;strong&gt;Vue.js&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="el-backend-la-lógica-y-la-maquinaria-lo-que-el-usuario-no-ve"&gt;
+El Backend: La Lógica y la Maquinaria (Lo que el Usuario No Ve)
+&lt;a href="#el-backend-la-l%c3%b3gica-y-la-maquinaria-lo-que-el-usuario-no-ve" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El Backend es el desarrollo del &amp;ldquo;lado del servidor&amp;rdquo;. Es la maquinaria interna, el cerebro que maneja la lógica de negocio, la seguridad, las bases de datos y la comunicación con otros servicios.&lt;/p&gt;
+&lt;p&gt;Si el Frontend es la cara de la aplicación, el Backend es el sistema de gestión y almacenamiento.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="responsabilidades-clave-1"&gt;
+Responsabilidades Clave:
+&lt;a href="#responsabilidades-clave-1" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Bases de Datos:&lt;/strong&gt; Almacenar, gestionar y recuperar información (por ejemplo, los perfiles de usuario o los productos de una tienda).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;API (Application Programming Interface):&lt;/strong&gt; Crear los puntos de conexión que permiten al Frontend &amp;ldquo;pedir&amp;rdquo; o &amp;ldquo;enviar&amp;rdquo; datos de forma segura.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Lógica de Negocio y Seguridad:&lt;/strong&gt; Implementar las reglas del negocio (¿cuánto cuesta un producto? ¿está autorizado un usuario?).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="tecnologías-fundamentales-diversidad-de-lenguajes"&gt;
+Tecnologías Fundamentales (Diversidad de Lenguajes):
+&lt;a href="#tecnolog%c3%adas-fundamentales-diversidad-de-lenguajes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Lenguajes de Servidor:&lt;/strong&gt; Python, Node.js (JavaScript), PHP, Java, Ruby.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Frameworks:&lt;/strong&gt; Django, Express, Laravel, NestJS, SpringBoot.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bases de Datos:&lt;/strong&gt; PostgreSQL, MySQL, MongoDB.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;También te puede interesar &lt;a href="https://patojad.com.ar/post/2020/04/el-papel-de-javascript-en-la-seguridad/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+El papel de Javascript en la seguridad
+&lt;/a&gt; y &lt;a href="https://patojad.com.ar/post/2025/07/paradigmas-de-programaci%c3%b3n-qu%c3%a9-son-y-por-qu%c3%a9-son-clave-para-un-programador/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Paradigmas de Programación: ¿Qué Son y Por Qué Son Clave para un Programador?
+&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="full-stack-y-el-flujo-de-datos"&gt;
+Full Stack y el Flujo de Datos
+&lt;a href="#full-stack-y-el-flujo-de-datos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Cuando el Frontend y el Backend se unen, ocurre la magia.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;El Proceso:&lt;/strong&gt; El Frontend le &lt;em&gt;&amp;ldquo;pide&amp;rdquo;&lt;/em&gt; información al Backend a través de un API. El Backend procesa la solicitud, busca los datos en la base de datos y se los &lt;em&gt;&amp;ldquo;devuelve&amp;rdquo;&lt;/em&gt; al Frontend, que finalmente los muestra al usuario.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;El Rol Full Stack:&lt;/strong&gt; Un desarrollador Full Stack tiene la habilidad de trabajar en ambos lados de este proceso. Son extremadamente versátiles, aunque el dominio completo de ambas especialidades es un desafío constante.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="cómo-elegir-tu-camino-una-elección-de-perfil"&gt;
+¿Cómo Elegir Tu Camino? Una Elección de Perfil
+&lt;a href="#c%c3%b3mo-elegir-tu-camino-una-elecci%c3%b3n-de-perfil" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;No hay un camino &amp;ldquo;mejor&amp;rdquo;, solo el que mejor se adapta a tu perfil:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Si te atrae&amp;hellip;&lt;/th&gt;
+&lt;th&gt;&amp;hellip; Tu Camino es FRONTEND&lt;/th&gt;
+&lt;th&gt;&amp;hellip; Tu Camino es BACKEND&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Enfoque&lt;/td&gt;
+&lt;td&gt;El diseño, la estética y la interacción.&lt;/td&gt;
+&lt;td&gt;La lógica, la eficiencia y los datos.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Resultado&lt;/td&gt;
+&lt;td&gt;Ver tu trabajo en el navegador al instante.&lt;/td&gt;
+&lt;td&gt;Solucionar problemas complejos en el servidor.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Perfil&lt;/td&gt;
+&lt;td&gt;Creativo, orientado a la experiencia del usuario y al detalle visual.&lt;/td&gt;
+&lt;td&gt;Lógico, metódico, orientado a la estructura y la seguridad.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;El mundo del desarrollo web es amplio. Empieza por el lado que más te apasione, y el resto del aprendizaje vendrá solo.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;No te olvides de ver nuestro video &lt;a href="https://patojad.com.ar/post/2025/06/c%c3%b3mo-empezar-a-programar-desde-cero-tu-gu%c3%ada-definitiva-para-dar-los-primeros-pasos/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Cómo Empezar a Programar Desde Cero: Tu Guía Definitiva para Dar los Primeros Pasos
+&lt;/a&gt; para tener una visión completa de cómo lanzarte en este emocionante viaje.&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>Estructuras de Datos y Algoritmos Básicos: Lo Esencial para Programar con JavaScript</title><link>https://patojad.com.ar/post/2025/07/estructuras-de-datos-y-algoritmos-b%C3%A1sicos-lo-esencial-para-programar-con-javascript/</link><pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/07/estructuras-de-datos-y-algoritmos-b%C3%A1sicos-lo-esencial-para-programar-con-javascript/</guid><description>&lt;p&gt;¡Hola a todos, futuros y actuales programadores de PatoJAD! 👋 Si estás en el mundo del desarrollo de software, seguramente has escuchado hablar de Estructuras de Datos y Algoritmos. Puede que suenen a conceptos de universidad o a algo &amp;ldquo;solo para genios&amp;rdquo;, pero te aseguro que entenderlos es fundamental para escribir código eficiente, optimizar el rendimiento de tus aplicaciones y resolver problemas complejos de forma elegante.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="por-qué-son-tan-importantes-las-estructuras-de-datos-y-los-algoritmos"&gt;
+¿Por Qué Son Tan Importantes las Estructuras de Datos y los Algoritmos?
+&lt;a href="#por-qu%c3%a9-son-tan-importantes-las-estructuras-de-datos-y-los-algoritmos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Imagina que eres un chef y tienes todos los ingredientes para una receta (tus datos). Si los tienes desordenados en la cocina, te llevará mucho tiempo encontrar lo que necesitas. Pero si los organizas en la despensa, la heladera y el estante de especias (estructuras de datos), será mucho más rápido y eficiente. La forma en que cortas los ingredientes, los mezclas y los cocinas (algoritmos) también impacta en el resultado final y el tiempo que te lleva.&lt;/p&gt;
+&lt;p&gt;En programación, es similar. La elección de la estructura de datos adecuada para almacenar tu información y el algoritmo correcto para procesarla pueden marcar la diferencia entre una aplicación lenta y frustrante, y una rápida y robusta.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-son-las-estructuras-de-datos"&gt;
+¿Qué Son las Estructuras de Datos?
+&lt;a href="#qu%c3%a9-son-las-estructuras-de-datos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Las Estructuras de Datos son formas especializadas de organizar y almacenar información en una computadora. Piensa en ellas como diferentes tipos de &amp;ldquo;contenedores&amp;rdquo; o &amp;ldquo;estantes&amp;rdquo; que tienen reglas específicas sobre cómo guardar y acceder a los datos. Cada una tiene sus ventajas y desventajas para distintas operaciones.&lt;/p&gt;
+&lt;p&gt;Vamos a explorar algunas de las más fundamentales que usarás a diario en JavaScript:&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="array-arreglo-la-lista-ordenada"&gt;
+Array (Arreglo): La Lista Ordenada
+&lt;a href="#array-arreglo-la-lista-ordenada" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;El Array es la estructura de datos más básica y probablemente la primera que usarás. Es una colección ordenada de elementos, donde cada elemento tiene una posición numérica (un índice), que en JavaScript comienza desde 0.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Características:&lt;/strong&gt; Los elementos se almacenan en un orden específico, se puede acceder a ellos rápidamente por su índice, y en JavaScript, su tamaño es dinámico (puedes añadir o quitar elementos).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cuándo usarlo:&lt;/strong&gt; Cuando el orden de los elementos es importante (ej: una lista de tareas, una secuencia de eventos) y necesitas acceder a ellos por su posición.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Declaración de un Array
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;frutas&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;Manzana&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Banana&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Cereza&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Acceder a elementos por índice
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;frutas&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]);&lt;/span&gt; &lt;span class="c1"&gt;// Salida: &amp;#34;Manzana&amp;#34; (primer elemento)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Añadir un elemento al final
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;frutas&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;push&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;Durazno&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;frutas&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;// Salida: [&amp;#34;Manzana&amp;#34;, &amp;#34;Banana&amp;#34;, &amp;#34;Cereza&amp;#34;, &amp;#34;Durazno&amp;#34;]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Iterar sobre un Array
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="nx"&gt;frutas&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;length&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sb"&gt;`La fruta en la posición &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt; es: &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nx"&gt;frutas&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="objeto-object--map-almacenamiento-clave-valor"&gt;
+Objeto (Object / Map): Almacenamiento Clave-Valor
+&lt;a href="#objeto-object--map-almacenamiento-clave-valor" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Los Objetos en JavaScript son colecciones de datos no ordenadas que almacenan información en pares de clave-valor. Es como un diccionario o una libreta de contactos: cada &amp;ldquo;nombre&amp;rdquo; (clave) tiene un &amp;ldquo;teléfono&amp;rdquo; (valor) asociado.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Características:&lt;/strong&gt; Acceso muy rápido a los valores si conoces la clave, las claves son únicas.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cuándo usarlo:&lt;/strong&gt; Cuando necesitas asociar un valor específico a un nombre o identificador único (ej: datos de un usuario, propiedades de un producto).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Declaración de un Objeto
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;usuario&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;nombre&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Ana&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;edad&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;28&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;ciudad&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Córdoba&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Acceder a valores por clave
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;usuario&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;nombre&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;// Salida: &amp;#34;Ana&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;usuario&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;edad&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;]);&lt;/span&gt; &lt;span class="c1"&gt;// Salida: 28
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Añadir o modificar propiedades
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;usuario&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;ocupacion&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Diseñadora&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;usuario&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Salida: { nombre: &amp;#34;Ana&amp;#34;, edad: 28, ciudad: &amp;#34;Córdoba&amp;#34;, ocupacion: &amp;#34;Diseñadora&amp;#34; }
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="set-colecciones-de-elementos-únicos"&gt;
+Set: Colecciones de Elementos Únicos
+&lt;a href="#set-colecciones-de-elementos-%c3%banicos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;La estructura Set en JavaScript es una colección donde cada valor almacenado debe ser único. Si intentas añadir un valor que ya existe, el Set simplemente lo ignora.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Características:&lt;/strong&gt; No permite duplicados, el orden de inserción no está garantizado.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cuándo usarlo:&lt;/strong&gt; Cuando necesitas una lista de elementos sin repeticiones o para verificar rápidamente si un elemento ya existe en una colección.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;numerosConDuplicados&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;numerosUnicos&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;numerosConDuplicados&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;numerosUnicos&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;// Salida: Set { 1, 2, 3, 4, 5 }
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Añadir un elemento (si ya existe, no hace nada)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;numerosUnicos&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;numerosUnicos&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;// Esto no cambia el Set, 2 ya está
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// Verificar si un elemento existe
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;numerosUnicos&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;has&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt; &lt;span class="c1"&gt;// Salida: true
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;numerosUnicos&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;has&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt; &lt;span class="c1"&gt;// Salida: false
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-son-los-algoritmos"&gt;
+¿Qué Son los Algoritmos?
+&lt;a href="#qu%c3%a9-son-los-algoritmos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si las estructuras de datos son los &amp;ldquo;materiales&amp;rdquo; organizados, los Algoritmos son las &amp;ldquo;instrucciones&amp;rdquo; o la &amp;ldquo;receta&amp;rdquo; para manipular esos datos y resolver un problema. Un algoritmo es una secuencia finita y bien definida de pasos lógicos que se siguen para realizar una tarea específica.&lt;/p&gt;
+&lt;p&gt;Un buen algoritmo debe ser:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Correcto:&lt;/strong&gt; Debe producir el resultado esperado para todas las entradas válidas.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Eficiente:&lt;/strong&gt; Debe usar la menor cantidad posible de recursos (tiempo de procesamiento, memoria).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="algoritmo-de-búsqueda-lineal"&gt;
+Algoritmo de Búsqueda Lineal
+&lt;a href="#algoritmo-de-b%c3%basqueda-lineal" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Uno de los algoritmos más sencillos es la Búsqueda Lineal. Consiste en recorrer una colección (como un Array) elemento por elemento, en orden, hasta encontrar el que buscamos o llegar al final de la colección.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Cuándo usarlo:&lt;/strong&gt; Para colecciones pequeñas o cuando la colección no está ordenada.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Eficiencia:&lt;/strong&gt; No es muy eficiente para colecciones muy grandes, ya que en el peor caso, debe revisar cada elemento.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;busquedaLineal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;objetivo&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="nx"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;length&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="nx"&gt;objetivo&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// ¡Encontrado! Devuelve el índice
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// No encontrado
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;productos&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;Laptop&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Mouse&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Teclado&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Monitor&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;busquedaLineal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;productos&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Teclado&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt; &lt;span class="c1"&gt;// Salida: 2 (posición)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;busquedaLineal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;productos&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Parlantes&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt; &lt;span class="c1"&gt;// Salida: -1 (no está)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="algoritmo-de-ordenamiento-bubble-sort-ordenamiento-de-burbuja"&gt;
+Algoritmo de Ordenamiento: Bubble Sort (Ordenamiento de Burbuja)
+&lt;a href="#algoritmo-de-ordenamiento-bubble-sort-ordenamiento-de-burbuja" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Los algoritmos de ordenamiento son fundamentales para organizar datos. El Bubble Sort es un ejemplo simple de entender, aunque no el más eficiente. Funciona comparando pares de elementos adyacentes y los intercambia si están en el orden incorrecto, repitiendo este proceso hasta que toda la lista esté ordenada.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Cuándo usarlo:&lt;/strong&gt; Útil para entender el concepto de ordenamiento, pero no recomendado para grandes conjuntos de datos debido a su baja eficiencia.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Eficiencia:&lt;/strong&gt; Muy baja para listas grandes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;bubbleSort&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nx"&gt;n&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;length&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="nx"&gt;n&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// En cada pasada, el elemento más grande &amp;#34;burbujea&amp;#34; al final
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nx"&gt;j&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;j&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="nx"&gt;n&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;j&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;j&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nx"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;j&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;// Intercambiar elementos
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nx"&gt;temp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;j&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;j&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;j&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;j&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;temp&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;arr&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;numerosDesordenados&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;bubbleSort&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;numerosDesordenados&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt; &lt;span class="c1"&gt;// Salida: [1, 2, 4, 5, 8]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="la-importancia-de-la-eficiencia-introducción-a-la-big-o-notation"&gt;
+La Importancia de la Eficiencia: Introducción a la &amp;ldquo;Big O Notation&amp;rdquo;
+&lt;a href="#la-importancia-de-la-eficiencia-introducci%c3%b3n-a-la-big-o-notation" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Entender la eficiencia de un algoritmo es clave. No basta con que funcione; debe funcionar bien, especialmente con grandes volúmenes de datos. Para describir esta eficiencia, usamos la &amp;ldquo;Notación Big O&amp;rdquo; (O grande).&lt;/p&gt;
+&lt;p&gt;La Notación Big O nos da una idea de cómo el rendimiento de un algoritmo se escala a medida que el tamaño de los datos de entrada (n) aumenta. No mide el tiempo exacto en segundos, sino la tasa de crecimiento de las operaciones.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;O(n) - Complejidad Lineal:&lt;/strong&gt; Como la Búsqueda Lineal. El tiempo de ejecución crece directamente proporcional al número de elementos. Si duplicas los datos, el tiempo se duplica.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;O(n²) - Complejidad Cuadrática:&lt;/strong&gt; Como el Bubble Sort. El tiempo de ejecución crece mucho más rápido, al cuadrado del número de elementos. Si duplicas los datos, el tiempo se cuadruplica.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Entender esto te permitirá elegir algoritmos que mantengan tu aplicación rápida y escalable, evitando que se &amp;ldquo;arrastre&amp;rdquo; cuando tu base de usuarios o la cantidad de datos crezca.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión-la-base-de-todo-buen-código"&gt;
+Conclusión: La Base de Todo Buen Código
+&lt;a href="#conclusi%c3%b3n-la-base-de-todo-buen-c%c3%b3digo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Las estructuras de datos y los algoritmos son los bloques de construcción fundamentales sobre los que se asienta cualquier pieza de software. Dominar estos conceptos te permitirá escribir código más efectivo, más fácil de mantener y más robusto, independientemente del lenguaje de programación que utilices.&lt;/p&gt;
+&lt;p&gt;Si te apasiona la programación y quieres consolidar tus bases, este es el lugar para empezar. Recuerda que la práctica es clave. ¡Intenta implementar estos ejemplos por tu cuenta y empieza a pensar en cómo se usan en los programas que utilizas a diario!&lt;/p&gt;
+&lt;p&gt;Espero que este artículo te sea de gran utilidad. ¡No olvides ver el video en nuestro canal de YouTube para una explicación más dinámica y con ejemplos en vivo!&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Si te gustó este contenido, dale Me Gusta, compártelo, y déjanos un comentario con tus estructuras de datos o algoritmos favoritos. ¡Nos vemos en el próximo!&lt;/p&gt;</description></item><item><title>Paradigmas de Programación: ¿Qué Son y Por Qué Son Clave para un Programador?</title><link>https://patojad.com.ar/post/2025/07/paradigmas-de-programaci%C3%B3n-qu%C3%A9-son-y-por-qu%C3%A9-son-clave-para-un-programador/</link><pubDate>Mon, 07 Jul 2025 09:31:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/07/paradigmas-de-programaci%C3%B3n-qu%C3%A9-son-y-por-qu%C3%A9-son-clave-para-un-programador/</guid><description>&lt;p&gt;¡Hola a todos, futuros y actuales programadores de PatoJAD! 👋 Hoy vamos a desentrañar un concepto fundamental en el mundo del software que a menudo se pasa por alto: los paradigmas de programación. No te asustes por el nombre; entenderlos te dará una ventaja enorme a la hora de escribir código más limpio, eficiente y elegir el lenguaje adecuado para cada tarea.&lt;/p&gt;
+&lt;p&gt;Este artículo es el complemento perfecto de nuestro video &amp;ldquo;PARADIGMAS de Programación: ¿Qué Son y Por Qué Importan al Elegir un Lenguaje?&amp;rdquo; (¡asegúrate de verlo para una explicación visual con ejemplos!). Aquí profundizaremos en estos &amp;ldquo;estilos de pensamiento&amp;rdquo; que influyen en cómo resolvemos problemas con código.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-un-paradigma-de-programación"&gt;
+¿Qué es un Paradigma de Programación?
+&lt;a href="#qu%c3%a9-es-un-paradigma-de-programaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Imagina que quieres cocinar. Puedes seguir una receta paso a paso (como un chef tradicional), o podrías pensar en los ingredientes y sus transformaciones como piezas de un rompecabezas (como un chef molecular). Cada enfoque es una &amp;ldquo;filosofía&amp;rdquo; distinta para lograr el mismo objetivo.&lt;/p&gt;
+&lt;p&gt;En programación, un paradigma es precisamente eso: una filosofía o estilo fundamental para organizar y estructurar el código. No es lo mismo que un lenguaje de programación (Python, por ejemplo, puede usarse en varios paradigmas), sino la forma en que pensamos y construimos nuestras soluciones. Entenderlos te ayuda a:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Elegir el lenguaje adecuado:&lt;/strong&gt; Algunos lenguajes están diseñados con un paradigma en mente.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Diseñar mejor tu software:&lt;/strong&gt; Te da diferentes herramientas conceptuales para abordar problemas complejos.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Escribir código más legible y mantenible:&lt;/strong&gt; Un código que sigue un paradigma claro es más fácil de entender por otros (¡y por tu yo del futuro!).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="los-paradigmas-más-comunes-tu-caja-de-herramientas"&gt;
+Los Paradigmas Más Comunes: Tu Caja de Herramientas
+&lt;a href="#los-paradigmas-m%c3%a1s-comunes-tu-caja-de-herramientas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Aunque hay varios, nos centraremos en los más influyentes y los que verás más a menudo:&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="programación-imperativa-el-paso-a-paso"&gt;
+Programación Imperativa: El &amp;ldquo;Paso a Paso&amp;rdquo;
+&lt;a href="#programaci%c3%b3n-imperativa-el-paso-a-paso" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;El paradigma Imperativo es el más directo y quizás el que te resulte más familiar si recién empiezas. Aquí, le das a la computadora instrucciones explícitas, paso a paso, sobre CÓMO hacer algo. Es como darle una lista de tareas detallada.&lt;/p&gt;
+&lt;p&gt;Características:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cambia el estado del programa (valores de variables).&lt;/li&gt;
+&lt;li&gt;Usa sentencias de control de flujo (bucles for/while, condicionales if/else).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ejemplo (python):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Queremos sumar los números de una lista&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;numeros&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;suma&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="c1"&gt;# Inicializamos una variable de estado&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;num&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;numeros&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="c1"&gt;# Iteramos y modificamos el estado en cada paso&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;suma&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;suma&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;num&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;suma&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# Salida: 15&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Aquí, le indicamos a la máquina exactamente cómo manipular la variable suma en cada iteración. La mayoría de los lenguajes permiten este estilo.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="programación-orientada-a-objetos-poo-el-mundo-de-los-objetos"&gt;
+Programación Orientada a Objetos (POO): El Mundo de los &amp;ldquo;Objetos&amp;rdquo;
+&lt;a href="#programaci%c3%b3n-orientada-a-objetos-poo-el-mundo-de-los-objetos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;La Programación Orientada a Objetos (POO) es uno de los paradigmas más dominantes, especialmente en el desarrollo de software a gran escala. Aquí, modelamos nuestro código pensando en &amp;ldquo;objetos&amp;rdquo; que representan entidades del mundo real o conceptos abstractos. Cada objeto tiene:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Atributos:&lt;/strong&gt; Características o datos que lo describen (ej: un Coche tiene marca, modelo).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Métodos:&lt;/strong&gt; Acciones que el objeto puede realizar (ej: un Coche puede encender, acelerar).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Conceptos Clave de la POO:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Clases:&lt;/strong&gt; Son como los planos o plantillas para crear objetos (ej: el &amp;ldquo;molde&amp;rdquo; de Coche).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Objetos:&lt;/strong&gt; Son las instancias concretas de una clase (ej: &amp;ldquo;miToyota&amp;rdquo; es un objeto de la clase Coche).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Encapsulamiento:&lt;/strong&gt; Agrupar datos (atributos) y el código que opera sobre esos datos (métodos) en una sola unidad (el objeto), y ocultar los detalles internos.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Herencia:&lt;/strong&gt; Una clase puede &amp;ldquo;heredar&amp;rdquo; propiedades y comportamientos de otra, permitiendo la reutilización de código.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Polimorfismo:&lt;/strong&gt; Diferentes objetos pueden responder al mismo mensaje de diferentes maneras, lo que hace el código más flexible.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ejemplo (Python):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Coche&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="c1"&gt;# Definimos la clase &amp;#39;Coche&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;marca&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;modelo&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;marca&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;marca&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;modelo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;modelo&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encendido&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;False&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;encender&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; &lt;span class="c1"&gt;# Un método del objeto &amp;#39;Coche&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encendido&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;marca&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;modelo&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; de color &lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; ha sido encendido.&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;mi_coche&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Coche&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;Ford&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Ecosport&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;Negro&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# Creamos un objeto &amp;#39;mi_coche&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;mi_coche&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encender&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="c1"&gt;# Llamamos a un método del objeto&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Lenguajes como Java, C++, C#, y por supuesto Python, son fuertemente orientados a objetos.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="programación-funcional-todo-son-funciones-puras"&gt;
+Programación Funcional: Todo Son Funciones Puras
+&lt;a href="#programaci%c3%b3n-funcional-todo-son-funciones-puras" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;La Programación Funcional es un paradigma que ha ganado mucha tracción, especialmente en áreas como el procesamiento de datos y la programación concurrente. Se basa en el concepto de funciones puras (similares a las funciones matemáticas) que:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Siempre producen el mismo resultado para las mismas entradas.&lt;/li&gt;
+&lt;li&gt;No tienen &amp;ldquo;efectos secundarios&amp;rdquo; (es decir, no modifican datos fuera de la función ni dependen de ellos).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Características:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Énfasis en la inmutabilidad (los datos no cambian una vez creados).&lt;/li&gt;
+&lt;li&gt;Uso de funciones como &amp;ldquo;ciudadanos de primera clase&amp;rdquo; (pueden pasarse como argumentos, retornarse desde otras funciones).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Evita el estado mutable y las sentencias imperativas.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Suma funcional de una lista usando &amp;#39;reduce&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;functools&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;reduce&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;numeros&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# La función lambda es una función pura que suma dos elementos&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;suma_funcional&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;reduce&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;numeros&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;suma_funcional&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# Salida: 15&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Aquí, la idea es transformar datos sin cambiar el estado. Lenguajes como Haskell son puramente funcionales, pero Python y JavaScript también incorporan muchas características funcionales.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="por-qué-importa-entender-los-paradigmas"&gt;
+¿Por Qué Importa Entender los Paradigmas?
+&lt;a href="#por-qu%c3%a9-importa-entender-los-paradigmas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Como arquitecto de software, puedo decirte que no hay un paradigma &amp;ldquo;mejor&amp;rdquo; universal. La mayoría de los lenguajes de programación modernos son multiparadigma, lo que significa que puedes aplicar diferentes estilos de pensamiento dentro del mismo lenguaje (como Python o JavaScript).&lt;/p&gt;
+&lt;p&gt;Entender los paradigmas te permite:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tomar decisiones de diseño más informadas: Saber cuándo un enfoque orientado a objetos es mejor que uno funcional (o viceversa) para un problema específico.&lt;/li&gt;
+&lt;li&gt;Leer y entender mejor el código ajeno: Identificar el paradigma te ayuda a comprender la lógica y estructura de proyectos existentes.&lt;/li&gt;
+&lt;li&gt;Escribir código más robusto y fácil de mantener: Un diseño basado en paradigmas claros reduce errores y facilita futuras modificaciones.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Mi consejo es:&lt;/strong&gt; ¡no te cases con uno solo! Explora, entiende los conceptos y usa el paradigma que mejor se adapte al problema que estás resolviendo.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;Espero que esta inmersión en los paradigmas de programación te haya sido útil. Son la base sobre la que se construyen muchas arquitecturas de software modernas.&lt;/p&gt;
+&lt;p&gt;Si te gustó este artículo y quieres seguir aprendiendo sobre programación, Linux y software libre, ¡no olvides suscribirte a nuestro canal de YouTube y dejarnos tus comentarios con tus paradigmas favoritos!&lt;/p&gt;</description></item><item><title>Website para EosOS</title><link>https://patojad.com.ar/projects/eosos_web/</link><pubDate>Thu, 03 Jul 2025 00:00:00 -0500</pubDate><guid>https://patojad.com.ar/projects/eosos_web/</guid><description>&lt;p&gt;Se crea una Landing Page en Astro para EosOS, un sistema operativo basado en Linux, con el objetivo de presentar sus características y funcionalidades de manera atractiva y accesible. En esto realizamos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Creacion de una landing page con un diseño atractivo y moderno.&lt;/li&gt;
+&lt;li&gt;Implementacion de un diseño responsive para una mejor experiencia en dispositivos moviles.&lt;/li&gt;
+&lt;li&gt;Integracion de un sistema de versionado con GitHub Pages para facilitar la actualizacion del sitio web.&lt;/li&gt;
+&lt;li&gt;Utilizacion de Astro y Tailwind CSS para un desarrollo eficiente y estilizado.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Repositorios:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Se puede ver su disponibilidad en &lt;a href="https://eososlinux.github.io/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+eososlinux.github.io
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tambien se puede ver el codigo en &lt;a href="https://github.com/eososlinux/eososlinux.github.io" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+Github
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Este proyecto se realizo para &lt;a href="https://eososlinux.github.io/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+EosOS Team
+&lt;/a&gt; por lo cual el estado del sitio quedo en manos de ellos.&lt;/p&gt;</description></item><item><title>Bun vs Node.js: ¿Cuál Es Mejor Para Backend en 2025? 🤔</title><link>https://patojad.com.ar/post/2025/02/bun-vs-node.js-cu%C3%A1l-es-mejor-para-backend-en-2025/</link><pubDate>Thu, 20 Feb 2025 10:32:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/02/bun-vs-node.js-cu%C3%A1l-es-mejor-para-backend-en-2025/</guid><description>&lt;p&gt;¿Estás buscando el mejor entorno de ejecución para tu backend en &lt;strong&gt;JavaScript&lt;/strong&gt;? En este artículo, comparo &lt;strong&gt;Bun&lt;/strong&gt; y &lt;strong&gt;Node.js&lt;/strong&gt; , dos de las opciones más populares para desarrollo backend en 2025. Analizamos rendimiento, compatibilidad y facilidad de uso, además de crear un servidor básico con ambos. ¡Descubre cuál es la mejor opción para tus proyectos!&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-son-bun-y-nodejs"&gt;
+¿Qué son Bun y Node.js?
+&lt;a href="#qu%c3%a9-son-bun-y-nodejs" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="nodejs"&gt;
+Node.js
+&lt;a href="#nodejs" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Node.js&lt;/strong&gt; es un entorno de ejecución de &lt;strong&gt;JavaScript&lt;/strong&gt; que ha sido la opción estándar durante años. Es ampliamente utilizado, tiene una comunidad masiva y es compatible con casi todas las bibliotecas y frameworks. Su madurez lo convierte en una opción confiable para proyectos de cualquier tamaño.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="bun"&gt;
+Bun
+&lt;a href="#bun" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Por otro lado, Bun es un nuevo jugador en el mercado. Promete ser más rápido que &lt;strong&gt;Node.js&lt;/strong&gt; y ofrece características como soporte nativo para &lt;a href="https://patojad.com.ar/post/2023/03/que-es-typescript-en-que-se-parece-a-javascript/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+TypeScript
+&lt;/a&gt; y una API simplificada. Además, Bun no solo es un entorno de ejecución, sino también un administrador de paquetes y un bundler.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="comparativa"&gt;
+Comparativa
+&lt;a href="#comparativa" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="rendimiento"&gt;
+Rendimiento
+&lt;a href="#rendimiento" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Según pruebas recientes, &lt;strong&gt;Bun&lt;/strong&gt; puede ser hasta 3 veces más rápido que Node.js en ciertas tareas, como la inicialización de servidores y la ejecución de scripts. Esto lo hace ideal para aplicaciones que requieren alta velocidad. Sin embargo, &lt;strong&gt;Node.js&lt;/strong&gt; sigue siendo más estable y maduro, con una compatibilidad casi universal.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Característica&lt;/th&gt;
+&lt;th&gt;Bun&lt;/th&gt;
+&lt;th&gt;Node.js&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Rendimiento&lt;/td&gt;
+&lt;td&gt;🚀 Más rápido&lt;/td&gt;
+&lt;td&gt;⚡️ Estable y probado&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Compatibilidad&lt;/td&gt;
+&lt;td&gt;📈 En crecimiento&lt;/td&gt;
+&lt;td&gt;✅ Amplia compatibilidad&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Facilidad de Uso&lt;/td&gt;
+&lt;td&gt;🧩 Sintaxis limpia y simplificada&lt;/td&gt;
+&lt;td&gt;🛠️ Requiere más configuración&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="compatibilidad-y-facilidad-de-uso"&gt;
+Compatibilidad y Facilidad de Uso
+&lt;a href="#compatibilidad-y-facilidad-de-uso" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;En términos de compatibilidad, &lt;strong&gt;Node.js&lt;/strong&gt; gana por su madurez. Casi todas las bibliotecas y frameworks funcionan sin problemas. Por otro lado, Bun está creciendo rápidamente, pero aún carece de compatibilidad con algunas herramientas específicas.&lt;/p&gt;
+&lt;p&gt;En cuanto a facilidad de uso, &lt;strong&gt;Bun&lt;/strong&gt; tiene una ventaja clara. Su sintaxis es más limpia y simplifica muchas tareas, como la instalación de dependencias y la creación de servidores.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="demostración-práctica-crear-un-servidor-básico"&gt;
+Demostración Práctica: Crear un Servidor Básico
+&lt;a href="#demostraci%c3%b3n-pr%c3%a1ctica-crear-un-servidor-b%c3%a1sico" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="servidor-en-nodejs"&gt;
+Servidor en Node.js
+&lt;a href="#servidor-en-nodejs" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;span class="lnt"&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;http&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;http&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;server&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;http&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;createServer&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;res&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;res&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;end&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Hola desde Node.js&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;server&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;listen&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Servidor corriendo en http://localhost:3000&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="servidor-en-bun"&gt;
+Servidor en Bun
+&lt;a href="#servidor-en-bun" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-TypeScript" data-lang="TypeScript"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;Bun&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;serve&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;port&lt;/span&gt;: &lt;span class="kt"&gt;3000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;fetch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Response&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Hola desde Bun&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Como puedes ver, &lt;strong&gt;Bun&lt;/strong&gt; simplifica mucho el proceso.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Ambos tienen sus pros y contras. Si buscas rendimiento y simplicidad, &lt;strong&gt;Bun&lt;/strong&gt; es una excelente opción. Pero si necesitas estabilidad y compatibilidad, Node.js sigue siendo una apuesta segura.&lt;/p&gt;
+&lt;p&gt;Si te gustó este artículo, no olvides compartirlo en tus redes sociales y seguirme en mis canales para más contenido sobre Linux , programación y desarrollo web.&lt;/p&gt;</description></item><item><title>Titan Dashboard, un dashboard para administrar una casa de juegos</title><link>https://patojad.com.ar/projects/titan_dashboard/</link><pubDate>Sat, 14 Dec 2024 00:00:00 -0500</pubDate><guid>https://patojad.com.ar/projects/titan_dashboard/</guid><description>&lt;p&gt;Se realizan mejoras en un dashboard para administrar una casa de juegos, con control de acceso, control de juegos, control de ventas y control de usuarios. El dashboard esta construido con Laravel y Vue.js.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="febrero-del-2025"&gt;
+Febrero del 2025
+&lt;a href="#febrero-del-2025" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Se realizan las siguientes mejoras en el dashboard:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Se agrega chat en tiempo real para soporte tecnico.&lt;/li&gt;
+&lt;li&gt;Se corrigen errores en filtros de busqueda.&lt;/li&gt;
+&lt;li&gt;Se Mejora la performance del sitio en areas de busqueda y filtado.&lt;/li&gt;
+&lt;li&gt;Se limpian rutas innecesarias.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="diciembre-del-2024"&gt;
+Diciembre del 2024
+&lt;a href="#diciembre-del-2024" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Se realizan las siguientes mejoras en el dashboard:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Se agrega seccion de Historial de juegos&lt;/li&gt;
+&lt;li&gt;Se agrega seccion de Historial de ventas.&lt;/li&gt;
+&lt;li&gt;Se mejora la interfaz de gestion de usuarios.&lt;/li&gt;
+&lt;li&gt;Se mejora la reporteria en general&lt;/li&gt;
+&lt;li&gt;Se optimiza el sitio para dispositivos moviles.&lt;/li&gt;
+&lt;li&gt;Se optimizan las querys de la base de datos.&lt;/li&gt;
+&lt;li&gt;Se implementa un sistema de notificaciones.&lt;/li&gt;
+&lt;li&gt;Se mejora gestion de errores y mensajes de alerta.&lt;/li&gt;
+&lt;li&gt;Se mejoran los filtros de busqueda.&lt;/li&gt;
+&lt;li&gt;Se Modifican querys por defecto para evitar lentitud en la carga de datos.&lt;/li&gt;
+&lt;li&gt;Se agregan colores a las transacciones para distingir entre tipos de transacciones.&lt;/li&gt;
+&lt;li&gt;Se formatea monedas.&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Sitio Web de PatoJAD (Blog) en HugoCMS</title><link>https://patojad.com.ar/projects/patojad/</link><pubDate>Thu, 12 Dec 2024 00:00:00 -0500</pubDate><guid>https://patojad.com.ar/projects/patojad/</guid><description>&lt;p&gt;Este es el sitio web personal de PatoJAD, donde se publican articulos de tecnologia, programacion y otros temas. El sitio esta construido con HugoCMS y alojado en GitHub Pages.&lt;/p&gt;
+&lt;p&gt;Archivos de proyecto:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Sitio web del Proyecto
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/PatoJAD/website/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+Repositorio en GitHub
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="diciembre-del-2024"&gt;
+Diciembre del 2024
+&lt;a href="#diciembre-del-2024" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En esta actualizacion del blog, se realizo un rebranding completo del sitio web, se cambio el logo, los colores y se mejoro la tipografia. Ademas, se mejoro la velocidad de carga del sitio. Este cambio fue realizado para mejorar la experiencia de usuario dando una interfaz mas limpia y moderna. Ademas se modifica el entorno del sitio web para ser mas enfocado en PatoJAD, su contenido y sus servicios.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/d3X3yPTS/patojad.png" alt="PatoJAD" title="PatoJAD"
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;El sitio cuenta con:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Seccion de Blog&lt;/li&gt;
+&lt;li&gt;Seccion Proyectos&lt;/li&gt;
+&lt;li&gt;Agrupacion por categorias&lt;/li&gt;
+&lt;li&gt;RSS&lt;/li&gt;
+&lt;li&gt;Selector de tema oscuro y claro&lt;/li&gt;
+&lt;li&gt;Buscador de articulos&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="noviembre-del-2021"&gt;
+Noviembre del 2021
+&lt;a href="#noviembre-del-2021" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Se modifica el sitio para dar una imagen mas profesional. Se agregan mas secciones como la de contacto. Se mejoran las transiciones y se agrega un menu de navegacion. Se mejora la tipografia y se cambia el color de fondo. Se agrega un logo personalizado.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/vmqtNDR1/patojad-noviembre-2021.png" alt="PatoJAD" title="PatoJAD"
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;El sitio cuenta con:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Seccion de Blog&lt;/li&gt;
+&lt;li&gt;Agrupacion por categorias&lt;/li&gt;
+&lt;li&gt;Seccion Autores&lt;/li&gt;
+&lt;li&gt;RSS&lt;/li&gt;
+&lt;li&gt;Contacto&lt;/li&gt;
+&lt;li&gt;Selector de tema oscuro y claro&lt;/li&gt;
+&lt;li&gt;Buscador de articulos&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="julio-2021"&gt;
+Julio 2021
+&lt;a href="#julio-2021" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Se crea nuevo theme usando tendencias modernas de diseño web. Se agrega soporte para dark mode y se mejora la tipografia. Se agrega soporte para comentarios en los articulos. Se mejora la velocidad de carga del sitio.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/cH74JtsC/patojad-julio-2021.png" alt="PatoJAD" title="PatoJAD"
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;El sitio cuenta con:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Seccion de Blog&lt;/li&gt;
+&lt;li&gt;Agrupacion por categorias&lt;/li&gt;
+&lt;li&gt;Seccion Autores&lt;/li&gt;
+&lt;li&gt;RSS&lt;/li&gt;
+&lt;li&gt;Contacto (solo informativo)&lt;/li&gt;
+&lt;li&gt;Selector de tema oscuro y claro&lt;/li&gt;
+&lt;li&gt;Buscador de articulos&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="enero-2020"&gt;
+Enero 2020
+&lt;a href="#enero-2020" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Se crea el sitio web con &lt;strong&gt;HugoCMS&lt;/strong&gt; y se publica en &lt;strong&gt;GitHub Pages&lt;/strong&gt;. Se publican los primeros articulos del blog. Se crea el logo del sitio web.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/DZ73BjTf/patojad-enero-2020.png" alt="PatoJAD" title="PatoJAD"
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;El sitio cuenta con:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Seccion de Blog&lt;/li&gt;
+&lt;li&gt;Agrupacion por categorias&lt;/li&gt;
+&lt;li&gt;Seccion Autores&lt;/li&gt;
+&lt;li&gt;RSS&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Cómo instalar Bun.js en MacOS con Homebrew</title><link>https://patojad.com.ar/post/2024/11/c%C3%B3mo-instalar-bun.js-en-macos-con-homebrew/</link><pubDate>Fri, 01 Nov 2024 10:24:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/11/c%C3%B3mo-instalar-bun.js-en-macos-con-homebrew/</guid><description>&lt;p&gt;Instalar &lt;strong&gt;Bun.js&lt;/strong&gt; en MacOS puede hacerse de varias maneras, y en este artículo exploraremos cómo hacerlo con Homebrew, un gestor de paquetes que simplifica la instalación de herramientas en Mac. Aunque hay otros métodos, en mi caso he optado por usar Brew por preferencia personal, y en este tutorial te guiaré paso a paso en el proceso. Además, agregaré información básica sobre &lt;strong&gt;Bun.js&lt;/strong&gt; y su utilidad, así como algunos consejos útiles para la instalación.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-bunjs-y-por-qué-usarlo"&gt;
+¿Qué es &lt;strong&gt;Bun.js&lt;/strong&gt; y por qué usarlo?
+&lt;a href="#qu%c3%a9-es-bunjs-y-por-qu%c3%a9-usarlo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Bun.js&lt;/strong&gt; es un runtime y gestor de paquetes todo en uno para JavaScript, desarrollado con el objetivo de ofrecer una alternativa ultrarrápida a Node.js y npm. Su principal ventaja es la velocidad, ya que está diseñado desde cero para mejorar el rendimiento en aplicaciones web y herramientas de desarrollo. Gracias a su enfoque optimizado en operaciones comunes, &lt;strong&gt;Bun.js&lt;/strong&gt; resulta ideal para desarrolladores que buscan una alternativa a otros runtimes y desean mayor rapidez en sus aplicaciones.&lt;/p&gt;
+&lt;p&gt;Para profundizar en &lt;strong&gt;Bun.js&lt;/strong&gt; y su ecosistema, pronto estaré publicando un artículo que detallará todas sus características y ventajas.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="requisitos-previos-instalar-homebrew"&gt;
+Requisitos previos: Instalar Homebrew
+&lt;a href="#requisitos-previos-instalar-homebrew" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Antes de comenzar con la instalación de &lt;strong&gt;Bun.js&lt;/strong&gt;, necesitarás tener Homebrew instalado en tu Mac. Si aún no lo tienes, puedes hacerlo siguiendo los pasos del tutorial que te dejo en este &lt;a href="https://patojad.com.ar/post/2023/02/como-instalar-brew-en-macos/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+enlace
+&lt;/a&gt;. Homebrew es un gestor de paquetes para MacOS que facilita la instalación de software y herramientas en tu sistema. Una vez que lo tengas instalado, podrás instalar &lt;strong&gt;Bun.js&lt;/strong&gt; y otros paquetes con un simple comando en la terminal.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación"&gt;
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;A continuación, te muestro cómo instalar &lt;strong&gt;Bun.js&lt;/strong&gt; en MacOS, para esto voy a dejarte los comandos que usamos en el video y otra opcion que tambien comentamos para que vos utilices la que creas mas conveniente.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="usando-homebrew"&gt;
+Usando Homebrew
+&lt;a href="#usando-homebrew" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Sigue estos pasos para instalar &lt;strong&gt;Bun.js&lt;/strong&gt; utilizando Homebrew:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Abre la Terminal y ejecuta el siguiente comando para instalar &lt;strong&gt;Bun.js&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;brew install bun
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Para verificar que &lt;strong&gt;Bun.js&lt;/strong&gt; se haya instalado correctamente, utiliza el siguiente comando:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bun --version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Si ves la versión de &lt;strong&gt;Bun.js&lt;/strong&gt; en pantalla, significa que la instalación fue exitosa.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="otros-métodos-para-instalar-bunjs-en-macos"&gt;
+Otros métodos para instalar &lt;strong&gt;Bun.js&lt;/strong&gt; en MacOS
+&lt;a href="#otros-m%c3%a9todos-para-instalar-bunjs-en-macos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Aunque Brew es una opción rápida y práctica, existen otros métodos para instalar &lt;strong&gt;Bun.js&lt;/strong&gt; en MacOS:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Instalación directa desde el script de Bun: Ejecuta el siguiente comando en la Terminal para una instalación rápida:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl -fsSL https://bun.sh/install &lt;span class="p"&gt;|&lt;/span&gt; bash
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# En caso de querer instalar una version específica&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl -fsSL https://bun.sh/install &lt;span class="p"&gt;|&lt;/span&gt; bash -s &lt;span class="s2"&gt;&amp;#34;bun-v1.0.0&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;Este script se encargará de descargar e instalar &lt;strong&gt;Bun.js&lt;/strong&gt; directamente desde su sitio oficial.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="solución-de-problemas-comunes"&gt;
+Solución de problemas comunes
+&lt;a href="#soluci%c3%b3n-de-problemas-comunes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Es posible que te encuentres con algunos problemas durante la instalación. A continuación, presento algunos problemas comunes y cómo solucionarlos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Error al ejecutar comandos de Brew: Si Brew no está reconocido en tu Terminal, asegúrate de que está en tu PATH. Puedes añadirlo con:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;eval &amp;#34;$(/opt/homebrew/bin/brew shellenv)&amp;#34;&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; ~/.zprofile
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;eval&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;/opt/homebrew/bin/brew shellenv&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Error de permisos: Si encuentras problemas de permisos, intenta ejecutar el comando con sudo, aunque esto no suele ser necesario en instalaciones estándar de Brew.
+&lt;ul&gt;
+&lt;li&gt;Comando ‘bun’ no encontrado después de la instalación: Si la Terminal no reconoce el comando bun después de instalarlo, intenta cerrar y reabrir la Terminal, o añade el PATH de &lt;strong&gt;Bun.js&lt;/strong&gt; manualmente:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;/opt/homebrew/bin:&lt;/span&gt;&lt;span class="nv"&gt;$PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Instalar &lt;strong&gt;Bun.js&lt;/strong&gt; en MacOS con Homebrew es una manera sencilla y práctica para iniciarse con este potente runtime de JavaScript. No obstante, existen otros métodos de instalación, como el script directo o la descarga manual desde GitHub, que también puedes considerar según tus preferencias.&lt;/p&gt;
+&lt;p&gt;No olvides visitar el video en YouTube para ver el proceso en acción, y asegúrate de tener Brew correctamente configurado para evitar problemas. Espero que esta guía te haya resultado útil, ¡y te animo a explorar todo el potencial de &lt;strong&gt;Bun.js&lt;/strong&gt; en tus próximos proyectos de desarrollo!&lt;/p&gt;</description></item><item><title>Descubriendo PrimeVue: La Biblioteca de Componentes para Desarrolladores Vue.js</title><link>https://patojad.com.ar/post/2024/04/descubriendo-primevue-la-biblioteca-de-componentes-para-desarrolladores-vue.js/</link><pubDate>Thu, 18 Apr 2024 10:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/04/descubriendo-primevue-la-biblioteca-de-componentes-para-desarrolladores-vue.js/</guid><description>&lt;p&gt;Si eres nuevo en el mundo del desarrollo web con &lt;strong&gt;Vue.js&lt;/strong&gt;, es posible que aún no estés familiarizado con &lt;strong&gt;&lt;a href="https://primevue.org/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+PrimeVue
+&lt;/a&gt;&lt;/strong&gt;. ¡Pero no te preocupes! En este artículo, te introduciré a esta potente biblioteca de componentes y te mostraré por qué es una herramienta esencial para cualquier desarrollador que trabaje con &lt;strong&gt;Vue.js&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-primevue"&gt;
+¿Qué es PrimeVue?
+&lt;a href="#qu%c3%a9-es-primevue" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;&lt;a href="https://primevue.org/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+PrimeVue
+&lt;/a&gt;&lt;/strong&gt; es una biblioteca de componentes de interfaz de usuario (UI) diseñada específicamente para &lt;strong&gt;Vue.js&lt;/strong&gt;. ¿Qué significa esto? En pocas palabras, &lt;strong&gt;&lt;a href="https://primevue.org/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+PrimeVue
+&lt;/a&gt;&lt;/strong&gt; proporciona una amplia gama de componentes predefinidos listos para usar en tus aplicaciones &lt;strong&gt;Vue.js&lt;/strong&gt;, lo que te permite construir interfaces de usuario de manera rápida y eficiente.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-ofrece-primevue-a-los-desarrolladores"&gt;
+¿Qué ofrece PrimeVue a los desarrolladores?
+&lt;a href="#qu%c3%a9-ofrece-primevue-a-los-desarrolladores" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;&lt;a href="https://primevue.org/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+PrimeVue
+&lt;/a&gt;&lt;/strong&gt; ofrece una variedad de componentes UI esenciales, como botones, formularios, tablas, gráficos y mucho más. Estos componentes están diseñados con un enfoque en la usabilidad, la accesibilidad y el rendimiento, lo que significa que puedes crear interfaces de usuario atractivas y funcionales sin tener que preocuparte por los detalles técnicos subyacentes.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://primevue.org/setup/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Documentación
+&lt;/a&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="la-importancia-de-primevue-en-el-ecosistema-de-vuejs"&gt;
+La importancia de PrimeVue en el ecosistema de Vue.js
+&lt;a href="#la-importancia-de-primevue-en-el-ecosistema-de-vuejs" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En un ecosistema tan rico y diverso como &lt;strong&gt;Vue.js&lt;/strong&gt;, &lt;strong&gt;&lt;a href="https://primevue.org/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+PrimeVue
+&lt;/a&gt;&lt;/strong&gt; destaca como una de las opciones preferidas para el desarrollo de interfaces de usuario. Su facilidad de uso, su amplia gama de componentes y su sólida comunidad de usuarios lo convierten en una herramienta imprescindible para cualquier proyecto &lt;strong&gt;Vue.js&lt;/strong&gt;, ya sea pequeño o grande.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="filosofía-de-diseño-de-primevue"&gt;
+Filosofía de diseño de PrimeVue
+&lt;a href="#filosof%c3%ada-de-dise%c3%b1o-de-primevue" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La filosofía de diseño de &lt;strong&gt;&lt;a href="https://primevue.org/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+PrimeVue
+&lt;/a&gt;&lt;/strong&gt; se centra en la simplicidad, la modularidad y la flexibilidad. Los componentes están diseñados para ser fáciles de usar y personalizar, lo que te permite adaptarlos a las necesidades específicas de tu proyecto. Además, &lt;strong&gt;&lt;a href="https://primevue.org/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+PrimeVue
+&lt;/a&gt;&lt;/strong&gt; sigue las mejores prácticas de diseño de interfaces de usuario, lo que garantiza una experiencia de usuario intuitiva y agradable.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="beneficios-del-uso-de-primevue"&gt;
+Beneficios del uso de PrimeVue
+&lt;a href="#beneficios-del-uso-de-primevue" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;¿Por qué deberías considerar usar &lt;strong&gt;&lt;a href="https://primevue.org/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+PrimeVue
+&lt;/a&gt;&lt;/strong&gt; en tu próximo proyecto &lt;strong&gt;Vue.js&lt;/strong&gt;? Aquí hay algunos beneficios clave:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Ahorro de tiempo:&lt;/strong&gt; Con una amplia gama de componentes listos para usar, puedes construir interfaces de usuario de manera rápida y eficiente.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Consistencia:&lt;/strong&gt; &lt;strong&gt;&lt;a href="https://primevue.org/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+PrimeVue
+&lt;/a&gt;&lt;/strong&gt; proporciona una colección coherente y bien diseñada de componentes, lo que garantiza una apariencia y funcionalidad uniformes en toda tu aplicación.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Comunidad activa:&lt;/strong&gt; &lt;strong&gt;&lt;a href="https://primevue.org/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+PrimeVue
+&lt;/a&gt;&lt;/strong&gt; cuenta con una comunidad activa de desarrolladores y usuarios que están disponibles para proporcionar soporte, compartir conocimientos y contribuir al desarrollo continuo de la biblioteca.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En resumen, &lt;strong&gt;&lt;a href="https://primevue.org/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+PrimeVue
+&lt;/a&gt;&lt;/strong&gt; es una biblioteca de componentes UI poderosa y fácil de usar que ofrece una solución completa para el desarrollo de interfaces de usuario en aplicaciones &lt;strong&gt;Vue.js&lt;/strong&gt;. Ya seas un principiante o un experto en &lt;strong&gt;Vue.js&lt;/strong&gt;, &lt;strong&gt;&lt;a href="https://primevue.org/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+PrimeVue
+&lt;/a&gt;&lt;/strong&gt; te proporciona las herramientas que necesitas para construir aplicaciones web modernas y atractivas.&lt;/p&gt;
+&lt;p&gt;¡Espero que esta introducción te haya inspirado a explorar &lt;strong&gt;&lt;a href="https://primevue.org/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+PrimeVue
+&lt;/a&gt;&lt;/strong&gt; y todas las posibilidades emocionantes que ofrece para tus proyectos &lt;strong&gt;Vue.js&lt;/strong&gt;! Y recuerda, ¡el equipo de &lt;strong&gt;&lt;a href="https://www.primetek.com.tr/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+PrimeTek
+&lt;/a&gt;&lt;/strong&gt; está para ayudarte en cada paso del camino!&lt;/p&gt;</description></item><item><title>Bun o Node.js en 2024: ¿Cuál es la mejor opción para desarrollo web?</title><link>https://patojad.com.ar/post/2024/04/bun-o-node.js-en-2024-cu%C3%A1l-es-la-mejor-opci%C3%B3n-para-desarrollo-web/</link><pubDate>Wed, 10 Apr 2024 09:04:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/04/bun-o-node.js-en-2024-cu%C3%A1l-es-la-mejor-opci%C3%B3n-para-desarrollo-web/</guid><description>&lt;p&gt;Cuando se trata de desarrollo web, ¡Hay tantas herramientas! Pero la opción más popular y ampliamente utilizada es &lt;strong&gt;Node.js&lt;/strong&gt;. Sin embargo, &lt;strong&gt;Bun&lt;/strong&gt;, una nueva herramienta, también trae muchos beneficios.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="deberías-cambiar-de-nodejs-a-bun-en-2024"&gt;
+¿Deberías cambiar de Node.js a Bun en 2024?
+&lt;a href="#deber%c3%adas-cambiar-de-nodejs-a-bun-en-2024" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Hoy estamos aquí para analizar las diferencias clave y ayudarnos a decidir cuál podría ser la mejor opción para este 2024. Así que, ¡toma una taza de café ☕️, pon tu lista de reproducción de codificación favorita y vamos a darle!&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="comprendiendo-bun-el-novato-en-el-barrio"&gt;
+Comprendiendo Bun: El Novato en el Barrio
+&lt;a href="#comprendiendo-bun-el-novato-en-el-barrio" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Imagina a &lt;strong&gt;Bun&lt;/strong&gt; como tu fiel compañero, siempre listo para simplificar tus aventuras de desarrollo web. Este moderno y liviano entorno de ejecución es un nuevo entorno de ejecución de &lt;strong&gt;JavaScript&lt;/strong&gt; completamente escrito en el lenguaje de programación &lt;strong&gt;Zig&lt;/strong&gt;, como una brisa fresca en un día caluroso de verano: refrescante y eficiente. &lt;strong&gt;Bun&lt;/strong&gt; está diseñado para ser un reemplazo directo de &lt;strong&gt;Node.js&lt;/strong&gt; y soporta la mayoría de las mismas API y características. Con &lt;strong&gt;Bun&lt;/strong&gt;, construir aplicaciones web se vuelve muy fácil gracias a su sintaxis intuitiva y características simplificadas.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="explorando-nodejs-el-guerrero-veterano"&gt;
+Explorando Node.js: El Guerrero Veterano
+&lt;a href="#explorando-nodejs-el-guerrero-veterano" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Ahora, imagina a &lt;strong&gt;Node.js&lt;/strong&gt; como el guerrero veterano del reino del desarrollo web, probado en batalla y confiable. Este entorno de ejecución es tu elección para aplicaciones escalables y de alto rendimiento. Su modelo de I/O no bloqueante y basado en eventos es como tener un superpoder para manejar múltiples tareas simultáneamente. Esto lo hace adecuado para manejar conexiones concurrentes y procesar grandes volúmenes de datos. Con su vasto ecosistema de módulos y bibliotecas, &lt;strong&gt;Node.js&lt;/strong&gt; capacita a los desarrolladores para crear una amplia gama de aplicaciones, desde servidores web hasta dispositivos IoT.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="comparación-de-características-bun-vs-nodejs"&gt;
+Comparación de características: Bun vs. Node.js
+&lt;a href="#comparaci%c3%b3n-de-caracter%c3%adsticas-bun-vs-nodejs" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Rendimiento:&lt;/strong&gt; Node.js brilla en el manejo de miles de conexiones con facilidad, como un superhéroe manejando una ciudad bulliciosa. Por otro lado, Bun, aunque más nuevo, se defiende bien y es perfecto para cargas de trabajo moderadas.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Facilidad de uso:&lt;/strong&gt; Bun es tu guía amigable del barrio, haciendo del desarrollo web un paseo alegre con su simplicidad. Mientras tanto, Node.js ofrece una inmersión más profunda en el mundo de la programación asincrónica, como dominar un rompecabezas complejo.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Escalabilidad:&lt;/strong&gt; Tanto Bun como Node.js son tus compañeros confiables para escalar aplicaciones. Node.js destaca en el manejo de conexiones concurrentes, mientras que Bun hereda esta fortaleza y se adapta a varios entornos sin problemas.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="escenarios-del-mundo-real-dónde-brillan"&gt;
+Escenarios del Mundo Real: ¿Dónde Brillan?
+&lt;a href="#escenarios-del-mundo-real-d%c3%b3nde-brillan" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Bun:&lt;/strong&gt; Ideal para startups y equipos pequeños, Bun es tu compañero ágil para construir aplicaciones web y APIs livianas. Es como tener una varita mágica para prototipos rápidos sin comprometer el rendimiento.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Node.js:&lt;/strong&gt; Ampliamente utilizado en diversas industrias, Node.js es tu aliado versátil para aplicaciones diversas, desde servidores web hasta dispositivos IoT. Su capacidad para manejar tareas de I/O lo convierte en el favorito entre las empresas para construir soluciones robustas y de alto rendimiento.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="pensamientos-finales-eligiendo-tu-compañero-de-desarrollo-web"&gt;
+Pensamientos Finales: Eligiendo tu Compañero de Desarrollo Web
+&lt;a href="#pensamientos-finales-eligiendo-tu-compa%c3%b1ero-de-desarrollo-web" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En la batalla de &lt;strong&gt;Bun&lt;/strong&gt; vs. &lt;strong&gt;Node.js&lt;/strong&gt;, la elección es tuya según tu búsqueda en el reino del desarrollo web. Ya sea que busques simplicidad y velocidad o potencia y escalabilidad, tanto &lt;strong&gt;Bun&lt;/strong&gt; como &lt;strong&gt;Node.js&lt;/strong&gt; están listos para acompañarte en tus aventuras de desarrollo web.&lt;/p&gt;
+&lt;p&gt;Entonces, queridos desarrolladores, ¿qué compañero elegirás para tu próxima aventura de desarrollo web?&lt;/p&gt;</description></item><item><title>¿Por qué Node.js se volvió tan popular para el desarrollo backend?</title><link>https://patojad.com.ar/post/2023/08/por-qu%C3%A9-node.js-se-volvi%C3%B3-tan-popular-para-el-desarrollo-backend/</link><pubDate>Mon, 28 Aug 2023 12:26:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/08/por-qu%C3%A9-node.js-se-volvi%C3%B3-tan-popular-para-el-desarrollo-backend/</guid><description>&lt;p&gt;En este artículo, exploraremos la perspectiva de un influyente autor de Medium acerca de los motivos detrás de la creciente popularidad de Node.js en el ámbito del desarrollo backend. El propósito de este artículo es presentar una adaptación traducida del artículo original, enriquecida con ajustes y opiniones personales sobre el contenido del autor.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="la-perspectiva-de-p-rehan"&gt;
+La perspectiva de P. Rehan
+&lt;a href="#la-perspectiva-de-p-rehan" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En los antiguos tiempos del desarrollo backend, &lt;strong&gt;PHP&lt;/strong&gt; solía ser la herramienta dominante para la creación de proyectos web &lt;em&gt;(incluso con un enfoque más abarcador que en la actualidad)&lt;/em&gt;. Sin embargo, con el paso del tiempo, &lt;strong&gt;PHP&lt;/strong&gt; gradualmente se convirtió en el pariente excéntrico y adelantado en el ámbito del desarrollo web, y en la actualidad, pocos comprenden su razón de existir &lt;em&gt;(aunque sigue siendo valioso en áreas como la sencillez del alojamiento web)&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Después, como aquel pariente alternativo que prefiere tomar café con leche, &lt;strong&gt;Ruby&lt;/strong&gt; (junto con Rails) ingresó con todas sus tecnologías sofisticadas y disruptivas &lt;em&gt;(aunque en este caso se pasa por alto el nivel de pureza de objetos que aún no se alcanza en &lt;strong&gt;Node.js&lt;/strong&gt;)&lt;/em&gt;. Todos tenemos a esos parientes, pero preferimos mantener cierta distancia.&lt;/p&gt;
+&lt;p&gt;Ni siquiera es necesario mencionar a &lt;strong&gt;Java&lt;/strong&gt;, un vestigio obsoleto en la programación backend que solo recuerdan los usuarios de antiguos teléfonos Nokia. &lt;em&gt;(Dejemos a un lado, por un momento, las ventajas de eficiencia que brinda JAVA más allá de su consumo de recursos)&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/gJtjsx80/nodepopular.webp" alt="Node: un lenguaje popular" title="Node: un lenguaje popular"
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Pero &lt;em&gt;¿qué hace que Node.js sea el factor determinante en el desarrollo backend?&lt;/em&gt; Recordemos&amp;hellip; Hace algunos años, surgió algo nuevo en el mundo del desarrollo backend. No era una novedad extravagante, pero sí increíblemente eficiente: Node.js.&lt;/p&gt;
+&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-info fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;Node.js es un entorno de ejecución de JavaScript multiplataforma y de código abierto que revolucionó el panorama en 2017, año en que se volvió ampliamente utilizado.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;La historia de &lt;strong&gt;Node.js&lt;/strong&gt; comenzó antes de alcanzar las 40,000 estrellas en GitHub. Inicialmente, era uno de esos pequeños entornos de &lt;strong&gt;JavaScript&lt;/strong&gt; que ejecutaban código fuera del navegador web. Sin embargo, resultó que &lt;strong&gt;Node.js&lt;/strong&gt; era justo lo que el mundo del desarrollo backend había estado anhelando durante todos esos años: &lt;em&gt;&amp;ldquo;un entorno innovador y potente capaz de gestionar volúmenes masivos de tráfico&amp;rdquo;&lt;/em&gt;. Las siguientes características han contribuido a su renombre como paradigma en el desarrollo backend:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Su tamaño compacto lo convierte en una herramienta excepcional para el desarrollo de aplicaciones en la nube.&lt;/li&gt;
+&lt;li&gt;Su velocidad es prácticamente equiparable a la velocidad de la luz, gracias a su motor &lt;strong&gt;JavaScript&lt;/strong&gt; V8.&lt;/li&gt;
+&lt;li&gt;La escalabilidad y capacidad de respuesta en el desarrollo de aplicaciones son sobresalientes.&lt;/li&gt;
+&lt;li&gt;Cuenta con una comunidad activa de casi 100000 desarrolladores.&lt;/li&gt;
+&lt;li&gt;Dispone de un conjunto inagotable de API y un ecosistema ilimitado que facilita la creación desde simples aplicaciones hasta complejas estructuras de microservicios de nivel avanzado.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cuál-es-el-componente-secreto"&gt;
+¿Cuál es el componente secreto?
+&lt;a href="#cu%c3%a1l-es-el-componente-secreto" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;¿Cómo puede un entorno de desarrollo backend gestionar tantas consultas y al mismo tiempo ser sólido y receptivo? ¿Cuál es el ingrediente secreto que corre por sus venas?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Node.js&lt;/strong&gt;, además de utilizar el mismo motor que Google Chrome, opera con un enfoque de E/S &lt;em&gt;(Entrada/Salida)&lt;/em&gt; sin bloqueo y controlado por eventos. Es lo que impulsa aplicaciones en tiempo real como Netflix (servicios de transmisión), Discord bots (chatbots) y 8 Ball Pool (juegos en línea).&lt;/p&gt;
+&lt;p&gt;Imagine el modelo de E/S sin bloqueo y controlado por eventos como un superhéroe al que llamó Node-Man. Su habilidad única es manejar múltiples tareas y salvar personas sin sudar.&lt;/p&gt;
+&lt;p&gt;Su capacidad proviene del modelo de E/S, que maneja múltiples solicitudes sin esperar a que se complete una antes de pasar a la siguiente.Así es como Node Man supera a Flash y vence al Hombre de Acero.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a href="https://pinjarirehan.medium.com/why-node-js-is-the-ultimate-game-changer-for-backend-development-26415839bbe2" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Fuente
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Cómo Iniciar en el Mundo de la Programación</title><link>https://patojad.com.ar/post/2023/08/c%C3%B3mo-iniciar-en-el-mundo-de-la-programaci%C3%B3n/</link><pubDate>Wed, 02 Aug 2023 17:06:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/08/c%C3%B3mo-iniciar-en-el-mundo-de-la-programaci%C3%B3n/</guid><description>&lt;p&gt;El mundo de la programación es emocionante y lleno de oportunidades para aquellos que deseen sumergirse en él. Sin embargo, para los principiantes, puede parecer abrumador y confuso. En este artículo, exploraremos cómo iniciar en el mundo de la programación y responderemos a dos preguntas fundamentales: ¿Qué estudiar primero para aprender a programar? y ¿Qué se necesita para programar?&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-estudiar-primero-para-aprender-a-programar"&gt;
+¿Qué estudiar primero para aprender a programar?
+&lt;a href="#qu%c3%a9-estudiar-primero-para-aprender-a-programar" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Cuando decides aventurarte en el campo de la programación, puede ser difícil determinar por dónde empezar. Aquí hay algunas opciones populares y recomendadas para dar tus primeros pasos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Fundamentos de Programación:&lt;/strong&gt; Comienza con los conceptos básicos, independientemente del lenguaje que elijas. Aprende sobre variables, tipos de datos, estructuras de control (como bucles y condicionales) y funciones. Este conocimiento es esencial para cualquier lenguaje de programación.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+HTML
+&lt;/a&gt;&lt;/strong&gt; y &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2023/08/descubriendo-el-mundo-de-css/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+CSS
+&lt;/a&gt;:&lt;/strong&gt; Si te interesa el desarrollo web, aprender &lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+HTML
+&lt;/a&gt; y &lt;a href="https://patojad.com.ar/post/2023/08/descubriendo-el-mundo-de-css/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+CSS
+&lt;/a&gt; te permitirá crear sitios web estáticos. &lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+HTML
+&lt;/a&gt; proporciona la estructura y el contenido, mientras que &lt;a href="https://patojad.com.ar/post/2023/08/descubriendo-el-mundo-de-css/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+CSS
+&lt;/a&gt; se encarga del diseño y la apariencia.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;JavaScript:&lt;/strong&gt; Como uno de los lenguajes de programación más populares, JavaScript te permite agregar interactividad y funcionalidad dinámica a tus sitios web. Conocer JavaScript te abrirá muchas puertas en el desarrollo web. Y es pie para utilizar &lt;a href="https://patojad.com.ar/post/2023/03/que-es-typescript-en-que-se-parece-a-javascript/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+TypeScript
+&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Python:&lt;/strong&gt; Conocido por su legibilidad y simplicidad, Python es un lenguaje versátil utilizado en desarrollo web, análisis de datos, inteligencia artificial y más. Es una excelente opción para principiantes debido a su sintaxis clara y amigable.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Java o C#:&lt;/strong&gt; Si te interesa la programación orientada a objetos y aplicaciones de escritorio, Java y C# son opciones sólidas. Son lenguajes ampliamente utilizados en la industria y te proporcionarán una base sólida para desarrollar aplicaciones complejas.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-lo-que-necesitas-para-programar"&gt;
+¿Qué es lo que necesitas para programar?
+&lt;a href="#qu%c3%a9-es-lo-que-necesitas-para-programar" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Afortunadamente, para comenzar en el mundo de la programación, no necesitas equipos costosos ni recursos complicados. Lo esencial incluye:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Computadora Personal:&lt;/strong&gt; Casi cualquier computadora personal moderna será suficiente para comenzar a programar. Ya sea una PC o una Mac, siempre y cuando puedas instalar y ejecutar el software necesario.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Editor de Código:&lt;/strong&gt; Necesitarás un editor de código para escribir y editar tu código fuente. Hay muchas opciones disponibles, desde editores simples como &lt;strong&gt;Visual Studio Code&lt;/strong&gt; hasta IDEs más completos como &lt;strong&gt;PyCharm&lt;/strong&gt; o &lt;strong&gt;Eclipse&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Conexión a Internet:&lt;/strong&gt; Una conexión a Internet te permitirá acceder a recursos en línea, tutoriales, documentación y comunidades de programación.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Determinación y Paciencia:&lt;/strong&gt; Aprender a programar puede ser desafiante, pero con determinación y paciencia, podrás superar los obstáculos y alcanzar tus metas.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Recursos de Aprendizaje:&lt;/strong&gt; Existen una amplia variedad de recursos en línea, como tutoriales, cursos, foros y comunidades, que te ayudarán a aprender y resolver problemas.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Iniciar en el mundo de la programación puede parecer intimidante al principio, pero con la elección adecuada de lo que estudiar primero y los recursos necesarios a tu disposición, estarás en el camino correcto para convertirte en un desarrollador exitoso. Recuerda que la práctica constante y el aprendizaje continuo son clave para mejorar tus habilidades de programación. ¡No tengas miedo de experimentar y construir proyectos propios! Con tiempo y dedicación, estarás listo para enfrentar desafíos más complejos y emocionantes en el mundo de la programación. ¡Buena suerte en tu viaje hacia convertirte en un programador!&lt;/p&gt;</description></item><item><title>¿Que es TypeScript? ¿En que se parece a JavaScript?</title><link>https://patojad.com.ar/post/2023/03/que-es-typescript-en-que-se-parece-a-javascript/</link><pubDate>Fri, 17 Mar 2023 09:40:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/03/que-es-typescript-en-que-se-parece-a-javascript/</guid><description>&lt;p&gt;&lt;strong&gt;TypeScript&lt;/strong&gt; es un &lt;em&gt;subconjunto azúcar sintáctico&lt;/em&gt; de &lt;strong&gt;JavaScript&lt;/strong&gt;. Básicamente es un código que transpila a &lt;strong&gt;JavaScript&lt;/strong&gt; y tiene como fin formalizar un poco los lineamientos a la hora de desarrollar con este lenguaje.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="principales-diferencias"&gt;
+Principales diferencias
+&lt;a href="#principales-diferencias" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Podemos situar grandes diferencias entre estos lenguajes pero para eso debemos entender que al momento de ejecución ambos terminan siendo &lt;strong&gt;JavaScript&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Objetos:&lt;/strong&gt; Si bien en &lt;strong&gt;JavaScript&lt;/strong&gt; podemos usar objetos y clases no son su mayor fuerte, sin embargo en &lt;strong&gt;TypeScript&lt;/strong&gt; vamos a estar programando Orientado a Objetos y este puede ser un punto fuerte para elegir, si lo que vamos a estar haciendo va a ser en POO &lt;strong&gt;TypeScript&lt;/strong&gt; es una gran opción.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Compilación:&lt;/strong&gt; Mientras que &lt;strong&gt;JavaScript&lt;/strong&gt; es interpretado &lt;strong&gt;TypeScript&lt;/strong&gt; requiere un proceso de &lt;em&gt;“compilación”&lt;/em&gt; (o mejor dicho transpilación) donde el código de &lt;strong&gt;TypeScript&lt;/strong&gt; se convierte en código &lt;strong&gt;JavaScript&lt;/strong&gt; que luego será interpretado ya sea por el servidor o el cliente.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tipado:&lt;/strong&gt; Una de las flexibilidades más grandes de &lt;strong&gt;JavaScript&lt;/strong&gt; es su tipado dinámico, sin embargo en &lt;strong&gt;TypeScript&lt;/strong&gt; vamos a tener un tipado estático y fuerte (que para ser sinceros podemos flexibilizar sin problemas) pero esto nos permite disminuir la cantidad de errores en tiempo de ejecución por el tipado.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Curva de Aprendizaje:&lt;/strong&gt; Si bien &lt;strong&gt;TypeScript&lt;/strong&gt; es un subconjunto azúcar sintáctico de &lt;strong&gt;JavaScript&lt;/strong&gt; este es un poco más complejo de aprender, según la comunidad, que &lt;strong&gt;JavaScript&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cual-elegir"&gt;
+¿Cual Elegir?
+&lt;a href="#cual-elegir" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Es difícil poder definir cuál es la mejor opción sin tener un contexto. Siempre la mejor opción va a depender de nuestro expertis en cada uno, las necesidades del proyecto y los framework que vamos a estar utilizando. De todas formas a las diferencias que marcamos arriba voy a sumar, una serie de reglas que utilizo yo para definir, estas son solo en base a mi experiencia:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Tamaño del proyecto&lt;/em&gt;, si el proyecto es pequeño y rápido, bastará con usar &lt;strong&gt;JavaScript&lt;/strong&gt;, sin embargo en proyectos medianos y grandes &lt;strong&gt;TypeScript&lt;/strong&gt; puede ser más cómodo a largo plazo y ahorrar algunos dolores de cabeza.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Cantidad de miembros&lt;/em&gt;, si vamos a estar desarrollando nosotros solos &lt;strong&gt;JavaScript&lt;/strong&gt; puede resultar más práctico, pero si tenemos como objetivo que colaboren más personas &lt;strong&gt;TypeScript&lt;/strong&gt; puede ser muy bueno para manejar lineamientos similares y tener código más fácil de entender.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Compatibilidad&lt;/em&gt;, puede que &lt;strong&gt;TypeScript&lt;/strong&gt; no sea compatible con nuestro proyecto o la forma de encararlo, es una prueba interesante para tener en cuenta a la hora de elegirlo.&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Webservice NodeJS y MariaDB 3 - Conector MariaDB en NodeJS</title><link>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-3-conector-mariadb-en-nodejs/</link><pubDate>Thu, 05 Aug 2021 10:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-3-conector-mariadb-en-nodejs/</guid><description>&lt;p&gt;Ya teniendo todo preparado vamos a crear nuestro conector entre NodeJS y Mariadb para poder realizar las consultas o Querys para obtener, modificar o actualizar datos&amp;hellip;&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/2P3jkH-HaKY?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Dejo a continuación el código correcto del objeto que creamos para poder manipular las consultas.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;span class="lnt"&gt;24
+&lt;/span&gt;&lt;span class="lnt"&gt;25
+&lt;/span&gt;&lt;span class="lnt"&gt;26
+&lt;/span&gt;&lt;span class="lnt"&gt;27
+&lt;/span&gt;&lt;span class="lnt"&gt;28
+&lt;/span&gt;&lt;span class="lnt"&gt;29
+&lt;/span&gt;&lt;span class="lnt"&gt;30
+&lt;/span&gt;&lt;span class="lnt"&gt;31
+&lt;/span&gt;&lt;span class="lnt"&gt;32
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;mariadb&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;mariadb&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;config&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;host&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;user&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;testwebserveruser&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;password&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;testwebserverpass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;database&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;webserverdb&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;connectionLimit&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;acquireTimeout&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;300&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;DBConnector&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;dbconnector&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;mariadb&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;createPool&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;config&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;async&lt;/span&gt; &lt;span class="nx"&gt;query&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;sQuery&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;conn&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;await&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;dbconnector&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getConnection&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;ret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;null&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kr"&gt;await&lt;/span&gt; &lt;span class="nx"&gt;conn&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;query&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;sQuery&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;then&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;ret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;conn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;end&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;catch&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="nx"&gt;err&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;err&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;conn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;end&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;ret&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;module&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;exports&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;DBConnector&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Webservice NodeJS + MariaDB</title><link>https://patojad.com.ar/post/2021/07/webservice-nodejs--mariadb/</link><pubDate>Mon, 26 Jul 2021 14:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/07/webservice-nodejs--mariadb/</guid><description>&lt;p&gt;En esta oportunidad cuento con mucha alegría que me anime a dar de forma diferida mi “primer curso” online sobre cómo crear un WebService con NodeJS y MariaDB&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/4NXBdb3D/curso-flayer.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;De seguro todo esto requiere mucho más trabajo y los siguientes cursos, en caso de que siga dictandolos, sean mejores. Pero es un pequeño piloto que servirá para comenzar una nueva etapa donde planeo dejar un contenido más armado y estructurado.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-esperar-de-este-curso"&gt;
+¿Qué esperar de este curso?
+&lt;a href="#qu%c3%a9-esperar-de-este-curso" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Este curso es muy básico y sirve para comprender y poder crear nuestro webservice para exponer una base de datos MariaDB con una API creada en NodeJS. Lo que buscamos es mostrar un poco como funcionan estas tecnologías por encima con el fin de poder crear aplicaciones pequeñas y comenzar en el mundo del desarrollo.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="que-ofrece"&gt;
+Que ofrece
+&lt;a href="#que-ofrece" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Este curso es pequeño y es completamente gratis. Se dicta mediante Youtube y dispone de 6 videos y 6 artículos con todo el material generado en el curso:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;32 minutos de vídeos On Demand&lt;/li&gt;
+&lt;li&gt;6 Artículos con el código generado&lt;/li&gt;
+&lt;li&gt;Acceso de por vida Free&lt;/li&gt;
+&lt;li&gt;Acceso a los vídeos desde cualquier plataforma&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="clases"&gt;
+Clases
+&lt;a href="#clases" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2021/07/webservice-nodejs-y-mariadb-1-instalacion-de-nodejs-npm-y-mariadb/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Instalacion de NodeJS NPM y MariaDB
+&lt;/a&gt; (Disponible desde 29/07)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-2-creando-base-de-datos-e-iniciando-proyecto/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Creando Base de Datos e iniciando Proyecto
+&lt;/a&gt; (Disponible desde 02/08)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-3-conector-mariadb-en-nodejs/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Conector MariaDB en NodeJS
+&lt;/a&gt; (Disponible desde 05/08)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-4-levantando-api-con-express/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Levantando API con Express
+&lt;/a&gt; (Disponible desde 09/08)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-5-accediendo-a-nuestra-db-mediante-la-api/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Accediendo a Nuestra DB mediante la API
+&lt;/a&gt; (Disponible desde 12/08)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/aplicaciones/2021/08/instalacion-de-postam-en-linux/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Instalacion de Postman en Linux
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-6-abm-en-nuestra-db-v%c3%ada-api/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+ABM en nuestra DB vía API
+&lt;/a&gt; (Disponible desde 16/08)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="apoyo"&gt;
+Apoyo
+&lt;a href="#apoyo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Me gustaría saber que cuento con tu apoyo para crear más y nuevos cursos, en caso de ser así me gustaría que puedas suscribirte al canal. Comentar los videos y obviamente sabes que estamos para acompañarte durante el curso en nuestro grupo de Telegram y obviamente en los mismos comentarios&amp;hellip;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="certificado"&gt;
+Certificado
+&lt;a href="#certificado" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Replicamos el curso en Udemy para que puedan ser certificados, en caso de necesitarlo te dejamos el link. Entendemos que no todos tienen la posibilidad de pagar el curso o no tienen el deseo, por lo cual vamos a estar poniéndolo gratis en ciertas ocasiones para que todos puedan certificar sin necesidad de pagar.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.udemy.com/course/patojad-webservice-nodejs-y-mariadb/?referralCode=817BCD02D2C08DEC01DE" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Curso en Udemy
+&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Si sentís que el curso te sirvió y, queres apoyar aún más que con tu subscribirse al canal de youtube y en las redes sociales o simplemente quieres certificar puedes encontrarlo en Udemy. Lamentablemente no me permite ponerle menos precio, pero si te interesa el certificado no te olvides de seguirnos que vamos a estar ofreciendo gratis para que todos los que lo deseen puedan certificar.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.udemy.com/course/patojad-webservice-nodejs-y-mariadb/?referralCode=817BCD02D2C08DEC01DE" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Curso en Udemy
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>QR Generator</title><link>https://patojad.com.ar/projects/qrgenerator/</link><pubDate>Sat, 03 Oct 2020 00:00:00 -0500</pubDate><guid>https://patojad.com.ar/projects/qrgenerator/</guid><description>&lt;p&gt;Sitio web para poder crear codigos QR personalizados de una forma simple, sencilla y completamente gratuita. El sitio web esta desarrollado en Angular. Permite descargar el QR en formato PNG, JPEG, SVG y WEBP.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://qrgenerator.vasak.net.ar/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Sitio web del Proyecto
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Vasak-Group/qr-generator" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+Repositorio en GitHub
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>El papel de Javascript en la seguridad</title><link>https://patojad.com.ar/post/2020/04/el-papel-de-javascript-en-la-seguridad/</link><pubDate>Tue, 07 Apr 2020 09:08:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/04/el-papel-de-javascript-en-la-seguridad/</guid><description>&lt;p&gt;Muchos de vosotros quizá escucharon hablar de la técnica &amp;ldquo;inyección de código javascript&amp;rdquo;. Lo que hoy vamos a ver son las bases necesarias para comprender los ataques de inyección de código Javascript, cómo funcionan, que objetivos pueden llegar a alcanzarse con esta técnica y cómo evitar ser víctimas de este tipo de ataques si somos nosotros los que jugamos como defensa de un portal web.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-javascript"&gt;
+¿Qué es Javascript?
+&lt;a href="#qu%c3%a9-es-javascript" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Javascript es un lenguaje de programación interpretado&lt;/strong&gt;, no es compilado, o sea que es &lt;strong&gt;leído e interpretado directamente por el navegador&lt;/strong&gt; como código fuente cuando éste lee la página. Esto quiere decir que no bajamos un archivo ejecutable ya compilado para que al ejecutarlo de un resultado sino que tenemos el código a ejecutar metido en el código fuente de nuestro sitio. Tal como en HTML, el explorador lee el código y hace lo que debe hacer.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Es un lenguaje de scripts, por lo que un programa en JavaScript estaría conformado por pequeños scripts&lt;/strong&gt;, cada uno de estos scripts serían miniprogramas y se interpretarán línea por línea mientras que la aplicación sigue su ejecución normal.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Es un lenguaje orientado a eventos&lt;/strong&gt;, Javascript está &lt;strong&gt;capacitado para detectar muchísimos eventos y reaccionar a ellos con una acción programada&lt;/strong&gt; por nosotros o el programador que desarrolla el script. Un evento es un suceso que ocurra durante la interacción del usuario y el navegador. Al ser guiado por eventos, no tenemos una función principal que se ejecute antes que de las demás, sino que tendremos varias funciones que se irán ejecutando según proceda (es decir que algunas funciones pueden llamar a otras).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Es un lenguaje orientado a objetos&lt;/strong&gt; (Si bien su nivel de pureza de objetos es pesima, implementa este paradigma de alguna forma), aunque sería mejor decir que su estructura está basada en objetos. Al margen de cuestiones técnicas el caso es que tiene una biblioteca de objetos predefinidos que podremos utilizar para facilitar la tarea de programar nuestros scripts.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="para-qué-se-utiliza-javascript"&gt;
+¿Para qué se utiliza Javascript?
+&lt;a href="#para-qu%c3%a9-se-utiliza-javascript" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;La función principal de Javascript es dar órdenes al navegador del usuario para que haga justo lo que queremos que haga&lt;/strong&gt;. Esto desde el punto de vista del &amp;ldquo;hacking&amp;rdquo; y la seguridad informática es sin duda alguna una característica más que atractiva ya que nos permite interactuar con el navegador del usuario de forma directa. Con javascript nosotros podemos validar un formulario html para evitar que el usuario nos envíe datos erróneos, por ejemplo, podemos detectar campos vacíos que son obligatorios y si el usuario pulsa sobre enviar decirle que primero ha de rellenar estos campos, ya que si no lo hace no podrá completar el registro. Con Javascript podemos crear todos estos efectos de transiciones de imágenes que acostumbramos a ver en múltitud de páginas web. Desde hace ya unos años existe una librería de funciones escirtas en Javascript llamada Jquery (Libreria util pero no recomendada). Esta librería es código libre, gratuita y la podrás descargar sin problemas. En definitiva, Javascript fue desarrollado con la clara intención de mejorar la experiencia de un usuario en un sitio web.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-papel-juega-javascript-en-el-hacking"&gt;
+¿Qué papel juega Javascript en el &amp;ldquo;hacking&amp;rdquo;?
+&lt;a href="#qu%c3%a9-papel-juega-javascript-en-el-hacking" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Javascript es una pieza clave y fundamental en multitud de técnicas de &amp;ldquo;hacking&amp;rdquo;, tiene cabida en técnicas de &lt;strong&gt;Phising&lt;/strong&gt; (suplantación de identidad) técnicas avanzadas en ataques de tipo Cross site Scripting &lt;strong&gt;XSS&lt;/strong&gt; (Robo de sesiones) y multitud de técnicas que describiremos cuando tengamos las bases para comprender cómo funcionan y cómo se utilizan.&lt;/p&gt;
+&lt;p&gt;Como te habrás dado cuenta, &lt;strong&gt;cualquier programa que interactua de forma directa con el usuario es una amenaza para el mismo&lt;/strong&gt; (Entendamos que la vulnerabilidad mas grande es el usuario). Cuando tu eres capaz de dar órdenes al PC de alguien sin que este lo &amp;ldquo;autorice&amp;rdquo; entonces estás ganando control sobre su máquina. Javascript hace exactamente esto, dar órdenes al navegador del usuario; normalmente para mejorar su experiencia al navegar en una web, pero como todas las tecnologías, también se ha utilizado para provocar daños en el equipo de la víctima, acceder a información confidencial o tomar el control total del equipo. Con el paso de los años los navegadores han ido evolucionando, ganando en seguridad y evitando aquellos scripts hechos en Javascript que intentan vulnerar la seguridad del equipo, no obstante, y de forma paralela también se han desarrollado plugins para los navegadores que evitan que se ejecute ningún código Javascript en el equipo. Un plugin muy popular que hace esto es NoScript. El problema de este tipo de plugins es que al evitar que se ejecute Javascript también evitarán que se ejecute el código bueno, no hacen distinción alguna entre código malicioso y código bueno. Así que lo que ganas en seguridad lo pierdes en usabilidad, y en este caso en concreto pierdes mucho más de lo que ganas. De ahí la importancia de navegar siempre en internet con un &lt;strong&gt;navegador actualizado que sea capaz de bloquear por si solo aquellas funciones de Javascript maliciosas&lt;/strong&gt; y permita las inocuas.&lt;/p&gt;
+&lt;p&gt;Hasta pudiera parecer que la parte &amp;ldquo;negativa&amp;rdquo; de Javascript solo está al alcance de aquellos webmasters que elaboren sitios con el objetivo de hacerse con el control de los internátuas que acaben ahí. Esto no es así. Evidentemente hay sitios creados específicamente para que cuando alguien los visite con un navegador desactualizado (normalmente internet explorer en nuestros amigos windowsnautas) se infecten los equipos. Pero dentro del &amp;ldquo;hacking&amp;rdquo; y javascript este tipo de técnicas es de las menos comunes ya que Google suele detectar este tipo de script rápidamente y avisa a los internáutas con carteles de este estilo:&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="http://cursohacker.es/sites/default/files/styles/large/public/images/20142202182941.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Y aunque el usuario es libre de ignorar esta advertencia esta medida hace que la gran mayoría de los internáutas no vayan al sitio web. Además Google penaliza las páginas que tienen código Javascript malicioso haciendo que no aparezcan en el buscador, y de aparecer que aparezcan en posiciones bastante bajas.&lt;/p&gt;
+&lt;p&gt;La gran potencia de Javascript en el mundo del &amp;ldquo;hacking&amp;rdquo; reside en que utilizando técnicas y metodologías es posible que un usuario normal sin ser el dueño de un sitio web sea capaz de meter código javascript en el sitio. Esta última frase puede parecer un tanto díficil de comprender, sobre todo para aquellos de nosotros que estamos empezando y llevamos relativamente poco tiempo en el mundo de la seguridad informática y el &amp;ldquo;hácking&amp;rdquo; ético.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cómo-puede-alguien-meter-código-javascript-en-mi-sitio-web"&gt;
+¿Cómo puede alguien meter código Javascript en mi sitio web?
+&lt;a href="#c%c3%b3mo-puede-alguien-meter-c%c3%b3digo-javascript-en-mi-sitio-web" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Hay multitud de técnicas para lograr este fin, lo primero que debemos de hacer es conocer el lenguaje para poder comprender cómo trabaja y valorar su alcance. La lección de hoy pretende dar una visión general del papel que juega este lenguaje en la web desde el punto de vista de la seguridad informática.&lt;/p&gt;
+&lt;p&gt;En las Webs 2.0 que son aquellas en las que el internátua no solo es un receptor de información sino que puede interactuar con la web (foros, redes sociales, portales&amp;hellip;.) estamos dejando al usuario introducir información en nuestra web. Nosotros no podemos confiar en que va a meter justo lo que le pedimos, ya que el usuario puede meter cualquier cosa y es nuestra responsabilidad validar en el servidor los datos que el internátua nos está facilitando. Vamos a poner un ejemplo práctico de esta escenografía.&lt;/p&gt;
+&lt;p&gt;Supongamos que llegamoss a un foro en el que el registro es libre, nos registrámos y ya estamos preparados para abrir hilos o responder en aquellos que ya estén abiertos. Abrimos un nuevo hilo en el que sabemos que gran parte del foro va a visitarlo porque creamos un título para el hilo bastante llamativo. Ahora en vez de escribir un texto normal nosotros metemos un código javascript que hace que todo aquel usuario que vea vuestro hilo nos envíe un mensaje con su &amp;ldquo;cookie&amp;rdquo; del foro (las cookies son pequeños archivos que tiene el navegador para controlar entre otras cosas la sesión del usuario, y a los cuales Javascript es capaz de leer, modificar, crear y eliminar). Esta cookie podemos integrarla en nuestro navegador, y una vez hecho esto aparecemos logeados como el usuario al cual le hemos robado la cookie, si además este usuario es administrador del foro ya tenemos acceso completo.&lt;/p&gt;
+&lt;p&gt;Este tipo de ataques son de lo más básicos y antiguos que se puede realizar con Javascript, la gran mayoría de foros no nos permitirán meter código javascript, y de permitirlo no se publicará o se publicará &amp;ldquo;capado&amp;rdquo; para que no se ejecute. En el peor de los casos (para el atacante) llegará incluso una alerta al administrador del foro con el intento de hacking. Así que cuando en las próximas lecciones empecemos a ver pequeños scripts en Javascript no recomendamos que salgan ahí a intentar ser unos &amp;ldquo;hackers&amp;rdquo; en foros. Cuando alguien intenta inyectar código Javascript en un sitio de estas características debe buscar la forma de hacerlo de la forma mas silenciosa posible, un buen webmaster lo pondrá realmente difícil y tendrá medios para detectar este tipo de ataques, uno más mediocre lo pondrá más fácil.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="en-qué-radica-la-dificultad-o-facilidad-a-la-hora-de-inyectar-código-javascript"&gt;
+¿En qué radica la dificultad o facilidad a la hora de inyectar código Javascript?
+&lt;a href="#en-qu%c3%a9-radica-la-dificultad-o-facilidad-a-la-hora-de-inyectar-c%c3%b3digo-javascript" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El ejemplo visto en las líneas anteriores ilustra una inyección de código Javascript básica, un foro en el que no hay restricción alguna, metemos código javascript y se publica sin más. Normalente esto no te va a funcionar en ningún foro, hace unos años si funcionaba, pero hoy ya no, al menos no de forma tan trivial. Por ello cuando un atacante quiere estudiar la forma de inyectar código javascript ha de tener máximo de información posible de lo que quiere hacer. Imaginad que detectáis que alguien utiliza un foro basado en la tecnología PHPBB entonces podriamos descargarlo, y configurarlo lo más parecido posible al foro real, y dentro de vuestro entorno virtual controlado probáis distintas inyecciones para ver el resultado hasta llegar a vuestro objetivo.&lt;/p&gt;
+&lt;p&gt;Vamos a ver un ejemplo sencillo de cómo se puede engañar a un filtro de código javascript. Lo primero que voy a mostraros es la estructura de un script Javascript:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;script&amp;gt;CODIGO...CODIGO....CODIGO....CODIGO....&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Si nos fijamos lo importante es que el código esté encerrado entre los tags &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; y &lt;code&gt;&amp;lt;/script&amp;gt;&lt;/code&gt; Un filtro que estuvo muy de moda algunos años atrás era uno que lo que hacía era detectar la palabra &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; y &lt;code&gt;&amp;lt;/script&amp;gt;&lt;/code&gt; de forma que si alguien escribía en el foro:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Hola encantado de formar parte de esta comunidad &amp;lt;script&amp;gt; codigoqueenvialacookie &amp;lt;/script&amp;gt; Saludos
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Se publicaba lo siguiente:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hola encantado de formar parte de esta comunidad codigoqueenvialacookie Saludos&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Y el código javascript encargado de robar la cookie se quedaba &amp;ldquo;inocuo&amp;rdquo;, no se ejecutaba porque el filtro había borrado los tags &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; y &lt;code&gt;&amp;lt;/script&amp;gt;&lt;/code&gt; ¿Cual fue el método que se ideó para engañar a este filtro?. Una solución bastante sencilla que consistía en publicar lo siguiente:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Hola encantado de formar parte de esta comunidad &amp;lt;scr&amp;lt;script&amp;gt;ipt&amp;gt; codigoqueenvialacookie &amp;lt;/scr&amp;lt;/script&amp;gt;ipt&amp;gt; Saludos
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Si nos fijamos lo que he hecho es meter dentro del tag &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; el mismo tag en medio. ¿Por qué? Porque yo sabía que el filtro me iba a borrar el tag &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; y me iba a publicar lo demás así que; como resultado final el fitro borraba el tag &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; que había incrustado y sin darse cuenta me dejaba pasar el tag que tenía roto:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Hola encantado de formar parte de esta comunidad &amp;lt;scr&amp;lt;script&amp;gt;ipt&amp;gt; codigoqueenvialacookie &amp;lt;/scr&amp;lt;/script&amp;gt; ipt&amp;gt; Saludos
+Hola encantado de formar parte de esta comunidad &amp;lt;script&amp;gt; codigoqueenvialacookie &amp;lt;/script&amp;gt; Saludos
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Para llegar a esta solución fue necesario hacer bastante pruebas, las cuales las cuales se realizan en entornos virtuales sin hacer ruido, Cuando se ve que funciona en el entorno virtual se pude verificar que realmente funcionaba en el real, así que es prudente notificar a los administradores de la vulnerabilidad y que la misma sea corregida.&lt;/p&gt;
+&lt;p&gt;Con esta lección espero que hayamos podido comprobar la importancia de Javascript en el mundo de la seguridad informática y cual es su papel en el mundo del &amp;ldquo;hacking&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;Fuente: CusrsoHacker&lt;/p&gt;</description></item><item><title>Genpress: El Worpress en Node</title><link>https://patojad.com.ar/post/2019/12/genpress-el-worpress-en-node/</link><pubDate>Wed, 18 Dec 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/12/genpress-el-worpress-en-node/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;Actualmente estoy trabajando en una plataforma de código abierto para blogs/sitios de contenido, que es más compatible con el siglo XXI, servicios en la nube, escalado, etc.&lt;/p&gt;
+&lt;p style="text-align: right;"&gt;
+davidmeirlevy
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;El proyecto se divide en microservicios, y tanto el panel de administración como la interfaz del blog están usando Vue.js (administrador escrito con Vue y blog-front con Nuxt, para SSR).&lt;/p&gt;
+&lt;p&gt;No está 100% listo, pero está disponible y puede ser útil en este momento para uso básico, tiene un entorno de desarrollo y scripts de producción, usando pm2. La próxima semana con docker y compose, y pronto también helm chart.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://greenpress.herokuapp.com/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Demo
+&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Estaría más que feliz de obtener cualquier tipo de ayuda, contribuciones de código, errores, sugerencias, o incluso que lo usarán para ustedes mismos. Realmente funciona y es gratis.&lt;/p&gt;
+&lt;p style="text-align: right;"&gt;
+davidmeirlevy
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="es-el-futuro"&gt;
+¿Es el futuro?
+&lt;a href="#es-el-futuro" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Claramente los que somos desarrolladores y alguna vez utilizamos PHP sabemos que es un lenguaje que fue (y aun es) útil, peor no es para nada bueno. Con esto no quiero decir que JS sea bueno, pero podemos decir objetivamente que es levemente “menos peor”.
+PHP tiene popularidad solo porque corre en cualquier lado, y se encuentra funcionando en gran parte de la internet. Pero esto no quiere decir que sea bueno, simplemente es más utilizado.&lt;/p&gt;
+&lt;p&gt;Este proyecto procura poder ofrecer una solución a WP un tanto más renovada tecnológicamente. Dando así mejores posibilidades de desarrollo y crecimiento a nuestro emprendimiento (por ejemplo, un blog) Y puede, con ayuda de la comunidad, ser uno de los grandes proyectos que inicie el cambio en Internet.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="caracteristicas"&gt;
+Caracteristicas
+&lt;a href="#caracteristicas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Gestión de configuración.&lt;/li&gt;
+&lt;li&gt;La configuración debe tener opciones como:
+&lt;ul&gt;
+&lt;li&gt;Nombre del blog (predeterminado: &amp;ldquo;Mi sitio web Greenpress&amp;rdquo;)&lt;/li&gt;
+&lt;li&gt;Idioma (predeterminado: &amp;ldquo;en&amp;rdquo;)&lt;/li&gt;
+&lt;li&gt;Dirección del sitio (predeterminado: &amp;ldquo;ltr&amp;rdquo;)&lt;/li&gt;
+&lt;li&gt;Descripción: para metadatos y SEO.&lt;/li&gt;
+&lt;li&gt;Tema: debe implementar una API para obtener una lista de temas desde el frente del blog y reiniciar el frente del blog (con npm run build) para aplicar el tema en el cambio de campo.&lt;/li&gt;
+&lt;li&gt;Font url: define el uso de fuentes de cdn como google-fonts.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Búsqueda básica de publicaciones: necesaria tanto para frontend como administracion.&lt;/li&gt;
+&lt;li&gt;Características del administrador:
+&lt;ul&gt;
+&lt;li&gt;$notify para mensaje de éxito/error.&lt;/li&gt;
+&lt;li&gt;El panel de administración es más fácil de usar.&lt;/li&gt;
+&lt;li&gt;Administrar menús (crear / eliminar / actualizar)&lt;/li&gt;
+&lt;li&gt;Selector de categoría de usuario para elementos de menús.&lt;/li&gt;
+&lt;li&gt;Mejora UX, también compatible para uso móvil.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="https://github.com/greenpress" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+Proyecto
+&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>

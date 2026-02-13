@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ip on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/ip/</link><description>Recent content in Ip on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 02 Jun 2020 12:17:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/ip/index.xml" rel="self" type="application/rss+xml"/><item><title>¿Que es DuckDNS? ¿Como lo instalo?</title><link>https://patojad.com.ar/post/2020/06/que-es-duckdns-como-lo-instalo/</link><pubDate>Tue, 02 Jun 2020 12:17:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/06/que-es-duckdns-como-lo-instalo/</guid><description>&lt;p&gt;Ya hablamos anteriormente sobre dyndns y noip y como se sabe no puede faltar ningun Pato en esta familia. Por lo cual te traemos DuckDNS otro DNS Gratuito pero mas cariñoso!!!&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cómo-es-esto-gratis"&gt;
+¿Cómo es esto gratis?
+&lt;a href="#c%c3%b3mo-es-esto-gratis" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Hemos creado un servicio que hemos querido para nosotros y creemos que es &lt;strong&gt;gratuito o lo más barato posible&lt;/strong&gt; para cubrir los costos de funcionamiento, nuestro intento es alojar y ejecutar el servicio con un desembolso casi nulo, excluyendo nuestro tiempo.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-datos-guardas"&gt;
+¿Qué datos guardas?
+&lt;a href="#qu%c3%a9-datos-guardas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La respuesta simple es: &lt;strong&gt;lo menos posible&lt;/strong&gt;. Además de los registros de datos que se utilizan para facilitar y monitorear nuestros servicios, solo almacenamos su dirección de correo electrónico, ip, token, dominios y, por supuesto, sus ips de destino.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalar-gui-para-linux"&gt;
+Instalar GUI para linux
+&lt;a href="#instalar-gui-para-linux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Muchos queremos actualizar la ip para mantener siempre al dia los datos y para eso &lt;strong&gt;DuckDNS nos ofrece una GUI simple&lt;/strong&gt; de instalar que nos mantiene actualizados. Para esto debemos instalar primero una serie de dependecias (En este caso vamos a usar apt pero tu puedes instalarlo con tu gestor de paquetes)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install zenity cron curl
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Para el siguiento paso n ecesitamos descargar el Script de la GUI el cual podemos hacerlo desde el siguiente link&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.duckdns.org/scripts/duck-setup-gui.sh" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Descargar Script
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Una ves descargado ya solo queda darle los permisos necesarios para ejecutar y obviamente ejecutarlo (Los siguientes comandos se ejecutan dentro de la carpeta donde se descargo el archivo)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;chmod +x duck-setup-gui.sh
+./duck-setup-gui.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Agregamos nuestro dominio&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.duckdns.org/img/linux-gui-01.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;El token que obtuvimos en la WEB&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.duckdns.org/img/linux-gui-02.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Ahora habrá un archivo de registro y un script de shell (que puede probar manualmente) instalado en algo como&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;~/duckdns/duck.log
+~/duckdns/duck.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;El script de shell se habrá agregado a un cron que se llama cada 5 minutos como su usuario, puede ver esto con&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;crontab -l
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="puedo-escribir-mi-propia-actualización"&gt;
+¿Puedo escribir mi propia actualización?
+&lt;a href="#puedo-escribir-mi-propia-actualizaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Sí, puedes hacer esto en http o https. puede separar los dominios por comas si desea actualizar más de uno, el parámetro ip es opcional, si lo deja en blanco detectaremos su ip de puerta de enlace&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://www.duckdns.org/update?domains={YOURVALUE}&amp;amp;token={YOURVALUE}[&amp;amp;ip={YOURVALUE}font&amp;gt;[&amp;amp;ipv6={YOURVALUE}font&amp;gt;[&amp;amp;verbose=truefont&amp;gt;[&amp;amp;clear=true]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;La URL de actualización se puede solicitar en HTTPS o HTTP. Se recomienda que siempre use HTTPS. Ofrecen servicios HTTP para usuarios desafortunados que tienen HTTPS bloqueado.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;El dominio puede ser un dominio único o una lista de dominios separados por comas.&lt;/li&gt;
+&lt;li&gt;El dominio no necesita incluir la parte .duckdns.org de su dominio, solo el subnombre.&lt;/li&gt;
+&lt;li&gt;Si no especifica la dirección IP, se detectará; esto solo funciona para las direcciones IPv4&lt;/li&gt;
+&lt;li&gt;Puede poner una dirección IPv4 o una dirección IPv6 en el parámetro ip.&lt;/li&gt;
+&lt;li&gt;Si desea actualizar AMBOS registros IPv4 e IPv6 a la vez, entonces puede usar el parámetro opcional ipv6&lt;/li&gt;
+&lt;li&gt;Para borrar ambos registros, use el parámetro opcional clear=true&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Una buena respuesta normal es&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Okay
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Una mala respuesta normal es&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;KO
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;si agrega el parámetro &amp;amp; verbose = true a su solicitud, entonces las respuestas OK tienen más información&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Okay
+127.0.0.2 [La dirección IP actual para su actualización - puede estar en blanco]
+2002: DB7 :: 21f: 5bff: febf: ce22: 8a2e [La dirección IPV6 actual para su actualización - puede estar en blanco]
+ACTUALIZADO [ACTUALIZADO o SIN CAMBIO]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="experimental--mac-os-x-linux-solaris-no-oficial"&gt;
+EXPERIMENTAL – Mac OS X, Linux, Solaris (No oficial)
+&lt;a href="#experimental--mac-os-x-linux-solaris-no-oficial" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Tambien existe una alternativa en JAVA que procura ser mas simple pero no la utilice nunca, tampoco la probe dado que &lt;strong&gt;no es oficial&lt;/strong&gt; pero vale marcarlo y dejarlo.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://etx.ca/downloads/duckdns.jar" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Descargar JAR
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Esto podemos ejecutarlo desde la siguiente manera en nuestra terminal:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;java -jar duckdnsupdater.jar
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Recordemos que &lt;strong&gt;debemos tener Java Instalado&lt;/strong&gt; en nuestra PC&lt;/p&gt;</description></item><item><title>¿Que es DynDNS? ¿Como lo instalo?</title><link>https://patojad.com.ar/post/2020/04/que-es-dyndns-como-lo-instalo/</link><pubDate>Tue, 28 Apr 2020 09:17:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/04/que-es-dyndns-como-lo-instalo/</guid><description>&lt;p&gt;¿Quieres ser el &lt;strong&gt;servidor principal&lt;/strong&gt; y ejecutar tu &lt;strong&gt;propio servidor doméstico&lt;/strong&gt; o una cámara IP y lograrlo de forma &lt;strong&gt;externa&lt;/strong&gt;?&lt;/p&gt;
+&lt;p&gt;El problema es el &lt;strong&gt;cambio de la dirección IP&lt;/strong&gt; (dinámicamente) de su línea de internet. Esto significa que es imposible lograr su red doméstica desde el exterior. Con nuestro servicio &lt;strong&gt;DNS dinámico&lt;/strong&gt; (DDNS), le ofrecemos la posibilidad de operar sus aplicaciones estáticamente desde el exterior de forma móvil.&lt;/p&gt;
+&lt;p&gt;Así se presenta DynDNS un competidor de &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2020/04/como-instalar-no-ip-en-linux/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+NO-IP
+&lt;/a&gt; del cual hablamos hace unos dias&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cómo-utiliza-el-servicio-gratuito-dyndns"&gt;
+¿Cómo utiliza el servicio gratuito DynDNS?
+&lt;a href="#c%c3%b3mo-utiliza-el-servicio-gratuito-dyndns" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Puede usar el servicio DDNS de diferentes maneras:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Con un &lt;strong&gt;enrutador&lt;/strong&gt; que admita las actualizaciones dinámicas (proveedor DynDNS [definido por el usuario])&lt;/li&gt;
+&lt;li&gt;Sin software adicional con actualización manual desde el menú de la cuenta&lt;/li&gt;
+&lt;li&gt;Con un Firefox y recargue cada (5 minutos)&lt;/li&gt;
+&lt;li&gt;Con su &lt;strong&gt;Updater-Tool&lt;/strong&gt; [para Windows, Linux, MAC y otros sistemas operativos (Java)] &lt;em&gt;DE PAGO&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Realice un escaneo de puertos para examinar qué puertos están bloqueados o liberados&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="actualización-en-tiempo-real"&gt;
+Actualización en tiempo real
+&lt;a href="#actualizaci%c3%b3n-en-tiempo-real" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Vea en su cuenta DynDNS (DDCLIENT) si su dirección IP se actualizó y cuándo, en tiempo real.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://dyndnss.net/eng/up.gif" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cuánto-cuesta-el-servicio-de-dns-dinámico"&gt;
+¿Cuánto cuesta el servicio de DNS dinámico?
+&lt;a href="#cu%c3%a1nto-cuesta-el-servicio-de-dns-din%c3%a1mico" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El servicio DynDNS (DDNS) es de hasta 3 dominios Dyn completamente gratis (cuenta gratuita). Los usuarios Premium pueden crear por 9,90 $ únicos hasta 100 urls y reenvío de dominios.&lt;/p&gt;
+&lt;h1 class="text-gray-500 text-3xl my-6" id="mi-consejo"&gt;
+Mi consejo
+&lt;a href="#mi-consejo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h1&gt;&lt;p&gt;Si alguien busca mi consejo, lo encuentra&amp;hellip; Personalmente este sistema es util y uno de los mejores&amp;hellip; solo si tu router permite la asociacion directa. Siendo asi solo basta a ir a las opciones avanzadas, elegir en DDNS el servidor DynDNS y cologar usuario y contraseña y solo se ira actualizando a medida que el modem cambie la ip.&lt;/p&gt;</description></item><item><title>Como instalar NO-IP en Linux</title><link>https://patojad.com.ar/post/2020/04/como-instalar-no-ip-en-linux/</link><pubDate>Fri, 24 Apr 2020 09:48:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/04/como-instalar-no-ip-en-linux/</guid><description>&lt;p&gt;No-IP ofrece servicios de DNS, correo electrónico, monitoreo de red y certificados SSL. El producto principal de No-IP son los &lt;strong&gt;servicios dinámicos de DNS&lt;/strong&gt; (&amp;ldquo;DDNS&amp;rdquo;). Los servicios DNS dinámicos básicos que usan un dominio propiedad de No-IP son de uso &lt;strong&gt;gratuito siempre que la cuenta permanezca activa&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Las direcciones &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2020/01/direcciones-ips-nuestra-huella-en-la-red/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+IP
+&lt;/a&gt; dinámicas&lt;/strong&gt; son comunes en las cuentas de banda ancha de &lt;strong&gt;cable residencial&lt;/strong&gt; o DSL. El servicio gratuito permite a los usuarios configurar entre &lt;strong&gt;uno y tres nombres de host&lt;/strong&gt; en un nombre de dominio proporcionado por No-IP. El nombre del host se resolverá en la dirección IP actual de la computadora de ese usuario.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="api-dns-dinámica"&gt;
+API DNS dinámica
+&lt;a href="#api-dns-din%c3%a1mica" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Un nombre de host &lt;strong&gt;DNS dinámico&lt;/strong&gt; está vinculado a la dirección &lt;a href="https://patojad.com.ar/post/2020/02/qu%c3%a9-hay-detr%c3%a1s-de-una-ip/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+IP dinámica
+&lt;/a&gt; del usuario. Cada vez que &lt;strong&gt;cambie la IP&lt;/strong&gt;, un cliente DNS dinámico enviará una actualización a No-IP con la dirección IP actual y luego No-IP propagará el cambio de DNS a Internet en cuestión de segundos.&lt;/p&gt;
+&lt;p&gt;Para facilitar las actualizaciones de direcciones IP, No-IP tiene un protocolo abierto que permite a los desarrolladores de software y fabricantes de hardware comunicarse a través de HTTP para notificarles sobre un cambio de dirección IP.&lt;/p&gt;
+&lt;p&gt;Muchos fabricantes de enrutadores brindan soporte integrado para el protocolo DNS dinámico de No-IP, por ejemplo, Asus, D-Link, Dovado, Edimax, SonicWall, SMC, y TP-Link .&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="como-instalarlo"&gt;
+Como instalarlo
+&lt;a href="#como-instalarlo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Una vez que haya abierto la ventana de su Terminal, inicie sesión como usuario &amp;ldquo;root&amp;rdquo;. Es necesario para poder realizar la Instalacion&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo -s
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;antes de instalarlo debemos asegurarnos de instalar algunas &lt;strong&gt;dependecias&lt;/strong&gt; (la instalacion se realiza mediante make install de un precompilado) por lo cual de momento no puedo generar el deb.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt install gcc make
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Luego podemos realizar la descarga e instalacion correspondiente de la siguiente forma&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd /usr/local/src/
+wget http://www.noip.com/client/post/noip-duc-linux.tar.gz
+tar xf noip-duc-linux.tar.gz
+cd noip-2.1.9-1/
+make install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora iniciara la instalacion para lo cual nos pedirá que inicie sesión con su nombre de usuario y contraseña de cuenta No-IP.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="configurar-el-cliente"&gt;
+Configurar el cliente
+&lt;a href="#configurar-el-cliente" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Como root nuevamente (o con sudo) emita el siguiente comando:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/usr/local/bin/noip2 -C
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;(guión C mayúscula, esto creará el archivo de configuración predeterminado)&lt;/p&gt;
+&lt;p&gt;Luego nos va a pedir nuestro nombre de usuario y contraseña NO-IP, así como los nombres de host que deseamos actualizar. Hay que tener cuidado, una de las preguntas es &amp;ldquo;¿Desea actualizar TODOS los hosts&amp;rdquo;. Si respondemos incorrectamente, esto podría afectar a los nombres de host en nuestra cuenta que apuntan a otras ubicaciones.&lt;/p&gt;
+&lt;p&gt;Ahora que el cliente está instalado y configurado, solo necesitamos iniciarlo. Simplemente con este comando final para iniciar el cliente en segundo plano:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/usr/local/bin/noip2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ya con esto tenemos nuestro cliente de NO-IP actualizando la IP constantemente. Sin embargo, si tenes algun problema te esperamos en nuestro grupo para debatir.&lt;/p&gt;</description></item><item><title>¿Qué hay detrás de una IP?</title><link>https://patojad.com.ar/post/2020/02/qu%C3%A9-hay-detr%C3%A1s-de-una-ip/</link><pubDate>Mon, 03 Feb 2020 09:37:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/02/qu%C3%A9-hay-detr%C3%A1s-de-una-ip/</guid><description>&lt;p&gt;Una dirección IP no es algo que se asigne de forma aleatoria sin respetar ningún principio. Conociendo la dirección IP de alguien tendremos a nuestra disposición una cantidad de datos que debemos conocer a la hora de saber ante qué situación nos encontramos. Por la misma razón es necesario comprender como se estructuran para poder crear nosotros entornos de prueba que represeten la realidad lo mas fiel posible.&lt;/p&gt;
+&lt;p&gt;Ya avanzamos en la publicación anterior una &lt;a href="https://patojad.com.ar/post/2020/01/direcciones-ips-nuestra-huella-en-la-red/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+introducción a lo que es una ip
+&lt;/a&gt;. Hoy veremos mas a fondo las partes en las que se dividen. Cojamos por ejempo la siguiente dirección IP: 192.168.5.1, es una IP privada, (luego veremos porqué) internamente la IP, todas las direcciones IPs tiene una parte de red y otra parte de host, se represeta así:&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="http://cursohacker.es/sites/default/files/styles/large/public/images/20130912140151.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;En donde 192 es el primer octeto, 168 el segundo, 5 es el tercero y 1 es el cuarto. Saber esto es necesario para comprender que las direcciones IPs son finitas, y van desde:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;00000000.00000000.00000000.00000000 -&amp;gt; 0.0.0.0 hasta:
+11111111.11111111.11111111.11111111 -&amp;gt; 255.255.255.255
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;No hay mas IPs, la tipología de red en IPv4 que es la que utilizamos en la actualidad no permite mas direcciones IPs. Esto nos da una suma de 4.228.250.625 direcciones IPs en el mundo. Así que si sabemos que cada dispositivo (pc, tablet, movil con conexión&amp;hellip;) tienen una dirección IP nos damos cuenta de que se nos quedan cortas para cubrir a toda la población mundial. Así que para ello se han estructurado las direcciones IPs de forma que algunas serán públicas y otras privadas, con la característica que las privadas son comunes para cada red local (la red interna de tu casa es una red local).&lt;/p&gt;
+&lt;p&gt;Las direcciones IP se dividen en clases para definir las redes de tamaño pequeño, mediano y grande. Las direcciones Clase A se asignan a las redes de mayor tamaño. Las
+direcciones Clase B se utilizan para las redes de tamaño medio y las de Clase C para redes pequeñas. Para conseguir esta división se utiliza el concepto Máscara de red.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="la-máscara-de-red-y-su-aplicación-en-redes"&gt;
+La máscara de red y su aplicación en redes
+&lt;a href="#la-m%c3%a1scara-de-red-y-su-aplicaci%c3%b3n-en-redes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Una máscara de red es un filtro que se utiliza para ver si el equipo al que queremos conectarnos está en nuestra misma red o en otra. A nivel técnico saber si un equipo está en nuestra red o no tiene múltiples características, los ataques a un equipo que está en tu misma red son mucho mas efectivos que aquellos que están fuera de tu red, la primera razón es que si estamos en la misma red ya nos hemos saltado primer elemento que hace de frontera entre la red del equipo al que queremos atacar y la nuestra. Las máscaras de red principales son:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Para redes de clase C: 255.255.255.0&lt;/li&gt;
+&lt;li&gt;Para redes de clase B: 255.255.0.0&lt;/li&gt;
+&lt;li&gt;Para redes de clase A: 255.0.0.0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Lo que hace una máscara de red es diferencial que parte de la dirección IP indica la red y que parte de la dirección IP hace referencia a la máquina en particular. Vamos a analizar esto con un ejemplo práctico para que se vea mas claro. Supongamos que tenemos la siguiente dirección IP 192.168.100.250 con la máscara de red 255.255.255.0 Ya vemos que es una clase C por la máscara de red y mas cosas que veremos mas adelante. Ponemos juntas tanto la IP como su máscara:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;192.168.100.250 En binario-&amp;gt; 11000000.10101000.01100100.11111010
+255.255.255.000 En binario-&amp;gt; 11111111.11111111.11111111.00000000
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Se interpreta lo siguiente: la parte de la red la forma aquella parte de la dirección IP que en su máscara de red está formada por unos (1). En nuestro caso: 192.168.100 y la parte que identifica el ordenador en particular dentro de la red identifica la parte formada por ceros en la máscara de red. En nuestro caso 250. Aplicando lo anterior deducirmos que en nuestra red estarán las IPs que van desdes 192.168.100.0&amp;hellip;&amp;hellip;hasta &amp;hellip;..192.168.100.255. Es decir en nuestra red solo podrán existir 254 ordenadores, si queremos tener más tendríamos que plantear utilizar una red de clase B o utilizar varias de clase C. He dicho 254 ordenadores puesto que en cada red la primera ip (en nuestro ejemplo 192.168.100.0) se utiliza como dirección de red y no puede ser asignada a nigún equipo, del mismo modo la última dirección, (en nuestro ejemplo 192.168.100.255) se utiliza como dirección de &lt;strong&gt;broadcast o dirección de difusión&lt;/strong&gt;. Que quiere decir que todo lo que enviemos a esa IP el router o switch que gestiona la red lo reenviará a todos los ordenadores que pertenezcan a la red. Así que si tenemos 256 Ips y 2 están reservadas nos quedan 254 disponibles.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cómo-identificar-de-forma-rápida-la-clase-a-la-que-pertenece-una-ip"&gt;
+¿Cómo identificar de forma rápida la clase a la que pertenece una IP?
+&lt;a href="#c%c3%b3mo-identificar-de-forma-r%c3%a1pida-la-clase-a-la-que-pertenece-una-ip" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Nosotros podemos saber a que clase de red pertenece una IP mirando su primer octeto y teniendo en mente la siguiente tabla:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: left"&gt;Clase de dirección&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Intervalo de primer octeto&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Cantidad de hosts permitidos&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;A&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0-127*&lt;/td&gt;
+&lt;td style="text-align: center"&gt;16.777.216&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;B&lt;/td&gt;
+&lt;td style="text-align: center"&gt;128-191&lt;/td&gt;
+&lt;td style="text-align: center"&gt;65.535&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;C&lt;/td&gt;
+&lt;td style="text-align: center"&gt;192-223&lt;/td&gt;
+&lt;td style="text-align: center"&gt;254&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Toda dirección comprendida entre 0.0.0.0 y 127.255.255.255. es una dirección IP de una red de clase A (a excepción de 127.0.0.1 que es una IP de pruebas tambien conocido como localhost, que todo ordenador se asigna a si mismo).
+Toda direccion comprendida entre 128.0.0.0 y 191.255.255.255 es una dirección IP de clase B
+Toda dirección comprendida entre 192.0.0.0 y 192.255.255.255 es una dirección IP de clase C&lt;/p&gt;
+&lt;p&gt;Por lo que si vosotros pedís la IP a alguien y os da una del tipo 192.168.3.25 ya sabeis que os está dando una IP de su red clase C privada y que si no estáis en su misma red no os valdrá para nada, en cambio si os da una IP del tipo: 80.25.68.8 veís que es una IP de clase A, llamada también IP pública con lo si os está dando acceso a su red desde fuera. En el futuro aprenderemos a ver cómo saltamos de una red a otra cuando nos queremos conectar con un equipo de alguien.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="información-privada-que-podemos-obtener-de-una-dirección-ip"&gt;
+Información privada que podemos obtener de una dirección IP
+&lt;a href="#informaci%c3%b3n-privada-que-podemos-obtener-de-una-direcci%c3%b3n-ip" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En este punto me encuentro en dudas de si efectivamente mostrar o no que podemos obtener y para que, creo que la gente que realiza esta clase de busquedas en internet no suele tener buenas intenciones y desde aqui es poco lo que puedo controlar. Sin embargo lo ideal es que conozcan lo minimo que se puede obtener sin dejar ningun link en referencia.&lt;/p&gt;
+&lt;p&gt;Con una ip y algun sitio web podremos obtener facilmente la geolocalizacion (no especifica) de la IP, por ejemplo nos permite determinar si la persona es efectivamente quien dice ser, y el provedor de internet. Lo cual puede ser muy util con fines educativos&amp;hellip;&lt;/p&gt;
+&lt;p&gt;De mas esta decir que no procedere a dejar mas informacion pero todo lo podemos hablar y aprender juntos en el grupo de telegram&amp;hellip;&lt;/p&gt;</description></item><item><title>Direcciones IPs, Nuestra huella en la red</title><link>https://patojad.com.ar/post/2020/01/direcciones-ips-nuestra-huella-en-la-red/</link><pubDate>Wed, 29 Jan 2020 08:38:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/01/direcciones-ips-nuestra-huella-en-la-red/</guid><description>&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-una-dirección-ip"&gt;
+¿Qué es una dirección IP?
+&lt;a href="#qu%c3%a9-es-una-direcci%c3%b3n-ip" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La dirección IP es como la direccion de la casa de una persona (o como el numero de telefono). Para poder comunicarse entre dos equipos es necesario que entre ellos se conozcan la IP. Por lo cual podemos deducir que si estan leyendo esto su maquina conoce de alguna forma (que ondaremos en otra oportunidad) la ip de donde se encuentra alojado este &lt;strong&gt;&amp;ldquo;hermoso&amp;rdquo;&lt;/strong&gt; blog. Bien, veamos entonces, que aspecto tiene una dirección IP:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ejemplo IP de red local (LAN, Clase C) o IP privada: 192.168.0.1&lt;/li&gt;
+&lt;li&gt;Ejemplo IP de red internet (Clase A) o IP pública: 80.58.0.33&lt;/li&gt;
+&lt;li&gt;IP local (localhost), esta IP es común para todos los equipos: 127.0.0.1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Para poder ver la ip de nuestra PC podemos hacerlo de la siguiente forma. Abrimos la terminal y ejecutamos el siguiente comando:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ifconfig
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;dando como repuesta algo similar a lo siguiente:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;enp0s31f6: flags=4099&amp;lt;UP,BROADCAST,MULTICAST&amp;gt; mtu 1500
+ether d4:81:d7:5d:11:ad txqueuelen 1000 (Ethernet)
+RX packets 0 bytes 0 (0.0 B)
+RX errors 0 dropped 0 overruns 0 frame 0
+TX packets 0 bytes 0 (0.0 B)
+TX errors 0 dropped 0 overruns 0 carrier 0 collisions 0
+device interrupt 16 memory 0xef200000-ef220000
+eth0: flags=4163&amp;lt;UP,BROADCAST,RUNNING,MULTICAST&amp;gt; mtu 1500
+inet 172.20.10.4 netmask 255.255.255.240 broadcast 172.20.10.15
+inet6 fe80::e106:f57f:60b7:7236 prefixlen 64 scopeid 0x20&amp;lt;link&amp;gt;
+ether 0a:74:02:05:d6:66 txqueuelen 1000 (Ethernet)
+RX packets 73535 bytes 82742885 (78.9 MiB)
+RX errors 0 dropped 1 overruns 0 frame 0
+TX packets 49526 bytes 6909629 (6.5 MiB)
+TX errors 0 dropped 0 overruns 0 carrier 0 collisions 0
+lo: flags=73&amp;lt;UP,LOOPBACK,RUNNING&amp;gt; mtu 65536
+inet 127.0.0.1 netmask 255.0.0.0
+inet6 ::1 prefixlen 128 scopeid 0x10&amp;lt;host&amp;gt;
+loop txqueuelen 1000 (Local Loopback)
+RX packets 2644 bytes 208896 (204.0 KiB)
+RX errors 0 dropped 0 overruns 0 frame 0
+TX packets 2644 bytes 208896 (204.0 KiB)
+TX errors 0 dropped 0 overruns 0 carrier 0 collisions 0
+wlp1s0: flags=4099&amp;lt;UP,BROADCAST,MULTICAST&amp;gt; mtu 1500
+ether 34:f3:9a:d2:90:15 txqueuelen 1000 (Ethernet)
+RX packets 0 bytes 0 (0.0 B)
+RX errors 0 dropped 0 overruns 0 frame 0
+TX packets 0 bytes 0 (0.0 B)
+TX errors 0 dropped 0 overruns 0 carrier 0 collisions 0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/wxWT9yFW/Deepin-Screenshot-20200129092416.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Muchas distribuciones no traen instalado ifconfig por defecto (Gracias a Riky por remarcarlo) en ese caso tenemos dos opciones, instalarlo o usar ip la cua les su remplazo. Para instalarlo basta con instalar el paquete net-tools:&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="ubuntu-debian-y-derivados"&gt;
+Ubuntu, Debian y Derivados
+&lt;a href="#ubuntu-debian-y-derivados" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;sudo apt install net-tools
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="arch-y-derivados"&gt;
+Arch y Derivados
+&lt;a href="#arch-y-derivados" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;sudo pacman -S net-tools
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="gentoo-y-derivados"&gt;
+Gentoo y Derivados
+&lt;a href="#gentoo-y-derivados" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;sudo emerge -s net-tools
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;y es el mismo paquete para todas las distribuciones, en caso de no tenerlo podemos ir a la segunda opcion (la mas recomendable) que es usar ip de la siguiente forma:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ip address
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;dando como repuesta algo similar a lo siguiente:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+inet 127.0.0.1/8 scope host lo
+valid_lft forever preferred_lft forever
+inet6 ::1/128 scope host
+valid_lft forever preferred_lft forever
+2: enp0s31f6: &amp;lt;NO-CARRIER,BROADCAST,MULTICAST,UP&amp;gt; mtu 1500 qdisc fq_codel state DOWN group default qlen 1000
+link/ether d4:81:d7:5d:11:ad brd ff:ff:ff:ff:ff:ff
+3: wlp1s0: &amp;lt;NO-CARRIER,BROADCAST,MULTICAST,UP&amp;gt; mtu 1500 qdisc noqueue state DOWN group default qlen 1000
+link/ether 34:f3:9a:d2:90:15 brd ff:ff:ff:ff:ff:ff
+5: eth0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000
+link/ether 0a:74:02:05:d6:66 brd ff:ff:ff:ff:ff:ff
+inet 172.20.10.4/28 brd 172.20.10.15 scope global noprefixroute dynamic eth0
+valid_lft 80320sec preferred_lft 80320sec
+inet6 fe80::e106:f57f:60b7:7236/64 scope link noprefixroute
+valid_lft forever preferred_lft forever
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/bJrYnqw0/Deepin-Screenshot-20200129100142.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;En mi caso me encuentro conectado por Ethernet tengo la direccion IPv4 172.20.10.4 y la IPv6 fe80::e106:f57f:60b7:7236. En este caso la IP es privada por lo cual puedo tener otros dispositivos con la IP 172.20.10.X que se encuentren dentro de mi red. Sin embargo, nuestra ip publica es otra es decir que para internet esta IP no es validad dado que solo me identifica dentro de mi red local.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cómo-se-convierte-mi-ip-privada-en-una-ip-pública"&gt;
+¿Cómo se convierte mi ip privada en una ip pública?
+&lt;a href="#c%c3%b3mo-se-convierte-mi-ip-privada-en-una-ip-p%c3%bablica" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/B6pZLX3n/20130712015313.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Supongamos que nuestro ordenador es el que tiene la IP 192.168.1.4 y quiere ver la web que tiene el ordenador 66.25.5.66 Entonces se producen los siguientes pasos:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Nuestro PC (192.168.1.4) Contacta con su router, que es el elemento central que tiene 2 direcciones ips (192.168.1.1 y 80.52.14.5)&lt;/li&gt;
+&lt;li&gt;Se crea un canal de conexión 192.168.1.4 &amp;lt;&amp;mdash;-&amp;gt; 192.168.1.1 (PC &amp;lt;&amp;mdash;-&amp;gt; Router)&lt;/li&gt;
+&lt;li&gt;El router ahora conecta con el servidor web (66.25.5.66)&lt;/li&gt;
+&lt;li&gt;Se crea un canal de conexión 80.52.14.5 &amp;mdash;&amp;ndash;&amp;gt; 66.25.5.66 (Router &amp;lt;&amp;mdash;&amp;ndash;&amp;gt; Servidor)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Estos pasos para el usuario son transparentes, pero ocurren.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="pregunta"&gt;
+¡PREGUNTA!
+&lt;a href="#pregunta" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Ahora bien, para cerrar la publicación dejo abierto un tema. Fijaros que siempre que salimos a internet lo que hacemos es pedirle al router que salga por nosotros y que nos mantenga &amp;ldquo;seguros&amp;rdquo; detrás de el, esto significa una cosa, El servidor web, que en nuestro ejemplo tiene la dirección 66.25.5.66 no tiene forma de saber si el que ha pedido la web ha sido 192.168.1.5 o 192.168.1.x, es decir en internet nosotros somos 80.52.14.5 lo que hay &amp;ldquo;por debajo&amp;rdquo; de eso solo lo sabemos nosotros. Nuestra &amp;ldquo;direccion&amp;rdquo; o &amp;ldquo;numero telefonico&amp;rdquo; es 80.52.14.5. Esta IP es la que está asociada a la persona que ha contratado la linea, y de producirse algún delito esta persona sería la responsable. Así pues, &lt;strong&gt;¿Tienes tu wifi abierto? Estás asumiento TODA la responsabililidad de lo que haga cualquiera que se conecte a tu red.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Contanos que opinas!!&lt;/p&gt;</description></item></channel></rss>

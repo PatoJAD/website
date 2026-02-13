@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sugar on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/sugar/</link><description>Recent content in Sugar on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 13 Oct 2020 10:46:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/sugar/index.xml" rel="self" type="application/rss+xml"/><item><title>Guia para instalar Arch</title><link>https://patojad.com.ar/post/2020/10/guia-para-instalar-arch/</link><pubDate>Tue, 13 Oct 2020 10:46:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/10/guia-para-instalar-arch/</guid><description>&lt;p&gt;Siempre hablamos de esta distribución tan maravillosa y en esta oportunidad vamos a aprovechar que un usuario nos dejó una guía tan específica y tan perfecta que vamos a proceder con la instalación de Arch linux. Con esta guía solo basta seguir paso a paso.&lt;/p&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="atención-esta-guia-solo-sirve-para-instalarlo-sobre-disco-duro-y-no-sobre-ssd"&gt;
+Atención esta guia solo sirve para instalarlo sobre Disco Duro y no sobre SSD
+&lt;a href="#atenci%c3%b3n-esta-guia-solo-sirve-para-instalarlo-sobre-disco-duro-y-no-sobre-ssd" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="preparando-el-equipo"&gt;
+Preparando el equipo
+&lt;a href="#preparando-el-equipo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Una vez que hayamos booteado nuestro prendive con Arch linux vamos a poner nuestro teclado en español de la siguiente forma:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;loadkeys la-latin1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Teniendo el teclado en español ya podemos digitar sin mayores problemas por lo cual podemos proceder a conectarnos a internet siguiendo estos pasos si usaras WiFi en vez de cable.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;iwctl
+device list
+station wlan0 scan
+station wlan0 get-networks
+station wlan0 connect [&amp;quot;Nombre_de_la_Red&amp;quot;] PassDelWiFi
+exit
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este caso la wlan0 era la que me correspondía, si te sale otro número que no sea 0 solo cambialo por el que te sale por ejemplo wlan1. Para comprobar si ya tienes conexión activada&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ping patojad.com.ar
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Presiona las teclas Ctrl+C para parar el ping si todo funciona ok, en caso contrario debemos revisar el paso anterior. Antes de preparar el disco debemos identificar si realmente tenemos UEFI o BIOS (si es que no lo sabemos de antemano) esto podemos verlo de la siguiente manera:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ls /sys/firmware/efi/efivars
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Si te aparece una lista con varios identificadores es porque estás utilizando un ordenador UEFI y debes saltar hasta la parte de Preparando el Disco UEFI&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="preparando-el-disco-bios"&gt;
+Preparando el Disco BIOS
+&lt;a href="#preparando-el-disco-bios" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para particionar el disco basta con ingresar a la herramienta de terminal que nos permite particionarlo y eso podemos hacerlo de la siguiente forma&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cfdisk
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Seleccionar &lt;strong&gt;DOS&lt;/strong&gt; para crear una tabla de particiones para &lt;strong&gt;BIOS&lt;/strong&gt;. A continuación te dejo en detalle una de las formas recomendadas. Desde el expertise de cada uno sabe que puede omitir el home o el swap. Si no entendes mucho de las particiones te recomiendo la siguiente configuración&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sda1 /boot 512M
+sda2 /swap 4-6G | Vas a la opción Type y la marcas &amp;quot;Linux Swap&amp;quot;
+sda3 /root 30-60G
+sda4 /home |Lo que sobre
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Write para escribir cambios en el disco y quit para salir. Luego te recomiendo listar los discos duros y sus particiones, es para asegurarte que todo haya salido bien en el particionado&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;fdisk -l
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Si todo lo anterior salió correctamente es hora de formatear las particiones para poder usarlas y eso lo vamos a hacer de la siguiente manera (Este paso puede variar si no particionaste como recomendamos en el paso anterior)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkfs.ext2 /dev/sda1 ; mkfs.ext4 /dev/sda3 ; mkfs.ext4 /dev/sda4 ; mkswap /dev/sda2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Puedes hacerlo 1 por 1 también si te sientes más cómodo. Una vez formateados nos toca montar las particiones y swap:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mount /dev/sda3 /mnt ; mkdir /mnt/boot ; mount /dev/sda1 /mnt/boot ; mkdir /mnt/home ; mount /dev/sda4 /mnt/home ; mkswap /dev/sda2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Luego de esto escribes &amp;ldquo;swapon&amp;rdquo; para encender la swap. Puedes hacerlo 1 por 1 también si es que es más cómodo.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;swapon
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="preparando-el-disco-uefi"&gt;
+Preparando el Disco &lt;strong&gt;UEFI&lt;/strong&gt;
+&lt;a href="#preparando-el-disco-uefi" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Primero utilizamos el siguiente comando:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;fdisk /dev/sda
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A eso lo continuas escribiendo g luego w y q para salir. Seleccionar &lt;strong&gt;GPT&lt;/strong&gt; para crear una tabla de particiones para &lt;strong&gt;UEFI&lt;/strong&gt;. A continuación te dejo en detalle una de las formas recomendadas. Desde el expertise de cada uno sabe que puede omitir el home o el swap. Si no entendes mucho de las particiones te recomiendo la siguiente configuración&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sda1 /boot/efi 512M | La marcamos bootable | Luego vamos a Type y la marcamos &amp;quot;EFI System&amp;quot;
+sda2 /swap 4-6G | Vas a la opción Type y la marcas &amp;quot;Linux Swap&amp;quot;
+sda3 /root 30-60G
+sda4 /home |Lo que sobre
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Write para escribir cambios en el disco y quit para salir. Luego te recomiendo listar los discos duros y sus particiones, es para asegurarte que todo haya salido bien en el particionado&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;fdisk -l
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Si todo lo anterior salió correctamente es hora de formatear las particiones para poder usarlas y eso lo vamos a hacer de la siguiente manera (Este paso puede variar si no particionaste como recomendamos en el paso anterior)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkfs.vfat -F32 /dev/sda1 ; mkfs.ext4 /dev/sda3 ; mkfs.ext4 /dev/sda4 ; mkswap /dev/sda2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Puedes hacerlo 1 por 1 también si te sientes más cómodo. Una vez formateados nos toca montar las particiones y swap:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mount /dev/sda3 /mnt ; mkdir /mnt/boot/efi ; mount /dev/sda1 /mnt/boot/efi ; mkdir /mnt/home ; mount /dev/sda4 /mnt/home ; swapon /dev/sda2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación-del-sistema-bios"&gt;
+Instalación del Sistema BIOS
+&lt;a href="#instalaci%c3%b3n-del-sistema-bios" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Una vez que ya tengamos nuestras particiones funcionando de 10 debemos instalar el sistema y para eso vamos a hacerlo con el siguiente comando en el caso de que nuestro equipo sea &lt;strong&gt;BIOS&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacstrap /mnt base linux-lts linux-firmware linux-lts-headers grub networkmanager network-manager-applet netctl wireless_tools iw wpa_supplicant nano xdg-user-dirs dhcpcd base-devel xterm sudo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación-del-sistema-uefi"&gt;
+Instalación del Sistema UEFI
+&lt;a href="#instalaci%c3%b3n-del-sistema-uefi" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Una vez que ya tengamos nuestras particiones funcionando de 10 debemos instalar el sistema y para eso vamos a hacerlo con el siguiente comando en el caso de que nuestro equipo sea &lt;strong&gt;UEFI&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacstrap /mnt base linux-lts linux-firmware linux-lts-headers grub networkmanager network-manager-applet netctl wireless_tools iw wpa_supplicant nano xdg-user-dirs dhcpcd base-devel sudo xterm efibootmgr
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="configuraciones-varias"&gt;
+Configuraciones Varias
+&lt;a href="#configuraciones-varias" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Ahora llega una parte que vamos a realizar algunas configuraciones varias, esto aplica tanto a UEFI como a BIOS y se realizan de la misma manera. Lo primero que vamos a realizar es descomentar multilib e Include para esto vamos a usar nano de la siguiente manera:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nano /mnt/etc/pacman.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Presionar crtl+w | escribir multilib y descomentar ambas líneas. Para poder hacer uso del multilib&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[multilib]
+Include = /etc/pacman.de/mirrorlist
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A continuación vamos a generar fstab de la siguiente manera&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;genfstab -U /mnt &amp;gt;&amp;gt; /mnt/etc/fstab
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;No tenemos que olvidarnos de cambiar root al nuevo sistema con este simple comando&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;arch-chroot /mnt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Y por último procedemos con unas configuraciones varias en lo que respecta a locacion, hostname etc&amp;hellip;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ln -sf usr/share/zoneinfo/TuContinente/TuPais_o_Capital /etc/localtime
+hwclock -w
+nano /etc/locale.gen | crt+w escribir do | desmarcar #es_DO.UTF-8
+locale-gen
+echo CualquierNombre &amp;gt; /etc/hostname
+echo KEYMAP=es &amp;gt; /etc/vconsole.conf
+echo LANG=es_DO.UTF-8 &amp;gt; /etc/locale.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación-del-grub-en-bios"&gt;
+Instalación del GRUB en BIOS
+&lt;a href="#instalaci%c3%b3n-del-grub-en-bios" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Es importante instalar nuestro cargador de arranque para poder iniciar el sistema y esto lo podemos hacer con 2 simples comandos para &lt;strong&gt;BIOS&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;grub-install /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación-del-grub-en-uefi"&gt;
+Instalación del GRUB en UEFI
+&lt;a href="#instalaci%c3%b3n-del-grub-en-uefi" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En el caso de estar en &lt;strong&gt;UEFI&lt;/strong&gt; la instalación del cargador de arranque se realiza con los siguientes comandos:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;grub-install --efi-directory=/boot/efi --bootloader-id='Arch Linux' --target=x86_64-efi
+grub-mkconfig -o /boot/grub/grub.cfg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="configurando-el-usuario-y-el-sistema"&gt;
+Configurando el usuario y el sistema
+&lt;a href="#configurando-el-usuario-y-el-sistema" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Una vez instalado el GRUB podemos proceder a configurar los usuarios y el resto del sistema, para esto iniciamos configurando la contraseña root de la siguiente manera:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;passwd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Una vez configurada la contraseña podemos configurar ya el usuario y contraseña que vamos a utilizar:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;useradd -mUG wheel [tu usuario]
+passwd [tu usuario]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora sí ya podemos apagar todo y reiniciar para poder seguir con el sistema ya instalado!&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;exit
+reboot
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Una vez que haya reiniciado con éxito y estemos de nuevo en nuestro sistema vamos a configurar usuario sudoers de la siguiente forma (para esto debemos logearnos como root con su y la contraseña)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;EDITOR=nano visudo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ctrl+w | escribir: %wheel para buscar y luego procedemos a descomentar # %wheel. Ya habiendo configurado eso podemos proceder a activar internet de la siguiente manera:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;systemctl enable NetworkManager
+systemctl start NetworkManager.service
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Si usaste wifi en vez de cable escribe para obtener la lista de dispositivos y poder realizar la coneccion:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ip link
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Una vez que identifiquemos la placa wifi la usamos de la siguiente forma&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ip link set wlo1 up
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Con ese comando ya estaria prendida la placa WiFi y podemos conectarnos de la siguiente forma:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;nmcli dev wifi connect PatoJADWiFi password p4t0j4d
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación-del-servidor-gráfico-y-driver-de-tu-gráfica"&gt;
+Instalación del servidor gráfico y driver de tu gráfica
+&lt;a href="#instalaci%c3%b3n-del-servidor-gr%c3%a1fico-y-driver-de-tu-gr%c3%a1fica" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Vamos a instalar nuestra servidor gráfico y placa, para esto vamos a dividirlo dependiendo de nuestra placa de video&lt;/p&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="intel"&gt;
+Intel
+&lt;a href="#intel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://hardzone.es/app/uploads-hardzone.es/2019/09/Intel-Cascade-Lake-X-intro.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo pacman -Syyu xf86-video-intel mesa-demos intel-ucode xorg pavucontrol pulseaudio
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="nvdia"&gt;
+Nvdia
+&lt;a href="#nvdia" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://hardzone.es/app/uploads-hardzone.es/2020/04/NVIDIA-Hotfix.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo pacman -Syyu xf86-video-nouveau mesa-demos mesa-libgl xorg pavucontrol pulseaudio
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="amd"&gt;
+AMD
+&lt;a href="#amd" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://hardzone.es/app/uploads-hardzone.es/2020/03/AMD-Ryzen-9.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo pacman -Syyu xf86-video-amdgpu mesa-vdpau mesa-demos xorg pavucontrol pulseaudio
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación-del-escritorio-y-sus-utilidades"&gt;
+Instalación del escritorio y sus utilidades
+&lt;a href="#instalaci%c3%b3n-del-escritorio-y-sus-utilidades" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;A continuación vamos a ver la instalación de los escritorios disponibles y sus utilidades te recomendamos escoger el que más te guste:&lt;/p&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-xfce4"&gt;
+Instalar XFCE4
+&lt;a href="#instalar-xfce4" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://docs.xfce.org/_media/xfce/4.12/slider-desktop.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;290MiB/RAM aproximadamente, un escritorio muy ligero y bastante personalizable&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S xfce4 xfce4-goodies network-manager-applet
+pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+pacman -S light-locker accountsservice
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-deepin"&gt;
+Instalar Deepin
+&lt;a href="#instalar-deepin" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.deepin.org/wp-content/uploads/2020/04/01-1.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;590MiB/RAM aproximadamente, es un escritorio muy estético aunque el nivel de personalización es bastante bajo&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S deepin deepin-extra
+pacman -S lightdm deepin-session-ui
+pacman -S light-locker accountsservice
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-budgie"&gt;
+Instalar Budgie
+&lt;a href="#instalar-budgie" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Ubuntu-budgie-18.04-cat.png/1280px-Ubuntu-budgie-18.04-cat.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;460MiB/RAM aproximadamente, un escritorio maleable y muy buscado&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S budgie-desktop gnome gnome-shell gnome-extra gdm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-cinnamon"&gt;
+Instalar Cinnamon
+&lt;a href="#instalar-cinnamon" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://erikdubois.be/wp-content/uploads/2017/01/arch-cinnamon-aureola-acros.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;450MiB/RAM aproximadamente, es un escritorio muy estético y fluido, con cada actualización este escritorio se renueva y nos soprende mas&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S cinnamon gdm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-enlightenment"&gt;
+Instalar Enlightenment
+&lt;a href="#instalar-enlightenment" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.stack.imgur.com/FvoTq.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;149MiB/RAM aproximadamente, es un escritorio muy liviano y muy optimizado, altamente recomendado para equipos viejos&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S enlightenment terminology gnu-free-fonts
+pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+pacman -S light-locker accountsservice
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-gnome"&gt;
+Instalar GNOME
+&lt;a href="#instalar-gnome" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.redd.it/qeu6pls7v7w11.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;740MiB/RAM aproximadamente, es un escritorio muy maleable y bastante fluido (es uno de los escritorios con más precarga pero lo vale en la usabilidad) es el preferido de &lt;strong&gt;Pipe&lt;/strong&gt; y &lt;strong&gt;Julio&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S gnome gnome-extra gdm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-gnomeflashback"&gt;
+Instalar GNOME/Flashback
+&lt;a href="#instalar-gnomeflashback" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;![](&lt;a href="https://external-preview.redd.it/38qPd6ZJGLQXB2HtQ6iL2ZEvOw-Dsg0VM05FOTc8O7I.png?auto=webp&amp;amp;s=bab6f84634f388e1abc83e14c954f94fe34b150d%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://external-preview.redd.it/38qPd6ZJGLQXB2HtQ6iL2ZEvOw-Dsg0VM05FOTc8O7I.png?auto=webp&amp;s=bab6f84634f388e1abc83e14c954f94fe34b150d"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;p&gt;435MiB/RAM aproximadamente, el diseño del escritorio y la tecnología subyacente es similar a GNOME 2. No utiliza la aceleración 3D en absoluto, por lo que generalmente es más rápido y requiere menos CPU&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S gnome-flashback gnome gnome-applets sensors-applet gdm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-lxde--gtk3"&gt;
+Instalar LXDE — GTK3
+&lt;a href="#instalar-lxde--gtk3" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://cdn.pling.com/img//hive/content-pre1/159897-1.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;175MiB/RAM aproximadamente, es un escritorio muy fluido y pueden lograrse estéticas únicas&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S lxde-gtk3 lxdm-gtk3 lxde-common
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-lxqt"&gt;
+Instalar LXQt
+&lt;a href="#instalar-lxqt" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://blog.desdelinux.net/wp-content/uploads/2014/05/lxqt-1.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;227MiB/RAM aproximadamente, es un escritorio fluido con un nivel de precarga bajo pero suficiente&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S lxqt sddm breeze-icons xdg-utils xscreensaver xautolock gnu-free-fonts
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-lxde--gtk2"&gt;
+Instalar LXDE — GTK2
+&lt;a href="#instalar-lxde--gtk2" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://blog.desdelinux.net/wp-content/uploads/2012/07/2012-07-17-194657_1440x900_scrot.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;170MiB/RAM aproximadamente, es la versión con GTK2 de lxde, en lo personal prefiero la versión con GTK3 pero eso va por cada uno.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S lxde lxdm lxde-common
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-mate"&gt;
+Instalar MATE
+&lt;a href="#instalar-mate" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://fc06.deviantart.net/fs71/f/2012/150/f/9/archlinux_mate_29_05_12_by_chetaahmc-d51p82z.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;332MiB/RAM aproximadamente, es uno de los escritorios con mejor relación consumo oferta y realmente es uno de los que personalmente más me gusta.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S mate mate-extra mate-media
+pacman -S mate-applet-dock mate-applet-streamer mate-power-manager
+pacman -S network-manager-applet system-config-printer
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;mate-extra &amp;gt; Paquete de programas para MATE (opcional)
+system-config-printer &amp;gt; Configuración de Impresoras (opcional)
+mate-power-manager &amp;gt; El backend UPower (opcional)&lt;/p&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-sugar"&gt;
+Instalar Sugar
+&lt;a href="#instalar-sugar" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://sugarlabs.org/assets/home-screenshot.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;260MiB/RAM aproximadamente, el escritorio pensado para niños (Si, no hay nada mejor que nuestro niño de 6 años use Arch, imaginense lo que va a ser a los 20) es ligero y pensado para ser muy simple de usar&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S sugar sugar-fructose sugar-runner network-manager-applet
+pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+pacman -S light-locker accountsservice
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 class="text-gray-500 text-3xl my-6" id="instalar-kde-plasma"&gt;
+Instalar KDE Plasma
+&lt;a href="#instalar-kde-plasma" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h4&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://arcolinuxd.com/wp-content/uploads/2018/06/archlinux-plasma-menu.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;700MiB/RAM aproximadamente, es un escritorio muy estético y personalizable, la precarga es baja pero en algunos casos puede ir aumentando en el uso.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pacman -S plasma gnu-free-fonts ttf-hack kde-applications sddm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;kde-applications &amp;gt; Paquete de programas para KDE (opcional)&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="iniciando-el-sistema"&gt;
+Iniciando el sistema
+&lt;a href="#iniciando-el-sistema" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para entrar al sistema solo escribes&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;systemctl enable lightdm|sddm|gdm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Depende de el escritorio que instales por ejemplo instalaste kde plasma entonces deberías poner&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;systemctl enable sddm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Y luego para poder iniciarlo también depende del escritorio que instales por ejemplo con kde&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;systemctl start sddm.service
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Deberías cambiar en ambos casos a sddm por el gestor de sesiones que hayas instalado para poder iniciarlo&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="créditos"&gt;
+Créditos
+&lt;a href="#cr%c3%a9ditos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El contenido de esta publicación no es mio, simplemente acomode y junte las 2 guías para llegar a esta publicación. Quiero agradecer a &lt;strong&gt;Im Rere =)&lt;/strong&gt; por permitirme usar sus guías.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Recorda &lt;strong&gt;apoyarnos&lt;/strong&gt; en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p&gt;</description></item></channel></rss>

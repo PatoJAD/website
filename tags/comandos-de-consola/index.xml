@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Comandos De Consola' on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/comandos-de-consola/</link><description>Recent content in Comandos De Consola' on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Wed, 09 Sep 2020 10:33:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/comandos-de-consola/index.xml" rel="self" type="application/rss+xml"/><item><title>¿Qué son exactamente los comandos?</title><link>https://patojad.com.ar/post/2020/09/qu%C3%A9-son-exactamente-los-comandos/</link><pubDate>Wed, 09 Sep 2020 10:33:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/09/qu%C3%A9-son-exactamente-los-comandos/</guid><description>&lt;p&gt;Un comando puede ser una de estas cuatro cosas:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Un programa ejecutable&lt;/strong&gt; como todos esos archivos que vimos en /usr/bin. Dentro de esta categoría, los programas pueden ser binarios compilados como programas escritos en C y C++, o programas escritos en lenguajes de script como el shell, perl, python, ruby, etc.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Un comando contenido en el propio shell&lt;/strong&gt;. bash soporta gran número de comandos internos llamados shell builtins. El comando cd, por ejemplo, es un shell builtin. 3.&lt;strong&gt;Una función del shell&lt;/strong&gt;. Estos son pequeños scripts de shell incorporados en el entorno. Veremos cómo configurar el entorno y cómo escribir funciones del shell en próximos capítulos, pero por ahora, sólo ten en cuenta que existen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Un alias&lt;/strong&gt;. Comando que podemos definir nosotros mismos, construidos a partir de otros comandos.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="identificando-comandos"&gt;
+Identificando comandos
+&lt;a href="#identificando-comandos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;A menudo es útil saber exactamente cual de los cuatro tipos de comandos estamos usando y Linux proporciona un par de formas de averiguarlo.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="type--muestra-de-qué-tipo-es-un-comando"&gt;
+type – Muestra de qué tipo es un comando
+&lt;a href="#type--muestra-de-qu%c3%a9-tipo-es-un-comando" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El comando type es un shell builtin que muestra el tipo de comando que el shell ejecutará, indicándole el nombre de un comando en particular. Funciona así:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;type&lt;/span&gt; comando
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;donde &amp;ldquo;comando&amp;rdquo; es el nombre del comando que quieres examinar. Aquí tienes algunos ejemplos:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;type&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;type&lt;/span&gt; is a shell &lt;span class="nb"&gt;builtin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;type&lt;/span&gt; ls
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ls is aliased to &lt;span class="s1"&gt;&amp;#39;ls --color=tty&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;type&lt;/span&gt; cp
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cp is /bin/cp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Aquí vemos los resultados para tres comandos diferentes. Fíjate en el de ls (realizado sobre un sistema Fedora) y en cómo el comando ls es realmente un alias del comando ls con la opción “&amp;ndash;color=tty” añadida. ¡Ahora sabemos porqué la salida de ls se muestra en color!&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="which--muestra-la-localización-de-un-ejecutable"&gt;
+which – Muestra la localización de un ejecutable
+&lt;a href="#which--muestra-la-localizaci%c3%b3n-de-un-ejecutable" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;A veces hay más de una versión de un programa ejecutable instalada en un sistema. Aunque no es muy usual en los sistemas de escritorio, sí es más frecuente en grandes servidores. Para determinar la localización exacta de un ejecutable dado tenemos el comando which:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;which ls
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/bin/ls
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;which sólo funciona con programas ejecutables, ni con builtins ni con alias que son sustitutos de los verdaderos programas ejecutables. Cuando intentamos usar which en un shell builtin, por ejemplo, cd, no tendremos respuesta o nos dará un mensaje de error:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;which &lt;span class="nb"&gt;cd&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/usr/bin/which: no &lt;span class="nb"&gt;cd&lt;/span&gt; in &lt;span class="o"&gt;(&lt;/span&gt;/opt/jre1.6.0_03/bin:/usr/lib/qt-3.3/bin:/usr/kerberos/bin:/opt/jre1.6.0_03/bin:/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/home/me/bin&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="obteniendo-la-documentación-de-un-comando"&gt;
+Obteniendo la documentación de un comando
+&lt;a href="#obteniendo-la-documentaci%c3%b3n-de-un-comando" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Ahora que sabemos qué es un comando, podemos buscar la documentación disponible para cada tipo de comando. Pero esto lo veremos mas adelante&amp;hellip;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Recorda &lt;strong&gt;apoyarnos&lt;/strong&gt; en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p&gt;</description></item></channel></rss>

@@ -1,0 +1,1182 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Artix on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/artix/</link><description>Recent content in Artix on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Fri, 15 Mar 2024 18:34:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/artix/index.xml" rel="self" type="application/rss+xml"/><item><title>Explorando SystemD en el Mundo Linux: Críticas, Realidades y Controversias</title><link>https://patojad.com.ar/post/2024/03/explorando-systemd-en-el-mundo-linux-cr%C3%ADticas-realidades-y-controversias/</link><pubDate>Fri, 15 Mar 2024 18:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/03/explorando-systemd-en-el-mundo-linux-cr%C3%ADticas-realidades-y-controversias/</guid><description>&lt;p&gt;En el vasto y diverso ecosistema de Linux, cada componente del sistema es objeto de discusión y opinión, y el sistema de inicio no es la excepción. &lt;strong&gt;SystemD&lt;/strong&gt; ha sido un tema de controversia dentro de la comunidad, generando críticas y debates en línea. En este artículo, profundizaremos en qué es &lt;strong&gt;SystemD&lt;/strong&gt;, su evolución, y las razones detrás de las críticas que ha enfrentado.&lt;/p&gt;
+&lt;p&gt;Ya escribi algunos articulos planteando los problemas de &lt;strong&gt;SystemD&lt;/strong&gt; y las alternativas que existen, pero en esta ocasión quiero profundizar en el tema y explicar las razones de la resistencia que ha enfrentado &lt;strong&gt;SystemD&lt;/strong&gt;. Y la explicacion de las cosas buenas que tiene, porque no todo es malo.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2020/06/systemd-solucion-o-problema/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+SystemD ¿Solucion o Problema?
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2020/07/systemd-no-es-el-problema-respuesta-a-zatiel/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+¿SystemD no es el problema? Respuesta a Zatiel
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="desentrañando-systemd-y-su-rol-como-sistema-de-inicio"&gt;
+Desentrañando SystemD y su Rol como Sistema de Inicio
+&lt;a href="#desentra%c3%b1ando-systemd-y-su-rol-como-sistema-de-inicio" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En el corazón de todos los sistemas basados en Linux se encuentra un sistema de inicio, el primer proceso que entra en acción después de arrancar el sistema operativo. Este proceso trabaja en segundo plano, gestionando servicios y procesos esenciales. En este contexto, &lt;strong&gt;SystemD&lt;/strong&gt; se presenta como un sistema de inicio predominante en muchas distribuciones de Linux.&lt;/p&gt;
+&lt;p&gt;Iniciado en 2010 bajo el liderazgo de &lt;strong&gt;Red Hat&lt;/strong&gt; y &lt;strong&gt;Leonard Puttering&lt;/strong&gt;, &lt;strong&gt;SystemD&lt;/strong&gt; nació con la intención de reemplazar soluciones existentes como &lt;strong&gt;SysV&lt;/strong&gt; y &lt;strong&gt;Upstart&lt;/strong&gt;. Su enfoque principal era mejorar el rendimiento del sistema, acelerar los tiempos de arranque y reducir el consumo de recursos. Rápidamente, se convirtió en el sistema de inicio predeterminado para distros populares como &lt;em&gt;Fedora&lt;/em&gt;, &lt;em&gt;Arch Linux&lt;/em&gt;, &lt;em&gt;Debian&lt;/em&gt; y &lt;em&gt;Ubuntu&lt;/em&gt;, entre otras.&lt;/p&gt;
+&lt;p&gt;A pesar de su adopción generalizada, algunas distribuciones, como &lt;em&gt;Alpine Linux&lt;/em&gt;, &lt;em&gt;MX Linux&lt;/em&gt;, &lt;em&gt;&lt;a href="https://patojad.com.ar/post/2019/09/voidlinux-por-jos%c3%a9/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Void Linux
+&lt;/a&gt;&lt;/em&gt;, &lt;em&gt;&lt;a href="https://patojad.com.ar/post/2020/08/artix-linux/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Artix
+&lt;/a&gt;&lt;/em&gt;, &lt;em&gt;&lt;a href="https://patojad.com.ar/post/2020/06/instalcion-milagros/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+MilagOS
+&lt;/a&gt;&lt;/em&gt; y otras, han optado por no adoptar &lt;strong&gt;SystemD&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="explorando-las-razones-de-la-resistencia"&gt;
+Explorando las Razones de la Resistencia
+&lt;a href="#explorando-las-razones-de-la-resistencia" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="el-argumento-del-bloat"&gt;
+El Argumento del &amp;ldquo;Bloat&amp;rdquo;
+&lt;a href="#el-argumento-del-bloat" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Un argumento recurrente contra &lt;strong&gt;SystemD&lt;/strong&gt; es su expansión progresiva hacia funciones que tradicionalmente eran gestionadas por servicios individuales. Esta acumulación de características ha llevado a críticas sobre su conformidad con la filosofía &lt;strong&gt;UNIX&lt;/strong&gt;, que aboga por la simplicidad y la especialización de funciones.&lt;/p&gt;
+&lt;p&gt;Aunque &lt;strong&gt;SystemD&lt;/strong&gt; mantiene su modularidad (recordemos qeu son varios mini-binarios especificos), su crecimiento ha llevado a la percepción de ser una solución monolítica. Además, su actualización periódica y la adición de nuevas funciones pueden traducirse en un mayor uso de espacio y recursos, lo que preocupa a aquellos que buscan eficiencia (hablando en kb de recursos).&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="dependencia-omnipresente-y-restricciones-de-opciones"&gt;
+Dependencia Omnipresente y Restricciones de Opciones
+&lt;a href="#dependencia-omnipresente-y-restricciones-de-opciones" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;SystemD&lt;/strong&gt; se ha vuelto tan integral en muchos aspectos del sistema que su ausencia puede limitar la funcionalidad de otros componentes. Servicios como el inicio de sesión gráfico o la gestión de conexiones de red a menudo dependen de componentes de &lt;strong&gt;SystemD&lt;/strong&gt;. Aunque es posible prescindir de él, las distribuciones que optan por no implementarlo deben buscar, proporcionar y mantener alternativas.&lt;/p&gt;
+&lt;p&gt;No podemos culpar a los desarrolladres de las aplicaciones por usar el set de herramientas que les provee &lt;strong&gt;SystemD&lt;/strong&gt;. Sin embargo, esto puede ser un problema para aquellos que buscan una mayor diversidad de opciones. Aun asi, hay que entender que estos set de herramienta facilitan y simplifican el trabajo de los desarrolladores, permitiendoles enfocarse en la funcionalidad de sus aplicaciones.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="red-hat-como-dueño-de-systemd"&gt;
+Red Hat como &amp;ldquo;Dueño&amp;rdquo; de SystemD
+&lt;a href="#red-hat-como-due%c3%b1o-de-systemd" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Otra crítica común se dirige al hecho de que &lt;strong&gt;SystemD&lt;/strong&gt; es un proyecto de &lt;strong&gt;Red Hat&lt;/strong&gt;. Aunque comenzó como un proyecto de esta compañía, actualmente propiedad de IBM, algunas voces expresan preocupación sobre el control que una entidad única puede tener sobre la dirección del sistema de inicio en Linux. Las recientes transformaciones en la gestión de la comunidad por parte de &lt;strong&gt;Red Hat&lt;/strong&gt; han aumentado estas preocupaciones.&lt;/p&gt;
+&lt;p&gt;Aun asi, &lt;strong&gt;SystemD&lt;/strong&gt; es un proyecto de código abierto, y su desarrollo está abierto a la participación de la comunidad. Además, la adopción de &lt;strong&gt;SystemD&lt;/strong&gt; por parte de otras distribuciones, como Debian y Ubuntu, ha ayudado a mitigar estas preocupaciones dado que en la actualidad es un proyecto que va mas alla de &lt;strong&gt;Red Hat&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="restricción-de-opciones-y-seguridad-del-sistema"&gt;
+Restricción de Opciones y Seguridad del Sistema
+&lt;a href="#restricci%c3%b3n-de-opciones-y-seguridad-del-sistema" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;SystemD&lt;/strong&gt; ha sido señalado como un factor que contribuye a la uniformidad en los sistemas Linux, restringiendo la diversidad de opciones. También se argumenta que su presencia crea un riesgo de seguridad, al ser un objetivo único para posibles ataques.&lt;/p&gt;
+&lt;p&gt;Sin embargo, defensores de &lt;strong&gt;SystemD&lt;/strong&gt; contrarrestan estas preocupaciones destacando su integración con el kernel de Linux y su eficiencia. Aseguran que, aunque puede haber un riesgo potencial debido a su ubicuidad, la confianza en un proyecto bien mantenido y ampliamente utilizado puede superar estos desafíos. Y es una realidad que &lt;strong&gt;SystemD&lt;/strong&gt; es un proyecto bien mantenido y ampliamente utilizado con un desarrollo activo.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En resumen, las críticas hacia &lt;strong&gt;SystemD&lt;/strong&gt; abordan aspectos que van desde la filosofía &lt;strong&gt;UNIX&lt;/strong&gt; hasta preocupaciones sobre dependencias y seguridad. Aunque se presentan alternativas viables, la elección de utilizar &lt;strong&gt;SystemD&lt;/strong&gt; o no a menudo se reduce a la conveniencia, eficiencia y preferencias de cada usuario.&lt;/p&gt;</description></item><item><title>Como instalar MongoDB en GNU/Linux</title><link>https://patojad.com.ar/post/2023/04/como-instalar-mongodb-en-gnu/linux/</link><pubDate>Wed, 19 Apr 2023 13:45:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/04/como-instalar-mongodb-en-gnu/linux/</guid><description>&lt;p&gt;Vamos a ver como realizar la instalacion de &lt;strong&gt;MongoDB&lt;/strong&gt; en nuestra distribucion de GNU/Linux preferida.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="comando-para-arch-linux"&gt;
+Comando para Arch Linux
+&lt;a href="#comando-para-arch-linux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En arch linux la instalacion es tan simple como podemos ver en el video utilizando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -Sy mongodb-bin
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="debian-y-derivadas-como-ubuntu"&gt;
+Debian y derivadas como ubuntu
+&lt;a href="#debian-y-derivadas-como-ubuntu" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Debemos asegurarnos de tener &lt;code&gt;gnupg&lt;/code&gt; para poder instalar las llaves necesarias, podemos instalarlo de la siguiente manera:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-get install gnupg
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;y una ves instalado procedemos a realizar la descarga e instalacion de las llaves de la siguiente manera:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl -fsSL https://pgp.mongodb.com/server-6.0.asc &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; sudo gpg -o /usr/share/keyrings/mongodb-server-6.0.gpg &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; --dearmor
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;creamos el archivo &lt;code&gt;/etc/apt/sources.list.d/mongodb-org-6.0.list&lt;/code&gt; para agregar el repositorio, esto lo podemos hacer de la siguiente manera:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;nano /etc/apt/sources.list.d/mongodb-org-6.0.list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;guardamos y cerramos el archivo limpio para luego dentro agregar el repositorio segun corresponda.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="debian-10"&gt;
+Debian 10
+&lt;a href="#debian-10" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;deb [ signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] http://repo.mongodb.org/apt/debian buster/mongodb-org/6.0 main&amp;#34;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="debian-11"&gt;
+Debian 11
+&lt;a href="#debian-11" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;deb [ signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg] http://repo.mongodb.org/apt/debian bullseye/mongodb-org/6.0 main&amp;#34;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="ubuntu-184"&gt;
+Ubuntu 18.4
+&lt;a href="#ubuntu-184" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/6.0 multiverse&amp;#34;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="ubuntu-204"&gt;
+Ubuntu 20.4
+&lt;a href="#ubuntu-204" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse&amp;#34;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="ubuntu-224"&gt;
+Ubuntu 22.4
+&lt;a href="#ubuntu-224" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse&amp;#34;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;hr&gt;
+&lt;p&gt;Una vez creado el archivo procedemos a instalar el paquete de la siguiente manera:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo apt install -y mongodb-org
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="rhel--centos--oracle--rocky--almalinux"&gt;
+RHEL / CentOS / Oracle / Rocky / AlmaLinux
+&lt;a href="#rhel--centos--oracle--rocky--almalinux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Vamos a crear el archivo &lt;code&gt;/etc/yum.repos.d/mongodb-org-6.0.repo&lt;/code&gt; que nos permitira agregar el repositorio para la instalacion y dentro vamos a agregar lo siguiente:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;[mongodb-org-6.0]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;name=MongoDB Repository
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;baseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/6.0/x86_64/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gpgcheck=1
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;enabled=1
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gpgkey=https://www.mongodb.org/static/pgp/server-6.0.asc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Una vez creado el archivo procedemos a instalar el paquete de la siguiente manera:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo yum install -y mongodb-org
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;hr&gt;
+&lt;p&gt;Fuente: &lt;a href="https://www.mongodb.com/docs/manual/administration/install-on-linux/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://www.mongodb.com/docs/manual/administration/install-on-linux/
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Install NodeJS en Linux con Homebrew</title><link>https://patojad.com.ar/post/2023/02/install-nodejs-en-linux-con-homebrew/</link><pubDate>Mon, 27 Feb 2023 11:56:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/02/install-nodejs-en-linux-con-homebrew/</guid><description>&lt;p&gt;Vamos a ver como realizar la instalación de &lt;strong&gt;NodeJS&lt;/strong&gt; de una forma muy simple y rápida utilizando &lt;em&gt;homebrew.&lt;/em&gt; De esta forma simple y rápida podemos obtener &lt;strong&gt;cualquier&lt;/strong&gt; versión de NodeJS y NPM sin importar nuestra versión de linux, nuestro gestor de paquetes o la versión que estén disponible en los repositorios.&lt;/p&gt;
+&lt;p&gt;Para poder realizar esto vamos a necesitar instalar previamente Homebrew, pero no te preocupes, si no lo tenes te dejo a continuación un artículo donde te explico como instalarlo en tu distribución de GNU/Linux.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://patojad.com.ar/post/2023/01/como-instalar-brew-en-gnu/post/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Instalar Homebrew en GNU/Linux
+&lt;/a&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalandolo"&gt;
+Instalandolo
+&lt;a href="#instalandolo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El comando utilizado para esta ocasión es el que dejaré a continuación. En caso de querer pegar en la terminal de linux se suele hacer con &lt;code&gt;ctrl&lt;/code&gt;+&lt;code&gt;shift&lt;/code&gt;+&lt;code&gt;v&lt;/code&gt; sino podes utilizar el mouse con &lt;code&gt;click derecho&lt;/code&gt; -&amp;gt; &lt;code&gt;pegar&lt;/code&gt; dependiendo de tu terminal:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;brew install node
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Como instalar brew en GNU/Linux</title><link>https://patojad.com.ar/post/2023/01/como-instalar-brew-en-gnu/linux/</link><pubDate>Tue, 31 Jan 2023 08:47:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/01/como-instalar-brew-en-gnu/linux/</guid><description>&lt;p&gt;Muchas veces tenemos que instalar dependencias o paquetes y en nuestros repositorios no se encuentran las últimas versiones. Si sos dev te suele pasar esto frecuentemente al preparar tu entorno de desarrollo, por lo cual te recomiendo usar brewhome un gestor de paquetes para GNU/Linux y MacOS que te permite gestionar muchas dependencias útiles para programar y otras que no necesariamente son para programar pero son muy útiles&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="comandos"&gt;
+Comandos
+&lt;a href="#comandos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El comando utilizado en el video es el siguiente&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/bin/bash -c &lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a href="https://docs.brew.sh/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Documentacion
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Como Desfragmentar nuestro GNU/Linux</title><link>https://patojad.com.ar/post/2023/01/como-desfragmentar-nuestro-gnu/linux/</link><pubDate>Wed, 25 Jan 2023 08:47:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/01/como-desfragmentar-nuestro-gnu/linux/</guid><description>&lt;p&gt;A lo largo y ancho de mi experiencia en múltiples ámbitos escuche que en &lt;strong&gt;GNU/Linux&lt;/strong&gt; no es necesario desfragmentar. La realidad es que si bien los índices de fragmentación son más bajos que en &lt;strong&gt;Windows&lt;/strong&gt; es realmente importante desfragmentar nuestro disco, más cuando interactuamos mucho (descargar, borrar, editar, subir) diferentes archivos y aún más si estos son pesados.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="e2fsprogs"&gt;
+e2fsprogs
+&lt;a href="#e2fsprogs" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para poder realizar esto tenemos muchas herramientas, hoy vamos a usar una que viene incluida en el paquete &lt;code&gt;e2fsprogs&lt;/code&gt; y que podemos instalar de la siguiente manera:&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="arch-y-derivadas"&gt;
+Arch y derivadas
+&lt;a href="#arch-y-derivadas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Usando &lt;code&gt;pacman&lt;/code&gt; o usando &lt;code&gt;yay&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -Sy e2fsprogs
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Sy e2fsprogs
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="debianubuntu-y-derivadas"&gt;
+Debian/Ubuntu y derivadas
+&lt;a href="#debianubuntu-y-derivadas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Podemos usar &lt;code&gt;apt&lt;/code&gt; o cualquier variante anterior a esta&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install e2fsprogs
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-get install e2fsprogs
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="fedora-y-familia"&gt;
+Fedora y familia
+&lt;a href="#fedora-y-familia" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Podemos usar tanto &lt;code&gt;dnf&lt;/code&gt; o &lt;code&gt;yum&lt;/code&gt; dependiendo la disponibilidad&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf -y install e2fsprogs
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo yum -y install e2fsprogs
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="desfragmentar"&gt;
+Desfragmentar
+&lt;a href="#desfragmentar" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Una vez que tengamos todo instalado basta con ejecutar el siguiente comando en una terminal. en el caso donde yo pongo &lt;code&gt;/etc&lt;/code&gt; debemos poner la ‘carpeta’ que queremos desfragmentar. y ahí podemos elegir, por ejemplo, &lt;code&gt;/&lt;/code&gt; el directorio raíz que desfragmentaría todo.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo e4defrag /etc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Agregar Repositorio de SteamOS a Arch</title><link>https://patojad.com.ar/post/2022/09/agregar-repositorio-de-steamos-a-arch/</link><pubDate>Tue, 13 Sep 2022 11:48:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/09/agregar-repositorio-de-steamos-a-arch/</guid><description>&lt;p&gt;Vamos a agregar los repositorios de SteamOS (Holo y jupiter) a nuestra distribución de Arch Linux favorita. Esto puede sernos útil para poder acceder a sus apps, configuraciones y personalizaciones.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://steamdeck-packages.steamos.cloud/archlinux-mirror/jupiter/os/x86_64/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-steam"&gt;&lt;/i&gt;&amp;nbsp;
+Repositorio Jupiter
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://steamdeck-packages.steamos.cloud/archlinux-mirror/holo/os/x86_64/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-steam"&gt;&lt;/i&gt;&amp;nbsp;
+Repositorio Holo
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://steamdeck-packages.steamos.cloud/archlinux-mirror/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-steam"&gt;&lt;/i&gt;&amp;nbsp;
+Todos los Repositorios
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://steamdeck-packages.steamos.cloud/archlinux-mirror/iso/latest/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-steam"&gt;&lt;/i&gt;&amp;nbsp;
+Ultimas ISO
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Antes que nada te dejo el link donde vas a poder ver los repositorios posibles y los paquetes que tiene cada uno de estos.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="video"&gt;
+Video
+&lt;a href="#video" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;iframe src='https://www.youtube.com/embed/dY6ISmFUlTY?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="comandos"&gt;
+Comandos
+&lt;a href="#comandos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Lo primero que vamos a hacer es abrir nuestro &lt;code&gt;pacman.conf&lt;/code&gt; para poder agregar los repositorios, esto lo hacemos desde la terminal y como administrador para poder guardar los cambios de la siguiente manera:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo nano /etc/pacman.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Luego agregamos las siguientes 2 líneas al final del archivo. En mi caso estaban comentadas pero tu debes agregarlas (se pega con ctrl+shift+v)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cfg" data-lang="cfg"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;[jupiter]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;Server&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;https://steamdeck-packages.steamos.cloud/archlinux-mirror/$repo/os/$arch&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;SigLevel&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;Never&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;[holo]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;Server&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;https://steamdeck-packages.steamos.cloud/archlinux-mirror/$repo/os/$arch&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;SigLevel&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;Never&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Luego guardamos (ctrl+o y después enter) y cerramos, ya podemos actualizar para descargar la información de nuestros repositorios&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Syyu
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Y ya podemos instalar desde los repositorios de SteamOS&lt;/p&gt;</description></item><item><title>Instalar Preload en Arch</title><link>https://patojad.com.ar/post/2022/02/instalar-preload-en-arch/</link><pubDate>Thu, 03 Feb 2022 09:22:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/02/instalar-preload-en-arch/</guid><description>&lt;p&gt;Preload es una aplicación que toma estadísticas de nuestro uso de aplicaciones y precarga en memoria todas aquellas que más usamos al prender el equipo. Gracias a esto podemos ver una fluidez más amplia al abrir estas aplicaciones. Y a costa de esta fluidez nuestro sistema inicia con más memoria RAM ocupada. Muchos se debaten si esta técnica es útil o no y por eso te dejo primero un video con mi postura sobre esto.&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/HVCqSfdTdUs?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Dejando aclarada mi postura de más está decir que cualquier postura con fundamentos es válida y si preferís no ocupar RAM te recomiendo que no instales &lt;strong&gt;Preload&lt;/strong&gt; aunque vas a perderte la fluidez adicional que esto nos da.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="video"&gt;
+Video
+&lt;a href="#video" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En el siguiente video vemos como se realiza la instalación de preload (con yay en mi caso pero podes usar tu gestor favorito) y cómo habilitarlo en cualquier base &lt;strong&gt;Arch&lt;/strong&gt; con &lt;strong&gt;SystemD&lt;/strong&gt; y también en &lt;strong&gt;Artix&lt;/strong&gt; con &lt;strong&gt;OpenRC&lt;/strong&gt; (En esta oportunidad no use &lt;strong&gt;Runit&lt;/strong&gt; pero con una búsqueda simple podes adaptarlo)&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/6NoYA9Rtp2s?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="código"&gt;
+Código
+&lt;a href="#c%c3%b3digo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;A continuación dejo los comandos utilizados para que sea más simple copiar y pegar…&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -S preload
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="systemd"&gt;
+SystemD
+&lt;a href="#systemd" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;En el caso de usar distros con SystemD se habilita de la siguiente manera. Recuerda que esto nos pedirá la contraseña&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;systemctl &lt;span class="nb"&gt;enable&lt;/span&gt; preload
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="openrc"&gt;
+OpenRC
+&lt;a href="#openrc" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;En el caso de estar en &lt;strong&gt;Artix&lt;/strong&gt; (con &lt;strong&gt;OpenRC&lt;/strong&gt;) debemos crear el archivo del demonio de la siguiente manera:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo nano /etc/init.d/preload
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Y dentro del archivo debemos poner lo siguiente:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cfg" data-lang="cfg"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#!/sbin/openrc-run&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;command&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;/usr/bin/preload&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;command_args&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;$PRELOAD_OPTS&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;command_args_foreground&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;--foreground&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Esto lo guardamos y a continuación le damos permisos al archivo para poder iniciar el proceso.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo chmod &lt;span class="m"&gt;777&lt;/span&gt; /etc/init.d/preload
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="w-full rounded-xl bg-yellow-600/75 text-yellow-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-warning fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;OJO no es recomendable usar 777 para los permisos de este archivo, es una mala practica que hago personalmente para hacer pruebas, lo ideal es ponerle el mismo permiso que tienen el resto de los archivos en el folder /etc/init.d&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Y por último podemos inicializar el proceso de la siguiente manera:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo rc-service preload start
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Instalar PARU y YAY</title><link>https://patojad.com.ar/post/2022/01/instalar-paru-y-yay/</link><pubDate>Thu, 27 Jan 2022 15:12:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/01/instalar-paru-y-yay/</guid><description>&lt;p&gt;Ya hablamos con anterioridad sobre &lt;a href="https://patojad.com.ar/aplicaciones/2022/01/paru-vs-yay-cual-elegir/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+PARU y YAY
+&lt;/a&gt;. En esa oportunidad di mi opinión sobre cuál deberíamos elegir, aunque esto siempre es a gusto y placer de la persona que lo utilice. Por eso en esta oportunidad vamos a ver la manera más simple de instalar ambas aplicaciones.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="requisitos-previos"&gt;
+Requisitos previos
+&lt;a href="#requisitos-previos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Para poder realizar la instalación tenemos unos requisitos previos para que todo salga mas que bien, te dejo a continuación ambos links que explicaran como hacer esto (El primero no es obligatorio pero está bueno saber cual elegir antes de instalar alguno)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/aplicaciones/2022/01/paru-vs-yay-cual-elegir/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Paru VS YAY ¿Cual elegir?
+&lt;/a&gt; (Opcional)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2022/01/instalar-chaotic-aur/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Instalar Chaotic AUR
+&lt;/a&gt; (Obligatorio)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="video"&gt;
+Video
+&lt;a href="#video" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Claramente siempre genero un pequeño video para poder ser un poco más gráfico, de todas formas en la parte inferior voy a dejar los comandos utilizados. Es muy importante tener los repositorios de chaotic para poder instalarlo de esta manera.&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/DF8IAz5WoXg?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-info fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;Si el video te sirvió pegale una subscribirda al canal que es muchísimo apoyo y es totalmente gratuito.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="comandos"&gt;
+Comandos
+&lt;a href="#comandos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Para la instalación de yay:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Sy yay
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Para la instalación de paru:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Sy paru
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;En caso de que vayamos a instalar los 2 podemos hacerlo de una sola vez usando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Sy yay paru
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Para desinstalar yay:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Rs yay
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Para desinstalar paru:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Rs paru
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Para desinstalar ambos:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Rs yay paru
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Instalar Chaotic AUR</title><link>https://patojad.com.ar/post/2022/01/instalar-chaotic-aur/</link><pubDate>Wed, 12 Jan 2022 09:45:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/01/instalar-chaotic-aur/</guid><description>&lt;p&gt;Chaotic es un repositorio que busca traer los paquetes de AUR, o al menos los de mayor uso desde el punto de vista del creador, para administrarlos de forma simple con pacman. Sin tener que instalar los AUR ni configurarlos y mucho menos usar los AURHelpers. Estos son algunos de los detalles a tener en cuenta sobre Chaotic:&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/vZr3rN4_ZDc?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;ul&gt;
+&lt;li&gt;La mayoría de los paquetes disponibles en este repositorio se crean automáticamente a partir de su paquete fuente AUR respectivo. Sin embargo, hay algunas excepciones, consulte &lt;a href="https://github.com/chaotic-aur/packages" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+https://github.com/chaotic-aur/packages
+&lt;/a&gt; para averiguar cuáles.&lt;/li&gt;
+&lt;li&gt;El clúster de construcción principal es un nodo en el centro de datos de UFSCars que está alojado en San Carlos, San Paulo, Brazil.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="comandos"&gt;
+Comandos
+&lt;a href="#comandos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En el video muestro como se realiza y que podemos ver el resultado dentro de nuestros repositorios en &lt;strong&gt;pacman&lt;/strong&gt; por esto mismo voy a dejar a continuación los comandos.&lt;/p&gt;
+&lt;p&gt;Instalación o descarga de las Key del repositorio para chequear los paquetes:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pacman-key --lsign-key FBA220DFC880C036
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Instalación de los paquetes con pacman (En el video los instalo por separado, sin embargo el comando de abajo los instala a los dos juntos)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pacman -U &lt;span class="s1"&gt;&amp;#39;https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst&amp;#39;&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Por último tenemos que agregar el repositorio en la configuración de pacman. Para esto debemos editarla con permisos de administrador, por ejemplo de la siguiente manera &lt;code&gt;sudo nano /etc/pacman.conf&lt;/code&gt; y agregamos lo siguiente en la sección de repositorios:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cfg" data-lang="cfg"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;[chaotic-aur]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;Include&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;/etc/pacman.d/chaotic-mirrorlist&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="recomendaciones"&gt;
+Recomendaciones
+&lt;a href="#recomendaciones" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Las siguientes recomendaciones son propias de los desarrolladores de &lt;strong&gt;ChaoticAUR&lt;/strong&gt; con alguna que otra modificación:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Si sos usuario de powerpill y queres usarlo para realizar todas las descargas desde todos los mirrors se recomienda realizar la actualización de la siguiente manera:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Sy &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo powerpill -Su &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; paru -Su
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;Asegúrese de insertar todos los espejos en su pacman.conf o use caotic-mirrorlist con todos ellos activos si usa powerpill.&lt;/li&gt;
+&lt;li&gt;Si está utilizando otros repositorios de terceros, le recomendamos que coloque Chaotic-AUR antes que ellos en &lt;code&gt;/etc/pacman.conf&lt;/code&gt;. Dado que actualizamos la mayoría de los paquetes cada hora y seguimos los &lt;code&gt;PKGBUILD&lt;/code&gt; de &lt;strong&gt;AUR&lt;/strong&gt;, este repositorio es más adecuado como primera opción al descargar paquetes.&lt;/li&gt;
+&lt;li&gt;Si necesita omitir la actualización de un paquete para usar las creadas localmente (por ejemplo, con optimizaciones nativas), puede agregar &lt;code&gt;'IgnorePkg = ...'&lt;/code&gt; a la sección del repositorio en &lt;code&gt;/etc/pacman.conf&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Puede elegir el repositorio desde el que descargar un paquete de esta manera: &lt;code&gt;pacman -S chaotic-aur/dxvk-mingw-git&lt;/code&gt;. Algunos ayudantes de AUR también lo admiten, por ejemplo: &lt;code&gt;paru -S aur/firefox-hg&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="w-full rounded-xl bg-yellow-600/75 text-yellow-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-warning fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;Debe tener habilitado el repositorio multilib.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>Paru VS YAY ¿Cual elegir?</title><link>https://patojad.com.ar/post/2022/01/paru-vs-yay-cual-elegir/</link><pubDate>Mon, 03 Jan 2022 09:22:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/01/paru-vs-yay-cual-elegir/</guid><description>&lt;p&gt;Es común que al utilizar cualquier distribución basada en Arch (Artix, endeavour, manjaro, etc) queramos usar los AUR dado que ahí disponemos de una cantidad de paquetes increíbles. Y a la hora de usarlo podemos elegir entre múltiples AUR Helpers. En esta oportunidad vamos a hablar de 2 de estos. El conocido YAY que lleva mucho tiempo con nosotros. Y el no tan nuevo PARU que llega con una propuesta interesante para los amantes de los AUR.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="comparación"&gt;
+Comparación
+&lt;a href="#comparaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;YAY está escrito en GO un lenguaje de programación que tiene una fácil lectura y es extensible. Una gran ventaja es que su compilación es realmente rápida y muy simple. Toma como inspiración yaourt, apacman y pacmaur. Paru, en cambio, está escrito en Rust y toma como inspiración a YAY por lo cual es muy simple de migrar de uno a otro.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/xTvdwb1M/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Si bien YAY es mucho más popular y tiene una comunidad mucho más grande, actualmente paru es, por no mucho, más activo. Lo cual supone ser una ventaja, sin embargo, para los usuarios finales esto no afecta en gran cantidad. Sin embargo una de las diferencias que note es que paru es, efectivamente, más rápido que YAY. Lo cual es útil si tenemos equipos de pocos recursos. Sin embargo, en lo personal creo que yay tiene una sintaxis más feliz que paru. Es más simple y rápido escribir yay, incluso para autocompletar. Sin embargo, paru puede volverse un poco tosco y molesto.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Codigo Fuente&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Revision de Archivos&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Diff&lt;/th&gt;
+&lt;th style="text-align: center"&gt;GIT&lt;/th&gt;
+&lt;th style="text-align: center"&gt;Shells&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;Paru&lt;/td&gt;
+&lt;td style="text-align: center"&gt;GO&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;bash, fish, zsh&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;YAY&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Rust&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;Si&lt;/td&gt;
+&lt;td style="text-align: center"&gt;bash, fish, zsh&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="mi-opinión"&gt;
+Mi Opinión
+&lt;a href="#mi-opini%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Personalmente le veo mucho potencial a paru, pero no ofrece nada muy diferente a otros. Y siento la sintaxis un tanto incómoda, sin embargo, es recomendable para equipos que son bastantes lentos porque en esa circunstancia es muy provechoso el tiempo que optimiza y nos permite aprovechar mejor los recursos.&lt;/p&gt;
+&lt;p&gt;Yo me voy a quedar con yay, al menos de momento pero me gustaría saber tu opinion y analisis sobre estas dos apps&lt;/p&gt;</description></item><item><title>Pantalla negra en Steam</title><link>https://patojad.com.ar/post/2021/09/pantalla-negra-en-steam/</link><pubDate>Wed, 01 Sep 2021 10:30:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/09/pantalla-negra-en-steam/</guid><description>&lt;p&gt;Muchos usuarios de distros basadas en Arch o del mismo Arch nos encontramos con que Steam amaneció con la pantalla negra después de una actualización (la de &lt;code&gt;freetype2&lt;/code&gt; para ser mas especifico.). Si bien esto es molesto, corremos con la ventaja de que SteamOS v3 está basada en Arch y tiene pronta solución para estos errores.&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/hM64cebdHSo?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;La solución de los errores se divide en dos caminos, en mi caso prefiero activar la BETA del cliente de Steam y obtener la solución directamente en el cliente de Steam desarrollada por valve. Otros prefieren simplemente revertir la actualización de este paquete, cosa que no recomiendo porque podría traer problemas futuros.&lt;/p&gt;</description></item><item><title>Instalacion de Postman en Linux</title><link>https://patojad.com.ar/post/2021/08/instalacion-de-postman-en-linux/</link><pubDate>Wed, 25 Aug 2021 13:17:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/08/instalacion-de-postman-en-linux/</guid><description>&lt;p&gt;En este momento vamos a ver como se instala postman en nuestro GNU/Linux, en esta instalación vamos a ver la forma más genérica, si bien para cada distribución existe su propia alternativa, ya usar usando AUR en Arch o SNAP en cualquier distro existe una forma un tanto… más simple que es útil para usos portables de esta herramienta.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/L5gh73HD/image.webp" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="descarga"&gt;
+Descarga
+&lt;a href="#descarga" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Lo primero que debemos hacer es descargar postman, en este caso vamos a descargar la última versión directamente de su sitio web. Pueden buscar cualquier versión, sin embargo recomendamos usar la versión oficial de su web.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.postman.com/downloads/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Descargar
+&lt;/a&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación"&gt;
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Realmente no es necesario una instalación propiamente dicha, es más bien la extracción de los binarios. Estos los podemos hacer desde la terminal, dirigiéndonos a la carpeta donde lo descargamos por ejemplo “Downloads”&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; Downloads/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tar -xvzf Postman-linux-x86_64-8.11.1.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;siendo &lt;code&gt;Postman-linux-x86_64-8.11.1.tar.gz&lt;/code&gt; el nombre del archivo descargado (En caso de tener otra version poner el nombre correspondiente). Esto nos generará una carpeta llamada Postman. Esta misma si queremos podemos ponerla donde nosotros deseemos.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="uso"&gt;
+Uso
+&lt;a href="#uso" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para su uso basta con ejecutar el binario llamado Postman. Si seguimos con el ejemplo anterior, y no movimos la carpeta, bastara con hacer lo siguiente:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; Postman
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;./Postman
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Y ya iniciara el Postman, en caso de que no inicie podrás ver en la consola el error que retorna. Si no retorna ningún error y abre sin problemas, podemos ejecutarlo desde el binario con doble click de ahora en adelante.&lt;/p&gt;</description></item><item><title>Activar Descargas paralelas en Pacman</title><link>https://patojad.com.ar/post/2021/07/activar-descargas-paralelas-en-pacman/</link><pubDate>Thu, 15 Jul 2021 09:51:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/07/activar-descargas-paralelas-en-pacman/</guid><description>&lt;p&gt;Como mencionamos &lt;a href="https://patojad.com.ar/post/2021/06/lleg%c3%b3-pacman-v6-y-pamac-qued%c3%b3-anonadado/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+hace un tiempo llegó pacman 6
+&lt;/a&gt;, y la primera impresión para algunos no fue buena porque pamac no estaba a la altura ni estaba preparado para esto. Sin embargo ya está todo solucionado y podemos comenzar a sacarle el mejor provecho a esto. En esta oportunidad vamos a hablar de una nueva opción que seguro queremos tener habilitada en nuestra distro…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="descargas-en-paralelo"&gt;
+Descargas en paralelo
+&lt;a href="#descargas-en-paralelo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Claramente sabemos que son las descargas en paralelo y algunos no nos percatamos de que pacman no descargaba simultáneamente los paquetes pero hoy te damos el paso a paso para que habilites la descarga en paralelo en tu distro base arch preferida…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cómo-hacerlo"&gt;
+Cómo hacerlo
+&lt;a href="#c%c3%b3mo-hacerlo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Te dejo un video donde explico como realizar esto y claramente más abajo vas a poder ver los comandos utilizados:&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/xOeA9rx6HLA?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Primero abrimos, como administrador, el archivo de configuración:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo nano /etc/pacman.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Luego, como explica en el video, agregamos la siguiente linea:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;ParallelDownloads&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Donde 5 representa la cantidad de descargas en paralelo que queremos tener, este número lo podemos variar dependiendo nuestra velocidad de internet y necesidades.&lt;/p&gt;</description></item><item><title>Solucion al erro de Update de Artix</title><link>https://patojad.com.ar/post/2021/06/solucion-al-erro-de-update-de-artix/</link><pubDate>Thu, 10 Jun 2021 09:51:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/06/solucion-al-erro-de-update-de-artix/</guid><description>&lt;p&gt;En estos días Artix linux estuvo presentando problemas para actualizar, al intentar actualizar nos aparece un error al resolver dependencias de SysyemD. Sin embargo esta distro no trae SystemD por lo cual nunca podrían cumplirse. En esta ocasión vamos a ver como arreglar este error.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="video"&gt;
+Video
+&lt;a href="#video" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En este video podemos ver el paso a paso de como arreglar este error:&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/UtGfiw-Pgdk?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;con pacman:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Syu elogind artix-archlinux-support
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;con yay:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -Syu elogind artix-archlinux-support
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>LLegó pacman v6 y pamac quedó anonadado</title><link>https://patojad.com.ar/post/2021/06/lleg%C3%B3-pacman-v6-y-pamac-qued%C3%B3-anonadado/</link><pubDate>Wed, 02 Jun 2021 09:10:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/06/lleg%C3%B3-pacman-v6-y-pamac-qued%C3%B3-anonadado/</guid><description>&lt;p&gt;El día jueves 20 del mes de Mayo se liberó la versión Oficial de pacman 6 el cual viene repleta de novedades que ya podemos disfrutar en todas las distribuciones basadas en Arch.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="changelog"&gt;
+Changelog
+&lt;a href="#changelog" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/DwNCYM02/image.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Seguramente te estás preguntando qué cambio y aca te dejo la lista de cambios que impactaron en la versión V6:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;El descargador interno puede recuperar archivos en paralelo&lt;/li&gt;
+&lt;li&gt;Se agrega una barra de progreso adicional para rastrear la descarga total Progreso. Esto reemplaza la opción anterior TotalDownload.&lt;/li&gt;
+&lt;li&gt;Corregir las tasas de descarga que se vuelven negativas&lt;/li&gt;
+&lt;li&gt;Omitir servidores espejo con demasiados errores&lt;/li&gt;
+&lt;li&gt;Las firmas del paquete siempre se recuperan incluso si la firma es incrustado en la base de datos de repositorios o el paquete está en la caché&lt;/li&gt;
+&lt;li&gt;Las firmas de paquetes independientes que se encuentran en CacheDir se pueden usar para verificar los paquetes si la firma no está en la base de datos. También verificar las sumas de comprobación de los paquetes desde la base de datos del repositorio cuando se usa detached firmas.&lt;/li&gt;
+&lt;li&gt;Agregar soporte para múltiples valores de &lt;em&gt;&amp;lsquo;Arquitectura&amp;rsquo;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;-Qkk&lt;/em&gt; ahora valida las sumas de verificación de archivos además de la fecha / tamaño&lt;/li&gt;
+&lt;li&gt;El resumen de actualización en color ahora atenúa los números de versión para el contraste&lt;/li&gt;
+&lt;li&gt;Las interfaces libalpm ahora pueden proporcionar contexto a las devoluciones de llamada&lt;/li&gt;
+&lt;li&gt;Soporte xattr al extraer paquetes&lt;/li&gt;
+&lt;li&gt;Permitir la configuración &amp;ndash;noprogressbar en pacman.conf -&lt;/li&gt;
+&lt;li&gt;Corregir la alineación de salida para el texto traducido de CJK&lt;/li&gt;
+&lt;li&gt;Corrige los objetivos de lectura de stdin cuando se usa &lt;em&gt;&amp;ndash;sysroot&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Corregir la eliminación de firmas para bases de datos existentes con &lt;em&gt;-Sc&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Comprobar y prohibir la descarga de nombres de archivos duplicados&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;-Fx&lt;/em&gt; ahora informa de un error por expresiones regulares no válidas&lt;/li&gt;
+&lt;li&gt;Eliminar el soporte para el sistema de compilación de autotools&lt;/li&gt;
+&lt;li&gt;Meson: compila correctamente los símbolos internos como ocultos&lt;/li&gt;
+&lt;li&gt;Meson: make -uninstalled.pc correcto&lt;/li&gt;
+&lt;li&gt;Corregir errores de compilación en sistemas como &lt;strong&gt;FreeBSD&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;makepkg&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Agregar soporte de optimización de tiempo de enlace a makepkg&lt;/li&gt;
+&lt;li&gt;Agregar soporte para fuentes que usan el VCS fósil&lt;/li&gt;
+&lt;li&gt;Permitir especificar comandos de autenticación alternativos cuando ejecutando pacman como root&lt;/li&gt;
+&lt;li&gt;Soporte de descompresión zstd para fuentes&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;strip&lt;/em&gt;: corrige la eliminación de atributos de archivo como xattr&lt;/li&gt;
+&lt;li&gt;Cambiar a CRC como suma de verificación de integridad predeterminada&lt;/li&gt;
+&lt;li&gt;Record &lt;em&gt;$startdir&lt;/em&gt; para compilaciones reproducibles&lt;/li&gt;
+&lt;li&gt;Registrar el nombre de la herramienta de orquestación de compilación para compilaciones reproducibles&lt;/li&gt;
+&lt;li&gt;Arreglar la firma de paquetes fuente&lt;/li&gt;
+&lt;li&gt;Agregar soporte de argumento opcional a parseopts&lt;/li&gt;
+&lt;li&gt;Reducir la dependencia del archivo para detectar archivos &lt;em&gt;ELF&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Eliminar la dependencia de GNU sed&lt;/li&gt;
+&lt;li&gt;Evitar espacios en blanco finales en la salida &amp;ndash;printsrcinfo&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;libprovides&lt;/em&gt;: no proporcione versiones tanto con versión como sin versión sonames&lt;/li&gt;
+&lt;li&gt;No &lt;em&gt;distcc&lt;/em&gt; de doble capa en ccache&lt;/li&gt;
+&lt;li&gt;Corregir la detección de nombres de archivos de origen para paquetes de depuración con &lt;em&gt;gcc 11&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;strip&lt;/strong&gt;: silencia las advertencias emitidas por readelf mientras detecta nombres de archivo de origen&lt;/li&gt;
+&lt;li&gt;Corregir el uso de espacios en el cambio de nombre del archivo fuente&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;pacman-key&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;&amp;ndash;refresh-keys&lt;/em&gt; consulta WKD antes del servidor de claves&lt;/li&gt;
+&lt;li&gt;Sea menos ruidoso al llenar el llavero&lt;/li&gt;
+&lt;li&gt;Advierte sobre el tiempo necesario para la generación de la clave maestra&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;repo-add&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Admite los mismos métodos de compresión que &lt;em&gt;makepkg&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Finalización de &lt;em&gt;zsh&lt;/em&gt;: agregue soporte &lt;em&gt;pacman-conf&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Varias actualizaciones de documentación&lt;/li&gt;
+&lt;li&gt;Después de una década y media de documentación prometedora de &lt;em&gt;libalpm.3&lt;/em&gt; &lt;strong&gt;&amp;ldquo;una vez que logremos realizar una buena documentación de Doxygen&amp;rdquo;, ¡pasó!&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="pamac-no-pudo-soportar-la-emocion"&gt;
+Pamac no pudo soportar la emocion
+&lt;a href="#pamac-no-pudo-soportar-la-emocion" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Tantas novedades nos emociona a todos incluso a nuestro querido GUI pamac que desde que actualices a la versión 6 de pacman quedará tan emocionado que no volverá a abrir.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://c2.staticflickr.com/2/1739/40662649560_57b7477f00_o.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Lamentablemente toda esta actualización generó discompatibilidad con pamac y ya no podemos usar este gestor gráfico por un tiempo hasta que se actualice… Claramente que no va a actualizarse por sí solo por lo cual te dejamos un comando que vas a ir pegando en la terminal dia a dia hasta que entre la actualización se encuentre pamac&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ATENCIÓN: Si pamac lo instalaste desde aur tendrás que usar yay en vez de pacman para actualizar&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -Syu
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pacman -Syu
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Instalar el Zen Kernel</title><link>https://patojad.com.ar/post/2021/05/instalar-el-zen-kernel/</link><pubDate>Thu, 27 May 2021 09:18:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/05/instalar-el-zen-kernel/</guid><description>&lt;p&gt;Dentro del mundo de &lt;strong&gt;GNU/Linux&lt;/strong&gt; existe muchísimo software libre incluso &lt;strong&gt;Linux&lt;/strong&gt; el kernel de este sistema, y al ser libre cualquiera puede compilarlo y configurarlo como quiera, incluso publicarlo. En esta oportunidad vamos a ver cómo instalar un kernel modificado por la comunidad para mejorar el rendimiento bajo demanda, es un kernel muy bueno para quienes les gusta jugar, entre otras cosas.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/gkd80yH4/image.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="sobre-zen"&gt;
+Sobre Zen
+&lt;a href="#sobre-zen" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Zen es el kernel conocido como Liquorix compilado para Arch y este kernel presenta muchísimas mejoras entre las que podemos ver:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Liquorix es un reemplazo del kernel de distribución creado con la mejor configuración y fuentes de kernel para cargas de trabajo de escritorio, multimedia y juegos.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Zen Interactive Tuning:&lt;/strong&gt; ajusta el kernel para mejorar la capacidad de respuesta a costa del rendimiento y el uso de energía.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;--- Virtual Memory Subsystem ---------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Mem dirty before &lt;span class="nb"&gt;bg&lt;/span&gt; writeback..: &lt;span class="m"&gt;10&lt;/span&gt; % -&amp;gt; &lt;span class="m"&gt;20&lt;/span&gt; %
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Mem dirty before sync writeback: &lt;span class="m"&gt;20&lt;/span&gt; % -&amp;gt; &lt;span class="m"&gt;50&lt;/span&gt; %
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;--- Block Layer ----------------------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Default MQ scheduler......: mq-deadline -&amp;gt; bfq
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;--- CPU Scheduler &lt;span class="o"&gt;(&lt;/span&gt;CFS&lt;span class="o"&gt;)&lt;/span&gt; --------------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Scheduling latency.............: &lt;span class="m"&gt;6&lt;/span&gt; -&amp;gt; &lt;span class="m"&gt;3&lt;/span&gt; ms
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Minimal granularity............: 0.75 -&amp;gt; 0.3 ms
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Wakeup granularity.............: &lt;span class="m"&gt;1&lt;/span&gt; -&amp;gt; 0.5 ms
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;CPU migration cost.............: 0.5 -&amp;gt; 0.25 ms
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Bandwidth slice size...........: &lt;span class="m"&gt;5&lt;/span&gt; -&amp;gt; &lt;span class="m"&gt;3&lt;/span&gt; ms
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;--- CPU Scheduler &lt;span class="o"&gt;(&lt;/span&gt;MuQSS&lt;span class="o"&gt;)&lt;/span&gt; ------------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Scheduling interval............: &lt;span class="m"&gt;6&lt;/span&gt; -&amp;gt; &lt;span class="m"&gt;4&lt;/span&gt; ms
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ISO task max realtime use......: &lt;span class="m"&gt;70&lt;/span&gt; % -&amp;gt; &lt;span class="m"&gt;25&lt;/span&gt; %
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Programador de procesos MuQSS:&lt;/strong&gt; programador de procesos justo para juegos, multimedia y cargas en tiempo real.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Programación de alta resolución:&lt;/strong&gt; tiempos de espera de alta resolución y frecuencia de tick de 1000 Hz para una programación precisa de tareas con baja fluctuación.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RCU jerárquica basada en árboles no garantizada:&lt;/strong&gt; implementación de RCU para sistemas en tiempo real.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Prevención de kernel duro:&lt;/strong&gt; Prevención de kernel más agresiva antes de requerir parches en tiempo real. Garantiza un sistema receptivo en escenarios de cargas de trabajo mixtas de alta intensidad.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Budget Fair Queue:&lt;/strong&gt; programador de disco adecuado optimizado para el uso de escritorio, alto rendimiento / baja latencia.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Control de congestión TCP BBR2:&lt;/strong&gt; Control de congestión rápido, maximiza el rendimiento, garantizando velocidades más altas que Cubic.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reemplazo directo del núcleo de distribución:&lt;/strong&gt; configuración de estilo de distribución adecuada que admite la selección más amplia de hardware. Opciones de paravirtualización habilitadas para reducir la sobrecarga bajo virtualización.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Depuración mínima:&lt;/strong&gt; número mínimo de opciones de depuración habilitadas para aumentar el rendimiento del kernel.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación"&gt;
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;iframe src='https://www.youtube.com/embed/OLiOcArU5fM?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Primero debemos instalar el kernel, esto lo podemos hacer con pacman o con yay de la siguiente manera:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -S linux-zen linux-zen-header
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S linux-zen linux-zen-header
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Si venís de distribuciones basadas en Debian ya intentaste reiniciar, pero como se demuestra en el video no funciona asi, por lo cual es necesario actualizar el GRUB.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo update-grub
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Activar Multilib Artix</title><link>https://patojad.com.ar/post/2021/03/activar-multilib-artix/</link><pubDate>Wed, 24 Mar 2021 17:03:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/03/activar-multilib-artix/</guid><description>&lt;p&gt;En esta oportunidad volvemos con un tutorial orientado a Artix Linux o mejor dicho a Arch en general. Si bien puede que los usuarios más habituales esto lo tengan incorporado. Puede que los usuarios nuevos no lo sepan o ignoren esto por lo cual quería dejar un video conciso.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="el-video"&gt;
+El Video
+&lt;a href="#el-video" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Como estoy intentando actualizarse con los videos estoy intentando ser conciso y dar la información sin divagar mucho.&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/OusBLacPkPA?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="adicional"&gt;
+Adicional
+&lt;a href="#adicional" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Les dejo los comandos que utilizo en el video y que es lo que hacen. Esto es util si no estas acostumbrado a escribir comandos en la terminal:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Si multilib
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Sirve para averiguar si se encuentra habilitado o no el repositorio.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo cat /etc/pacman.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Imprime en pantalla la configuración del archivo localizado en /etc/pacman.conf&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo nano /etc/pacman.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Permite editar el archivo de configuracion&lt;/p&gt;</description></item><item><title>Pacman conflicto de Archivos al Actualizar</title><link>https://patojad.com.ar/post/2020/11/pacman-conflicto-de-archivos-al-actualizar/</link><pubDate>Tue, 03 Nov 2020 08:40:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/11/pacman-conflicto-de-archivos-al-actualizar/</guid><description>&lt;p&gt;Dentro de todas las distribuciones basadas en Arch Linux siempre existe la posibilidad de tener errores al actualizar, mas que nada cuando se juntan muchas actualizaciones por periodos realmente largos. En estos casos las posibilidades de errores aumentan y es preciso buscar una solución.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="el-caso-de-artix-linux"&gt;
+El caso de Artix Linux
+&lt;a href="#el-caso-de-artix-linux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Artix es una distribución muy buena de la que &lt;a href="https://patojad.com.ar/post/2020/08/artix-linux/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+ya hablamos antes
+&lt;/a&gt;, incluso en el canal de youtube le dedique un saga, un poco corta, a la cual el dia de hoy sumo un video mas. Los sabores oficiales de artix, al dia de la fecha, tienen este problema de actualizaciones acumuladas, el cual da el error:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;error: no se pudo realizar la operación &lt;span class="o"&gt;(&lt;/span&gt;archivos en conflicto&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;nss: /usr/lib/p11-kit-trust.so existe en el sistema de archivos
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Este error puede pasarnos con cualquier librería o archivo y ahora vamos a darle una solución simple!&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="lo-utilizado"&gt;
+Lo utilizado
+&lt;a href="#lo-utilizado" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si bien como se aclara en el video podemos usar &lt;a href="https://patojad.com.ar/post/2020/09/manipulando-archivos-y-directorios/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+comodines
+&lt;/a&gt;. En este caso vamos a dejar el comando específico y cada uno lo modifica de la forma que crea conveniente. El patrón a seguir es el siguiente:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;error: no se pudo realizar la operación &lt;span class="o"&gt;(&lt;/span&gt;archivos en conflicto&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;nss: x existe en el sistema de archivos
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Para el error que figura arriba el comando es:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Syu --overwrite x
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="w-full rounded-xl bg-yellow-600/75 text-yellow-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-warning fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;**ATENCIÓN:** En mi caso uso -Syu porque estoy actualizando, pero lo mismo seria si estamos instalando un paquete&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S nombreDelPaquete --overwrite x
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Ahora les dejo el caso específico del video para que vean como seria esto implementado.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;error: no se pudo realizar la operación &lt;span class="o"&gt;(&lt;/span&gt;archivos en conflicto&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;nss: /usr/lib/p11-kit-trust.so existe en el sistema de archivos
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Y la solución (para la actualización) es:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; sudo pacman -Syu --overwrite /usr/lib/p11-kit-trust.so
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Instalar YAY en Artix Linux</title><link>https://patojad.com.ar/post/2020/10/instalar-yay-en-artix-linux/</link><pubDate>Tue, 06 Oct 2020 10:43:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/10/instalar-yay-en-artix-linux/</guid><description>&lt;p&gt;En base a lo que pide Pipe en esta oportunidad vamos a seguir con Artix esta hermosa distro que es realmente performante. Para esta oportunidad vamos a ver como instalar yay en esta magnífica distro. Por lo cual voy a dejar un corto video donde explico todo y obviamente todo esto va a estar a lo largo de la publicación.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="el-video"&gt;
+El Video
+&lt;a href="#el-video" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Espero que les guste el video, y no se olviden de apoyar y suscribirse al canal para motivar el progreso.&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/w-XxsaqPBZU?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación"&gt;
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para la instalación debemos ejecutar la siguiente línea de comandos que es lo que realizó durante el video. De esta forma podemos copiar y pegar&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo pacman -Sy
+sudo pacman -S git base-devel
+cd /tmp
+rm -rf yay 2&amp;gt; /dev/null
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="adicional"&gt;
+Adicional
+&lt;a href="#adicional" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para activar la salida colorida en pacman y, por extensión, en yay, como recalqué en el video se puede usar este comando:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo sed -i '/^#Color/s/^#//' /etc/pacman.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ya teniendo todo ok debemos eliminar aurman de la siguiente manera&amp;hellip;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo pacman -R aurman
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>Artix Linux</title><link>https://patojad.com.ar/post/2020/08/artix-linux/</link><pubDate>Tue, 11 Aug 2020 09:01:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/08/artix-linux/</guid><description>&lt;p&gt;En esta oportunidad quiero hablar de una distribución de GNU/Linux que muy probablemente no conozcas, no es nueva pero son pocos los usuarios que me dijeron conocerla cuando la nombre, y creo que esta distro debería ser tan popular como otras o tal vez más. Por eso hoy vamos a hablar de &lt;strong&gt;Artix&lt;/strong&gt; y si dije bien no es &lt;em&gt;Antix&lt;/em&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="sobre-artix"&gt;
+Sobre Artix
+&lt;a href="#sobre-artix" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Tipo de sistema operativo:&lt;/strong&gt; Linux&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Basado en:&lt;/strong&gt; Arch&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Origen:&lt;/strong&gt; Global&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Arquitectura:&lt;/strong&gt; x86_64&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Escritorios disponibles:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Cinnamon&lt;/li&gt;
+&lt;li&gt;LXDE&lt;/li&gt;
+&lt;li&gt;LXQt&lt;/li&gt;
+&lt;li&gt;MATE&lt;/li&gt;
+&lt;li&gt;KDE Plasma&lt;/li&gt;
+&lt;li&gt;Xfce&lt;/li&gt;
+&lt;li&gt;i3 (beta)&lt;/li&gt;
+&lt;li&gt;Gnome (beta)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Categoría:&lt;/strong&gt; Desktop, Live Medium&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Estado:&lt;/strong&gt; Activo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.ytimg.com/vi/lz8hsZjjNZY/maxresdefault.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Como remarca desde su web y así la identifica totalmente, &lt;strong&gt;Artix Linux&lt;/strong&gt; es una distro basada en Arch, por tanto sabemos que es rolling release, &lt;strong&gt;libre de systemd&lt;/strong&gt; y que reemplaza a este con &lt;strong&gt;Openrc&lt;/strong&gt;, &lt;strong&gt;s6&lt;/strong&gt; o &lt;strong&gt;runit&lt;/strong&gt;. Artix es la continuación de los icónicos ManjaroOpenRC y ArchOpenRC tomando una camino más firme con desarrollo continuo.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="va-dirigida"&gt;
+Va dirigida…
+&lt;a href="#va-dirigida" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En muchos lugares lei que Artix va dirigida a usuarios con mucho expertis en el mundo de GNU/Linux. Sin embargo creo que esta a nivel de aquellos que usan manjaro dia a dia. con la leve diferencia que deben arreglárselas para instalar el &lt;strong&gt;pamac&lt;/strong&gt; o el gestor gráfico de preferencia.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Artix_Community_FF-Inkscape_2020-02.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Viene con una instalación mínima lo cual nos permite de alguna forma elegir a nosotros las apps a utilizar, esto nos permite tener el sistema limpio para no arrastrar actualizaciones de aplicaciones que nunca usamos.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación"&gt;
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i0.wp.com/entornosgnulinux.com/wp-content/uploads/2019/03/Calamarares.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;La instalación se realiza mediante gestor gráfico (si es que descargaste la iso con algun escritorio disponible) conocido como &lt;strong&gt;calamares&lt;/strong&gt; uno de los más populares que existen hoy en dia.&lt;/p&gt;
+&lt;p&gt;Como la mayoría de las distros las instalaciones son una conjugación de siguientes y completar datos y ya podemos disfrutar de la distro. Te recomiendo descargarla y probarla, y si aceptas otro consejo recomiendo MATE como escritorio.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://artixlinux.org/download.php" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Descargar Artix
+&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>

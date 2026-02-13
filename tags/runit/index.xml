@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Runit on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/runit/</link><description>Recent content in Runit on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Fri, 15 Mar 2024 18:34:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/runit/index.xml" rel="self" type="application/rss+xml"/><item><title>Explorando SystemD en el Mundo Linux: Críticas, Realidades y Controversias</title><link>https://patojad.com.ar/post/2024/03/explorando-systemd-en-el-mundo-linux-cr%C3%ADticas-realidades-y-controversias/</link><pubDate>Fri, 15 Mar 2024 18:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/03/explorando-systemd-en-el-mundo-linux-cr%C3%ADticas-realidades-y-controversias/</guid><description>&lt;p&gt;En el vasto y diverso ecosistema de Linux, cada componente del sistema es objeto de discusión y opinión, y el sistema de inicio no es la excepción. &lt;strong&gt;SystemD&lt;/strong&gt; ha sido un tema de controversia dentro de la comunidad, generando críticas y debates en línea. En este artículo, profundizaremos en qué es &lt;strong&gt;SystemD&lt;/strong&gt;, su evolución, y las razones detrás de las críticas que ha enfrentado.&lt;/p&gt;
+&lt;p&gt;Ya escribi algunos articulos planteando los problemas de &lt;strong&gt;SystemD&lt;/strong&gt; y las alternativas que existen, pero en esta ocasión quiero profundizar en el tema y explicar las razones de la resistencia que ha enfrentado &lt;strong&gt;SystemD&lt;/strong&gt;. Y la explicacion de las cosas buenas que tiene, porque no todo es malo.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2020/06/systemd-solucion-o-problema/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+SystemD ¿Solucion o Problema?
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2020/07/systemd-no-es-el-problema-respuesta-a-zatiel/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+¿SystemD no es el problema? Respuesta a Zatiel
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="desentrañando-systemd-y-su-rol-como-sistema-de-inicio"&gt;
+Desentrañando SystemD y su Rol como Sistema de Inicio
+&lt;a href="#desentra%c3%b1ando-systemd-y-su-rol-como-sistema-de-inicio" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En el corazón de todos los sistemas basados en Linux se encuentra un sistema de inicio, el primer proceso que entra en acción después de arrancar el sistema operativo. Este proceso trabaja en segundo plano, gestionando servicios y procesos esenciales. En este contexto, &lt;strong&gt;SystemD&lt;/strong&gt; se presenta como un sistema de inicio predominante en muchas distribuciones de Linux.&lt;/p&gt;
+&lt;p&gt;Iniciado en 2010 bajo el liderazgo de &lt;strong&gt;Red Hat&lt;/strong&gt; y &lt;strong&gt;Leonard Puttering&lt;/strong&gt;, &lt;strong&gt;SystemD&lt;/strong&gt; nació con la intención de reemplazar soluciones existentes como &lt;strong&gt;SysV&lt;/strong&gt; y &lt;strong&gt;Upstart&lt;/strong&gt;. Su enfoque principal era mejorar el rendimiento del sistema, acelerar los tiempos de arranque y reducir el consumo de recursos. Rápidamente, se convirtió en el sistema de inicio predeterminado para distros populares como &lt;em&gt;Fedora&lt;/em&gt;, &lt;em&gt;Arch Linux&lt;/em&gt;, &lt;em&gt;Debian&lt;/em&gt; y &lt;em&gt;Ubuntu&lt;/em&gt;, entre otras.&lt;/p&gt;
+&lt;p&gt;A pesar de su adopción generalizada, algunas distribuciones, como &lt;em&gt;Alpine Linux&lt;/em&gt;, &lt;em&gt;MX Linux&lt;/em&gt;, &lt;em&gt;&lt;a href="https://patojad.com.ar/post/2019/09/voidlinux-por-jos%c3%a9/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Void Linux
+&lt;/a&gt;&lt;/em&gt;, &lt;em&gt;&lt;a href="https://patojad.com.ar/post/2020/08/artix-linux/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Artix
+&lt;/a&gt;&lt;/em&gt;, &lt;em&gt;&lt;a href="https://patojad.com.ar/post/2020/06/instalcion-milagros/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+MilagOS
+&lt;/a&gt;&lt;/em&gt; y otras, han optado por no adoptar &lt;strong&gt;SystemD&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="explorando-las-razones-de-la-resistencia"&gt;
+Explorando las Razones de la Resistencia
+&lt;a href="#explorando-las-razones-de-la-resistencia" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="el-argumento-del-bloat"&gt;
+El Argumento del &amp;ldquo;Bloat&amp;rdquo;
+&lt;a href="#el-argumento-del-bloat" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Un argumento recurrente contra &lt;strong&gt;SystemD&lt;/strong&gt; es su expansión progresiva hacia funciones que tradicionalmente eran gestionadas por servicios individuales. Esta acumulación de características ha llevado a críticas sobre su conformidad con la filosofía &lt;strong&gt;UNIX&lt;/strong&gt;, que aboga por la simplicidad y la especialización de funciones.&lt;/p&gt;
+&lt;p&gt;Aunque &lt;strong&gt;SystemD&lt;/strong&gt; mantiene su modularidad (recordemos qeu son varios mini-binarios especificos), su crecimiento ha llevado a la percepción de ser una solución monolítica. Además, su actualización periódica y la adición de nuevas funciones pueden traducirse en un mayor uso de espacio y recursos, lo que preocupa a aquellos que buscan eficiencia (hablando en kb de recursos).&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="dependencia-omnipresente-y-restricciones-de-opciones"&gt;
+Dependencia Omnipresente y Restricciones de Opciones
+&lt;a href="#dependencia-omnipresente-y-restricciones-de-opciones" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;SystemD&lt;/strong&gt; se ha vuelto tan integral en muchos aspectos del sistema que su ausencia puede limitar la funcionalidad de otros componentes. Servicios como el inicio de sesión gráfico o la gestión de conexiones de red a menudo dependen de componentes de &lt;strong&gt;SystemD&lt;/strong&gt;. Aunque es posible prescindir de él, las distribuciones que optan por no implementarlo deben buscar, proporcionar y mantener alternativas.&lt;/p&gt;
+&lt;p&gt;No podemos culpar a los desarrolladres de las aplicaciones por usar el set de herramientas que les provee &lt;strong&gt;SystemD&lt;/strong&gt;. Sin embargo, esto puede ser un problema para aquellos que buscan una mayor diversidad de opciones. Aun asi, hay que entender que estos set de herramienta facilitan y simplifican el trabajo de los desarrolladores, permitiendoles enfocarse en la funcionalidad de sus aplicaciones.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="red-hat-como-dueño-de-systemd"&gt;
+Red Hat como &amp;ldquo;Dueño&amp;rdquo; de SystemD
+&lt;a href="#red-hat-como-due%c3%b1o-de-systemd" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Otra crítica común se dirige al hecho de que &lt;strong&gt;SystemD&lt;/strong&gt; es un proyecto de &lt;strong&gt;Red Hat&lt;/strong&gt;. Aunque comenzó como un proyecto de esta compañía, actualmente propiedad de IBM, algunas voces expresan preocupación sobre el control que una entidad única puede tener sobre la dirección del sistema de inicio en Linux. Las recientes transformaciones en la gestión de la comunidad por parte de &lt;strong&gt;Red Hat&lt;/strong&gt; han aumentado estas preocupaciones.&lt;/p&gt;
+&lt;p&gt;Aun asi, &lt;strong&gt;SystemD&lt;/strong&gt; es un proyecto de código abierto, y su desarrollo está abierto a la participación de la comunidad. Además, la adopción de &lt;strong&gt;SystemD&lt;/strong&gt; por parte de otras distribuciones, como Debian y Ubuntu, ha ayudado a mitigar estas preocupaciones dado que en la actualidad es un proyecto que va mas alla de &lt;strong&gt;Red Hat&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="restricción-de-opciones-y-seguridad-del-sistema"&gt;
+Restricción de Opciones y Seguridad del Sistema
+&lt;a href="#restricci%c3%b3n-de-opciones-y-seguridad-del-sistema" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;SystemD&lt;/strong&gt; ha sido señalado como un factor que contribuye a la uniformidad en los sistemas Linux, restringiendo la diversidad de opciones. También se argumenta que su presencia crea un riesgo de seguridad, al ser un objetivo único para posibles ataques.&lt;/p&gt;
+&lt;p&gt;Sin embargo, defensores de &lt;strong&gt;SystemD&lt;/strong&gt; contrarrestan estas preocupaciones destacando su integración con el kernel de Linux y su eficiencia. Aseguran que, aunque puede haber un riesgo potencial debido a su ubicuidad, la confianza en un proyecto bien mantenido y ampliamente utilizado puede superar estos desafíos. Y es una realidad que &lt;strong&gt;SystemD&lt;/strong&gt; es un proyecto bien mantenido y ampliamente utilizado con un desarrollo activo.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En resumen, las críticas hacia &lt;strong&gt;SystemD&lt;/strong&gt; abordan aspectos que van desde la filosofía &lt;strong&gt;UNIX&lt;/strong&gt; hasta preocupaciones sobre dependencias y seguridad. Aunque se presentan alternativas viables, la elección de utilizar &lt;strong&gt;SystemD&lt;/strong&gt; o no a menudo se reduce a la conveniencia, eficiencia y preferencias de cada usuario.&lt;/p&gt;</description></item><item><title>Artix Linux</title><link>https://patojad.com.ar/post/2020/08/artix-linux/</link><pubDate>Tue, 11 Aug 2020 09:01:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/08/artix-linux/</guid><description>&lt;p&gt;En esta oportunidad quiero hablar de una distribución de GNU/Linux que muy probablemente no conozcas, no es nueva pero son pocos los usuarios que me dijeron conocerla cuando la nombre, y creo que esta distro debería ser tan popular como otras o tal vez más. Por eso hoy vamos a hablar de &lt;strong&gt;Artix&lt;/strong&gt; y si dije bien no es &lt;em&gt;Antix&lt;/em&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="sobre-artix"&gt;
+Sobre Artix
+&lt;a href="#sobre-artix" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Tipo de sistema operativo:&lt;/strong&gt; Linux&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Basado en:&lt;/strong&gt; Arch&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Origen:&lt;/strong&gt; Global&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Arquitectura:&lt;/strong&gt; x86_64&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Escritorios disponibles:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Cinnamon&lt;/li&gt;
+&lt;li&gt;LXDE&lt;/li&gt;
+&lt;li&gt;LXQt&lt;/li&gt;
+&lt;li&gt;MATE&lt;/li&gt;
+&lt;li&gt;KDE Plasma&lt;/li&gt;
+&lt;li&gt;Xfce&lt;/li&gt;
+&lt;li&gt;i3 (beta)&lt;/li&gt;
+&lt;li&gt;Gnome (beta)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Categoría:&lt;/strong&gt; Desktop, Live Medium&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Estado:&lt;/strong&gt; Activo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.ytimg.com/vi/lz8hsZjjNZY/maxresdefault.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Como remarca desde su web y así la identifica totalmente, &lt;strong&gt;Artix Linux&lt;/strong&gt; es una distro basada en Arch, por tanto sabemos que es rolling release, &lt;strong&gt;libre de systemd&lt;/strong&gt; y que reemplaza a este con &lt;strong&gt;Openrc&lt;/strong&gt;, &lt;strong&gt;s6&lt;/strong&gt; o &lt;strong&gt;runit&lt;/strong&gt;. Artix es la continuación de los icónicos ManjaroOpenRC y ArchOpenRC tomando una camino más firme con desarrollo continuo.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="va-dirigida"&gt;
+Va dirigida…
+&lt;a href="#va-dirigida" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En muchos lugares lei que Artix va dirigida a usuarios con mucho expertis en el mundo de GNU/Linux. Sin embargo creo que esta a nivel de aquellos que usan manjaro dia a dia. con la leve diferencia que deben arreglárselas para instalar el &lt;strong&gt;pamac&lt;/strong&gt; o el gestor gráfico de preferencia.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Artix_Community_FF-Inkscape_2020-02.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Viene con una instalación mínima lo cual nos permite de alguna forma elegir a nosotros las apps a utilizar, esto nos permite tener el sistema limpio para no arrastrar actualizaciones de aplicaciones que nunca usamos.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación"&gt;
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i0.wp.com/entornosgnulinux.com/wp-content/uploads/2019/03/Calamarares.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;La instalación se realiza mediante gestor gráfico (si es que descargaste la iso con algun escritorio disponible) conocido como &lt;strong&gt;calamares&lt;/strong&gt; uno de los más populares que existen hoy en dia.&lt;/p&gt;
+&lt;p&gt;Como la mayoría de las distros las instalaciones son una conjugación de siguientes y completar datos y ya podemos disfrutar de la distro. Te recomiendo descargarla y probarla, y si aceptas otro consejo recomiendo MATE como escritorio.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://artixlinux.org/download.php" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Descargar Artix
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>VoidLinux por José</title><link>https://patojad.com.ar/post/2019/09/voidlinux-por-jos%C3%A9/</link><pubDate>Mon, 02 Sep 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/09/voidlinux-por-jos%C3%A9/</guid><description>&lt;p&gt;Hoy les hablaré un poco sobre una distribución muy subvalorada a mi parecer, una distribución Linux que mucha gente ni siquiera habrá nombrado mencionar y muchos menos la conocen siquiera. Hoy les voy a hablar sobra la magnífica &lt;a href="https://www.voidlinux.org" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Void Linux
+&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Void Linux es una distribución de Linux absolutamente independiente, construida sobre Scratch – por lo que es un desarrollo totalmente original. Fue creada por el español Juan Romero Pardines y su primera versión fue lanzada en el año 2008. Utiliza un gestor de paquetes único también, denominado XBPS (X Binary Package System) el cual también fue diseñado e implementado desde cero. XBPS es un sistema de paquetes con licencia libre BSD con ciertas similitudes con pacman en su sintaxis y al igual que pacman es muy rápido.&lt;/p&gt;
+&lt;p&gt;XBPS es capaz de manejar los mas de 6000 programas que están disponibles en los repos de Void Linux y es capaz de compilar directamente desde las fuentes del propio software (XBPSSRC). La compilación la realiza sin ser root necesariamente.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.ytimg.com/vi/hCgOsJ2cRTs/maxresdefault.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Void Linux es una distribución “rolling release”, que se distribuye en distintas .isos (32 y 64 bits) con una gran variedad de entornos de escritorio disponibles: hay imágenes .isos con: Cinnamon, LXQT, LXDE, MATE, XFCE y Enlightenment. También hay disponibles .isos sin entornos de escritorios disponibles, para quienes quieran armar un sistema a su medida.&lt;/p&gt;
+&lt;p&gt;Otra de las mejores cualidades de Void Linux, es que utiliza Runit cómo su init, siendo una notable excepción al pésimo init de moda adoptado por la mayoría de las distribuciones hoy en día. Runit es un sistema mucho mas simple y mucho mas rápido que el tristemente famoso SystemD. De hecho, cuando probé la distribución me sorprendió lo veloz que iba el sistema y la velocidad de inicio (arrancando varios servicios del sistema en paralelo) y apagado (en todos los casos, superior al init desarrollado por Red Hat). Ojalá otras distribuciones adoptaran este init, es excelente sin dudas.&lt;/p&gt;
+&lt;p&gt;![](&lt;a href="https://i2.wp.com/itsfoss.com/wp-content/uploads/2019/04/Void-Linux-Neofetch.png?resize=800%2C562&amp;amp;ssl=1%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://i2.wp.com/itsfoss.com/wp-content/uploads/2019/04/Void-Linux-Neofetch.png?resize=800%2C562&amp;ssl=1"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;p&gt;La instalación de Void Linux, me hace recordar a la mejor distribución que existe en la faz de la Tierra (opinión personal, claro). A la venerable Slackware. Todo se realiza en la terminal, no existen los instaladores gráficos en Void (nada de Calamares, Ubiquity u otros). Simplemente, se abre la terminal y se escribe sudo void-installer (la contraseña es voidlinux) y se van siguiendo los pasos en el orden que aparecen en la pantalla. No es complicada de instalar, pero recomiendo hacerlo siguiendo los innumerables tutoriales que se encuentran en toda la web tanto en páginas web cómo en videos que existen en YouTube.&lt;/p&gt;
+&lt;p&gt;Void Linux fue la distribución pionera en la implementación de LibreSSL el cual es desarrollado por la gente de OpenBSD, sustituyendo a OpenSSL – es un fork del mismo, (recuerdan el desagradable episodio de inseguridad Heartbleed).&lt;/p&gt;
+&lt;p&gt;Si todo lo que les he comentado en el presente artículo, les ha gustado… Recomiendo que le den una oportunidad y descarguen una imagen Live de la distro y la prueben. También otra particularidad mas que presenta Void Linux, es que cuando vayan a descargar la distro se van a topar con 2 tipos de imágenes: están las imágenes comunes las que contienen la biblioteca estándar en GNU/Linux (Biblioteca GNU C) proporcionada por GLIBC (cómo lo hacen todas las distribuciones Linux) y están las imágenes con MUSL la cual es otra biblioteca C mas estándar por llamarlo de alguna manera a la que se vincularán muchos programas FOSS. MUSL es más liviano y rápido que GLIBC, pero puede ser incompatible con cierto software que no está escrito estrictamente para el estándar C. El GLIBC es más grande y generalmente más lento, pero permite y puede acomodar software que no está escrito correctamente en el estándar C debido a su implementación más indulgente.&lt;/p&gt;
+&lt;p&gt;![](&lt;a href="https://i0.wp.com/techpadi.com/wp-content/uploads/2018/12/b7u0z2j3rloz.png?fit=1366%2C768%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://i0.wp.com/techpadi.com/wp-content/uploads/2018/12/b7u0z2j3rloz.png?fit=1366%2C768"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;p&gt;&lt;a href="www.voidlinux.org/download/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+Descargar
+&lt;/a&gt;&lt;/p&gt;
+&lt;center&gt; Al final de la mencionada página, van a encontrar varios mirrors de descargas.&lt;/center&gt;
+&lt;p&gt;Muy bien, esto ha sido todo por el momento. Como ya se habrán dado cuenta, no es obviamente una distribución Linux para todo el mundo, pero quienes busquen un sistema rápido, sin hinchazón de programas, muy novedoso y fiable, quizás Void Linux es lo que han estado buscando. Se los recomiendo. Hasta la próxima colegas….&lt;/p&gt;</description></item></channel></rss>

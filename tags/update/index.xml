@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Update on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/update/</link><description>Recent content in Update on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Wed, 30 Aug 2023 11:23:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/update/index.xml" rel="self" type="application/rss+xml"/><item><title>Cómo Actualizar aaPanel y Mantener tu Servidor Web al Día</title><link>https://patojad.com.ar/post/2023/08/c%C3%B3mo-actualizar-aapanel-y-mantener-tu-servidor-web-al-d%C3%ADa/</link><pubDate>Wed, 30 Aug 2023 11:23:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/08/c%C3%B3mo-actualizar-aapanel-y-mantener-tu-servidor-web-al-d%C3%ADa/</guid><description>&lt;p&gt;Mantener tu servidor web actualizado es esencial para garantizar su rendimiento, seguridad y funcionalidad. En este artículo, aprenderás cómo actualizar &lt;strong&gt;aaPanel&lt;/strong&gt;, una herramienta de panel de control que simplifica la administración de servidores web, y te proporciona una guía paso a paso para llevar a cabo este proceso.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-aapanel"&gt;
+¿Qué es aaPanel?
+&lt;a href="#qu%c3%a9-es-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;aaPanel&lt;/strong&gt; es un panel de control de hosting web gratuito y de código abierto que facilita la administración de servidores. Proporciona una interfaz gráfica intuitiva y amigable que permite a los usuarios gestionar servicios como &lt;strong&gt;Apache&lt;/strong&gt;, &lt;strong&gt;Nginx&lt;/strong&gt;, &lt;strong&gt;PHP&lt;/strong&gt;, bases de datos y más, sin necesidad de conocimientos técnicos avanzados.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="importancia-de-actualizar-aapanel"&gt;
+Importancia de Actualizar aaPanel
+&lt;a href="#importancia-de-actualizar-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La actualización regular de aaPanel es crucial por varias razones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Seguridad:&lt;/strong&gt; Las actualizaciones suelen incluir parches de seguridad que protegen tu servidor contra amenazas potenciales. Mantener aaPanel actualizado reduce la superficie de ataque y mantiene tus datos y aplicaciones seguros.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Rendimiento:&lt;/strong&gt; Las actualizaciones pueden mejorar el rendimiento de aaPanel al corregir errores, optimizar el código y agregar nuevas características que optimizan la eficiencia.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Funcionalidad:&lt;/strong&gt; Las versiones más recientes de aaPanel suelen ofrecer nuevas funciones y mejoras en la interfaz, lo que puede mejorar la experiencia de administración del servidor.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="pasos-para-actualizar-aapanel"&gt;
+Pasos para Actualizar aaPanel
+&lt;a href="#pasos-para-actualizar-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si bien en el video se muestra como actualizar &lt;strong&gt;aaPanel&lt;/strong&gt; desde la interfaz web, en este articulo se muestra como hacerlo desde la terminal.&lt;/p&gt;
+&lt;p&gt;A continuación, se detallan los pasos para actualizar aaPanel a la última versión en caso de querer hacerlo desde la terminal conectadose al servidor por &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+SSH
+&lt;/a&gt;:&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="acceder-al-servidor"&gt;
+Acceder al Servidor
+&lt;a href="#acceder-al-servidor" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Inicia sesión en tu servidor a través de &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+SSH
+&lt;/a&gt; utilizando un cliente como PuTTY (en el caso de estar en Windows) o la terminal en sistemas Unix o Unix-Like como Linux.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ssh username@server_ip
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="respaldo-de-datos-opcional-pero-recomendado"&gt;
+Respaldo de Datos (Opcional pero Recomendado)
+&lt;a href="#respaldo-de-datos-opcional-pero-recomendado" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Antes de actualizar, realiza una copia de seguridad de tus datos importantes, como archivos del sitio web y bases de datos, para evitar pérdidas accidentales. Si bien este paso es opcional, se recomienda encarecidamente realizar una copia de seguridad de tus datos antes de actualizar. Puedes utilizar el siguiente comando para crear una copia de seguridad de tu sitio web:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tar -czvf backup.tar.gz /home/wwwroot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="actualización"&gt;
+Actualización
+&lt;a href="#actualizaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Ejecuta el siguiente comando para ejecutar el script de actualización:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;service bt &lt;span class="m"&gt;16&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Sigue las instrucciones en pantalla para completar el proceso de actualización.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="verificación"&gt;
+Verificación
+&lt;a href="#verificaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Después de la actualización, verifica que &lt;strong&gt;aaPanel&lt;/strong&gt; esté funcionando correctamente accediendo a la interfaz de administración a través de tu navegador web.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Mantener &lt;strong&gt;aaPanel&lt;/strong&gt; actualizado es esencial para garantizar la seguridad y el rendimiento de tu servidor web. Sigue estos pasos para realizar una actualización exitosa y asegúrate de respaldar tus datos antes de comenzar. Un &lt;strong&gt;aaPanel&lt;/strong&gt; actualizado no solo protege tu servidor de posibles amenazas, sino que también te permite acceder a nuevas características y mejoras en la administración de tu sitio web. ¡Mantén tu servidor al día y disfruta de un entorno en línea seguro y eficiente!&lt;/p&gt;</description></item><item><title>Llego Huayra 6</title><link>https://patojad.com.ar/post/2023/06/llego-huayra-6/</link><pubDate>Tue, 13 Jun 2023 11:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/06/llego-huayra-6/</guid><description>&lt;p&gt;Llego &lt;strong&gt;Huayra 6&lt;/strong&gt; con la grandeza de una escaloneta que trajo la copa del mundo y novedades que demuestran que esta distribución sigue siendo una de las mejores para el uso en escuelas.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Huayra GNU/Linux&lt;/strong&gt; es el primer sistema operativo libre desarrollado por el Estado Nacional (Argentino) que incluye una selección de software ideal para el trabajo en clase y mucho más. Con un escritorio liviano y ágil, realiza un uso óptimo de recursos y es seguro, sin necesidad de antivirus.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://huayra.educar.gob.ar/wp-content/uploads/2023/03/fondo_Sacaloneta.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="novedades"&gt;
+Novedades
+&lt;a href="#novedades" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;iframe src='https://www.youtube.com/embed/mGwgo61_Ai0?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;&lt;strong&gt;Huayra&lt;/strong&gt; llega con muchas actualizaciones y vamos a resaltar algunas de las más importantes que son sus apps que proponen un mejor dinamismo para las clases y nos permiten realizar actividades más lúdicas.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="huayra-motion"&gt;
+Huayra Motion
+&lt;a href="#huayra-motion" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Esta increíble app que nos permite realizar animaciones en stop motion llega con varias actualizaciones donde se destaca como gran novedad que ahora permite &lt;strong&gt;agregar cámaras nuevas desde USB&lt;/strong&gt; para todos los que quieran usar una cámara externa con esta app, o aquellos que tengan instalado &lt;strong&gt;Huayra&lt;/strong&gt; en una desktop&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="huayra-duino-lr"&gt;
+Huayra duino LR
+&lt;a href="#huayra-duino-lr" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/Qdb69B6R/Screenshot-20230613-105914.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Agrega una nueva aplicación que permite programar en arduino directamente desde bloques. De esta forma podemos tener un primer acercamiento a arduino (pensado para los niños más pequeños pero no excluye a quienes queremos empezar sin conocimientos previos) que nos permita iniciar sin tener que aprender a programar de golpe.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="tienda-de-software-huayra"&gt;
+Tienda de Software Huayra
+&lt;a href="#tienda-de-software-huayra" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;También agrega una nueva tienda que permite realizar instalaciones de software mucho más fácil. y con una interfaz mucho más amigable&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="libro-vivo-de-hechizos"&gt;
+Libro vivo de Hechizos
+&lt;a href="#libro-vivo-de-hechizos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/fbvhbTXL/Screenshot-20230613-110153.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Un manual o libro de &lt;strong&gt;Huayra&lt;/strong&gt; que va desde el contexto filosófico y el marco teórico en el cual se construye &lt;strong&gt;Huayra&lt;/strong&gt;, hasta sus fines prácticos como instalación de la distribución, instalación de aplicaciones, actualización, etc…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="descarga"&gt;
+Descarga
+&lt;a href="#descarga" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Podemos descargar &lt;strong&gt;Huayra 6&lt;/strong&gt; desde su &lt;a href="https://huayra.educar.gob.ar/descargas/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+página oficial
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Debian 12, ¿Que cambios tiene?</title><link>https://patojad.com.ar/post/2023/06/debian-12-que-cambios-tiene/</link><pubDate>Sun, 11 Jun 2023 11:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/06/debian-12-que-cambios-tiene/</guid><description>&lt;p&gt;Si bien en internet está lleno de videos, mostrando instalaciones, o “recorriendo” &lt;strong&gt;Debian 12&lt;/strong&gt; la verdad es que no encontré ninguno que hablara de los cambios que esto tiene.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Debian&lt;/strong&gt; es una distribución muy importante para todo el mundo Linux o GNU/Linux, incluso su manual, si bien está orientado a &lt;strong&gt;Debian&lt;/strong&gt; nos ayuda entender cosas muy importantes sobre linux de una forma muy didáctica y aplicable a cualquier distribución…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="el-anuncio"&gt;
+El anuncio
+&lt;a href="#el-anuncio" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;No es difícil suscribirse a las listas de correo de &lt;strong&gt;Debian&lt;/strong&gt; y recibir todas las novedades, pero muchos de los &lt;em&gt;Linuxtubers&lt;/em&gt; de turno ni se toman el tiempo de leer antes de hacer una “Review”&lt;/p&gt;
+&lt;p&gt;Por lo cual me gustaría brindar esta información para llenar esas reviews que claramente yo no voy a hacer…&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;After 1 year, 9 months, and 28 days of development, the &lt;strong&gt;Debian&lt;/strong&gt; project
+is proud to present its new stable version 12 (code name &amp;ldquo;bookworm&amp;rdquo;).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;o en español&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Después de 1 año, 9 meses y 28 días de desarrollo, el proyecto &lt;strong&gt;Debian&lt;/strong&gt; se enorgullece en presentar su nueva versión estable 12 (nombre en clave &amp;ldquo;bookworm&amp;rdquo;).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;ldquo;bookworm&amp;rdquo; será “soportado” durante los próximos 5 años gracias a la combinación trabajo del &lt;a href="https://security-team.debian.org/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+equipo de seguridad de Debian
+&lt;/a&gt; y al &lt;a href="https://wiki.debian.org/LTS" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+equipo de Debian LTS
+&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="resolución-non-free"&gt;
+Resolución non-free
+&lt;a href="#resoluci%c3%b3n-non-free" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;De acuerdo con la resolución de paquetes no libres (del 2022 que generó polémica para aquellos que siguen un ideal no financiado más que la usabilidad) se decidió separar el &lt;a href="https://www.debian.org/vote/2022/vote_003" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+firmware no libre
+&lt;/a&gt; del resto de paquetes no libres, con el fin de poder elegir el uso del firmware y no de librerías o software non free (Lo que parece un punto medio entre la lógica de tener una distro usable en cualquier equipo y el intento de usar software libre todo lo que sea posible)&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="escritorios"&gt;
+Escritorios
+&lt;a href="#escritorios" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Llega con algunas actualizaciones en los escritorios más populares, podemos resaltar los siguientes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Gnome 43,&lt;/li&gt;
+&lt;li&gt;KDE Plasma 5.27,&lt;/li&gt;
+&lt;li&gt;LXDE 11,&lt;/li&gt;
+&lt;li&gt;LXQt 1.2.0,&lt;/li&gt;
+&lt;li&gt;MATE 1.26,&lt;/li&gt;
+&lt;li&gt;Xfce 4.18&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cambios-en-los-respositorios"&gt;
+Cambios en los respositorios
+&lt;a href="#cambios-en-los-respositorios" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Esta versión contiene más de 11.089 paquetes nuevos para un recuento total de 64.419 paquetes, mientras que más de 6.296 paquetes han sido retirados como &amp;ldquo;obsoleto&amp;rdquo;. En esta versión se actualizaron 43.254 paquetes. El general el uso del disco para &amp;ldquo;bookworm&amp;rdquo; es de 365.016.420 kB (365 GB) y está compuesto por 1.341.564.204 líneas de código.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="relevante-para-servidores"&gt;
+Relevante para servidores
+&lt;a href="#relevante-para-servidores" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Debian 12 &amp;ldquo;bookworm&amp;rdquo; incluye numerosos paquetes de software actualizados (más de 67% de todos los paquetes de la versión anterior), tales como:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Apache 2.4.57&lt;/li&gt;
+&lt;li&gt;BIND DNS Server 9.18&lt;/li&gt;
+&lt;li&gt;Cryptsetup 2.6&lt;/li&gt;
+&lt;li&gt;Dovecot MTA 2.3.19&lt;/li&gt;
+&lt;li&gt;Emacs 28.2&lt;/li&gt;
+&lt;li&gt;Exim (default email server) 4.96&lt;/li&gt;
+&lt;li&gt;GNU Compiler Collection 12.2&lt;/li&gt;
+&lt;li&gt;GnuPG 2.2.40&lt;/li&gt;
+&lt;li&gt;The GNU C Library 2.36&lt;/li&gt;
+&lt;li&gt;lighthttpd 1.4.69&lt;/li&gt;
+&lt;li&gt;Linux kernel 6.1 series&lt;/li&gt;
+&lt;li&gt;LLVM/Clang toolchain 13.0.1, 14.0 (default), and 15.0.6&lt;/li&gt;
+&lt;li&gt;MariaDB 10.11&lt;/li&gt;
+&lt;li&gt;Nginx 1.22&lt;/li&gt;
+&lt;li&gt;OpenJDK 17&lt;/li&gt;
+&lt;li&gt;OpenLDAP 2.5.13&lt;/li&gt;
+&lt;li&gt;OpenSSH 9.2p1&lt;/li&gt;
+&lt;li&gt;Perl 5.36&lt;/li&gt;
+&lt;li&gt;PHP 8.2&lt;/li&gt;
+&lt;li&gt;Postfix MTA 3.7&lt;/li&gt;
+&lt;li&gt;PostgreSQL 15&lt;/li&gt;
+&lt;li&gt;Python 3, 3.11.2&lt;/li&gt;
+&lt;li&gt;Rustc 1.63&lt;/li&gt;
+&lt;li&gt;Samba 4.17&lt;/li&gt;
+&lt;li&gt;systemd 252&lt;/li&gt;
+&lt;li&gt;Vim 9.0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Fuente: &lt;a href="mailto:debian-announce@lists.debian.org" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-envelope"&gt;&lt;/i&gt;&amp;nbsp;
+debian-announce@lists.debian.org
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Webservice NodeJS y MariaDB 6 - ABM en nuestra DB vía API</title><link>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-6-abm-en-nuestra-db-v%C3%ADa-api/</link><pubDate>Mon, 16 Aug 2021 10:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/08/webservice-nodejs-y-mariadb-6-abm-en-nuestra-db-v%C3%ADa-api/</guid><description>&lt;p&gt;Como última instancia vamos a terminar el ABM de nuestro webservice para poder controlar completamente la base de datos desde la API. Recordemos que esto es completamente extensible y que incluso puedo agregar querys con joins y demás.&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/KMeGAYhoYi4?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Así mismo, como siempre, dejo a continuación el código utilizado en el video, no con el fin de ser copiado (aunque esto es posible) Sino más bien como referencia para que construyan su propio código&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-javascript" data-lang="javascript"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;router&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;route&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/user/add&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;post&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;async&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;res&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;await&lt;/span&gt; &lt;span class="nx"&gt;DBConnector&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;queryWithParams&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;INSERT INTO usuarios(dni, nombre, apellido, email) VALUES(?,?,?,?)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;body&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;dni&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;body&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;nombre&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;body&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;apellido&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;body&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;email&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;res&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;json&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;result&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;router&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;route&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/user/delete/:id&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;async&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;res&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;await&lt;/span&gt; &lt;span class="nx"&gt;DBConnector&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;queryWithParams&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;DELETE FROM usuarios WHERE id=?&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;params&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;id&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;res&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;json&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;result&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;router&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;route&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/user/update&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;post&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;async&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;res&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kr"&gt;await&lt;/span&gt; &lt;span class="nx"&gt;DBConnector&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;queryWithParams&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;UPDATE usuarios SET nombre=?, apellido=?, email=? WHERE ID=?&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;body&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;nombre&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;body&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;apellido&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;body&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;email&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;body&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;id&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;res&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;json&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;result&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Si te necesitas que te demos una mano o tienes alguna duda, podes encontrarnos en la comunidad de Telegram donde con mucha alegría te vamos a estar ayudando.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://t.me/PatoJADCommunity" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-telegram"&gt;&lt;/i&gt;&amp;nbsp;
+Grupo de Telegram
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Si te sirvio no te olvides de apoyar. Compartir, una suscripción o un like no cuestan nada pero valen mucho&amp;hellip;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Si sentís que el curso te sirvió y, queres apoyar aún más que con tu subscribirse al canal de youtube y en las redes sociales o simplemente quieres certificar puedes encontrarlo en Udemy. Lamentablemente no me permite ponerle menos precio, pero si te interesa el certificado no te olvides de seguirnos que vamos a estar ofreciendo gratis para que todos los que lo deseen puedan certificar.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.udemy.com/course/patojad-webservice-nodejs-y-mariadb/?referralCode=817BCD02D2C08DEC01DE" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Curso en Udemy
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Solucion al erro de Update de Artix</title><link>https://patojad.com.ar/post/2021/06/solucion-al-erro-de-update-de-artix/</link><pubDate>Thu, 10 Jun 2021 09:51:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/06/solucion-al-erro-de-update-de-artix/</guid><description>&lt;p&gt;En estos días Artix linux estuvo presentando problemas para actualizar, al intentar actualizar nos aparece un error al resolver dependencias de SysyemD. Sin embargo esta distro no trae SystemD por lo cual nunca podrían cumplirse. En esta ocasión vamos a ver como arreglar este error.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="video"&gt;
+Video
+&lt;a href="#video" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En este video podemos ver el paso a paso de como arreglar este error:&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/UtGfiw-Pgdk?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;con pacman:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Syu elogind artix-archlinux-support
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;con yay:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -Syu elogind artix-archlinux-support
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Pacman conflicto de Archivos al Actualizar</title><link>https://patojad.com.ar/post/2020/11/pacman-conflicto-de-archivos-al-actualizar/</link><pubDate>Tue, 03 Nov 2020 08:40:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/11/pacman-conflicto-de-archivos-al-actualizar/</guid><description>&lt;p&gt;Dentro de todas las distribuciones basadas en Arch Linux siempre existe la posibilidad de tener errores al actualizar, mas que nada cuando se juntan muchas actualizaciones por periodos realmente largos. En estos casos las posibilidades de errores aumentan y es preciso buscar una solución.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="el-caso-de-artix-linux"&gt;
+El caso de Artix Linux
+&lt;a href="#el-caso-de-artix-linux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Artix es una distribución muy buena de la que &lt;a href="https://patojad.com.ar/post/2020/08/artix-linux/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+ya hablamos antes
+&lt;/a&gt;, incluso en el canal de youtube le dedique un saga, un poco corta, a la cual el dia de hoy sumo un video mas. Los sabores oficiales de artix, al dia de la fecha, tienen este problema de actualizaciones acumuladas, el cual da el error:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;error: no se pudo realizar la operación &lt;span class="o"&gt;(&lt;/span&gt;archivos en conflicto&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;nss: /usr/lib/p11-kit-trust.so existe en el sistema de archivos
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Este error puede pasarnos con cualquier librería o archivo y ahora vamos a darle una solución simple!&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="lo-utilizado"&gt;
+Lo utilizado
+&lt;a href="#lo-utilizado" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si bien como se aclara en el video podemos usar &lt;a href="https://patojad.com.ar/post/2020/09/manipulando-archivos-y-directorios/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+comodines
+&lt;/a&gt;. En este caso vamos a dejar el comando específico y cada uno lo modifica de la forma que crea conveniente. El patrón a seguir es el siguiente:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;error: no se pudo realizar la operación &lt;span class="o"&gt;(&lt;/span&gt;archivos en conflicto&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;nss: x existe en el sistema de archivos
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Para el error que figura arriba el comando es:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Syu --overwrite x
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="w-full rounded-xl bg-yellow-600/75 text-yellow-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-warning fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;**ATENCIÓN:** En mi caso uso -Syu porque estoy actualizando, pero lo mismo seria si estamos instalando un paquete&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S nombreDelPaquete --overwrite x
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Ahora les dejo el caso específico del video para que vean como seria esto implementado.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;error: no se pudo realizar la operación &lt;span class="o"&gt;(&lt;/span&gt;archivos en conflicto&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;nss: /usr/lib/p11-kit-trust.so existe en el sistema de archivos
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Y la solución (para la actualización) es:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; sudo pacman -Syu --overwrite /usr/lib/p11-kit-trust.so
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item></channel></rss>
