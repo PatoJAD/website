@@ -11,6 +11,8 @@ var last = output.lastChild;
 var searchVisible = false;
 var indexed = false;
 var hasResults = false;
+var closeDelayMs = 300;
+var closeTimer;
 
 // Listen for events
 showButton ? showButton.addEventListener("click", displaySearch) : null;
@@ -89,7 +91,16 @@ function displaySearch() {
   }
   if (!searchVisible) {
     document.body.style.overflow = "hidden";
-    wrapper.style.visibility = "visible";
+    if (closeTimer) {
+      clearTimeout(closeTimer);
+      closeTimer = undefined;
+    }
+    wrapper.classList.remove("invisible", "pointer-events-none", "opacity-0");
+    wrapper.classList.add("opacity-100");
+    requestAnimationFrame(function () {
+      modal.classList.remove("opacity-0", "translate-y-4");
+      modal.classList.add("opacity-100", "translate-y-0");
+    });
     input.focus();
     searchVisible = true;
   }
@@ -98,7 +109,13 @@ function displaySearch() {
 function hideSearch() {
   if (searchVisible) {
     document.body.style.overflow = "visible";
-    wrapper.style.visibility = "hidden";
+    modal.classList.remove("opacity-100", "translate-y-0");
+    modal.classList.add("opacity-0", "translate-y-4");
+    wrapper.classList.remove("opacity-100");
+    wrapper.classList.add("opacity-0");
+    closeTimer = window.setTimeout(function () {
+      wrapper.classList.add("invisible", "pointer-events-none");
+    }, closeDelayMs);
     input.value = "";
     output.innerHTML = "";
     document.activeElement.blur();
