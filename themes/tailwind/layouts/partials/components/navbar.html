@@ -27,9 +27,13 @@
   </nav>
 </header>
 
-<div id="mobile-menu-modal" class="fixed inset-0 z-20 flex justify-center align-middle hidden" aria-hidden="true">
-  <div id="mobile-menu-overlay" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
-  <div class="absolute inset-x-0 top-0 mt-28 mx-auto w-[92%] max-w-md rounded-2xl background p-4">
+<div id="mobile-menu-modal"
+  class="fixed inset-0 z-20 flex justify-center align-middle opacity-0 invisible pointer-events-none transition-opacity duration-200"
+  aria-hidden="true">
+  <div id="mobile-menu-overlay"
+    class="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-200"></div>
+  <div id="mobile-menu-panel"
+    class="absolute inset-x-0 top-0 mt-28 mx-auto w-[92%] max-w-md rounded-2xl background p-4 opacity-0 translate-y-4 transition-all duration-200">
     <div class="flex items-center justify-between">
       <span class="text-sm uppercase tracking-wide text-zinc-300">Menu</span>
       <button id="mobile-menu-close" aria-label="Close menu" class="text-base hover:text-fuchsia-700" title="Close">
@@ -46,40 +50,3 @@
     </div>
   </div>
 </div>
-
-<script>
-  (function () {
-    var openButton = document.getElementById('mobile-menu-button');
-    var closeButton = document.getElementById('mobile-menu-close');
-    var modal = document.getElementById('mobile-menu-modal');
-    var overlay = document.getElementById('mobile-menu-overlay');
-
-    if (!openButton || !closeButton || !modal || !overlay) {
-      return;
-    }
-
-    var toggleMenu = function (isOpen) {
-      modal.classList.toggle('hidden', !isOpen);
-      modal.setAttribute('aria-hidden', String(!isOpen));
-      openButton.setAttribute('aria-expanded', String(isOpen));
-    };
-
-    openButton.addEventListener('click', function () {
-      toggleMenu(true);
-    });
-
-    closeButton.addEventListener('click', function () {
-      toggleMenu(false);
-    });
-
-    overlay.addEventListener('click', function () {
-      toggleMenu(false);
-    });
-
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape') {
-        toggleMenu(false);
-      }
-    });
-  })();
-</script>
