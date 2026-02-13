@@ -1,3 +1,7 @@
+{{ $isLcp := not (.Page.Scratch.Get "hasLcpImage") }}
+{{ if $isLcp }}{{ .Page.Scratch.Set "hasLcpImage" true }}{{ end }}
 <div class="flex flex-wrap justify-center">
-    <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" title="{{ .Text }}" loading="lazy" decoding="async" class="rounded-xl" />
+    <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" title="{{ .Text }}"
+      loading="{{ if $isLcp }}eager{{ else }}lazy{{ end }}" {{ if $isLcp }}fetchpriority="high"{{ end }} decoding="async"
+      class="rounded-xl" />
 </div>
