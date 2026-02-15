@@ -22,7 +22,7 @@ tags:
     xan mod,
     xanmod,
     tkg,
-    personalización del kernel.,
+    personalización del kernel,
   ]
 categories: [Linux, Seguridad, Android]
 img: https://i.postimg.cc/VsJCD1wv/kernels.webp
