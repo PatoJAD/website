@@ -45,11 +45,16 @@
   {{ with . | css.TailwindCSS $opts }}
   {{ if hugo.IsDevelopment }}
   <link rel="preload" as="style" href="{{ .RelPermalink }}" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="{{ .RelPermalink }}" /></noscript>
+  <noscript>
+    <link rel="stylesheet" href="{{ .RelPermalink }}" />
+  </noscript>
   {{ else }}
   {{ with . | minify | fingerprint }}
-  <link rel="preload" as="style" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" /></noscript>
+  <link rel="preload" as="style" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" />
+  </noscript>
   {{ end }}
   {{ end }}
   {{ end }}
@@ -60,4 +65,14 @@
   <script defer src="https://kit.fontawesome.com/02f5a0ef7c.js" crossorigin="anonymous"></script>
 
   {{ partial "modules/head/seo.html" . }}
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-21JN682W8P"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-21JN682W8P');
+  </script>
 </head>
