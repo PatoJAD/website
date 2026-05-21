@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Apps on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/apps/</link><description>Recent content in Apps on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Wed, 15 Nov 2023 12:02:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/apps/index.xml" rel="self" type="application/rss+xml"/><item><title>Instalación de Wine en GNU/Linux para Ejecutar Aplicaciones Windows</title><link>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</link><pubDate>Wed, 15 Nov 2023 12:02:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/11/instalaci%C3%B3n-de-wine-en-gnu/linux-para-ejecutar-aplicaciones-windows/</guid><description>&lt;p&gt;La compatibilidad entre sistemas operativos es esencial, y Wine, una herramienta de código abierto, facilita la ejecución de aplicaciones Windows en entornos GNU/Linux. En esta guía, exploraremos qué es Wine, cómo instalarlo en distintas distribuciones y dónde se instalan las aplicaciones. ¡Descubre cómo ampliar las posibilidades de tu sistema operativo!&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-wine"&gt;
+¿Qué es Wine?
+&lt;a href="#qu%c3%a9-es-wine" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Wine, que significa &amp;ldquo;Wine Is Not an Emulator&amp;rdquo; (Wine no es un emulador), es una capa de compatibilidad que permite ejecutar aplicaciones diseñadas para Microsoft Windows en sistemas operativos basados en Unix, como GNU/Linux. No es una máquina virtual ni emula un entorno Windows completo; en cambio, traduce llamadas de sistema de Windows a llamadas de sistema compatibles con Unix.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="por-qué-usar-wine"&gt;
+¿Por qué usar Wine?
+&lt;a href="#por-qu%c3%a9-usar-wine" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Wine es una herramienta muy útil para aquellos que necesitan ejecutar aplicaciones Windows en entornos GNU/Linux. Algunos ejemplos de casos de uso incluyen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ejecutar aplicaciones de productividad como Microsoft Office.&lt;/li&gt;
+&lt;li&gt;Ejecutar aplicaciones de diseño como Adobe Photoshop.&lt;/li&gt;
+&lt;li&gt;Ejecutar juegos de Windows.&lt;/li&gt;
+&lt;li&gt;Ejecutar aplicaciones de Windows que no tienen alternativas nativas en GNU/Linux.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cómo-se-instala-wine"&gt;
+¿Cómo se instala Wine?
+&lt;a href="#c%c3%b3mo-se-instala-wine" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La instalación de Wine varía según la distribución de GNU/Linux que estés utilizando. A continuación, se detallan los pasos para algunas distribuciones populares.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="debianubuntu"&gt;
+Debian/Ubuntu
+&lt;a href="#debianubuntu" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dpkg --add-architecture i386
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install wine64 wine32
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="fedora"&gt;
+Fedora
+&lt;a href="#fedora" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf install wine
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="arch-linux-y-derivadas-como-manjaro"&gt;
+Arch Linux (y derivadas como Manjaro):
+&lt;a href="#arch-linux-y-derivadas-como-manjaro" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S wine
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="opensuse"&gt;
+OpenSUSE:
+&lt;a href="#opensuse" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo zypper install wine
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="dónde-se-instalan-las-aplicaciones-con-wine"&gt;
+¿Dónde se instalan las aplicaciones con Wine?
+&lt;a href="#d%c3%b3nde-se-instalan-las-aplicaciones-con-wine" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Las aplicaciones instaladas con Wine se almacenan en un directorio llamado &lt;code&gt;wineprefix&lt;/code&gt;. Por defecto, se encuentra en el directorio de inicio del usuario en una carpeta oculta llamada &lt;code&gt;.wine&lt;/code&gt;. Dentro de este directorio, encontrarás una estructura similar a la de un sistema Windows estándar, con carpetas como &lt;code&gt;Program Files&lt;/code&gt; y &lt;code&gt;Windows&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="proceso-de-instalación-básico-de-una-aplicación-con-wine"&gt;
+Proceso de instalación básico de una aplicación con Wine
+&lt;a href="#proceso-de-instalaci%c3%b3n-b%c3%a1sico-de-una-aplicaci%c3%b3n-con-wine" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Descarga el instalador de la aplicación Windows que deseas ejecutar.&lt;/li&gt;
+&lt;li&gt;Abre una terminal y navega hasta el directorio donde descargaste el instalador.&lt;/li&gt;
+&lt;li&gt;Ejecuta el siguiente comando:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;wine nombre_del_instalador.exe
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Sigue los pasos de instalación como lo harías en Windows.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusiones"&gt;
+Conclusiones
+&lt;a href="#conclusiones" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Wine&lt;/strong&gt; es una herramienta invaluable para aquellos que necesitan ejecutar aplicaciones Windows en entornos GNU/Linux. Su capacidad para traducir llamadas de sistema y proporcionar un entorno de ejecución nativo es fundamental para mejorar la interoperabilidad entre diferentes sistemas operativos.&lt;/p&gt;</description></item><item><title>Crear contraseña para apps en Google</title><link>https://patojad.com.ar/post/2022/07/crear-contrase%C3%B1a-para-apps-en-google/</link><pubDate>Thu, 14 Jul 2022 10:41:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/07/crear-contrase%C3%B1a-para-apps-en-google/</guid><description>&lt;p&gt;&lt;strong&gt;Google&lt;/strong&gt; intenta mantener &lt;em&gt;&amp;ldquo;nuestra cuenta segura&amp;rdquo;&lt;/em&gt; (esto puede ser polemico para algunos pero vamo a evitar) con el doble factor de auth. Sin embargo esto puede ser un poco tedioso a la hora de linkear diversas apps. Por eso mismo nos ofrece una herramienta que nos permite generar contraseñas que no requieren el 2 factor de auth para simplificar estas tareas.&lt;/p&gt;
+&lt;p&gt;Lo primero que debemos hacer es ir al sitio de cuentas de google en la parte de seguridad, al cual podemos acceder desde el siguiente link&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://myaccount.google.com/security" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Google Account Security
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Una vez ahí vamos a dirigirnos a la parte de &lt;strong&gt;Iniciar sesión en Google&lt;/strong&gt;. y entramos en &lt;strong&gt;contraseñas de aplicaciones&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/hvGs5bL6/image.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Luego de eso nos pedirá la contraseña de la cuenta (la real, la que usamos siempre) para validar nuestra identidad. Y finalmente nos va a permitir elegir para uqe aplicación y/o dispositivo queremos activarla (se puede crear nuevos) y nos devolverá una contraseña que no requiere el 2 factor&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/Z5jr1yRh/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Estas contraseñas son muy útiles para aplicaciones como &lt;strong&gt;gnome-accounts&lt;/strong&gt;, o &lt;strong&gt;clientes de correo&lt;/strong&gt;, entre otros, para evitar constantemente el chequeo del 2 factor. Aun así hay que entender que esto es peligroso dado que si una contraseña se filtra permitiría a cualquier loguearse sin necesidad del 2 factor.&lt;/p&gt;
+&lt;p&gt;Sin embargo, en el mismo lugar de la web de seguridad podemos borrar contraseñas que ya no creamos seguras o que ya no utilicemos para mantenernos más seguros&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/QMtpsx9K/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;</description></item><item><title>¿Como instalar Wine?</title><link>https://patojad.com.ar/post/2021/04/como-instalar-wine/</link><pubDate>Fri, 16 Apr 2021 09:36:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/04/como-instalar-wine/</guid><description>&lt;p&gt;Ya con anterioridad me consultaron de como instalar Wine en Artix, esto me llevó a armar el video y obviamente siempre a explicar mi perspectiva o punto de vista sobre el uso de wine. En esta oportunidad el video es específico de distros basadas en Arch. Sin embargo, en la parte inferior van a poder encontrar la instalación para otras distros de linux.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="pre-requisitos"&gt;
+Pre requisitos
+&lt;a href="#pre-requisitos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si venis por Artix o cualquier distro de Arch te recomiendo que veas de antemano las instalaciones y configuraciones de las que hago uso en el video y doy por sabido estas son&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2021/03/activar-multilib-artix/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Multilib
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2020/10/instalar-yay-en-artix-linux/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+yay
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="video"&gt;
+Video
+&lt;a href="#video" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Como siempre disfruto mucho de armar videos y dejar mi opinion asi que sin rodeos los dejo con el video&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/47A2KBLgj6I?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalar-winehq"&gt;
+Instalar WineHQ
+&lt;a href="#instalar-winehq" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://linuxhint.com/wp-content/uploads/2020/06/1-12.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Lo primero que debemos hacer es instalar WineHQ en nuestra distribución, para esto debemos agregar las librerías y ejecutar la instalación.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="debian"&gt;
+Debian
+&lt;a href="#debian" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Habilitamos los 32 bits&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dpkg --add-architecture i386
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Descargamos e instalamos a Key&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;wget -nc https://dl.winehq.org/wine-builds/winehq.key
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-key add winehq.key
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Agregamos el repositorio dependiendo de nuestra versión&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Version&lt;/th&gt;
+&lt;th&gt;Agregar a /etc/apt/sources.list:&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Debian 8 (Jessie)&lt;/td&gt;
+&lt;td&gt;deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://dl.winehq.org/wine-builds/debian/
+&lt;/a&gt; jessie main&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Debian 9 (Stretch)&lt;/td&gt;
+&lt;td&gt;deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://dl.winehq.org/wine-builds/debian/
+&lt;/a&gt; stretch main&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Debian 10 (currently Testing) (Buster)&lt;/td&gt;
+&lt;td&gt;deb &lt;a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://dl.winehq.org/wine-builds/debian/
+&lt;/a&gt; buster main&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Actualizamos el Sistema&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Instalamos uno de los paquetes&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;version&lt;/th&gt;
+&lt;th&gt;comando&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Stable branch&lt;/td&gt;
+&lt;td&gt;sudo apt install &amp;ndash;install-recommends winehq-stable&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Development branch&lt;/td&gt;
+&lt;td&gt;sudo apt install &amp;ndash;install-recommends winehq-devel&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Staging branch&lt;/td&gt;
+&lt;td&gt;sudo apt install &amp;ndash;install-recommends winehq-staging&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="fedora"&gt;
+Fedora
+&lt;a href="#fedora" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Agregamos los repositories&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;version&lt;/th&gt;
+&lt;th&gt;comando&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Fedora 29&lt;/td&gt;
+&lt;td&gt;dnf config-manager &amp;ndash;add-repo &lt;a href="https://dl.winehq.org/wine-builds/fedora/29/winehq.repo" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://dl.winehq.org/wine-builds/fedora/29/winehq.repo
+&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Fedora 30&lt;/td&gt;
+&lt;td&gt;dnf config-manager &amp;ndash;add-repo &lt;a href="https://dl.winehq.org/wine-builds/fedora/30/winehq.repo" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://dl.winehq.org/wine-builds/fedora/30/winehq.repo
+&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;E instalamos la version que deseamos&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;version&lt;/th&gt;
+&lt;th&gt;comando&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Stable branch&lt;/td&gt;
+&lt;td&gt;dnf install winehq-stable&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Development branch&lt;/td&gt;
+&lt;td&gt;dnf install winehq-devel&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Staging branch&lt;/td&gt;
+&lt;td&gt;dnf install winehq-staging&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Para otras distribuciones o BDS o MacOS revisar en su &lt;a href="https://wiki.winehq.org/Download" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+sitio oficial
+&lt;/a&gt;&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="arch"&gt;
+Arch
+&lt;a href="#arch" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Si estás en una distro basada en arch lo que recomiendo es instalar wine-staging que es, personalmente la instalación que me dio un mejor rendimiento. En mi caso lo hice con yay pero puedes hacerlo directamente con pacman&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -S wine-staging
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>LBRY, en busca de la libertad</title><link>https://patojad.com.ar/post/2020/06/lbry-en-busca-de-la-libertad/</link><pubDate>Mon, 29 Jun 2020 09:03:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/06/lbry-en-busca-de-la-libertad/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;Los mejores creadores, los usuarios que se respetan a sí mismos, los que se preocupan por la privacidad, los fanáticos de las computadoras, los amantes de la libertad, los amantes adorables y los lectores de pequeños textos grises en todas partes eligen LBRY, porque es abierto, justo y gratuito.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;De esta forma se presenta ante nosotros LBRY una alternativa LIBRE a youtube que busca enfocar de otra manera el punto de vista de los usuario y creadores&amp;hellip;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;LBRY es un mercado digital seguro, abierto y gestionado por la comunidad. Disfruta del contenido más reciente de tus creadores favoritos, como usuario, &lt;strong&gt;no como producto&lt;/strong&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;LBRY es un nuevo protocolo que permite a cualquiera crear aplicaciones que interactúen con contenido digital en la red LBRY. Las aplicaciones creadas con el protocolo permiten a los creadores subir su trabajo a la red de hosts LBRY (como BitTorrent), establecer un precio por transmisión o descarga (como iTunes) o regalarlo gratis (como YouTube sin anuncios). El trabajo que publica puede ser videos, archivos de audio, documentos o cualquier otro tipo de archivo.&lt;/p&gt;
+&lt;p&gt;Los sitios tradicionales de video (u otro contenido) como YouTube, Instagram y Spotify almacenan sus cargas en sus servidores y permiten a los espectadores descargarlas. También permiten a los creadores ganar dinero a través de la publicidad u otros mecanismos. Sin embargo, hay algunos inconvenientes bien conocidos, especialmente para las personas cuyo material se percibe como no apto para anunciantes.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://spee.ch/f/2019-08-lbry-interface-poster.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;LBRY pretende ser una alternativa a estos sitios, permitiendo a los editores y sus fanáticos interactuar directamente sin el riesgo de desmonetización u otra intromisión.&lt;/p&gt;
+&lt;p&gt;Lo que hace que todo esto sea posible es la tecnología blockchain desarrollada por el creador de Bitcoin.&lt;/p&gt;
+&lt;p&gt;¿Tienes que entender algo de esto para usar y disfrutar de LBRY? No. ¿Sigue siendo importante para los usuarios? ¡Si!&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="basta-de-tanta-palabra"&gt;
+Basta de tanta palabra
+&lt;a href="#basta-de-tanta-palabra" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si bien la informacion que puse arriba es relevante se puede encontrar en cualquier sitio. Yo comencé a usar LBRY hace muy poco e incluso ya elimine el canal y cree uno nuevo. Me gusto saber que pude migrar mi canal de Youtube para evitarme tener que subir todo a mano…&lt;/p&gt;
+&lt;p&gt;Por ahora mi experiencia es pobre, no llegue a indagar a fondo, sin embargo lo use para entretenerme y sin problemas. Incluso lo instale en mi sistema operativo.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="lo-recomiendo"&gt;
+¿Lo recomiendo?
+&lt;a href="#lo-recomiendo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si bien no le dedique la cantidad de horas que quería, no aguantaba las ganas de escribir sobre esto, y eso se debe a que si lo recomiendo, tanto para creadores como para usuarios, el registro es completamente simple y rápido por lo cual no hay problemas, y siempre está bueno tener ese lugar donde podes subir esos videos que Youtube no te deja… Para arrancar te quiero dejar mi referido para que te registres… No se bien en qué me beneficia a mi pero se que no te perjudica en nada, sin embargo si no queres el referido más abajo te voy a dejar links sin referido…&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://lbry.tv/$/invite/@PatoJAD:d" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Registrarme
+&lt;/a&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="que-puedo-ver"&gt;
+¿Que puedo ver?
+&lt;a href="#que-puedo-ver" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En particular todavía no tengo tanto para recomendar en español, sin embargo voy a dejarte 2 canales que no podes perderte ni por casualidad (Si, uno es el mio&amp;hellip;). Pero más allá de esto encontré muchísimo contenido en base al entretenimiento o la música que me contentaron… Y mucho contenido (en inglés) que vale la pena…&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://lbry.tv/@PatoJAD:d" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Mi Canal
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://lbry.tv/@SePuedeJugarConLinux:9" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Se Puede Jugar Con Linux
+&lt;/a&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="para-cerrar"&gt;
+Para cerrar
+&lt;a href="#para-cerrar" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si bien estamos acostumbrados a Youtube es importante siempre conocer tecnologías y darles una oportunidad, en el peor de los casos no nos suman nada. Y más cuando hablamos de tecnologías libres que no corremos riesgos de que nos roben hasta las ganas de vivir! &lt;strong&gt;Tampoco te olvides SIEMPRE de apoyar a todos los creadores, un MG o una suscripción no cuestan nada pero valen un monton&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Anbox ¿La solución definitiva?</title><link>https://patojad.com.ar/post/2020/06/anbox-la-soluci%C3%B3n-definitiva/</link><pubDate>Wed, 10 Jun 2020 09:52:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/06/anbox-la-soluci%C3%B3n-definitiva/</guid><description>&lt;p&gt;Parece que últimamente estoy haciendo saga de los mismos temas, pero esto suele pasar cuando uno investiga y busca nuevas alternativas, y hoy vamos a estar un poco cargaditos de críticas hacia ubuntu distro que yo no recomiendo pero admito que es muy buena para el target de usuarios al que apunta…&lt;/p&gt;
+&lt;p&gt;Ya ayer hablamos de Shashlik una app que nos permite ejecutar aplicaciones android en nuestro sistema operativo sin emularlo completamente, sin embargo esta aplicación se encuentra abandonada desde 2016, y si bien aún puede levantar aplicaciones sin problemas muchas veces lo ideal es mantenernos actualizados por seguridad y funcionalidad, por lo cual decidí traer su &lt;strong&gt;equivalente actualizado&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Sin embargo de esta app hay cosas que no me gustan aunque entiendo su decisión y es ahí donde vamos a &lt;strong&gt;bardear un poco&lt;/strong&gt; a Ubuntu así que… Vamos a eso!&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="sobre-la-app"&gt;
+Sobre la app
+&lt;a href="#sobre-la-app" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Como dijimos anteriormente esta aplicación no utiliza QEMU ni ningún otro emulado para levantar una aplicación por lo cual mejora el rendimiento haciéndolo más &lt;strong&gt;PERFORMANTE&lt;/strong&gt; (Abrazo a todos los que me &lt;em&gt;bardearon&lt;/em&gt; de forma cariñosa por usar performante y les tengo que dar la derecha es una palabra que no existe pero que todo Linuxnauta entiende) Por lo cual lo vuelve una de las &lt;strong&gt;mejores opciones&lt;/strong&gt; porque sería una capa de compatibilidad (Como wine) que hace que nuestro sistema no baje el rendimiento bruscamente&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://c1.staticflickr.com/1/913/41527912900_68ce4a25d5_o.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Anbox es una solución &lt;strong&gt;convergente&lt;/strong&gt;. Funciona de igual forma en una computadora portátil y un teléfono móvil, siempre que ejecuten alguna variante de Linux, claramente. Sin ir muy lejos, los orígenes de esta iniciativa radica en &lt;strong&gt;Ubuntu Touch&lt;/strong&gt; por lo cual podemos ver hasta donde planean alcanzar la compatibilidad…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="su-lado-negativo-aprende-ubuntu"&gt;
+Su lado Negativo (Aprende Ubuntu)
+&lt;a href="#su-lado-negativo-aprende-ubuntu" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La instalación es directamente snap, esto es algo que no me agrada a simple vista dado que snap podría llegar reiterar librerias y demas sin ningun tipo de sentido al igual que sus hermanos como flatpack y demás…&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://cdn.lignux.com/wp-content/uploads/2018/07/anbox-1.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Sin embargo después de revisar cómo está implementado este increíble proyecto comprendí que es &lt;strong&gt;realmente importante&lt;/strong&gt; que esto sea así dado que necesita versiones muy específicas y una actualización podría llegar a rompernos todo y al ser una app tan delicada con una función tan importante (Piensen en un smart donde se use wpp laboralmente instalado en Anbox no debería romper nunca) por lo cual podemos decir que Anbox es &lt;strong&gt;un buen ejemplo&lt;/strong&gt; de cómo se debe usar snap&lt;/p&gt;
+&lt;p&gt;Ubuntu tomó la decisión de poner snap como defecto (Cosa que no quiero comentar mucho) Pero esto no está bueno porque desaprovechamos muchas cualidades de las bibliotecas compartidas. Está bien usar snap, pero en casos como los de Anbox.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación"&gt;
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Ahora el repo de la comunidad no pudo hacer nada por nosotros pero si podemos explicarte paso a paso cómo hacer para tener una instalación simple y funcional… Por lo cual vamos a proceder a eso:&lt;/p&gt;
+&lt;p&gt;Debemos agregar un repositorio que es una &lt;strong&gt;ppa&lt;/strong&gt;, pero con el fin de hacer mas lindo el tuto vamos a agregarlo &lt;em&gt;a mano&lt;/em&gt; de la siguiente forma&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; deb http://ppa.launchpad.net/morphis/anbox-support/ubuntu bionic main &lt;span class="p"&gt;|&lt;/span&gt; sudo tee /etc/apt/sources.list.d/anbox.list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Una vez que este agregado debemos agregar la &lt;strong&gt;clave pública&lt;/strong&gt; para poder acceder al repositorio y esto lo hacemos de la siguiente forma&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 21C6044A875B67B7
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Y teniendo esto ya estamos preparados para seguir con el siguiente paso! que es nada más ni nada menos que instalar &lt;strong&gt;los módulos del kernel&lt;/strong&gt;. Esto nos agrega 2 módulos que se actualizan automáticamente cuando se actualiza el kernel.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install anbox-modules-dkms
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Después de instalar el paquete anbox-modules-dkms, debe cargar manualmente los módulos del kernel. &lt;em&gt;La próxima vez que se inicie su sistema, se cargarán automáticamente&lt;/em&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo modprobe ashmem_linux
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo modprobe binder_linux
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://vidatecno.net/wp-content/uploads/2019/05/como-ejecutar-aplicaciones-android-en-ubuntu-linux-con-anbox-1.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Ahora debería tener dos nuevos nodos en su directorio de sistemas /dev el cual podemos probar con el siguiente comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ls -1 /dev/&lt;span class="o"&gt;{&lt;/span&gt;ashmem,binder&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Donde vamos a estar esperando una salida como la que vemos a continuación.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/dev/ashmem
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/dev/binder
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;El segundo paso &lt;em&gt;instalará el complemento Anbox&lt;/em&gt; de la tienda y le dará todo lo que necesita para ejecutar la experiencia completa de Anbox. Instalar el complemento de Anbox es muy simple:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo snap install --devmode --beta anbox
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Por el momento, requerimos el uso de &amp;ndash;devmode ya que el complemento de Anbox aún no está completamente limitado. Se ha comenzado a trabajar con el proyecto snapd upstream para obtener soporte para el confinamiento completo. Como efecto secundario del uso de &amp;ndash;devmode, el ajuste &lt;strong&gt;no se actualizará automáticamente&lt;/strong&gt;. Para actualizar a una versión más nueva, puede ejecutar:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo snap refresh --beta --devmode anbox
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalar-aplicaciones"&gt;
+Instalar aplicaciones
+&lt;a href="#instalar-aplicaciones" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://instatecno.com/wp-content/uploads/2020/02/Anbox-700x400.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Ya teniendo instalado Anbox tenemos que instalar aplicaciones, o mejor dicho queremos por lo cual debemos proseguir de la siguiente forma. Requerimos tener el adb instalado si no lo tenes podes hacerlo asi:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install android-tools-adb
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Anbox &lt;strong&gt;no proporciona ninguna funcionalidad para obtener aplicaciones de Android&lt;/strong&gt;. Necesitamos obtenerlos de una fuente en Internet. Una vez que tenga el paquete &lt;em&gt;APK&lt;/em&gt; para la aplicación, puede instalarlo en el contenedor de Android con el siguiente comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;adb install aplicacion.apk
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Si el contenedor de Anbox aún &lt;em&gt;no se está ejecutando&lt;/em&gt;, podemos comenzar cargando la aplicación del administrador de aplicaciones:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;anbox.appmgr
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Shashlik más que un emulador</title><link>https://patojad.com.ar/post/2020/06/shashlik-m%C3%A1s-que-un-emulador/</link><pubDate>Tue, 09 Jun 2020 09:33:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/06/shashlik-m%C3%A1s-que-un-emulador/</guid><description>&lt;p&gt;Shashlik es, básicamente, un conjunto de componentes de software que permite a los usuarios de Linux instalar y ejecutar APK de Android &lt;strong&gt;directamente&lt;/strong&gt; en su distribución GNU / Linux. Shashlik logra eso mediante el uso de una versión simplificada de Android &lt;strong&gt;en lugar de emular una&lt;/strong&gt;, que se anida dentro de la sesión del usuario al iniciar una aplicación de Android instalada.&lt;/p&gt;
+&lt;p&gt;Si bien el desarrollo de este prometedor proyecto &lt;strong&gt;murio en 2016&lt;/strong&gt; aun la version instalable funciona perfectamente con algunas apps (Por ejemplo la utilizo con una app de clima, lo que podriamos hacer es enumerar las apps que si funcionan entre toda la comunidad)&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalando-shashlik"&gt;
+Instalando Shashlik
+&lt;a href="#instalando-shashlik" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;la instalación es completamente sencilla gracias, nuevamente, al repo de la comunidad, basta con tenerlo instalado y ejecutar el simple comando:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt install shashlik
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Y en unos minutos tendremos instalado esta increíble app&amp;hellip;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalar-y-ejecutar-apk-de-android"&gt;
+Instalar y ejecutar APK de Android
+&lt;a href="#instalar-y-ejecutar-apk-de-android" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.howtoforge.com/images/how-to-install-and-run-android-apk-on-linux-with-shashlik/pic_4.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Después de instalar Shashlik, descarguamos la aplicación que deseamos ejecutar con Shashlik. Luego abrimos una terminal en la ubicación de los APK descargados y escribimos el siguiente comando para instalarlo en nuestro sistema:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/opt/shashlik/bin/shashlik-install name-app.apk
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.howtoforge.com/images/how-to-install-and-run-android-apk-on-linux-with-shashlik/big/pic_2.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;(Las imágenes no son mías, a mi al terminar la instalación de una app, creo que la del clima, me devolvió un error sobre notificaciones y no se que mas, pero la app me abre genial y funciona, estimo que las notificaciones no funcionan pero no es relevante porque es de clima y lo veo cuando quiero&amp;hellip;)&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;El siguiente paso es &lt;strong&gt;ejecutar el APK&lt;/strong&gt; escribiendo el siguiente comando en la misma sesión de terminal:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/opt/shashlik/bin/shashlik-run splash.png name-app.apk
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Una cosa importante a tener en cuenta en este punto es que durante la instalación, Shashlik ha creado y almacenado algunos archivos necesarios en &lt;code&gt;/.local/share/shashlik&lt;/code&gt;. Esos archivos incluyen el archivo de imagen PNG splash y el userdata.img. Al iniciar un APK, Shashlik busca el archivo que ha indicado en el comando. Entonces, si hay un splash.png correspondiente a una aplicación llamada test.apk, el comando se convierte en:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/opt/shashlik/bin/shashlik-run splash test.apk
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.howtoforge.com/images/how-to-install-and-run-android-apk-on-linux-with-shashlik/pic_3.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="el-menu"&gt;
+El Menu
+&lt;a href="#el-menu" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para simplificar las cosas, debo señalar que los &lt;strong&gt;APK están instalados en nuestro sistema&lt;/strong&gt; con el comando que se mostró anteriormente, por lo que si los buscamos en el menú de aplicaciones, debemos encontrarlos y &lt;strong&gt;ejecutarlos con un simple clic&lt;/strong&gt;. Sin embargo, esto &lt;em&gt;puede no funcionar bien&lt;/em&gt; para todas las aplicaciones, pero si lo hace, es bastante útil. Cualquiera sea el caso, debe saber cómo ejecutarlo desde la terminal para obtener la información necesaria para resolver cualquier problema.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.howtoforge.com/images/how-to-install-and-run-android-apk-on-linux-with-shashlik/pic_5.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Como actualmente &lt;strong&gt;no hay una función de desinstalación implementada&lt;/strong&gt;, podemos eliminar manualmente los archivos binarios instalados por Shashlik navegando a &lt;code&gt;/.local/share/applications&lt;/code&gt; y eliminando los archivos correspondientes. Esto debería eliminarlos del menú de aplicaciones.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="pantalla-lateral"&gt;
+Pantalla Lateral
+&lt;a href="#pantalla-lateral" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Como el software ni siquiera ha alcanzado su &lt;strong&gt;primera versión estable&lt;/strong&gt;, no se puede jugar con ninguna opción que pueda ser crítica para la experiencia del usuario con ciertas aplicaciones. El caso de configurar el emulador en el modo de pantalla horizontal es habitual, así que aquí está cómo hacerlo. Abrimos nuestro administrador de archivos como administrador y navegamos a &lt;code&gt;/opt/shashlik/bin&lt;/code&gt; ahi abrimos &lt;code&gt;shashlik.run&lt;/code&gt; con nuestro editor de texto favorito. Luego ubicamos el argumento &lt;code&gt;-noskin&lt;/code&gt; y lo remplazamos con &lt;code&gt;-skin 480x320&lt;/code&gt; o cualquier otra resolución en las proporciones estándar.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.howtoforge.com/images/how-to-install-and-run-android-apk-on-linux-with-shashlik/pic_6.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Precisamente Shashlik no es el más estable y es triste que se haya dejado su desarrollo, sin embargo aun al dia de hoy &lt;strong&gt;corre perfectamente muchas apps&lt;/strong&gt; y es mucho más &lt;strong&gt;performante&lt;/strong&gt; que los emuladores en sí, el hecho de correr solo lo mínimo y no emular todo el sistema nos facilita muchas cosas.&lt;/p&gt;
+&lt;p&gt;Si dependemos o utilizamos algunas apps no muy complejas es altamente recomendable utilizarlo, ya que de esta manera podemos hacerlo aprovechando los recursos de nuestra máquina. Sin embargo no está de más tener otro emulador a mano…&lt;/p&gt;
+&lt;p&gt;Dejo un video de un juego que corre sin problemas para que vean que realmente está pulido aunque no tenga updates hace más de 3 años&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/9SC6c_ih_Ac?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;</description></item><item><title>Ulauncher</title><link>https://patojad.com.ar/post/2020/05/ulauncher/</link><pubDate>Tue, 19 May 2020 14:16:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/05/ulauncher/</guid><description>&lt;p&gt;Hace un tiempo hablamos de alternativas a Krunner y fue ahí cuando conocí a esta hermosa app, pero pasó mucho tiempo desde aquel entonces y creemos que teniamos que contar un poco más sobre esta hermosa aplicación que sobre todo aumenta nuestra productividad de una forma increíble.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://ulauncher.io/assets/images/demo.gif" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="búsqueda-dudosa"&gt;
+Búsqueda &amp;ldquo;dudosa&amp;rdquo;
+&lt;a href="#b%c3%basqueda-dudosa" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Escriba el nombre de una aplicación sin preocuparse por la ortografía. Ulauncher descubrirá a qué te referías. También recuerda tus elecciones anteriores y selecciona automáticamente la mejor opción para ti&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="temas-de-colores-personalizados"&gt;
+Temas de colores personalizados
+&lt;a href="#temas-de-colores-personalizados" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Ulauncher proporciona 4 temas integrados. Pero si necesita algo diferente, siempre puede crear un &lt;a href="https://gist.github.com/gornostal/02a232e6e560da7946c053555ced6cce" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+tema de color personalizado
+&lt;/a&gt;. Los documentos que necesitaras para esto están &lt;a href="https://docs.ulauncher.io/en/latest/themes/themes.html" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+aquí
+&lt;/a&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="atajos-y-extensiones"&gt;
+Atajos y extensiones
+&lt;a href="#atajos-y-extensiones" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Mejore su flujo de trabajo con accesos directos y &lt;a href="https://ext.ulauncher.io/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+extensiones personalizables
+&lt;/a&gt;. Cree un acceso directo para la búsqueda web o sus scripts o instale una extensión de terceros&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="navegador-rápido-de-directorios"&gt;
+Navegador rápido de directorios
+&lt;a href="#navegador-r%c3%a1pido-de-directorios" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Explore archivos y directorios con facilidad. Escriba ~ o / para comenzar. Presione Alt + Intro para acceder a un menú alternativo&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación"&gt;
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Como siempre nuestra comunidad busca que todos los linuxnautas tengan las apps de una forma simple y segura por lo cual te ofrecemos desde el repositorio de la comunidad una instalación fácil y sencilla.&lt;/p&gt;
+&lt;p&gt;Una vez que tengamos instalado el repositorio de la comunidad que si aun no lo tienes instalado te recomiendo ingresar aquí para ver cómo se hace e instalarlo. basta con ejecutar la instalación desde la terminal:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt install ulauncher
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;y una vez instalado ya podemos disfrutarlo, viene configurado para abrirlo con ctrl+space&lt;/p&gt;
+&lt;p&gt;Muchas gracias por visitar el Blog, si te gusta el contenido te pedimos que colabores con nosotros siguiéndonos en las redes sociales y/o desactivando el bloqueador de anuncios. El blog es meramente a pulmón y esa es tu forma de colaborar para que podamos mejorar lo que ofrecemos a toda la comunidad.&lt;/p&gt;</description></item></channel></rss>

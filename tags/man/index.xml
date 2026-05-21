@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Man on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/man/</link><description>Recent content in Man on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 22 Sep 2020 10:02:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/man/index.xml" rel="self" type="application/rss+xml"/><item><title>Obteniendo información de comandos</title><link>https://patojad.com.ar/post/2020/09/obteniendo-informaci%C3%B3n-de-comandos/</link><pubDate>Tue, 22 Sep 2020 10:02:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/09/obteniendo-informaci%C3%B3n-de-comandos/</guid><description>&lt;p&gt;En esta oportunidad vamos a obtener más información sobre los comandos que podemos encontrar en nuestro Shell. Para esto vamos utilizar las herramientas que nos ofrecen con este fin.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="help--ofrece-ayuda-sobre-los-shell-builtins"&gt;
+&lt;strong&gt;help&lt;/strong&gt; – Ofrece ayuda sobre los shell builtins
+&lt;a href="#help--ofrece-ayuda-sobre-los-shell-builtins" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;bash tiene una ayuda integrada disponible para cada shell builtin. Para usarla, escribimos “help” seguido del nombre del shell builtin. Por ejemplo:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;help cd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Que genera una salida como la siguiente&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd: cd [-L|[-P [-e]]] [dir]
+Change the shell working directory.
+Change the current directory to DIR. The default DIR is the value of the HOME shell variable.
+The variable CDPATH defines the search path for the directory containing DIR. Alternative directory names in CDPATH are separated by a colon (:). A null directory name is the same as the current directory. If DIR begins with a slash (/), then CDPATH is not used.
+If the directory is not found, and the shell option `cdable_vars' is set, the word is assumed to be a variable name. If that variable has a value, its value is used for DIR.
+Options:
+-L force symbolic links to be followed
+-P use the physical directory structure without following symbolic links
+-e if the -P option is supplied, and the current working directory cannot be determined successfully, exit with a non-zero status
+The default is to follow symbolic links, as if `-L' were specified.
+Exit Status:
+Returns 0 if the directory is changed, and if $PWD is set successfully when -P is used; non-zero otherwise.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Una nota sobre la notación:&lt;/strong&gt; Cuando aparecen corchetes en la descripción de la sintaxis de un comando, indican opciones adicionales. Una barra vertical indica que son elementos excluyentes entre ellos.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="--muestra-información-de-uso"&gt;
+&lt;strong&gt;&amp;ndash;help&lt;/strong&gt; – Muestra información de uso
+&lt;a href="#--muestra-informaci%c3%b3n-de-uso" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/zvjB480Z/image.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Muchos programas ejecutables soportan una opción “&amp;ndash;help” que muestra una descripción de la sintaxis y las opciones soportadas por el comando. Por ejemplo:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkdir --help
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Que genera una salida como la siguiente&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Usage: mkdir [OPTION] DIRECTORY...
+Create the DIRECTORY(ies), if they do not already exist.
+-Z, --context=CONTEXT (SELinux) set security context to CONTEXT Mandatory arguments to long options are mandatory for short options too.
+-m, --mode=MODE set file mode (as in chmod), not a=rwx – umask
+-p, --parents no error if existing, make parent directories as needed
+-v, --verbose print a message for each created directory
+--help display this help and exit
+--version output version information and exit
+Report bugs to &amp;lt;bug-coreutils@gnu.org&amp;gt;.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Algunos programas no soportan la opción “&amp;ndash;help”, pero es importante probarlos de todas formas. A menudo el resultado es un error que revelará la misma información de uso.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="man--muestra-el-manual-de-un-programa"&gt;
+&lt;strong&gt;man&lt;/strong&gt; – Muestra el manual de un programa
+&lt;a href="#man--muestra-el-manual-de-un-programa" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La mayoría de los programas ejecutables pensados para usarse en la línea de comandos proveen un documento llamado manual page o man page. Se usa un programa de paginación especial llamado man para verlos. Se usa así:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;man programa
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/G2jdmzYv/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Donde “programa” es el nombre del comando que queremos ver. Las man pages varían algo en formato pero generalmente contienen un título, una sinopsis de la sintaxis del comando, una descripción del propósito del comando y una lista y descripción de cada opción del comando. Las man pages, de todas formas, no suelen incluir ejemplos, y están pensadas como una referencia, no como un tutorial. Como ejemplo, probaremos a ver la man page para el comando ls:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;man ls
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En la mayoría de los sistemas Linux, man usa less para mostrar la man page, así que todos los comandos de less que nos son familiares funcionan cuando está mostrado la página.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Si quieres saber más sobre man te dejo &lt;a href="https://patojad.com.ar/post/2019/01/man-tu-manual-para-linux/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+un articulo
+&lt;/a&gt; para leer&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="apropos--muestra-comandos-apropiados"&gt;
+&lt;strong&gt;apropos&lt;/strong&gt; – Muestra comandos apropiados
+&lt;a href="#apropos--muestra-comandos-apropiados" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/ZYGzz1XX/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;También es posible buscar en el listado de las man pages posibles coincidencias basadas en un término de búsqueda. Es muy tosco pero a veces ayuda. Aquí tienes un ejemplo de una búsqueda en las man pages utilizando el término de búsqueda “floppy”:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;apropos floppy
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Generando una salida como:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;create_floppy_devices (8) - udev callout to create all possible floppy device based on the CMOS type
+fdformat (8) - Low-level formats a floppy disk
+floppy (8) - format floppy disks
+gfloppy (1) - a simple floppy formatter for the GNOME
+mbadblocks (1) - tests a floppy disk, and marks the bad blocks in the FAT
+mformat (1) - add an MSDOS filesystem to a low-level formatted floppy disk
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;El primer campo de cada línea es el nombre de la man page, el segundo campo muestra la sección. Fíjate que el comando man con la opción “-k” ofrece exactamente la misma función que apropos.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="whatis--muestra-una-descripción-muy-breve-de-un-comando"&gt;
+&lt;strong&gt;whatis&lt;/strong&gt; – Muestra una descripción muy breve de un comando
+&lt;a href="#whatis--muestra-una-descripci%c3%b3n-muy-breve-de-un-comando" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/bwvTCv3P/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;El programa whatis muestra el nombre y una descripción de una línea de una man page coincidente con una palabra especificada:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;whatis ls
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Y genera una salida muy simple como la siguiente!&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ls (1) - list directory contents
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;p&gt;Recorda &lt;strong&gt;apoyarnos&lt;/strong&gt; en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p&gt;</description></item><item><title>Poner las paginas de man en español</title><link>https://patojad.com.ar/post/2019/01/poner-las-paginas-de-man-en-espa%C3%B1ol/</link><pubDate>Tue, 15 Jan 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/01/poner-las-paginas-de-man-en-espa%C3%B1ol/</guid><description>&lt;p&gt;Ya hablamos de man y podes verlo &lt;a href="https://patojad.com.ar/post/2019/01/man-tu-manual-para-linux/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+aquí
+&lt;/a&gt;. Sin embargo muchas personas no tienen dominio del Inglés o simplemente no quieren estar traduciendo todo constantemente. Para esas personas les traigo una forma de poner las páginas de man en Español, antes de iniciar con esto debo aclarar que solo estará en Español lo que tiene una traducción. Puede que algunas cosas no dispongan este idioma y lo veamos en Inglés. En dicho caso se puede colaborar con la traducción.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="iniciemos"&gt;
+Iniciemos
+&lt;a href="#iniciemos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Lo primero que debemos hacer es instalar las páginas de man en Español. Esto se encuentra en dos paquetes, una las páginas básicas y el otro contiene todas las extras que eventualmente necesitaremos. Lo podemos hacer de la siguiente forma:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install manpages-es manpages-es-extra
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Los paquetes son los mismos para cualquier distribución por lo cual solo debemos modificar el comando de instalación por el de nuestra distribución.&lt;/p&gt;
+&lt;p&gt;Una vez finalizada la instalación puede ser que man no se encuentra aún en Español, en ese caso debemos configurar el sistema correctamente para que tome el idioma Español para man. Para esto debemos ejecutar el siguiente comando que nos permite realizar la configuración regional del sistema.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dpkg-reconfigure locales
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Al ejecutarlo vamos a pasar por unos simples pasos guiados en nuestra terminal. Iniciando por un aviso en el cual se nos informa dónde vamos a ingresar.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/g0Tr60Nh/consejos-para-configurar-los-locales-patojad.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Seguido a esto vamos a tener que elegir la configuración regional que deseamos generar. Las imagenes fueron tomadas de un blog Español por lo cual van a elegir las correspondientes a España, sin embargo nosotros elegimos la que corresponda dependiendo de donde vivamos.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/0jgQcBg2/seleccionar-configuracion-regional-2-patojad.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Ya seleccionado correctamente, solo nos queda aplicar los cambios, para esto en la próxima ventana debemos seleccionar efectivamente cual queremos aplicar a nuestro sistema.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/KzCKCYTb/aplicar-la-configuracion-regional-patojad.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Y ahora efectivamente podemos comprobar que man se encuentra traducido al español. Puede que algunas paginas se encuentren en ingles dado que no tienen traducción. Aun así podemos asegurarnos de que la mayoría se encuentran en español.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/0y5NWS4m/consejo-patojad.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;</description></item><item><title>Man, tu Manual para Linux!</title><link>https://patojad.com.ar/post/2019/01/man-tu-manual-para-linux/</link><pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/01/man-tu-manual-para-linux/</guid><description>&lt;p&gt;En la vida cotidiana cuando adquirimos un producto del cual desconocemos correctamente su funcionamiento o alguna funcionalidad, recurrimos al manual. Esta es una práctica que viene hace años y que, si bien no se valora mucho es lo que nos permite hacernos con nuevos productos facilitando nuestro día a día.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-tiene-que-ver-esto-con-gnulinux"&gt;
+¿Qué tiene que ver esto con GNU/Linux?
+&lt;a href="#qu%c3%a9-tiene-que-ver-esto-con-gnulinux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Llevando esta analogía a GNU/Linux podríamos decir que cada producto es una aplicación. Y muchas veces no conocemos el funcionamiento completo de la misma. Sin embargo en esta situación solemos ir a los foros o grupos a consultar las dudas, dependiendo de que otra persona lo conozca y se encuentre justo en ese momento disponible para respondernos. ¿No seria mejor tener un manual de cada aplicación? Bueno, hoy te digo que eso ya lo tenes&amp;hellip;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-man"&gt;
+¿Qué es man?
+&lt;a href="#qu%c3%a9-es-man" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Bueno, como dije si existe y se llama &amp;ldquo;man&amp;rdquo; pero&amp;hellip; ¿Qué es man?, simplemente es una herramienta de los sistemas Unix que cumple la función de manual, donde se encuentra documentado todo acerca de comandos, archivos, llamadas a sistema, etc. Por lo cual tenemos acceso a un manual completo sobre nuestro Sistema Operativo que nos puede ayudar a solucionar mucho antes de hacer una pregunta.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/HW4HqxXt/manual-patojad.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cómo-se-usa"&gt;
+¿Cómo se usa?
+&lt;a href="#c%c3%b3mo-se-usa" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La gran mayoría de las aplicaciones aportan a man para que quede todo documentado y cualquier usuario pueda obtener la documentación de la misma sin tener que acceder a Internet para esto existe un comando basico que nos permite ver &amp;ldquo;el manual&amp;rdquo; de una aplicación&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;man aplicacion
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Llevando esto a un ejemplo funcional podríamos querer ver el &amp;ldquo;el manual&amp;rdquo; de man (si &amp;ldquo;el manual&amp;rdquo; trae un manual de uso&amp;hellip;) en ese caso deberiamos hacer:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;man man
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;y lograríamos ver la documentación completa de man.&lt;/p&gt;
+&lt;p&gt;En ocasiones algunas aplicaciones un poco mas complejas poseen varias secciones del manual (como los manuales de los autos que tambien contienen muchas secciones) cuando esto ocurre suele mostrar un mensaje indicando la sección, como &lt;strong&gt;man(1)&lt;/strong&gt; y &lt;strong&gt;man(7)&lt;/strong&gt;, o &lt;strong&gt;exit(1)&lt;/strong&gt; y &lt;strong&gt;exit(3)&lt;/strong&gt;. Para acceder a estas secciones basta con indicarlo de la siguiente forma:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;man &lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="nb"&gt;printf&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-secciones-hay"&gt;
+¿Qué secciones hay?
+&lt;a href="#qu%c3%a9-secciones-hay" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El manual normalmente esta dividido en ocho secciones numeradas, organizadas como sigue (en BSD, Unix y GNU/Linux):&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Sección&lt;/th&gt;
+&lt;th&gt;Descripción&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;Comandos Generales&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;Llamadas al sistema&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;Biblioteca C de funciones&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;Ficheros especiales (normalmente dispositivos) y drivers&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;Formatos de fichero y convenciones&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;Juegos y salvapantallas&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;7&lt;/td&gt;
+&lt;td&gt;Miscelánea&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;Comandos de administración del sistema y Demonios&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;En algunos sistemas están disponibles también las siguientes secciones:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Sección&lt;/th&gt;
+&lt;th&gt;Descripción&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;Archivos de cabecera de la biblioteca estándar de C&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;9&lt;/td&gt;
+&lt;td&gt;Rutinas del Kernel&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;n&lt;/td&gt;
+&lt;td&gt;Tcl/Tk&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;x&lt;/td&gt;
+&lt;td&gt;X Window System&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;No te llevas bien con Inglés, no te preocupes &lt;a href="https://patojad.com.ar/post/2019/01/poner-las-paginas-de-man-en-espa%c3%b1ol/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+aquí
+&lt;/a&gt; podes ver como traducirlo al español!&lt;/p&gt;</description></item></channel></rss>

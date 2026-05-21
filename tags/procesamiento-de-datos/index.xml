@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Procesamiento De Datos on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/procesamiento-de-datos/</link><description>Recent content in Procesamiento De Datos on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Fri, 19 Apr 2024 11:13:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/procesamiento-de-datos/index.xml" rel="self" type="application/rss+xml"/><item><title>Benchmark: Emuladores de terminal en MacOS y GNU/Linux</title><link>https://patojad.com.ar/post/2024/04/benchmark-emuladores-de-terminal-en-macos-y-gnu/linux/</link><pubDate>Fri, 19 Apr 2024 11:13:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/04/benchmark-emuladores-de-terminal-en-macos-y-gnu/linux/</guid><description>&lt;script&gt;
+window.onload = function () {
+const linuxbench = new CanvasJS.Chart("linuxCharts", {
+exportEnabled: true,
+animationEnabled: true,
+title:{
+text: "Terminales Linux Benchmark - 2014"
+},
+subtitles: [{
+text: "Terminales de GNU/Linux usadas para el benchmark en 2014 "
+}],
+axisX: {
+title: "States"
+},
+axisY: {
+title: "Demora - segundos",
+titleFontColor: "#4F81BC",
+lineColor: "#4F81BC",
+labelFontColor: "#4F81BC",
+tickColor: "#4F81BC",
+includeZero: true
+},
+toolTip: {
+shared: true
+},
+legend: {
+cursor: "pointer",
+itemclick: toggleDataSeries
+},
+data: [{
+type: "column",
+name: "Warp",
+showInLegend: true,
+yValueFormatString: "#,##0.# s",
+dataPoints: [
+{ label: "Solo caracteres ASCII", y: 3.45 },
+{ label: "Caracteres Unicode", y: 3.48 },
+{ label: "Códigos CSI con pocos caracteres", y: 2.59 },
+{ label: "Códigos de escape largos", y: 8.21 },
+{ label: "Imágenes", y: 2.75 }
+]
+},
+{
+type: "column",
+name: "kgx",
+axisYType: "secondary",
+showInLegend: true,
+yValueFormatString: "#,##0.# s",
+dataPoints: [
+{ label: "Solo caracteres ASCII", y: 1.28 },
+{ label: "Caracteres Unicode", y: 1.67 },
+{ label: "Códigos CSI con pocos caracteres", y: 3.05 },
+{ label: "Códigos de escape largos", y: 5.37 },
+{ label: "Imágenes", y: 3.46 }
+]
+},
+{
+type: "column",
+name: "Kitty",
+axisYType: "secondary",
+showInLegend: true,
+yValueFormatString: "#,##0.# s",
+dataPoints: [
+{ label: "Solo caracteres ASCII", y: 3.29 },
+{ label: "Caracteres Unicode", y: 3.04 },
+{ label: "Códigos CSI con pocos caracteres", y: 1.67 },
+{ label: "Códigos de escape largos", y: 2.4 },
+{ label: "Imágenes", y: 1.81 }
+]
+}
+]
+});
+const macosbench = new CanvasJS.Chart("macosCharts", {
+exportEnabled: true,
+animationEnabled: true,
+title:{
+text: "Terminales MacOS Benchmark - 2014"
+},
+subtitles: [{
+text: "Terminales de MacOS usadas para el benchmark en 2014 "
+}],
+axisX: {
+title: "States"
+},
+axisY: {
+title: "Demora - segundos",
+titleFontColor: "#4F81BC",
+lineColor: "#4F81BC",
+labelFontColor: "#4F81BC",
+tickColor: "#4F81BC",
+includeZero: true
+},
+toolTip: {
+shared: true
+},
+legend: {
+cursor: "pointer",
+itemclick: toggleDataSeries
+},
+data: [{
+type: "column",
+name: "Warp",
+showInLegend: true,
+yValueFormatString: "#,##0.# s",
+dataPoints: [
+{ label: "Solo caracteres ASCII", y: 3.02 },
+{ label: "Caracteres Unicode", y: 2.55 },
+{ label: "Códigos CSI con pocos caracteres", y: 2.38 },
+{ label: "Códigos de escape largos", y: 7.08 },
+{ label: "Imágenes", y: 2.67 }
+]
+},
+{
+type: "column",
+name: "Apple Terminal",
+axisYType: "secondary",
+showInLegend: true,
+yValueFormatString: "#,##0.# s",
+dataPoints: [
+{ label: "Solo caracteres ASCII", y: 7.2 },
+{ label: "Caracteres Unicode", y: 4.43 },
+{ label: "Códigos CSI con pocos caracteres", y: 3.71 },
+{ label: "Códigos de escape largos", y: 28.22 },
+{ label: "Imágenes", y: 9.07 }
+]
+},
+{
+type: "column",
+name: "Kitty",
+axisYType: "secondary",
+showInLegend: true,
+yValueFormatString: "#,##0.# s",
+dataPoints: [
+{ label: "Solo caracteres ASCII", y: 1.68 },
+{ label: "Caracteres Unicode", y: 2.77 },
+{ label: "Códigos CSI con pocos caracteres", y: 2 },
+{ label: "Códigos de escape largos", y: 3.41 },
+{ label: "Imágenes", y: 2.41 }
+]
+}
+]
+});
+linuxbench.render();
+macosbench.render();
+function toggleDataSeries(e) {
+if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+e.dataSeries.visible = false;
+} else {
+e.dataSeries.visible = true;
+}
+e.chart.render();
+}
+}
+&lt;/script&gt;
+&lt;p&gt;Medir el rendimiento del emulador de terminal es fundamental para los usuarios que buscan una experiencia fluida y eficiente. En este sentido, se centra en tres aspectos principales: el consumo de energía en tareas habituales, la latencia del teclado a la pantalla y el rendimiento al procesar grandes cantidades de datos.&lt;/p&gt;
+&lt;p&gt;Kitty tiene un &amp;ldquo;kitten&amp;rdquo; integrado para medir el rendimiento de transferencia. Funciona mediante la carga de grandes cantidades de datos de diferentes tipos en el dispositivo tty y midiendo qué tan rápido el terminal analiza y responde a ellos. Las mediciones a continuación se realizaron con la misma fuente, tamaño de fuente y tamaño de ventana para todos los terminales, y con la configuración predeterminada, en la misma computadora.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="replicar-el-proceso"&gt;
+Replicar el proceso
+&lt;a href="#replicar-el-proceso" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para replicar el proceso de medición de rendimiento, primero necesitas instalar &lt;code&gt;kitty&lt;/code&gt; en tu sistema. Luego, ejecuta el siguiente comando en tu terminal:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;kitten __benchmark__ --render
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="entendiéndo-los-resultados"&gt;
+Entendiéndo los resultados
+&lt;a href="#entendi%c3%a9ndo-los-resultados" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Los resultados de las pruebas se dividen en cinco categorías: solo caracteres ASCII, caracteres Unicode, códigos CSI con pocos caracteres, códigos de escape largos e imágenes. Cada categoría representa un tipo diferente de datos que se procesan en el terminal.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="solo-caracteres-ascii"&gt;
+Solo caracteres ASCII
+&lt;a href="#solo-caracteres-ascii" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Los caracteres ASCII son aquellos que pertenecen al conjunto de caracteres ASCII estándar, que incluye letras, números, signos de puntuación y algunos caracteres especiales. Estos caracteres se representan mediante un código numérico de 7 bits. Se utilizan comúnmente en la entrada y salida de datos en la mayoría de los entornos de terminal y son compatibles con una amplia gama de dispositivos y sistemas.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="caracteres-unicode"&gt;
+Caracteres Unicode
+&lt;a href="#caracteres-unicode" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Los caracteres Unicode son aquellos que pertenecen al estándar Unicode, que es un estándar de codificación de caracteres que permite representar la mayoría de los sistemas de escritura del mundo, así como símbolos y caracteres especiales. Los caracteres Unicode se utilizan cuando se necesita admitir una amplia variedad de idiomas y símbolos en la entrada y salida de datos en la terminal.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="códigos-csi-con-pocos-caracteres"&gt;
+Códigos CSI con pocos caracteres
+&lt;a href="#c%c3%b3digos-csi-con-pocos-caracteres" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Los códigos CSI (Control Sequence Introducer) son secuencias de escape que se utilizan para controlar aspectos de la apariencia y el comportamiento de la terminal. Los códigos CSI con pocos caracteres son aquellos que consisten en una secuencia de escape de control simple que realiza una acción específica, como cambiar el color del texto o mover el cursor a una posición específica en la pantalla.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="códigos-de-escape-largos"&gt;
+Códigos de escape largos
+&lt;a href="#c%c3%b3digos-de-escape-largos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Los códigos de escape largos son secuencias de escape más complejas que los códigos CSI con pocos caracteres. Estos códigos pueden realizar acciones más avanzadas, como cambiar las propiedades de la terminal, realizar operaciones de formato de texto más complejas o controlar dispositivos periféricos conectados a la terminal.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="imágenes"&gt;
+Imágenes
+&lt;a href="#im%c3%a1genes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;En algunas terminales avanzadas, es posible mostrar imágenes directamente en la pantalla utilizando códigos de escape específicos. Estas imágenes pueden ser gráficos simples, como iconos o logotipos, y se utilizan para mejorar la experiencia visual del usuario en la terminal.
+En resumen, cada uno de estos tipos se utiliza en la terminal para diferentes propósitos, desde la representación de caracteres básicos hasta el control avanzado de la apariencia y el comportamiento de la terminal, e incluso la visualización de imágenes directamente en la pantalla. Su uso depende de las necesidades específicas de la aplicación o del entorno de trabajo en la terminal.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="resultados-en-macos"&gt;
+Resultados en MacOS
+&lt;a href="#resultados-en-macos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En MacOS se realizaron las pruebas con los siguientes terminales: Warp, Apple Terminal y Kitty. Sirviendo Kitty y Warp para comparar con las pruebas realizadas en GNU/Linux. A continuación, se presentan los resultados obtenidos:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Terminal&lt;/th&gt;
+&lt;th&gt;Solo caracteres ASCII&lt;/th&gt;
+&lt;th&gt;Caracteres Unicode&lt;/th&gt;
+&lt;th&gt;Códigos CSI con pocos caracteres&lt;/th&gt;
+&lt;th&gt;Códigos de escape largos&lt;/th&gt;
+&lt;th&gt;Imágenes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Warp&lt;/td&gt;
+&lt;td&gt;3.02&lt;/td&gt;
+&lt;td&gt;2.55&lt;/td&gt;
+&lt;td&gt;2.38&lt;/td&gt;
+&lt;td&gt;7.08&lt;/td&gt;
+&lt;td&gt;2.67&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Apple Terminal&lt;/td&gt;
+&lt;td&gt;7.2&lt;/td&gt;
+&lt;td&gt;4.43&lt;/td&gt;
+&lt;td&gt;3.71&lt;/td&gt;
+&lt;td&gt;28.22&lt;/td&gt;
+&lt;td&gt;9.07&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Kitty&lt;/td&gt;
+&lt;td&gt;1.68&lt;/td&gt;
+&lt;td&gt;2.77&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;3.41&lt;/td&gt;
+&lt;td&gt;2.41&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;En esta tabla, cada columna representa diferentes tipos de datos. La columna CSI es para datos que consisten en una combinación de códigos de escape de formato típicos y algo de texto solo ASCII.&lt;/p&gt;
+&lt;div id="macosCharts" style="height: 600px; width: 100%;"&gt;&lt;/div&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="resultados-en-gnulinux"&gt;
+Resultados en GNU/Linux
+&lt;a href="#resultados-en-gnulinux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En GNU/Linux se realizaron las pruebas con los siguientes terminales: Warp, kgx y Kitty. Siendo kgx la relativamente &lt;em&gt;nueva&lt;/em&gt; terminal de Gnome. A continuación, se presentan los resultados obtenidos:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Terminal&lt;/th&gt;
+&lt;th&gt;Solo caracteres ASCII&lt;/th&gt;
+&lt;th&gt;Caracteres Unicode&lt;/th&gt;
+&lt;th&gt;Códigos CSI con pocos caracteres&lt;/th&gt;
+&lt;th&gt;Códigos de escape largos&lt;/th&gt;
+&lt;th&gt;Imágenes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Warp&lt;/td&gt;
+&lt;td&gt;3.45&lt;/td&gt;
+&lt;td&gt;3.48&lt;/td&gt;
+&lt;td&gt;2.59&lt;/td&gt;
+&lt;td&gt;8.21&lt;/td&gt;
+&lt;td&gt;2.75&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;kgx&lt;/td&gt;
+&lt;td&gt;1.28&lt;/td&gt;
+&lt;td&gt;1.67&lt;/td&gt;
+&lt;td&gt;3.05&lt;/td&gt;
+&lt;td&gt;5.37&lt;/td&gt;
+&lt;td&gt;3.46&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Kitty&lt;/td&gt;
+&lt;td&gt;3.29&lt;/td&gt;
+&lt;td&gt;3.04&lt;/td&gt;
+&lt;td&gt;1.67&lt;/td&gt;
+&lt;td&gt;2.4&lt;/td&gt;
+&lt;td&gt;1.81&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;En esta tabla, cada columna representa diferentes tipos de datos. La columna CSI es para datos que consisten en una combinación de códigos de escape de formato típicos y algo de texto solo ASCII.&lt;/p&gt;
+&lt;div id="linuxCharts" style="height: 600px; width: 100%;"&gt;&lt;/div&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Los resultados de nuestra comparativa demuestran que Kitty destaca en términos de rendimiento en ambos sistemas operativos. Con tiempos de procesamiento más rápidos y una menor latencia, Kitty ofrece una experiencia superior en la mayoría de las métricas evaluadas. Si buscas un emulador de terminal que priorice el rendimiento, Kitty es una opción sólida tanto en MacOS como en GNU/Linux.&lt;/p&gt;
+&lt;script src="https://cdn.canvasjs.com/canvasjs.min.js"&gt;&lt;/script&gt;</description></item></channel></rss>

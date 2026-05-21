@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Http on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/http/</link><description>Recent content in Http on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Wed, 25 Mar 2020 08:47:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/http/index.xml" rel="self" type="application/rss+xml"/><item><title>HTTP/3 ¿Una internet mas rapida?</title><link>https://patojad.com.ar/post/2020/03/http/3-una-internet-mas-rapida/</link><pubDate>Wed, 25 Mar 2020 08:47:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/03/http/3-una-internet-mas-rapida/</guid><description>&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="http3-qué-es-de-dónde-viene-y-qué-es-lo-que-cambia-para-buscar-un-internet-más-rápido"&gt;
+HTTP/3: qué es, de dónde viene, y qué es lo que cambia para buscar un Internet más rápido
+&lt;a href="#http3-qu%c3%a9-es-de-d%c3%b3nde-viene-y-qu%c3%a9-es-lo-que-cambia-para-buscar-un-internet-m%c3%a1s-r%c3%a1pido" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Vamos a intentar explicar qué es, o de que se trata exactamente el HTTP/3, la nueva versión de uno de los protocolos más importantes para el funcionamiento de internet. Se trata de un protocolo que lleva ya unos años desarrollándose, y que promete llegar a partir de este año para ofrecer unas cargas más rápidas en todo internet para lo cual aplica algunos cambios muy importantes en la manera en la que se intercambian los datos en la red.&lt;/p&gt;
+&lt;p&gt;Como para entender la importancia de este cambio hay que saber un poco cómo funciona internet en general, nosotros vamos a intentar dar un pantallazo de todo como para poder entender el tema. Primero, deberiamos basarnos en &lt;strong&gt;qué es y cómo ha evolucionado el protocolo HTTP&lt;/strong&gt; con sus diferentes versiones. Y luego, intentaremos explicar de la forma más sencilla posible qué es el HTTP/3 y los cambios que propone, y terminaremos dándo una idea de los sitios en los que ya se ha implementado.&lt;/p&gt;
+&lt;p&gt;Para entender todo esto, vamos a adentrarnos en &lt;strong&gt;varios conceptos que pueden llegar a ser densos y difícil de entender para los usuarios que no se dedican explícitamente a la informatica&lt;/strong&gt;. Por eso, vamos a intentar no centrarnos tanto en los tecnicismos para intentar explicar solo las cosas que mas visibles para el usuario.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-el-http"&gt;
+Qué es el HTTP
+&lt;a href="#qu%c3%a9-es-el-http" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.blogs.es/392246/los-protocolos-que-se-usan-en-internet/1366_2000.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Las comunicaciones de internet funcionan a través de protocolos. Por una parte tienes el Protocolo de Internet, Internet Protocol o IP en inglés del cual hablamos anteriormente, si queres saber mas podes ingresar a &amp;ldquo;&lt;a href="https://patojad.com.ar/post/2020/02/qu%c3%a9-hay-detr%c3%a1s-de-una-ip/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+¿Que hay detas de una IP?
+&lt;/a&gt;&amp;rdquo; o &amp;ldquo;&lt;a href="https://patojad.com.ar/post/2020/01/direcciones-ips-nuestra-huella-en-la-red/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Direcciones IP nuestra huella en la red
+&lt;/a&gt;&amp;rdquo;. Nadie puede navegar por la red sin una dirección IP, y cuando escribes patojad.com.ar, lo que hace tu navegador es traducir ese texto a una dirección IP para conectar con el servidor de la web (en nuestro caso GitLab Pages).&lt;/p&gt;
+&lt;p&gt;Y otro igualmente importante es el &lt;strong&gt;Protocolo de Transferencia de Hipertexto, Hypertext Transfer Protocol o HTTP en inglés. Es el protocolo que utilizan los navegadores para comunicarse con los servidores web,&lt;/strong&gt; y el que deben seguir el resto de software perteneciente a la arquitectura de la web, como los servidores, proxies y los mencionados navegadores.&lt;/p&gt;
+&lt;p&gt;También es el que define la sintaxis y la semántica que utilizan los elementos de software de la arquitectura web para comunicarse. Además, se usa también para la &lt;strong&gt;transferencia de imágenes y el resto de elementos que componen una web,&lt;/strong&gt; desde el servidor al navegador, y en las apps para comunicarse con las APIs.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.blogs.es/c14f79/get-video/1366_2000.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Este protocolo sigue el modelo de cliente-servidor. Esto quiere decir que cuando tú estableces una conexión, &lt;strong&gt;realizas peticiones a un servidor&lt;/strong&gt; para que este te muestre el contenido de la página. Este contenido se mostrará en tu navegador usando el código &lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+HTML
+&lt;/a&gt;, que es el estandarizado para colocar los elementos que hay en cada web, pero para cargar estos elementos, te llegarán a través de la conexión establecida.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.blogs.es/3e82f1/peticion/1366_2000.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;En esta imagen puedes ver los diferentes campos que tiene una petición de HTTP. El primero &lt;strong&gt;es el método que define el tipo de operación que se quiere realizar,&lt;/strong&gt; y que suele ser un verbo como GET (obtener) o POST, o un nombre como OPTIONS o HEAD.&lt;/p&gt;
+&lt;p&gt;A la derecha viene la dirección del recurso que se ha pedido, o la URL de este recurso. A esta dirección se le quitan los elementos obvios del contexto, como el http:// inicial, el puerto o el nombre del dominio. Le acompañan la versión del protocolo HTTP, y debajo ya tienes las cabeceras opcionales que aportan información adicional a los servidores. Si se usan métodos como POST, también puede haber un cuerpo de mensaje para enviar información al servidor.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cómo-ha-evolucionado-el-http"&gt;
+Cómo ha evolucionado el HTTP
+&lt;a href="#c%c3%b3mo-ha-evolucionado-el-http" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El HTTP fue desarrollado durante años por el World Wide Web Consortium y la Internet Engineering Task Force (IETF). &lt;strong&gt;La primera versión fue la 0.9 lanzada en 1991,&lt;/strong&gt; que fue mejorada con el el HTTP/1.0 lanzado en 1996, y culminada en 1999 con el lanzamiento de la versión 1.1.&lt;/p&gt;
+&lt;p&gt;Llegados a este punto, puedes entender que el Internet y las webs de 1999 no tienen nada que ver con lo que puedes encontrarte hoy en día en la red. Es por eso, que a lo largo de los años &lt;strong&gt;el protocolo también ha tenido que actualizarse.&lt;/strong&gt; Al hacerlo no ha habido grandes cambios, pero sí se ha perfeccionado la manera en la que se transfieren los datos en la red.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.blogs.es/9e0060/http2/1366_2000.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;En 2012 se publicaron los primeros borradores de la nueva versión mejorada de HTTP, que acabó lanzándose oficialmente en mayo del 2015 con el nombre HTTP/2. Este protocolo permitió enviar más de un recurso en una sola conexión de TCP, lo que hizo que se redujese el número de peticiones para cargar una web. En pocas palabras, &lt;strong&gt;se aceleró la carga de las webs&lt;/strong&gt; al permitir que la transferencia de elementos fuera más rápida.&lt;/p&gt;
+&lt;p&gt;Para la próxima versión no tendremos que esperar tanto, ya que tras años de trabajo, en 2018 se le da nombre al que será el próximo paso en la cadena evolutiva. &lt;strong&gt;Es el HTTP/3 que debería llegar en 2020&lt;/strong&gt; según su documentación oficial para conseguir un internet todavía más rápido que el que tenemos hasta ahora.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-el-http3-y-qué-es-lo-que-cambia"&gt;
+Qué es el HTTP/3 y qué es lo que cambia
+&lt;a href="#qu%c3%a9-es-el-http3-y-qu%c3%a9-es-lo-que-cambia" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;HTTP/3, es el nombre oficial de la próxima versión de protocolo de comunicaciones que permite las transferencias en la web. Esta nueva versión tiene un cambio muy importante, pues &lt;strong&gt;será la que deje de utilizar por primera vez el protocolo TCP&lt;/strong&gt; que hasta ahora se ha venido utilizando en el HTTP, y lo sustituirá un nuevo protocolo llamado QUIC, e inicialmente desarrollado por Jim Roskind en Google, aunque al ser un proyecto de código abierto el desarrollo ha sido conjunto por la comunidad.&lt;/p&gt;
+&lt;p&gt;El TCP es un protocolo desarrollado en los años 70 del pasado siglo, y desde entonces forma parte del protocolo IP. Es el encargado para crear conexiones entre los ordenadores, a través de las cuales se envía después el flujo de datos. Este protocolo &lt;strong&gt;es utilizado por otros protocolos como el HTTP, SMTP, &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+SSH
+&lt;/a&gt; y FTP,&lt;/strong&gt; y es el encargado de garantizar que los datos se entregan sin errores en el destino previsto, y en el mismo orden en el que fueron transmitidos.&lt;/p&gt;
+&lt;p&gt;Para realizar conexiones, este protocolo realiza una conexión de múltiples pasos entre cliente y servidor, asegurando el orden de los paquetes, con confirmaciones paquete a paquete recibido, y retransmitiendo si es necesario los paquetes perdidos. También se realizan comprobaciones de la computación por si hubiera errores. Esto quiere decir que cuando se envía un paquete de datos, el receptor y el emisor &lt;strong&gt;intercambian información de forma constante para asegurarse de que todo se está haciendo correctamente.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-supone-cambiar-tcp-por-quic"&gt;
+Qué supone cambiar TCP por QUIC
+&lt;a href="#qu%c3%a9-supone-cambiar-tcp-por-quic" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.blogs.es/6a510d/quic/1366_2000.jpeg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;En esta tabla de arriba tienes una comparativa en la que ves cómo son las conexiones con el TCP normal, el TCP con el cifrado TLS para proteger la privacidad de los datos, y QUIC. La conexión se deshace de las conexiones continuas con las que emisor y receptor se aseguran de que los datos se envían y reciben correctamente, y también se elimina el intercambio de datos con el que establecer el cifrado TLS. &lt;strong&gt;QUIC simplemente envía los datos.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Este cambio mejorará la latencia de la conexión&lt;/strong&gt; con menos intercambio de datos entre emisor y receptor. También tiene soporte para varias conexiones multiplexadas, lo que significa que se combinan dos o más señales para transmitirlas por un único medio de transmisión, algo que ahorra tiempo reduciendo el número de medios de transmisión, y se ahorrará tiempo enviando los datos cifrados por defecto.&lt;/p&gt;
+&lt;p&gt;Lo cual podeos resumirlo como que tendramos que esperar menos para que carguen nuestros sitios favoritos como PatoJAD&amp;hellip;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="dónde-se-ha-implementado-ya-el-http3"&gt;
+Dónde se ha implementado ya el HTTP/3
+&lt;a href="#d%c3%b3nde-se-ha-implementado-ya-el-http3" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;¿Dónde está ya implementado el HTTP/3? Pues tras llevar haciendo pruebas desde mediados de 2019, tanto Firefox como Chrome han implementado ya el nuevo protocolo en las versiones estables del navegador. Chrome lo tiene desde la build 79 lanzada en diciembre, y Firefox desde su build 72 de enero de este 2020.&lt;/p&gt;
+&lt;p&gt;También Cloudflare, del que ya hablemos hablado anteriormente en &lt;a href="https://patojad.com.ar/post/2019/10/cloudflare-que-es-ventajas-y-desventajas/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+nuestra publicacion
+&lt;/a&gt;, ha implementado la compatibilidad de este protocolo. Y esta empresa es muy importante, porque actúa como intermediaria entre el cliente y el servidor, y son muchas las empresas que han apostado por sus servicios a nivel mundial, tanto ques &lt;strong&gt;si Cloudflare tose, a internet le sube la fiebre.&lt;/strong&gt; Una caída de este servicio hace que miles de webs dejen de funcionar, como este sitio por ejemplo, y por eso es importante que ya esté preparada.&lt;/p&gt;
+&lt;p&gt;En cualquier caso, lo que debes tener claro es que &lt;strong&gt;el salto al HTTP/3 no va a ser algo que vayas a notar demasiado a nivel de usuario.&lt;/strong&gt; Las empresas de internet se están preparando para él, por lo que cuando sea lanzado oficialmente durante este año no habrá ningún tipo de apagón, simplemente poco a poco veremos cómo algunos servicios adaptados empezarán a cargar un poco más rápido.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://educacionit.com/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Fuente
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Configurar GitLab Pages con CloudFlare</title><link>https://patojad.com.ar/post/2019/11/configurar-gitlab-pages-con-cloudflare/</link><pubDate>Wed, 06 Nov 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/11/configurar-gitlab-pages-con-cloudflare/</guid><description>&lt;p&gt;Vamos a ver cómo realizar la configuración entre Cloudflare y Gitlab. Antes que nada, recomiendo leer porque elegimos &lt;a href="https://patojad.com.ar/post/2019/10/gitlab-pages/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Gitlab
+&lt;/a&gt; y Porque elegimos &lt;a href="https://patojad.com.ar/post/2019/10/cloudflare-que-es-ventajas-y-desventajas/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Cloudflare
+&lt;/a&gt;. Una vez visto esto vamos a explicar cómo hacer para que nuestro dominio alojado el CloudFlare previamente realizado aquí.&lt;/p&gt;
+&lt;p&gt;Una vez habilitado el dominio en Cloudflare procedemos a crear los certificados para poder generar los registros correctamente.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="certificado"&gt;
+Certificado
+&lt;a href="#certificado" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/59C3kM1T/cert.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Nos dirigimos a SSL/TLS ahí dentro vamos a Origin Server Y podemos crear el Certificado. Para esto debemos elegir los dominios a los cuales apelara ese Certificado y el tiempo de duración de los mismos.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/yNxhmMvf/cert1.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Y esto nos generara las respectivas claves que utilizaremos para asegurar la conexión. Esto es lo que nos certifica la seguridad del servidor al que se envían.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/zfQC0xQq/cert2.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;En donde se encuentran los cuadros blancos verán su respectivo certificado y clave los cuales debemos guardar para utilizarlos en GitLab&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="agregar-dominio-a-gitlab"&gt;
+Agregar Dominio a Gitlab
+&lt;a href="#agregar-dominio-a-gitlab" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Dentro de nuestro proyecto en gitlab, (entendiendo que ya se encuentran configurados los CI para habilitar la sección Paginas) Nos dirigimos a configuración y a la sección de páginas.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/WzLMPhjK/glab.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Ahí seleccionamos nuevo Dominio y completamos los campos como vemos a continuación. Es importante recalcar que el dominio va sin http ni https y que no gestionamos los certificados automáticamente (Ya que lo hacemos por cloudflare manualmente)&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/Gmcx28Yn/glab1.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Como requiere todos los certificados no olvidemos poner el del servidor de cloudflare el cual les dejo a continuación&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;-----BEGIN CERTIFICATE-----
+MIIEADCCAuigAwIBAgIID+rOSdTGfGcwDQYJKoZIhvcNAQELBQAwgYsxCzAJBgNV
+BAYTAlVTMRkwFwYDVQQKExBDbG91ZEZsYXJlLCBJbmMuMTQwMgYDVQQLEytDbG91
+ZEZsYXJlIE9yaWdpbiBTU0wgQ2VydGlmaWNhdGUgQXV0aG9yaXR5MRYwFAYDVQQH
+Ew1TYW4gRnJhbmNpc2NvMRMwEQYDVQQIEwpDYWxpZm9ybmlhMB4XDTE5MDgyMzIx
+MDgwMFoXDTI5MDgxNTE3MDAwMFowgYsxCzAJBgNVBAYTAlVTMRkwFwYDVQQKExBD
+bG91ZEZsYXJlLCBJbmMuMTQwMgYDVQQLEytDbG91ZEZsYXJlIE9yaWdpbiBTU0wg
+Q2VydGlmaWNhdGUgQXV0aG9yaXR5MRYwFAYDVQQHEw1TYW4gRnJhbmNpc2NvMRMw
+EQYDVQQIEwpDYWxpZm9ybmlhMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+AQEAwEiVZ/UoQpHmFsHvk5isBxRehukP8DG9JhFev3WZtG76WoTthvLJFRKFCHXm
+V6Z5/66Z4S09mgsUuFwvJzMnE6Ej6yIsYNCb9r9QORa8BdhrkNn6kdTly3mdnykb
+OomnwbUfLlExVgNdlP0XoRoeMwbQ4598foiHblO2B/LKuNfJzAMfS7oZe34b+vLB
+yrP/1bgCSLdc1AxQc1AC0EsQQhgcyTJNgnG4va1c7ogPlwKyhbDyZ4e59N5lbYPJ
+SmXI/cAe3jXj1FBLJZkwnoDKe0v13xeF+nF32smSH0qB7aJX2tBMW4TWtFPmzs5I
+lwrFSySWAdwYdgxw180yKU0dvwIDAQABo2YwZDAOBgNVHQ8BAf8EBAMCAQYwEgYD
+VR0TAQH/BAgwBgEB/wIBAjAdBgNVHQ4EFgQUJOhTV118NECHqeuU27rhFnj8KaQw
+HwYDVR0jBBgwFoAUJOhTV118NECHqeuU27rhFnj8KaQwDQYJKoZIhvcNAQELBQAD
+ggEBAHwOf9Ur1l0Ar5vFE6PNrZWrDfQIMyEfdgSKofCdTckbqXNTiXdgbHs+TWoQ
+wAB0pfJDAHJDXOTCWRyTeXOseeOi5Btj5CnEuw3P0oXqdqevM1/+uWp0CM35zgZ8
+VD4aITxity0djzE6Qnx3Syzz+ZkoBgTnNum7d9A66/V636x4vTeqbZFBr9erJzgz
+hhurjcoacvRNhnjtDRM0dPeiCJ50CP3wEYuvUzDHUaowOsnLCjQIkWbR7Ni6KEIk
+MOz2U0OBSif3FTkhCgZWQKOOLo1P42jHC3ssUZAtVNXrCk3fw9/E15k8NPkBazZ6
+0iykLhH1trywrKRMVw67F44IE8Y=
+-----END CERTIFICATE-----
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/3NX2rYxw/glab3.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Una vez finalizado esto vamos a ver lo siguiente lo cual nos da el registro txt que debemos agregar a nuestro cloudflare para completar con éxito la redirección.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="dns"&gt;
+DNS
+&lt;a href="#dns" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/28dxrF1x/dns.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Por ultimo debemos configurar los DNS para concretar la redirección. Esto debemos hacerlo desde Clodflare en la sección DNS&lt;/p&gt;
+&lt;p&gt;Y debemos completar primero la IP hacían donde va mirar nuestro dominio, en este caso estoy configurando &lt;a href="https://patojad.com.ar/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+https://patojad.com.ar/
+&lt;/a&gt; lo cual seria mi dominio principal por lo cual el name del registro seria @ haciendo referencia a root. En caso de querer configurar un subdominio (por ejemplo &lt;a href="https://compartelibre.patojad.com.ar" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://compartelibre.patojad.com.ar
+&lt;/a&gt;) debemos poner solo el subdominio ej compartelibre.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/rF29BYwm/dns1.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Una vez agregada la IP debemos agregar el registro TXT que nos dio gitlab.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/dV4mTsmk/dns2.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Una vez agregado solo debemos volver a gitlab y verificarlo, si realizamos todo correctamente vamos a ver la siguiente pantalla. (ATENCION es posible que desde que agregue los registros pasen minutos hasta que la verificación se concluya.)&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/ZRyrgrkp/glab4.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Cuando concluimos con esto en pocas horas la redirección será exitosa.&lt;/p&gt;</description></item></channel></rss>

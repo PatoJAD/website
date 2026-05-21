@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Configuración Linux on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/configuraci%C3%B3n-linux/</link><description>Recent content in Configuración Linux on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 30 Dec 2025 09:31:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/configuraci%C3%B3n-linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Cómo Optimizar Linux en 2026: 3 Tweaks Avanzados para un Sistema Ultra-Rápido</title><link>https://patojad.com.ar/post/2025/12/c%C3%B3mo-optimizar-linux-en-2026-3-tweaks-avanzados-para-un-sistema-ultra-r%C3%A1pido/</link><pubDate>Tue, 30 Dec 2025 09:31:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/12/c%C3%B3mo-optimizar-linux-en-2026-3-tweaks-avanzados-para-un-sistema-ultra-r%C3%A1pido/</guid><description>&lt;p&gt;¿Sientes que tu Linux podría ir más fluido? Aunque las distros modernas vienen bien configuradas, el hardware de 2025 (NVMe, procesadores multi-núcleo y mucha RAM) permite ajustes finos que marcan la diferencia.&lt;/p&gt;
+&lt;p&gt;En esta guía rápida, veremos cómo optimizar la gestión de memoria y el disco con ejemplos prácticos.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="swappiness-controlando-el-uso-de-la-ram"&gt;
+Swappiness: Controlando el uso de la RAM
+&lt;a href="#swappiness-controlando-el-uso-de-la-ram" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El valor de swappiness define qué tan pronto el sistema empieza a mover datos de la RAM al disco (Swap). En 2025, con sistemas de 16GB o 32GB de RAM, no queremos que el sistema use el disco innecesariamente.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;El Tweak:&lt;/strong&gt; Cambiar el valor por defecto (60) a algo más agresivo para mantener los datos en RAM (10).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Comando:&lt;/strong&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Bash" data-lang="Bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo sysctl -w vm.swappiness&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(Para hacerlo permanente, edita &lt;code&gt;/etc/sysctl.conf&lt;/code&gt;).&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="zram-swap-en-esteroides"&gt;
+zram: Swap en esteroides
+&lt;a href="#zram-swap-en-esteroides" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En lugar de usar una partición lenta en el disco, zram crea un dispositivo de intercambio comprimido en tu propia RAM. Es mucho más rápido y evita el desgaste de tu SSD.&lt;/p&gt;
+&lt;p&gt;Por qué usarlo: Comprime los datos en RAM antes de enviarlos a la Swap física.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="instalación-ubuntufedoraarch"&gt;
+Instalación (Ubuntu/Fedora/Arch):
+&lt;a href="#instalaci%c3%b3n-ubuntufedoraarch" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Bash" data-lang="Bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install zram-config &lt;span class="c1"&gt;# Ubuntu/Debian&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf install zram-generator &lt;span class="c1"&gt;# Fedora&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S zram-generator &lt;span class="c1"&gt;# Arch/Manjaro&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="io-scheduler-optimizando-el-disco"&gt;
+I/O Scheduler: Optimizando el disco
+&lt;a href="#io-scheduler-optimizando-el-disco" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si usas un SSD o NVMe, los planificadores antiguos como cfq solo estorban. Para discos modernos, buscamos &lt;strong&gt;none&lt;/strong&gt; o &lt;strong&gt;mq-deadline&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ver tu scheduler actual:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Bash" data-lang="Bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cat /sys/block/sdX/queue/scheduler
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;(Reemplaza sdX por tu disco, ej: nvme0n1).&lt;/li&gt;
+&lt;li&gt;Cambiarlo temporalmente:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-Bash" data-lang="Bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; none &lt;span class="p"&gt;|&lt;/span&gt; sudo tee /sys/block/sdX/queue/scheduler
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(Para hacerlo permanente, crea una regla udev o edita el archivo de configuración del kernel&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cómo-medir-el-éxito-benchmarks"&gt;
+¿Cómo medir el éxito? (Benchmarks)
+&lt;a href="#c%c3%b3mo-medir-el-%c3%a9xito-benchmarks" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;No confíes solo en tu sensación. Usa &lt;code&gt;systemd-analyze&lt;/code&gt; para medir el tiempo de arranque o realiza una compilación de código pesada antes y después de los cambios. La diferencia en la respuesta de la interfaz bajo carga será tu mejor métrica.&lt;/p&gt;</description></item></channel></rss>

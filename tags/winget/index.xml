@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Winget on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/winget/</link><description>Recent content in Winget on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Mon, 05 Jun 2023 10:45:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/winget/index.xml" rel="self" type="application/rss+xml"/><item><title>Como instalar MongoDB en Windows</title><link>https://patojad.com.ar/post/2023/06/como-instalar-mongodb-en-windows/</link><pubDate>Mon, 05 Jun 2023 10:45:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/06/como-instalar-mongodb-en-windows/</guid><description>&lt;p&gt;Vamos a ver como realizar la instalacion de &lt;strong&gt;MongoDB&lt;/strong&gt; en Windows (ya sea 10 o 11) con winget desde nuestra terminal.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="comandos-utilizados"&gt;
+Comandos Utilizados
+&lt;a href="#comandos-utilizados" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Este es el comendo que utilizamos para realizar la instalacion de MongoDB en Windows 10 o 11 utilizando winget:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;winget install -e --id MongoDB.Server
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="ejecute-mongodb-community-edition-desde-la-terminal"&gt;
+Ejecute MongoDB Community Edition desde la terminal
+&lt;a href="#ejecute-mongodb-community-edition-desde-la-terminal" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para ejecutar MongoDB (o mongo) desde la terminal de Windows, debemos ejecutar el siguiente comando para crear la carpeta donde se guardaran los datos de la base de datos:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; C:&lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;md &lt;span class="s2"&gt;&amp;#34;\data\db&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Luego ejecutamos el siguiente comando para ejecutar mongo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="s2"&gt;&amp;#34;C:\Program Files\MongoDB\Server\6.0\bin\mongod.exe&amp;#34;&lt;/span&gt; --dbpath&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;c:\data\db&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="w-full rounded-xl bg-blue-600/75 text-blue-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-info fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;En este caso usamos c:\data\db pero pueden elegir el directorio que quieran&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="agregar-binarios-de-mongodb-a-la-path-del-sistema"&gt;
+Agregar binarios de MongoDB a la PATH del sistema
+&lt;a href="#agregar-binarios-de-mongodb-a-la-path-del-sistema" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si agrega &lt;code&gt;C:\Archivos de programa\MongoDB\Server\6.0\bin&lt;/code&gt; a su PATH del sistema, puede omitir la ruta completa a los archivos binarios del servidor MongoDB. También debe agregar la ruta a &lt;code&gt;mongosh&lt;/code&gt; si aún no lo ha hecho.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Fuente: &lt;a href="https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Install GIT en Windows con Winget</title><link>https://patojad.com.ar/post/2023/04/install-git-en-windows-con-winget/</link><pubDate>Mon, 10 Apr 2023 10:06:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/04/install-git-en-windows-con-winget/</guid><description>&lt;p&gt;hoy vamos a ver como instalar &lt;strong&gt;git&lt;/strong&gt; en &lt;strong&gt;Windows&lt;/strong&gt; utilizando &lt;em&gt;winget&lt;/em&gt; el gestor de paquetes de microsoft.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="comando"&gt;
+Comando
+&lt;a href="#comando" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para que sea mucho mas facil te dejo el comando para que puedas copiar y pegar en tu terminal&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;winget install -e --id Git.Git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Install VS Code en Windows con Winget</title><link>https://patojad.com.ar/post/2023/04/install-vs-code-en-windows-con-winget/</link><pubDate>Tue, 04 Apr 2023 10:06:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/04/install-vs-code-en-windows-con-winget/</guid><description>&lt;p&gt;Vamos a ver como realizar la instalación de &lt;strong&gt;Visual Studio Code&lt;/strong&gt; de una forma muy simple y rápida utilizando &lt;em&gt;winget&lt;/em&gt;.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalandolo"&gt;
+Instalandolo
+&lt;a href="#instalandolo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El comando utilizado para esta ocasión es el que dejaré a continuación. En caso de querer pegar en la terminal de windows se suele hacer con &lt;code&gt;ctrl&lt;/code&gt;+&lt;code&gt;v&lt;/code&gt; sino podes utilizar el mouse con &lt;code&gt;click derecho&lt;/code&gt; -&amp;gt; &lt;code&gt;pegar&lt;/code&gt; dependiendo de tu terminal:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;winget install -e --id Microsoft.VisualStudioCode
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Install NodeJS en Windows con Winget</title><link>https://patojad.com.ar/post/2023/03/install-nodejs-en-windows-con-winget/</link><pubDate>Tue, 28 Mar 2023 13:56:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/03/install-nodejs-en-windows-con-winget/</guid><description>&lt;p&gt;Vamos a ver como realizar la instalación de &lt;strong&gt;NodeJS&lt;/strong&gt; de una forma muy simple y rápida utilizando &lt;em&gt;winget.&lt;/em&gt; De esta forma simple y rápida podemos obtener &lt;strong&gt;cualquier&lt;/strong&gt; versión de NodeJS y NPM directamente desde winget.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalandolo"&gt;
+Instalandolo
+&lt;a href="#instalandolo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El comando utilizado para esta ocasión es el que dejaré a continuación. En caso de querer pegar en la terminal de windows se suele hacer con &lt;code&gt;ctrl&lt;/code&gt;+&lt;code&gt;v&lt;/code&gt; sino podes utilizar el mouse con &lt;code&gt;click derecho&lt;/code&gt; -&amp;gt; &lt;code&gt;pegar&lt;/code&gt; dependiendo de tu terminal:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;winget install -e --id OpenJS.NodeJS
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item></channel></rss>

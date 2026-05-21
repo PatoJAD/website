@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rendimiento on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/rendimiento/</link><description>Recent content in Rendimiento on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Mon, 03 Mar 2025 09:47:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/rendimiento/index.xml" rel="self" type="application/rss+xml"/><item><title>Cómo Monitorear y Optimizar el Rendimiento de tu Sistema Linux: Guía Paso a Paso 📊⚡</title><link>https://patojad.com.ar/post/2025/03/c%C3%B3mo-monitorear-y-optimizar-el-rendimiento-de-tu-sistema-linux-gu%C3%ADa-paso-a-paso/</link><pubDate>Mon, 03 Mar 2025 09:47:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/03/c%C3%B3mo-monitorear-y-optimizar-el-rendimiento-de-tu-sistema-linux-gu%C3%ADa-paso-a-paso/</guid><description>&lt;p&gt;¿Alguna vez has sentido que tu sistema Linux está lento o que no funciona tan bien como debería? No te preocupes, ¡estás en el lugar correcto! En este artículo, aprenderás cómo monitorear y optimizar el rendimiento de tu sistema Linux utilizando herramientas simples pero poderosas. Al final, podrás identificar problemas de rendimiento y solucionarlos fácilmente.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="por-qué-monitorear-el-rendimiento"&gt;
+¿Por Qué Monitorear el Rendimiento?
+&lt;a href="#por-qu%c3%a9-monitorear-el-rendimiento" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Monitorear el rendimiento de tu sistema es crucial para mantenerlo funcionando de manera eficiente. Al hacerlo, puedes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Identificar procesos que consumen muchos recursos:&lt;/strong&gt; Encuentra programas que estén usando demasiada CPU, memoria o disco.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Detectar cuellos de botella:&lt;/strong&gt; Resuelve problemas que ralentizan tu sistema.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mantener tu sistema limpio y eficiente:&lt;/strong&gt; Libera espacio y elimina archivos innecesarios.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Hoy vamos a usar herramientas simples pero efectivas que puedes ejecutar directamente desde la terminal.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="herramienta-1-top---monitorear-procesos-en-tiempo-real"&gt;
+Herramienta 1: &lt;code&gt;top&lt;/code&gt; - Monitorear Procesos en Tiempo Real
+&lt;a href="#herramienta-1-top---monitorear-procesos-en-tiempo-real" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La primera herramienta que exploraremos es &lt;code&gt;top&lt;/code&gt;. Este comando muestra una lista en tiempo real de todos los procesos que se están ejecutando en tu sistema, junto con su uso de CPU y memoria. Simplemente ejecuta:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;top
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Aquí puedes ver qué procesos están consumiendo más recursos. Si encuentras algo sospechoso, puedes detenerlo usando su ID de proceso (PID) con:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;kill&lt;/span&gt; &amp;lt;PID&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Es una herramienta esencial para diagnosticar problemas rápidamente.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="herramienta-2-htop---una-versión-mejorada-de-top"&gt;
+Herramienta 2: &lt;code&gt;htop&lt;/code&gt; - Una Versión Mejorada de &lt;code&gt;top&lt;/code&gt;
+&lt;a href="#herramienta-2-htop---una-versi%c3%b3n-mejorada-de-top" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si prefieres una interfaz más amigable, prueba&lt;code&gt;htop&lt;/code&gt;. Es como &lt;code&gt;top&lt;/code&gt;, pero con colores y opciones adicionales. Primero, instálalo:&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="en-distribuciones-basadas-en-debian-como-ubuntu"&gt;
+En distribuciones basadas en Debian (como Ubuntu):
+&lt;a href="#en-distribuciones-basadas-en-debian-como-ubuntu" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install htop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="en-distribuciones-basadas-en-red-hat-como-fedora"&gt;
+En distribuciones basadas en Red Hat (como Fedora):
+&lt;a href="#en-distribuciones-basadas-en-red-hat-como-fedora" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo yum install htop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="en-distribuciones-basadas-en-arch-como-endeavour"&gt;
+En distribuciones basadas en &lt;a href="https://patojad.com.ar/post/2025/02/qu%c3%a9-es-arch-linux-la-mejor-distribuci%c3%b3n-para-usuarios-avanzados/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Arch
+&lt;/a&gt; (como Endeavour):
+&lt;a href="#en-distribuciones-basadas-en-arch-como-endeavour" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S htop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;hr&gt;
+&lt;p&gt;Luego ejecútalo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;htop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Con &lt;code&gt;htop&lt;/code&gt;, puedes navegar por los procesos con las flechas del teclado, ordenarlos y detenerlos directamente desde la interfaz. Es perfecto para usuarios nuevos.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="herramienta-3-df-y-du---monitorear-el-uso-de-disco"&gt;
+Herramienta 3: df y du - Monitorear el Uso de Disco
+&lt;a href="#herramienta-3-df-y-du---monitorear-el-uso-de-disco" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Ahora, hablemos del almacenamiento. Para ver cuánto espacio ocupan tus discos, usa &lt;code&gt;df&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;df -h
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Esto muestra el uso de disco en formato legible. Si necesitas identificar archivos grandes que ocupan espacio, usa &lt;code&gt;du&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;du -sh /ruta/a/carpeta
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Estos comandos son ideales para liberar espacio y mantener tu sistema limpio.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="optimización-básica-limpieza-de-paquetes-innecesarios"&gt;
+Optimización Básica: Limpieza de Paquetes Innecesarios
+&lt;a href="#optimizaci%c3%b3n-b%c3%a1sica-limpieza-de-paquetes-innecesarios" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Finalmente, vamos a optimizar tu sistema eliminando paquetes innecesarios.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="en-distribuciones-basadas-en-debian-como-ubuntu-1"&gt;
+En distribuciones basadas en Debian (como Ubuntu):
+&lt;a href="#en-distribuciones-basadas-en-debian-como-ubuntu-1" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt autoremove
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt clean
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="en-distribuciones-basadas-en-red-hat-como-fedora-1"&gt;
+En distribuciones basadas en Red Hat (como Fedora):
+&lt;a href="#en-distribuciones-basadas-en-red-hat-como-fedora-1" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf autoremove
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf clean all
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="en-distribuciones-basadas-en-arch-como-endeavour-1"&gt;
+En distribuciones basadas en &lt;a href="https://patojad.com.ar/post/2025/02/qu%c3%a9-es-arch-linux-la-mejor-distribuci%c3%b3n-para-usuarios-avanzados/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Arch
+&lt;/a&gt; (como Endeavour):
+&lt;a href="#en-distribuciones-basadas-en-arch-como-endeavour-1" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Rns &lt;span class="k"&gt;$(&lt;/span&gt;pacman -Qtdq&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Sc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Esto elimina paquetes antiguos y libera espacio. Estos pasos simples pueden mejorar significativamente el rendimiento de tu sistema.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="consejos-adicionales-para-mantener-tu-sistema-óptimo"&gt;
+Consejos Adicionales para Mantener tu Sistema Óptimo
+&lt;a href="#consejos-adicionales-para-mantener-tu-sistema-%c3%b3ptimo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Actualiza regularmente tu sistema:&lt;/strong&gt; Usa sudo apt update &amp;amp;&amp;amp; sudo apt upgrade para asegurarte de tener las últimas versiones de software.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Desactiva servicios innecesarios:&lt;/strong&gt; Usa systemctl list-units &amp;ndash;type=service para identificar servicios que no necesitas.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Usa un tema ligero:&lt;/strong&gt; Si usas una interfaz gráfica, elige temas y aplicaciones que consuman menos recursos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Monitorear y optimizar el rendimiento de tu sistema &lt;strong&gt;Linux&lt;/strong&gt; no tiene que ser complicado. Con herramientas como &lt;code&gt;top&lt;/code&gt;, &lt;code&gt;htop&lt;/code&gt;, &lt;code&gt;df&lt;/code&gt; y &lt;code&gt;du&lt;/code&gt;, puedes identificar problemas y solucionarlos fácilmente. Además, siguiendo algunos consejos básicos de optimización, puedes mantener tu sistema rápido y eficiente.&lt;/p&gt;</description></item><item><title>Desmitificando la seguridad de los empaquetados de aplicaciones en Linux</title><link>https://patojad.com.ar/post/2024/07/desmitificando-la-seguridad-de-los-empaquetados-de-aplicaciones-en-linux/</link><pubDate>Thu, 25 Jul 2024 12:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/07/desmitificando-la-seguridad-de-los-empaquetados-de-aplicaciones-en-linux/</guid><description>&lt;p&gt;El empaquetado de aplicaciones en Linux es un tema que ha generado mucho debate en la comunidad. Algunos defienden el uso de paquetes de distribuidores, mientras que otros prefieren el empaquetado de terceros como Flatpak o Snap. En este vídeo, vamos a desmitificar algunos conceptos erróneos sobre la seguridad y el empaquetado de aplicaciones en Linux.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="verificación-de-aplicaciones"&gt;
+Verificación de aplicaciones
+&lt;a href="#verificaci%c3%b3n-de-aplicaciones" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La verificación de aplicaciones es un proceso que garantiza que la aplicación que se descarga y se instala proviene directamente del desarrollador y no ha sido modificada por un tercero. Esto es especialmente importante en Linux, donde cualquier persona puede crear un paquete y distribuirlo. Sin embargo, la verificación de aplicaciones no garantiza que la aplicación sea segura o libre de vulnerabilidades.
+Por ejemplo, la biblioteca XZ fue hackeada y contenía una backdoor. Aunque la aplicación fue verificada, todavía contenía el código malicioso. Otro ejemplo es el caso de KeePassXC, donde el mantenedor de la versión de Debian decidió eliminar algunas características sin el consentimiento del desarrollador original.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="empaquetado-de-distribuidores"&gt;
+Empaquetado de distribuidores
+&lt;a href="#empaquetado-de-distribuidores" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El empaquetado de distribuidores no es necesariamente más seguro que el empaquetado de terceros. Los mantenedores de paquetes pueden no ser desarrolladores y no realizar revisiones de seguridad del código. Además, los paquetes de distribuidores pueden contener versiones antiguas de bibliotecas que no han sido actualizadas con las últimas correcciones de seguridad.
+Por ejemplo, la vulnerabilidad de log4j afectó a muchas distribuciones de Linux, incluyendo a Debian y Ubuntu. Aunque los paquetes de distribuidores fueron actualizados, todavía había versiones antiguas de la biblioteca que no habían sido parcheadas.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="sandbox"&gt;
+Sandbox
+&lt;a href="#sandbox" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El sandbox es un sistema de permisos que limita lo que una aplicación puede hacer en el sistema. Sin embargo, no garantiza que la aplicación sea segura. Un ejemplo de esto es el caso de las aplicaciones de criptomonedas que fueron hackeadas en el Snap Store. A pesar de que estas aplicaciones estaban sandboxeadas, todavía podían acceder a la conexión a internet y realizar acciones maliciosas.
+Otro ejemplo es el caso de Flatpak, que permite a las aplicaciones acceder a la carpeta de documentos del usuario sin restricciones. Aunque el sandbox de Flatpak es más estricto que el de Snap, todavía hay riesgos de seguridad asociados con el uso de aplicaciones sandboxeadas.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="dependencias"&gt;
+Dependencias
+&lt;a href="#dependencias" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Las dependencias en el empaquetado de aplicaciones pueden ser un problema. Los paquetes de distribuidores no siempre están actualizados, y los paquetes de terceros pueden contener versiones antiguas de bibliotecas. Esto puede llevar a vulnerabilidades de seguridad y problemas de compatibilidad.
+Por ejemplo, la biblioteca OpenSSL es una dependencia común en muchas aplicaciones. Sin embargo, las versiones antiguas de OpenSSL contienen vulnerabilidades de seguridad que pueden ser explotadas por atacantes. Si una aplicación utiliza una versión antigua de OpenSSL, puede ser vulnerable a ataques, incluso si el paquete ha sido verificado.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En conclusión, la seguridad del empaquetado de aplicaciones en Linux depende de muchos factores. Es importante recordar que los usuarios son responsables de verificar la seguridad de las aplicaciones que instalan. También es importante elegir fuentes de paquetes confiables y mantener las aplicaciones actualizadas.&lt;/p&gt;</description></item><item><title>Benchmark: Emuladores de terminal en MacOS y GNU/Linux</title><link>https://patojad.com.ar/post/2024/04/benchmark-emuladores-de-terminal-en-macos-y-gnu/linux/</link><pubDate>Fri, 19 Apr 2024 11:13:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/04/benchmark-emuladores-de-terminal-en-macos-y-gnu/linux/</guid><description>&lt;script&gt;
+window.onload = function () {
+const linuxbench = new CanvasJS.Chart("linuxCharts", {
+exportEnabled: true,
+animationEnabled: true,
+title:{
+text: "Terminales Linux Benchmark - 2014"
+},
+subtitles: [{
+text: "Terminales de GNU/Linux usadas para el benchmark en 2014 "
+}],
+axisX: {
+title: "States"
+},
+axisY: {
+title: "Demora - segundos",
+titleFontColor: "#4F81BC",
+lineColor: "#4F81BC",
+labelFontColor: "#4F81BC",
+tickColor: "#4F81BC",
+includeZero: true
+},
+toolTip: {
+shared: true
+},
+legend: {
+cursor: "pointer",
+itemclick: toggleDataSeries
+},
+data: [{
+type: "column",
+name: "Warp",
+showInLegend: true,
+yValueFormatString: "#,##0.# s",
+dataPoints: [
+{ label: "Solo caracteres ASCII", y: 3.45 },
+{ label: "Caracteres Unicode", y: 3.48 },
+{ label: "Códigos CSI con pocos caracteres", y: 2.59 },
+{ label: "Códigos de escape largos", y: 8.21 },
+{ label: "Imágenes", y: 2.75 }
+]
+},
+{
+type: "column",
+name: "kgx",
+axisYType: "secondary",
+showInLegend: true,
+yValueFormatString: "#,##0.# s",
+dataPoints: [
+{ label: "Solo caracteres ASCII", y: 1.28 },
+{ label: "Caracteres Unicode", y: 1.67 },
+{ label: "Códigos CSI con pocos caracteres", y: 3.05 },
+{ label: "Códigos de escape largos", y: 5.37 },
+{ label: "Imágenes", y: 3.46 }
+]
+},
+{
+type: "column",
+name: "Kitty",
+axisYType: "secondary",
+showInLegend: true,
+yValueFormatString: "#,##0.# s",
+dataPoints: [
+{ label: "Solo caracteres ASCII", y: 3.29 },
+{ label: "Caracteres Unicode", y: 3.04 },
+{ label: "Códigos CSI con pocos caracteres", y: 1.67 },
+{ label: "Códigos de escape largos", y: 2.4 },
+{ label: "Imágenes", y: 1.81 }
+]
+}
+]
+});
+const macosbench = new CanvasJS.Chart("macosCharts", {
+exportEnabled: true,
+animationEnabled: true,
+title:{
+text: "Terminales MacOS Benchmark - 2014"
+},
+subtitles: [{
+text: "Terminales de MacOS usadas para el benchmark en 2014 "
+}],
+axisX: {
+title: "States"
+},
+axisY: {
+title: "Demora - segundos",
+titleFontColor: "#4F81BC",
+lineColor: "#4F81BC",
+labelFontColor: "#4F81BC",
+tickColor: "#4F81BC",
+includeZero: true
+},
+toolTip: {
+shared: true
+},
+legend: {
+cursor: "pointer",
+itemclick: toggleDataSeries
+},
+data: [{
+type: "column",
+name: "Warp",
+showInLegend: true,
+yValueFormatString: "#,##0.# s",
+dataPoints: [
+{ label: "Solo caracteres ASCII", y: 3.02 },
+{ label: "Caracteres Unicode", y: 2.55 },
+{ label: "Códigos CSI con pocos caracteres", y: 2.38 },
+{ label: "Códigos de escape largos", y: 7.08 },
+{ label: "Imágenes", y: 2.67 }
+]
+},
+{
+type: "column",
+name: "Apple Terminal",
+axisYType: "secondary",
+showInLegend: true,
+yValueFormatString: "#,##0.# s",
+dataPoints: [
+{ label: "Solo caracteres ASCII", y: 7.2 },
+{ label: "Caracteres Unicode", y: 4.43 },
+{ label: "Códigos CSI con pocos caracteres", y: 3.71 },
+{ label: "Códigos de escape largos", y: 28.22 },
+{ label: "Imágenes", y: 9.07 }
+]
+},
+{
+type: "column",
+name: "Kitty",
+axisYType: "secondary",
+showInLegend: true,
+yValueFormatString: "#,##0.# s",
+dataPoints: [
+{ label: "Solo caracteres ASCII", y: 1.68 },
+{ label: "Caracteres Unicode", y: 2.77 },
+{ label: "Códigos CSI con pocos caracteres", y: 2 },
+{ label: "Códigos de escape largos", y: 3.41 },
+{ label: "Imágenes", y: 2.41 }
+]
+}
+]
+});
+linuxbench.render();
+macosbench.render();
+function toggleDataSeries(e) {
+if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+e.dataSeries.visible = false;
+} else {
+e.dataSeries.visible = true;
+}
+e.chart.render();
+}
+}
+&lt;/script&gt;
+&lt;p&gt;Medir el rendimiento del emulador de terminal es fundamental para los usuarios que buscan una experiencia fluida y eficiente. En este sentido, se centra en tres aspectos principales: el consumo de energía en tareas habituales, la latencia del teclado a la pantalla y el rendimiento al procesar grandes cantidades de datos.&lt;/p&gt;
+&lt;p&gt;Kitty tiene un &amp;ldquo;kitten&amp;rdquo; integrado para medir el rendimiento de transferencia. Funciona mediante la carga de grandes cantidades de datos de diferentes tipos en el dispositivo tty y midiendo qué tan rápido el terminal analiza y responde a ellos. Las mediciones a continuación se realizaron con la misma fuente, tamaño de fuente y tamaño de ventana para todos los terminales, y con la configuración predeterminada, en la misma computadora.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="replicar-el-proceso"&gt;
+Replicar el proceso
+&lt;a href="#replicar-el-proceso" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para replicar el proceso de medición de rendimiento, primero necesitas instalar &lt;code&gt;kitty&lt;/code&gt; en tu sistema. Luego, ejecuta el siguiente comando en tu terminal:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;kitten __benchmark__ --render
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="entendiéndo-los-resultados"&gt;
+Entendiéndo los resultados
+&lt;a href="#entendi%c3%a9ndo-los-resultados" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Los resultados de las pruebas se dividen en cinco categorías: solo caracteres ASCII, caracteres Unicode, códigos CSI con pocos caracteres, códigos de escape largos e imágenes. Cada categoría representa un tipo diferente de datos que se procesan en el terminal.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="solo-caracteres-ascii"&gt;
+Solo caracteres ASCII
+&lt;a href="#solo-caracteres-ascii" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Los caracteres ASCII son aquellos que pertenecen al conjunto de caracteres ASCII estándar, que incluye letras, números, signos de puntuación y algunos caracteres especiales. Estos caracteres se representan mediante un código numérico de 7 bits. Se utilizan comúnmente en la entrada y salida de datos en la mayoría de los entornos de terminal y son compatibles con una amplia gama de dispositivos y sistemas.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="caracteres-unicode"&gt;
+Caracteres Unicode
+&lt;a href="#caracteres-unicode" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Los caracteres Unicode son aquellos que pertenecen al estándar Unicode, que es un estándar de codificación de caracteres que permite representar la mayoría de los sistemas de escritura del mundo, así como símbolos y caracteres especiales. Los caracteres Unicode se utilizan cuando se necesita admitir una amplia variedad de idiomas y símbolos en la entrada y salida de datos en la terminal.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="códigos-csi-con-pocos-caracteres"&gt;
+Códigos CSI con pocos caracteres
+&lt;a href="#c%c3%b3digos-csi-con-pocos-caracteres" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Los códigos CSI (Control Sequence Introducer) son secuencias de escape que se utilizan para controlar aspectos de la apariencia y el comportamiento de la terminal. Los códigos CSI con pocos caracteres son aquellos que consisten en una secuencia de escape de control simple que realiza una acción específica, como cambiar el color del texto o mover el cursor a una posición específica en la pantalla.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="códigos-de-escape-largos"&gt;
+Códigos de escape largos
+&lt;a href="#c%c3%b3digos-de-escape-largos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Los códigos de escape largos son secuencias de escape más complejas que los códigos CSI con pocos caracteres. Estos códigos pueden realizar acciones más avanzadas, como cambiar las propiedades de la terminal, realizar operaciones de formato de texto más complejas o controlar dispositivos periféricos conectados a la terminal.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="imágenes"&gt;
+Imágenes
+&lt;a href="#im%c3%a1genes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;En algunas terminales avanzadas, es posible mostrar imágenes directamente en la pantalla utilizando códigos de escape específicos. Estas imágenes pueden ser gráficos simples, como iconos o logotipos, y se utilizan para mejorar la experiencia visual del usuario en la terminal.
+En resumen, cada uno de estos tipos se utiliza en la terminal para diferentes propósitos, desde la representación de caracteres básicos hasta el control avanzado de la apariencia y el comportamiento de la terminal, e incluso la visualización de imágenes directamente en la pantalla. Su uso depende de las necesidades específicas de la aplicación o del entorno de trabajo en la terminal.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="resultados-en-macos"&gt;
+Resultados en MacOS
+&lt;a href="#resultados-en-macos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En MacOS se realizaron las pruebas con los siguientes terminales: Warp, Apple Terminal y Kitty. Sirviendo Kitty y Warp para comparar con las pruebas realizadas en GNU/Linux. A continuación, se presentan los resultados obtenidos:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Terminal&lt;/th&gt;
+&lt;th&gt;Solo caracteres ASCII&lt;/th&gt;
+&lt;th&gt;Caracteres Unicode&lt;/th&gt;
+&lt;th&gt;Códigos CSI con pocos caracteres&lt;/th&gt;
+&lt;th&gt;Códigos de escape largos&lt;/th&gt;
+&lt;th&gt;Imágenes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Warp&lt;/td&gt;
+&lt;td&gt;3.02&lt;/td&gt;
+&lt;td&gt;2.55&lt;/td&gt;
+&lt;td&gt;2.38&lt;/td&gt;
+&lt;td&gt;7.08&lt;/td&gt;
+&lt;td&gt;2.67&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Apple Terminal&lt;/td&gt;
+&lt;td&gt;7.2&lt;/td&gt;
+&lt;td&gt;4.43&lt;/td&gt;
+&lt;td&gt;3.71&lt;/td&gt;
+&lt;td&gt;28.22&lt;/td&gt;
+&lt;td&gt;9.07&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Kitty&lt;/td&gt;
+&lt;td&gt;1.68&lt;/td&gt;
+&lt;td&gt;2.77&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;3.41&lt;/td&gt;
+&lt;td&gt;2.41&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;En esta tabla, cada columna representa diferentes tipos de datos. La columna CSI es para datos que consisten en una combinación de códigos de escape de formato típicos y algo de texto solo ASCII.&lt;/p&gt;
+&lt;div id="macosCharts" style="height: 600px; width: 100%;"&gt;&lt;/div&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="resultados-en-gnulinux"&gt;
+Resultados en GNU/Linux
+&lt;a href="#resultados-en-gnulinux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En GNU/Linux se realizaron las pruebas con los siguientes terminales: Warp, kgx y Kitty. Siendo kgx la relativamente &lt;em&gt;nueva&lt;/em&gt; terminal de Gnome. A continuación, se presentan los resultados obtenidos:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Terminal&lt;/th&gt;
+&lt;th&gt;Solo caracteres ASCII&lt;/th&gt;
+&lt;th&gt;Caracteres Unicode&lt;/th&gt;
+&lt;th&gt;Códigos CSI con pocos caracteres&lt;/th&gt;
+&lt;th&gt;Códigos de escape largos&lt;/th&gt;
+&lt;th&gt;Imágenes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Warp&lt;/td&gt;
+&lt;td&gt;3.45&lt;/td&gt;
+&lt;td&gt;3.48&lt;/td&gt;
+&lt;td&gt;2.59&lt;/td&gt;
+&lt;td&gt;8.21&lt;/td&gt;
+&lt;td&gt;2.75&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;kgx&lt;/td&gt;
+&lt;td&gt;1.28&lt;/td&gt;
+&lt;td&gt;1.67&lt;/td&gt;
+&lt;td&gt;3.05&lt;/td&gt;
+&lt;td&gt;5.37&lt;/td&gt;
+&lt;td&gt;3.46&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Kitty&lt;/td&gt;
+&lt;td&gt;3.29&lt;/td&gt;
+&lt;td&gt;3.04&lt;/td&gt;
+&lt;td&gt;1.67&lt;/td&gt;
+&lt;td&gt;2.4&lt;/td&gt;
+&lt;td&gt;1.81&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;En esta tabla, cada columna representa diferentes tipos de datos. La columna CSI es para datos que consisten en una combinación de códigos de escape de formato típicos y algo de texto solo ASCII.&lt;/p&gt;
+&lt;div id="linuxCharts" style="height: 600px; width: 100%;"&gt;&lt;/div&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Los resultados de nuestra comparativa demuestran que Kitty destaca en términos de rendimiento en ambos sistemas operativos. Con tiempos de procesamiento más rápidos y una menor latencia, Kitty ofrece una experiencia superior en la mayoría de las métricas evaluadas. Si buscas un emulador de terminal que priorice el rendimiento, Kitty es una opción sólida tanto en MacOS como en GNU/Linux.&lt;/p&gt;
+&lt;script src="https://cdn.canvasjs.com/canvasjs.min.js"&gt;&lt;/script&gt;</description></item><item><title>Bun o Node.js en 2024: ¿Cuál es la mejor opción para desarrollo web?</title><link>https://patojad.com.ar/post/2024/04/bun-o-node.js-en-2024-cu%C3%A1l-es-la-mejor-opci%C3%B3n-para-desarrollo-web/</link><pubDate>Wed, 10 Apr 2024 09:04:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/04/bun-o-node.js-en-2024-cu%C3%A1l-es-la-mejor-opci%C3%B3n-para-desarrollo-web/</guid><description>&lt;p&gt;Cuando se trata de desarrollo web, ¡Hay tantas herramientas! Pero la opción más popular y ampliamente utilizada es &lt;strong&gt;Node.js&lt;/strong&gt;. Sin embargo, &lt;strong&gt;Bun&lt;/strong&gt;, una nueva herramienta, también trae muchos beneficios.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="deberías-cambiar-de-nodejs-a-bun-en-2024"&gt;
+¿Deberías cambiar de Node.js a Bun en 2024?
+&lt;a href="#deber%c3%adas-cambiar-de-nodejs-a-bun-en-2024" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Hoy estamos aquí para analizar las diferencias clave y ayudarnos a decidir cuál podría ser la mejor opción para este 2024. Así que, ¡toma una taza de café ☕️, pon tu lista de reproducción de codificación favorita y vamos a darle!&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="comprendiendo-bun-el-novato-en-el-barrio"&gt;
+Comprendiendo Bun: El Novato en el Barrio
+&lt;a href="#comprendiendo-bun-el-novato-en-el-barrio" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Imagina a &lt;strong&gt;Bun&lt;/strong&gt; como tu fiel compañero, siempre listo para simplificar tus aventuras de desarrollo web. Este moderno y liviano entorno de ejecución es un nuevo entorno de ejecución de &lt;strong&gt;JavaScript&lt;/strong&gt; completamente escrito en el lenguaje de programación &lt;strong&gt;Zig&lt;/strong&gt;, como una brisa fresca en un día caluroso de verano: refrescante y eficiente. &lt;strong&gt;Bun&lt;/strong&gt; está diseñado para ser un reemplazo directo de &lt;strong&gt;Node.js&lt;/strong&gt; y soporta la mayoría de las mismas API y características. Con &lt;strong&gt;Bun&lt;/strong&gt;, construir aplicaciones web se vuelve muy fácil gracias a su sintaxis intuitiva y características simplificadas.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="explorando-nodejs-el-guerrero-veterano"&gt;
+Explorando Node.js: El Guerrero Veterano
+&lt;a href="#explorando-nodejs-el-guerrero-veterano" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Ahora, imagina a &lt;strong&gt;Node.js&lt;/strong&gt; como el guerrero veterano del reino del desarrollo web, probado en batalla y confiable. Este entorno de ejecución es tu elección para aplicaciones escalables y de alto rendimiento. Su modelo de I/O no bloqueante y basado en eventos es como tener un superpoder para manejar múltiples tareas simultáneamente. Esto lo hace adecuado para manejar conexiones concurrentes y procesar grandes volúmenes de datos. Con su vasto ecosistema de módulos y bibliotecas, &lt;strong&gt;Node.js&lt;/strong&gt; capacita a los desarrolladores para crear una amplia gama de aplicaciones, desde servidores web hasta dispositivos IoT.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="comparación-de-características-bun-vs-nodejs"&gt;
+Comparación de características: Bun vs. Node.js
+&lt;a href="#comparaci%c3%b3n-de-caracter%c3%adsticas-bun-vs-nodejs" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Rendimiento:&lt;/strong&gt; Node.js brilla en el manejo de miles de conexiones con facilidad, como un superhéroe manejando una ciudad bulliciosa. Por otro lado, Bun, aunque más nuevo, se defiende bien y es perfecto para cargas de trabajo moderadas.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Facilidad de uso:&lt;/strong&gt; Bun es tu guía amigable del barrio, haciendo del desarrollo web un paseo alegre con su simplicidad. Mientras tanto, Node.js ofrece una inmersión más profunda en el mundo de la programación asincrónica, como dominar un rompecabezas complejo.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Escalabilidad:&lt;/strong&gt; Tanto Bun como Node.js son tus compañeros confiables para escalar aplicaciones. Node.js destaca en el manejo de conexiones concurrentes, mientras que Bun hereda esta fortaleza y se adapta a varios entornos sin problemas.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="escenarios-del-mundo-real-dónde-brillan"&gt;
+Escenarios del Mundo Real: ¿Dónde Brillan?
+&lt;a href="#escenarios-del-mundo-real-d%c3%b3nde-brillan" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Bun:&lt;/strong&gt; Ideal para startups y equipos pequeños, Bun es tu compañero ágil para construir aplicaciones web y APIs livianas. Es como tener una varita mágica para prototipos rápidos sin comprometer el rendimiento.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Node.js:&lt;/strong&gt; Ampliamente utilizado en diversas industrias, Node.js es tu aliado versátil para aplicaciones diversas, desde servidores web hasta dispositivos IoT. Su capacidad para manejar tareas de I/O lo convierte en el favorito entre las empresas para construir soluciones robustas y de alto rendimiento.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="pensamientos-finales-eligiendo-tu-compañero-de-desarrollo-web"&gt;
+Pensamientos Finales: Eligiendo tu Compañero de Desarrollo Web
+&lt;a href="#pensamientos-finales-eligiendo-tu-compa%c3%b1ero-de-desarrollo-web" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En la batalla de &lt;strong&gt;Bun&lt;/strong&gt; vs. &lt;strong&gt;Node.js&lt;/strong&gt;, la elección es tuya según tu búsqueda en el reino del desarrollo web. Ya sea que busques simplicidad y velocidad o potencia y escalabilidad, tanto &lt;strong&gt;Bun&lt;/strong&gt; como &lt;strong&gt;Node.js&lt;/strong&gt; están listos para acompañarte en tus aventuras de desarrollo web.&lt;/p&gt;
+&lt;p&gt;Entonces, queridos desarrolladores, ¿qué compañero elegirás para tu próxima aventura de desarrollo web?&lt;/p&gt;</description></item><item><title>Formatos de Empaquetado en Linux: Nativos, Flatpak, Snap y AppImage</title><link>https://patojad.com.ar/post/2024/03/formatos-de-empaquetado-en-linux-nativos-flatpak-snap-y-appimage/</link><pubDate>Mon, 25 Mar 2024 12:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/03/formatos-de-empaquetado-en-linux-nativos-flatpak-snap-y-appimage/</guid><description>&lt;p&gt;En el tradicional formato de empaquetado de Linux, tenemos &lt;strong&gt;DEB&lt;/strong&gt; (para debian, ubuntu y derivadas), &lt;strong&gt;RPM&lt;/strong&gt; (para redhat, fedora y derivadas) y otras variantes. Más recientemente, se han añadido &lt;strong&gt;Flatpak&lt;/strong&gt;, &lt;strong&gt;Snap&lt;/strong&gt; e &lt;strong&gt;AppImage&lt;/strong&gt;, lo que ha generado una gran variedad de formatos con diferentes características, ventajas y limitaciones. En este análisis, exploraremos el rendimiento de cada formato y las funciones que faltan en cada uno.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="nativas"&gt;
+Nativas
+&lt;a href="#nativas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Generalmente no son compatibles entre distintas distribuciones, no implementan ningún modelo de seguridad o espacio aislado específico y se distribuyen a través de repositorios, ya sean oficiales o de terceros. Estos paquetes pueden contener bibliotecas o aplicaciones y todas las bibliotecas se comparten entre aplicaciones, lo que ahorra espacio y evita bibliotecas duplicadas. Sin embargo, esto también significa que una aplicación que necesita una biblioteca más nueva podría no funcionar en una distribución más antigua.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="flatpak"&gt;
+Flatpak
+&lt;a href="#flatpak" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Generalmente agregan además de sus paquetes regulares, son agnósticos de la distribución en sí, por lo que si su distro admite el &lt;strong&gt;Flatpak&lt;/strong&gt;, puede ejecutar exactamente el mismo paquete que cualquier otra distribución. El desarrollador empaqueta su aplicación una vez y se ejecuta en todo, no es necesario duplicar el trabajo de empaquetado. Los &lt;strong&gt;Flatpak&lt;/strong&gt; tienen un empaquetado &amp;ldquo;sandbox&amp;rdquo;, lo que significa que ofrecen menos agujeros de seguridad para posibles atacantes y, al mismo tiempo, comparten una gran cantidad de bibliotecas a través de tiempos de ejecución. Algunos &lt;strong&gt;Flatpak&lt;/strong&gt; contienen muchas bibliotecas en las que confían muchas aplicaciones. También pueden enviar sus propias bibliotecas en el paquete, lo que significa que pueden usar más espacio con el tiempo. Los &lt;strong&gt;Flatpak&lt;/strong&gt; se distribuyen principalmente a través de Flathub y repositorios en línea, pero usted también puede crear su propio repositorio ya que todo es de código abierto.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="snap"&gt;
+Snap
+&lt;a href="#snap" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Los &lt;strong&gt;Snaps&lt;/strong&gt; son básicamente el mismo concepto que los &lt;strong&gt;Flatpak&lt;/strong&gt;, pero para Ubuntu. Hay algunas diferencias técnicas con los &lt;strong&gt;Flatpak&lt;/strong&gt;, especialmente con respecto a cómo se abren y montan las aplicaciones en el sistema, pero funcionan de la misma manera. De esta manera, tiene tiempos de ejecución que incluyen bibliotecas necesarias para múltiples aplicaciones y luego las aplicaciones que pueden usar estos tiempos de ejecución se pueden aislar, pero no es obligatorio, por lo que algunas no lo son y se distribuyen exclusivamente a través de la tienda de Snap administrada por Canonical y ese específico. El back-end no es de código abierto. Los &lt;strong&gt;Snaps&lt;/strong&gt; se empaquetan una vez y cualquier distribución puede usar el mismo Snap siempre que admita el formato. Otra gran diferencia es que los &lt;strong&gt;Snaps&lt;/strong&gt; son adecuados no solo para aplicaciones gráficas sino también para programas de línea de comandos, aplicaciones del lado del servidor o incluso el kernel, el entorno de escritorio, el cargador de arranque o los controladores.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="appimage"&gt;
+AppImage
+&lt;a href="#appimage" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Son un formato más portátil similar a lo que hace &lt;strong&gt;MacOS&lt;/strong&gt;: toda la aplicación se envía dentro de un solo archivo con la mayoría, si no todas, sus bibliotecas. Esto significa que puede copiar y pegar aplicaciones desde un sistema a otro y se ejecutan en cualquier distribución que tenga acceso a fuse, que es lo que usan las imágenes de la aplicación para ejecutar las imágenes de la aplicación. A diferencia de las anteriores, no se ejecutan en un sandbox, aunque puedes hacerlo manualmente con algo como Fire Jail y, a veces, dependen de las bibliotecas del sistema que distribución se envía como paquetes regulares. Esto significa que ciertas imágenes de aplicaciones pueden no funcionar en ciertos sistemas que no tienen la biblioteca requerida; generalmente se distribuyen desde el sitio web de los desarrolladores o desde la aplicación App Image Hub. Las imágenes no crean automáticamente entradas en su sistema. menú a menos que use un demonio específico que se ejecuta en segundo plano.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="puntos-de-referencia-de-rendimiento"&gt;
+Puntos de referencia de rendimiento
+&lt;a href="#puntos-de-referencia-de-rendimiento" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/Z5xcr9pK/image.png" alt="PC de pruebas" title="PC de pruebas"
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Las pruebas de rendimiento se llevaron a cabo en una máquina virtual Ubuntu 23.04 con 16 GB de RAM y un procesador Intel Core i7 de 13.a generación. Se instalaron aplicaciones en todos los formatos de empaquetado, y se midió el tiempo de apertura inicial y las ejecuciones posteriores. Los resultados mostraron diferencias en el tiempo de inicio y el rendimiento en pruebas como Velocímetro y Jetstream Benchmark.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;16 GB de RAM&lt;/li&gt;
+&lt;li&gt;Procesador Intel Core i7 de 13.a generación&lt;/li&gt;
+&lt;li&gt;Renderizado por hardware&lt;/li&gt;
+&lt;li&gt;Ubuntu 23.04&lt;/li&gt;
+&lt;li&gt;Maquina virtual&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Recordemos que esto no pretende ser una maquina real sino un punto para una comparación de rendimiento entre los distintos formatos de empaquetado.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="resultados"&gt;
+Resultados
+&lt;a href="#resultados" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/Dzfc52PQ/image.png" alt="Resultados 1" title="Resultados 1"
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/RCJLgpKY/image.png" alt="Resultados 2" title="Resultados 2"
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="sandbox"&gt;
+Sandbox
+&lt;a href="#sandbox" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Los formatos de empaquetado como &lt;strong&gt;Flatpaks&lt;/strong&gt; y &lt;strong&gt;Snaps&lt;/strong&gt; utilizan entornos de sandbox para proporcionar aislamiento y seguridad a las aplicaciones. Sin embargo, esto puede afectar el rendimiento y la compatibilidad con ciertas características, como la mensajería nativa. El Sandbox no es 100% a prueba de balas. Nada lo es, pero es interesante limitar a qué puede acceder la aplicación, todo esto se administra a través de permisos de aplicaciones, de manera muy similar a lo que encontraría en las aplicaciones de Android o iOS, puede otorgar permisos a las aplicaciones para acceder a archivos y carpetas específicos o servicios y componentes específicos del sistema, todo esto generalmente se maneja a través de portales de escritorio que significa que la aplicación realmente no accede al archivo o a la carpeta, abre un portal que es lo que accede al recurso requerido y lo pasa a la aplicación.&lt;/p&gt;
+&lt;p&gt;Esto es similar a cómo los navegadores web ejecutan cada pestaña en un proceso separado al que no se puede acceder. el hilo principal del navegador o las otras pestañas, los paquetes regulares no están protegidos de forma predeterminada, se instalan en el sistema de archivos y requieren privilegios de root para instalarse, lo que significa que si el paquete tiene algunos scripts maliciosos posteriores a la instalación que ejecuta, le ha dado rienda suelta sobre su sistema y cualquier aplicación que haya instalado a través de paquetes pueden acceder a cualquier cosa que su usuario pueda acceder a su directorio completo de home, por ejemplo, u otros archivos de configuración de aplicaciones.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="funciones-faltantes"&gt;
+Funciones faltantes
+&lt;a href="#funciones-faltantes" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Cada formato de empaquetado tiene limitaciones y funciones faltantes. Por ejemplo, los paquetes &lt;strong&gt;Flatpak&lt;/strong&gt; y Snap carecen de compatibilidad con la mensajería nativa, lo que puede afectar su utilidad en ciertos casos de uso. Además, el soporte para el tema del sistema puede ser imperfecto en algunos formatos, lo que puede afectar la integración visual con el entorno del usuario.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;A pesar de las diferencias y limitaciones, todos los formatos de empaquetado ofrecen una experiencia similar en la ejecución de aplicaciones en Linux. La elección del formato adecuado puede depender de factores como la seguridad, la portabilidad y las características específicas requeridas por el usuario. Si bien la unificación hacia un formato de empaquetado único podría simplificar la experiencia para los usuarios principiantes, actualmente cada formato tiene su lugar en el ecosistema de Linux.&lt;/p&gt;</description></item><item><title>5 Verdades Malinterpretadas sobre Node.js que Debes Conocer en el Futuro</title><link>https://patojad.com.ar/post/2023/09/5-verdades-malinterpretadas-sobre-node.js-que-debes-conocer-en-el-futuro/</link><pubDate>Fri, 01 Sep 2023 10:13:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/09/5-verdades-malinterpretadas-sobre-node.js-que-debes-conocer-en-el-futuro/</guid><description>&lt;p&gt;Ya hablamos con anterioridad sobre &lt;a href="https://patojad.com.ar/post/2023/08/por-qu%c3%a9-node.js-se-volvi%c3%b3-tan-popular-para-el-desarrollo-backend/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+¿Por qué Node.js se volvió tan popular para el desarrollo backend?
+&lt;/a&gt; y seguimos revisando el mismo articulo de P. Rehan en el que nos explica, tambien, &lt;strong&gt;&amp;ldquo;5 Verdades Malinterpretadas sobre Node.js que Debes Conocer en el Futuro&amp;rdquo;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Cada &lt;em&gt;&amp;ldquo;niño prodigio&amp;rdquo;&lt;/em&gt; viene acompañado de una nube de conceptos erróneos, y Node.js no es una excepción. Aquí te presentamos cinco malentendidos frecuentes sobre &lt;strong&gt;Node.js&lt;/strong&gt; &lt;em&gt;(que debes conocer para evitar caer en la trampa de la desinformación)&lt;/em&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Node.js no es la mejor elección para aplicaciones empresariales grandes ya que carece de escalabilidad.&lt;/strong&gt; La última vez que revisamos, cada organización estaba tratando de llevar sus aplicaciones a nuevas alturas de rendimiento, algo que &lt;strong&gt;Node.js&lt;/strong&gt; puede ofrecer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;PayPal, Walmart, Trello y LinkedIn, además de Netflix, afirman que solo funciona para aplicaciones pequeñas.&lt;/strong&gt; Estas son algunas de las aplicaciones más complejas que utilizan Node.js para manejar solicitudes y funcionan con poco o ningún tiempo de inactividad.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;No se limita solo al desarrollo web. Node.js&lt;/strong&gt; es excelente para aplicaciones de escritorio, dispositivos de IoT y herramientas de línea de comandos. &lt;em&gt;Slack&lt;/em&gt; y &lt;em&gt;Visual Studio Code&lt;/em&gt; son productos del poderoso dúo &lt;strong&gt;Electron-Node.js&lt;/strong&gt;. &lt;strong&gt;Gatsby&lt;/strong&gt; y &lt;strong&gt;Yarn&lt;/strong&gt; son herramientas de línea de comandos para crear sitios web rápidos y seguros que operan en &lt;strong&gt;Node.js&lt;/strong&gt; en el backend.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Las tareas intensivas de CPU arruinan Node.js.&lt;/strong&gt; Es cierto que es un entorno de un solo hilo donde el rendimiento se ve afectado según el número de solicitudes. Sin embargo, puedes superar esta limitación creando colas de tareas o generando procesos secundarios asíncronos específicos para la tarea.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Node.js permite la validación y la sanitización de entradas mientras opera con bibliotecas de confianza, por lo que no es una buena alternativa en cuanto a seguridad. Node.js&lt;/strong&gt; cuenta con soporte para la comunicación &lt;strong&gt;TLS/SSL&lt;/strong&gt;. Esto es lo que encripta la comunicación y la protege de vulnerabilidades y ataques.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a href="https://pinjarirehan.medium.com/why-node-js-is-the-ultimate-game-changer-for-backend-development-26415839bbe2" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Fuente
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Cómo Actualizar aaPanel y Mantener tu Servidor Web al Día</title><link>https://patojad.com.ar/post/2023/08/c%C3%B3mo-actualizar-aapanel-y-mantener-tu-servidor-web-al-d%C3%ADa/</link><pubDate>Wed, 30 Aug 2023 11:23:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/08/c%C3%B3mo-actualizar-aapanel-y-mantener-tu-servidor-web-al-d%C3%ADa/</guid><description>&lt;p&gt;Mantener tu servidor web actualizado es esencial para garantizar su rendimiento, seguridad y funcionalidad. En este artículo, aprenderás cómo actualizar &lt;strong&gt;aaPanel&lt;/strong&gt;, una herramienta de panel de control que simplifica la administración de servidores web, y te proporciona una guía paso a paso para llevar a cabo este proceso.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-aapanel"&gt;
+¿Qué es aaPanel?
+&lt;a href="#qu%c3%a9-es-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;aaPanel&lt;/strong&gt; es un panel de control de hosting web gratuito y de código abierto que facilita la administración de servidores. Proporciona una interfaz gráfica intuitiva y amigable que permite a los usuarios gestionar servicios como &lt;strong&gt;Apache&lt;/strong&gt;, &lt;strong&gt;Nginx&lt;/strong&gt;, &lt;strong&gt;PHP&lt;/strong&gt;, bases de datos y más, sin necesidad de conocimientos técnicos avanzados.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="importancia-de-actualizar-aapanel"&gt;
+Importancia de Actualizar aaPanel
+&lt;a href="#importancia-de-actualizar-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La actualización regular de aaPanel es crucial por varias razones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Seguridad:&lt;/strong&gt; Las actualizaciones suelen incluir parches de seguridad que protegen tu servidor contra amenazas potenciales. Mantener aaPanel actualizado reduce la superficie de ataque y mantiene tus datos y aplicaciones seguros.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Rendimiento:&lt;/strong&gt; Las actualizaciones pueden mejorar el rendimiento de aaPanel al corregir errores, optimizar el código y agregar nuevas características que optimizan la eficiencia.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Funcionalidad:&lt;/strong&gt; Las versiones más recientes de aaPanel suelen ofrecer nuevas funciones y mejoras en la interfaz, lo que puede mejorar la experiencia de administración del servidor.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="pasos-para-actualizar-aapanel"&gt;
+Pasos para Actualizar aaPanel
+&lt;a href="#pasos-para-actualizar-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si bien en el video se muestra como actualizar &lt;strong&gt;aaPanel&lt;/strong&gt; desde la interfaz web, en este articulo se muestra como hacerlo desde la terminal.&lt;/p&gt;
+&lt;p&gt;A continuación, se detallan los pasos para actualizar aaPanel a la última versión en caso de querer hacerlo desde la terminal conectadose al servidor por &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+SSH
+&lt;/a&gt;:&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="acceder-al-servidor"&gt;
+Acceder al Servidor
+&lt;a href="#acceder-al-servidor" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Inicia sesión en tu servidor a través de &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+SSH
+&lt;/a&gt; utilizando un cliente como PuTTY (en el caso de estar en Windows) o la terminal en sistemas Unix o Unix-Like como Linux.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ssh username@server_ip
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="respaldo-de-datos-opcional-pero-recomendado"&gt;
+Respaldo de Datos (Opcional pero Recomendado)
+&lt;a href="#respaldo-de-datos-opcional-pero-recomendado" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Antes de actualizar, realiza una copia de seguridad de tus datos importantes, como archivos del sitio web y bases de datos, para evitar pérdidas accidentales. Si bien este paso es opcional, se recomienda encarecidamente realizar una copia de seguridad de tus datos antes de actualizar. Puedes utilizar el siguiente comando para crear una copia de seguridad de tu sitio web:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tar -czvf backup.tar.gz /home/wwwroot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="actualización"&gt;
+Actualización
+&lt;a href="#actualizaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Ejecuta el siguiente comando para ejecutar el script de actualización:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;service bt &lt;span class="m"&gt;16&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Sigue las instrucciones en pantalla para completar el proceso de actualización.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="verificación"&gt;
+Verificación
+&lt;a href="#verificaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Después de la actualización, verifica que &lt;strong&gt;aaPanel&lt;/strong&gt; esté funcionando correctamente accediendo a la interfaz de administración a través de tu navegador web.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Mantener &lt;strong&gt;aaPanel&lt;/strong&gt; actualizado es esencial para garantizar la seguridad y el rendimiento de tu servidor web. Sigue estos pasos para realizar una actualización exitosa y asegúrate de respaldar tus datos antes de comenzar. Un &lt;strong&gt;aaPanel&lt;/strong&gt; actualizado no solo protege tu servidor de posibles amenazas, sino que también te permite acceder a nuevas características y mejoras en la administración de tu sitio web. ¡Mantén tu servidor al día y disfruta de un entorno en línea seguro y eficiente!&lt;/p&gt;</description></item><item><title>Cómo Configurar un Sitio PHP en aaPanel</title><link>https://patojad.com.ar/post/2023/08/c%C3%B3mo-configurar-un-sitio-php-en-aapanel/</link><pubDate>Fri, 18 Aug 2023 08:01:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/08/c%C3%B3mo-configurar-un-sitio-php-en-aapanel/</guid><description>&lt;p&gt;En el vertiginoso mundo de la informática, la elección de una plataforma de alojamiento web sólida y eficiente es fundamental para el éxito de cualquier proyecto en línea. &lt;strong&gt;aaPanel&lt;/strong&gt;, una herramienta de panel de control gratuita y de código abierto, ha ganado popularidad por su capacidad para simplificar la administración de servidores y sitios web. En este artículo, te guiaré a través de los pasos para configurar un sitio &lt;strong&gt;PHP&lt;/strong&gt; en &lt;strong&gt;aaPanel&lt;/strong&gt;, maximizando así el rendimiento y la accesibilidad de tu proyecto web.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-aapanel"&gt;
+¿Qué es aaPanel?
+&lt;a href="#qu%c3%a9-es-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;aaPanel&lt;/strong&gt; es un panel de control de hosting web gratuito y de código abierto que facilita la administración de servidores. Proporciona una interfaz gráfica intuitiva y amigable que permite a los usuarios gestionar servicios como &lt;strong&gt;Apache&lt;/strong&gt;, &lt;strong&gt;Nginx&lt;/strong&gt;, &lt;strong&gt;PHP&lt;/strong&gt;, bases de datos y más, sin necesidad de conocimientos técnicos avanzados.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación-de-aapanel"&gt;
+Instalación de aaPanel
+&lt;a href="#instalaci%c3%b3n-de-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El primer paso es instalar aaPanel en tu servidor. Asegúrate de tener acceso a un servidor compatible con los requisitos de aaPanel, como &lt;strong&gt;Debian&lt;/strong&gt;, &lt;strong&gt;Ubuntu&lt;/strong&gt; o &lt;strong&gt;CentOS&lt;/strong&gt;. Una vez que hayas instalado el sistema operativo, puedes instalar aaPanel siguiendo los pasos detallados en el siguiente artículo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2023/06/instalar-aapanel/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Instalar aaPanel
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2023/07/abrir-puertos-aapanel/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Abrir puertos aaPanel
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2023/07/primer-ingreso-a-aapanel/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Primer ingreso a aaPanel
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="agregar-un-sitio-dinamico"&gt;
+Agregar un Sitio Dinamico
+&lt;a href="#agregar-un-sitio-dinamico" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Una vez que aaPanel esté instalado, es hora de agregar tu dominio y configurar un sitio web PHP:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Inicia sesión en aaPanel usando la URL y credenciales proporcionadas durante la instalación.&lt;/li&gt;
+&lt;li&gt;Navega a &lt;code&gt;Website&lt;/code&gt; y haz clic en &lt;code&gt;Add Website&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Ingresa los detalles de tu dominio, como el nombre del dominio y la ruta de la carpeta raíz del sitio (como se muestra en el video).&lt;/li&gt;
+&lt;li&gt;Selecciona &lt;code&gt;PHP&lt;/code&gt; como tipo de sitio web y elige la versión de &lt;strong&gt;PHP&lt;/strong&gt; deseada.&lt;/li&gt;
+&lt;li&gt;Selecciona si deseas habilitar &lt;strong&gt;SSL&lt;/strong&gt; para tu sitio web.&lt;/li&gt;
+&lt;li&gt;Selecciona si deseas habilitar &lt;strong&gt;FTP&lt;/strong&gt; para tu sitio web.&lt;/li&gt;
+&lt;li&gt;Selecciona si deseas crear una Base de Datos para tu sitio web.&lt;/li&gt;
+&lt;li&gt;Haz clic en &lt;code&gt;Add Website&lt;/code&gt; para completar el proceso.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="ajustes-avanzados-y-seguridad"&gt;
+Ajustes Avanzados y Seguridad
+&lt;a href="#ajustes-avanzados-y-seguridad" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para optimizar aún más tu sitio PHP y garantizar su seguridad, considera implementar las siguientes medidas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SSL Certificate:&lt;/strong&gt; Habilita un certificado SSL gratuito para cifrar las comunicaciones entre el navegador del usuario y el servidor.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Firewall:&lt;/strong&gt; Configura un firewall para proteger tu servidor contra amenazas cibernéticas.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Backups:&lt;/strong&gt; Establece una política de respaldo regular para asegurar que los datos estén protegidos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Configurar un sitio &lt;strong&gt;PHP&lt;/strong&gt; en &lt;strong&gt;aaPanel&lt;/strong&gt; puede parecer una tarea desafiante al principio, pero con la guía adecuada, es un proceso simplificado que mejora significativamente la administración y el rendimiento de tu proyecto web. Siguiendo los pasos mencionados en esta guía, estarás en camino de tener un sitio web en funcionamiento con todas las ventajas que ofrece &lt;strong&gt;aaPanel&lt;/strong&gt;. Mantén tu proyecto seguro, optimizado y accesible, y observa cómo crece y prospera en el competitivo mundo en línea.&lt;/p&gt;</description></item><item><title>Cómo Crear un Sitio Estático con aaPanel</title><link>https://patojad.com.ar/post/2023/08/c%C3%B3mo-crear-un-sitio-est%C3%A1tico-con-aapanel/</link><pubDate>Wed, 09 Aug 2023 11:54:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/08/c%C3%B3mo-crear-un-sitio-est%C3%A1tico-con-aapanel/</guid><description>&lt;p&gt;En el mundo en constante evolución de la tecnología web, la creación de sitios estáticos se ha convertido en una opción popular para aquellos que buscan un enfoque simplificado y de alto rendimiento para su presencia en línea. A través del uso de herramientas como &lt;strong&gt;aaPanel&lt;/strong&gt;, puedes crear y administrar sitios estáticos de manera eficiente y efectiva. En esta guía paso a paso, te mostraremos cómo crear un sitio estático utilizando &lt;strong&gt;aaPanel&lt;/strong&gt;, aprovechando su potencial para alcanzar un sitio web rápido y seguro.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-aapanel"&gt;
+¿Qué es aaPanel?
+&lt;a href="#qu%c3%a9-es-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;aaPanel&lt;/strong&gt; es un panel de control de hosting web gratuito y de código abierto que facilita la administración de servidores. Proporciona una interfaz gráfica intuitiva y amigable que permite a los usuarios gestionar servicios como &lt;strong&gt;Apache&lt;/strong&gt;, &lt;strong&gt;Nginx&lt;/strong&gt;, &lt;strong&gt;PHP&lt;/strong&gt;, bases de datos y más, sin necesidad de conocimientos técnicos avanzados.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="introducción-a-aapanel-y-preparación-del-entorno"&gt;
+Introducción a &lt;strong&gt;aaPanel&lt;/strong&gt; y Preparación del Entorno
+&lt;a href="#introducci%c3%b3n-a-aapanel-y-preparaci%c3%b3n-del-entorno" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para comenzar, asegúrate de haber instalado &lt;strong&gt;aaPanel&lt;/strong&gt; en tu servidor, siguiendo los pasos detallados en los siguientes articulos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2023/06/instalar-aapanel/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Instalar aaPanel
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2023/07/abrir-puertos-aapanel/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Abrir puertos aaPanel
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2023/07/primer-ingreso-a-aapanel/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Primer ingreso a aaPanel
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Una vez que hayas configurado &lt;strong&gt;aaPanel&lt;/strong&gt;, estarás listo para crear tu sitio estático.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="creación-del-sitio-estático"&gt;
+Creación del Sitio Estático
+&lt;a href="#creaci%c3%b3n-del-sitio-est%c3%a1tico" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Inicia sesión en tu panel de control &lt;strong&gt;aaPanel&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;En la sección &lt;em&gt;Web&lt;/em&gt;, selecciona &lt;em&gt;Sitios web&lt;/em&gt; y haz clic en &lt;em&gt;Agregar sitio web&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Completa la información requerida, como el nombre del dominio y la ubicación de los archivos.&lt;/li&gt;
+&lt;li&gt;Asegúrate de seleccionar &lt;em&gt;Estático&lt;/em&gt; como el tipo de sitio web.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="configuración-y-personalización"&gt;
+Configuración y Personalización
+&lt;a href="#configuraci%c3%b3n-y-personalizaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/Tw7sKwbR/siteconfig.webp" alt="siteconfig.webp" title="siteconfig.webp"
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Una vez que hayas creado el sitio estático, podrás acceder a la configuración detallada.&lt;/li&gt;
+&lt;li&gt;Utiliza las opciones disponibles para personalizar aspectos como las reglas de reescritura, la protección de directorios y la gestión de acceso.&lt;/li&gt;
+&lt;li&gt;Añade cualquier archivo necesario para tu sitio estático, como &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+HTML
+&lt;/a&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2023/08/descubriendo-el-mundo-de-css/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+CSS
+&lt;/a&gt;&lt;/strong&gt;, y archivos de imágenes en la ubicación designada.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="implementación-de-seguridad"&gt;
+Implementación de Seguridad
+&lt;a href="#implementaci%c3%b3n-de-seguridad" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/ZRKgY3C7/securityaapanel.webp" alt="securityaapanel.webp" title="securityaapanel.webp"
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;En la sección &lt;em&gt;Seguridad&lt;/em&gt;, asegúrate de habilitar medidas de seguridad sólidas, como el firewall y la protección contra ataques DDoS.
+Considera la posibilidad de implementar un certificado SSL para garantizar la seguridad de la comunicación en tu sitio. Si bien el que mostramos en el video es suficiente para algunos sitios se recomienda utilizar uno privado.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="publicación-y-monitoreo"&gt;
+Publicación y Monitoreo
+&lt;a href="#publicaci%c3%b3n-y-monitoreo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/wBkZdFTR/metricsaapanel.webp" alt="metricsaapanel.webp" title="metricsaapanel.webp"
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Una vez que hayas completado la configuración, haz clic en &lt;em&gt;Guardar&lt;/em&gt; para aplicar los cambios.&lt;/li&gt;
+&lt;li&gt;Sube tus archivos estáticos al directorio designado utilizando herramientas FTP o el administrador de archivos en &lt;strong&gt;aaPanel&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Monitorea el rendimiento de tu sitio estático a través de las herramientas de monitoreo proporcionadas por &lt;strong&gt;aaPanel&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Crear un sitio estático con &lt;strong&gt;aaPanel&lt;/strong&gt; es un proceso simplificado que te brinda un sitio web rápido y seguro. Al seguir esta guía paso a paso y aprovechar el video tutorial, estarás en camino de lanzar tu propio sitio estático con éxito. Aprovecha la potencia de &lt;strong&gt;aaPanel&lt;/strong&gt; para simplificar la administración y lograr un rendimiento excepcional en tu presencia en línea. ¡Comienza hoy mismo y disfruta de los beneficios de un sitio web estático de alto rendimiento!&lt;/p&gt;</description></item></channel></rss>

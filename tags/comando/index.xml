@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Comando on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/comando/</link><description>Recent content in Comando on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Thu, 22 Oct 2020 09:13:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/comando/index.xml" rel="self" type="application/rss+xml"/><item><title>Redirección: El secreto de la terminal</title><link>https://patojad.com.ar/post/2020/10/redirecci%C3%B3n-el-secreto-de-la-terminal/</link><pubDate>Thu, 22 Oct 2020 09:13:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/10/redirecci%C3%B3n-el-secreto-de-la-terminal/</guid><description>&lt;p&gt;En esta lección vamos a desvelar la que podría ser la mejor característica de la línea de comandos. Se llama redirección I/O. I/O significa input/output y con esta característica puedes redirigir la salida y entrada de los comandos hacia o desde archivos, así como conectar múltiples comandos juntos con poderosos “conductos” o pipelines (Tuberías) de comandos.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="entrada-salida-y-error-estándar"&gt;
+Entrada, salida y error estándar
+&lt;a href="#entrada-salida-y-error-est%c3%a1ndar" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Muchos de los programas que hemos usado hasta ahora producen algún tipo de salida. Esta salida, a menudo es de dos tipos. Primero, tenemos los resultados del programa; es decir, los datos que el programa está diseñado para producir, y segundo, tenemos mensajes de estado y de error que nos dicen cómo va el programa. Si observamos un comando como ls, podemos ver que muestra sus resultados y sus mensajes de error en la pantalla.&lt;/p&gt;
+&lt;p&gt;Siguiendo con el tema Unix de “todo es un archivo”, programas como ls en realidad mandan sus resultados a un archivo especial llamado standard output o salida estándar (a menudo expresado como stdout) y sus mensajes de estado a otro archivo llamado standard error o error estándar (stderr). Por defecto, tanto la salida estándar como el error estándar están vinculados a la pantalla y no se guardan en un archivo en el disco.&lt;/p&gt;
+&lt;p&gt;Además muchos programas toman la entrada de una característica llamada standard input o entrada estándar (stdin) que está, por defecto, asociada al teclado.&lt;/p&gt;
+&lt;p&gt;La redirección I/O nos permite cambiar dónde va la salida y de dónde viene la entrada. Normalmente, la salida va a la pantalla y la entrada viene del teclado, pero con la redirección I/O, podemos cambiarlo.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="redirigiendo-la-salida-estándar"&gt;
+Redirigiendo la salida estándar
+&lt;a href="#redirigiendo-la-salida-est%c3%a1ndar" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La redirección I/O nos permite redefinir dónde va la salida estándar. Para redirigir la salida estándar a otro archivo en lugar de a la pantalla, usamos el operador de redirección “&amp;gt;” seguido del nombre del archivo. ¿Para qué querríamos hacer esto? A menudo es útil almacenar la salida de un comando en un archivo. Por ejemplo, podríamos decirle al shell que mande la salida del comando ls al archivo ls-output.txt en lugar de a la pantalla:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ls -l /usr/bin &amp;gt; ls-output.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Aquí, hemos creado un largo listado del directorio /usr/bin y hemos mandado los resultados al archivo ls-output.txt. Examinemos la salida redirigida del comando:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ls -l ls-output.txt
+-rw-rw-r-- 1 me me 167878 2008-02-01 15:07 ls-output.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Bien, un bonito y largo archivo de texto. Si vemos el archivo con less, veremos que el archivo ls-output.txt en efecto contiene el resultado del nuestro comando ls:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;less ls-output.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora, repitamos nuestra prueba de redirección, pero esta vez con un giro. Cambiaremos el nombre del directorio a uno que no exista:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ls -l /bin/usr &amp;gt; ls-output.txt
+ls: cannot access /bin/usr: No such file or directory
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Recibimos un mensaje de error. Esto tiene sentido ya que hemos especificado el directorio /bin/usr que no existe, pero ¿por qué ha mostrado el mensaje de error en la pantalla en lugar que ser redirigido al archivo ls-output.txt? La respuesta es que el programa ls no manda sus mensajes de error a la salida estándar. En lugar de eso, como la mayoría de los programas bien escritos de Unix, manda sus mensajes de error al error estándar. Como sólo hemos redirigido la salida estándar y no el error estándar, el mensaje de error todavía es enviado a la pantalla. Veremos como redirigir el error estándar en un minuto, pero primero, veamos que ha ocurrido a nuestro archivo de salida:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; ls -l ls-output.txt
+-rw-rw-r-- 1 me me 0 2008-02-01 15:08 ls-output.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;¡El archivo ahora tiene tamaño cero! Esto se debe a que, cuando redirigimos la salida con el operador de redirección “&amp;gt;”, el archivo de destino siempre se sobreescribe desde el principio. Como nuestro comando ls no generó resultados y sólo un mensaje de error, la operación de redirección comenzó a reescribir el archivo y paró a causa del error, lo que provocó que se truncase. De hecho, si alguna vez necesitamos realmente un archivo truncado (o crear un archivo nuevo vacío) podemos usar un truco como este:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; ls-output.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Simplemente usando el operador de redirección con ningún comando precediéndolo truncará un archivo existente o creará un archivo nuevo vacío.&lt;/p&gt;
+&lt;p&gt;Pero, ¿cómo podemos añadir la salida redirigida a un archivo en lugar de sobrescribir el archivo desde el principio? Para eso, usamos el operador de redirección “&amp;raquo;”, así:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ls -l /usr/bin &amp;gt;&amp;gt; ls-output.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Usando el operador “&amp;raquo;” tendremos como resultado que la salida se añadirá al archivo. Si el archivo no existe, se creará igual que como con el operador “&amp;gt;” que hemos estado usando. Probémoslo:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ls -l /usr/bin &amp;gt;&amp;gt; ls-output.txt
+ls -l /usr/bin &amp;gt;&amp;gt; ls-output.txt
+ls -l /usr/bin &amp;gt;&amp;gt; ls-output.txt
+ls -l ls-output.txt
+-rw-rw-r-- 1 me me 503634 2008-02-01 15:45 ls-output.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Hemos repetido el comando tres veces resultando un archivo de salida tres veces más grande.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="redirigiendo-el-error-estándar"&gt;
+Redirigiendo el error estándar
+&lt;a href="#redirigiendo-el-error-est%c3%a1ndar" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Redirigir el error estándar carece de la facilidad de un operador de redirección dedicado. Para redirigir el error estándar debemos referirnos a su descriptor de archivo (file descriptor). Un programa puede producir salidas en una secuencia de varios archivos numerados. Aunque nos hemos referido a los tres primeros de esta secuencia de archivos como entrada estándar, salida estándar y error estándar, el shell se refiere a ellos internamente con los descriptores de archivo 0, 1 y 2 respectivamente. El shell proporciona una notación para redirigir archivos utilizando el número de descriptor de archivo. Como el error estándar es el mismo que el descriptor de archivo número 2, podemos redirigir el error estándar con esta notación:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ls -l /bin/usr 2&amp;gt; ls-error.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;El descriptor de archivo “2” se coloca inmediatamente antes del operador de redirección para realizar la redirección del error estándar al archivo ls-error.txt.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="redirigiendo-la-salida-estándar-y-el-error-estándar-a-un-archivo"&gt;
+Redirigiendo la salida estándar y el error estándar a un archivo
+&lt;a href="#redirigiendo-la-salida-est%c3%a1ndar-y-el-error-est%c3%a1ndar-a-un-archivo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Hay casos en que queremos capturar toda la salida de un comando a un archivo. Para hacerlo, debemos redirigir tanto la salida estándar como el error estándar al mismo tiempo. Hay dos formas de hacerlo. Primero, la forma tradicional, que funciona con versiones antiguas del shell:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ls -l /bin/usr &amp;gt; ls-output.txt 2&amp;gt;&amp;amp;1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Utilizando este método, conseguiremos dos redirecciones. Primero redirigimos la salida estándar al archivo ls-output.txt y después redirigimos el descriptor de archivo 2 (error estándar) al descriptor de archivo 1 (salida estándar) usando la notación 2&amp;gt;&amp;amp;1.&lt;/p&gt;
+&lt;p&gt;Fíjate que el orden de las redirecciones es fundamental. La redirección del error estándar siempre debe ocurrir después de redirigir la salida estándar o no funcionará. En el ejemplo anterior,&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt;ls-output.txt 2&amp;gt;&amp;amp;1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;se redirige el error estándar al archivo ls-output.txt, pero si cambiamos el orden a&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;2&amp;gt;&amp;amp;1 &amp;gt;ls-output.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;El error estándar es redirigido a la pantalla.&lt;/p&gt;
+&lt;p&gt;Versiones recientes de bash proporcionan un segundo, y más eficiente método para realizar esta redirección combinada:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ls -l /bin/usr &amp;amp;&amp;gt; ls-output.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En este ejemplo, usamos la notación simple &amp;amp;&amp;gt; para redirigir tanto la salida estándar como el error estándar al archivo ls-output.txt. Podrías también añadir la salida estándar y el error estándar a un archivo existente así:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ls -l /bin/usr &amp;amp;&amp;gt;&amp;gt; ls-output.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;p&gt;Recorda &lt;strong&gt;apoyarnos&lt;/strong&gt; en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p&gt;</description></item><item><title>Creando tus propios comandos</title><link>https://patojad.com.ar/post/2020/10/creando-tus-propios-comandos/</link><pubDate>Wed, 07 Oct 2020 09:46:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/10/creando-tus-propios-comandos/</guid><description>&lt;p&gt;En esta oportunidad crearemos un comando propio usando el comando &lt;em&gt;alias&lt;/em&gt; que suele venir instalado en nuestra distribución de GBU/linux. Pero antes de empezar, necesitamos desvelar un pequeño truco de la línea de comandos. Es posible poner más de un comando en una línea separando cada comando con un punto y coma. Funciona así:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;comando1&lt;span class="p"&gt;;&lt;/span&gt; comando2&lt;span class="p"&gt;;&lt;/span&gt; comando3...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Aquí tenemos el ejemplo que usaremos:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /usr&lt;span class="p"&gt;;&lt;/span&gt; ls&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nb"&gt;cd&lt;/span&gt; -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/d0mhp3jz/image.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Y nos da una salida como esta:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bin games kerberos lib64 &lt;span class="nb"&gt;local&lt;/span&gt; share tmp
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;etc include lib libexec sbin src
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/home/me
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Como podemos ver, hemos combinado tres comandos en una línea. Primero hemos cambiado el directorio a /usr luego hemos listado el directorio y finalmente hemos vuelto al directorio original (usando &amp;lsquo;cd -&amp;rsquo;) con lo que hemos terminado donde empezamos. Ahora convirtamos esta secuencia en un nuevo comando usando alias.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="usando-alias"&gt;
+Usando Alias
+&lt;a href="#usando-alias" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La primera cosa que tenemos que hacer es inventarnos un nombre para nuestro nuevo comando. Probemos “foo”. Antes de hacerlo, sería una buena idea averiguar si el nombre “foo” ya está siendo usado. Para averiguarlo, podemos usar el comando type de nuevo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;type&lt;/span&gt; foo
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/RFt4yDmq/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Que nos retorna&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bash: type: foo: not found
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;¡Genial! “foo” no está cogido. Así que creemos nuestro alias:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;foo&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;cd /usr; ls; cd -&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/mZNG9Mgx/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Fíjate en la estructura de este comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;string&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Tras el comando “alias” le damos a alias un nombre seguido inmediatamente (sin espacios en blanco) por un signo igual, seguido inmediatamente por una cadena entre comillas simples conteniendo los comandos que se asignarán al nombre. Después de definir nuestro alias, puede ser usado donde quiera que el shell acepte comandos. Probemos:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;foo
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/j2jvCGjS/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Ahora nos dara una salida similar a:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; bin games kerberos lib64 &lt;span class="nb"&gt;local&lt;/span&gt; share tmp
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; etc include lib libexec sbin src
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; /home/me
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;También podemos usar el comando type de nuevo para ver nuestro alias:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;type&lt;/span&gt; foo
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/mr8Hhh17/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Ahora nos dira:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;foo is aliased to &lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /usr&lt;span class="p"&gt;;&lt;/span&gt; ls &lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nb"&gt;cd&lt;/span&gt; -&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Para eliminar un alias, se usa el comando unalias, así:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;unalias&lt;/span&gt; foo
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;type&lt;/span&gt; foo
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/FsH35yfN/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Y el type nos sirve para verificar que se elimino dando la siguiente salida:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bash: type: foo: not found
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Aunque evitamos a propósito nombrar nuestro alias con un nombre de comando existente, no es raro que se haga. Generalmente se hace para aplicar una opción que se utilice a menudo en cada invocación de un comando común. Por ejemplo, vimos antes que el comando ls a menudo es un alias con soporte para colores:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;type&lt;/span&gt; ls
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Mostrando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ls is aliased to &lt;span class="sb"&gt;`&lt;/span&gt;ls –color&lt;span class="o"&gt;=&lt;/span&gt;tty&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Para ver todos los alias definidos en nuestro entorno, utiliza el comando alias sin argumentos. Aquí tienes algunos de los alias definidos por defecto en un sistema Fedora. Pruébalo e imagina para qué sirve cada uno:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/NfkTZNGN/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Mostrando las alias de la siguiente forma&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; l.&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ls -d .* --color=tty&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;ll&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ls -l --color=tty&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;ls&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ls –color=tty&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Hay un pequeño problema con la definición de alias en la línea de comandos. Se esfuman cuando la sesión de shell se cierra. Más adelante, veremos cómo añadir nuestros alias a archivos que establecen el entorno cada vez que iniciamos sesión, pero por ahora, disfruta del hecho de que hemos dado nuestro primer paso, aunque sea pequeño, ¡en el mundo de la programación en shell!&lt;/p&gt;</description></item><item><title>4 Formas de buscar archivos</title><link>https://patojad.com.ar/post/2020/07/4-formas-de-buscar-archivos/</link><pubDate>Wed, 01 Jul 2020 09:41:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/07/4-formas-de-buscar-archivos/</guid><description>&lt;p&gt;En linux existen muchas formas de buscar archivos, directorios, binarios, códigos fuente, etc. La terminal es una de nuestras herramientas favoritas (y digo nuestras porque vos seguramente si no te llevas bien vas a irte amigando y viendo que es realmente útil) que nos permite hacerlo más simple y manejar prácticamente todo el sistema. por lo cual hoy vamos a ver como buscar archivos desde la terminal…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="find"&gt;
+Find
+&lt;a href="#find" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.ibb.co/Qc1pGqZ/Screenshot-20200701-091150.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Para buscar archivos en la línea de comando puedes usar el comando find, su sintaxis es la siguiente:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;find ruta criterio acción
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Donde:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Ruta&lt;/strong&gt; es la sección del sistema de archivo donde buscar (el directorio especifico y todos los subdirectorios). Si no se especifica nada el directorio que se usará será donde te encuentras actualmente.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Criterio&lt;/strong&gt; es las propiedades del archivo.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Acción&lt;/strong&gt; son opciones que influyen en la condición o control de la búsqueda&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.ibb.co/44QS1PY/Screenshot-20200701-091308.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="locate"&gt;
+Locate
+&lt;a href="#locate" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.ibb.co/DtZN6vh/Screenshot-20200701-091835.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;El comando locate es una &lt;strong&gt;alternativa&lt;/strong&gt; al comando find. El comando find debe buscar a través de la parte del sistema de archivos seleccionado, proceso que puede ser un poco lento.&lt;/p&gt;
+&lt;p&gt;Por otro lado, locate busca a través de una base de datos previamente creada para ese propósito (/var/lib/locatedb), haciéndolo más rápido. La base de datos es automáticamente creada y actualizada diariamente. Pero los cambios hechos después de haber sido actualizado no se tomarán en cuenta por locate, a menos que actualices la base datos manualmente usando el comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;updatedb
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.ibb.co/yV0Bdh7/Screenshot-20200701-091923.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="whereis"&gt;
+Whereis
+&lt;a href="#whereis" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.ibb.co/nzR3SJ6/Screenshot-20200701-092220.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;el comando whereis retorna los binarios (opción -b), página de manual (opción -m) y los código fuentes (opción -s) de un comando específico. Si no se usa ninguna opción devolverá toda la información, si está disponible. Este comando es más rápido que find pero es menos minucioso.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.ibb.co/9pc9JD9/Screenshot-20200701-092342.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="which"&gt;
+Which
+&lt;a href="#which" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.ibb.co/jDKmtRN/Screenshot-20200701-092617.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;El comando wich busca todas las rutas listadas en la variable PATH para un comando específico y devuelve la ruta completa del comando. El comando es específicamente útil si existen varias versiones del mismo comando en diferentes directorios y si quieres saber qué versión se ejecuta cuando no se especifica ninguna ruta.&lt;/p&gt;
+&lt;p&gt;Muchas veces necesitamos saber dónde están los binarios y esta solución no solo es práctica sino que es muy fácil de usar.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.ibb.co/hC19jv5/Screenshot-20200701-092711.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;</description></item></channel></rss>

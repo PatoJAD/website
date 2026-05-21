@@ -1,0 +1,856 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Comandos on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/comandos/</link><description>Recent content in Comandos on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Wed, 07 Oct 2020 09:46:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/comandos/index.xml" rel="self" type="application/rss+xml"/><item><title>Creando tus propios comandos</title><link>https://patojad.com.ar/post/2020/10/creando-tus-propios-comandos/</link><pubDate>Wed, 07 Oct 2020 09:46:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/10/creando-tus-propios-comandos/</guid><description>&lt;p&gt;En esta oportunidad crearemos un comando propio usando el comando &lt;em&gt;alias&lt;/em&gt; que suele venir instalado en nuestra distribución de GBU/linux. Pero antes de empezar, necesitamos desvelar un pequeño truco de la línea de comandos. Es posible poner más de un comando en una línea separando cada comando con un punto y coma. Funciona así:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;comando1&lt;span class="p"&gt;;&lt;/span&gt; comando2&lt;span class="p"&gt;;&lt;/span&gt; comando3...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Aquí tenemos el ejemplo que usaremos:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /usr&lt;span class="p"&gt;;&lt;/span&gt; ls&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nb"&gt;cd&lt;/span&gt; -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/d0mhp3jz/image.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Y nos da una salida como esta:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bin games kerberos lib64 &lt;span class="nb"&gt;local&lt;/span&gt; share tmp
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;etc include lib libexec sbin src
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/home/me
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Como podemos ver, hemos combinado tres comandos en una línea. Primero hemos cambiado el directorio a /usr luego hemos listado el directorio y finalmente hemos vuelto al directorio original (usando &amp;lsquo;cd -&amp;rsquo;) con lo que hemos terminado donde empezamos. Ahora convirtamos esta secuencia en un nuevo comando usando alias.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="usando-alias"&gt;
+Usando Alias
+&lt;a href="#usando-alias" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La primera cosa que tenemos que hacer es inventarnos un nombre para nuestro nuevo comando. Probemos “foo”. Antes de hacerlo, sería una buena idea averiguar si el nombre “foo” ya está siendo usado. Para averiguarlo, podemos usar el comando type de nuevo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;type&lt;/span&gt; foo
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/RFt4yDmq/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Que nos retorna&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bash: type: foo: not found
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;¡Genial! “foo” no está cogido. Así que creemos nuestro alias:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;foo&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;cd /usr; ls; cd -&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/mZNG9Mgx/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Fíjate en la estructura de este comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;string&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Tras el comando “alias” le damos a alias un nombre seguido inmediatamente (sin espacios en blanco) por un signo igual, seguido inmediatamente por una cadena entre comillas simples conteniendo los comandos que se asignarán al nombre. Después de definir nuestro alias, puede ser usado donde quiera que el shell acepte comandos. Probemos:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;foo
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/j2jvCGjS/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Ahora nos dara una salida similar a:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; bin games kerberos lib64 &lt;span class="nb"&gt;local&lt;/span&gt; share tmp
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; etc include lib libexec sbin src
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; /home/me
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;También podemos usar el comando type de nuevo para ver nuestro alias:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;type&lt;/span&gt; foo
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/mr8Hhh17/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Ahora nos dira:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;foo is aliased to &lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /usr&lt;span class="p"&gt;;&lt;/span&gt; ls &lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nb"&gt;cd&lt;/span&gt; -&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Para eliminar un alias, se usa el comando unalias, así:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;unalias&lt;/span&gt; foo
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;type&lt;/span&gt; foo
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/FsH35yfN/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Y el type nos sirve para verificar que se elimino dando la siguiente salida:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bash: type: foo: not found
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Aunque evitamos a propósito nombrar nuestro alias con un nombre de comando existente, no es raro que se haga. Generalmente se hace para aplicar una opción que se utilice a menudo en cada invocación de un comando común. Por ejemplo, vimos antes que el comando ls a menudo es un alias con soporte para colores:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;type&lt;/span&gt; ls
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Mostrando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ls is aliased to &lt;span class="sb"&gt;`&lt;/span&gt;ls –color&lt;span class="o"&gt;=&lt;/span&gt;tty&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Para ver todos los alias definidos en nuestro entorno, utiliza el comando alias sin argumentos. Aquí tienes algunos de los alias definidos por defecto en un sistema Fedora. Pruébalo e imagina para qué sirve cada uno:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/NfkTZNGN/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Mostrando las alias de la siguiente forma&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; l.&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ls -d .* --color=tty&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;ll&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ls -l --color=tty&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;alias&lt;/span&gt; &lt;span class="nv"&gt;ls&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ls –color=tty&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Hay un pequeño problema con la definición de alias en la línea de comandos. Se esfuman cuando la sesión de shell se cierra. Más adelante, veremos cómo añadir nuestros alias a archivos que establecen el entorno cada vez que iniciamos sesión, pero por ahora, disfruta del hecho de que hemos dado nuestro primer paso, aunque sea pequeño, ¡en el mundo de la programación en shell!&lt;/p&gt;</description></item><item><title>Comandos que no tenes que probar</title><link>https://patojad.com.ar/post/2020/09/comandos-que-no-tenes-que-probar/</link><pubDate>Mon, 28 Sep 2020 09:02:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/09/comandos-que-no-tenes-que-probar/</guid><description>&lt;p&gt;Navegando por la web, me encontre unas imagenes que creo que todo el user de linux querría ver, habla un poco de esos comandos que no deberíamos utilizar para jugar aunque suene tentador porque simplemente &lt;strong&gt;Quieren ver el mundo arder&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="eliminar-todo-de-forma-recursiva"&gt;
+Eliminar todo de forma recursiva
+&lt;a href="#eliminar-todo-de-forma-recursiva" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/d0SP9yy7/image.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Este es probablemente el comando más popular en el ámbito de los &lt;em&gt;trolls&lt;/em&gt; de linux y si bien es popular nunca esta de mas entender bien cómo funciona y obviamente evitar el uso y la distribución de lo mismo. Este comando es el tan conocido:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo rm -rf /
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Si bien todos entendemos las consecuencias de este comando que es la pérdida total de los archivos de nuestro sistemas (desde la carpeta raíz) la explicación &lt;em&gt;funcional&lt;/em&gt; dada por el usuario que creó estas imágenes es:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Con &lt;code&gt;rm -rf&lt;/code&gt; borramos todos los directorios y ficheros de manera recursiva. Añadiendo el parámetro &lt;code&gt;/&lt;/code&gt; le decimos que lo haga desde la raíz, por lo que eliminará todo lo que se encuentre por el camino.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="bomba-fork"&gt;
+Bomba Fork
+&lt;a href="#bomba-fork" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/tJQcrtCg/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;La sintaxis de este comando es algo realmente raro, y al fin de cuenta no es tan dañino este comando, si bien tilda la PC basta con un reinicio para poder seguir, sin embargo existen muchas formas de volverlo muy dañino, pero si estás tentado en probar alguno de la lista te diria que pruebes este aunque sea bajo tu propio riesgo. El comando &lt;em&gt;raro&lt;/em&gt; es:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;:&lt;span class="o"&gt;(){&lt;/span&gt; :&lt;span class="p"&gt;|&lt;/span&gt;: &lt;span class="p"&gt;&amp;amp;&lt;/span&gt; &lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Y según el colega que realizó las imágenes podemos describir su función de la siguiente forma:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Un comando un poco raro, ¿no? Este comando causa una muy posible caída del sistema al consumir todos los recursos disponibles de tu ordenador, ya que este proceso es generar otro proceso que se ejecute simultáneamente. Muchos procesos procesos que causan una denegación de servicio, lo más probable es que haga que tengas que reiniciar el sistema.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="mover-todo-a-la-nada"&gt;
+Mover todo a la nada
+&lt;a href="#mover-todo-a-la-nada" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/7ZYWQLDS/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Este comando es el punto intermedio entre los dos anteriores. Es más dañino que la &lt;strong&gt;Bomba Fork&lt;/strong&gt; por lo cual no recomiendo probarlo. Este comando es muy similar a uno que suele estar en los scripts para evitar borrar las cosas las mueven a este directorio. El comando en sí que debemos evitar es:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mv ~ /dev/null
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Y nuestro colega define el funcionamiento de este comando de la siguiente forma:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Con este comando, movemos todo el contenido de nuestra carpeta home (~) a la carpeta &lt;code&gt;/dev/null&lt;/code&gt;. Claramente no existe ninguna carpeta llamada así, por lo que perderemos todos nuestros documentos, imágenes, etc. Un lío que no nos conviene.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Desde ya quiero agradecer a &lt;strong&gt;@nilo_tech&lt;/strong&gt; por realizar esto que realizo y no se olviden de pasarse por sus redes sociales para agradecerles personalmente.&lt;/p&gt;</description></item><item><title>Obteniendo información de comandos</title><link>https://patojad.com.ar/post/2020/09/obteniendo-informaci%C3%B3n-de-comandos/</link><pubDate>Tue, 22 Sep 2020 10:02:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/09/obteniendo-informaci%C3%B3n-de-comandos/</guid><description>&lt;p&gt;En esta oportunidad vamos a obtener más información sobre los comandos que podemos encontrar en nuestro Shell. Para esto vamos utilizar las herramientas que nos ofrecen con este fin.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="help--ofrece-ayuda-sobre-los-shell-builtins"&gt;
+&lt;strong&gt;help&lt;/strong&gt; – Ofrece ayuda sobre los shell builtins
+&lt;a href="#help--ofrece-ayuda-sobre-los-shell-builtins" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;bash tiene una ayuda integrada disponible para cada shell builtin. Para usarla, escribimos “help” seguido del nombre del shell builtin. Por ejemplo:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;help cd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Que genera una salida como la siguiente&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd: cd [-L|[-P [-e]]] [dir]
+Change the shell working directory.
+Change the current directory to DIR. The default DIR is the value of the HOME shell variable.
+The variable CDPATH defines the search path for the directory containing DIR. Alternative directory names in CDPATH are separated by a colon (:). A null directory name is the same as the current directory. If DIR begins with a slash (/), then CDPATH is not used.
+If the directory is not found, and the shell option `cdable_vars' is set, the word is assumed to be a variable name. If that variable has a value, its value is used for DIR.
+Options:
+-L force symbolic links to be followed
+-P use the physical directory structure without following symbolic links
+-e if the -P option is supplied, and the current working directory cannot be determined successfully, exit with a non-zero status
+The default is to follow symbolic links, as if `-L' were specified.
+Exit Status:
+Returns 0 if the directory is changed, and if $PWD is set successfully when -P is used; non-zero otherwise.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Una nota sobre la notación:&lt;/strong&gt; Cuando aparecen corchetes en la descripción de la sintaxis de un comando, indican opciones adicionales. Una barra vertical indica que son elementos excluyentes entre ellos.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="--muestra-información-de-uso"&gt;
+&lt;strong&gt;&amp;ndash;help&lt;/strong&gt; – Muestra información de uso
+&lt;a href="#--muestra-informaci%c3%b3n-de-uso" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/zvjB480Z/image.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Muchos programas ejecutables soportan una opción “&amp;ndash;help” que muestra una descripción de la sintaxis y las opciones soportadas por el comando. Por ejemplo:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkdir --help
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Que genera una salida como la siguiente&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Usage: mkdir [OPTION] DIRECTORY...
+Create the DIRECTORY(ies), if they do not already exist.
+-Z, --context=CONTEXT (SELinux) set security context to CONTEXT Mandatory arguments to long options are mandatory for short options too.
+-m, --mode=MODE set file mode (as in chmod), not a=rwx – umask
+-p, --parents no error if existing, make parent directories as needed
+-v, --verbose print a message for each created directory
+--help display this help and exit
+--version output version information and exit
+Report bugs to &amp;lt;bug-coreutils@gnu.org&amp;gt;.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Algunos programas no soportan la opción “&amp;ndash;help”, pero es importante probarlos de todas formas. A menudo el resultado es un error que revelará la misma información de uso.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="man--muestra-el-manual-de-un-programa"&gt;
+&lt;strong&gt;man&lt;/strong&gt; – Muestra el manual de un programa
+&lt;a href="#man--muestra-el-manual-de-un-programa" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La mayoría de los programas ejecutables pensados para usarse en la línea de comandos proveen un documento llamado manual page o man page. Se usa un programa de paginación especial llamado man para verlos. Se usa así:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;man programa
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/G2jdmzYv/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Donde “programa” es el nombre del comando que queremos ver. Las man pages varían algo en formato pero generalmente contienen un título, una sinopsis de la sintaxis del comando, una descripción del propósito del comando y una lista y descripción de cada opción del comando. Las man pages, de todas formas, no suelen incluir ejemplos, y están pensadas como una referencia, no como un tutorial. Como ejemplo, probaremos a ver la man page para el comando ls:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;man ls
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En la mayoría de los sistemas Linux, man usa less para mostrar la man page, así que todos los comandos de less que nos son familiares funcionan cuando está mostrado la página.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Si quieres saber más sobre man te dejo &lt;a href="https://patojad.com.ar/post/2019/01/man-tu-manual-para-linux/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+un articulo
+&lt;/a&gt; para leer&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="apropos--muestra-comandos-apropiados"&gt;
+&lt;strong&gt;apropos&lt;/strong&gt; – Muestra comandos apropiados
+&lt;a href="#apropos--muestra-comandos-apropiados" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/ZYGzz1XX/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;También es posible buscar en el listado de las man pages posibles coincidencias basadas en un término de búsqueda. Es muy tosco pero a veces ayuda. Aquí tienes un ejemplo de una búsqueda en las man pages utilizando el término de búsqueda “floppy”:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;apropos floppy
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Generando una salida como:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;create_floppy_devices (8) - udev callout to create all possible floppy device based on the CMOS type
+fdformat (8) - Low-level formats a floppy disk
+floppy (8) - format floppy disks
+gfloppy (1) - a simple floppy formatter for the GNOME
+mbadblocks (1) - tests a floppy disk, and marks the bad blocks in the FAT
+mformat (1) - add an MSDOS filesystem to a low-level formatted floppy disk
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;El primer campo de cada línea es el nombre de la man page, el segundo campo muestra la sección. Fíjate que el comando man con la opción “-k” ofrece exactamente la misma función que apropos.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="whatis--muestra-una-descripción-muy-breve-de-un-comando"&gt;
+&lt;strong&gt;whatis&lt;/strong&gt; – Muestra una descripción muy breve de un comando
+&lt;a href="#whatis--muestra-una-descripci%c3%b3n-muy-breve-de-un-comando" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/bwvTCv3P/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;El programa whatis muestra el nombre y una descripción de una línea de una man page coincidente con una palabra especificada:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;whatis ls
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Y genera una salida muy simple como la siguiente!&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ls (1) - list directory contents
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;p&gt;Recorda &lt;strong&gt;apoyarnos&lt;/strong&gt; en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p&gt;</description></item><item><title>¿Qué son exactamente los comandos?</title><link>https://patojad.com.ar/post/2020/09/qu%C3%A9-son-exactamente-los-comandos/</link><pubDate>Wed, 09 Sep 2020 10:33:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/09/qu%C3%A9-son-exactamente-los-comandos/</guid><description>&lt;p&gt;Un comando puede ser una de estas cuatro cosas:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Un programa ejecutable&lt;/strong&gt; como todos esos archivos que vimos en /usr/bin. Dentro de esta categoría, los programas pueden ser binarios compilados como programas escritos en C y C++, o programas escritos en lenguajes de script como el shell, perl, python, ruby, etc.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Un comando contenido en el propio shell&lt;/strong&gt;. bash soporta gran número de comandos internos llamados shell builtins. El comando cd, por ejemplo, es un shell builtin. 3.&lt;strong&gt;Una función del shell&lt;/strong&gt;. Estos son pequeños scripts de shell incorporados en el entorno. Veremos cómo configurar el entorno y cómo escribir funciones del shell en próximos capítulos, pero por ahora, sólo ten en cuenta que existen.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Un alias&lt;/strong&gt;. Comando que podemos definir nosotros mismos, construidos a partir de otros comandos.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="identificando-comandos"&gt;
+Identificando comandos
+&lt;a href="#identificando-comandos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;A menudo es útil saber exactamente cual de los cuatro tipos de comandos estamos usando y Linux proporciona un par de formas de averiguarlo.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="type--muestra-de-qué-tipo-es-un-comando"&gt;
+type – Muestra de qué tipo es un comando
+&lt;a href="#type--muestra-de-qu%c3%a9-tipo-es-un-comando" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El comando type es un shell builtin que muestra el tipo de comando que el shell ejecutará, indicándole el nombre de un comando en particular. Funciona así:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;type&lt;/span&gt; comando
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;donde &amp;ldquo;comando&amp;rdquo; es el nombre del comando que quieres examinar. Aquí tienes algunos ejemplos:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;type&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;type&lt;/span&gt; is a shell &lt;span class="nb"&gt;builtin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;type&lt;/span&gt; ls
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ls is aliased to &lt;span class="s1"&gt;&amp;#39;ls --color=tty&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;type&lt;/span&gt; cp
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cp is /bin/cp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Aquí vemos los resultados para tres comandos diferentes. Fíjate en el de ls (realizado sobre un sistema Fedora) y en cómo el comando ls es realmente un alias del comando ls con la opción “&amp;ndash;color=tty” añadida. ¡Ahora sabemos porqué la salida de ls se muestra en color!&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="which--muestra-la-localización-de-un-ejecutable"&gt;
+which – Muestra la localización de un ejecutable
+&lt;a href="#which--muestra-la-localizaci%c3%b3n-de-un-ejecutable" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;A veces hay más de una versión de un programa ejecutable instalada en un sistema. Aunque no es muy usual en los sistemas de escritorio, sí es más frecuente en grandes servidores. Para determinar la localización exacta de un ejecutable dado tenemos el comando which:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;which ls
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/bin/ls
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;which sólo funciona con programas ejecutables, ni con builtins ni con alias que son sustitutos de los verdaderos programas ejecutables. Cuando intentamos usar which en un shell builtin, por ejemplo, cd, no tendremos respuesta o nos dará un mensaje de error:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;which &lt;span class="nb"&gt;cd&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/usr/bin/which: no &lt;span class="nb"&gt;cd&lt;/span&gt; in &lt;span class="o"&gt;(&lt;/span&gt;/opt/jre1.6.0_03/bin:/usr/lib/qt-3.3/bin:/usr/kerberos/bin:/opt/jre1.6.0_03/bin:/usr/lib/ccache:/usr/local/bin:/usr/bin:/bin:/home/me/bin&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="obteniendo-la-documentación-de-un-comando"&gt;
+Obteniendo la documentación de un comando
+&lt;a href="#obteniendo-la-documentaci%c3%b3n-de-un-comando" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Ahora que sabemos qué es un comando, podemos buscar la documentación disponible para cada tipo de comando. Pero esto lo veremos mas adelante&amp;hellip;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Recorda &lt;strong&gt;apoyarnos&lt;/strong&gt; en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p&gt;</description></item><item><title>Preparandose para explorar el sistema</title><link>https://patojad.com.ar/post/2020/07/preparandose-para-explorar-el-sistema/</link><pubDate>Fri, 24 Jul 2020 09:38:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/07/preparandose-para-explorar-el-sistema/</guid><description>&lt;p&gt;Ahora que sabemos cómo movernos por el sistema de archivos, es hora de realizar una visita guiada por nuestro sistema GNU/Linux. Sin embargo, antes de empezar, vamos a aprender algunos comandos más que serán útiles en nuestro viaje:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ls&lt;/strong&gt; – Lista los contenidos de un directorio&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;file&lt;/strong&gt; – Muestra el tipo de archivo&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;less&lt;/strong&gt; – Muestra el contenido del archivo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="averiguando-el-tipo-de-archivo-con-file"&gt;
+Averiguando el tipo de archivo con file
+&lt;a href="#averiguando-el-tipo-de-archivo-con-file" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Al explorar el sistema será útil saber qué contienen los archivos. Para hacerlo utilizaremos el comando &lt;em&gt;file&lt;/em&gt; para determinar el tipo de archivo. Como vimos antes, los nombres de archivo en Linux no necesitan reflejar el contenido del archivo. Mientras que un nombre de archivo como “picture.jpg” se espera que contenga una imagen comprimida JPEG, esto no tiene por qué ser así en Linux. Podemos invocar el comando file de la siguiente forma:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;file nombre_del_archivo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Cuando se invoca, el comando file mostrará una breve descripción del contenido del archivo. Por ejemplo:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;file lince.jpg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Genera una salida como la siguiente:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;lince.jpg: JPEG image data, JFIF standard 1.01
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/fLFKNtNs/Screenshot-20200724-092502.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Hay muchos tipos de archivos. De hecho, una de las ideas comunes en los sistemas operativos tipo Unix, como es Linux, es que &lt;strong&gt;“todo es un archivo”&lt;/strong&gt;. Mientras que muchos de los archivos en tu sistema son familiares, por ejemplo MP3 y JPEG, hay otros muchos que son un poco menos obvios y algunos que son un poco raros.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="viendo-el-contenido-de-un-archivo-con-less"&gt;
+Viendo el contenido de un archivo con less
+&lt;a href="#viendo-el-contenido-de-un-archivo-con-less" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El comando less es un programa para ver archivos de texto. En nuestro sistema Linux, hay muchos archivos que contienen texto legible por humanos. El programa less proporciona una forma adecuada para examinarlos.&lt;/p&gt;
+&lt;p&gt;¿Para qué querríamos examinar archivos de texto? Porque muchos de los archivos que contienen la configuración del sistema (llamados archivos de configuración) están almacenados en este formato, y ser capaces de leerlos nos permite ver cómo funciona el sistema por dentro. Además, muchos de los programas que el sistema utiliza (llamados scripts) están almacenados en este formato. En capítulos posteriores, aprenderemos cómo editar archivos de texto para modificar configuraciones del sistema y escribiremos nuestros propios scripts, pero por ahora sólo veremos su contenido.&lt;/p&gt;
+&lt;p&gt;El comando less se usa de la siguiente manera:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;less nombre_del_archivo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Una vez ejecutado, el programa less nos permite desplazarnos arriba y abajo a través de un archivo de texto. Por ejemplo, para examinar el archivo que define todas las cuentas de usuario del sistema, usamos el siguiente comando:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;less /etc/passwd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/D0XcyvvX/Screenshot-20200724-092653.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Una vez que el programa less arranca, podemos ver el contenido del archivo. Si el archivo ocupa más de una página, podemos desplazarnos arriba y abajo. Para salir de less, pulsamos la tecla “q”.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="menos-es-más-less-is-more"&gt;
+Menos es Más (Less is More)
+&lt;a href="#menos-es-m%c3%a1s-less-is-more" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El programa less fue diseñado como un reemplazo mejorado de un programa anterior de Unix llamado more. El nombre &amp;ldquo;less&amp;rdquo; viene de un juego de palabras “menos es mas – less is more” - un lema de los arquitectos y diseñadores modernistas.&lt;/p&gt;
+&lt;p&gt;less entra en la clase de programas llamados “paginadores”, que permiten ver fácilmente documentos de texto largos en forma de páginas. Mientras que el programa more sólo permitía avanzar páginas, el programa less permite avanzar y retroceder por las páginas y cuenta también con otras características.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Recorda &lt;strong&gt;apoyarnos&lt;/strong&gt; en nuestras redes para poder seguir adelante con todo lo que implica PatoJAD es un proyecto que poco a poco crece e intenta estar al lado de todos de los usuarios dándoles dia a dia herramientas o funcionalidades. Mostranos tu apoyo con pequeños gestos, desactivando el bloqueador de anuncios, apoyándonos en las redes sociales, donando o compartiendo el contenido, esto solo es posible gracias a cada lector y cada persona que demuestra su agradecimiento&lt;/p&gt;</description></item><item><title>Más diversión con ls</title><link>https://patojad.com.ar/post/2020/07/m%C3%A1s-diversi%C3%B3n-con-ls/</link><pubDate>Wed, 15 Jul 2020 09:17:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/07/m%C3%A1s-diversi%C3%B3n-con-ls/</guid><description>&lt;p&gt;El comando ls es &lt;em&gt;probablemente el más usado&lt;/em&gt;, y por una buena razón. Con él, podemos ver los contenidos de un directorio y determinar varios atributos importantes de los archivos y directorios. Como hemos visto, podemos usar simplemente ls para ver una lista de los archivos y subdirectorios contenidos en el directorio de trabajo actual:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ls
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;obteniendo una salida&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Desktop Documents Music Pictures Public Templates Videos
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Además del directorio de trabajo actual, podemos especificar el directorio a listar, de esta forma:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ls /usr
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;obteniendo una salida&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bin games kerberos libexec sbin src
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;etc include lib &lt;span class="nb"&gt;local&lt;/span&gt; share tmp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;O incluso especificar múltiples directorios. En este ejemplo listaremos el directorio home del usuario (simbolizado por el carácter “~”) y el directorio /usr:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ls ~ /usr
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;obteniendo una salida&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/home/pato:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Desktop Documents Music Pictures Public Templates Videos
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/usr:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bin games kerberos libexec sbin src
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;etc include lib &lt;span class="nb"&gt;local&lt;/span&gt; share tmp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;También podemos cambiar el formato de la salida para que nos muestre más detalles:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ls -l
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;con una salida&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;total &lt;span class="m"&gt;56&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;drwxrwxr-x &lt;span class="m"&gt;2&lt;/span&gt; me me &lt;span class="m"&gt;4096&lt;/span&gt; 2007-10-26 17:20 Desktop
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;drwxrwxr-x &lt;span class="m"&gt;2&lt;/span&gt; me me &lt;span class="m"&gt;4096&lt;/span&gt; 2007-10-26 17:20 Documents
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;drwxrwxr-x &lt;span class="m"&gt;2&lt;/span&gt; me me &lt;span class="m"&gt;4096&lt;/span&gt; 2007-10-26 17:20 Music
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;drwxrwxr-x &lt;span class="m"&gt;2&lt;/span&gt; me me &lt;span class="m"&gt;4096&lt;/span&gt; 2007-10-26 17:20 Pictures
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;drwxrwxr-x &lt;span class="m"&gt;2&lt;/span&gt; me me &lt;span class="m"&gt;4096&lt;/span&gt; 2007-10-26 17:20 Public
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;drwxrwxr-x &lt;span class="m"&gt;2&lt;/span&gt; me me &lt;span class="m"&gt;4096&lt;/span&gt; 2007-10-26 17:20 Templates
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;drwxrwxr-x &lt;span class="m"&gt;2&lt;/span&gt; me me &lt;span class="m"&gt;4096&lt;/span&gt; 2007-10-26 17:20 Videos
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Añadiendo “-l” al comando, cambiamos la salida al formato largo.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/Kz0rYX84/Screenshot-20200715-084652.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="opciones-y-argumentos"&gt;
+Opciones y argumentos
+&lt;a href="#opciones-y-argumentos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Esto nos ofrece un aspecto muy importante sobre cómo funcionan la mayoría de los comandos. A los comandos, a menudo, le siguen una o más opciones que modifican su comportamiento, y adicionalmente, uno o más argumentos, los elementos sobre los que el comando actúa. Así que la mayoría de los comandos se muestran así:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;comando -opciones argumentos
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;La mayoría de los comandos usan opciones que consisten en un sólo carácter precedido por un guión, por ejemplo, “-l”, pero muchos comandos, incluidos los del Proyecto GNU, también soportan opciones largas, consistentes en una palabra precedida por dos guiones. Además, muchos comandos permiten múltiples opciones cortas enlazadas. En este ejemplo, al comando ls se le han dado dos opciones, la opción “l” para mostrar la salida en formato largo, y la opción “t” para ordenar el resultado por la fecha de modificación de los archivos.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ls -lt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Añadiremos la opción larga “&amp;ndash;reverse” para invertir el orden de la lista:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ls -lt --reverse
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Fíjate que las opciones de los comandos, como los nombres de archivo en Linux, distinguen entre mayúsculas y minúsculas.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/4NqPtTb9/Screenshot-20200715-084749.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;El comando ls tiene un gran número de posibles opciones. Las más comunes están listadas a continuación.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;-a &amp;ndash;all&lt;/strong&gt; Lista todos los archivos, incluso aquellos cuyo nombre empieza con un punto, que normalmente no se listan (es decir, ocultos).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-A &amp;ndash;almost-all&lt;/strong&gt; Como la opción -a anterior, salvo que no lista . (el directorio actual) y .. (el directorio padre).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-d &amp;ndash;directory&lt;/strong&gt; Por lo general, si especificamos un directorio, ls listará los contenidos del directorio y no el directorio en sí. Usa esta opción junto con la opción -l para ver detalles del directorio en lugar de su contenido.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-F &amp;ndash;classify&lt;/strong&gt; Esta opción añadirá un carácter indicador al final de cada nombre listado. Por ejemplo, una “/” es que el nombre es un directorio.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-h &amp;ndash;human-readable&lt;/strong&gt; En los listados en formato largo, muestra el tamaño de los archivos en un formato comprensible, en lugar de en bytes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-l&lt;/strong&gt; Muestra los resultados en formato largo.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-r &amp;ndash;reverse&lt;/strong&gt; Muestra los resultados en orden inverso. Normalmente, ls muestra los resultados en orden alfabético ascendente.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-S&lt;/strong&gt; Ordena los resultados por tamaño.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-t&lt;/strong&gt; Ordena por la fecha de modificación.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="un-vistazo-más-profundo-al-formato-largo"&gt;
+Un vistazo más profundo al formato largo
+&lt;a href="#un-vistazo-m%c3%a1s-profundo-al-formato-largo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Como vimos antes, la opción “-l” hace que ls muestre sus resultados en formato largo. Este formato contiene gran cantidad de información útil. Aquí está el directorio Examples de un sistema Ubuntu:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;-rw-r--r-- &lt;span class="m"&gt;1&lt;/span&gt; root root &lt;span class="m"&gt;3576296&lt;/span&gt; 2007-04-03 11:05 Experience patojad.ogg
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;-rw-r--r-- &lt;span class="m"&gt;1&lt;/span&gt; root root &lt;span class="m"&gt;1186219&lt;/span&gt; 2007-04-03 11:05 patojad-leaflet.png
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;-rw-r--r-- &lt;span class="m"&gt;1&lt;/span&gt; root root &lt;span class="m"&gt;47584&lt;/span&gt; 2007-04-03 11:05 logo-LynxOS.png
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;-rw-r--r-- &lt;span class="m"&gt;1&lt;/span&gt; root root &lt;span class="m"&gt;44355&lt;/span&gt; 2007-04-03 11:05 logo-PatoJAD.png
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;-rw-r--r-- &lt;span class="m"&gt;1&lt;/span&gt; root root &lt;span class="m"&gt;34391&lt;/span&gt; 2007-04-03 11:05 logo-Antix.png
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;-rw-r--r-- &lt;span class="m"&gt;1&lt;/span&gt; root root &lt;span class="m"&gt;32059&lt;/span&gt; 2007-04-03 11:05 oo-cd-cover.odf
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;-rw-r--r-- &lt;span class="m"&gt;1&lt;/span&gt; root root &lt;span class="m"&gt;159744&lt;/span&gt; 2007-04-03 11:05 oo-derivatives.doc
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;-rw-r--r-- &lt;span class="m"&gt;1&lt;/span&gt; root root &lt;span class="m"&gt;27837&lt;/span&gt; 2007-04-03 11:05 oo-maxwell.odt
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;-rw-r--r-- &lt;span class="m"&gt;1&lt;/span&gt; root root &lt;span class="m"&gt;98816&lt;/span&gt; 2007-04-03 11:05 oo-trig.xls
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;-rw-r--r-- &lt;span class="m"&gt;1&lt;/span&gt; root root &lt;span class="m"&gt;453764&lt;/span&gt; 2007-04-03 11:05 oo-welcome.odt
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;-rw-r--r-- &lt;span class="m"&gt;1&lt;/span&gt; root root &lt;span class="m"&gt;358374&lt;/span&gt; 2007-04-03 11:05 patojad Sax.ogg
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Veamos los diferentes campos de uno de los archivos y examinemos su significado:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;-rw-r&amp;ndash;r&amp;ndash;&lt;/strong&gt; Permisos de acceso al archivo. El primer carácter indica el tipo de archivo. Entre los diferentes tipos, un guión al principio significa un archivo normal, mientras que una “d” indica un directorio. Los siguientes tres caracteres son los permisos de acceso para el propietario del archivo, los tres siguientes los de los miembros del grupo del archivo, y lo tres últimos los del resto de usuarios. El significado completo de esto lo trataremos en el Capítulo 9 – Permisos.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;1&lt;/strong&gt; Número de enlaces fuertes del archivo. Veremos el tema de los enlaces más adelante.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;root&lt;/strong&gt; El nombre del propietario del archivo.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;root&lt;/strong&gt; El nombre del grupo propietario del archivo.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;32059&lt;/strong&gt; Tamaño del archivo en bytes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2007-04-03 11:05&lt;/strong&gt; Fecha y hora de la última modificación del archivo.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;oo-cd-cover.odf&lt;/strong&gt; Nombre del archivo.&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Moviendose en la Terminal</title><link>https://patojad.com.ar/post/2020/07/moviendose-en-la-terminal/</link><pubDate>Wed, 08 Jul 2020 09:17:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/07/moviendose-en-la-terminal/</guid><description>&lt;p&gt;En esta oportunidad queremos ver un poco como es la navegación mediante la terminal, y como siempre digo, esto lo hacemos a modo de amigarnos con la terminal. No siempre es necesario hacerlo de tal manera pero es útil y rápido en muchas ocasiones&amp;hellip;&lt;/p&gt;
+&lt;p&gt;Lo primero que necesitamos aprender es &lt;strong&gt;cómo navegar&lt;/strong&gt; por el sistema de archivos en nuestro sistema GNU/Linux. En este inicio presentaremos los siguientes comandos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;pwd&lt;/strong&gt; – Muestra el nombre del directorio de trabajo actual&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;cd&lt;/strong&gt; – Cambia de directorio&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ls&lt;/strong&gt; – Muestra el contenido del directorio&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="el-directorio-de-trabajo-actual"&gt;
+El directorio de trabajo actual
+&lt;a href="#el-directorio-de-trabajo-actual" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La mayoría de nosotros, probablemente, &lt;strong&gt;estamos familiarizados con un gestor de archivos gráfico&lt;/strong&gt; que representa el árbol del sistema de directorios. Fíjate que el árbol, normalmente, aparece colgando boca abajo, o sea, con la raíz arriba y las ramas hacia abajo.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="http://multimedia.uoc.edu/blogs/sqsw/files/2013/01/sfjerar.gif" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Sin embargo, la línea de comandos no tiene imágenes (o al menos no nativamente), así que para navegar por el árbol del sistema de ficheros tenemos que pensar de una forma &lt;strong&gt;un poco diferente&lt;/strong&gt; a lo que venimos &lt;em&gt;acostumbrados&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Imagina que el sistema de ficheros es como un laberinto con forma de árbol boca abajo y que podemos estar dentro de él. En un momento dado, estamos dentro de un directorio en concreto y podemos ver los archivos contenidos en él, y la ruta hacia el directorio que está sobre nosotros (llamado directorio padre) y los subdirectorios debajo de nosotros. Este directorio, en el cual estamos, se llama directorio de trabajo actual. Para mostrar el directorio de trabajo actual, utilizamos el comando pwd (print working directory):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pwd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Obteniendo una salida similar a esta&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/home/pato
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/6pxrpC3d/Screenshot-20200708-090455.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;La primera vez que accedemos al sistema nuestro directorio de trabajo actual es nuestro directorio home (~). Cada cuenta de usuario tiene su propio directorio home y es el &lt;strong&gt;único lugar donde un usuario sin privilegios puede escribir archivos&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="listando-los-contenidos-de-un-directorio"&gt;
+Listando los contenidos de un directorio
+&lt;a href="#listando-los-contenidos-de-un-directorio" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para listar los archivos y directorios en el directorio de trabajo actual, usamos el comando ls.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ls
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Obteniendo una salida similar a esta&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Desktop Documents Music Pictures Public Templates Videos
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/J4ZTxrH5/Screenshot-20200708-090638.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;En realidad, podemos usar el comando ls para listar el contenido de cualquier directorio, no solo el directorio de trabajo actual, y hay muchas otras cosas curiosas que puede hacer también…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cambiando-el-directorio-de-trabajo-actual"&gt;
+Cambiando el directorio de trabajo actual
+&lt;a href="#cambiando-el-directorio-de-trabajo-actual" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para cambiar el directorio de trabajo actual utilizamos el comando cd. Para hacer esto, escribe cd seguido de la ruta del directorio de trabajo que queramos. Una ruta es el camino de tomamos a través de las ramas del árbol para llegar al directorio que queremos. Las rutas pueden ser &lt;strong&gt;especificadas de dos formas&lt;/strong&gt;; como rutas &lt;strong&gt;absolutas&lt;/strong&gt; o como rutas &lt;strong&gt;relativas&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="rutas-absolutas"&gt;
+Rutas Absolutas
+&lt;a href="#rutas-absolutas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Una ruta absoluta comienza con el &lt;strong&gt;directorio raíz&lt;/strong&gt; y sigue &lt;em&gt;rama tras rama&lt;/em&gt; hasta que la ruta al directorio o archivo que queremos está completa. Por ejemplo, hay un directorio en nuestro sistema en el que la mayoría de los programas de sistema están instalados. La ruta de dicho directorio es /usr/bin. Esto significa que en el directorio raíz (representado por la barra inclinada en la ruta) hay un directorio llamado “usr” que contiene un directorio llamado “bin”.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd /usr/bin
+pwd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Obtendremos una salida como&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/usr/bin
+ls
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Y esto listará muchísimos archivos&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/5ywwBtKH/Screenshot-20200708-090822.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Ahora podemos ver que &lt;strong&gt;hemos cambiado el directorio&lt;/strong&gt; de trabajo a /usr/bin y que está lleno de archivos. ¿Ves cómo ha cambiado el prompt del shell? Por defecto, normalmente está configurado para mostrar automáticamente el nombre del directorio de trabajo.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="rutas-relativas"&gt;
+Rutas Relativas
+&lt;a href="#rutas-relativas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Mientras que una ruta absoluta empieza desde el directorio raíz y sigue hasta su destino, &lt;strong&gt;una ruta relativa comienza en el directorio de trabajo&lt;/strong&gt;. Para hacer esto, utiliza un par de símbolos especiales que representan posiciones relativas en el árbol del sistema de archivos. Estos símbolos son “.” &lt;em&gt;(punto)&lt;/em&gt; y “..” &lt;em&gt;(punto punto)&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;El símbolo “.” se refiere al directorio de trabajo y el símbolo “..” se refiere al directorio padre del directorio de trabajo. Veamos cómo funciona. Ahora le diremos que queremos cambiar el directorio de trabajo al padre de /usr/bin que es /usr. Podríamos hacerlo de dos formas diferentes. Tanto con una ruta absoluta:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd /usr
+pwd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Obteniendo una salida como esta&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/usr
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Como, con una ruta relativa:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd ..
+pwd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Obteniendo una salida como esta&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/usr
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Dos métodos diferentes con idénticos resultados. ¿Cuál usamos? ¡El que requiera teclear menos!&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/HszMdRqC/Screenshot-20200708-091020.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Ahora, hay algo importante que se debe señalar aquí. En la mayoría de los casos, puedes omitir el “./”. Está implícito. Escribir:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd bin
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;hace lo mismo. En general, si no especificas una ruta a algo, se asumirá el directorio de trabajo.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="algunos-atajos-útiles"&gt;
+Algunos atajos útiles
+&lt;a href="#algunos-atajos-%c3%batiles" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Veamos algunas formas útiles para cambiar rápidamente el directorio de trabajo actual.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Cambia el directorio de trabajo a tu directorio home.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd -
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Cambia el directorio de trabajo al anterior directorio de trabajo.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd ~nombre_de_usuario
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Cambia el directorio de trabajo al directorio home de nombre_de_usuario. Por ejemplo, cd ~pato cambiará el directorio al directorio home del usuario “pato”.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/sxV2LDDG/Screenshot-20200708-091153.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="resumiendo"&gt;
+Resumiendo
+&lt;a href="#resumiendo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En este capítulo hemos visto como el shell trata la estructura de directorios del sistema. Hemos aprendido sobre las rutas absolutas y relativas y los comandos básicos que se usan para moverse por dicha estructura. En el próximo capítulo utilizaremos este conocimiento para darnos una vuelta por un sistema Linux moderno.&lt;/p&gt;
+&lt;p&gt;Fuente: &lt;strong&gt;&amp;ldquo;The Linux Command Line - Second Internet Edition&amp;rdquo;&lt;/strong&gt; de &lt;em&gt;William E. Shotts, Jr.&lt;/em&gt; - (es) &lt;strong&gt;Adriano Sánchez&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="tambien-leer"&gt;
+Tambien Leer
+&lt;a href="#tambien-leer" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/posts/2020/07/por-qu%c3%a9-usar-la-l%c3%adnea-de-comandos/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+¿Por qué usar la línea de comandos?
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>¿Por qué usar la línea de comandos?</title><link>https://patojad.com.ar/post/2020/07/por-qu%C3%A9-usar-la-l%C3%ADnea-de-comandos/</link><pubDate>Fri, 03 Jul 2020 09:41:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/07/por-qu%C3%A9-usar-la-l%C3%ADnea-de-comandos/</guid><description>&lt;p&gt;A continuación vamos a dejar la traducción de, &lt;em&gt;&amp;ldquo;The Linux Command Line - Second Internet Edition&amp;rdquo; de William E. Shotts, Jr.&lt;/em&gt; La traducción en carácter literal fue realizado por Adriano Sánchez.&lt;/p&gt;
+&lt;p&gt;En esta oportunidad vamos a tomar un fragmento que es el que nos interesa a la temática de hoy:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;¿Te has dado cuenta alguna vez que, en las películas, cuando el &amp;ldquo;súper hacker&amp;rdquo; - ya sabes, el tío que puede entrar en la computadora militar ultra-segura en menos de treinta segundos - se sienta en el ordenador y nunca toca un ratón? Es por que los que hacen las películas saben que nosotros, como seres humanos, instintivamente sabemos que la única forma de hacer algo en un ordenador ¡es escribiendo en el teclado!&lt;/p&gt;
+&lt;p&gt;La mayoría de los usuarios de ordenadores de hoy sólo están familiarizados con la interfaz gráfica de usuario o GUI (del inglés graphical user interface) y los vendedores y los expertos les han enseñado que la interfaz de línea de comandos o CLI (del inglés command line interface) es una cosa espantosa del pasado. Es una pena, porque una buena interfaz de línea de comandos es una maravillosa y expresiva forma de comunicarse con el ordenador, muy parecida a lo que el lenguaje escrito es para los seres humanos. Se ha dicho que &amp;ldquo;las interfaces gráficas de usuario hacen fáciles las tareas fáciles, mientras que las interfaces de línea de comandos hacen posibles las tareas difíciles&amp;rdquo; y eso es muy cierto aún hoy.&lt;/p&gt;
+&lt;p&gt;Dado que Linux fue desarrollado desde la familia de sistemas operativos Unix, comparte la misma rica herencia de herramientas de línea de comandos que Unix. Unix saltó a la fama en los primeros años ochenta (aunque fue desarrollado una década antes), antes de que se extendiera la adopción de las interfaces gráficas de usuario, y por eso, se desarrolló una amplia interfaz de línea de comandos en su lugar. De hecho, una de las razones más potentes para que los primeros que utilizaron Linux lo eligieran sobre, digamos, Windows NT, era la poderosa interfaz de línea de comandos que hacía las &amp;ldquo;tareas difíciles posibles&amp;rdquo;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="opinión"&gt;
+Opinión
+&lt;a href="#opini%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En esta oportunidad decidí comentar esto en forma de video para aprovechar un poco las facilidades de esto.&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/_TMLLegoGAI?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;</description></item></channel></rss>

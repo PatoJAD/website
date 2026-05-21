@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Webengine on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/webengine/</link><description>Recent content in Webengine on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 09 Mar 2021 09:21:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/webengine/index.xml" rel="self" type="application/rss+xml"/><item><title>¿KDE? ¿Arch? ¿Problemas?</title><link>https://patojad.com.ar/post/2021/03/kde-arch-problemas/</link><pubDate>Tue, 09 Mar 2021 09:21:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/03/kde-arch-problemas/</guid><description>&lt;p&gt;Si usas KDE en Arch seguramente tras la última actualización en tu sistema (después del sábado 6 de marzo) cuando se actualizo el qt5-webengine seguramente comenzaste a experimentar problemas en tu KDE con aplicaciones como Kmail, Falkon, Konqueror, entre otras. Todas estas aplicaciones que utilizan en visualizador web de QT están simplemente no mostrando nada.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="la-terminal-me-confunde"&gt;
+La terminal me confunde
+&lt;a href="#la-terminal-me-confunde" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Actualmente estoy en un proyecto con QT5-WebEngine y experimente exactamente el mismo problema, pase horas del domingo y el inicio del lunes intentando solucionar el error en base a la información que arroja la terminal:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;88642:88642:0308/160848.959329:ERROR:network_service_instance_impl.cc&lt;span class="o"&gt;(&lt;/span&gt;286&lt;span class="o"&gt;)]&lt;/span&gt; Network service crashed, restarting service.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;88642:88642:0308/160848.964451:ERROR:network_service_instance_impl.cc&lt;span class="o"&gt;(&lt;/span&gt;286&lt;span class="o"&gt;)]&lt;/span&gt; Network service crashed, restarting service.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;88642:88642:0308/160848.969386:ERROR:network_service_instance_impl.cc&lt;span class="o"&gt;(&lt;/span&gt;286&lt;span class="o"&gt;)]&lt;/span&gt; Network service crashed, restarting service.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Podemos ver si abrimos cualquiera de estas apps, que dejaron de funcionar correctamente, por terminal el error anteriormente mencionado como un bucle infinito. Este error no daba mucha información sobre el error.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="nueva-versión-nuevo-problema"&gt;
+Nueva versión nuevo problema.
+&lt;a href="#nueva-versi%c3%b3n-nuevo-problema" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.lancetalent.com/blog/wp-content/uploads/actualizar-wordpress.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Se me dio por revisar la paqueteria de arch, donde siempre encuentro soluciones y esto sirvió para entender que el problema era de la versión qt5-webengine-5.15.3-2 que generaba este error en general. Por lo cual la solución no depende explícitamente de mi, o al menos hasta donde entendí.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cómo-lo-soluciono"&gt;
+¿Cómo lo soluciono?
+&lt;a href="#c%c3%b3mo-lo-soluciono" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/gjK49PGk/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Así como el tiempo cura todas las heridas hay que esperar a que se actualice a la nueva versión donde este error este. Ya, en lo que a Arch respecta, hay un ticket cargado y hay alguien que está llevando y esperamos que pronto obtengamos la actualización que nos permita solventar este error.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://bugs.archlinux.org/index.php?do=details&amp;amp;action=details.addvote&amp;amp;task_id=69902" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Reporte del BUG
+&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>

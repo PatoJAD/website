@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Qt on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/qt/</link><description>Recent content in Qt on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 09 Mar 2021 09:21:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/qt/index.xml" rel="self" type="application/rss+xml"/><item><title>¿KDE? ¿Arch? ¿Problemas?</title><link>https://patojad.com.ar/post/2021/03/kde-arch-problemas/</link><pubDate>Tue, 09 Mar 2021 09:21:00 +0000</pubDate><guid>https://patojad.com.ar/post/2021/03/kde-arch-problemas/</guid><description>&lt;p&gt;Si usas KDE en Arch seguramente tras la última actualización en tu sistema (después del sábado 6 de marzo) cuando se actualizo el qt5-webengine seguramente comenzaste a experimentar problemas en tu KDE con aplicaciones como Kmail, Falkon, Konqueror, entre otras. Todas estas aplicaciones que utilizan en visualizador web de QT están simplemente no mostrando nada.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="la-terminal-me-confunde"&gt;
+La terminal me confunde
+&lt;a href="#la-terminal-me-confunde" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Actualmente estoy en un proyecto con QT5-WebEngine y experimente exactamente el mismo problema, pase horas del domingo y el inicio del lunes intentando solucionar el error en base a la información que arroja la terminal:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;88642:88642:0308/160848.959329:ERROR:network_service_instance_impl.cc&lt;span class="o"&gt;(&lt;/span&gt;286&lt;span class="o"&gt;)]&lt;/span&gt; Network service crashed, restarting service.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;88642:88642:0308/160848.964451:ERROR:network_service_instance_impl.cc&lt;span class="o"&gt;(&lt;/span&gt;286&lt;span class="o"&gt;)]&lt;/span&gt; Network service crashed, restarting service.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;88642:88642:0308/160848.969386:ERROR:network_service_instance_impl.cc&lt;span class="o"&gt;(&lt;/span&gt;286&lt;span class="o"&gt;)]&lt;/span&gt; Network service crashed, restarting service.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Podemos ver si abrimos cualquiera de estas apps, que dejaron de funcionar correctamente, por terminal el error anteriormente mencionado como un bucle infinito. Este error no daba mucha información sobre el error.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="nueva-versión-nuevo-problema"&gt;
+Nueva versión nuevo problema.
+&lt;a href="#nueva-versi%c3%b3n-nuevo-problema" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.lancetalent.com/blog/wp-content/uploads/actualizar-wordpress.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Se me dio por revisar la paqueteria de arch, donde siempre encuentro soluciones y esto sirvió para entender que el problema era de la versión qt5-webengine-5.15.3-2 que generaba este error en general. Por lo cual la solución no depende explícitamente de mi, o al menos hasta donde entendí.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cómo-lo-soluciono"&gt;
+¿Cómo lo soluciono?
+&lt;a href="#c%c3%b3mo-lo-soluciono" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/gjK49PGk/image.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Así como el tiempo cura todas las heridas hay que esperar a que se actualice a la nueva versión donde este error este. Ya, en lo que a Arch respecta, hay un ticket cargado y hay alguien que está llevando y esperamos que pronto obtengamos la actualización que nos permita solventar este error.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://bugs.archlinux.org/index.php?do=details&amp;amp;action=details.addvote&amp;amp;task_id=69902" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Reporte del BUG
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Oranchelo</title><link>https://patojad.com.ar/post/2019/12/oranchelo/</link><pubDate>Mon, 09 Dec 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/12/oranchelo/</guid><description>&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="oranchelo"&gt;
+Oranchelo
+&lt;a href="#oranchelo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Oranchelo es un tema de iconos de diseño plano para XFCE4 basado en Super Flat Remix e inspirado en &amp;ldquo;Corny icons&amp;rdquo; de Patryk Goworowski. Si bien su destino es XFCE tras probarlo en otros desktops pudimos ver que se adaptan bien, a ser sincero es uno de los mejores que vi en Desktops nuevos como Deepin. Su uso es simple para cualquier distro gracias a su propio instalador que trae en su repositorio de git&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://2.bp.blogspot.com/-IHBM65dQ7yo/V7k0DL0NX_I/AAAAAAAAHvk/4lPzxcDtnJUQ8weAzBIo_P5xTIeWYiuyQCEw/s1920/oranchelo-2.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalacion"&gt;
+Instalacion
+&lt;a href="#instalacion" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="ubuntu-o-derivados"&gt;
+Ubuntu o derivados
+&lt;a href="#ubuntu-o-derivados" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;La instalacion se realiza mediante PPA, por lo cual no sirve para Debian y relacionados dado que las PPA solo funcionan en Ubuntu y sus derivados&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo add-apt-repository ppa:oranchelo/oranchelo-icon-theme
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-get update
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-get install oranchelo-icon-theme
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="arch-y-derivados"&gt;
+Arch y derivados
+&lt;a href="#arch-y-derivados" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Dentro de Arch el metodo de instalacion es simple mediante AUR&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -Sy oranchelo-icon-theme-git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="debian-y-fedora"&gt;
+Debian y Fedora
+&lt;a href="#debian-y-fedora" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Si bien los procesos de instalacion son diferentes ambos pueden descargar sus empaquetados desde el propio &lt;a href="https://github.com/OrancheloTeam/oranchelo-icon-theme/releases" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+git del proyecto
+&lt;/a&gt;. Luego deben instalarlo y cada usuario sabra como hacerlo dado que ya conocen su sistema.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="desde-el-codigo-fuente"&gt;
+Desde el codigo Fuente
+&lt;a href="#desde-el-codigo-fuente" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Esta es la opcion mas linda para todos, es ejecutar un .sh tan simple que nos deja los iconos instalados y listos para usar. Este proceso es simple, descargamso el &lt;a href="https://github.com/OrancheloTeam/oranchelo-icon-theme" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+codigo fuente del proyecto
+&lt;/a&gt;. Una vez que este deescargado abrimos una terminal en la carpeta del proyecto y ejecutamos el siguiente comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;./oranchelo-installer.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="100-manual"&gt;
+100% Manual
+&lt;a href="#100-manual" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;La opción más simple, aunque debo admitir que para mí es la menos recomendable es la instalación 100% manual. Para esto debemos descargar el código fuente mencionado con anterioridad y copiar las carpetas Oranchelo y Oranchelo-green en &lt;code&gt;/usr/share/icons&lt;/code&gt; o &lt;code&gt;~.local/share/icons&lt;/code&gt; para que solo el usuario actual pueda usarlos.&lt;/p&gt;</description></item><item><title>Shadow</title><link>https://patojad.com.ar/post/2019/09/shadow/</link><pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/09/shadow/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;Cambia la forma en que miras tu escritorio. Obtenga un tema de iconos cuidadosamente diseñado, brillante y limpio para Gnome Desktop.&lt;/p&gt;
+&lt;p style="text-align: right;"&gt;
+Equipo de Shadow
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://images.pling.com/img/00/00/32/82/41/1012532/2d5d5eb053c500f8cb4cdc9234db648c456d4c8568e06daf16772f1f9c6e55e21045.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Como ellos afirman son iconos cuidadosamente diseñado y pensados para generar un sutil pero notable cambio a nuestro escritorio. Sin embargo, si bien fueron diseñados para Gnome todos aquellos que utilizamos KDE tenemos la oportunidad de probarlos con un hermoso acabado final.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="nueva-solicitud-de-icono"&gt;
+Nueva solicitud de icono
+&lt;a href="#nueva-solicitud-de-icono" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="http://rudrab.github.io/Shadow/burn-in.gif" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Su equipo o mejor dicho su usuario creador nos da la posibilidad de realizar la petición de nuevos iconos. Si bien no nos asegura poder implementar todo lo que pidamos el promete hacer todo lo posible por tratar de expandir el theme de iconos. Esto podemos hacerlo a través de su GitHub, en su repositorio agregando un &lt;a href="https://github.com/rudrab/Shadow/issues" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+Issus
+&lt;/a&gt; con la etiqueta &amp;ldquo;Icon request&amp;rdquo;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalacion"&gt;
+Instalacion
+&lt;a href="#instalacion" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La instalacion la podemos hacer desde sus dos fuentes de descarga&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="github"&gt;
+GitHub
+&lt;a href="#github" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;La primera vez debermos realizarlo asi:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mkdir -p ~/.icons
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ~/.icons
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git clone https://github.com/rudrab/Shadow.git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Luego podemos actualizarlo de la siguiente manera:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ~/.icons/Shadow
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git pull
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a href="https://github.com/rudrab/Shadow" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+GitHub
+&lt;/a&gt;&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="gnome-look"&gt;
+Gnome Look
+&lt;a href="#gnome-look" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Lo descargamos desde Gnome look&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ~/.icons
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mkdir -p shadow
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; shadow
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tar -Jxvf &amp;lt;Your download path&amp;gt;/shadow&amp;lt;version&amp;gt;.tar.xz
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a href="https://www.gnome-look.org/content/show.php/Shadow?content=170398" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Genome Look
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Uniform +</title><link>https://patojad.com.ar/post/2019/02/uniform-/</link><pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/02/uniform-/</guid><description>&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="uniform-"&gt;
+Uniform +(+)
+&lt;a href="#uniform-" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Les traigo una gama de iconos que modifiqué levemente para mejorar su integración (Probado en Deepin) y que la verdad, ¡Me resultan muy lindos!. Estos íconos me acompañan casi de distribución a distribución dado que siempre logran darle un gran cambio.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/y8g7Z3jG/demostra-patojad.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;La instalación es muy básica (aún asi mas adelante haré un paso a paso para aquellas personas que nunca hayan agregado íconos a mano), por ahora basta con dejar la carpeta en &lt;code&gt;~/.icons&lt;/code&gt; para que luego podamos elegir el pack.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.mediafire.com/file/ccz6k727wwznaue/Uniform_Pato_LatinLinux.tar.gz/file" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Descarga
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;¡Comentanos que te parecieron!&lt;/p&gt;</description></item></channel></rss>

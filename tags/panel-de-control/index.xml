@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Panel De Control on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/panel-de-control/</link><description>Recent content in Panel De Control on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Wed, 30 Aug 2023 11:23:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/panel-de-control/index.xml" rel="self" type="application/rss+xml"/><item><title>Cómo Actualizar aaPanel y Mantener tu Servidor Web al Día</title><link>https://patojad.com.ar/post/2023/08/c%C3%B3mo-actualizar-aapanel-y-mantener-tu-servidor-web-al-d%C3%ADa/</link><pubDate>Wed, 30 Aug 2023 11:23:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/08/c%C3%B3mo-actualizar-aapanel-y-mantener-tu-servidor-web-al-d%C3%ADa/</guid><description>&lt;p&gt;Mantener tu servidor web actualizado es esencial para garantizar su rendimiento, seguridad y funcionalidad. En este artículo, aprenderás cómo actualizar &lt;strong&gt;aaPanel&lt;/strong&gt;, una herramienta de panel de control que simplifica la administración de servidores web, y te proporciona una guía paso a paso para llevar a cabo este proceso.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-aapanel"&gt;
+¿Qué es aaPanel?
+&lt;a href="#qu%c3%a9-es-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;aaPanel&lt;/strong&gt; es un panel de control de hosting web gratuito y de código abierto que facilita la administración de servidores. Proporciona una interfaz gráfica intuitiva y amigable que permite a los usuarios gestionar servicios como &lt;strong&gt;Apache&lt;/strong&gt;, &lt;strong&gt;Nginx&lt;/strong&gt;, &lt;strong&gt;PHP&lt;/strong&gt;, bases de datos y más, sin necesidad de conocimientos técnicos avanzados.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="importancia-de-actualizar-aapanel"&gt;
+Importancia de Actualizar aaPanel
+&lt;a href="#importancia-de-actualizar-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La actualización regular de aaPanel es crucial por varias razones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Seguridad:&lt;/strong&gt; Las actualizaciones suelen incluir parches de seguridad que protegen tu servidor contra amenazas potenciales. Mantener aaPanel actualizado reduce la superficie de ataque y mantiene tus datos y aplicaciones seguros.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Rendimiento:&lt;/strong&gt; Las actualizaciones pueden mejorar el rendimiento de aaPanel al corregir errores, optimizar el código y agregar nuevas características que optimizan la eficiencia.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Funcionalidad:&lt;/strong&gt; Las versiones más recientes de aaPanel suelen ofrecer nuevas funciones y mejoras en la interfaz, lo que puede mejorar la experiencia de administración del servidor.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="pasos-para-actualizar-aapanel"&gt;
+Pasos para Actualizar aaPanel
+&lt;a href="#pasos-para-actualizar-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si bien en el video se muestra como actualizar &lt;strong&gt;aaPanel&lt;/strong&gt; desde la interfaz web, en este articulo se muestra como hacerlo desde la terminal.&lt;/p&gt;
+&lt;p&gt;A continuación, se detallan los pasos para actualizar aaPanel a la última versión en caso de querer hacerlo desde la terminal conectadose al servidor por &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+SSH
+&lt;/a&gt;:&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="acceder-al-servidor"&gt;
+Acceder al Servidor
+&lt;a href="#acceder-al-servidor" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Inicia sesión en tu servidor a través de &lt;a href="https://patojad.com.ar/post/2023/10/claves-ssh-una-gu%c3%ada-completa-para-la-seguridad-en-conexiones-remotas/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+SSH
+&lt;/a&gt; utilizando un cliente como PuTTY (en el caso de estar en Windows) o la terminal en sistemas Unix o Unix-Like como Linux.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ssh username@server_ip
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="respaldo-de-datos-opcional-pero-recomendado"&gt;
+Respaldo de Datos (Opcional pero Recomendado)
+&lt;a href="#respaldo-de-datos-opcional-pero-recomendado" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Antes de actualizar, realiza una copia de seguridad de tus datos importantes, como archivos del sitio web y bases de datos, para evitar pérdidas accidentales. Si bien este paso es opcional, se recomienda encarecidamente realizar una copia de seguridad de tus datos antes de actualizar. Puedes utilizar el siguiente comando para crear una copia de seguridad de tu sitio web:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tar -czvf backup.tar.gz /home/wwwroot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="actualización"&gt;
+Actualización
+&lt;a href="#actualizaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Ejecuta el siguiente comando para ejecutar el script de actualización:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;service bt &lt;span class="m"&gt;16&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Sigue las instrucciones en pantalla para completar el proceso de actualización.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="verificación"&gt;
+Verificación
+&lt;a href="#verificaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Después de la actualización, verifica que &lt;strong&gt;aaPanel&lt;/strong&gt; esté funcionando correctamente accediendo a la interfaz de administración a través de tu navegador web.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Mantener &lt;strong&gt;aaPanel&lt;/strong&gt; actualizado es esencial para garantizar la seguridad y el rendimiento de tu servidor web. Sigue estos pasos para realizar una actualización exitosa y asegúrate de respaldar tus datos antes de comenzar. Un &lt;strong&gt;aaPanel&lt;/strong&gt; actualizado no solo protege tu servidor de posibles amenazas, sino que también te permite acceder a nuevas características y mejoras en la administración de tu sitio web. ¡Mantén tu servidor al día y disfruta de un entorno en línea seguro y eficiente!&lt;/p&gt;</description></item><item><title>Cómo Configurar un Sitio PHP en aaPanel</title><link>https://patojad.com.ar/post/2023/08/c%C3%B3mo-configurar-un-sitio-php-en-aapanel/</link><pubDate>Fri, 18 Aug 2023 08:01:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/08/c%C3%B3mo-configurar-un-sitio-php-en-aapanel/</guid><description>&lt;p&gt;En el vertiginoso mundo de la informática, la elección de una plataforma de alojamiento web sólida y eficiente es fundamental para el éxito de cualquier proyecto en línea. &lt;strong&gt;aaPanel&lt;/strong&gt;, una herramienta de panel de control gratuita y de código abierto, ha ganado popularidad por su capacidad para simplificar la administración de servidores y sitios web. En este artículo, te guiaré a través de los pasos para configurar un sitio &lt;strong&gt;PHP&lt;/strong&gt; en &lt;strong&gt;aaPanel&lt;/strong&gt;, maximizando así el rendimiento y la accesibilidad de tu proyecto web.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-aapanel"&gt;
+¿Qué es aaPanel?
+&lt;a href="#qu%c3%a9-es-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;aaPanel&lt;/strong&gt; es un panel de control de hosting web gratuito y de código abierto que facilita la administración de servidores. Proporciona una interfaz gráfica intuitiva y amigable que permite a los usuarios gestionar servicios como &lt;strong&gt;Apache&lt;/strong&gt;, &lt;strong&gt;Nginx&lt;/strong&gt;, &lt;strong&gt;PHP&lt;/strong&gt;, bases de datos y más, sin necesidad de conocimientos técnicos avanzados.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación-de-aapanel"&gt;
+Instalación de aaPanel
+&lt;a href="#instalaci%c3%b3n-de-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El primer paso es instalar aaPanel en tu servidor. Asegúrate de tener acceso a un servidor compatible con los requisitos de aaPanel, como &lt;strong&gt;Debian&lt;/strong&gt;, &lt;strong&gt;Ubuntu&lt;/strong&gt; o &lt;strong&gt;CentOS&lt;/strong&gt;. Una vez que hayas instalado el sistema operativo, puedes instalar aaPanel siguiendo los pasos detallados en el siguiente artículo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2023/06/instalar-aapanel/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Instalar aaPanel
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2023/07/abrir-puertos-aapanel/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Abrir puertos aaPanel
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2023/07/primer-ingreso-a-aapanel/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Primer ingreso a aaPanel
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="agregar-un-sitio-dinamico"&gt;
+Agregar un Sitio Dinamico
+&lt;a href="#agregar-un-sitio-dinamico" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Una vez que aaPanel esté instalado, es hora de agregar tu dominio y configurar un sitio web PHP:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Inicia sesión en aaPanel usando la URL y credenciales proporcionadas durante la instalación.&lt;/li&gt;
+&lt;li&gt;Navega a &lt;code&gt;Website&lt;/code&gt; y haz clic en &lt;code&gt;Add Website&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Ingresa los detalles de tu dominio, como el nombre del dominio y la ruta de la carpeta raíz del sitio (como se muestra en el video).&lt;/li&gt;
+&lt;li&gt;Selecciona &lt;code&gt;PHP&lt;/code&gt; como tipo de sitio web y elige la versión de &lt;strong&gt;PHP&lt;/strong&gt; deseada.&lt;/li&gt;
+&lt;li&gt;Selecciona si deseas habilitar &lt;strong&gt;SSL&lt;/strong&gt; para tu sitio web.&lt;/li&gt;
+&lt;li&gt;Selecciona si deseas habilitar &lt;strong&gt;FTP&lt;/strong&gt; para tu sitio web.&lt;/li&gt;
+&lt;li&gt;Selecciona si deseas crear una Base de Datos para tu sitio web.&lt;/li&gt;
+&lt;li&gt;Haz clic en &lt;code&gt;Add Website&lt;/code&gt; para completar el proceso.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="ajustes-avanzados-y-seguridad"&gt;
+Ajustes Avanzados y Seguridad
+&lt;a href="#ajustes-avanzados-y-seguridad" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para optimizar aún más tu sitio PHP y garantizar su seguridad, considera implementar las siguientes medidas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SSL Certificate:&lt;/strong&gt; Habilita un certificado SSL gratuito para cifrar las comunicaciones entre el navegador del usuario y el servidor.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Firewall:&lt;/strong&gt; Configura un firewall para proteger tu servidor contra amenazas cibernéticas.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Backups:&lt;/strong&gt; Establece una política de respaldo regular para asegurar que los datos estén protegidos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Configurar un sitio &lt;strong&gt;PHP&lt;/strong&gt; en &lt;strong&gt;aaPanel&lt;/strong&gt; puede parecer una tarea desafiante al principio, pero con la guía adecuada, es un proceso simplificado que mejora significativamente la administración y el rendimiento de tu proyecto web. Siguiendo los pasos mencionados en esta guía, estarás en camino de tener un sitio web en funcionamiento con todas las ventajas que ofrece &lt;strong&gt;aaPanel&lt;/strong&gt;. Mantén tu proyecto seguro, optimizado y accesible, y observa cómo crece y prospera en el competitivo mundo en línea.&lt;/p&gt;</description></item></channel></rss>

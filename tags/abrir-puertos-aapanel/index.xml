@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Abrir Puertos Aapanel on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/abrir-puertos-aapanel/</link><description>Recent content in Abrir Puertos Aapanel on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Fri, 07 Jul 2023 11:54:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/abrir-puertos-aapanel/index.xml" rel="self" type="application/rss+xml"/><item><title>Abrir puertos aaPanel</title><link>https://patojad.com.ar/post/2023/07/abrir-puertos-aapanel/</link><pubDate>Fri, 07 Jul 2023 11:54:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/07/abrir-puertos-aapanel/</guid><description>&lt;p&gt;Vamos a ver que puertos tenemos que tener habilitados para que aapanel funcione correctamente. Y como abrirlos en nuestro servidor utilizando &lt;code&gt;ufw&lt;/code&gt;. Recuerda que si instalaste tal como lo vimos en el video anterior de &lt;a href="https://patojad.com.ar/post/2023/06/instalar-aapanel/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+instalar aapanel
+&lt;/a&gt; y no estas pudiendo ingresar a la url que dio el panel entonces es porque alguno de estos puertos no se encuentra abierto.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-aapanel"&gt;
+¿Qué es aaPanel?
+&lt;a href="#qu%c3%a9-es-aapanel" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;aaPanel&lt;/strong&gt; es un panel de control de hosting web gratuito y de código abierto que facilita la administración de servidores. Proporciona una interfaz gráfica intuitiva y amigable que permite a los usuarios gestionar servicios como &lt;strong&gt;Apache&lt;/strong&gt;, &lt;strong&gt;Nginx&lt;/strong&gt;, &lt;strong&gt;PHP&lt;/strong&gt;, bases de datos y más, sin necesidad de conocimientos técnicos avanzados.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="puertos"&gt;
+Puertos
+&lt;a href="#puertos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Los puertos que tenemos que abrir son los siguientes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;20&lt;/strong&gt; - FTP&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;21&lt;/strong&gt; - FTP&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;80&lt;/strong&gt; - HTTP&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;443&lt;/strong&gt; - HTTPS&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;888&lt;/strong&gt; - aaPanel&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;3306&lt;/strong&gt; - MySQL // Si necesitas acceder desde fuera del servidor&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;8888&lt;/strong&gt; - phpMyAdmin&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;7800&lt;/strong&gt; - aaPanel&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="comandos"&gt;
+Comandos
+&lt;a href="#comandos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;A continuacion dejo los comandos utilizados en el video.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ufw allow &lt;span class="m"&gt;20&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ufw allow &lt;span class="m"&gt;21&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ufw allow &lt;span class="m"&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ufw allow &lt;span class="m"&gt;443&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ufw allow &lt;span class="m"&gt;888&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ufw allow &lt;span class="m"&gt;3306&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#ufw allow 8888 // En mi caso no&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ufw allow &lt;span class="m"&gt;7800&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;hr&gt;
+&lt;p&gt;Fuente: &lt;a href="https://www.aapanel.com/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://www.aapanel.com/
+&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>

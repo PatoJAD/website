@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pages on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/pages/</link><description>Recent content in Pages on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Wed, 06 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/pages/index.xml" rel="self" type="application/rss+xml"/><item><title>Configurar GitLab Pages con CloudFlare</title><link>https://patojad.com.ar/post/2019/11/configurar-gitlab-pages-con-cloudflare/</link><pubDate>Wed, 06 Nov 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/11/configurar-gitlab-pages-con-cloudflare/</guid><description>&lt;p&gt;Vamos a ver cómo realizar la configuración entre Cloudflare y Gitlab. Antes que nada, recomiendo leer porque elegimos &lt;a href="https://patojad.com.ar/post/2019/10/gitlab-pages/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Gitlab
+&lt;/a&gt; y Porque elegimos &lt;a href="https://patojad.com.ar/post/2019/10/cloudflare-que-es-ventajas-y-desventajas/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Cloudflare
+&lt;/a&gt;. Una vez visto esto vamos a explicar cómo hacer para que nuestro dominio alojado el CloudFlare previamente realizado aquí.&lt;/p&gt;
+&lt;p&gt;Una vez habilitado el dominio en Cloudflare procedemos a crear los certificados para poder generar los registros correctamente.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="certificado"&gt;
+Certificado
+&lt;a href="#certificado" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/59C3kM1T/cert.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Nos dirigimos a SSL/TLS ahí dentro vamos a Origin Server Y podemos crear el Certificado. Para esto debemos elegir los dominios a los cuales apelara ese Certificado y el tiempo de duración de los mismos.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/yNxhmMvf/cert1.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Y esto nos generara las respectivas claves que utilizaremos para asegurar la conexión. Esto es lo que nos certifica la seguridad del servidor al que se envían.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/zfQC0xQq/cert2.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;En donde se encuentran los cuadros blancos verán su respectivo certificado y clave los cuales debemos guardar para utilizarlos en GitLab&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="agregar-dominio-a-gitlab"&gt;
+Agregar Dominio a Gitlab
+&lt;a href="#agregar-dominio-a-gitlab" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Dentro de nuestro proyecto en gitlab, (entendiendo que ya se encuentran configurados los CI para habilitar la sección Paginas) Nos dirigimos a configuración y a la sección de páginas.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/WzLMPhjK/glab.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Ahí seleccionamos nuevo Dominio y completamos los campos como vemos a continuación. Es importante recalcar que el dominio va sin http ni https y que no gestionamos los certificados automáticamente (Ya que lo hacemos por cloudflare manualmente)&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/Gmcx28Yn/glab1.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Como requiere todos los certificados no olvidemos poner el del servidor de cloudflare el cual les dejo a continuación&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;-----BEGIN CERTIFICATE-----
+MIIEADCCAuigAwIBAgIID+rOSdTGfGcwDQYJKoZIhvcNAQELBQAwgYsxCzAJBgNV
+BAYTAlVTMRkwFwYDVQQKExBDbG91ZEZsYXJlLCBJbmMuMTQwMgYDVQQLEytDbG91
+ZEZsYXJlIE9yaWdpbiBTU0wgQ2VydGlmaWNhdGUgQXV0aG9yaXR5MRYwFAYDVQQH
+Ew1TYW4gRnJhbmNpc2NvMRMwEQYDVQQIEwpDYWxpZm9ybmlhMB4XDTE5MDgyMzIx
+MDgwMFoXDTI5MDgxNTE3MDAwMFowgYsxCzAJBgNVBAYTAlVTMRkwFwYDVQQKExBD
+bG91ZEZsYXJlLCBJbmMuMTQwMgYDVQQLEytDbG91ZEZsYXJlIE9yaWdpbiBTU0wg
+Q2VydGlmaWNhdGUgQXV0aG9yaXR5MRYwFAYDVQQHEw1TYW4gRnJhbmNpc2NvMRMw
+EQYDVQQIEwpDYWxpZm9ybmlhMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+AQEAwEiVZ/UoQpHmFsHvk5isBxRehukP8DG9JhFev3WZtG76WoTthvLJFRKFCHXm
+V6Z5/66Z4S09mgsUuFwvJzMnE6Ej6yIsYNCb9r9QORa8BdhrkNn6kdTly3mdnykb
+OomnwbUfLlExVgNdlP0XoRoeMwbQ4598foiHblO2B/LKuNfJzAMfS7oZe34b+vLB
+yrP/1bgCSLdc1AxQc1AC0EsQQhgcyTJNgnG4va1c7ogPlwKyhbDyZ4e59N5lbYPJ
+SmXI/cAe3jXj1FBLJZkwnoDKe0v13xeF+nF32smSH0qB7aJX2tBMW4TWtFPmzs5I
+lwrFSySWAdwYdgxw180yKU0dvwIDAQABo2YwZDAOBgNVHQ8BAf8EBAMCAQYwEgYD
+VR0TAQH/BAgwBgEB/wIBAjAdBgNVHQ4EFgQUJOhTV118NECHqeuU27rhFnj8KaQw
+HwYDVR0jBBgwFoAUJOhTV118NECHqeuU27rhFnj8KaQwDQYJKoZIhvcNAQELBQAD
+ggEBAHwOf9Ur1l0Ar5vFE6PNrZWrDfQIMyEfdgSKofCdTckbqXNTiXdgbHs+TWoQ
+wAB0pfJDAHJDXOTCWRyTeXOseeOi5Btj5CnEuw3P0oXqdqevM1/+uWp0CM35zgZ8
+VD4aITxity0djzE6Qnx3Syzz+ZkoBgTnNum7d9A66/V636x4vTeqbZFBr9erJzgz
+hhurjcoacvRNhnjtDRM0dPeiCJ50CP3wEYuvUzDHUaowOsnLCjQIkWbR7Ni6KEIk
+MOz2U0OBSif3FTkhCgZWQKOOLo1P42jHC3ssUZAtVNXrCk3fw9/E15k8NPkBazZ6
+0iykLhH1trywrKRMVw67F44IE8Y=
+-----END CERTIFICATE-----
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/3NX2rYxw/glab3.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Una vez finalizado esto vamos a ver lo siguiente lo cual nos da el registro txt que debemos agregar a nuestro cloudflare para completar con éxito la redirección.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="dns"&gt;
+DNS
+&lt;a href="#dns" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/28dxrF1x/dns.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Por ultimo debemos configurar los DNS para concretar la redirección. Esto debemos hacerlo desde Clodflare en la sección DNS&lt;/p&gt;
+&lt;p&gt;Y debemos completar primero la IP hacían donde va mirar nuestro dominio, en este caso estoy configurando &lt;a href="https://patojad.com.ar/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+https://patojad.com.ar/
+&lt;/a&gt; lo cual seria mi dominio principal por lo cual el name del registro seria @ haciendo referencia a root. En caso de querer configurar un subdominio (por ejemplo &lt;a href="https://compartelibre.patojad.com.ar" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://compartelibre.patojad.com.ar
+&lt;/a&gt;) debemos poner solo el subdominio ej compartelibre.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/rF29BYwm/dns1.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Una vez agregada la IP debemos agregar el registro TXT que nos dio gitlab.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/dV4mTsmk/dns2.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Una vez agregado solo debemos volver a gitlab y verificarlo, si realizamos todo correctamente vamos a ver la siguiente pantalla. (ATENCION es posible que desde que agregue los registros pasen minutos hasta que la verificación se concluya.)&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/ZRyrgrkp/glab4.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Cuando concluimos con esto en pocas horas la redirección será exitosa.&lt;/p&gt;</description></item><item><title>GitLab Pages</title><link>https://patojad.com.ar/post/2019/10/gitlab-pages/</link><pubDate>Wed, 09 Oct 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/10/gitlab-pages/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;GitLab Pages es una característica que le permite publicar sitios web estáticos directamente desde un repositorio en GitLab.&lt;/p&gt;
+&lt;p&gt;Puede usarlo para sitios web personales o comerciales, como carteras, documentación, manifiestos y presentaciones comerciales. También puede atribuir cualquier licencia a su contenido.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="características"&gt;
+Características
+&lt;a href="#caracter%c3%adsticas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Use cualquier generador de sitio web estático o &lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+HTML
+&lt;/a&gt; sin formato&lt;/li&gt;
+&lt;li&gt;Cree sitios web para sus proyectos, grupos o cuenta de usuario&lt;/li&gt;
+&lt;li&gt;Aloje en GitLab.com de forma gratuita, o en su propia instancia de GitLab&lt;/li&gt;
+&lt;li&gt;Conecte sus dominios personalizados y certificados TLS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Pages está disponible de forma gratuita para todos los usuarios de GitLab.com, así como para instancias autogestionadas (GitLab Core, Starter, Premium y Ultimate). Es decir que esta en sus productos a nivel que si ustedes tienen instala una instancia de GitLab pueden utilizar su propio GitLab Pages.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="sitios-estaticos"&gt;
+Sitios Estaticos
+&lt;a href="#sitios-estaticos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para publicar un sitio web con páginas, puede usar cualquier generador de sitio estático, como Jekyll, Hugo (el caso de este Blog), Middleman, Harp, Hexo y Brunch, solo por nombrar algunos. También puede publicar cualquier sitio web escrito directamente en &lt;a href="https://patojad.com.ar/post/2023/08/html-el-lenguaje-fundamental-de-la-web/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+HTML
+&lt;/a&gt;, &lt;a href="https://patojad.com.ar/post/2023/08/descubriendo-el-mundo-de-css/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+CSS
+&lt;/a&gt; y JavaScript. Pages no admite el procesamiento dinámico del lado del servidor, por ejemplo, como .php y .asp&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="como-funciona"&gt;
+Como funciona
+&lt;a href="#como-funciona" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para usar las páginas de GitLab, primero debe crear un proyecto en GitLab para cargar los archivos de su sitio web. Estos proyectos pueden ser públicos, internos o privados, a su elección. GitLab siempre implementará su sitio web desde una carpeta muy específica llamada publicen su repositorio. Tenga en cuenta que cuando crea un nuevo proyecto en GitLab, un repositorio está disponible automáticamente.
+Para implementar su sitio, GitLab utilizará su herramienta integrada llamada GitLab CI / CD , para construir su sitio y publicarlo en el servidor de páginas de GitLab. La secuencia de scripts que ejecuta GitLab CI / CD para realizar esta tarea se crea a partir de un archivo llamado .gitlab-ci.yml, que puede crear y modificar a voluntad.
+También se puede usar de GitLab dominio predeterminado para los sitios web GitLab Pages , name.gitlab.ioo en su propio dominio (patojad.com.ar). En ese caso, necesitará acceso de administrador al registrador de su dominio (o panel de control) para configurarlo con Pages.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="porque-elegi-gitlab"&gt;
+¿Porque Elegi GitLab?
+&lt;a href="#porque-elegi-gitlab" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Cuando comencé con el proyecto quería algo seguro y fiable, Todo el mundo me lo recomendó por su facilidad de uso y su disponibilidad constante. Me convencí al ver que en cuestión de minutos ya tenía mi sitio online, su velocidad es muy buena y me permite compartirlo libremente. Yo personalmente siempre recomendare GitLab Pages y es lo que planeo usar para todo lo que pueda mantener en este método.&lt;/p&gt;</description></item><item><title>CloudFlare ¿Que es? Ventajas y Desventajas</title><link>https://patojad.com.ar/post/2019/10/cloudflare-que-es-ventajas-y-desventajas/</link><pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/10/cloudflare-que-es-ventajas-y-desventajas/</guid><description>&lt;p&gt;CloudFlare es un sistema gratuito que actúa como un proxy (intermediario) entre los visitantes del sitio web y el servidor. Al actuar como un proxy, CloudFlare guarda temporalmente contenido estático del sitio, el cual disminuye el número de peticiones al servidor pero sigue permitiendo a los visitantes el acceso al sitio.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/53qCYhQbir5WtIU0VDWESo/1c28d510cb5bb9a44e56916e37a889b6/Cloudflare_default_OG_.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="ventajas"&gt;
+Ventajas
+&lt;a href="#ventajas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Desempeño del Sitio Mejorado:&lt;/strong&gt; CloudFlare tiene servidores proxy localizados alrededor del mundo. Los servidores proxy están localizados cerca de los visitantes, con lo cual estos podrán cargar el sitio más rápido directo de los servidores proxy. &amp;ldquo;Mientras más rápido cargue un sitio, el visitante permanecerá en este por más tiempo.&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Protección contra Amenazas y Bots:&lt;/strong&gt; CloudFlare usa datos del &amp;ldquo;Project Honey Pot&amp;rdquo; y otras fuentes de terceros, así como datos de su comunidad para identificar amenazas maliciosas y parar ataques antes de que estos lleguen a los sitios. Se podrán ver la amenazas que están siendo paradas a través de CloudFlare desde: &lt;a href="https://www.cloudflare.com/your-websites.html" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://www.cloudflare.com/your-websites.html
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Protección para &amp;ldquo;Comentarios Spam&amp;rdquo;:&lt;/strong&gt; CloudFlare usa datos de fuentes de terceros para reducir el número de &amp;ldquo;comentarios Spam&amp;rdquo; en el sitio.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Alerta a Visitantes de Computadoras Infectadas:&lt;/strong&gt; CloudFlare alerta a los visitantes cuando estos acceden desde una computadora infectada para que tomen acciones inmediatas. El visitante podrá ingresar un &amp;ldquo;Captcha&amp;rdquo; para ingresar al sitio.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Modo de Navegación Offline:&lt;/strong&gt; En el caso eventual que nuestros servidores no se encuentren disponibles, los visitantes podrán seguir accediendo al sitio ya que CloudFlare servirá el sitio desde su CDN.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Disminución del Uso de CPU:&lt;/strong&gt; Ya que habría menos solicitudes a nuestros servidores, esto disminuirá el consumo de CPU de cada cuenta.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nuevas Estadísticas del Sitio:&lt;/strong&gt; Con CloudFlare se podrá tener herramientas para evaluar el tráfico que existe de visitantes hacia el sitio y además contará con estadísticas para &amp;ldquo;crawlers de herramientas de búsqueda&amp;rdquo; y de amenazas.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="desventajas"&gt;
+Desventajas
+&lt;a href="#desventajas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Actualmente, las peticiones deben ser redirigidas a www.$dominio en lugar de $dominio (lo cual puede significar que se deben realizar algunos cambios de configuración).&lt;/li&gt;
+&lt;li&gt;CloudFlare puede afectar algunos programas de estadística interna que leen directamente los logs de Apache. CloudFlare no afectará programas de análisis basados en web que usen Javascript o Google Analytics. Mientras que los logs van a reflejar menos peticiones al servidor y menos carga, la experiencia hacia los visitantes de los sitios permanecerá igual.&lt;/li&gt;
+&lt;li&gt;CloudFlare guarda contenido estático del sitio. Esto reduce la carga en el servidor y significa que si se hace un cambio de un archivo estático existente como una imagen, puede existir un retraso pequeño mientras aparece el cambio. &lt;strong&gt;Mientras se hace una actualización se puede configurar CloudFlare en Modo de Desarrollo para que el cambio aparezca inmediatamente.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="patojad-y-cloudflare"&gt;
+PatoJAD y CloudFlare
+&lt;a href="#patojad-y-cloudflare" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Cuando decidí utilizar CloudFlare (recomendado por Tehuel) me pareció que era demasiado para solo un dominio (primera vez con .tk) sin embargo con el tiempo vi que las funcionalidades me permitían ir mucho más allá. Incluso me sirvió para realizar pruebas de desarrollo particulares. Actualmente lo sigo utilizando y si bien el blog es pequeño aun, algún día pagare para poder llevar todo esto a otro nivel dado que el potencial que tiene desde el control de DNS hasta la cache geo localizada para cargar más rápido los sitios son ampliamente útiles.&lt;/p&gt;</description></item></channel></rss>

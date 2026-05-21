@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Control on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/control/</link><description>Recent content in Control on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Mon, 16 Nov 2020 08:37:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/control/index.xml" rel="self" type="application/rss+xml"/><item><title>Control de Expansión</title><link>https://patojad.com.ar/post/2020/11/control-de-expansi%C3%B3n/</link><pubDate>Mon, 16 Nov 2020 08:37:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/11/control-de-expansi%C3%B3n/</guid><description>&lt;p&gt;Ya logramos ver como funcionan las expansiones, sin embargo muchas veces las mismas expansiones nos jugaran en contra y por lo cual lo mejor es aprender a controlarlas.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="sustitución-de-comandos"&gt;
+Sustitución de comandos
+&lt;a href="#sustituci%c3%b3n-de-comandos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La sustitución de comandos nos permite usar la salida de un comando como una expansión:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="k"&gt;$(&lt;/span&gt;ls&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Generando una salida tal como:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Desktop Documents ls-output.txt Music Pictures Public Templates Videos
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/m2s8v8BZ/Captura-de-pantalla-de-2020-11-16-08-42-15.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;También es posible hacer algo como esto:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ls -l &lt;span class="k"&gt;$(&lt;/span&gt;which cp&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;-rwxr-xr-x &lt;span class="m"&gt;1&lt;/span&gt; root root &lt;span class="m"&gt;71516&lt;/span&gt; 2007-12-05 08:58 /bin/cp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/2872rhSQ/Captura-de-pantalla-de-2020-11-16-08-42-48.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Aquí hemos pasado el resultado de which cp como un argumento para el comando ls, de esta forma obtenemos el listado del programa cp sin tener que saber su ruta completa. No estamos limitados sólo a comandos simples. Se pueden usar tuberías enteras (sólo se muestra una salida parcial)&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="entrecomillado"&gt;
+Entrecomillado
+&lt;a href="#entrecomillado" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Ahora que hemos visto de cuántas formas el shell puede realizar expansiones, es hora de aprender cómo podemos controlarlas. Tomemos un ejemplo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; this is a &lt;span class="nb"&gt;test&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; The total is &lt;span class="nv"&gt;$100&lt;/span&gt;.00
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Generando como salida correspondientemente:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;this is a &lt;span class="nb"&gt;test&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;The total is 00.00
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/7ZB9T47b/Captura-de-pantalla-de-2020-11-16-08-44-40.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;En el primer ejemplo, la separación de palabras del shell ha eliminado el espacio en blanco adicional de la lista de argumentos del comando echo. En el segundo ejemplo, la expansión con parámetros sustituyó con una cadena vacía el valor de “$1” porque era una variable indefinida. El shell proporciona un mecanismo llamado quoting (entrecomillado) para suprimir selectivamente expansiones no deseadas.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="comillas-dobles"&gt;
+Comillas dobles
+&lt;a href="#comillas-dobles" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El primer tipo de entrecomillado que vamos a ver son las comillas dobles. Si colocas un texto dentro de comillas dobles, todos los caracteres especiales utilizados por el shell perderán su significado especial y serán tratados como caracteres ordinarios. Las excepciones son “$”, “\” (barra invertida), y “`” (tilde invertida). Esto significa que la separación de palabras, expansión de nombres de archivo, expansión de la tilde de la ñ y la expansión con llaves están suprimidas, pero la expansión con parámetros, la expansión aritmética y la sustitución de comandos sí que funcionarán. Usando comillas dobles, podemos manejar nombres de archivo que contengan espacios en blanco. Digamos que somos la desafortunada víctima de un archivo llamado two words.txt. Si tratáramos de usarlo en la línea de comandos, la separación de palabras haría que fuera tratado como dos argumentos separados en lugar del único argumento que queremos:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ls -l two words.txt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ls: cannot access two: No such file or directory
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ls: cannot access words.txt: No such file or directory
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Recuerda, la expansión con parámetros, la expansión aritmética y la sustitución de comandos siguen funcionando dentro de las comillas dobles:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;&lt;span class="nv"&gt;$USER&lt;/span&gt;&lt;span class="s2"&gt; &lt;/span&gt;&lt;span class="k"&gt;$((&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="k"&gt;))&lt;/span&gt;&lt;span class="s2"&gt; &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;cal&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/mgZVDkP0/Captura-de-pantalla-de-2020-11-16-08-44-59.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;me &lt;span class="m"&gt;4&lt;/span&gt; February &lt;span class="m"&gt;2008&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Su Mo Tu We Th Fr Sa
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="m"&gt;4&lt;/span&gt; &lt;span class="m"&gt;5&lt;/span&gt; &lt;span class="m"&gt;6&lt;/span&gt; &lt;span class="m"&gt;7&lt;/span&gt; &lt;span class="m"&gt;8&lt;/span&gt; &lt;span class="m"&gt;9&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="m"&gt;10&lt;/span&gt; &lt;span class="m"&gt;11&lt;/span&gt; &lt;span class="m"&gt;12&lt;/span&gt; &lt;span class="m"&gt;13&lt;/span&gt; &lt;span class="m"&gt;14&lt;/span&gt; &lt;span class="m"&gt;15&lt;/span&gt; &lt;span class="m"&gt;16&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="m"&gt;17&lt;/span&gt; &lt;span class="m"&gt;18&lt;/span&gt; &lt;span class="m"&gt;19&lt;/span&gt; &lt;span class="m"&gt;20&lt;/span&gt; &lt;span class="m"&gt;21&lt;/span&gt; &lt;span class="m"&gt;22&lt;/span&gt; &lt;span class="m"&gt;23&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="m"&gt;24&lt;/span&gt; &lt;span class="m"&gt;25&lt;/span&gt; &lt;span class="m"&gt;26&lt;/span&gt; &lt;span class="m"&gt;27&lt;/span&gt; &lt;span class="m"&gt;28&lt;/span&gt; &lt;span class="m"&gt;29&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="comillas-simples"&gt;
+Comillas simples
+&lt;a href="#comillas-simples" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Si necesitamos suprimir todas las expansiones, usamos comillas simples. A continuación vemos una comparación entre sin comillas, comillas dobles y comillas simples:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; text ~/*.txt &lt;span class="o"&gt;{&lt;/span&gt;a,b&lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="k"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; foo&lt;span class="k"&gt;)&lt;/span&gt; &lt;span class="k"&gt;$((&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="k"&gt;))&lt;/span&gt; &lt;span class="nv"&gt;$USER&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;text ~/*.txt {a,b} &lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; foo&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt; &lt;/span&gt;&lt;span class="k"&gt;$((&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="k"&gt;))&lt;/span&gt;&lt;span class="s2"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$USER&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;text ~/*.txt {a,b} $(echo foo) $((2+2)) $USER&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Generando como salida correspondientemente&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;text /home/me/ls-output.txt a b foo &lt;span class="m"&gt;4&lt;/span&gt; me
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;text ~/*.txt &lt;span class="o"&gt;{&lt;/span&gt;a,b&lt;span class="o"&gt;}&lt;/span&gt; foo &lt;span class="m"&gt;4&lt;/span&gt; me
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;text ~/*.txt &lt;span class="o"&gt;{&lt;/span&gt;a,b&lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="k"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; foo&lt;span class="k"&gt;)&lt;/span&gt; &lt;span class="k"&gt;$((&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="k"&gt;))&lt;/span&gt; &lt;span class="nv"&gt;$USER&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/Dz8grNd6/Captura-de-pantalla-de-2020-11-16-08-46-57.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Como podemos ver, con cada nivel sucesivo de entrecomillado, se van suprimiendo más expansiones.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="caracteres-de-escape"&gt;
+Caracteres de escape
+&lt;a href="#caracteres-de-escape" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Algunas veces sólo queremos entrecomillar un único carácter. Para hacerlo, podemos preceder un carácter con una barra invertida, que en este contexto se llama carácter de escape. A menudo se hace dentro de las comillas dobles para prevenir selectivamente una expansión:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;The balance for user &lt;/span&gt;&lt;span class="nv"&gt;$USER&lt;/span&gt;&lt;span class="s2"&gt; is: &lt;/span&gt;&lt;span class="nv"&gt;$5&lt;/span&gt;&lt;span class="s2"&gt;.00&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;The balance &lt;span class="k"&gt;for&lt;/span&gt; user me is: &lt;span class="nv"&gt;$5&lt;/span&gt;.00
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;También es común usar caracteres de escape para eliminar el significado especial de un carácter en un nombre de archivo. Por ejemplo, es posible usar caracteres en nombres de archivo que normalmente tienen un significado especial para el shell. Esto incluye “$”, “!”, “&amp;amp;”, “ “, y otros. Para incluir un carácter especial en un nombre de archivo puedes hacer esto:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mv bad&lt;span class="se"&gt;\&amp;amp;&lt;/span&gt;filename good_filename
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Para permitir que la barra invertida aparezca, la “escapamos” escribiendo “\\”. Fíjate que dentro de las comillas simples, la barra invertida pierde su significado especial y se trata como un carácter ordinario.&lt;/p&gt;</description></item><item><title>Subproceso dpkg devolvió el código de salida de error</title><link>https://patojad.com.ar/post/2020/04/subproceso-dpkg-devolvi%C3%B3-el-c%C3%B3digo-de-salida-de-error/</link><pubDate>Thu, 30 Apr 2020 09:26:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/04/subproceso-dpkg-devolvi%C3%B3-el-c%C3%B3digo-de-salida-de-error/</guid><description>&lt;p&gt;Es comun que durante las actualizaciones de version a version, o la instalacion de un paquete que no este en nuestros repositorios tengamos algun error en dpkg. Vamos a estar viendo una serie de soluciones a los errores mas comunes&amp;hellip;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="error-1"&gt;
+Error 1
+&lt;a href="#error-1" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Los paquetes tienen archivos que se &lt;strong&gt;sobrescriben&lt;/strong&gt;. Los paquetes tienen &lt;strong&gt;dependencias sin resolver&lt;/strong&gt;. Hay conflictos entre los paquetes. Un paquete no puede ser eliminado o modificado por dpkg. Solucion:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo echo &amp;quot;force-all&amp;quot; &amp;gt;/etc/dpkg/dpkg.cfg
+sudo apt-get -f install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="error-2"&gt;
+Error 2
+&lt;a href="#error-2" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Instalación de un &lt;strong&gt;paquete dañado&lt;/strong&gt;, vuelvo a intentar instalar y aptitude dice que &lt;strong&gt;ya está instalado&lt;/strong&gt;! Solución:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get remove paquete_dañado
+sudo apt-get update
+sudo apt-get clean
+sudo apt-get --reinstall install paquete
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="error-3"&gt;
+Error 3
+&lt;a href="#error-3" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Error de verificación de las &lt;strong&gt;llaves públicas GPG&lt;/strong&gt;(NO_PUBKEY)… Error muy comun de firmas de paquetes o repositorios. Solución:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get update
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Buscamos y copiamos el número de error que aparece en negrita.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;The following signatures couldn't be verified because the public key is not available: NO_PUBKEY **010908312D230C5F**
+There is no public key available for the following key IDs:**010908312D230C5F**
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Y luego ejecutamos el siguiente comando remplazando el id por el respectivo al de su errores&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;gpg --keyserver keyserver.ubuntu.com --recv **010908312D230C5F**
+gpg --export --armor **010908312D230C5F** | sudo apt-key add -
+sudo apt-get update
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Puede que el &lt;em&gt;keyserver no tengla la clave&lt;/em&gt;, hay que buscar el respectivo a su distro de ser asi&amp;hellip;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="error-4"&gt;
+Error 4
+&lt;a href="#error-4" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El &lt;strong&gt;subproceso post-installation script devolvió el código de salida de error&lt;/strong&gt; (cualquier error). Se encontraron errores al procesar: (nombre_paquete). Solución:&lt;/p&gt;
+&lt;p&gt;Determinamos el nombre del paquete que causó el error, por ejemplo, en el registro de a continuación, se muestra en negrita el nombre del paquete que causó el problema (xosview)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;newaliases: warning: valid_hostname: numeric hostname: 69522
+newaliases: fatal: bad parameter value: 69522
+dpkg: error processing xosview (–configure):
+subprocess post-installation script returned error exit status 75
+Errors were encountered while processing: **xosview**
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Después de haber determinado el nombre del paquete, ejecutamos los siguientes comandos cambiando la palabra &lt;strong&gt;xosview&lt;/strong&gt; por el nombre del paquete que causó el problema en nuestro caso:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo rm -f /var/lib/dpkg/info/xosview.post*
+sudo rm -f /var/lib/dpkg/info/xosview.pre*
+sudo apt-get -f install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="error-5"&gt;
+Error 5
+&lt;a href="#error-5" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Error mientras se &lt;strong&gt;elimina un paquete&lt;/strong&gt;. Solución:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo rm -f /var/lib/dpkg/info/paquete_defectuoso.post*
+sudo rm -f /var/lib/dpkg/info/paquete_defectuoso.pre*
+sudo apt-get remove paquete_defectuoso
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="error-6"&gt;
+Error 6
+&lt;a href="#error-6" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Error en &lt;strong&gt;/var/lib/dpkg/status&lt;/strong&gt;. Solución:&lt;/p&gt;
+&lt;p&gt;Normalmente se soluciona así:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo cp /var/lib/dpkg/status-old /var/lib/dpkg/status
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Si esto no soluciona el problema, ver &lt;strong&gt;Error 7&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="error-7"&gt;
+Error 7
+&lt;a href="#error-7" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Persiste el problema anterior o problema con apt-get que contiene muchos repositorios o &lt;strong&gt;Error out of room&lt;/strong&gt;. Solución:&lt;/p&gt;
+&lt;p&gt;El problema puede parecerse a esto:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;E: Dynamic MMap ran out of room
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Editamos el archivo apt.conf (recuerden cambiar gedit por el editor que tengan ustedes)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo gedit /etc/apt/apt.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Modificamos el &lt;strong&gt;tamaño de la caché&lt;/strong&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Apt::Cache-Limit “8388604″;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="error-8"&gt;
+Error 8
+&lt;a href="#error-8" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Durante la descarga algunos archivos &lt;strong&gt;no se encuentran disponibles&lt;/strong&gt;. Solución:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get update
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Si el problema persiste después de volver a intentar instalar los paquetes, revisa el archivo /etc/apt/sources.list.&lt;/p&gt;</description></item></channel></rss>

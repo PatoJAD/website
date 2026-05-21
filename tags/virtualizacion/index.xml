@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Virtualizacion on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/virtualizacion/</link><description>Recent content in Virtualizacion on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Wed, 10 Jun 2020 09:52:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/virtualizacion/index.xml" rel="self" type="application/rss+xml"/><item><title>Anbox ¿La solución definitiva?</title><link>https://patojad.com.ar/post/2020/06/anbox-la-soluci%C3%B3n-definitiva/</link><pubDate>Wed, 10 Jun 2020 09:52:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/06/anbox-la-soluci%C3%B3n-definitiva/</guid><description>&lt;p&gt;Parece que últimamente estoy haciendo saga de los mismos temas, pero esto suele pasar cuando uno investiga y busca nuevas alternativas, y hoy vamos a estar un poco cargaditos de críticas hacia ubuntu distro que yo no recomiendo pero admito que es muy buena para el target de usuarios al que apunta…&lt;/p&gt;
+&lt;p&gt;Ya ayer hablamos de Shashlik una app que nos permite ejecutar aplicaciones android en nuestro sistema operativo sin emularlo completamente, sin embargo esta aplicación se encuentra abandonada desde 2016, y si bien aún puede levantar aplicaciones sin problemas muchas veces lo ideal es mantenernos actualizados por seguridad y funcionalidad, por lo cual decidí traer su &lt;strong&gt;equivalente actualizado&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Sin embargo de esta app hay cosas que no me gustan aunque entiendo su decisión y es ahí donde vamos a &lt;strong&gt;bardear un poco&lt;/strong&gt; a Ubuntu así que… Vamos a eso!&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="sobre-la-app"&gt;
+Sobre la app
+&lt;a href="#sobre-la-app" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Como dijimos anteriormente esta aplicación no utiliza QEMU ni ningún otro emulado para levantar una aplicación por lo cual mejora el rendimiento haciéndolo más &lt;strong&gt;PERFORMANTE&lt;/strong&gt; (Abrazo a todos los que me &lt;em&gt;bardearon&lt;/em&gt; de forma cariñosa por usar performante y les tengo que dar la derecha es una palabra que no existe pero que todo Linuxnauta entiende) Por lo cual lo vuelve una de las &lt;strong&gt;mejores opciones&lt;/strong&gt; porque sería una capa de compatibilidad (Como wine) que hace que nuestro sistema no baje el rendimiento bruscamente&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://c1.staticflickr.com/1/913/41527912900_68ce4a25d5_o.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Anbox es una solución &lt;strong&gt;convergente&lt;/strong&gt;. Funciona de igual forma en una computadora portátil y un teléfono móvil, siempre que ejecuten alguna variante de Linux, claramente. Sin ir muy lejos, los orígenes de esta iniciativa radica en &lt;strong&gt;Ubuntu Touch&lt;/strong&gt; por lo cual podemos ver hasta donde planean alcanzar la compatibilidad…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="su-lado-negativo-aprende-ubuntu"&gt;
+Su lado Negativo (Aprende Ubuntu)
+&lt;a href="#su-lado-negativo-aprende-ubuntu" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La instalación es directamente snap, esto es algo que no me agrada a simple vista dado que snap podría llegar reiterar librerias y demas sin ningun tipo de sentido al igual que sus hermanos como flatpack y demás…&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://cdn.lignux.com/wp-content/uploads/2018/07/anbox-1.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Sin embargo después de revisar cómo está implementado este increíble proyecto comprendí que es &lt;strong&gt;realmente importante&lt;/strong&gt; que esto sea así dado que necesita versiones muy específicas y una actualización podría llegar a rompernos todo y al ser una app tan delicada con una función tan importante (Piensen en un smart donde se use wpp laboralmente instalado en Anbox no debería romper nunca) por lo cual podemos decir que Anbox es &lt;strong&gt;un buen ejemplo&lt;/strong&gt; de cómo se debe usar snap&lt;/p&gt;
+&lt;p&gt;Ubuntu tomó la decisión de poner snap como defecto (Cosa que no quiero comentar mucho) Pero esto no está bueno porque desaprovechamos muchas cualidades de las bibliotecas compartidas. Está bien usar snap, pero en casos como los de Anbox.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación"&gt;
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Ahora el repo de la comunidad no pudo hacer nada por nosotros pero si podemos explicarte paso a paso cómo hacer para tener una instalación simple y funcional… Por lo cual vamos a proceder a eso:&lt;/p&gt;
+&lt;p&gt;Debemos agregar un repositorio que es una &lt;strong&gt;ppa&lt;/strong&gt;, pero con el fin de hacer mas lindo el tuto vamos a agregarlo &lt;em&gt;a mano&lt;/em&gt; de la siguiente forma&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; deb http://ppa.launchpad.net/morphis/anbox-support/ubuntu bionic main &lt;span class="p"&gt;|&lt;/span&gt; sudo tee /etc/apt/sources.list.d/anbox.list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Una vez que este agregado debemos agregar la &lt;strong&gt;clave pública&lt;/strong&gt; para poder acceder al repositorio y esto lo hacemos de la siguiente forma&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 21C6044A875B67B7
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Y teniendo esto ya estamos preparados para seguir con el siguiente paso! que es nada más ni nada menos que instalar &lt;strong&gt;los módulos del kernel&lt;/strong&gt;. Esto nos agrega 2 módulos que se actualizan automáticamente cuando se actualiza el kernel.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install anbox-modules-dkms
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Después de instalar el paquete anbox-modules-dkms, debe cargar manualmente los módulos del kernel. &lt;em&gt;La próxima vez que se inicie su sistema, se cargarán automáticamente&lt;/em&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo modprobe ashmem_linux
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo modprobe binder_linux
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://vidatecno.net/wp-content/uploads/2019/05/como-ejecutar-aplicaciones-android-en-ubuntu-linux-con-anbox-1.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Ahora debería tener dos nuevos nodos en su directorio de sistemas /dev el cual podemos probar con el siguiente comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ls -1 /dev/&lt;span class="o"&gt;{&lt;/span&gt;ashmem,binder&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Donde vamos a estar esperando una salida como la que vemos a continuación.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/dev/ashmem
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/dev/binder
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;El segundo paso &lt;em&gt;instalará el complemento Anbox&lt;/em&gt; de la tienda y le dará todo lo que necesita para ejecutar la experiencia completa de Anbox. Instalar el complemento de Anbox es muy simple:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo snap install --devmode --beta anbox
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Por el momento, requerimos el uso de &amp;ndash;devmode ya que el complemento de Anbox aún no está completamente limitado. Se ha comenzado a trabajar con el proyecto snapd upstream para obtener soporte para el confinamiento completo. Como efecto secundario del uso de &amp;ndash;devmode, el ajuste &lt;strong&gt;no se actualizará automáticamente&lt;/strong&gt;. Para actualizar a una versión más nueva, puede ejecutar:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo snap refresh --beta --devmode anbox
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalar-aplicaciones"&gt;
+Instalar aplicaciones
+&lt;a href="#instalar-aplicaciones" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://instatecno.com/wp-content/uploads/2020/02/Anbox-700x400.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Ya teniendo instalado Anbox tenemos que instalar aplicaciones, o mejor dicho queremos por lo cual debemos proseguir de la siguiente forma. Requerimos tener el adb instalado si no lo tenes podes hacerlo asi:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install android-tools-adb
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Anbox &lt;strong&gt;no proporciona ninguna funcionalidad para obtener aplicaciones de Android&lt;/strong&gt;. Necesitamos obtenerlos de una fuente en Internet. Una vez que tenga el paquete &lt;em&gt;APK&lt;/em&gt; para la aplicación, puede instalarlo en el contenedor de Android con el siguiente comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;adb install aplicacion.apk
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Si el contenedor de Anbox aún &lt;em&gt;no se está ejecutando&lt;/em&gt;, podemos comenzar cargando la aplicación del administrador de aplicaciones:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;anbox.appmgr
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Que es la Virtualizacion</title><link>https://patojad.com.ar/post/2020/02/que-es-la-virtualizacion/</link><pubDate>Tue, 18 Feb 2020 08:21:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/02/que-es-la-virtualizacion/</guid><description>&lt;p&gt;La virtualización de servidores, sistemas operativos y redes juega un papel fundamental tanto para los administradores de sistemas como para los expertos en seguridad informática. Para los primeros, los administradores de sistemas, les brinda una herramienta perfecta para separar unos servicios de otros y ganar en seguridad, ya que si un &amp;ldquo;hacker&amp;rdquo; compromete un servicio no tendrá acceso a todo el sistema.&lt;/p&gt;
+&lt;p&gt;Desde el punto del vista del &amp;ldquo;hacking ético&amp;rdquo; esta herramienta nos dará la posibilidad de crear entornos virtuales para poder hacer nuestras pruebas. Otra de las ventajas de la virtualización es que si quieres probar un sistema operativo antes de decidir si instalarlo en tu disco duro modificando el sistema de arranque podrás instalarlo sin necesidad de hacer ningún cambio en tu PC, tal y como si fuera un programa más.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-la-virtualización"&gt;
+¿Qué es la virtualización?
+&lt;a href="#qu%c3%a9-es-la-virtualizaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://blog.desdelinux.net/wp-content/uploads/2019/01/virtualbox-virtualizacion-importancia-blog-desdelinux-830x531.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;La virtualización consiste en términos generales en emular mediante algún programa o sistema un hardware sobre el que montar un servicio, servidor o red. De esta forma se crea lo que conocemos como una máquina virtual. Así, con un solo ordenador tu puedes crear varias máquinas virtuales e instalar en cada una de ellas el software (ya sea un windows, una distribución de Linux, o MacOS) que necesites para trabajar. Esto es realmente interesante no solo para el usuario que se dedica de forma profesional a la informática sino para todos los usuarios.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="por-qué-necesitamos-la-virtualización-como-pentesters"&gt;
+¿Por qué necesitamos la virtualización como pentesters?
+&lt;a href="#por-qu%c3%a9-necesitamos-la-virtualizaci%c3%b3n-como-pentesters" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En primer lugar vamos a necesitar vitualizar servidores para poder trabajarlos sin hacer cambios en nuestro equipo. Si nosotros pretendemos instalar cada servicio o porgrama en nuestro PC conseguiríamos que finalmente fuera lento e insostenible para trabajar. En cambio si nosotros instalamos el software que queremos en una máquina virtual nuestro pc no se resentirá, podremos trabajarlo como si lo estuvieramos instalando en un ordenador de pruebas sin comprometer la seguridad de nuestro equipo. Algo que a nosotros como pentesters debería ser una prioridad.&lt;/p&gt;
+&lt;p&gt;![](&lt;a href="https://lh3.googleusercontent.com/proxy/LxCYzwleqBmVFo4TXyqQ9Qa89B30L07--55TmGLLKlkBtGrGHAkxoWKDioNhh_jYpXT7LL7L7F3dTErXZvKa0XzP4-wnZCpBh7A9I6LCCW8dWn2MjO9JA7niVwV2CTMzaKWSIPV_4c0o8BK7Wo8VeA%22" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+https://lh3.googleusercontent.com/proxy/LxCYzwleqBmVFo4TXyqQ9Qa89B30L07--55TmGLLKlkBtGrGHAkxoWKDioNhh_jYpXT7LL7L7F3dTErXZvKa0XzP4-wnZCpBh7A9I6LCCW8dWn2MjO9JA7niVwV2CTMzaKWSIPV_4c0o8BK7Wo8VeA"
+&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;p&gt;Otra razón de peso para trabajar con máquinas virtuales en el entorno de intrusiones es que podremos instalarnos distribuciones de pentesting &amp;ldquo;profesional&amp;rdquo; como lo es Kali Linux (a fines practivos de esta saga es muy util) sin necesidad de instalarlo directamente en nuestro PC obligándonos a modificar el sistema de arranque. Aunque como pentester lo normal es que lo tengas instalado sin virtualizar, para empezar, y ver cómo trabajan estas distribuciones para pentester lo ideal es virtualizarlas, familiarizarse con su uso y finalmente acabar instalándola como sistema operativo arrancable.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ATENCION: Recuerden que a ducha distribucion no es recomendada, si nosotros buscamos aprender mas sobre todas las herramientas de intrusiones y demas es importante que aprendamos a compilar el codigo y no aceptemos binarios agenos, un buen &amp;ldquo;hacker&amp;rdquo; (notaran que esta palabra la pongo entre comillas porque me da gracia el mal uso que le estamos dando) siempre tiene sus propias herramientas bien seguras&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;También te pasará en multitud de ocasiones que quedrás auditar un programa en una versión concreta, en un entorno concreto. Gracias a la virtualización podrás crear ese entorno en tu PC y realizar todas las pruebas de pentesting que consideres necesarias realizar para finalmente aplicarlas en el entorno real si fuera necesario.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="ventajas-de-la-virtualización-para-administradores"&gt;
+Ventajas de la virtualización para administradores
+&lt;a href="#ventajas-de-la-virtualizaci%c3%b3n-para-administradores" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Como administrador de sistemas o redes trabajar virtualizando servidores, aplicaciones o servicios es una estrategía que cada día se está poniendo en práctica con más énfasis. Los beneficios de la virtualización para los administradores se pueden dividir en estos grupos:&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.letscloud.io/blog/wp-content/uploads/2019/07/tools-of-sys-admin.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;SEGURIDAD&lt;/strong&gt;. Supongamos que necesitas instalar un servidor LAMP (Linux, Apache, MySQL, PHP, esto es un servidor para montar páginas web) y un servidor de archivos puede optar por dos opciones. Instalar en un único servidor ambos servicios, LAMP y servicio para compartir archivos. Todo te funcionaría bien, ¿pero que ocurriría si un hacker encontrara una vulnerabilidad en tu web y pudiera tomar el control del servidor? Que no solo tendría acceso a los archivos de tu web, sino que también a todos los archivos que tienes compartidos, con lo cual desde un fallo en la web se ha comprometido todos los archivos de tue empresa.
+En cambio si se hubiera escogido una solución virutalizada se habría podido crear en el serivodor 2 máquinas virtuales. En la primera se instalaría el servidor LAMP, y en la segunda se instalaría el servidor de archivos. En este escenario el hacker que consiga encontrar una vulnerabilidad en la web solo tendría acceso a la máquina virtual que aloja el servidor LAMP. Y aunque habría conseguido comprometer tu web los archivos de tu empresa aún segurían aislados y seguros. Es por este motivo por el que para muchos admnistradores la solución ideal es crear una máquina virtual por cada servicio que tenga un riesgo medio/alto de ser vulnerado.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;BACKUPS&lt;/strong&gt;. La mayoría de los servicios que utilizamos hoy en día disponen de mecanismos para hacer copias de seguridad y poder restaurarlas en caso de fallos. Pero también es cierto que las copias de seguridad a veces no son completas, contienen datos pero no guardan configuraciones o perfiles específicos. Si utilizamos máqunias virtuales, nosotros podemos programar en el servidor de forma automática que cada día haga una copia de la máquina virtual, de modo que si queremos restaurar una copia de seguridad bastará con arrancar la máquina que tenemos copiada y funcionará sin tener que tomar ninguna medida más.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PROTECCIÓN CONTRA ERRORES HARDWARE&lt;/strong&gt;. Uno de los problemas que más daño pueden crear a un administrador de sistemas es que falle un componente crítico del servidor, la placa base por ejemplo. Si esto ocurre y hay que sustituir este elemento habrá que reinstalar todo el sistema operativo, configurarlo, instalar los programas, configurarlos y cargar las copias de seguridad para poder seguir trabajando. Todo esto tiene un coste en tiempo y esfuerzo bastante alto. Sin embargo si estamos trabajando con máquinas virtuales si falla el servidor podremos sustituirlo, copiarle las máquinas virtuales y arrancarlas. Esta solución no te llevará ni una décima parte de tiempo que si tuvieras que reconfigurarlo todo.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MIGRACIÓN DE SERVIDORES SIN RECONFIGURACIONES&lt;/strong&gt;. Aplicando lo dicho en el punto anterior te puedes dar cuenta de que si tu servidor se queda pequeño y necesitas uno mas grande tan solo necesitas conectarlo pasarle las máquinas virtuales y empezar a trabajar, sin necesidad de reconfigurar todo lo que tenías hecho en el servidor antiguo.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;REALIZAR PRUEBAS SIN RIESGO&lt;/strong&gt;. Una de las características más interesantes de la virtualización es que podemos hacer &amp;ldquo;puntos de retorno&amp;rdquo; o &amp;ldquo;Snapshots&amp;rdquo;. Esto significa que si nosotros estamos dudando sobre si instalar un programa o no, podemos crear un punto de retorno &amp;ldquo;snapshot&amp;rdquo;, instalar lo que necesitemos y si detectamos alguna incompatibilidad y creemos que lo mejor habría sido no instalarlo podemos volver al punto de retorno y la máquina virtual volverá al estado en el que hicimos el snapshot, sin quedar ningún rastro de todo lo que hayamos hecho tras el punto de retorno.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="en-el-dia-a-dia"&gt;
+En el dia a dia
+&lt;a href="#en-el-dia-a-dia" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Otro punto extra que nos ofrecen las máquinas virtuales es que como nos permiten virtualizar cualquier sistema operativo podemos tener un sistema operativo en el que no aparezcan datos sobre nosotros, no aparezca nuestro nombre real, y no hayamos introducido ningún dato personal nuestro. Con este sistema operativo &amp;ldquo;neutro&amp;rdquo; nosotros podemos navegar por internet sin dejar rastro de nuestro nombre.&lt;/p&gt;
+&lt;p&gt;En lo personal tambien lo utilizo para probar software que desarrollo o modifico sin afectar mi sistema base.&lt;/p&gt;
+&lt;p&gt;Por útimo y no menos importante a nosotros como usuarios de la red y programas a veces nos encontramos que no estamos seguros si algún programa trae malware incrustado, sospechamos quizá por la procedencia que el programa no está limpio, lo necesitamos y no sabemos que hacer. Si lo instalamos en nuestro ordenador tal cual corremos el riesgo de que quede infectado por el malware que traiga, si no lo instalamos no podemos hacer uso del programa. En este punto las máquinas virtuales también nos pueden resultar de gran ayuda ya que podemos instalar el programa dentro de la máquina virtual, analizar si traía malware y decidir si instalaro en nuestro sistema operativo de trabajo o dejarlo virtualizado.&lt;/p&gt;</description></item><item><title>¿Que es proxmox?</title><link>https://patojad.com.ar/post/2019/11/que-es-proxmox/</link><pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/11/que-es-proxmox/</guid><description>&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="proxmox-virtual-environment"&gt;
+Proxmox Virtual Environment
+&lt;a href="#proxmox-virtual-environment" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Proxmox Virtual Environment (También conocido como ProxmoxVE) es un entorno de virtualización de servidores de Código Abierto distribuido bajo la licencia GPL. Es, más bien, una distribución de GNU/Linux basados en nada más ni nada menos que la madre de todas las distros Debian, pero con la simple diferencia que su Kernel fue cambiado por una versión modificada del kernel de RHEL una distro enfocada en la nube y servidores.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="http://www.centrodeserviciosti.com.mx/wp-content/uploads/2018/02/proxmox4_webgui-1110x550.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Proxmox, a diferencia de otros, incluye una consola Web y herramienta de líneas de comando. También proporciona una API REST (que dicho sea de paso se puede testear con nuestra &lt;a href="https://rest.patojad.com.ar/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+restclient
+&lt;/a&gt;) para herramientas de terceros. Es compatible con dos tipos de virtualización:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Los contenedores LXC&lt;/li&gt;
+&lt;li&gt;Y la virtualización con KVM&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="historia"&gt;
+Historia
+&lt;a href="#historia" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;El desarrollo de Proxmox VE empezó cuando Dietmar y Martin Maurer, dos desarrolladores de Linux, encontraron que OpenVZ no tenía ninguna herramienta de copias de seguridad y tampoco una GUI de administración. KVM fue apareciendo al mismo tiempo en Linux, y se añadió poco después. La primera versión pública tuvo lugar en abril de 2008, y la plataforma se ganó rápidamente atractivo uso. Fue una de las pocas plataformas en proporcionar soporte para contenedores fuera de lo común y una virtualización completa, administrado con una interfaz gráfica de usuario Web similares a las plataformas de ofertas comerciales.&lt;/p&gt;
+&lt;p style="text-align: right;"&gt;
+Wikipedia
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="características"&gt;
+Características
+&lt;a href="#caracter%c3%adsticas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://www.ochobitshacenunbyte.com/wp-content/uploads/2017/08/Proxmox-VE-5-0-destacado.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Proxmox destaca no solo por ser software libre, cosa que es muy importante sino también que salió al Mercado con mucha innovación y un nivel que hace frente a cualquier software privativo. Entre las cosas que se destacan la comunidad resalta:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Es de código abierto&lt;/li&gt;
+&lt;li&gt;Permite la migración en vivo&lt;/li&gt;
+&lt;li&gt;Dispone de una alta habilitación de puentes de red&lt;/li&gt;
+&lt;li&gt;Plantillas de construcción de SO&lt;/li&gt;
+&lt;li&gt;Copias de seguridad programadas&lt;/li&gt;
+&lt;li&gt;Herramientas de línea de comandos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Proxmox además de todo lo mencionado ya cuenta con mucha documentación. Y una comunidad muy activa. Dejamos también su &lt;a href="https://pve.proxmox.com/wiki/Main_Page" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Wiki
+&lt;/a&gt; una de las completas entre los proyectos de este alcance.&lt;/p&gt;</description></item></channel></rss>

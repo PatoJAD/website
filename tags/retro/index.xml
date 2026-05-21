@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Retro on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/retro/</link><description>Recent content in Retro on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Wed, 12 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/retro/index.xml" rel="self" type="application/rss+xml"/><item><title>RetroPie</title><link>https://patojad.com.ar/post/2018/12/retropie/</link><pubDate>Wed, 12 Dec 2018 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2018/12/retropie/</guid><description>&lt;p&gt;Muchos de nosotros crecimos con juegos de otra época, y tenemos cierta fidelidad a esos juegos. Soy de los que prefieren jugar al Pokemon Esmeralda al Pokemon GO. Y por suerte es algo que pude inculcar en mi familia. Siempre tenemos que volver a los orígenes.&lt;/p&gt;
+&lt;p&gt;En medio de esta &amp;ldquo;aventura&amp;rdquo; me encontre con el mundo feliz de &lt;em&gt;RetroPie&lt;/em&gt;, lo cual me permitió convertir mi PC en una consola retro para jugar con mi familia (con posibles peleas maritales ¡Luego de que te gana en el Street fighter!).&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/wBNvv4qp/Themes.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalación"&gt;
+Instalación
+&lt;a href="#instalaci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Según &lt;em&gt;RetroPie&lt;/em&gt; deberías usar Ubuntu pero personalmente recomiendo Debian (si usas Arch tenes una alternativa genial con RetroArch) esta me dio menos problemas. Actualmente lo monte en un Raspberry y en Mi pc on Deepin.&lt;/p&gt;
+&lt;p&gt;Iniciamos actualizando nuestro sistema operativo (Es importante que nada te bloquee mas adelante ninguna instalación asi que recomiendo tener todo actualizado correctamente!)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-get update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo apt-get upgrade
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Vamos a instalar algunas dependencias necesarias para iniciar&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt-get install -y git dialog unzip xmlstarlet
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Y ahora es donde uno agradece a la comunidad y al sistema Libre / OpenSource, la primera vez tuve dos horas buscando y compilando cosas para que quede todo ok, pero ahora hubo un loco que se dedicó a facilitarnos la vida y ¡Armo un script que soluciona todo con correrlo!. Por ende solo debemos descargar de su repositorio a dicho script:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git clone --depth&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; https://github.com/RetroPie/RetroPie-Setup.git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;¡ Y correrlo para que se instale todo!:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-zsh" data-lang="zsh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; RetroPie-Setup &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo ./retropie_setup.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Veremos una pantalla como esta:&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.postimg.cc/XYdSBRCQ/c4e3da42-79c4-11e6-82a8-026afa67801b.png" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Eligiendo solo Basic Install tenemos todo para iniciar a jugar (el proceso puede demorar mucho dependiendo de velocidad de internet). Para saber mas les dejo la documentación correspondiente (en Inglés) lugar de donde saque la informacion.&lt;/p&gt;</description></item></channel></rss>

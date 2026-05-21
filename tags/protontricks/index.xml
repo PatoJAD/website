@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Protontricks on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/protontricks/</link><description>Recent content in Protontricks on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Thu, 18 Jun 2020 08:04:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/protontricks/index.xml" rel="self" type="application/rss+xml"/><item><title>Como configurar Proton con Protontricks</title><link>https://patojad.com.ar/post/2020/06/como-configurar-proton-con-protontricks/</link><pubDate>Thu, 18 Jun 2020 08:04:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/06/como-configurar-proton-con-protontricks/</guid><description>&lt;p&gt;&lt;strong&gt;Proton&lt;/strong&gt; es la propuesta de Steam para ejecutar juegos de Windows desde Linux, pero no deja de ser un Wine optimizado por Valve y con una lista de con una lista de compatibilidad que va creciendo poco a poco.&lt;/p&gt;
+&lt;p&gt;Muchos conocen Winetricks, una herramienta &lt;em&gt;imprescindible&lt;/em&gt; para tunear Wine que nos ha facilitado las cosas entre otras alternativas como PlayOnLinux.&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://1.bp.blogspot.com/-aKkpJFMZfKk/XXzj8U5jyzI/AAAAAAAAdbA/Na65dUYJHigRbZ7_OKJoubCC7qaLAWxmwCLcBGAsYHQ/s320/Steam.png" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Pero ¿y si pudiéramos tener una herramienta parecida a Winetricks pero con perfiles al estilo de PlayonLinux dentro de Steam?&lt;/p&gt;
+&lt;p&gt;Claramente ya alguien se hizo esta pregunta, la compartió y diseño una respuesta: &lt;strong&gt;Protontricks&lt;/strong&gt; es la respuesta para hacer funcionar esos juegos que aún no están soportados de forma oficial por Steam.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="instalando-protontricks"&gt;
+Instalando Protontricks
+&lt;a href="#instalando-protontricks" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Para usar &lt;strong&gt;Protontricks&lt;/strong&gt; es necesario instalar algunas herramientas primero, así como &lt;strong&gt;Winetrick&lt;/strong&gt;, entre otras cosas. También es altamente recomendable que Instales y/o &lt;strong&gt;actualices los controladores de la GPU y Vulkan para mejor rendimiento&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Para arrancar vamos a instalar &lt;em&gt;PIP&lt;/em&gt;, &lt;em&gt;Git&lt;/em&gt; y &lt;em&gt;Winetricks&lt;/em&gt; en primer lugar, esto lo vamos a hacer de la siguiente forma:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt install python3-pip python3-setuptools python3-venv git winetricks
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A continuación vamos a Instalar Pipx. No es estrictamente necesario pero si es muy recomendado y en esta ocasión vamos a usarlo.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;python3 -m pip install --user pipx
+~/.local/bin/pipx ensurepath
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Para continuar vamos a &lt;em&gt;cerrar la terminal y la volvemos a abrir&lt;/em&gt; es necesario para que se apliquen los paths. A continuación de esto vamos a instalar &lt;strong&gt;Protontricks&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pipx install protontricks
+pipx upgrade protontricks
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Para instalar la última versión de desarrollo.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pipx install --spec git+https://github.com/Matoking/protontricks.git protontricks
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="hora-de-usarlo"&gt;
+Hora de Usarlo!
+&lt;a href="#hora-de-usarlo" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Primero instala el juego con &lt;strong&gt;SteamPlay&lt;/strong&gt; (Proton). A continuación buscaremos el APPID de la siguiente forma.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;protontricks -s JUEGO
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Esto nos mostrará la APPID de la siguiente forma:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Found the following games:
+JUEGO (NUMERO_APPID)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora instalamos los componentes necesarios para hacer funcionar ese juego como por ejemplo DirectX9.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;protontricks APPID d3dx9 d3dcompiler_43 win10
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Listo, con eso sería todo en principio, aunque hay que tener en cuenta que como sucedía en Wine, cada juego puede llegar a necesitar algunas modificaciones o instalar ciertos elementos para que funcione correctamente.&lt;/p&gt;
+&lt;p&gt;Para saber que componentes debes instalar busca el juego en &lt;a href="https://www.protondb.com/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+ProtonDB
+&lt;/a&gt; para ver las configuraciones de otros usuarios.&lt;/p&gt;
+&lt;p&gt;Fuente: Mis Juegos en Linux&lt;/p&gt;</description></item></channel></rss>

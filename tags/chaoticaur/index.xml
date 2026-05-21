@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Chaoticaur on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/chaoticaur/</link><description>Recent content in Chaoticaur on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Wed, 12 Jan 2022 09:45:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/chaoticaur/index.xml" rel="self" type="application/rss+xml"/><item><title>Instalar Chaotic AUR</title><link>https://patojad.com.ar/post/2022/01/instalar-chaotic-aur/</link><pubDate>Wed, 12 Jan 2022 09:45:00 +0000</pubDate><guid>https://patojad.com.ar/post/2022/01/instalar-chaotic-aur/</guid><description>&lt;p&gt;Chaotic es un repositorio que busca traer los paquetes de AUR, o al menos los de mayor uso desde el punto de vista del creador, para administrarlos de forma simple con pacman. Sin tener que instalar los AUR ni configurarlos y mucho menos usar los AURHelpers. Estos son algunos de los detalles a tener en cuenta sobre Chaotic:&lt;/p&gt;
+&lt;iframe src='https://www.youtube.com/embed/vZr3rN4_ZDc?rel=0' title="Video de Youtube"
+class="w-full h-auto rounded-xl aspect-video mb-3" allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;ul&gt;
+&lt;li&gt;La mayoría de los paquetes disponibles en este repositorio se crean automáticamente a partir de su paquete fuente AUR respectivo. Sin embargo, hay algunas excepciones, consulte &lt;a href="https://github.com/chaotic-aur/packages" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fab fa-github"&gt;&lt;/i&gt;&amp;nbsp;
+https://github.com/chaotic-aur/packages
+&lt;/a&gt; para averiguar cuáles.&lt;/li&gt;
+&lt;li&gt;El clúster de construcción principal es un nodo en el centro de datos de UFSCars que está alojado en San Carlos, San Paulo, Brazil.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="comandos"&gt;
+Comandos
+&lt;a href="#comandos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En el video muestro como se realiza y que podemos ver el resultado dentro de nuestros repositorios en &lt;strong&gt;pacman&lt;/strong&gt; por esto mismo voy a dejar a continuación los comandos.&lt;/p&gt;
+&lt;p&gt;Instalación o descarga de las Key del repositorio para chequear los paquetes:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pacman-key --lsign-key FBA220DFC880C036
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Instalación de los paquetes con pacman (En el video los instalo por separado, sin embargo el comando de abajo los instala a los dos juntos)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pacman -U &lt;span class="s1"&gt;&amp;#39;https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst&amp;#39;&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Por último tenemos que agregar el repositorio en la configuración de pacman. Para esto debemos editarla con permisos de administrador, por ejemplo de la siguiente manera &lt;code&gt;sudo nano /etc/pacman.conf&lt;/code&gt; y agregamos lo siguiente en la sección de repositorios:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cfg" data-lang="cfg"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;[chaotic-aur]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;Include&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;/etc/pacman.d/chaotic-mirrorlist&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="recomendaciones"&gt;
+Recomendaciones
+&lt;a href="#recomendaciones" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Las siguientes recomendaciones son propias de los desarrolladores de &lt;strong&gt;ChaoticAUR&lt;/strong&gt; con alguna que otra modificación:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Si sos usuario de powerpill y queres usarlo para realizar todas las descargas desde todos los mirrors se recomienda realizar la actualización de la siguiente manera:
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -Sy &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo powerpill -Su &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; paru -Su
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;Asegúrese de insertar todos los espejos en su pacman.conf o use caotic-mirrorlist con todos ellos activos si usa powerpill.&lt;/li&gt;
+&lt;li&gt;Si está utilizando otros repositorios de terceros, le recomendamos que coloque Chaotic-AUR antes que ellos en &lt;code&gt;/etc/pacman.conf&lt;/code&gt;. Dado que actualizamos la mayoría de los paquetes cada hora y seguimos los &lt;code&gt;PKGBUILD&lt;/code&gt; de &lt;strong&gt;AUR&lt;/strong&gt;, este repositorio es más adecuado como primera opción al descargar paquetes.&lt;/li&gt;
+&lt;li&gt;Si necesita omitir la actualización de un paquete para usar las creadas localmente (por ejemplo, con optimizaciones nativas), puede agregar &lt;code&gt;'IgnorePkg = ...'&lt;/code&gt; a la sección del repositorio en &lt;code&gt;/etc/pacman.conf&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Puede elegir el repositorio desde el que descargar un paquete de esta manera: &lt;code&gt;pacman -S chaotic-aur/dxvk-mingw-git&lt;/code&gt;. Algunos ayudantes de AUR también lo admiten, por ejemplo: &lt;code&gt;paru -S aur/firefox-hg&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="w-full rounded-xl bg-yellow-600/75 text-yellow-950 p-3 flex flex-row justify-center content-between"&gt;
+&lt;span class="fa fa-warning fa-5x p-3"&gt;&lt;/span&gt;
+&lt;p class="no-margin"&gt;Debe tener habilitado el repositorio multilib.&lt;/p&gt;
+&lt;/div&gt;</description></item></channel></rss>

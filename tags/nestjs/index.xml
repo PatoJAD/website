@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nestjs on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/nestjs/</link><description>Recent content in Nestjs on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Mon, 30 Mar 2026 14:31:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/nestjs/index.xml" rel="self" type="application/rss+xml"/><item><title>Arquitectura Orientada a Eventos (EDA) en 2026: Ventajas, Desventajas y Cuándo Usarla de Verdad</title><link>https://patojad.com.ar/post/2026/03/arquitectura-orientada-a-eventos-eda-en-2026-ventajas-desventajas-y-cu%C3%A1ndo-usarla-de-verdad/</link><pubDate>Mon, 30 Mar 2026 14:31:00 +0000</pubDate><guid>https://patojad.com.ar/post/2026/03/arquitectura-orientada-a-eventos-eda-en-2026-ventajas-desventajas-y-cu%C3%A1ndo-usarla-de-verdad/</guid><description>&lt;p&gt;Como arquitecto de soluciones, una de las preguntas que más me hacen es: “¿cuándo paso de microservicios a EDA?”. Hoy te respondo de forma clara y sin hype.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-realmente-la-arquitectura-orientada-a-eventos"&gt;
+¿Qué es realmente la Arquitectura Orientada a Eventos?
+&lt;a href="#qu%c3%a9-es-realmente-la-arquitectura-orientada-a-eventos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En EDA los servicios no se llaman directamente. En su lugar, &lt;strong&gt;publican eventos&lt;/strong&gt; (“esto pasó”) y otros servicios los consumen si les interesa. Todo fluye a través de un &lt;strong&gt;event bus&lt;/strong&gt; o broker.&lt;/p&gt;
+&lt;p&gt;Es como un tablero de anuncios: alguien pega un cartel y los interesados lo leen. Nadie llama por teléfono al que pegó el cartel.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="ventajas-por-qué-me-enamoré"&gt;
+Ventajas (por qué me enamoré)
+&lt;a href="#ventajas-por-qu%c3%a9-me-enamor%c3%a9" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Escalabilidad independiente&lt;/li&gt;
+&lt;li&gt;Resiliencia ante fallos&lt;/li&gt;
+&lt;li&gt;Desacoplamiento extremo&lt;/li&gt;
+&lt;li&gt;Facilidad para agregar nuevas funcionalidades&lt;/li&gt;
+&lt;li&gt;Asincronismo nativo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="desventajas-la-realidad-que-nadie-te-cuenta-en-las-charlas"&gt;
+Desventajas (la realidad que nadie te cuenta en las charlas)
+&lt;a href="#desventajas-la-realidad-que-nadie-te-cuenta-en-las-charlas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Mayor complejidad operativa&lt;/li&gt;
+&lt;li&gt;Debugging más difícil&lt;/li&gt;
+&lt;li&gt;Consistencia eventual (no inmediata)&lt;/li&gt;
+&lt;li&gt;Costo de infraestructura&lt;/li&gt;
+&lt;li&gt;Riesgo de sobreingeniería&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cuándo-sí-aplicarla"&gt;
+¿Cuándo SÍ aplicarla?
+&lt;a href="#cu%c3%a1ndo-s%c3%ad-aplicarla" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Úsala cuando:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Los procesos son naturalmente asíncronos&lt;/li&gt;
+&lt;li&gt;Necesitás escalar partes del sistema por separado&lt;/li&gt;
+&lt;li&gt;Los servicios deben evolucionar sin romperse mutuamente&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cuándo-no-aplicarla-regla-de-oro"&gt;
+¿Cuándo NO aplicarla? (regla de oro)
+&lt;a href="#cu%c3%a1ndo-no-aplicarla-regla-de-oro" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;No la uses si:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tu sistema es pequeño y simple&lt;/li&gt;
+&lt;li&gt;Necesitás respuestas inmediatas y consistencia fuerte&lt;/li&gt;
+&lt;li&gt;El equipo todavía no domina sistemas distribuidos&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Comparación rápida con microservicios&lt;/strong&gt; &lt;a href="https://patojad.com.ar/post/2026/02/arquitectura-de-microservicios-2026-qu%c3%a9-es-ventajas-desventajas-y-casos-reales/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+(ver el articulo anterior)
+&lt;/a&gt;:&lt;br&gt;
+En microservicios los servicios se llaman entre sí. En EDA gritan al vacío y los demás escuchan. Ambas arquitecturas pueden convivir perfectamente.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="dos-casos-reales-donde-la-apliqué"&gt;
+Dos casos reales donde la apliqué
+&lt;a href="#dos-casos-reales-donde-la-apliqu%c3%a9" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="pickit"&gt;
+PickIt
+&lt;a href="#pickit" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Teníamos escalabilidad rota y servicios tan acoplados que nadie entendía quién producía cada mensaje. Reorganicé todo creando conexiones únicas entre publishers y readers. El cambio fue brutal: escalamos sin drama.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="banco-del-sol"&gt;
+Banco del Sol
+&lt;a href="#banco-del-sol" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Las transacciones se caían por timeout aunque el pago ya se había procesado. La gente pagaba dos veces. Implementamos asincronismo completo. El frontend solo hacía polling para conocer el estado real. Problema resuelto.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La Arquitectura Orientada a Eventos no es mejor ni peor que otras. Es una herramienta más en tu caja. Usala con criterio y te va a salvar proyectos. Abusala y te va a complicar la vida.&lt;/p&gt;
+&lt;p&gt;¿En qué proyecto tuyo creés que EDA resolvería dolores de cabeza? Dejame tu caso en los comentarios.&lt;/p&gt;
+&lt;p&gt;¡Nos leemos en el próximo artículo!&lt;/p&gt;</description></item><item><title>Arquitectura de Microservicios 2026: Qué es, Ventajas, Desventajas y Casos Reales</title><link>https://patojad.com.ar/post/2026/02/arquitectura-de-microservicios-2026-qu%C3%A9-es-ventajas-desventajas-y-casos-reales/</link><pubDate>Mon, 16 Feb 2026 08:31:00 +0000</pubDate><guid>https://patojad.com.ar/post/2026/02/arquitectura-de-microservicios-2026-qu%C3%A9-es-ventajas-desventajas-y-casos-reales/</guid><description>&lt;p&gt;¿Monolito o microservicios? Esa es la pregunta que todo Solution Architect se hace cuando el sistema empieza a pesar. En este artículo te explico todo de forma clara, con ejemplos reales de mi paso por &lt;strong&gt;Accenture&lt;/strong&gt; y &lt;strong&gt;Coderhouse&lt;/strong&gt;, y con enfoque 100% práctico para quienes trabajamos con &lt;strong&gt;TypeScript, NestJS y Bun&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="qué-es-realmente-la-arquitectura-de-microservicios"&gt;
+¿Qué es realmente la Arquitectura de Microservicios?
+&lt;a href="#qu%c3%a9-es-realmente-la-arquitectura-de-microservicios" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Es un estilo arquitectónico donde una aplicación se compone de &lt;strong&gt;pequeños servicios independientes&lt;/strong&gt; que se comunican entre sí. Cada servicio:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tiene su propio código, base de datos y pipeline de CI/CD.&lt;/li&gt;
+&lt;li&gt;Resuelve &lt;strong&gt;una sola responsabilidad&lt;/strong&gt; (bounded context).&lt;/li&gt;
+&lt;li&gt;Se despliega, escala y versiona por separado.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Analogía 2026&lt;/strong&gt;: pensá en un delivery de comida. En vez de un solo delivery que hace todo, tenés riders especializados (uno solo pizzas, otro solo sushi). Cada uno es autónomo pero todos entregan a la misma app.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="ventajas-las-que-sí-se-sienten-en-producción"&gt;
+Ventajas (las que sí se sienten en producción)
+&lt;a href="#ventajas-las-que-s%c3%ad-se-sienten-en-producci%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Escalabilidad quirúrgica&lt;/strong&gt;: solo escalás el servicio que está en llamas.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Despliegues independientes&lt;/strong&gt;: liberás 10 veces por día sin miedo.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Equipos full-stack autónomos&lt;/strong&gt;: cada squad es dueño de su servicio.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tecnología poliglota&lt;/strong&gt;: NestJS + Bun en un servicio, Python en otro.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Resiliencia&lt;/strong&gt;: si un servicio cae, el resto sigue vivo (pattern Circuit Breaker).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="desventajas-la-parte-que-duele-y-nadie-filma-en-youtube"&gt;
+Desventajas (la parte que duele y nadie filma en YouTube)
+&lt;a href="#desventajas-la-parte-que-duele-y-nadie-filma-en-youtube" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Debugging distribuido (logs en 15 servicios distintos).&lt;/li&gt;
+&lt;li&gt;Latencia adicional por cada llamada HTTP/gRPC.&lt;/li&gt;
+&lt;li&gt;Consistencia eventual (adiós transacciones ACID fáciles).&lt;/li&gt;
+&lt;li&gt;Overhead operativo (Kubernetes, tracing, service mesh, monitoring).&lt;/li&gt;
+&lt;li&gt;Costo inicial alto: en Coderhouse tardamos 4 meses solo en configurar observabilidad.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="casos-reales-2026"&gt;
+Casos Reales 2026
+&lt;a href="#casos-reales-2026" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Netflix&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;+1000 microservicios. Zero downtime desde hace más de 10 años. Escalan recomendaciones solo los domingos.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Amazon&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Cada página del sitio es un microservicio. Esto les permitió crecer a escala planetaria.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cuándo-migrar-checklist-rápido"&gt;
+¿Cuándo migrar? Checklist rápido
+&lt;a href="#cu%c3%a1ndo-migrar-checklist-r%c3%a1pido" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;¿Tu monolito ya tiene +10 devs tocando los mismos archivos?&lt;/li&gt;
+&lt;li&gt;¿Tenés al menos 2 dominios claramente separados?&lt;/li&gt;
+&lt;li&gt;¿Estás dispuesto a invertir en observabilidad?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Si respondiste “sí” a las 3… es momento.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;¿Listo para empezar?&lt;/strong&gt;
+Descargá el &lt;a href="https://www.mediafire.com/file/3juqc1c9y7tq1dl/%25E2%259C%2585_Checklist_Microservicios_2026.pdf/file" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+&lt;strong&gt;Checklist Microservicios 2026&lt;/strong&gt; (PDF gratis)
+&lt;/a&gt; y el código de ejemplo NestJS en el repositorio del canal. ¿Monolito o microservicios en 2026? Dejame tu respuesta en los comentarios del video.&lt;/p&gt;</description></item><item><title>DianAlerts - Plataforma de alertas de vencimientos tributarios</title><link>https://patojad.com.ar/projects/dianalerts/</link><pubDate>Thu, 12 Feb 2026 00:00:00 -0500</pubDate><guid>https://patojad.com.ar/projects/dianalerts/</guid><description>&lt;p&gt;Se crea servicio CRM para sitio web al estilo SaaS de alertas de vencimientos tributarios&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sistema de gestion de usuarios&lt;/li&gt;
+&lt;li&gt;Auth y Roles&lt;/li&gt;
+&lt;li&gt;Gestion de Alertas&lt;/li&gt;
+&lt;li&gt;Gestion de Pagos&lt;/li&gt;
+&lt;li&gt;Calendarios tirbutarios&lt;/li&gt;
+&lt;li&gt;Integracion con pasarela de pagos&lt;/li&gt;
+&lt;li&gt;Configuracion de nginx&lt;/li&gt;
+&lt;li&gt;Despliegue en servidor Linux Ubuntu&lt;/li&gt;
+&lt;li&gt;Configuracion de dominio&lt;/li&gt;
+&lt;li&gt;Certificado SSL&lt;/li&gt;
+&lt;li&gt;Instalacion y Configuracion de aaPanel&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Se realiza la integracion con Template ReactJS:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dashboard&lt;/li&gt;
+&lt;li&gt;Paginas de gestion&lt;/li&gt;
+&lt;li&gt;Formularios&lt;/li&gt;
+&lt;li&gt;Tablas&lt;/li&gt;
+&lt;li&gt;Graficos&lt;/li&gt;
+&lt;li&gt;Notificaciones&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Gestion de Equipo de trabajo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Coordinacion de tareas&lt;/li&gt;
+&lt;li&gt;Revisión de código&lt;/li&gt;
+&lt;li&gt;Busqueda de Desarrolladores&lt;/li&gt;
+&lt;li&gt;Entrega y Despliegue&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Archivos de proyecto:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://alertri.online/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Sitio web del Proyecto
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Hydrogold - Plataforma de inversiones</title><link>https://patojad.com.ar/projects/hydrogold/</link><pubDate>Sun, 05 Oct 2025 00:00:00 -0500</pubDate><guid>https://patojad.com.ar/projects/hydrogold/</guid><description>&lt;p&gt;Se crea servicio CRM para sitio web de Inversion de Cryptos&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sistema de gestion de usuarios&lt;/li&gt;
+&lt;li&gt;Auth y Roles&lt;/li&gt;
+&lt;li&gt;Gestion de Inversiones&lt;/li&gt;
+&lt;li&gt;Gestion de Pagos&lt;/li&gt;
+&lt;li&gt;Integracion con pasarela de pagos&lt;/li&gt;
+&lt;li&gt;Configuracion de nginx&lt;/li&gt;
+&lt;li&gt;Despliegue en servidor Linux Ubuntu&lt;/li&gt;
+&lt;li&gt;Configuracion de dominio&lt;/li&gt;
+&lt;li&gt;Certificado SSL&lt;/li&gt;
+&lt;li&gt;Instalacion y Configuracion de aaPanel&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Se realiza la integracion con Template ReactJS:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dashboard&lt;/li&gt;
+&lt;li&gt;Paginas de gestion&lt;/li&gt;
+&lt;li&gt;Formularios&lt;/li&gt;
+&lt;li&gt;Tablas&lt;/li&gt;
+&lt;li&gt;Graficos&lt;/li&gt;
+&lt;li&gt;Notificaciones&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Gestion de Equipo de trabajo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Coordinacion de tareas&lt;/li&gt;
+&lt;li&gt;Revisión de código&lt;/li&gt;
+&lt;li&gt;Busqueda de Desarrolladores&lt;/li&gt;
+&lt;li&gt;Entrega y Despliegue&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Archivos de proyecto:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://hydrogold.io/" target="_blank" rel="noopener noreferrer" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-up-right-from-square"&gt;&lt;/i&gt;&amp;nbsp;
+Sitio web del Proyecto
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>¿Que es TypeScript? ¿En que se parece a JavaScript?</title><link>https://patojad.com.ar/post/2023/03/que-es-typescript-en-que-se-parece-a-javascript/</link><pubDate>Fri, 17 Mar 2023 09:40:00 +0000</pubDate><guid>https://patojad.com.ar/post/2023/03/que-es-typescript-en-que-se-parece-a-javascript/</guid><description>&lt;p&gt;&lt;strong&gt;TypeScript&lt;/strong&gt; es un &lt;em&gt;subconjunto azúcar sintáctico&lt;/em&gt; de &lt;strong&gt;JavaScript&lt;/strong&gt;. Básicamente es un código que transpila a &lt;strong&gt;JavaScript&lt;/strong&gt; y tiene como fin formalizar un poco los lineamientos a la hora de desarrollar con este lenguaje.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="principales-diferencias"&gt;
+Principales diferencias
+&lt;a href="#principales-diferencias" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Podemos situar grandes diferencias entre estos lenguajes pero para eso debemos entender que al momento de ejecución ambos terminan siendo &lt;strong&gt;JavaScript&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Objetos:&lt;/strong&gt; Si bien en &lt;strong&gt;JavaScript&lt;/strong&gt; podemos usar objetos y clases no son su mayor fuerte, sin embargo en &lt;strong&gt;TypeScript&lt;/strong&gt; vamos a estar programando Orientado a Objetos y este puede ser un punto fuerte para elegir, si lo que vamos a estar haciendo va a ser en POO &lt;strong&gt;TypeScript&lt;/strong&gt; es una gran opción.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Compilación:&lt;/strong&gt; Mientras que &lt;strong&gt;JavaScript&lt;/strong&gt; es interpretado &lt;strong&gt;TypeScript&lt;/strong&gt; requiere un proceso de &lt;em&gt;“compilación”&lt;/em&gt; (o mejor dicho transpilación) donde el código de &lt;strong&gt;TypeScript&lt;/strong&gt; se convierte en código &lt;strong&gt;JavaScript&lt;/strong&gt; que luego será interpretado ya sea por el servidor o el cliente.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tipado:&lt;/strong&gt; Una de las flexibilidades más grandes de &lt;strong&gt;JavaScript&lt;/strong&gt; es su tipado dinámico, sin embargo en &lt;strong&gt;TypeScript&lt;/strong&gt; vamos a tener un tipado estático y fuerte (que para ser sinceros podemos flexibilizar sin problemas) pero esto nos permite disminuir la cantidad de errores en tiempo de ejecución por el tipado.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Curva de Aprendizaje:&lt;/strong&gt; Si bien &lt;strong&gt;TypeScript&lt;/strong&gt; es un subconjunto azúcar sintáctico de &lt;strong&gt;JavaScript&lt;/strong&gt; este es un poco más complejo de aprender, según la comunidad, que &lt;strong&gt;JavaScript&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cual-elegir"&gt;
+¿Cual Elegir?
+&lt;a href="#cual-elegir" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Es difícil poder definir cuál es la mejor opción sin tener un contexto. Siempre la mejor opción va a depender de nuestro expertis en cada uno, las necesidades del proyecto y los framework que vamos a estar utilizando. De todas formas a las diferencias que marcamos arriba voy a sumar, una serie de reglas que utilizo yo para definir, estas son solo en base a mi experiencia:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Tamaño del proyecto&lt;/em&gt;, si el proyecto es pequeño y rápido, bastará con usar &lt;strong&gt;JavaScript&lt;/strong&gt;, sin embargo en proyectos medianos y grandes &lt;strong&gt;TypeScript&lt;/strong&gt; puede ser más cómodo a largo plazo y ahorrar algunos dolores de cabeza.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Cantidad de miembros&lt;/em&gt;, si vamos a estar desarrollando nosotros solos &lt;strong&gt;JavaScript&lt;/strong&gt; puede resultar más práctico, pero si tenemos como objetivo que colaboren más personas &lt;strong&gt;TypeScript&lt;/strong&gt; puede ser muy bueno para manejar lineamientos similares y tener código más fácil de entender.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Compatibilidad&lt;/em&gt;, puede que &lt;strong&gt;TypeScript&lt;/strong&gt; no sea compatible con nuestro proyecto o la forma de encararlo, es una prueba interesante para tener en cuenta a la hora de elegirlo.&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

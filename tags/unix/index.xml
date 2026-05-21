@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Unix on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/unix/</link><description>Recent content in Unix on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Fri, 15 Mar 2024 18:34:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/unix/index.xml" rel="self" type="application/rss+xml"/><item><title>Explorando SystemD en el Mundo Linux: Críticas, Realidades y Controversias</title><link>https://patojad.com.ar/post/2024/03/explorando-systemd-en-el-mundo-linux-cr%C3%ADticas-realidades-y-controversias/</link><pubDate>Fri, 15 Mar 2024 18:34:00 +0000</pubDate><guid>https://patojad.com.ar/post/2024/03/explorando-systemd-en-el-mundo-linux-cr%C3%ADticas-realidades-y-controversias/</guid><description>&lt;p&gt;En el vasto y diverso ecosistema de Linux, cada componente del sistema es objeto de discusión y opinión, y el sistema de inicio no es la excepción. &lt;strong&gt;SystemD&lt;/strong&gt; ha sido un tema de controversia dentro de la comunidad, generando críticas y debates en línea. En este artículo, profundizaremos en qué es &lt;strong&gt;SystemD&lt;/strong&gt;, su evolución, y las razones detrás de las críticas que ha enfrentado.&lt;/p&gt;
+&lt;p&gt;Ya escribi algunos articulos planteando los problemas de &lt;strong&gt;SystemD&lt;/strong&gt; y las alternativas que existen, pero en esta ocasión quiero profundizar en el tema y explicar las razones de la resistencia que ha enfrentado &lt;strong&gt;SystemD&lt;/strong&gt;. Y la explicacion de las cosas buenas que tiene, porque no todo es malo.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2020/06/systemd-solucion-o-problema/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+SystemD ¿Solucion o Problema?
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://patojad.com.ar/post/2020/07/systemd-no-es-el-problema-respuesta-a-zatiel/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+¿SystemD no es el problema? Respuesta a Zatiel
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="desentrañando-systemd-y-su-rol-como-sistema-de-inicio"&gt;
+Desentrañando SystemD y su Rol como Sistema de Inicio
+&lt;a href="#desentra%c3%b1ando-systemd-y-su-rol-como-sistema-de-inicio" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En el corazón de todos los sistemas basados en Linux se encuentra un sistema de inicio, el primer proceso que entra en acción después de arrancar el sistema operativo. Este proceso trabaja en segundo plano, gestionando servicios y procesos esenciales. En este contexto, &lt;strong&gt;SystemD&lt;/strong&gt; se presenta como un sistema de inicio predominante en muchas distribuciones de Linux.&lt;/p&gt;
+&lt;p&gt;Iniciado en 2010 bajo el liderazgo de &lt;strong&gt;Red Hat&lt;/strong&gt; y &lt;strong&gt;Leonard Puttering&lt;/strong&gt;, &lt;strong&gt;SystemD&lt;/strong&gt; nació con la intención de reemplazar soluciones existentes como &lt;strong&gt;SysV&lt;/strong&gt; y &lt;strong&gt;Upstart&lt;/strong&gt;. Su enfoque principal era mejorar el rendimiento del sistema, acelerar los tiempos de arranque y reducir el consumo de recursos. Rápidamente, se convirtió en el sistema de inicio predeterminado para distros populares como &lt;em&gt;Fedora&lt;/em&gt;, &lt;em&gt;Arch Linux&lt;/em&gt;, &lt;em&gt;Debian&lt;/em&gt; y &lt;em&gt;Ubuntu&lt;/em&gt;, entre otras.&lt;/p&gt;
+&lt;p&gt;A pesar de su adopción generalizada, algunas distribuciones, como &lt;em&gt;Alpine Linux&lt;/em&gt;, &lt;em&gt;MX Linux&lt;/em&gt;, &lt;em&gt;&lt;a href="https://patojad.com.ar/post/2019/09/voidlinux-por-jos%c3%a9/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Void Linux
+&lt;/a&gt;&lt;/em&gt;, &lt;em&gt;&lt;a href="https://patojad.com.ar/post/2020/08/artix-linux/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+Artix
+&lt;/a&gt;&lt;/em&gt;, &lt;em&gt;&lt;a href="https://patojad.com.ar/post/2020/06/instalcion-milagros/" class="text-fuchsia-700 hover:text-fuchsia-800 dark:text-fuchsia-700 dark:hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+MilagOS
+&lt;/a&gt;&lt;/em&gt; y otras, han optado por no adoptar &lt;strong&gt;SystemD&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="explorando-las-razones-de-la-resistencia"&gt;
+Explorando las Razones de la Resistencia
+&lt;a href="#explorando-las-razones-de-la-resistencia" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="text-gray-500 text-3xl my-6" id="el-argumento-del-bloat"&gt;
+El Argumento del &amp;ldquo;Bloat&amp;rdquo;
+&lt;a href="#el-argumento-del-bloat" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Un argumento recurrente contra &lt;strong&gt;SystemD&lt;/strong&gt; es su expansión progresiva hacia funciones que tradicionalmente eran gestionadas por servicios individuales. Esta acumulación de características ha llevado a críticas sobre su conformidad con la filosofía &lt;strong&gt;UNIX&lt;/strong&gt;, que aboga por la simplicidad y la especialización de funciones.&lt;/p&gt;
+&lt;p&gt;Aunque &lt;strong&gt;SystemD&lt;/strong&gt; mantiene su modularidad (recordemos qeu son varios mini-binarios especificos), su crecimiento ha llevado a la percepción de ser una solución monolítica. Además, su actualización periódica y la adición de nuevas funciones pueden traducirse en un mayor uso de espacio y recursos, lo que preocupa a aquellos que buscan eficiencia (hablando en kb de recursos).&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="dependencia-omnipresente-y-restricciones-de-opciones"&gt;
+Dependencia Omnipresente y Restricciones de Opciones
+&lt;a href="#dependencia-omnipresente-y-restricciones-de-opciones" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;SystemD&lt;/strong&gt; se ha vuelto tan integral en muchos aspectos del sistema que su ausencia puede limitar la funcionalidad de otros componentes. Servicios como el inicio de sesión gráfico o la gestión de conexiones de red a menudo dependen de componentes de &lt;strong&gt;SystemD&lt;/strong&gt;. Aunque es posible prescindir de él, las distribuciones que optan por no implementarlo deben buscar, proporcionar y mantener alternativas.&lt;/p&gt;
+&lt;p&gt;No podemos culpar a los desarrolladres de las aplicaciones por usar el set de herramientas que les provee &lt;strong&gt;SystemD&lt;/strong&gt;. Sin embargo, esto puede ser un problema para aquellos que buscan una mayor diversidad de opciones. Aun asi, hay que entender que estos set de herramienta facilitan y simplifican el trabajo de los desarrolladores, permitiendoles enfocarse en la funcionalidad de sus aplicaciones.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="red-hat-como-dueño-de-systemd"&gt;
+Red Hat como &amp;ldquo;Dueño&amp;rdquo; de SystemD
+&lt;a href="#red-hat-como-due%c3%b1o-de-systemd" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Otra crítica común se dirige al hecho de que &lt;strong&gt;SystemD&lt;/strong&gt; es un proyecto de &lt;strong&gt;Red Hat&lt;/strong&gt;. Aunque comenzó como un proyecto de esta compañía, actualmente propiedad de IBM, algunas voces expresan preocupación sobre el control que una entidad única puede tener sobre la dirección del sistema de inicio en Linux. Las recientes transformaciones en la gestión de la comunidad por parte de &lt;strong&gt;Red Hat&lt;/strong&gt; han aumentado estas preocupaciones.&lt;/p&gt;
+&lt;p&gt;Aun asi, &lt;strong&gt;SystemD&lt;/strong&gt; es un proyecto de código abierto, y su desarrollo está abierto a la participación de la comunidad. Además, la adopción de &lt;strong&gt;SystemD&lt;/strong&gt; por parte de otras distribuciones, como Debian y Ubuntu, ha ayudado a mitigar estas preocupaciones dado que en la actualidad es un proyecto que va mas alla de &lt;strong&gt;Red Hat&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3 class="text-gray-500 text-3xl my-6" id="restricción-de-opciones-y-seguridad-del-sistema"&gt;
+Restricción de Opciones y Seguridad del Sistema
+&lt;a href="#restricci%c3%b3n-de-opciones-y-seguridad-del-sistema" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;SystemD&lt;/strong&gt; ha sido señalado como un factor que contribuye a la uniformidad en los sistemas Linux, restringiendo la diversidad de opciones. También se argumenta que su presencia crea un riesgo de seguridad, al ser un objetivo único para posibles ataques.&lt;/p&gt;
+&lt;p&gt;Sin embargo, defensores de &lt;strong&gt;SystemD&lt;/strong&gt; contrarrestan estas preocupaciones destacando su integración con el kernel de Linux y su eficiencia. Aseguran que, aunque puede haber un riesgo potencial debido a su ubicuidad, la confianza en un proyecto bien mantenido y ampliamente utilizado puede superar estos desafíos. Y es una realidad que &lt;strong&gt;SystemD&lt;/strong&gt; es un proyecto bien mantenido y ampliamente utilizado con un desarrollo activo.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;En resumen, las críticas hacia &lt;strong&gt;SystemD&lt;/strong&gt; abordan aspectos que van desde la filosofía &lt;strong&gt;UNIX&lt;/strong&gt; hasta preocupaciones sobre dependencias y seguridad. Aunque se presentan alternativas viables, la elección de utilizar &lt;strong&gt;SystemD&lt;/strong&gt; o no a menudo se reduce a la conveniencia, eficiencia y preferencias de cada usuario.&lt;/p&gt;</description></item><item><title>Redirección algunos usos</title><link>https://patojad.com.ar/post/2020/10/redirecci%C3%B3n-algunos-usos/</link><pubDate>Thu, 29 Oct 2020 09:04:00 +0000</pubDate><guid>https://patojad.com.ar/post/2020/10/redirecci%C3%B3n-algunos-usos/</guid><description>&lt;p&gt;Seguimos con el tema de la terminal y las salidas de las mismas. Te recomiendo personalmente leer la publicación anterior para poder aprovechar al máximo esta información.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="eliminando-salidas-innecesarias"&gt;
+Eliminando salidas innecesarias
+&lt;a href="#eliminando-salidas-innecesarias" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Algunas veces “el silencio es oro”, y no queremos la salida de un comando, sólo queremos ignorarla. Esto se aplica particularmente a los mensajes de estado y de error. El sistema proporciona una forma de hacerlo redireccionando la salida a un archivo especial llamado “dev/null” (del cual hablamos anteriormente). Este archivo es un dispositivo del sistema llamado un cubo de bits (bit bucket) que acepta entradas y no hace nada con ellas. Para suprimir los mensajes de error de un comando, hacemos esto:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ls -l /bin/usr 2&amp;gt; /dev/null
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="devnull-en-la-cultura-unix"&gt;
+/dev/null en la cultura Unix
+&lt;a href="#devnull-en-la-cultura-unix" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El cubo de bits es un antiguo concepto de Unix y, debido a su universalidad, ha aparecido en muchas partes de la cultura Unix. Cuando alguien dice que está enviando tus comentarios a /dev/null, ahora ya sabes lo que significa.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="redireccionando-la-entrada-estándar"&gt;
+Redireccionando la entrada estándar
+&lt;a href="#redireccionando-la-entrada-est%c3%a1ndar" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Hasta ahora, no hemos encontrado ningún comando que haga uso de la entrada estándar en la saga de publicaciones sobre la terminal (en realidad sí lo hemos hecho, pero revelaremos la sorpresa un poco más adelante), así que necesitamos presentar uno.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cat--concatenando-archivos"&gt;
+cat – Concatenando archivos
+&lt;a href="#cat--concatenando-archivos" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El comando cat lee uno o más archivos y los copia a la salida estándar de la siguiente forma:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cat [archivo...]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En la mayoría de los casos, puedes usarlo para mostrar archivos sin paginar, por ejemplo:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cat ls-output.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Mostrará el contenido del archivo ls-output.txt. cat a menudo se usa para mostrar archivos de texto cortos. Como cat puede aceptar más de un archivo como argumento, también se puede usar para unir archivos. Imagina que hemos descargado un gran archivo que ha sido dividido en múltiples partes (los archivos multimedia a menudo están divididos de esta forma en Usenet), y queremos unirlos de nuevo. Si los archivos se llamarán:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;movie.mpeg.001 movie.mpeg.002 ... movie.mpeg.099
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;podríamos unirlos de nuevo con este comando:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cat movie.mpeg.0* &amp;gt; movie.mpeg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Como los comodines siempre expanden sus resultados en orden, los argumentos se distribuirán en el orden correcto.&lt;/p&gt;
+&lt;p&gt;Todo esto está muy bien, pero ¿qué tiene esto que ver con la entrada estándar? Nada todavía, pero probamos algo más. Qué pasa si usamos “cat” sin argumentos:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cat
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;No ocurre nada, sólo se queda quieto como si se hubiera quedado colgado. Podría parecer eso, pero realmente está haciendo lo que se supone que debe hacer.&lt;/p&gt;
+&lt;p&gt;Si no le damos argumentos a cat, lee de la entrada estándar y como la entrada estándar está, por defecto, asignada al teclado, ¡está esperando a que tecleemos algo! Prueba a añadir el siguiente texto y pulsa Enter:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cat
+PatoJAD mi blog favorito https://patojad.com.ar/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora, pulsa Ctrl-d (es decir, mantén pulsada la tecla Ctrl y luego pulsa “d”) para decirle a cat que ha alcanzado el final del archivo (EOF – end of file) en la entrada estándar:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cat
+PatoJAD mi blog favorito https://patojad.com.ar/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Obteniendo una salida similar a:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;PatoJAD mi blog favorito https://patojad.com.ar/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;En ausencia de nombres de archivo como argumentos, cat copia la entrada estándar a la salida estándar, así que vemos nuestra línea de texto repetida. Podemos usar este comportamiento para crear archivos de texto cortos. Digamos que queremos crear un archivo llamado “lazy_dog.txt” conteniendo el texto de nuestro ejemplo. Podríamos hacer esto:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cat &amp;gt; lazy_dog.txt
+PatoJAD mi blog favorito https://patojad.com.ar/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Escribe el comando seguido del texto que queremos colocar en el archivo. Recuerda pulsar Ctrl-d al final. Usando la línea de comandos, ¡hemos implementado el procesador de texto más tonto del mundo! Para ver nuestros resultados, podemos usar cat para copiar de nuevo el archivo a stdout:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cat lazy_dog.txt
+PatoJAD mi blog favorito https://patojad.com.ar/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Ahora que sabemos cómo cat acepta la entrada estándar, además de nombres de archivo como argumentos, probemos redirigiendo la entrada estándar:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cat &amp;lt; lazy_dog.txt
+PatoJAD mi blog favorito https://patojad.com.ar/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Usando el operador de redirección “&amp;lt;”, hemos cambiado el origen de la entrada estándar del teclado al archivo lazy_dog.txt. Vemos que el resultado es el mismo que pasarle un nombre de archivo como argumento. Esto no es particularmente útil en comparación con pasar un nombre de archivo como argumento, pero sirve para demostrar el uso de un archivo como fuente de la entrada estándar. Otros comandos hacen un mejor uso de la entrada estándar, como veremos pronto.&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="tuberías-pipelines"&gt;
+Tuberías (Pipelines)
+&lt;a href="#tuber%c3%adas-pipelines" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La capacidad de los comandos de leer datos de la entrada estándar y mandarlos a la salida estándar la utiliza una característica del shell llamada tubería (pipeline). Usando el operador tubería “|” (la barra vertical), la salida estándar de un comando puede ser entubada o canalizada hacia la entrada estándar de otro:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;comando1 | comando2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Para demostrarlo plenamente, vamos a necesitar algunos comandos. ¿Recuerdas que dijimos que había uno que ya conocíamos que acepta entrada estándar? Es less. Podemos usar less para mostrar, página a página, la salida de cualquier comando que mande sus resultados a la salida estándar:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ls -l /usr/bin | less
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;¡Esto es extremadamente útil! Usando esta técnica, podemos examinar convenientemente la salida de cualquier comando que produzca salida estándar.&lt;/p&gt;</description></item><item><title>Linux, Un feliz Accidente</title><link>https://patojad.com.ar/post/2019/12/linux-un-feliz-accidente/</link><pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate><guid>https://patojad.com.ar/post/2019/12/linux-un-feliz-accidente/</guid><description>&lt;p&gt;Estos días navegando por reddit me encontré con una publicación que me llamo la atención abismalmente. Creo que puede llegar a ser realmente para todos los linuxnautas y por eso me sentí en la obligación de compartirla.&lt;/p&gt;
+&lt;p&gt;La publicación original es de Agustl y pueden encontrarla en su propio blog el cual recomiendo visitar. ¡También antes de leer esto les quiero comentar que la “traducción” que realice no es literal y pueden encontrar diferencias!&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="cómo-linus-torvalds-creó-accidentalmente-linux"&gt;
+Cómo Linus Torvalds creó accidentalmente Linux
+&lt;a href="#c%c3%b3mo-linus-torvalds-cre%c3%b3-accidentalmente-linux" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Rondando 1990 Linus Torvalds era un “infeliz” usuario de Minix. (Minix era un sistema operativo creado post Unix v7 para poder seguir enseñando sistemas operativos con una estructura similar a Unix. Recordemos que a partir de Unix v7 se prohibió su uso para la educación)&lt;/p&gt;
+&lt;p&gt;Después de poseer algunas computadoras “interesantes” (una VIC-20 y una Sinclair QL) Linux decidio ahorra para comprar una PC compatible con IBM, la cual traía, por supuesto, una versión de DOS, la cual Linus remplazo inmediatamente por su querido Minix.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Por &amp;ldquo;inmediatamente&amp;rdquo;, me refiero a &amp;ldquo;pasé la mayor parte de una semana instalándolo&amp;rdquo;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://i.pinimg.com/originals/51/7d/21/517d2182f230d4f686c85507b45c2d26.jpg" alt="" title=""
+loading="eager" fetchpriority="high" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Minix era un sistema operativo bastante popular, y gratuito. Lo cual es un combo realmente irresistible para un estudiante universitario que no tiene mucho dinero (Aquí me siento muy identificado). Linus había pedido por adelantado Minix y tardo un mes en llegarle los 16 disquets que contenían el sistema, los parches y los manuales. (Imaginen por un momento 16 la dimensión de eso, en esa época, claramente a mí me llevaría tal vez más de una semana instalarlo y configurarlo correctamente. Es incluso más difícil que hoy en día compilar un Linux con LFS)&lt;/p&gt;
+&lt;p&gt;Podemos decir que Linus era un hombre Feliz con Minix, pero sentía que algunas cosas le faltaban. Claramente como es Linus escribió lo suyo…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="el-inicio-del-accidente"&gt;
+El inicio del accidente
+&lt;a href="#el-inicio-del-accidente" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Su proyecto principal era un emulador de terminal, uno que pudiera usar en las maquinas de la universidad para que se conectaran entre si. Queria aprender sobre las entradas y salidas de su PC IBM, por lo cual decidio que su terminal trabajaba al nivel del Hardware, sin sistema operativo.
+Este emulador fue el inicio de Linux…&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="un-paso-mas"&gt;
+Un paso mas
+&lt;a href="#un-paso-mas" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Luego escribió un controlador de disco para poder guardar todo el trabajo que realizaba mientras no se encontraba en Minix. Hasta que finalmente su emulador de terminar pudo lanzar BASH (Me sorprende que BASH sea tan viejo). A esto Linux lo llamo su “gnu-emacs de programas de emulador de terminal”&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;gnu-emacs of terminal emulation programs&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;(en ingles suena mas bonito)&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="otoño-1991-la-caída"&gt;
+Otoño 1991 la caída
+&lt;a href="#oto%c3%b1o-1991-la-ca%c3%adda" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Linus considera dejar de lado su emulador de terminal. Estaba razonablemente feliz con este y hacia lo que necesitaba que haga, básicamente se aburrió de su proyecto, es común que a los desarrolladores nos aburran nuestros proyectos personales, más cuando creemos que son chicos, que poco es lo que podemos hacer por este proyecto.&lt;/p&gt;
+&lt;p&gt;Vale aclarar (fuera de post) que esto hace que grandes proyectos no vean la luz, los desarrolladores solemos perder algo de fe en nuestros proyectos y las comunidades no suelen ser muy cálidas (cuando las hay)&lt;/p&gt;
+&lt;h2 class="text-fuchsia-700 text-3xl my-6" id="el-accidente-oportuncrisis"&gt;
+El Accidente (Oportuncrisis)
+&lt;a href="#el-accidente-oportuncrisis" class="text-gray-500"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="flex flex-wrap justify-center"&gt;
+&lt;img src="https://k60.kn3.net/taringa/2/7/6/5/8/6/43/tinchocarajero/CE2.jpg" alt="" title=""
+loading="lazy" decoding="async"
+class="rounded-xl" /&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Entonces un triste dia, Linus &lt;strong&gt;elimino accidentalmente su partición de Minix&lt;/strong&gt;. En ese momento si bien Linux estaba naciendo el seguía utilizando Minix como entorno de desarrollo. Linux, en ese momento solo “servía” para leer emails y noticias desde el emulador de terminal. Luego del error (Que describe en la cita que esta abajo) Fue un punto de quiebre para la decisión que debería tomar, o tomar toda una semana nuevamente reinstalando Minix o retomar Linux reconociendo que era suficientemente bueno como para poder remplazar Minix. Desde ese momento escribió los programas para compilar Linux. Y cada vez que extrañaba algo de Minix solo lo agregaba a Linux.&lt;/p&gt;
+&lt;p&gt;De esta forma, y con un accidente Linux tuvo la oportunidad de nacer, ver la luz y ser uno de los grandes sistemas operativos de hoy en día.&lt;/p&gt;
+&lt;p&gt;En las propias palabras de Linus:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Back then, I was booting into Linux but used Minix as the main development environment. Most of what I was doing under Linux was reading email and news from the university’s computer via the terminal emulator I had written. The university computer was constantly busy, so I had written a program that auto-dialed into it. But in December, I mistakenly auto-dialed my hard disk instead of my modem. I was trying to auto-dial /dev/tty1 [&amp;hellip;]. But by mistake I auto-dialed /dev/hda1, which is the hard disk device. The end result was that I inadvertently overwrote some of the most critical parts of the partition where I had Minix. Yes, that meant I couldn’t boot Minix anymore.&lt;/p&gt;
+&lt;p&gt;That was the point where I had a decision to make: I could reinstall Minix, or I could bite the bullet and acknowledge that Linux was good enough that I didn’t need Minix. I would write the programs to compile Linux, under itself, and whenever I felt I needed Minix, I would just add the desired feature to Linux.&lt;/p&gt;
+&lt;p style="text-align: right;"&gt;
+Linus Torvalds
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;¿Quién sabe cuántos otros sistemas tienen historias similares? ¿O cuantas historias similares pasarán y nacerán nuevas cosas?&lt;/p&gt;</description></item></channel></rss>
