@@ -29,12 +29,28 @@
   <!-- Canonical -->
   <link rel="canonical" href="{{ .Permalink }}" />
 
+  <!-- Font preloads for self-hosted fonts -->
+  {{ $openSansLatin := resources.Get "fonts/open-sans/open-sans-latin-variable.woff2" }}
+  {{ $firaCodeLatin := resources.Get "fonts/fira-code/fira-code-latin-variable.woff2" }}
+  {{ with $openSansLatin }}<link rel="preload" href="{{ .RelPermalink }}" as="font" type="font/woff2" crossorigin />{{ end }}
+  {{ with $firaCodeLatin }}<link rel="preload" href="{{ .RelPermalink }}" as="font" type="font/woff2" crossorigin />{{ end }}
+  {{/* Publish all font files so they're available at their asset paths */}}
+  {{ range (slice "fonts/open-sans/open-sans-latin-variable.woff2" "fonts/open-sans/open-sans-latin-ext-variable.woff2" "fonts/open-sans/open-sans-latin-italic-variable.woff2" "fonts/open-sans/open-sans-latin-ext-italic-variable.woff2" "fonts/fira-code/fira-code-latin-variable.woff2" "fonts/fira-code/fira-code-latin-ext-variable.woff2") }}
+    {{ with resources.Get . }}{{ .Publish }}{{ end }}
+  {{ end }}
+
   <link rel="preconnect" href="https://i.postimg.cc" crossorigin />
   <link rel="dns-prefetch" href="https://i.postimg.cc" />
 
   <link rel="preconnect" href="https://ka-f.fontawesome.com" crossorigin />
   <link rel="dns-prefetch" href="https://ka-f.fontawesome.com" />
 
+
+  <!-- Critical CSS inlined for above-the-fold rendering -->
+  {{ with resources.Get "css/critical.css" }}
+  {{ $critical := . | minify }}
+  <style>{{ $critical.Content | safeCSS }}</style>
+  {{ end }}
 
   {{ $t := debug.Timer "tailwindcss" }}
   {{ with resources.Get "css/styles.css" }}
@@ -65,6 +81,17 @@
   <script defer src="https://kit.fontawesome.com/02f5a0ef7c.js" crossorigin="anonymous"></script>
 
   {{ partial "modules/head/seo.html" . }}
+
+<!-- Google Analytics 4 (GA4) -->
+  {{ with site.Config.Services.GoogleAnalytics.ID }}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ . }}');
+  </script>
+  {{ end }}
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2459752565912421"
   crossorigin="anonymous"></script>
