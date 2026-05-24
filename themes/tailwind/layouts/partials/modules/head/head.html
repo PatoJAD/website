@@ -26,6 +26,10 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href='https://i.postimg.cc/R0qWhL2J/icon-patojad.png' />
 
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#a21caf" />
+
   <!-- Canonical -->
   <link rel="canonical" href="{{ .Permalink }}" />
 
@@ -41,10 +45,6 @@
 
   <link rel="preconnect" href="https://i.postimg.cc" crossorigin />
   <link rel="dns-prefetch" href="https://i.postimg.cc" />
-
-  <link rel="preconnect" href="https://ka-f.fontawesome.com" crossorigin />
-  <link rel="dns-prefetch" href="https://ka-f.fontawesome.com" />
-
 
   <!-- Critical CSS inlined for above-the-fold rendering -->
   {{ with resources.Get "css/critical.css" }}
@@ -77,8 +77,19 @@
   {{ end }}
 
   {{ $t.Stop }}
-  <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin />
-  <script defer src="https://kit.fontawesome.com/02f5a0ef7c.js" crossorigin="anonymous"></script>
+
+  <!-- Self-hosted Font Awesome (subset: only icons used in templates) -->
+  {{ with resources.Get "css/vendor/fontawesome.css" }}
+  {{ if hugo.IsDevelopment }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}" />
+  {{ else }}
+  {{ with . | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" />
+  {{ end }}
+  {{ end }}
+  {{ end }}
+  <link rel="preload" href="/fonts/fontawesome/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/fontawesome/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin />
 
   {{ partial "modules/head/seo.html" . }}
 
@@ -93,6 +104,5 @@
   </script>
   {{ end }}
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2459752565912421"
-  crossorigin="anonymous"></script>
+{{/* AdSense moved to footer/scripts.html with requestIdleCallback lazy-loading (Req 20.1) */}}
 </head>

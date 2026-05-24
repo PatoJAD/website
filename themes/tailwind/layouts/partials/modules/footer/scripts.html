@@ -1,3 +1,4 @@
+{{/* Mermaid - loaded conditionally via ESM */}}
 {{ if .Store.Get "hasMermaid" }}
 <script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
@@ -5,6 +6,10 @@
 </script>
 {{ end }}
 
+{{/* ===== Main Bundle (async) =====
+     Core UX features needed for immediate interactivity:
+     search, mobile-menu, scroll-progress, darkmode, slides,
+     copy-code, back-to-top, lightbox, toc-scroll-spy, viewport-animations */}}
 {{ $fusejs := resources.GetRemote "https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" }}
 {{ $embla := resources.GetRemote "https://unpkg.com/embla-carousel/embla-carousel.umd.js" }}
 {{ $emblaAutoplay := resources.GetRemote "https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js" }}
@@ -13,16 +18,59 @@
 {{ $scrollProgress := resources.Get "js/scroll-progress.js" }}
 {{ $darkMode := resources.Get "js/darkmode.js" }}
 {{ $slides := resources.Get "js/slides.js" }}
+{{ $copyCode := resources.Get "js/copy-code.js" }}
+{{ $backToTop := resources.Get "js/back-to-top.js" }}
+{{ $lightbox := resources.Get "js/lightbox.js" }}
+{{ $tocScrollSpy := resources.Get "js/toc-scroll-spy.js" }}
+{{ $viewportAnimations := resources.Get "js/viewport-animations.js" }}
 
-{{- $opts := dict "minify" hugo.IsProduction -}}
+{{ $mainBundle := slice $fusejs $embla $emblaAutoplay $search $mobileMenu $scrollProgress $darkMode $slides $copyCode $backToTop $lightbox $tocScrollSpy $viewportAnimations | resources.Concat "/js/vendor.js" | minify | fingerprint "sha512" }}
+<script async src="{{ $mainBundle.RelPermalink }}"></script>
 
-{{ $fullscript := slice $fusejs $embla $emblaAutoplay $search $mobileMenu $scrollProgress $darkMode $slides | resources.Concat "/js/vendor.js" |
-minify | fingerprint "sha512" }}
-<script async src="{{ $fullscript.RelPermalink }}"></script>
+{{/* ===== Deferred Bundle (defer) =====
+     Engagement features that can wait until after HTML parsing:
+     newsletter, exit-intent, cta-bar, load-more, push-notifications, easter-eggs */}}
+{{ $newsletter := resources.Get "js/newsletter.js" }}
+{{ $exitIntent := resources.Get "js/exit-intent.js" }}
+{{ $ctaBar := resources.Get "js/cta-bar.js" }}
+{{ $loadMore := resources.Get "js/load-more.js" }}
+{{ $pushNotifications := resources.Get "js/push-notifications.js" }}
+{{ $easterEggs := resources.Get "js/easter-eggs.js" }}
 
+{{ $deferredBundle := slice $newsletter $exitIntent $ctaBar $loadMore $pushNotifications $easterEggs | resources.Concat "/js/deferred.js" | minify | fingerprint "sha512" }}
+<script defer src="{{ $deferredBundle.RelPermalink }}"></script>
+
+{{/* ===== Lazy-loaded: Metricool (requestIdleCallback + defer behavior) ===== */}}
 <script>
-  function loadScript(a) {
-    var b = document.getElementsByTagName("head")[0], c = document.createElement("script"); c.type = "text/javascript", c.src = "https://tracker.metricool.com/resources/be.js", c.onreadystatechange = a, c.onload = a, b.appendChild(c)
+  function loadMetricool() {
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.defer = true;
+    s.src = 'https://tracker.metricool.com/resources/be.js';
+    s.onload = function() {
+      beTracker.t({ hash: "84604e10d6bc15fe3a0351ac81fb78b3" });
+    };
+    document.head.appendChild(s);
   }
-  loadScript(function () { beTracker.t({ hash: "84604e10d6bc15fe3a0351ac81fb78b3" }) });
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadMetricool);
+  } else {
+    setTimeout(loadMetricool, 2000);
+  }
+</script>
+
+{{/* ===== Lazy-loaded: Google AdSense (requestIdleCallback) ===== */}}
+<script>
+  function loadAdSense() {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2459752565912421';
+    s.crossOrigin = 'anonymous';
+    document.head.appendChild(s);
+  }
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadAdSense);
+  } else {
+    setTimeout(loadAdSense, 2000);
+  }
 </script>
