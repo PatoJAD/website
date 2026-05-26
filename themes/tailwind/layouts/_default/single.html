@@ -1,7 +1,12 @@
 {{ define "main" }}
 
-<div class="flex flex-col justify-center items-center px-12 m-auto">
-  <div class="grid grid-cols-1 md:grid-cols-3 py-44 w-full">
+<div class="flex flex-col justify-center items-center px-6 max-w-[1400px] m-auto pt-28">
+  {{- if and (eq .Section "posts") .Params.categories -}}
+  <div class="w-full px-3 mb-2">
+    {{ partial "components/breadcrumbs.html" . }}
+  </div>
+  {{- end -}}
+  <div class="grid grid-cols-1 md:grid-cols-3 w-full">
     <div id="information" class="col-span-2 w-full px-3 mb-4">
 
       {{ if eq .Params.type "video" }}

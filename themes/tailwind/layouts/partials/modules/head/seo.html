@@ -107,12 +107,12 @@
 <meta name="twitter:card" content="{{ default `summary_large_image` .Site.Params.opengraph.twitter.card }}" />
 <meta name="twitter:image" content="{{ .Params.img }}" />
 <meta itemprop="image" property="image" content="{{ .Params.img }}">
-<!-- QQ/Wechat description -->
 {{- else -}}
-<meta property="og:image" content="https://joaquindecima.gitlab.io/img/profile.webp" />
+{{- $ogImage := partial "modules/head/og-image.html" . -}}
+<meta property="og:image" content="{{ $ogImage | absURL }}" />
 <meta name="twitter:card" content="{{ default `summary_large_image` .Site.Params.opengraph.twitter.card }}" />
-<meta name="twitter:image" content="https://joaquindecima.gitlab.io/img/profile.webp" />
-<meta itemprop="image" property="image" content="https://joaquindecima.gitlab.io/img/profile.webp">
+<meta name="twitter:image" content="{{ $ogImage | absURL }}" />
+<meta itemprop="image" property="image" content="{{ $ogImage | absURL }}">
 {{- end -}}
 
 <meta name="ocs-site-verification" content="a5e3afcef7360a66c1b061fecc169ef1" />
@@ -122,30 +122,127 @@
 <meta name="googlebot" content="index,follow" /><!-- Google Specific -->
 <meta name="google-adsense-account" content="ca-pub-2459752565912421">
 
+<!-- JSON-LD Structured Data -->
+{{- if .IsHome }}
+{{- $schema := dict
+  "@context" "https://schema.org"
+  "@type" "WebSite"
+  "name" .Site.Title
+  "url" (.Site.BaseURL | strings.TrimSuffix "/")
+  "description" .Site.Params.description
+  "inLanguage" (.Site.LanguageCode | default "es")
+  "publisher" (dict
+    "@type" "Organization"
+    "name" .Site.Title
+    "url" (.Site.BaseURL | strings.TrimSuffix "/")
+    "logo" (dict
+      "@type" "ImageObject"
+      "url" "https://joaquindecima.gitlab.io/img/profile.webp"
+    )
+  )
+  "potentialAction" (dict
+    "@type" "SearchAction"
+    "target" (dict
+      "@type" "EntryPoint"
+      "urlTemplate" (printf "%s?q={search_term_string}" (.Site.BaseURL | strings.TrimSuffix "/"))
+    )
+    "query-input" "required name=search_term_string"
+  )
+-}}
 <script type="application/ld+json">
-{
-    "@context" : "http://schema.org",
-    "@type" : "BlogPosting",
-    "mainEntityOfPage": {
-         "@type": "WebPage",
-         "@id": "{{ .Site.BaseURL }}"
-    },
-    "articleSection" : "{{ .Section }}",
-    "name" : "{{ .Title }}",
-    "headline" : "{{ .Title }}",
-    // "description" : "{{ if .Description }}{{ .Description }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ end }}{{ end }}",
-    "description" : "{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}",
-    "inLanguage" : "{{ .Lang }}",
-    "author" : "{{ range .Site.Params.Author }}{{ . }}{{ end }}",
-    "creator" : "{{ range .Site.Params.Author }}{{ . }}{{ end }}",
-    "publisher": "{{ range .Site.Params.Author }}{{ . }}{{ end }}",
-    "accountablePerson" : "{{ range .Site.Params.Author }}{{ . }}{{ end }}",
-    "copyrightHolder" : "{{ range .Site.Params.Author }}{{ . }}{{ end }}",
-    "copyrightYear" : "{{ .Date.Format "2006" }}",
-    "datePublished": "{{ .Date | safeHTML }}",
-    "dateModified" : "{{ .Date | safeHTML }}",
-    "url" : "{{ .Permalink }}",
-    "wordCount" : "{{ .WordCount }}",
-    "keywords" : [ {{ if isset .Params "tags" }}{{ range .Params.tags }}"{{ . }}",{{ end }}{{ end }}"Blog" ]
-}
+{{- $schema | jsonify -}}
 </script>
+{{- else if .IsPage }}
+{{- $authorName := "" -}}
+{{- with .Site.Params.author -}}
+  {{- if reflect.IsMap . -}}
+    {{- $authorName = .name -}}
+  {{- else -}}
+    {{- $authorName = . -}}
+  {{- end -}}
+{{- end -}}
+{{- with .Params.author -}}
+  {{- $authorName = . -}}
+{{- end -}}
+{{- $image := "" -}}
+{{- with .Params.img -}}
+  {{- $image = . -}}
+{{- else -}}
+  {{- $image = (partial "modules/head/og-image.html" $) | absURL -}}
+{{- end -}}
+{{- $desc := .Site.Params.description -}}
+{{- with .Description -}}
+  {{- $desc = . -}}
+{{- end -}}
+{{- $keywords := slice -}}
+{{- range .Params.tags -}}
+  {{- $keywords = $keywords | append . -}}
+{{- end -}}
+{{- $schema := dict
+  "@context" "https://schema.org"
+  "@type" "BlogPosting"
+  "mainEntityOfPage" (dict
+    "@type" "WebPage"
+    "@id" .Permalink
+  )
+  "headline" .Title
+  "description" $desc
+  "image" (dict
+    "@type" "ImageObject"
+    "url" $image
+  )
+  "datePublished" (.Date.Format "2006-01-02T15:04:05-07:00")
+  "dateModified" (.Lastmod.Format "2006-01-02T15:04:05-07:00")
+  "wordCount" .WordCount
+  "inLanguage" (.Lang | default "es")
+  "author" (dict
+    "@type" "Person"
+    "name" $authorName
+    "url" (.Site.BaseURL | strings.TrimSuffix "/")
+  )
+  "publisher" (dict
+    "@type" "Organization"
+    "name" .Site.Title
+    "url" (.Site.BaseURL | strings.TrimSuffix "/")
+    "logo" (dict
+      "@type" "ImageObject"
+      "url" "https://joaquindecima.gitlab.io/img/profile.webp"
+    )
+  )
+  "articleSection" .Section
+  "keywords" $keywords
+-}}
+<script type="application/ld+json">
+{{- $schema | jsonify -}}
+</script>
+{{- else }}
+{{- $desc := .Site.Params.description -}}
+{{- with .Description -}}
+  {{- $desc = . -}}
+{{- end -}}
+{{- $schema := dict
+  "@context" "https://schema.org"
+  "@type" "CollectionPage"
+  "name" .Title
+  "url" .Permalink
+  "description" $desc
+  "inLanguage" (.Site.LanguageCode | default "es")
+  "isPartOf" (dict
+    "@type" "WebSite"
+    "name" .Site.Title
+    "url" (.Site.BaseURL | strings.TrimSuffix "/")
+  )
+  "publisher" (dict
+    "@type" "Organization"
+    "name" .Site.Title
+    "url" (.Site.BaseURL | strings.TrimSuffix "/")
+    "logo" (dict
+      "@type" "ImageObject"
+      "url" "https://joaquindecima.gitlab.io/img/profile.webp"
+    )
+  )
+-}}
+<script type="application/ld+json">
+{{- $schema | jsonify -}}
+</script>
+{{- end }}

@@ -1,0 +1,59 @@
+{{- $category := "" -}}
+{{- $categoryURL := "" -}}
+{{- if .Params.categories -}}
+  {{- $category = index .Params.categories 0 -}}
+  {{- $categoryURL = printf "/categories/%s/" (urlize $category) -}}
+{{- end -}}
+
+<!-- Visual Breadcrumbs -->
+<nav aria-label="Breadcrumb" class="text-sm text-zinc-400 mb-4">
+  <ol class="flex flex-wrap items-center gap-1">
+    <li>
+      <a href="/" class="hover:text-fuchsia-700 transition-colors duration-200">Inicio</a>
+    </li>
+    {{- if $category -}}
+    <li class="flex items-center gap-1">
+      <span class="text-zinc-600">&gt;</span>
+      <a href="{{ $categoryURL }}" class="hover:text-fuchsia-700 transition-colors duration-200">{{ $category }}</a>
+    </li>
+    {{- end -}}
+    <li class="flex items-center gap-1">
+      <span class="text-zinc-600">&gt;</span>
+      <span class="text-zinc-300">{{ .Title }}</span>
+    </li>
+  </ol>
+</nav>
+
+<!-- BreadcrumbList JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "{{ .Site.BaseURL }}"
+    }{{ if $category }},
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ $category }}",
+      "item": "{{ $categoryURL | absURL }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ .Title }}",
+      "item": "{{ .Permalink }}"
+    }{{ else }},
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ .Title }}",
+      "item": "{{ .Permalink }}"
+    }{{ end }}
+  ]
+}
+</script>

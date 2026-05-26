@@ -1,0 +1,37 @@
+{{/*
+  OG Image Generation Partial
+  
+  Determines the appropriate Open Graph image for the current page:
+  1. If the page has a custom .Params.img, use that (handled by caller)
+  2. If Hugo supports images.Text (0.104+), attempt to generate a branded OG image
+  3. Otherwise, fall back to the default branded OG image at /img/og-default.png
+  
+  Returns the OG image URL as a string.
+  
+  Requirements: 26.1, 26.2, 26.3, 26.4
+*/}}
+
+{{- $ogImageURL := "/img/og-default.png" -}}
+
+{{/* Try to generate a dynamic OG image with article title using Hugo image processing */}}
+{{- if .IsPage -}}
+  {{- $baseImage := resources.Get "img/og-base.png" -}}
+  {{- if and $baseImage (ge hugo.Version "0.104.0") -}}
+    {{/* Hugo 0.104+ supports images.Text filter for text overlay */}}
+    {{- $title := .Title | truncate 80 "..." -}}
+    {{- $textFilter := images.Text $title (dict
+      "color" "#ffffff"
+      "size" 48
+      "linespacing" 14
+      "x" 80
+      "y" 280
+    ) -}}
+    {{- $generated := $baseImage.Filter $textFilter -}}
+    {{- $ogImageURL = $generated.RelPermalink -}}
+  {{- else -}}
+    {{/* Fallback: use the static default branded OG image (1200x630) */}}
+    {{- $ogImageURL = "/img/og-default.png" -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return $ogImageURL -}}
