@@ -10,8 +10,8 @@
         {{ $formattedDate := .Date.Format "Friday, March 3, 2006" }}
         {{ $monthNumber := .Date.Month }} {{ $dayNumber := .Date.Weekday }}
         {{ if eq site.Language.Lang "es" }}
-        {{ $monthNumber = index site.Data.meses (printf "%d" .Date.Month) }}
-        {{ $dayNumber = index site.Data.dias (printf "%d" .Date.Weekday) }}
+        {{ $monthNumber = index (hugo.Data).meses (printf "%d" .Date.Month) }}
+        {{ $dayNumber = index (hugo.Data).dias (printf "%d" .Date.Weekday) }}
         {{ $formattedDate = delimit (slice $dayNumber (printf "%d" .Date.Day) "de" $monthNumber "de" (printf "%d"
         .Date.Year)) " "}}
         {{ end }}
@@ -121,8 +121,8 @@
           {{ $formattedDate := .Date.Format "Friday, March 3, 2006" }}
           {{ $monthNumber := .Date.Month }} {{ $dayNumber := .Date.Weekday }}
           {{ if eq site.Language.Lang "es" }}
-          {{ $monthNumber = index site.Data.meses (printf "%d" .Date.Month) }}
-          {{ $dayNumber = index site.Data.dias (printf "%d" .Date.Weekday) }}
+          {{ $monthNumber = index (hugo.Data).meses (printf "%d" .Date.Month) }}
+          {{ $dayNumber = index (hugo.Data).dias (printf "%d" .Date.Weekday) }}
           {{ $formattedDate = delimit (slice $dayNumber (printf "%d" .Date.Day) "de" $monthNumber "de" (printf "%d"
           .Date.Year)) " "}}
           {{ end }}

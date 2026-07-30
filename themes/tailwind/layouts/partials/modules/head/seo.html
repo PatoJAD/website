@@ -130,7 +130,7 @@
   "name" .Site.Title
   "url" (.Site.BaseURL | strings.TrimSuffix "/")
   "description" .Site.Params.description
-  "inLanguage" (.Site.LanguageCode | default "es")
+  "inLanguage" (.Site.Language.Locale | default "es")
   "publisher" (dict
     "@type" "Organization"
     "name" .Site.Title
@@ -226,7 +226,7 @@
   "name" .Title
   "url" .Permalink
   "description" $desc
-  "inLanguage" (.Site.LanguageCode | default "es")
+  "inLanguage" (.Site.Language.Locale | default "es")
   "isPartOf" (dict
     "@type" "WebSite"
     "name" .Site.Title
