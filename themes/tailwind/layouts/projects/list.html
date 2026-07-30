@@ -4,6 +4,9 @@
   <div class="grid grid-cols-1 py-12 w-full">
     <div id="information" class="w-full px-1 mb-4">
       <h1 class="text-4xl font-bold text-fuchsia-700 mb-6">{{ .Title }}</h1>
+
+      <div id="featured-github" class="mb-8"></div>
+
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 auto-rows-fr grid-flow-dense">
         {{ $paginator := .Paginate .Data.Pages.ByDate.Reverse }}
         {{ $pages := $paginator.Pages }}
@@ -14,12 +17,12 @@
             {{ $p.Render "project-card" }}
           </div>
         {{ end }}
-        
-        
       </div>
       {{- partial "components/pagination.html" . -}}
     </div>
   </div>
 </div>
 
+{{ $projectsJs := resources.Get "js/projects-github.js" | minify | fingerprint "sha512" }}
+<script src="{{ $projectsJs.RelPermalink }}" defer></script>
 {{ end }}
