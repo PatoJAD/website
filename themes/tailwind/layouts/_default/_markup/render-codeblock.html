@@ -1,0 +1,16 @@
+{{- $highlighted := transform.Highlight .Inner .Type -}}
+{{- $inner := $highlighted | string -}}
+{{- if hasPrefix $inner `<div class="highlight">` -}}
+  {{- $inner = strings.TrimPrefix `<div class="highlight">` $inner -}}
+  {{- $inner = strings.TrimSuffix `</div>` $inner -}}
+{{- end -}}
+<div class="highlight">
+  <div class="highlight-header flex flex-row justify-between">
+    <div>
+      <em class="fas fa-code me-2"></em>
+      {{- if .Type }}<span class="highlight-lang">{{ .Type }}</span>{{ end }}
+    </div>
+    <button type="button" class="copy-code-button background" aria-label="Copiar código" title="Copiar código"><em class="fas fa-copy"></em><em class="fas fa-check"></em><span>Copiar</span></button>
+  </div>
+  {{- $inner | safeHTML -}}
+</div>
