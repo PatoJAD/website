@@ -1,0 +1,268 @@
+{{ define "main" }}
+
+{{ $social := .Site.Params.social.main }}
+{{ $tg := "" }}
+{{ range $social }}{{ if eq .identifier "telegram" }}{{ $tg = .url }}{{ end }}{{ end }}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "PatoJAD",
+  "url": "{{ .Site.BaseURL }}",
+  "description": "Comunidad apasionada por la tecnología, el gaming, el hardware, el software y GNU/Linux. Contenido, tutoriales y proyectos open source.",
+  "sameAs": [
+    {{- $social := .Site.Params.social.main -}}
+    {{- range $i, $s := $social }}{{ if gt $i 0 }},{{ end }}
+    "{{ $s.url }}"{{- end -}}
+  ]
+}
+</script>
+
+<div class="flex flex-col items-center px-6 max-w-[1200px] m-auto pt-28">
+
+  {{/* ── Hero ── */}}
+  <div class="w-full px-3 mb-10 text-center">
+    <div class="text-sm text-fuchsia-400 uppercase tracking-widest mb-3">Media Kit</div>
+    <h1 class="text-5xl font-bold text-fuchsia-700 mb-4">Patrociná a PatoJAD</h1>
+    <div class="text-xl text-white/70 max-w-3xl mx-auto mb-8">
+      {{ .Content }}
+    </div>
+    <div class="flex flex-wrap justify-center gap-4">
+      {{ if $tg }}
+      <a href="{{ $tg }}" target="_blank" rel="noopener"
+         class="bg-fuchsia-700 hover:bg-fuchsia-600 text-white font-semibold rounded-xl px-8 py-3 transition-colors">
+        <em class="fab fa-telegram mr-2"></em>Hablemos de tu marca
+      </a>
+      {{ end }}
+      <a href="#stats-dashboard"
+         class="border border-fuchsia-700 text-fuchsia-600 hover:bg-fuchsia-700 hover:text-white font-semibold rounded-xl px-8 py-3 transition-colors">
+        <em class="fas fa-chart-line mr-2"></em>Ver audiencia en vivo
+      </a>
+    </div>
+  </div>
+
+  {{/* ── Audiencia en vivo ── */}}
+  <div class="w-full px-3 mb-12">
+    <div class="flex items-center mb-4">
+      <h2 class="text-3xl text-fuchsia-700 font-bold p-4">Audiencia en vivo</h2>
+      <hr class="w-full h-1 rounded-xl bg-fuchsia-700">
+    </div>
+    <p class="text-white/60 text-center mb-6">
+      Números públicos, actualizados en cada visita. Sin maquillar.
+    </p>
+    {{ partial "components/stats-dashboard.html" . }}
+  </div>
+
+  {{/* ── Contenido ── */}}
+  <div class="w-full px-3 mb-12">
+    <div class="flex items-center mb-8">
+      <h2 class="text-3xl text-fuchsia-700 font-bold p-4">Qué hacemos</h2>
+      <hr class="w-full h-1 rounded-xl bg-fuchsia-700">
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="background rounded-xl p-6 text-center">
+        <em class="fas fa-microchip text-4xl text-fuchsia-600 mb-4"></em>
+        <h3 class="text-lg font-bold text-white mb-2">Hardware</h3>
+        <p class="text-white/60 text-sm">Reviews y análisis de componentes y periféricos con pruebas reales.</p>
+      </div>
+      <div class="background rounded-xl p-6 text-center">
+        <em class="fas fa-gamepad text-4xl text-fuchsia-600 mb-4"></em>
+        <h3 class="text-lg font-bold text-white mb-2">Gaming</h3>
+        <p class="text-white/60 text-sm">Gaming en GNU/Linux, configuraciones y benchmarks de rendimiento.</p>
+      </div>
+      <div class="background rounded-xl p-6 text-center">
+        <em class="fas fa-laptop-code text-4xl text-fuchsia-600 mb-4"></em>
+        <h3 class="text-lg font-bold text-white mb-2">Software & Dev</h3>
+        <p class="text-white/60 text-sm">Tutoriales de programación y herramientas para desarrolladores.</p>
+      </div>
+      <div class="background rounded-xl p-6 text-center">
+        <em class="fas fa-cube text-4xl text-fuchsia-600 mb-4"></em>
+        <h3 class="text-lg font-bold text-white mb-2">Open Source</h3>
+        <p class="text-white/60 text-sm">Proyectos como Vasak-OS y la comunidad GNU/Linux argentina.</p>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-3 mt-8">
+      <span class="text-white/50 text-sm mr-2 self-center">Publicamos en:</span>
+      <a href="/posts" class="bg-zinc-800/50 border border-zinc-200/10 rounded-full px-4 py-1.5 text-sm text-white/80 hover:text-fuchsia-400 transition-colors">Blog</a>
+      <a href="https://www.youtube.com/channel/UCta4Iy4TzMx8Xo0pwpkbWgg" target="_blank" rel="noopener" class="bg-zinc-800/50 border border-zinc-200/10 rounded-full px-4 py-1.5 text-sm text-white/80 hover:text-fuchsia-400 transition-colors">YouTube</a>
+      <a href="https://www.tiktok.com/@patojadoficial" target="_blank" rel="noopener" class="bg-zinc-800/50 border border-zinc-200/10 rounded-full px-4 py-1.5 text-sm text-white/80 hover:text-fuchsia-400 transition-colors">TikTok</a>
+      <a href="https://www.instagram.com/patojadoficial/" target="_blank" rel="noopener" class="bg-zinc-800/50 border border-zinc-200/10 rounded-full px-4 py-1.5 text-sm text-white/80 hover:text-fuchsia-400 transition-colors">Instagram</a>
+      <a href="https://twitter.com/PatoJADOficial" target="_blank" rel="noopener" class="bg-zinc-800/50 border border-zinc-200/10 rounded-full px-4 py-1.5 text-sm text-white/80 hover:text-fuchsia-400 transition-colors">X</a>
+      <a href="https://t.me/PatoJADCommunity" target="_blank" rel="noopener" class="bg-zinc-800/50 border border-zinc-200/10 rounded-full px-4 py-1.5 text-sm text-white/80 hover:text-fuchsia-400 transition-colors">Telegram</a>
+      <a href="https://mastodon.social/@PatoJAD" target="_blank" rel="noopener" class="bg-zinc-800/50 border border-zinc-200/10 rounded-full px-4 py-1.5 text-sm text-white/80 hover:text-fuchsia-400 transition-colors">Mastodon</a>
+      <a href="https://www.twitch.tv/patojad" target="_blank" rel="noopener" class="bg-zinc-800/50 border border-zinc-200/10 rounded-full px-4 py-1.5 text-sm text-white/80 hover:text-fuchsia-400 transition-colors">Twitch</a>
+    </div>
+  </div>
+
+  {{/* ── Formatos ── */}}
+  <div class="w-full px-3 mb-12">
+    <div class="flex items-center mb-8">
+      <h2 class="text-3xl text-fuchsia-700 font-bold p-4">Formatos de patrocinio</h2>
+      <hr class="w-full h-1 rounded-xl bg-fuchsia-700">
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="background rounded-xl p-6">
+        <em class="fas fa-video text-3xl text-fuchsia-600 mb-4"></em>
+        <h3 class="text-lg font-bold text-white mb-2">Mención en video</h3>
+        <p class="text-white/60 text-sm mb-4">Tu producto protagonista en un video de YouTube de la temática.</p>
+        <p class="text-fuchsia-400 text-xs font-semibold">Incluye reporte de métricas</p>
+      </div>
+      <div class="background rounded-xl p-6">
+        <em class="fas fa-file-lines text-3xl text-fuchsia-600 mb-4"></em>
+        <h3 class="text-lg font-bold text-white mb-2">Post patrocinado</h3>
+        <p class="text-white/60 text-sm mb-4">Artículo técnico en el blog con review o guía de tu producto.</p>
+        <p class="text-fuchsia-400 text-xs font-semibold">Incluye reporte de métricas</p>
+      </div>
+      <div class="background rounded-xl p-6">
+        <em class="fas fa-bullhorn text-3xl text-fuchsia-600 mb-4"></em>
+        <h3 class="text-lg font-bold text-white mb-2">Campaña en redes</h3>
+        <p class="text-white/60 text-sm mb-4">Menciones coordinadas en X, Instagram, TikTok y Telegram.</p>
+        <p class="text-fuchsia-400 text-xs font-semibold">Incluye reporte de métricas</p>
+      </div>
+      <div class="background rounded-xl p-6">
+        <em class="fas fa-cube text-3xl text-fuchsia-600 mb-4"></em>
+        <h3 class="text-lg font-bold text-white mb-2">Sponsor de proyecto</h3>
+        <p class="text-white/60 text-sm mb-4">Patrocinio directo de un proyecto open source como Vasak-OS.</p>
+        <p class="text-fuchsia-400 text-xs font-semibold">Incluye crédito y enlaces</p>
+      </div>
+      <div class="background rounded-xl p-6">
+        <em class="fas fa-envelope-open text-3xl text-fuchsia-600 mb-4"></em>
+        <h3 class="text-lg font-bold text-white mb-2">Mensaje a la comunidad</h3>
+        <p class="text-white/60 text-sm mb-4">Difusión directa en el grupo y canal de Telegram.</p>
+        <p class="text-fuchsia-400 text-xs font-semibold">Incluye reporte de métricas</p>
+      </div>
+      <div class="background rounded-xl p-6">
+        <em class="fas fa-handshake text-3xl text-fuchsia-600 mb-4"></em>
+        <h3 class="text-lg font-bold text-white mb-2">Banner en el sitio</h3>
+        <p class="text-white/60 text-sm mb-4">Tu logo con enlace en la home, visible para toda la audiencia.</p>
+        <p class="text-fuchsia-400 text-xs font-semibold">Incluye reporte de métricas</p>
+      </div>
+    </div>
+  </div>
+
+  {{/* ── Planes ── */}}
+  <div class="w-full px-3 mb-12">
+    <div class="flex items-center mb-8">
+      <h2 class="text-3xl text-fuchsia-700 font-bold p-4">Planes</h2>
+      <hr class="w-full h-1 rounded-xl bg-fuchsia-700">
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+
+      <div class="background rounded-xl p-6 flex flex-col">
+        <em class="fas fa-star text-3xl text-white/40 mb-4"></em>
+        <h3 class="text-lg font-bold text-white mb-1">Comunidad</h3>
+        <p class="text-sm text-white/40 mb-4">Para proyectos que quieren apoyar sin presupuesto.</p>
+        <ul class="flex-1 space-y-2 text-sm text-white/70 list-none ml-0 my-0">
+          <li><em class="fas fa-circle-check text-emerald-400 mr-2"></em>Logo en la home</li>
+          <li><em class="fas fa-circle-check text-emerald-400 mr-2"></em>Mención de agradecimiento</li>
+          <li><em class="fas fa-circle-check text-emerald-400 mr-2"></em>Crédito en proyectos</li>
+        </ul>
+        <div class="mt-6 text-center border-t border-zinc-200/10 pt-4">
+          <div class="text-2xl font-bold text-white">A convenir</div>
+          <div class="text-xs text-white/40">Intercambio o donación</div>
+        </div>
+      </div>
+
+      <div class="rounded-xl p-6 flex flex-col border-2 border-fuchsia-700 bg-fuchsia-700/10 relative">
+        <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-fuchsia-700 text-white text-xs font-bold px-3 py-1 rounded-full">Más elegido</span>
+        <em class="fas fa-gem text-3xl text-fuchsia-600 mb-4"></em>
+        <h3 class="text-lg font-bold text-white mb-1">Sponsor</h3>
+        <p class="text-sm text-white/40 mb-4">Presencia mensual sostenida frente a la comunidad.</p>
+        <ul class="flex-1 space-y-2 text-sm text-white/70 list-none ml-0 my-0">
+          <li><em class="fas fa-circle-check text-emerald-400 mr-2"></em>Banner en la home</li>
+          <li><em class="fas fa-circle-check text-emerald-400 mr-2"></em>Mención en video o post</li>
+          <li><em class="fas fa-circle-check text-emerald-400 mr-2"></em>Campaña en redes</li>
+          <li><em class="fas fa-circle-check text-emerald-400 mr-2"></em>Reporte mensual de métricas</li>
+        </ul>
+        <div class="mt-6 text-center border-t border-zinc-200/10 pt-4">
+          <div class="text-2xl font-bold text-fuchsia-600">A convenir</div>
+          <div class="text-xs text-white/40">Mensual</div>
+        </div>
+      </div>
+
+      <div class="background rounded-xl p-6 flex flex-col">
+        <em class="fas fa-rocket text-3xl text-white/40 mb-4"></em>
+        <h3 class="text-lg font-bold text-white mb-1">Proyecto</h3>
+        <p class="text-sm text-white/40 mb-4">Alianza a medida con un proyecto open source.</p>
+        <ul class="flex-1 space-y-2 text-sm text-white/70 list-none ml-0 my-0">
+          <li><em class="fas fa-circle-check text-emerald-400 mr-2"></em>Sponsor de Vasak-OS u otro proyecto</li>
+          <li><em class="fas fa-circle-check text-emerald-400 mr-2"></em>Crédito permanente en el repo</li>
+          <li><em class="fas fa-circle-check text-emerald-400 mr-2"></em>Contenido dedicado</li>
+          <li><em class="fas fa-circle-check text-emerald-400 mr-2"></em>Reporte trimestral de métricas</li>
+        </ul>
+        <div class="mt-6 text-center border-t border-zinc-200/10 pt-4">
+          <div class="text-2xl font-bold text-white">A convenir</div>
+          <div class="text-xs text-white/40">A medida</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  {{/* ── Cómo trabajamos ── */}}
+  <div class="w-full px-3 mb-12">
+    <div class="background rounded-xl p-8">
+      <h2 class="text-3xl text-fuchsia-700 font-bold mb-6">Cómo trabajamos</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <ul class="space-y-3 text-white/70 list-none ml-0 my-0">
+          <li><em class="fas fa-circle-check text-emerald-400 mr-2"></em><strong class="text-white">Transparencia total:</strong> todo contenido patrocinado se etiqueta como tal.</li>
+          <li><em class="fas fa-circle-check text-emerald-400 mr-2"></em><strong class="text-white">Alineación real:</strong> solo promocionamos productos que usamos y probamos.</li>
+          <li><em class="fas fa-circle-check text-emerald-400 mr-2"></em><strong class="text-white">Audiencia especializada:</strong> tech, gaming, hardware y GNU/Linux.</li>
+        </ul>
+        <ul class="space-y-3 text-white/70 list-none ml-0 my-0">
+          <li><em class="fas fa-circle-check text-emerald-400 mr-2"></em><strong class="text-white">Métricas reales:</strong> reporte con alcance, impresiones, clics y crecimiento.</li>
+          <li><em class="fas fa-circle-check text-emerald-400 mr-2"></em><strong class="text-white">Contenido que perdura:</strong> posts y videos quedan indexados y siguen sumando vistas.</li>
+          <li><em class="fas fa-circle-check text-emerald-400 mr-2"></em><strong class="text-white">Comunidad activa:</strong> interacción directa en Telegram y redes.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  {{/* ── Testimonios / Sponsors actuales ── */}}
+  <div class="w-full px-3 mb-12">
+    <div class="flex items-center mb-8">
+      <h2 class="text-3xl text-fuchsia-700 font-bold p-4">Quién confía</h2>
+      <hr class="w-full h-1 rounded-xl bg-fuchsia-700">
+    </div>
+    <div class="background rounded-xl p-8 flex flex-col items-center text-center">
+      <em class="fas fa-comments text-4xl text-fuchsia-600 mb-4"></em>
+      <a href="https://vasak.net.ar/" target="_blank" rel="noopener" class="mb-4">
+        <img src="https://vasak.net.ar/img/logo.svg" alt="Vasak Group" class="h-10 mx-auto" loading="lazy" decoding="async">
+      </a>
+      <p class="text-white/70 max-w-2xl">
+        Gracias a sponsors y aliados como <a href="https://vasak.net.ar/" target="_blank" rel="noopener" class="text-fuchsia-600 hover:underline">Vasak Group</a>,
+        desarrollador de Vasak-OS, mantenemos el contenido gratuito y los proyectos open source vivos.
+        Tu marca puede ser la próxima.
+      </p>
+    </div>
+  </div>
+
+  {{/* ── CTA final ── */}}
+  <div class="w-full px-3 mb-16">
+    <div class="background rounded-xl p-10 text-center">
+      <h2 class="text-3xl font-bold text-white mb-3">¿Tu marca quiere llegar a esta audiencia?</h2>
+      <p class="text-white/60 max-w-2xl mx-auto mb-8">
+        Contame tu producto y objetivo: armamos una propuesta a medida con presupuesto y métricas claras.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        {{ if $tg }}
+        <a href="{{ $tg }}" target="_blank" rel="noopener"
+           class="bg-fuchsia-700 hover:bg-fuchsia-600 text-white font-semibold rounded-xl px-8 py-3 transition-colors">
+          <em class="fab fa-telegram mr-2"></em>Escribime por Telegram
+        </a>
+        {{ end }}
+        <a href="https://twitter.com/PatoJADOficial" target="_blank" rel="noopener"
+           class="border border-zinc-200/20 text-white/80 hover:text-fuchsia-400 font-semibold rounded-xl px-8 py-3 transition-colors">
+          <em class="fab fa-twitter mr-2"></em>O por X
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{{ $statsJs := resources.Get "js/stats-page.js" | minify | fingerprint "sha512" }}
+<script src="{{ $statsJs.RelPermalink }}" defer></script>
+{{ end }}
