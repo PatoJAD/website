@@ -1,26 +1,25 @@
 {{ define "main" }}
-
+{{- $tax := .Data.Plural | default .Data.Singular -}}
+{{- $labels := dict "categories" "Categoría" "category" "Categoría" "tags" "Tag" "tag" "Tag" -}}
+{{- $prefix := index $labels $tax | default (title $tax) -}}
 <div class="flex flex-col justify-center items-center px-4 sm:px-6 pt-32 pb-20 w-full">
   <div class="grid grid-cols-1 md:grid-cols-3 py-12 w-full">
     <div id="information" class="md:col-span-2 w-full px-1 mb-4">
       <div class="mb-6" data-reveal>
+        <div class="badge-pill mb-3">{{ $prefix }}</div>
         <h1 class="text-4xl md:text-5xl font-bold text-gradient pb-1">{{ .Title }}</h1>
-        {{ with .Description }}<p class="text-white/60 mt-2 max-w-2xl text-lg">{{ . }}</p>{{ end }}
+        <p class="text-white/60 mt-2">{{ len .Data.Pages }} publicación{{ if ne (len .Data.Pages) 1 }}es{{ end }}</p>
         <hr class="w-full hr-brand mt-5">
       </div>
       <div class="gap-4 grid grid-cols-1 md:grid-cols-2" data-reveal-group data-reveal-stagger="90">
         {{ $paginator := .Paginate .Data.Pages.ByDate.Reverse }}
-        {{ $pages := $paginator.Pages }}
-
-        {{ range $i, $p := $pages }}
+        {{ range $paginator.Pages }}
           {{ .Render "card" }}
         {{ end }}
-
       </div>
       {{- partial "components/pagination.html" . -}}
     </div>
     {{- partial "components/lateralbar.html" . -}}
   </div>
 </div>
-
 {{ end }}
