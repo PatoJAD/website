@@ -2,6 +2,7 @@
 title: "Patrocinios"
 date: "2026-08-03"
 description: "Media kit de PatoJAD — audiencia, formatos de patrocinio y planes para marcas de tecnología, gaming, hardware y software."
+img: "https://patojad.com.ar/img/og-sponsor.png"
 aliases:
   - /stats
 ---

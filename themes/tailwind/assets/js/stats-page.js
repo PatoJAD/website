@@ -24,8 +24,12 @@
   // Todas las plataformas se sirven desde stats.json (server-side).
   var serverPlatforms = ['github', 'mastodon', 'youtube', 'tiktok', 'instagram', 'facebook', 'x']
 
-  fetch('https://statsapi.patojad.com.ar/stats.json')
+  var controller = new AbortController()
+  var timeoutId = setTimeout(function () { controller.abort() }, 6000)
+
+  fetch('https://statsapi.patojad.com.ar/stats.json', { signal: controller.signal })
     .then(function (r) {
+      clearTimeout(timeoutId)
       if (!r.ok) throw new Error('Not found')
       return r.json()
     })
@@ -102,6 +106,8 @@
         setVal('stat-fb-followers', data.facebook.followers)
         setVal('stat-fb-engagements', data.facebook.engagements)
         setVal('stat-fb-reactions', data.facebook.reactions)
+        setVal('stat-fb-comments', data.facebook.comments)
+        setVal('stat-fb-shares', data.facebook.shares)
         setVal('stat-fb-posts', data.facebook.posts)
         results.push(data.facebook.followers || 0)
       }
