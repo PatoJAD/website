@@ -140,6 +140,38 @@ body {
 }
 :focus:not(:focus-visible) { outline: none; }
 
+/* ── Micro-interacciones al hover/focus (sin exceso, con moderación) ──
+   Genéricas: poné .fx-pop / .fx-spin / .fx-wiggle / .fx-nudge en el link o botón;
+   el ícono (em/i/svg) de adentro reacciona. Todo respeta prefers-reduced-motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .fx-pop:hover :where(em, i, svg),
+  .fx-pop:focus-visible :where(em, i, svg) { animation: fx-pop .45s ease; }
+
+  .fx-spin:hover :where(em, i, svg),
+  .fx-spin:focus-visible :where(em, i, svg) { animation: fx-spin .6s ease; }
+
+  .fx-wiggle:hover :where(em, i, svg),
+  .fx-wiggle:focus-visible :where(em, i, svg) { animation: fx-wiggle .55s ease; }
+
+  .fx-nudge :where(em, i, .fx-arrow) { transition: transform .2s ease; }
+  .fx-nudge:hover :where(em, i, .fx-arrow),
+  .fx-nudge:focus-visible :where(em, i, .fx-arrow) { transform: translateX(5px); }
+
+  /* Widgets con clase propia (sin tocar templates) */
+  .donate-tile:hover .donate-icon { animation: fx-spin .6s ease; }
+  .social-bento-item:hover em { animation: fx-pop .45s ease; }
+  .social-share a:hover em { animation: fx-pop .45s ease; }
+
+  /* Botones estándar: el ícono reacciona al hover/focus */
+  .btn-primary:hover :where(em, i, svg),
+  .btn-primary:focus-visible :where(em, i, svg),
+  .btn-outline:hover :where(em, i, svg),
+  .btn-outline:focus-visible :where(em, i, svg) { animation: fx-pop .45s ease; }
+}
+@keyframes fx-pop { 0% { transform: scale(1); } 45% { transform: scale(1.28); } 100% { transform: scale(1); } }
+@keyframes fx-spin { to { transform: rotate(360deg); } }
+@keyframes fx-wiggle { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-13deg); } 75% { transform: rotate(13deg); } }
+
 /* Skip-link (visible solo al enfocar con teclado) */
 .skip-link {
   position: fixed;
