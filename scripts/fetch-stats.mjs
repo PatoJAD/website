@@ -10,6 +10,9 @@ const YT_CHANNEL = 'UCta4Iy4TzMx8Xo0pwpkbWgg'
 const FB_PAGE = 'PatoJAD'
 const FB_TOKEN = process.env.FB_ACCESS_TOKEN
 const THREADS_TOKEN = process.env.THREADS_ACCESS_TOKEN
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN // opcional: sube el límite de rate de la API pública
+const GH_USER = 'JoaquinDecima'
+const MASTODON_ACCT = 'PatoJAD'
 const OUT_FILE = process.env.OUT_FILE || '/www/wwwroot/statsapi.patojad.com.ar/stats.json'
 
 const DAY = 86400
@@ -18,10 +21,11 @@ const until = Math.floor(Date.now() / 1000)
 
 const data = { fetchedAt: new Date().toISOString() }
 
-async function get(url) {
+async function get(url, extraHeaders) {
   const res = await fetch(url, {
     headers: {
       'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+      ...(extraHeaders || {}),
     },
   })
   if (!res.ok) console.warn(`[${res.status}] ${url.slice(0, 80)}`)
@@ -210,6 +214,72 @@ if (THREADS_TOKEN) {
   }
 } else {
   console.warn('THREADS_ACCESS_TOKEN not set — skipping Threads')
+}
+
+// ── GitHub (API pública; GITHUB_TOKEN opcional para más límite de rate) ──
+try {
+  const ghHeaders = { Accept: 'application/vnd.github+json' }
+  if (GITHUB_TOKEN) ghHeaders.Authorization = `Bearer ${GITHUB_TOKEN}`
+
+  const user = JSON.parse(await get(`https://api.github.com/users/${GH_USER}`, ghHeaders))
+  if (!user?.login) {
+    console.warn(`GitHub API error: ${user?.message || 'usuario no encontrado'}`)
+  } else {
+    let repos = Number(user.public_repos) || 0
+    let stars = 0
+
+    // Estrellas de los repos propios
+    const userRepos = JSON.parse(await get(`https://api.github.com/users/${GH_USER}/repos?per_page=100&sort=updated`, ghHeaders))
+    if (Array.isArray(userRepos)) {
+      for (const r of userRepos) stars += Number(r.stargazers_count) || 0
+    }
+
+    // Organizaciones: sumar repos y estrellas públicas
+    let orgCount = 0
+    const orgs = JSON.parse(await get(`https://api.github.com/users/${GH_USER}/orgs`, ghHeaders))
+    if (Array.isArray(orgs)) {
+      orgCount = orgs.length
+      for (const o of orgs) {
+        const orgRepos = JSON.parse(await get(`${o.repos_url}?per_page=100`, ghHeaders))
+        if (Array.isArray(orgRepos)) {
+          repos += orgRepos.length
+          for (const r of orgRepos) stars += Number(r.stargazers_count) || 0
+        }
+      }
+    }
+
+    data.github = {
+      user: GH_USER,
+      repos,
+      stars,
+      followers: Number(user.followers) || 0,
+      following: Number(user.following) || 0,
+      orgs: orgCount,
+    }
+    console.log(`GitHub OK: ${data.github.followers} followers, ${repos} repos, ${stars} stars`)
+  }
+} catch (e) {
+  console.error('GitHub fetch failed:', e.message)
+}
+
+// ── Mastodon (API pública) ──
+try {
+  const m = JSON.parse(
+    await get(`https://mastodon.social/api/v1/accounts/lookup?acct=${MASTODON_ACCT}`)
+  )
+  if (m?.error || !m?.id) {
+    console.warn(`Mastodon API error: ${m?.error || 'cuenta no encontrada'}`)
+  } else {
+    data.mastodon = {
+      followers: Number(m.followers_count) || 0,
+      following: Number(m.following_count) || 0,
+      posts: Number(m.statuses_count) || 0,
+      lastStatusAt: m.last_status_at || null,
+    }
+    console.log(`Mastodon OK: ${data.mastodon.followers} followers`)
+  }
+} catch (e) {
+  console.error('Mastodon fetch failed:', e.message)
 }
 
 // ── Write ──
