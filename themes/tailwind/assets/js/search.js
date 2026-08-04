@@ -178,23 +178,30 @@ function executeQuery(term) {
       resultsHTML =
         resultsHTML +
         `<div class="mb-2 bg-cover bg-center bg-no-repeat p-3 rounded-2xl" style="background-image: url(${value.item.img});" id="result-${key}">
-          <a class="flex items-center px-3 py-2 rounded-2xl appearance-none background focus:outline-dotted focus:outline-transparent focus:outline-2 opacity-80" 
+          <a class="flex items-center px-3 py-2 rounded-2xl appearance-none background opacity-90 hover:opacity-100 transition-opacity"
           ${linkconfig} tabindex="0">
             <div class="grow">
               <div class="-mb-1 text-lg font-bold text-fuchsia-700">
                 ${title}
               </div>
-              <div class="text-sm text-gray-500"><span class="px-2 text-fuchsia-700"><em class="fas fa-calendar"></em></span>${value.item.date ? value.item.date : ""}</span></div>
-              <div class="text-sm italic">${value.item.summary}</div>
+              <div class="text-sm text-white/60"><span class="px-2 text-fuchsia-700"><em class="fas fa-calendar" aria-hidden="true"></em></span>${value.item.date ? value.item.date : ""}</div>
+              <div class="text-sm italic text-white/70">${value.item.summary}</div>
             </div>
-            <div class="ml-2 ltr:block rtl:hidden text-gray-500">&rarr;</div>
-            <div class="mr-2 ltr:hidden rtl:block text-gray-500">&larr;</div>
+            <div class="ml-2 ltr:block rtl:hidden text-white/50" aria-hidden="true">&rarr;</div>
+            <div class="mr-2 ltr:hidden rtl:block text-white/50" aria-hidden="true">&larr;</div>
           </a>
         </div>`;
     });
     hasResults = true;
   } else {
-    resultsHTML = "";
+    var safeTerm = String(term).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+    resultsHTML =
+      '<div class="text-center py-10 text-white/60">' +
+      '<em class="fas fa-search text-3xl text-white/30 mb-3 block" aria-hidden="true"></em>' +
+      'Sin resultados para «<span class="text-white/80 font-semibold">' + safeTerm + '</span>»' +
+      '</div>';
     hasResults = false;
   }
 

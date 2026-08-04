@@ -3,15 +3,19 @@
   {{ $posts := (where (.Site.RegularPages.Related .) "Params.hidden" "!=" true) | first 3 }}
 
   {{ range $i, $p := $posts }}
-  <a href="{{ $p.RelPermalink }}" class="background rounded-xl p-4 mb-4 flex items-center">
-    <div class="flex gap-4">
-      <div class="relative w-24 h-20 overflow-hidden rounded-xl shrink-0">
-        <img src="{{ with $p.Params.img }}{{ . }}{{ end }}" alt="{{ $p.Title }}" loading="lazy" decoding="async" data-nimg="fill" class="object-cover" sizes="100vw" style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;">
+  <a href="{{ $p.RelPermalink }}" class="group background card-glow rounded-xl p-4 mb-4 flex items-center" data-reveal>
+    <div class="flex gap-4 items-center">
+      <div class="relative w-24 h-20 overflow-hidden rounded-xl shrink-0 bg-zinc-800/50">
+        {{ with $p.Params.img }}
+        <img src="{{ . }}" alt="{{ $p.Title }}" loading="lazy" decoding="async" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105">
+        {{ else }}
+        <div class="w-full h-full bg-gradient-to-br from-fuchsia-700/30 to-zinc-800"></div>
+        {{ end }}
       </div>
       <div>
-        <h3 class="font-medium dark:text-white">{{ $p.Title }}</h3>
-        <p class="mt-2 text-sm text-gray-500">
-          <time class="" datetime="{{ $p.Date }}">{{ $p.Date.Format "January 2, 2006" }}</time>
+        <h3 class="font-medium text-white transition-colors group-hover:text-fuchsia-400">{{ $p.Title }}</h3>
+        <p class="mt-2 text-sm text-zinc-400">
+          <time datetime="{{ $p.Date }}">{{ $p.Date.Day }} de {{ index (hugo.Data).meses (printf "%d" $p.Date.Month) }} de {{ $p.Date.Year }}</time>
         </p>
       </div>
     </div>

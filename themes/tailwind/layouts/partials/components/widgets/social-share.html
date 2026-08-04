@@ -1,50 +1,52 @@
 {{ partial "helper/section-header.html" (dict "title" "Comparte") }}
+{{- $url := .Permalink | urlquery -}}
+{{- $title := .Title | urlquery -}}
 <div class="social-share flex flex-wrap background p-3 rounded-xl justify-evenly">
   <!-- Facebook -->
-  <a href="http://www.facebook.com/sharer.php?u={{ .Permalink }}" target="_blank" rel="noopener" style="--brand: #1877F2;"
+  <a href="https://www.facebook.com/sharer.php?u={{ $url }}" target="_blank" rel="noopener" aria-label="Compartir en Facebook" style="--brand: #1877F2;"
     class="background duration-200 ease inline-flex items-center mb-1 mr-1 transition-all p-3 rounded-xl hover:-translate-y-0.5 hover:scale-[1.03]">
-    <em class="fab fa-facebook text-2xl"></em>
+    <em class="fab fa-facebook text-2xl" aria-hidden="true"></em>
   </a>
 
-  <!-- Twitter -->
-  <a href="https://twitter.com/share?url={{ .Permalink }}&text={{ .Title }}" target="_blank" rel="noopener" style="--brand: #1DA1F2;"
+  <!-- X (Twitter) -->
+  <a href="https://twitter.com/share?url={{ $url }}&text={{ $title }}" target="_blank" rel="noopener" aria-label="Compartir en X" style="--brand: #1DA1F2;"
     class="background duration-200 ease inline-flex items-center mb-1 mr-1 transition-all p-3 rounded-xl hover:-translate-y-0.5 hover:scale-[1.03]">
-    <em class="fab fa-twitter text-2xl"></em>
+    <em class="fab fa-twitter text-2xl" aria-hidden="true"></em>
   </a>
 
   <!-- LinkedIn -->
-  <a href="https://www.linkedin.com/shareArticle?url={{ .Permalink }}&title={{ .Title }}" target="_blank" rel="noopener" style="--brand: #0A66C2;"
+  <a href="https://www.linkedin.com/shareArticle?url={{ $url }}&title={{ $title }}" target="_blank" rel="noopener" aria-label="Compartir en LinkedIn" style="--brand: #0A66C2;"
     class="background duration-200 ease inline-flex items-center mb-1 mr-1 transition-all p-3 rounded-xl hover:-translate-y-0.5 hover:scale-[1.03]">
-    <em class="fab fa-linkedin text-2xl"></em>
+    <em class="fab fa-linkedin text-2xl" aria-hidden="true"></em>
   </a>
 
   <!-- WhatsApp -->
-  <a href="https://wa.me/?text={{ .Title }}%20{{ .Permalink }}" target="_blank" rel="noopener" style="--brand: #25D366;"
+  <a href="https://wa.me/?text={{ $title }}%20{{ $url }}" target="_blank" rel="noopener" aria-label="Compartir en WhatsApp" style="--brand: #25D366;"
     class="background duration-200 ease inline-flex items-center mb-1 mr-1 transition-all p-3 rounded-xl hover:-translate-y-0.5 hover:scale-[1.03]">
-    <em class="fab fa-whatsapp text-2xl"></em>
+    <em class="fab fa-whatsapp text-2xl" aria-hidden="true"></em>
   </a>
 
   <!-- Telegram -->
-  <a href="https://t.me/share/url?url={{ .Permalink }}&text={{ .Title }}" target="_blank" rel="noopener" style="--brand: #0088cc;"
+  <a href="https://t.me/share/url?url={{ $url }}&text={{ $title }}" target="_blank" rel="noopener" aria-label="Compartir en Telegram" style="--brand: #0088cc;"
     class="background duration-200 ease inline-flex items-center mb-1 mr-1 transition-all p-3 rounded-xl hover:-translate-y-0.5 hover:scale-[1.03]">
-    <em class="fab fa-telegram text-2xl"></em>
+    <em class="fab fa-telegram text-2xl" aria-hidden="true"></em>
   </a>
 
   <!-- Email -->
-  <a href="mailto:?subject={{ .Title }}&body={{ .Permalink }}" target="_blank" rel="noopener" style="--brand: #6b7280;"
+  <a href="mailto:?subject={{ $title }}&body={{ $url }}" aria-label="Compartir por email" style="--brand: #6b7280;"
     class="background duration-200 ease inline-flex items-center mb-1 mr-1 transition-all p-3 rounded-xl hover:-translate-y-0.5 hover:scale-[1.03]">
-    <em class="fas fa-envelope text-2xl"></em>
+    <em class="fas fa-envelope text-2xl" aria-hidden="true"></em>
   </a>
 
   <!-- Reddit -->
-  <a href="https://www.reddit.com/submit?url={{ .Permalink }}&title={{ .Title }}" target="_blank" rel="noopener" style="--brand: #FF4500;"
+  <a href="https://www.reddit.com/submit?url={{ $url }}&title={{ $title }}" target="_blank" rel="noopener" aria-label="Compartir en Reddit" style="--brand: #FF4500;"
     class="background duration-200 ease inline-flex items-center mb-1 mr-1 transition-all p-3 rounded-xl hover:-translate-y-0.5 hover:scale-[1.03]">
-    <em class="fab fa-reddit text-2xl"></em>
+    <em class="fab fa-reddit text-2xl" aria-hidden="true"></em>
   </a>
 
   <!-- Pinterest -->
-  <a href="https://www.pinterest.com/pin/create/button/?url={{ .Permalink }}&media={{ .Params.image }}&description={{ .Title }}" target="_blank" rel="noopener" style="--brand: #E60023;"
+  <a href="https://www.pinterest.com/pin/create/button/?url={{ $url }}&media={{ .Params.image }}&description={{ $title }}" target="_blank" rel="noopener" aria-label="Compartir en Pinterest" style="--brand: #E60023;"
     class="background duration-200 ease inline-flex items-center mb-1 mr-1 transition-all p-3 rounded-xl hover:-translate-y-0.5 hover:scale-[1.03]">
-    <em class="fab fa-pinterest text-2xl"></em>
+    <em class="fab fa-pinterest text-2xl" aria-hidden="true"></em>
   </a>
 </div>

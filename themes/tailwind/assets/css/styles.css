@@ -121,9 +121,36 @@ body {
 .badge-pill {
   @apply inline-block text-xs font-semibold uppercase tracking-widest text-fuchsia-300 border border-fuchsia-500/30 bg-fuchsia-500/10 rounded-full px-4 py-1.5;
 }
+/* Botones estándar (unifican los CTAs del sitio) */
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 bg-fuchsia-700 hover:bg-fuchsia-600 text-white font-semibold rounded-xl px-6 py-3 transition-colors;
+}
+.btn-outline {
+  @apply inline-flex items-center justify-center gap-2 border border-zinc-200/20 text-white/80 hover:text-fuchsia-400 hover:border-fuchsia-400 font-semibold rounded-xl px-6 py-3 transition-colors;
+}
 @media (prefers-reduced-motion: reduce) {
   .card-glow { transition: none; }
 }
+
+/* Foco visible para navegación por teclado (tema oscuro pierde el default) */
+:focus-visible {
+  outline: 2px solid #e879f9; /* fuchsia-400 */
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+:focus:not(:focus-visible) { outline: none; }
+
+/* Skip-link (visible solo al enfocar con teclado) */
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 1000;
+  transform: translateY(-150%);
+  transition: transform .2s ease;
+  @apply bg-fuchsia-700 text-white font-semibold rounded-xl px-4 py-2;
+}
+.skip-link:focus { transform: translateY(0); }
 
 p {
   @apply text-lg leading-relaxed my-6 text-lg;

@@ -8,8 +8,7 @@
 
 {{/* ===== Main Bundle (async) =====
      Core UX features needed for immediate interactivity:
-      search, mobile-menu, scroll-progress, slides,
-      copy-code, back-to-top, lightbox, toc-scroll-spy, viewport-animations, stats-page */}}
+      search, mobile-menu, scroll-progress, slides, copy-code, viewport-animations */}}
 {{ $fusejs := resources.GetRemote "https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" }}
 {{ $embla := resources.GetRemote "https://unpkg.com/embla-carousel/embla-carousel.umd.js" }}
 {{ $emblaAutoplay := resources.GetRemote "https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js" }}
@@ -18,25 +17,9 @@
 {{ $scrollProgress := resources.Get "js/scroll-progress.js" }}
 {{ $slides := resources.Get "js/slides.js" }}
 {{ $copyCode := resources.Get "js/copy-code.js" }}
-{{ $backToTop := resources.Get "js/back-to-top.js" }}
-{{ $lightbox := resources.Get "js/lightbox.js" }}
-{{ $tocScrollSpy := resources.Get "js/toc-scroll-spy.js" }}
 {{ $viewportAnimations := resources.Get "js/viewport-animations.js" }}
-{{ $mainBundle := slice $fusejs $embla $emblaAutoplay $search $mobileMenu $scrollProgress $slides $copyCode $backToTop $lightbox $tocScrollSpy $viewportAnimations | resources.Concat "/js/vendor.js" | minify | fingerprint "sha512" }}
+{{ $mainBundle := slice $fusejs $embla $emblaAutoplay $search $mobileMenu $scrollProgress $slides $copyCode $viewportAnimations | resources.Concat "/js/vendor.js" | minify | fingerprint "sha512" }}
 <script async src="{{ $mainBundle.RelPermalink }}"></script>
-
-{{/* ===== Deferred Bundle (defer) =====
-     Engagement features that can wait until after HTML parsing:
-     newsletter, exit-intent, cta-bar, load-more, push-notifications, easter-eggs */}}
-{{ $newsletter := resources.Get "js/newsletter.js" }}
-{{ $exitIntent := resources.Get "js/exit-intent.js" }}
-{{ $ctaBar := resources.Get "js/cta-bar.js" }}
-{{ $loadMore := resources.Get "js/load-more.js" }}
-{{ $pushNotifications := resources.Get "js/push-notifications.js" }}
-{{ $easterEggs := resources.Get "js/easter-eggs.js" }}
-
-{{ $deferredBundle := slice $newsletter $exitIntent $ctaBar $loadMore $pushNotifications $easterEggs | resources.Concat "/js/deferred.js" | minify | fingerprint "sha512" }}
-<script defer src="{{ $deferredBundle.RelPermalink }}"></script>
 
 {{/* ===== Lazy-loaded: Metricool (requestIdleCallback + defer behavior) ===== */}}
 <script>

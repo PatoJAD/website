@@ -1,28 +1,30 @@
 <header class="w-full flex justify-center h-24 z-20 fixed top-0 pt-4">
   <nav
     class="navbar-shine bg-linear-to-r from-zinc-800 to-zinc-900/20 px-6 flex align-middle justify-between p-2 rounded-full w-[90%] backdrop-blur-md border border-zinc-200/10">
-    <span class="my-auto">
-      <img src="https://i.postimg.cc/L4Q8W1Wx/logo-patojad.png" title="Patojad" alt="Patojad"
+    <a href="{{ "/" | relLangURL }}" class="my-auto flex items-center" aria-label="PatoJAD — Inicio">
+      <img src="/img/logo-patojad.png" title="PatoJAD" alt="PatoJAD"
         width="130" height="42" sizes="130px" loading="eager" decoding="async" fetchpriority="high" />
-    </span>
+    </a>
     <div class="ml-auto mr-auto hidden md:flex flex-wrap">
       {{ range .Site.Menus.main }}
-      <a href="{{ .URL | relLangURL }}" {{ if eq .Params.newtab true }}target="_blank" {{ end }} title="{{- .Name -}} "
-        class="px-2 py-1 mx-2 cursor-pointer text-sm flex content-center items-center transition-all duration-200 ease-in-out  hover:text-fuchsia-700 hover:-translate-y-0.5">
+      {{ $active := $.IsMenuCurrent "main" . }}
+      <a href="{{ .URL | relLangURL }}" {{ if eq .Params.newtab true }}target="_blank" rel="noopener" {{ end }} title="{{- .Name -}} "
+        {{ if $active }}aria-current="page"{{ end }}
+        class="px-2 py-1 mx-2 cursor-pointer text-sm flex content-center items-center transition-all duration-200 ease-in-out hover:text-fuchsia-700 hover:-translate-y-0.5 {{ if $active }}text-fuchsia-500 font-semibold{{ end }}">
         <span class="mx-1 hidden md:block"> {{- .Name -}} </span>
       </a>
       {{ end }}
     </div>
-    <div class="md:hidden ml-auto mr-auto flex flex-wrap">
-      <button id="mobile-menu-button" aria-label="Open menu" aria-controls="mobile-menu-modal" aria-expanded="false"
-        class="text-base hover:text-fuchsia-700 mr-2 transition-transform duration-200 ease-in-out  hover:scale-110" title="Menu">
-        <em class="fas fa-bars"></em>
+    <div class="md:hidden ml-auto mr-auto flex items-center">
+      <button id="mobile-menu-button" aria-label="Abrir menú" aria-controls="mobile-menu-modal" aria-expanded="false"
+        class="w-11 h-11 flex items-center justify-center rounded-full text-base hover:text-fuchsia-700 transition-transform duration-200 ease-in-out hover:scale-110" title="Menú">
+        <em class="fas fa-bars" aria-hidden="true"></em>
       </button>
     </div>
-    <div class="flex flex-wrap items-center">
-      <button id="search-button" aria-label="Search"
-        class="text-base hover:text-fuchsia-700 mr-2 transition-transform duration-200 ease-in-out  hover:scale-110" title="Search">
-        <em class="fas fa-search"></em>
+    <div class="flex items-center">
+      <button id="search-button" aria-label="Buscar"
+        class="w-11 h-11 flex items-center justify-center rounded-full text-base hover:text-fuchsia-700 transition-transform duration-200 ease-in-out hover:scale-110" title="Buscar">
+        <em class="fas fa-search" aria-hidden="true"></em>
       </button>
     </div>
   </nav>
@@ -33,18 +35,20 @@
   aria-hidden="true">
   <div id="mobile-menu-overlay"
     class="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-300 ease-in-out "></div>
-  <div id="mobile-menu-panel"
+  <div id="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Menú de navegación"
     class="absolute inset-x-0 top-0 mt-28 mx-auto w-[92%] max-w-md rounded-2xl background p-4 opacity-0 translate-y-4 transition-all duration-300 ease-in-out ">
     <div class="flex items-center justify-between">
-      <span class="text-sm uppercase tracking-wide text-zinc-300">Menu</span>
-      <button id="mobile-menu-close" aria-label="Close menu" class="text-base hover:text-fuchsia-700" title="Close">
-        <em class="fas fa-times"></em>
+      <span class="text-sm uppercase tracking-wide text-zinc-300">Menú</span>
+      <button id="mobile-menu-close" aria-label="Cerrar menú" class="w-11 h-11 flex items-center justify-center rounded-full text-base hover:text-fuchsia-700" title="Cerrar">
+        <em class="fas fa-times" aria-hidden="true"></em>
       </button>
     </div>
     <div class="mt-3 flex flex-col">
       {{ range .Site.Menus.main }}
-      <a href="{{ .URL | relLangURL }}" {{ if eq .Params.newtab true }}target="_blank" {{ end }} title="{{- .Name -}} "
-        class="px-3 py-2 rounded-xl text-sm transition-all duration-200 ease-in-out  hover:background hover:text-fuchsia-700 hover:-translate-y-0.5">
+      {{ $active := $.IsMenuCurrent "main" . }}
+      <a href="{{ .URL | relLangURL }}" {{ if eq .Params.newtab true }}target="_blank" rel="noopener" {{ end }} title="{{- .Name -}} "
+        {{ if $active }}aria-current="page"{{ end }}
+        class="px-3 py-2 rounded-xl text-sm transition-all duration-200 ease-in-out hover:background hover:text-fuchsia-700 hover:-translate-y-0.5 {{ if $active }}text-fuchsia-500 font-semibold{{ end }}">
         <span>{{- .Name -}}</span>
       </a>
       {{ end }}
