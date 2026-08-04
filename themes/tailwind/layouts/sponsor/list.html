@@ -1,8 +1,6 @@
 {{ define "main" }}
 
 {{ $social := .Site.Params.social.main }}
-{{ $tg := "" }}
-{{ range $social }}{{ if eq .identifier "telegram" }}{{ $tg = .url }}{{ end }}{{ end }}
 
 <script type="application/ld+json">
 {
@@ -29,12 +27,10 @@
       {{ .Content }}
     </div>
     <div class="flex flex-wrap justify-center gap-4">
-      {{ if $tg }}
-      <a href="{{ $tg }}" target="_blank" rel="noopener"
+      <a href="mailto:sponsors@patojad.com.ar"
          class="bg-fuchsia-700 hover:bg-fuchsia-600 text-white font-semibold rounded-xl px-8 py-3 transition-colors">
-        <em class="fab fa-telegram mr-2"></em>Hablemos de tu marca
+        <em class="fas fa-envelope mr-2"></em>Hablemos de tu marca
       </a>
-      {{ end }}
       <a href="#stats-dashboard"
          class="border border-fuchsia-700 text-fuchsia-600 hover:bg-fuchsia-700 hover:text-white font-semibold rounded-xl px-8 py-3 transition-colors">
         <em class="fas fa-chart-line mr-2"></em>Ver audiencia en vivo
@@ -247,12 +243,10 @@
         Contame tu producto y objetivo: armamos una propuesta a medida con presupuesto y métricas claras.
       </p>
       <div class="flex flex-wrap justify-center gap-4">
-        {{ if $tg }}
-        <a href="{{ $tg }}" target="_blank" rel="noopener"
+        <a href="mailto:sponsors@patojad.com.ar"
            class="bg-fuchsia-700 hover:bg-fuchsia-600 text-white font-semibold rounded-xl px-8 py-3 transition-colors">
-          <em class="fab fa-telegram mr-2"></em>Escribime por Telegram
+          <em class="fas fa-envelope mr-2"></em>Escribinos a sponsors@patojad.com.ar
         </a>
-        {{ end }}
         <a href="https://twitter.com/PatoJADOficial" target="_blank" rel="noopener"
            class="border border-zinc-200/20 text-white/80 hover:text-fuchsia-400 font-semibold rounded-xl px-8 py-3 transition-colors">
           <em class="fab fa-twitter mr-2"></em>O por X

@@ -48,12 +48,35 @@
       }
       if (data.instagram) {
         setVal('stat-ig-followers', data.instagram.followers)
-        setVal('stat-ig-following', data.instagram.following)
-        setVal('stat-ig-posts', data.instagram.posts)
+        // Muestra las 4 métricas con más valor (0 se oculta)
+        var pool = [
+          { label: 'Alcance 30d', value: data.instagram.reach },
+          { label: 'Impresiones 30d', value: data.instagram.impressions },
+          { label: 'Perfil 30d', value: data.instagram.profileViews },
+          { label: 'Cuentas 30d', value: data.instagram.accountsEngaged },
+          { label: 'Publicaciones', value: data.instagram.posts || data.instagram.media }
+        ]
+        pool.sort(function (a, b) { return (b.value || 0) - (a.value || 0) })
+        for (var di = 1; di <= 4; di++) {
+          var cell = byId('stat-ig-d' + di)
+          if (!cell) continue
+          var item = pool[di - 1]
+          if (item && item.value > 0) {
+            setVal('stat-ig-d' + di + '-val', item.value)
+            var lbl = byId('stat-ig-d' + di + '-label')
+            if (lbl) lbl.textContent = item.label
+            cell.style.display = ''
+          } else {
+            cell.style.display = 'none'
+          }
+        }
         results.push(data.instagram.followers || 0)
       }
       if (data.facebook) {
         setVal('stat-fb-followers', data.facebook.followers)
+        setVal('stat-fb-engagements', data.facebook.engagements)
+        setVal('stat-fb-reactions', data.facebook.reactions)
+        setVal('stat-fb-posts', data.facebook.posts)
         results.push(data.facebook.followers || 0)
       }
       if (data.x) {

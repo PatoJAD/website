@@ -9,7 +9,12 @@ const YT_API_KEY = process.env.YT_API_KEY || process.argv[2]
 const YT_CHANNEL = 'UCta4Iy4TzMx8Xo0pwpkbWgg'
 const FB_PAGE = 'PatoJAD'
 const FB_TOKEN = process.env.FB_ACCESS_TOKEN
+const THREADS_TOKEN = process.env.THREADS_ACCESS_TOKEN
 const OUT_FILE = process.env.OUT_FILE || '/www/wwwroot/statsapi.patojad.com.ar/stats.json'
+
+const DAY = 86400
+const since30 = Math.floor(Date.now() / 1000) - 30 * DAY
+const until = Math.floor(Date.now() / 1000)
 
 const data = { fetchedAt: new Date().toISOString() }
 
@@ -21,6 +26,19 @@ async function get(url) {
   })
   if (!res.ok) console.warn(`[${res.status}] ${url.slice(0, 80)}`)
   return res.text()
+}
+
+// Suma los valores de una serie diaria de insights de IG (period=day)
+function sumSeries(ins, metric) {
+  const block = ins?.data?.find((d) => d.name === metric)
+  if (!block?.values?.length) return 0
+  return Math.round(block.values.reduce((acc, v) => acc + (Number(v.value) || 0), 0))
+}
+
+// Extrae el total de una métrica "total_value" de Threads insights
+function totalValue(ins, metric) {
+  const block = ins?.data?.find((d) => d.name === metric)
+  return Number(block?.total_value?.value) || 0
 }
 
 // ── YouTube ──
@@ -51,24 +69,147 @@ if (YT_API_KEY) {
   console.warn('YT_API_KEY not set — skipping YouTube')
 }
 
-// ── Facebook Pages (Graph API, needs FB_ACCESS_TOKEN) ──
+// ── Facebook + Instagram (Graph API con FB_ACCESS_TOKEN) ──
 if (FB_TOKEN) {
   try {
-    const body = await get(
-      `https://graph.facebook.com/v22.0/${FB_PAGE}?fields=followers_count,fan_count&access_token=${FB_TOKEN}`
+    // Buscar la página en /me/accounts (funciona con token de usuario o de System User)
+    const accounts = JSON.parse(
+      await get(`https://graph.facebook.com/v22.0/me/accounts?fields=id,name,username,access_token&limit=100&access_token=${FB_TOKEN}`)
     )
-    const j = JSON.parse(body)
-    if (j && !j.error) {
-      data.facebook = { followers: j.fan_count ?? j.followers_count ?? 0 }
-      console.log(`Facebook OK: ${data.facebook.followers} followers`)
+    const accs = accounts?.data || []
+    if (accounts?.error || !accs.length) {
+      console.warn(`Facebook API error: ${accounts?.error?.message || 'el token no tiene páginas (falta pages_read_engagement / pages_show_list?)'}`)
     } else {
-      console.warn(`Facebook API error: ${j?.error?.message}`)
+      const match = accs.find((a) => a.name === FB_PAGE || a.username === FB_PAGE || a.id === FB_PAGE)
+      const page = match || accs[0]
+      const pageToken = page.access_token || FB_TOKEN
+      console.log(`Facebook: página "${page.name}" (${page.id})`)
+
+      // ── Facebook: seguidores (campo del nodo, NO insights) ──
+      const fb = JSON.parse(
+        await get(`https://graph.facebook.com/v22.0/${page.id}?fields=followers_count,fan_count&access_token=${pageToken}`)
+      )
+      if (fb?.error) console.warn(`Facebook seguidores error: ${fb.error.message}`)
+      const followers = Number(fb?.followers_count ?? fb?.fan_count) || 0
+
+      // ── Facebook: engagement calculado desde los posts del periodo ──
+      // Las métricas de Page Insights (page_impressions, page_engaged_users,
+      // page_positive_feedback, page_fan_adds) fueron discontinuadas por Meta
+      // (jun/nov 2025) y devuelven error #100. Se calculan a partir de los
+      // posts —reactions/comments/shares por post— que es estable y solo
+      // requiere el permiso pages_read_engagement que ya tenemos.
+      let reactions = 0, comments = 0, shares = 0, postCount = 0
+      const posts = JSON.parse(
+        await get(
+          `https://graph.facebook.com/v22.0/${page.id}/posts?fields=shares,reactions.summary(true).limit(0),comments.summary(true).limit(0)&limit=100&since=${since30}&until=${until}&access_token=${pageToken}`
+        )
+      )
+      if (posts?.error) {
+        console.warn(`Facebook posts error: ${posts.error.message}`)
+      } else {
+        const list = posts?.data || []
+        postCount = list.length
+        for (const p of list) {
+          reactions += Number(p?.reactions?.summary?.total_count) || 0
+          comments += Number(p?.comments?.summary?.total_count) || 0
+          shares += Number(p?.shares?.count) || 0
+        }
+      }
+
+      if (!fb?.error || !posts?.error) {
+        data.facebook = {
+          followers,
+          engagements: reactions + comments + shares,
+          reactions,
+          comments,
+          shares,
+          posts: postCount,
+          period: { start: new Date(since30 * 1000).toISOString().slice(0, 10), end: new Date(until * 1000).toISOString().slice(0, 10) },
+        }
+        console.log(`Facebook OK: ${followers} followers, ${data.facebook.engagements} engagements (${postCount} posts)`)
+      }
+
+      // ── Instagram: cuenta Business conectada a la página ──
+      const igPage = JSON.parse(
+        await get(`https://graph.facebook.com/v22.0/${page.id}?fields=instagram_business_account&access_token=${pageToken}`)
+      )
+      const igId = igPage?.instagram_business_account?.id
+      if (!igId) {
+        console.warn('Instagram: la página no tiene una cuenta de Instagram Business conectada')
+      } else {
+        const prof = JSON.parse(
+          await get(
+            `https://graph.facebook.com/v22.0/${igId}?fields=followers_count,media_count&access_token=${pageToken}`
+          )
+        )
+        const ins = JSON.parse(
+          await get(
+            `https://graph.facebook.com/v22.0/${igId}/insights?metric=reach,impressions,profile_views,accounts_engaged&period=day&since=${since30}&until=${until}&access_token=${pageToken}`
+          )
+        )
+        if (prof?.error || ins?.error) {
+          console.warn(`Instagram API error: ${prof?.error?.message || ins?.error?.message}`)
+        } else {
+          data.instagram = {
+            followers: Number(prof.followers_count) || 0,
+            media: Number(prof.media_count) || 0,
+            reach: sumSeries(ins, 'reach'),
+            impressions: sumSeries(ins, 'impressions'),
+            profileViews: sumSeries(ins, 'profile_views'),
+            accountsEngaged: sumSeries(ins, 'accounts_engaged'),
+            period: { start: new Date(since30 * 1000).toISOString().slice(0, 10), end: new Date(until * 1000).toISOString().slice(0, 10) },
+          }
+          console.log(`Instagram OK: ${data.instagram.followers} followers, ${data.instagram.reach} reach`)
+        }
+      }
     }
   } catch (e) {
-    console.error('Facebook fetch failed:', e.message)
+    console.error('Facebook/Instagram fetch failed:', e.message)
   }
 } else {
-  console.warn('FB_ACCESS_TOKEN not set — skipping Facebook')
+  console.warn('FB_ACCESS_TOKEN not set — skipping Facebook/Instagram')
+}
+
+// ── Threads (API propia, THREADS_ACCESS_TOKEN) ──
+if (THREADS_TOKEN) {
+  try {
+    const me = JSON.parse(
+      await get(`https://graph.threads.net/v1.0/me?fields=id,username&access_token=${THREADS_TOKEN}`)
+    )
+    if (!me?.id) {
+      console.warn(`Threads API error: ${me?.error?.message || 'no se pudo obtener el usuario'}`)
+    } else {
+      const followers = JSON.parse(
+        await get(
+          `https://graph.threads.net/v1.0/${me.id}/threads_insights?metric=followers_count&access_token=${THREADS_TOKEN}`
+        )
+      )
+      const eng = JSON.parse(
+        await get(
+          `https://graph.threads.net/v1.0/${me.id}/threads_insights?metric=views,likes,replies,reposts,quotes,clicks&since=${since30}&until=${until}&access_token=${THREADS_TOKEN}`
+        )
+      )
+      if (followers?.error || eng?.error) {
+        console.warn(`Threads API error: ${followers?.error?.message || eng?.error?.message}`)
+      } else {
+        data.threads = {
+          followers: totalValue(followers, 'followers_count'),
+          views: sumSeries(eng, 'views'),
+          likes: totalValue(eng, 'likes'),
+          replies: totalValue(eng, 'replies'),
+          reposts: totalValue(eng, 'reposts'),
+          quotes: totalValue(eng, 'quotes'),
+          clicks: totalValue(eng, 'clicks'),
+          period: { start: new Date(since30 * 1000).toISOString().slice(0, 10), end: new Date(until * 1000).toISOString().slice(0, 10) },
+        }
+        console.log(`Threads OK: ${data.threads.followers} followers, ${data.threads.likes} likes`)
+      }
+    }
+  } catch (e) {
+    console.error('Threads fetch failed:', e.message)
+  }
+} else {
+  console.warn('THREADS_ACCESS_TOKEN not set — skipping Threads')
 }
 
 // ── Write ──
