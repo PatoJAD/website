@@ -34,6 +34,15 @@
         if (!data[p]) hideCard(p)
       })
 
+      if (data.fetchedAt) {
+        var upd = new Date(data.fetchedAt)
+        if (!isNaN(upd)) {
+          setVal('stat-updated', 'Actualizado el ' +
+            upd.toLocaleDateString('es-AR', { day: 'numeric', month: 'long', year: 'numeric' }) +
+            ' · ' + upd.toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit', hour12: false }) + ' hs')
+        }
+      }
+
       if (data.github) {
         setVal('stat-gh-repos', data.github.repos)
         setVal('stat-gh-stars', data.github.stars)
