@@ -3,6 +3,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
+  <!-- Marca JS activo lo antes posible: habilita scroll-reveal sin flash y
+       deja el contenido visible si el JS falla o está deshabilitado -->
+  <script>
+    document.documentElement.classList.add('js');
+    // Failsafe: si el bundle de animaciones no llega a cargar, revelar igual el contenido
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        if (window.__pjReveal) return;
+        var els = document.querySelectorAll('[data-reveal]');
+        for (var i = 0; i < els.length; i++) els[i].classList.add('reveal-in');
+      }, 1500);
+    });
+  </script>
+
   <!-- Titulo -->
   {{- $title := partialCached "data/title" . .RelPermalink -}}
   <title>{{ $title }}</title>

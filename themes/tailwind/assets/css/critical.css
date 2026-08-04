@@ -59,3 +59,20 @@ main {
   display: block;
 }
 
+/* Scroll-reveal: estado inicial (gated por .js → sin JS el contenido queda visible) */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity .7s ease, transform .7s cubic-bezier(.22, .61, .36, 1);
+  will-change: opacity, transform;
+}
+.js [data-reveal="left"]  { transform: translateX(-30px); }
+.js [data-reveal="right"] { transform: translateX(30px); }
+.js [data-reveal="scale"] { transform: scale(.94); }
+.js [data-reveal="fade"]  { transform: none; }
+.js [data-reveal].reveal-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
