@@ -3,7 +3,11 @@
 <div class="flex flex-col justify-center items-center px-12 md:px-6 py-24 w-full">
   <div class="grid grid-cols-1 md:grid-cols-3 py-12 w-full">
     <div id="information" class="md:col-span-2 w-full px-1 mb-4">
-      <h1 class="text-4xl font-bold text-fuchsia-700 mb-6">{{ .Title }}</h1>
+      <div class="mb-6" data-reveal>
+        <h1 class="text-4xl md:text-5xl font-bold text-gradient pb-1">{{ .Title }}</h1>
+        {{ with .Description }}<p class="text-white/60 mt-2 max-w-2xl text-lg">{{ . }}</p>{{ end }}
+        <hr class="w-full hr-brand mt-5">
+      </div>
       <div class="gap-4 grid grid-cols-1 md:grid-cols-2" data-reveal-group data-reveal-stagger="90">
         {{ $paginator := .Paginate .Data.Pages.ByDate.Reverse }}
         {{ $pages := $paginator.Pages }}

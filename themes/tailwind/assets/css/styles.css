@@ -94,6 +94,37 @@ body {
   @apply bg-zinc-800/30 backdrop-blur-xl border border-zinc-200/10 rounded-xl;
 }
 
+/* ── Utilidades de marca (estética compartida) ── */
+/* Separador de sección con degradé fucsia → transparente */
+.hr-brand {
+  height: 0.25rem;
+  border: 0;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #c026d3 0%, rgba(217, 70, 239, 0.55) 45%, rgba(217, 70, 239, 0) 100%);
+}
+/* Texto con degradé de marca (para titulares destacados) */
+.text-gradient {
+  background: linear-gradient(90deg, #f0abfc 0%, #a21caf 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+/* Glow y borde fucsia al pasar el mouse sobre tarjetas */
+.card-glow {
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+.card-glow:hover {
+  border-color: rgba(217, 70, 239, 0.4);
+  box-shadow: 0 14px 44px -14px rgba(217, 70, 239, 0.4);
+}
+/* Pastilla / eyebrow */
+.badge-pill {
+  @apply inline-block text-xs font-semibold uppercase tracking-widest text-fuchsia-300 border border-fuchsia-500/30 bg-fuchsia-500/10 rounded-full px-4 py-1.5;
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-glow { transition: none; }
+}
+
 p {
   @apply text-lg leading-relaxed my-6 text-lg;
 }
