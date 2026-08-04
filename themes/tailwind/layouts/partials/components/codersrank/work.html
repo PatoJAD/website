@@ -1,9 +1,6 @@
 {{ $data := (hugo.Data).linkedin }}
 {{ $techList := .Site.Params.technologies.main }}
-<div class="flex items-center">
-  <h2 class="text-3xl text-fuchsia-700 font-bold mb-4 p-4">Experiencia Laboral</h2>
-  <hr class="w-full hr-brand">
-</div>
+{{ partial "helper/section-header.html" (dict "title" "Experiencia Laboral") }}
 
 {{ $count := len $data.positions }}
 {{ if gt $count 0 }}
@@ -61,7 +58,7 @@
         </div>
         {{ end }}
         {{ $firstRolesOdd := eq (mod $firstRolesCount 2) 1 }}
-        <div class="p-4 grid grid-cols-2 gap-4">
+        <div class="p-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
           {{ range $idx, $role := $first.roles }}
           {{ $spanClass := cond (and $firstRolesOdd (eq $idx 0)) "col-span-2" "" }}
           <div class="background rounded-xl p-3 {{ $spanClass }}">
@@ -218,7 +215,7 @@
         </div>
       </div>
       {{ $companyRolesOdd := eq (mod $companyRolesCount 2) 1 }}
-      <div class="p-4 grid grid-cols-2 gap-4">
+      <div class="p-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
         {{ range $idx, $role := $company.roles }}
         {{ $spanClass := cond (and $companyRolesOdd (eq $idx 0)) "col-span-2" "" }}
         <div class="background rounded-xl p-3 {{ $spanClass }}">

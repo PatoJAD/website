@@ -1,8 +1,5 @@
 <div class="w-full mb-4">
-  <div class="flex items-center">
-    <h2 class="text-3xl text-fuchsia-700 font-bold mb-4 p-4">Contenido Relacionado</h2>
-    <hr class="w-full hr-brand">
-  </div>
+  {{ partial "helper/section-header.html" (dict "title" "Contenido Relacionado") }}
   {{ $posts := (where (.Site.RegularPages.Related .) "Params.hidden" "!=" true) | first 3 }}
 
   {{ range $i, $p := $posts }}
