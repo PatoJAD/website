@@ -3,10 +3,45 @@
   if (!dash) return
 
   function byId(id) { return document.getElementById(id) }
+  function fmt(n) { return n.toLocaleString('es-AR') }
+
+  // Count-up: anima números al entrar en viewport (una sola vez), respetando
+  // prefers-reduced-motion. Degrada a valor final directo si no hay soporte.
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  var canAnimate = !reduceMotion && 'IntersectionObserver' in window && 'requestAnimationFrame' in window
+
+  function animateCount(el) {
+    var target = Number(el.getAttribute('data-count')) || 0
+    if (target <= 0) { el.textContent = fmt(target); return }
+    var dur = 900, startTs = null
+    function step(ts) {
+      if (startTs === null) startTs = ts
+      var p = Math.min((ts - startTs) / dur, 1)
+      var eased = 1 - Math.pow(1 - p, 3) // easeOutCubic
+      el.textContent = fmt(Math.round(target * eased))
+      if (p < 1) requestAnimationFrame(step)
+      else el.textContent = fmt(target)
+    }
+    requestAnimationFrame(step)
+  }
+
+  var io = canAnimate ? new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { animateCount(e.target); io.unobserve(e.target) }
+    })
+  }, { threshold: 0.4 }) : null
 
   function setVal(id, value) {
     var el = byId(id)
-    if (el) el.textContent = typeof value === 'number' ? value.toLocaleString('es-AR') : value
+    if (!el) return
+    if (typeof value !== 'number') { el.textContent = value; return }
+    if (io) {
+      el.setAttribute('data-count', value)
+      el.textContent = fmt(0) // arranca en 0 y anima al entrar en viewport
+      io.observe(el)
+    } else {
+      el.textContent = fmt(value)
+    }
   }
 
   var results = []
