@@ -1,0 +1,26 @@
+{{- /*
+  Datos estructurados opcionales por front matter del post (rich results en Google):
+
+  faq:
+    - q: "¿Pregunta?"
+      a: "Respuesta en texto plano."
+  howto:
+    name: "Cómo hacer X"
+    steps:
+      - "Paso uno"
+      - "Paso dos"
+*/ -}}
+{{- with .Params.faq -}}
+{{- $items := slice -}}
+{{- range . -}}
+{{- $items = $items | append (dict "@type" "Question" "name" .q "acceptedAnswer" (dict "@type" "Answer" "text" .a)) -}}
+{{- end -}}
+<script type="application/ld+json">{{ (dict "@context" "https://schema.org" "@type" "FAQPage" "mainEntity" $items) | jsonify }}</script>
+{{- end -}}
+{{- with .Params.howto -}}
+{{- $steps := slice -}}
+{{- range .steps -}}
+{{- $steps = $steps | append (dict "@type" "HowToStep" "text" .) -}}
+{{- end -}}
+<script type="application/ld+json">{{ (dict "@context" "https://schema.org" "@type" "HowTo" "name" .name "step" $steps) | jsonify }}</script>
+{{- end -}}

@@ -17,9 +17,13 @@
       <article class="background w-full mb-4 shadow-xl rounded-xl p-4 md:p-8">
         {{ if eq .Params.type "post" }}<h1 class="mb-4 text-fuchsia-700 text-3xl md:text-5xl text-center">{{ .Title }}</h1>
         {{end}}
-        {{ .Content }}
+        <div id="reading-content">{{ .Content }}</div>
         {{ partial "components/widgets/social-share.html" . }}
       </article>
+
+      {{ partial "components/articles/community-cta.html" . }}
+      {{ partial "components/articles/post-nav.html" . }}
+
       <div data-reveal>{{ partial "components/articles/author.html" . }}</div>
       <div class="rounded-xl background p-2 flex content-center justify-center" data-reveal>
         <script defer src="https://i.emote.com/js/emote.js"></script>

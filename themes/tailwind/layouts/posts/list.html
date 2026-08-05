@@ -1,0 +1,63 @@
+{{ define "main" }}
+<div class="flex flex-col items-center px-4 sm:px-6 pt-32 pb-20 w-full">
+
+  {{ $posts := .Data.Pages.ByDate.Reverse }}
+  {{ $featured := index $posts 0 }}
+
+  {{/* ── Hero del blog ── */}}
+  <div class="w-full max-w-[1200px] mb-10">
+    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6" data-reveal>
+      <div>
+        <div class="badge-pill mb-3">Blog</div>
+        <h1 class="text-4xl md:text-5xl font-bold text-gradient pb-1">{{ .Title }}</h1>
+        <p class="text-white/60 mt-2 max-w-2xl text-lg">Tutoriales, reviews y notas sobre tecnología, GNU/Linux y desarrollo.</p>
+      </div>
+      <div class="flex gap-2 shrink-0">
+        <button type="button" class="btn-outline fx-pop" aria-label="Buscar artículos"
+          onclick="var b=document.getElementById('search-button'); if(b) b.click();">
+          <em class="fas fa-search" aria-hidden="true"></em>Buscar
+        </button>
+        {{ with .OutputFormats.Get "RSS" }}
+        <a href="{{ .RelPermalink }}" class="btn-outline fx-pop" aria-label="Suscribirse por RSS">
+          <em class="fas fa-rss" aria-hidden="true"></em>RSS
+        </a>
+        {{ end }}
+      </div>
+    </div>
+
+    {{ with $featured }}
+    <div class="group grid grid-cols-1 lg:grid-cols-2 rounded-xl overflow-hidden background card-glow items-stretch" data-reveal="scale">
+      <a href="{{ .RelPermalink }}" class="block overflow-hidden aspect-video lg:aspect-auto lg:h-full" aria-label="{{ .Title }}">
+        <img src="{{ .Params.img }}" alt="{{ .Title }}"
+          class="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+          loading="eager" fetchpriority="high" width="800" height="450" decoding="async">
+      </a>
+      <div class="p-6 md:p-8 flex flex-col justify-center">
+        <span class="badge-pill mb-3 self-start">Destacado</span>
+        <a href="{{ .RelPermalink }}" class="block">
+          <h2 class="text-2xl md:text-3xl font-bold text-white group-hover:text-fuchsia-400 transition-colors mb-3 line-clamp-2">{{ .Title }}</h2>
+        </a>
+        <p class="text-white/60 line-clamp-2 mb-5">{{ .Summary | plainify | truncate 160 }}</p>
+        <a href="{{ .RelPermalink }}" class="fx-nudge text-fuchsia-400 font-semibold inline-flex items-center gap-2 self-start hover:text-fuchsia-300 transition-colors">
+          Leer artículo <em class="fas fa-arrow-right-long" aria-hidden="true"></em>
+        </a>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+
+  {{/* ── Grid + sidebar ── */}}
+  <div class="grid grid-cols-1 md:grid-cols-3 w-full max-w-[1200px]">
+    <div id="information" class="md:col-span-2 w-full px-1 mb-4">
+      <div class="gap-4 grid grid-cols-1 md:grid-cols-2" data-reveal-group data-reveal-stagger="90">
+        {{ $paginator := .Paginate (after 1 $posts) }}
+        {{ range $paginator.Pages }}
+          {{ .Render "card" }}
+        {{ end }}
+      </div>
+      {{- partial "components/pagination.html" . -}}
+    </div>
+    {{- partial "components/articles/lateralbar.html" . -}}
+  </div>
+</div>
+{{ end }}

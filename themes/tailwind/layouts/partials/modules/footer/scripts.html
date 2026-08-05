@@ -8,7 +8,8 @@
 
 {{/* ===== Main Bundle (async) =====
      Core UX features needed for immediate interactivity:
-      search, mobile-menu, scroll-progress, slides, copy-code, viewport-animations */}}
+      search, mobile-menu, scroll-progress, slides, copy-code, viewport-animations,
+      toc-scroll-spy, lightbox, share */}}
 {{ $fusejs := resources.GetRemote "https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" }}
 {{ $embla := resources.GetRemote "https://unpkg.com/embla-carousel/embla-carousel.umd.js" }}
 {{ $emblaAutoplay := resources.GetRemote "https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js" }}
@@ -18,7 +19,10 @@
 {{ $slides := resources.Get "js/slides.js" }}
 {{ $copyCode := resources.Get "js/copy-code.js" }}
 {{ $viewportAnimations := resources.Get "js/viewport-animations.js" }}
-{{ $mainBundle := slice $fusejs $embla $emblaAutoplay $search $mobileMenu $scrollProgress $slides $copyCode $viewportAnimations | resources.Concat "/js/vendor.js" | minify | fingerprint "sha512" }}
+{{ $tocScrollSpy := resources.Get "js/toc-scroll-spy.js" }}
+{{ $lightbox := resources.Get "js/lightbox.js" }}
+{{ $share := resources.Get "js/share.js" }}
+{{ $mainBundle := slice $fusejs $embla $emblaAutoplay $search $mobileMenu $scrollProgress $slides $copyCode $viewportAnimations $tocScrollSpy $lightbox $share | resources.Concat "/js/vendor.js" | minify | fingerprint "sha512" }}
 <script async src="{{ $mainBundle.RelPermalink }}"></script>
 
 {{/* ===== Lazy-loaded: Metricool (requestIdleCallback + defer behavior) ===== */}}

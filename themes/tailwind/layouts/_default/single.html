@@ -24,9 +24,11 @@
         {{ if or (eq .Params.type "post") (eq .Params.type "project") }}
         <h1 class="mb-4 text-fuchsia-700 text-3xl md:text-5xl text-center">{{ .Title }}</h1>
         {{end}}
-        {{ .Content }}
+        <div id="reading-content">{{ .Content }}</div>
         {{ partial "components/widgets/social-share.html" . }}
       </article>
+      {{ partial "components/articles/community-cta.html" . }}
+      {{ partial "components/articles/post-nav.html" . }}
       <div data-reveal>{{ partial "components/articles/author.html" . }}</div>
     </div>
     {{ partial "components/articles/lateralbar.html" . }}

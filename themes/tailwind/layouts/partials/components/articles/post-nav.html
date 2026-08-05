@@ -1,0 +1,28 @@
+{{/* Navegación anterior/siguiente dentro de la sección "posts".
+     Robusta ante subcarpetas por año (PrevInSection/NextInSection se fragmentan). */}}
+{{ if eq .Section "posts" }}
+{{ $list := where site.RegularPages "Section" "posts" }}
+{{ $prev := false }}{{ $next := false }}
+{{ range $i, $p := $list }}
+  {{ if eq $p.RelPermalink $.RelPermalink }}
+    {{ if gt $i 0 }}{{ $next = index $list (sub $i 1) }}{{ end }}
+    {{ if lt (add $i 1) (len $list) }}{{ $prev = index $list (add $i 1) }}{{ end }}
+  {{ end }}
+{{ end }}
+{{ if or $prev $next }}
+<nav class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6" aria-label="Navegación entre artículos">
+  {{ with $prev }}
+  <a href="{{ .RelPermalink }}" class="group background card-glow rounded-xl p-4 flex flex-col" data-reveal="left">
+    <span class="text-xs text-white/50 uppercase tracking-wider mb-1"><em class="fas fa-arrow-left-long mr-1" aria-hidden="true"></em>Anterior</span>
+    <span class="font-semibold text-white group-hover:text-fuchsia-400 transition-colors line-clamp-2">{{ .Title }}</span>
+  </a>
+  {{ else }}<span class="hidden sm:block"></span>{{ end }}
+  {{ with $next }}
+  <a href="{{ .RelPermalink }}" class="group background card-glow rounded-xl p-4 flex flex-col sm:text-right sm:items-end" data-reveal="right">
+    <span class="text-xs text-white/50 uppercase tracking-wider mb-1">Siguiente<em class="fas fa-arrow-right-long ml-1" aria-hidden="true"></em></span>
+    <span class="font-semibold text-white group-hover:text-fuchsia-400 transition-colors line-clamp-2">{{ .Title }}</span>
+  </a>
+  {{ end }}
+</nav>
+{{ end }}
+{{ end }}

@@ -2,8 +2,10 @@
   {{ if eq .Params.type "project" }}
   <div data-reveal>{{ partial "components/widgets/projectdata.html" . }}</div>
   {{ else }}
-  <div data-reveal>{{ partial "components/widgets/table-of-content.html" . }}</div>
+  {{ if .IsPage }}
+  <div data-reveal class="lg:sticky lg:top-28 z-10">{{ partial "components/widgets/table-of-content.html" . }}</div>
   <div data-reveal>{{ partial "components/articles/related.html" . }}</div>
+  {{ end }}
   <div data-reveal>{{ partial "components/widgets/categories.html" . }}</div>
   <div data-reveal>{{ partial "components/widgets/social-network.html" . }}</div>
   <div data-reveal>{{ partial "components/widgets/donate.html" . }}</div>

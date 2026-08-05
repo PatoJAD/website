@@ -121,6 +121,16 @@ body {
 .badge-pill {
   @apply inline-block text-xs font-semibold uppercase tracking-widest text-fuchsia-300 border border-fuchsia-500/30 bg-fuchsia-500/10 rounded-full px-4 py-1.5;
 }
+/* Chip / pastilla neutral (unifica los "Publicamos en", filtros, etc.) */
+.chip {
+  @apply inline-flex items-center gap-1.5 bg-zinc-800/50 border border-zinc-200/10 rounded-full px-4 py-1.5 text-sm text-white/80 transition-colors hover:text-fuchsia-400 hover:border-fuchsia-400/40;
+}
+/* Badge de categoría con color dinámico desde el front-matter */
+.card-cat-badge {
+  background-color: var(--cat-bg, rgba(0, 0, 0, 0.45));
+  color: var(--cat-color, #fff);
+}
+
 /* Botones estándar (unifican los CTAs del sitio) */
 .btn-primary {
   @apply inline-flex items-center justify-center gap-2 bg-fuchsia-700 hover:bg-fuchsia-600 text-white font-semibold rounded-xl px-6 py-3 transition-colors;
@@ -321,6 +331,39 @@ blockquote {
   .navbar-shine::before {
     animation: none;
   }
+}
+
+/* ── Lectura de artículo (tipografía y ritmo) ── */
+#reading-content { line-height: 1.8; }
+#reading-content h2 { @apply text-2xl md:text-3xl font-bold text-white mt-10 mb-4 scroll-mt-28; }
+#reading-content h3 { @apply text-xl md:text-2xl font-bold text-white mt-8 mb-3 scroll-mt-28; }
+#reading-content h4 { @apply text-lg md:text-xl font-bold text-white mt-6 mb-2 scroll-mt-28; }
+#reading-content p { @apply my-5; }
+#reading-content > p, #reading-content li { @apply text-white/85; }
+#reading-content a:not(.copy-code-button) { @apply text-fuchsia-400 underline decoration-fuchsia-700/40 underline-offset-2 transition-colors; }
+#reading-content a:not(.copy-code-button):hover { @apply decoration-fuchsia-400; }
+#reading-content ul, #reading-content ol { @apply my-5; }
+#reading-content li { @apply my-2; }
+#reading-content img { @apply rounded-xl mx-auto my-6; }
+
+/* Índice: sticky + item activo (scroll-spy) */
+#TableOfContents a { @apply text-white/55 transition-colors; }
+#TableOfContents a:hover { @apply text-white; }
+#TableOfContents a.toc-active { @apply text-fuchsia-400 font-semibold; }
+
+/* Lightbox de imágenes del artículo */
+.pj-lightbox {
+  position: fixed; inset: 0; z-index: 600;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(0, 0, 0, .85); backdrop-filter: blur(4px);
+  opacity: 0; visibility: hidden; transition: opacity .25s ease;
+  padding: 4vw; cursor: zoom-out;
+}
+.pj-lightbox.open { opacity: 1; visibility: visible; }
+.pj-lightbox img { max-width: 100%; max-height: 92vh; border-radius: .75rem; box-shadow: 0 20px 60px rgba(0, 0, 0, .5); }
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
 }
 
 @import "components/markdown.css";
