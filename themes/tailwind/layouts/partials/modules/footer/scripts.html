@@ -10,7 +10,6 @@
      Core UX features needed for immediate interactivity:
       search, mobile-menu, scroll-progress, slides, copy-code, viewport-animations,
       toc-scroll-spy, lightbox, share */}}
-{{ $fusejs := resources.GetRemote "https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" }}
 {{ $embla := resources.GetRemote "https://unpkg.com/embla-carousel/embla-carousel.umd.js" }}
 {{ $emblaAutoplay := resources.GetRemote "https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js" }}
 {{ $search := resources.Get "js/search.js" }}
@@ -22,8 +21,12 @@
 {{ $tocScrollSpy := resources.Get "js/toc-scroll-spy.js" }}
 {{ $lightbox := resources.Get "js/lightbox.js" }}
 {{ $share := resources.Get "js/share.js" }}
-{{ $mainBundle := slice $fusejs $embla $emblaAutoplay $search $mobileMenu $scrollProgress $slides $copyCode $viewportAnimations $tocScrollSpy $lightbox $share | resources.Concat "/js/vendor.js" | minify | fingerprint "sha512" }}
+{{ $mainBundle := slice $embla $emblaAutoplay $search $mobileMenu $scrollProgress $slides $copyCode $viewportAnimations $tocScrollSpy $lightbox $share | resources.Concat "/js/vendor.js" | minify | fingerprint "sha512" }}
 <script async src="{{ $mainBundle.RelPermalink }}"></script>
+
+{{/* fuse.js se carga on-demand al abrir el buscador (no en el bundle inicial) */}}
+{{ $fusejs := resources.GetRemote "https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" | fingerprint "sha512" }}
+<script>window.__fuseSrc = "{{ $fusejs.RelPermalink }}";</script>
 
 {{/* ===== Lazy-loaded: Metricool (requestIdleCallback + defer behavior) ===== */}}
 <script>

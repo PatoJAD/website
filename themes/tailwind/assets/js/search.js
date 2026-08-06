@@ -116,11 +116,22 @@ function fetchJSON(path, callback) {
   httpRequest.send();
 }
 
+function loadFuse(cb) {
+  if (window.Fuse) { cb(); return; }
+  var s = document.createElement("script");
+  s.src = window.__fuseSrc;
+  s.onload = cb;
+  document.head.appendChild(s);
+}
+
 function buildIndex() {
-  var baseURL = wrapper.getAttribute("data-url");
-  baseURL = baseURL.replace(/\/?$/, '/');
-  fetchJSON(baseURL + "index.json", function (data) {
-    var options = {
+  if (indexed || buildIndex.loading) return;
+  buildIndex.loading = true;
+  loadFuse(function () {
+    var baseURL = wrapper.getAttribute("data-url");
+    baseURL = baseURL.replace(/\/?$/, '/');
+    fetchJSON(baseURL + "index.json", function (data) {
+      var options = {
       shouldSort: true,
       ignoreLocation: true,
       threshold: 0.0,
@@ -137,8 +148,9 @@ function buildIndex() {
         finalIndex.push(data[i]);
       }
     }*/
-    fuse = new Fuse(data, options);
-    indexed = true;
+      fuse = new Fuse(data, options);
+      indexed = true;
+    });
   });
 }
 

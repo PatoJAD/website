@@ -1,39 +1,9 @@
 <div class="w-full mb-4">
   {{ partial "helper/section-header.html" (dict "title" "Últimos Artículos") }}
   {{ $posts := first 2 .Site.RegularPages.ByDate.Reverse }}
-
-  <div class="flex flex-wrap -m-2" data-reveal-group data-reveal-stagger="110">
-    {{ range $i, $p := $posts }}
-    <div class="w-full md:w-1/2 p-2" data-reveal>
-      <div class="relative mb-4 overflow-hidden rounded-xl transition-transform duration-200 ease-in-out hover:-translate-y-1 card-glow">
-        <img
-          class="w-full aspect-video object-cover transform hover:scale-110 transition duration-700"
-          src="{{ with $p.Params.img }}{{ . }}{{ end }}" alt="{{ $p.Title }}" loading="lazy" decoding="async">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-transparent pointer-events-none"></div>
-        <div class="absolute bottom-0 left-0 w-full p-4">
-          <div class="mb-4 flex gap-4">
-            {{ if .Params.categories }}
-            {{ range (.GetTerms "categories") }}
-            {{ $cat := . }}
-            {{ with .Params.style }}
-            <span class="text-sm px-3 py-1 rounded-full card-cat-badge font-medium"
-              style="--cat-bg: {{ .background }}; --cat-color: {{ .color }};">{{ $cat.LinkTitle }}</span>
-            {{ else }}
-            <span class="text-sm px-3 py-1 rounded-full card-cat-badge font-medium">{{ $cat.LinkTitle }}</span>
-            {{ end }}
-            {{ end }}
-            {{ end }}
-          </div>
-          <a class="group inline-block max-w-sm" href="{{ $p.RelPermalink }}">
-            <h3 class="mb-4 text-2xl text-white tracking-tight transition-colors duration-200 ease-in-out group-hover:text-fuchsia-700">{{ $p.Title }}</h3>
-          </a>
-          <a class="group fx-nudge inline-flex items-center gap-2 text-white font-medium hover:text-fuchsia-400 transition-colors" href="{{ $p.RelPermalink }}">
-            <span>Ver más</span><em class="fas fa-arrow-right text-sm" aria-hidden="true"></em>
-          </a>
-        </div>
-      </div>
-    </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" data-reveal-group data-reveal-stagger="110">
+    {{ range $posts }}
+      {{ .Render "card" }}
     {{ end }}
   </div>
-
 </div>
