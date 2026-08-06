@@ -1,0 +1,12 @@
+{{- /*
+  Formatea una fecha en español: "5 de agosto de 2026".
+  Uso: {{ partial "helper/date-es.html" .Date }}
+  Fallback a formato corto si el idioma no es español.
+*/ -}}
+{{- $d := . -}}
+{{- $out := $d.Format "2 Jan 2006" -}}
+{{- if eq site.Language.Lang "es" -}}
+  {{- $month := index (hugo.Data).meses (printf "%d" $d.Month) -}}
+  {{- $out = printf "%d de %s de %d" $d.Day $month $d.Year -}}
+{{- end -}}
+{{- return $out -}}

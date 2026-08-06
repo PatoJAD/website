@@ -38,42 +38,21 @@ document.addEventListener("keydown", function (event) {
     hideSearch();
   }
 
-  // Down arrow to move down results list
-  if (event.key == "ArrowDown") {
-    if (searchVisible && hasResults) {
-      event.preventDefault();
-      if (document.activeElement == input) {
-        first.focus();
-      } else if (document.activeElement == last) {
-        last.focus();
-      } else {
-        document.activeElement.parentElement.nextSibling.firstElementChild.focus();
-      }
-    }
-  }
-
-  // Up arrow to move up results list
-  if (event.key == "ArrowUp") {
-    if (searchVisible && hasResults) {
-      event.preventDefault();
-      if (document.activeElement == input) {
-        input.focus();
-      } else if (document.activeElement == first) {
-        input.focus();
-      } else {
-        document.activeElement.parentElement.previousSibling.firstElementChild.focus();
-      }
-    }
-  }
-
-  // Enter to get to results
-  if (event.key == "Enter") {
-    if (searchVisible && hasResults) {
-      event.preventDefault();
-      if (document.activeElement == input) {
-        first.focus();
-      } else {
-        document.activeElement.click();
+  // Navegación por teclado entre las cards de resultados
+  if (searchVisible && hasResults && (event.key == "ArrowDown" || event.key == "ArrowUp" || event.key == "Enter")) {
+    var links = Array.prototype.slice.call(output.querySelectorAll("a[data-result]"));
+    if (links.length) {
+      var idx = links.indexOf(document.activeElement);
+      if (event.key == "ArrowDown") {
+        event.preventDefault();
+        (idx < 0 ? links[0] : links[Math.min(idx + 1, links.length - 1)]).focus();
+      } else if (event.key == "ArrowUp") {
+        event.preventDefault();
+        if (idx <= 0) input.focus(); else links[idx - 1].focus();
+      } else { // Enter
+        event.preventDefault();
+        if (document.activeElement == input) links[0].focus();
+        else document.activeElement.click();
       }
     }
   }
@@ -164,33 +143,41 @@ function buildIndex() {
 }
 
 function executeQuery(term) {
-  let results = fuse.search(term);
+  if (!fuse) return; // el índice todavía no cargó
+  if (!term) { output.innerHTML = ""; hasResults = false; return; }
+  var seen = {};
+  let results = fuse.search(term).filter(function (v) {
+    var p = v.item.permalink;
+    if (seen[p]) return false;
+    seen[p] = true;
+    return true;
+  }).slice(0, 30);
   let resultsHTML = "";
 
   if (results.length > 0) {
-    results.forEach((value, key) => {
-      var html = value.item.summary;
+    results.forEach((value) => {
+      var item = value.item;
       var div = document.createElement("div");
-      div.innerHTML = html;
-      value.item.summary = div.textContent || div.innerText || "";
-      var title = value.item.externalUrl ? value.item.title + '<span class="text-xs ml-2 align-center cursor-default text-fuchsia-700">' + value.item.externalUrl + '</span>' : value.item.title;
-      var linkconfig = value.item.externalUrl ? 'target="_blank" rel="noopener" href="' + value.item.externalUrl + '"' : 'href="' + value.item.permalink + '"';
-      resultsHTML =
-        resultsHTML +
-        `<div class="mb-2 bg-cover bg-center bg-no-repeat p-3 rounded-2xl" style="background-image: url(${value.item.img});" id="result-${key}">
-          <a class="flex items-center px-3 py-2 rounded-2xl appearance-none background opacity-90 hover:opacity-100 transition-opacity"
-          ${linkconfig} tabindex="0">
-            <div class="grow">
-              <div class="-mb-1 text-lg font-bold text-fuchsia-700">
-                ${title}
-              </div>
-              <div class="text-sm text-white/60"><span class="px-2 text-fuchsia-700"><em class="fas fa-calendar" aria-hidden="true"></em></span>${value.item.date ? value.item.date : ""}</div>
-              <div class="text-sm italic text-white/70">${value.item.summary}</div>
-            </div>
-            <div class="ml-2 ltr:block rtl:hidden text-white/50" aria-hidden="true">&rarr;</div>
-            <div class="mr-2 ltr:hidden rtl:block text-white/50" aria-hidden="true">&larr;</div>
-          </a>
-        </div>`;
+      div.innerHTML = item.summary || "";
+      var summary = div.textContent || div.innerText || "";
+      var title = item.externalUrl
+        ? item.title + '<span class="text-xs ml-2 align-middle text-fuchsia-400">' + item.externalUrl + "</span>"
+        : item.title;
+      var linkconfig = item.externalUrl
+        ? 'target="_blank" rel="noopener" href="' + item.externalUrl + '"'
+        : 'href="' + item.permalink + '"';
+      var media = item.img
+        ? '<img src="' + item.img + '" alt="" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">'
+        : '<div class="w-full h-full bg-gradient-to-br from-fuchsia-700/30 to-zinc-800"></div>';
+      resultsHTML +=
+        '<a data-result ' + linkconfig + ' tabindex="0" class="group background card-glow rounded-xl overflow-hidden flex flex-col">' +
+          '<div class="aspect-video overflow-hidden bg-zinc-800/50">' + media + "</div>" +
+          '<div class="p-4 flex flex-col grow">' +
+            '<h3 class="text-base font-bold text-white group-hover:text-fuchsia-400 transition-colors line-clamp-2">' + title + "</h3>" +
+            '<p class="text-sm text-white/60 line-clamp-2 mt-1 grow">' + summary + "</p>" +
+            (item.date ? '<span class="text-xs text-white/50 mt-3"><em class="fas fa-calendar mr-1" aria-hidden="true"></em>' + item.date + "</span>" : "") +
+          "</div>" +
+        "</a>";
     });
     hasResults = true;
   } else {
@@ -198,7 +185,7 @@ function executeQuery(term) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
     });
     resultsHTML =
-      '<div class="text-center py-10 text-white/60">' +
+      '<div class="text-center py-12 text-white/60" style="grid-column: 1 / -1">' +
       '<em class="fas fa-search text-3xl text-white/30 mb-3 block" aria-hidden="true"></em>' +
       'Sin resultados para «<span class="text-white/80 font-semibold">' + safeTerm + '</span>»' +
       '</div>';
@@ -206,8 +193,4 @@ function executeQuery(term) {
   }
 
   output.innerHTML = resultsHTML;
-  if (results.length > 0) {
-    first = output.firstChild.firstElementChild;
-    last = output.lastChild.firstElementChild;
-  }
 }

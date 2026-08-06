@@ -1,26 +1,28 @@
 <div id="search-wrapper"
-  class="fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-black/60 p-4 backdrop-blur-sm sm:p-6 md:p-[10vh] lg:p-[12vh] opacity-0 invisible pointer-events-none transition-opacity duration-300 ease-in-out "
-  data-url="{{ "" | absLangURL }}" style="z-index:500">
+  class="fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-black/50 backdrop-blur-xl p-4 sm:p-6 md:px-8 md:pt-[7vh] md:pb-6 opacity-0 invisible pointer-events-none transition-opacity duration-300 ease-in-out "
+  data-url="{{ "" | relLangURL }}" style="z-index:500">
+  {{/* Panel a pantalla completa sobre el fondo blurreado */}}
   <div id="search-modal" role="dialog" aria-modal="true" aria-label="Buscar en el sitio"
-    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border border-zinc-200/10 rounded-xl shadow-lg top-20 background opacity-0 translate-y-4 transition-all duration-300 ease-in-out ">
-    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+    class="flex flex-col w-full h-full max-w-7xl mx-auto min-h-0 opacity-0 translate-y-4 transition-all duration-300 ease-in-out ">
+    {{/* Barra de búsqueda: fija arriba mientras se scrollean los resultados */}}
+    <header class="flex items-center justify-between flex-none background border border-zinc-200/10 rounded-xl shadow-lg px-2 mb-4">
       <form class="flex items-center flex-auto min-w-0" role="search">
-        <div class="flex items-center justify-center w-11 h-11 text-white/50">
+        <div class="flex items-center justify-center w-11 h-11 text-white/50 shrink-0">
           <em class="fas fa-search text-2xl" aria-hidden="true"></em>
         </div>
         <input type="search" id="search-query" aria-label="Buscar"
-          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none"
-          placeholder="Buscar..." tabindex="0" />
+          class="flex flex-auto h-14 mx-1 bg-transparent appearance-none text-lg"
+          placeholder="Buscar artículos, proyectos…" tabindex="0" />
       </form>
       <button id="close-search-button" aria-label="Cerrar búsqueda"
-        class="flex items-center justify-center w-11 h-11 text-white/60 hover:text-fuchsia-400 transition-colors"
+        class="flex items-center justify-center w-11 h-11 text-white/60 hover:text-fuchsia-400 transition-colors shrink-0"
         title="Cerrar">
         <em class="fas fa-xmark text-2xl" aria-hidden="true"></em>
       </button>
     </header>
-    <section class="flex-auto px-2 overflow-auto">
-      <ul id="search-results">
-      </ul>
+    {{/* Resultados en grid de cards, ocupando el alto restante con scroll interno */}}
+    <section class="flex-auto min-h-0 overflow-auto no-scrollbar">
+      <div id="search-results" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 content-start"></div>
     </section>
   </div>
 </div>

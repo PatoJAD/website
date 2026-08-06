@@ -20,12 +20,7 @@
     <div class="flex items-center gap-3 text-xs text-zinc-400 mb-2">
       <span>
         <em class="fa fa-calendar mr-1" aria-hidden="true"></em>
-        {{- $formattedDate := .Date.Format "2 Jan 2006" -}}
-        {{- if eq site.Language.Lang "es" -}}
-        {{- $month := index (hugo.Data).meses (printf "%d" .Date.Month) -}}
-        {{- $formattedDate = printf "%d de %s de %d" .Date.Day $month .Date.Year -}}
-        {{- end -}}
-        {{ $formattedDate }}
+        {{ partial "helper/date-es.html" .Date }}
       </span>
       <span><em class="fa fa-clock-o mr-1" aria-hidden="true"></em>{{ .ReadingTime }} min de lectura</span>
     </div>

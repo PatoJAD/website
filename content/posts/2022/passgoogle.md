@@ -1,5 +1,6 @@
 ---
 title: 'Crear contraseña para apps en Google'
+type: post
 date: '2022-07-14 10:41:00'
 description: 'Google nos permite crear contraseñas que saltean el doble factor y hoy vamos a ver el paso a paso de este proceso.'
 tags:

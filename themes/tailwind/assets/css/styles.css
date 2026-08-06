@@ -94,6 +94,25 @@ body {
   @apply bg-zinc-800/30 backdrop-blur-xl border border-zinc-200/10 rounded-xl;
 }
 
+/* Scrollbar sutil: una línea fina fucsia que no molesta (coherente en todo el sitio) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(217, 70, 239, 0.45) transparent;
+}
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background-color: rgba(217, 70, 239, 0.4);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover { background-color: rgba(217, 70, 239, 0.7); }
+
+/* Ocultar scrollbar (manteniendo el scroll) — usado en el buscador */
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
 /* ── Utilidades de marca (estética compartida) ── */
 /* Separador de sección con degradé fucsia → transparente */
 .hr-brand {
