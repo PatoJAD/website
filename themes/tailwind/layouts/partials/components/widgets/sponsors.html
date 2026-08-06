@@ -1,3 +1,5 @@
+{{- /* Marca que esta página usa un carrusel embla → el bundle se carga condicionalmente */ -}}
+{{- .Store.Set "hasEmbla" true -}}
 <style>
   .embla {
     overflow: hidden;
@@ -10,7 +12,7 @@
 </style>
 
 <div class="w-full mb-4">
-    {{ partial "helper/section-header.html" (dict "title" "Sponsors") }}
+    {{ partialCached "helper/section-header.html" (dict "title" "Sponsors") "Sponsors" }}
   <div class="flex flex-wrap justify-center items-center content-center background rounded-xl">
     <div class="embla">
       <div class="embla__container flex text-center items-center content-center">

@@ -8,21 +8,27 @@
 
 {{/* ===== Main Bundle (async) =====
      Core UX features needed for immediate interactivity:
-      search, mobile-menu, scroll-progress, slides, copy-code, viewport-animations,
+      search, mobile-menu, scroll-progress, copy-code, viewport-animations,
       toc-scroll-spy, lightbox, share */}}
-{{ $embla := resources.GetRemote "https://unpkg.com/embla-carousel/embla-carousel.umd.js" }}
-{{ $emblaAutoplay := resources.GetRemote "https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js" }}
 {{ $search := resources.Get "js/search.js" }}
 {{ $mobileMenu := resources.Get "js/mobile-menu.js" }}
 {{ $scrollProgress := resources.Get "js/scroll-progress.js" }}
-{{ $slides := resources.Get "js/slides.js" }}
 {{ $copyCode := resources.Get "js/copy-code.js" }}
 {{ $viewportAnimations := resources.Get "js/viewport-animations.js" }}
 {{ $tocScrollSpy := resources.Get "js/toc-scroll-spy.js" }}
 {{ $lightbox := resources.Get "js/lightbox.js" }}
 {{ $share := resources.Get "js/share.js" }}
-{{ $mainBundle := slice $embla $emblaAutoplay $search $mobileMenu $scrollProgress $slides $copyCode $viewportAnimations $tocScrollSpy $lightbox $share | resources.Concat "/js/vendor.js" | minify | fingerprint "sha512" }}
+{{ $mainBundle := slice $search $mobileMenu $scrollProgress $copyCode $viewportAnimations $tocScrollSpy $lightbox $share | resources.Concat "/js/vendor.js" | minify | fingerprint "sha512" }}
 <script async src="{{ $mainBundle.RelPermalink }}"></script>
+
+{{/* Carrusel embla: solo se carga en páginas que lo usan (widget sponsors) */}}
+{{ if .Store.Get "hasEmbla" }}
+{{ $embla := resources.GetRemote "https://unpkg.com/embla-carousel/embla-carousel.umd.js" }}
+{{ $emblaAutoplay := resources.GetRemote "https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js" }}
+{{ $slides := resources.Get "js/slides.js" }}
+{{ $emblaBundle := slice $embla $emblaAutoplay $slides | resources.Concat "/js/embla.js" | minify | fingerprint "sha512" }}
+<script async src="{{ $emblaBundle.RelPermalink }}"></script>
+{{ end }}
 
 {{/* fuse.js se carga on-demand al abrir el buscador (no en el bundle inicial) */}}
 {{ $fusejs := resources.GetRemote "https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" | fingerprint "sha512" }}

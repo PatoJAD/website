@@ -1,6 +1,6 @@
 {{- $limit := default 30 .Params.limit -}}
 <div class="w-full mb-4">
-	{{ partial "helper/section-header.html" (dict "title" "Tags Populares") }}
+	{{ partialCached "helper/section-header.html" (dict "title" "Tags Populares") "Tags Populares" }}
 	{{ $tags := first $limit .Site.Taxonomies.tags.ByCount }}
 	{{ $max := 1 }}{{ range $tags }}{{ if gt .Count $max }}{{ $max = .Count }}{{ end }}{{ end }}
 	<div class="flex flex-wrap gap-2">

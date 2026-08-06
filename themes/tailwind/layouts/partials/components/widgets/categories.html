@@ -1,7 +1,7 @@
 {{- $limit := default 40 .Params.limit -}}
 
 <div class="w-full mb-4">
-  {{ partial "helper/section-header.html" (dict "title" "Categorías") }}
+  {{ partialCached "helper/section-header.html" (dict "title" "Categorías") "Categorías" }}
   {{/* Prepare list and big-indices heuristic like social network */}}
   {{ $cats := first $limit .Site.Taxonomies.categories.ByCount }}
   {{ $count := len $cats }}
