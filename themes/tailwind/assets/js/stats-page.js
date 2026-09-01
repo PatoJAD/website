@@ -139,11 +139,19 @@
       }
       if (data.facebook) {
         setVal('stat-fb-followers', data.facebook.followers)
-        setVal('stat-fb-engagements', data.facebook.engagements)
-        setVal('stat-fb-reactions', data.facebook.reactions)
-        setVal('stat-fb-comments', data.facebook.comments)
-        setVal('stat-fb-shares', data.facebook.shares)
-        setVal('stat-fb-posts', data.facebook.posts)
+        // El engagement de Facebook puede venir ausente (requiere un permiso
+        // aparte del de seguidores). setVal escribe el valor crudo cuando no es
+        // un número, así que sin este guard se vería "undefined" en la tarjeta.
+        var fbEngagement = [
+          ['stat-fb-engagements', data.facebook.engagements],
+          ['stat-fb-reactions', data.facebook.reactions],
+          ['stat-fb-comments', data.facebook.comments],
+          ['stat-fb-shares', data.facebook.shares],
+          ['stat-fb-posts', data.facebook.posts]
+        ]
+        fbEngagement.forEach(function (pair) {
+          setVal(pair[0], typeof pair[1] === 'number' ? pair[1] : '—')
+        })
         results.push(data.facebook.followers || 0)
       }
       if (data.x) {

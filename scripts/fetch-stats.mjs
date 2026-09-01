@@ -76,6 +76,19 @@ if (YT_API_KEY) {
 // ── Facebook + Instagram (Graph API con FB_ACCESS_TOKEN) ──
 if (FB_TOKEN) {
   try {
+    // Diagnóstico: los permisos quedan FIJADOS al momento de crear el token.
+    // Si agregaste un permiso pero seguís usando un token viejo, NO lo tiene.
+    try {
+      const perms = JSON.parse(await get(`https://graph.facebook.com/v22.0/me/permissions?access_token=${FB_TOKEN}`))
+      const granted = (perms?.data || []).filter((p) => p.status === 'granted').map((p) => p.permission)
+      console.log(`Facebook permisos del token: ${granted.join(', ') || '(ninguno)'}`)
+      for (const need of ['pages_show_list', 'pages_read_engagement']) {
+        if (!granted.includes(need)) {
+          console.warn(`⚠ El token NO tiene "${need}". Si ya lo agregaste, REGENERÁ el token (los permisos se fijan al crearlo).`)
+        }
+      }
+    } catch (e) { /* si falla el diagnóstico seguimos igual */ }
+
     // Buscar la página en /me/accounts (funciona con token de usuario o de System User)
     const accounts = JSON.parse(
       await get(`https://graph.facebook.com/v22.0/me/accounts?fields=id,name,username,access_token&limit=100&access_token=${FB_TOKEN}`)
@@ -84,10 +97,18 @@ if (FB_TOKEN) {
     if (accounts?.error || !accs.length) {
       console.warn(`Facebook API error: ${accounts?.error?.message || 'el token no tiene páginas (falta pages_read_engagement / pages_show_list?)'}`)
     } else {
-      const match = accs.find((a) => a.name === FB_PAGE || a.username === FB_PAGE || a.id === FB_PAGE)
+      // "Pato JAD" no es igual a "PatoJAD": la comparación exacta por nombre
+      // nunca acierta, así que se normaliza quitando espacios y mayúsculas.
+      const norm = (s) => String(s || '').replace(/\s+/g, '').toLowerCase()
+      const wanted = norm(FB_PAGE)
+      const match = accs.find((a) => norm(a.name) === wanted || norm(a.username) === wanted || a.id === FB_PAGE)
+      if (!match) {
+        // Sin este aviso, elegir la página equivocada se ve idéntico a acertar.
+        console.warn(`Facebook: no se encontró la página "${FB_PAGE}" entre las ${accs.length} asignadas; se usa "${accs[0].name}" como fallback`)
+      }
       const page = match || accs[0]
       const pageToken = page.access_token || FB_TOKEN
-      console.log(`Facebook: página "${page.name}" (${page.id})`)
+      console.log(`Facebook: página "${page.name}" (${page.id}) — token de página: ${page.access_token ? 'sí' : 'NO (usando token de usuario, /posts puede venir vacío)'}`)
 
       // ── Facebook: seguidores (campo del nodo, NO insights) ──
       const fb = JSON.parse(
@@ -100,37 +121,59 @@ if (FB_TOKEN) {
       // Las métricas de Page Insights (page_impressions, page_engaged_users,
       // page_positive_feedback, page_fan_adds) fueron discontinuadas por Meta
       // (jun/nov 2025) y devuelven error #100. Se calculan a partir de los
-      // posts —reactions/comments/shares por post— que es estable y solo
-      // requiere el permiso pages_read_engagement que ya tenemos.
-      let reactions = 0, comments = 0, shares = 0, postCount = 0
-      const posts = JSON.parse(
-        await get(
-          `https://graph.facebook.com/v22.0/${page.id}/posts?fields=shares,reactions.summary(true).limit(0),comments.summary(true).limit(0)&limit=100&since=${since30}&until=${until}&access_token=${pageToken}`
-        )
+      // posts —reactions/comments/shares por post— que es estable.
+      //
+      // Ojo: leer /{page-id}/posts exige pages_read_user_content, que NO viene
+      // incluido en pages_read_engagement. Hacen falta las dos cosas: la tarea
+      // "Contenido" asignada sobre la página y un token regenerado con ese
+      // scope (activar el toggle no altera un token ya emitido).
+      let reactions = 0, comments = 0, shares = 0, postCount = 0, fetched = 0
+      // Se traen los posts recientes SIN filtro de fecha del server (el since/until
+      // a veces excluye de más) y se filtran los últimos 30 días por created_time.
+      const postsRaw = await get(
+        `https://graph.facebook.com/v22.0/${page.id}/posts?fields=created_time,shares,reactions.summary(true).limit(0),comments.summary(true).limit(0)&limit=100&access_token=${pageToken}`
       )
+      const posts = JSON.parse(postsRaw)
       if (posts?.error) {
-        console.warn(`Facebook posts error: ${posts.error.message}`)
+        console.warn(`Facebook posts error: (#${posts.error.code}) ${posts.error.message} — ¿falta el permiso pages_read_user_content?`)
       } else {
         const list = posts?.data || []
-        postCount = list.length
+        fetched = list.length
         for (const p of list) {
+          const t = p.created_time ? Math.floor(new Date(p.created_time).getTime() / 1000) : 0
+          if (t < since30) continue // solo últimos 30 días
+          postCount++
           reactions += Number(p?.reactions?.summary?.total_count) || 0
           comments += Number(p?.comments?.summary?.total_count) || 0
           shares += Number(p?.shares?.count) || 0
         }
+        if (fetched === 0) {
+          console.warn('Facebook: /posts devolvió 0 posts (probable falta de permiso pages_read_user_content o token de usuario). Respuesta:', postsRaw.slice(0, 300))
+        } else {
+          console.log(`Facebook: ${fetched} posts traídos, ${postCount} en los últimos 30 días`)
+        }
       }
 
-      if (!fb?.error || !posts?.error) {
-        data.facebook = {
-          followers,
-          engagements: reactions + comments + shares,
-          reactions,
-          comments,
-          shares,
-          posts: postCount,
-          period: { start: new Date(since30 * 1000).toISOString().slice(0, 10), end: new Date(until * 1000).toISOString().slice(0, 10) },
+      // Seguidores y engagement fallan por separado: followers_count sale con
+      // pages_read_engagement, los posts necesitan además pages_read_user_content.
+      // Si los posts fallan se publican los seguidores igual, pero SIN los campos
+      // de engagement: un 0 ahí es indistinguible de "no hubo interacciones" y
+      // venía enmascarando justamente este error de permisos.
+      if (!fb?.error) {
+        data.facebook = { followers }
+        if (!posts?.error) {
+          Object.assign(data.facebook, {
+            engagements: reactions + comments + shares,
+            reactions,
+            comments,
+            shares,
+            posts: postCount,
+            period: { start: new Date(since30 * 1000).toISOString().slice(0, 10), end: new Date(until * 1000).toISOString().slice(0, 10) },
+          })
+          console.log(`Facebook OK: ${followers} followers, ${data.facebook.engagements} engagements (${postCount} posts)`)
+        } else {
+          console.warn(`Facebook parcial: ${followers} followers; engagement omitido del JSON por el error de permisos de arriba`)
         }
-        console.log(`Facebook OK: ${followers} followers, ${data.facebook.engagements} engagements (${postCount} posts)`)
       }
 
       // ── Instagram: cuenta Business conectada a la página ──
@@ -181,7 +224,7 @@ if (THREADS_TOKEN) {
       await get(`https://graph.threads.net/v1.0/me?fields=id,username&access_token=${THREADS_TOKEN}`)
     )
     if (!me?.id) {
-      console.warn(`Threads API error: ${me?.error?.message || 'no se pudo obtener el usuario'}`)
+      console.warn(`Threads API error: ${me?.error?.message || 'no se pudo obtener el usuario'} — OJO: Threads usa su propio token (graph.threads.net), NO sirve el token de Facebook.`)
     } else {
       const followers = JSON.parse(
         await get(
