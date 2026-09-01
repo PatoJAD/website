@@ -12,7 +12,7 @@ Sitio web oficial de **PatoJAD**: blog y portfolio sobre tecnología, gaming, ha
 
 | Capa | Tecnología |
 |------|------------|
-| Generador estático | Hugo **Extended** `0.164.x` (necesita la variante *extended* para `images.Text`, WebP, etc.) |
+| Generador estático | Hugo **Extended** `0.164.x`+ (necesita la variante *extended* para `images.Text`, WebP, etc.) |
 | Estilos | Tailwind CSS **v4** (vía `buildStats` de Hugo, sin PostCSS) |
 | JS | **Vanilla** (sin framework), en bundles concatenados por Hugo |
 | Búsqueda | [Fuse.js](https://fusejs.io) (carga *on-demand*) sobre un índice `index.json` |
