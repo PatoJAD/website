@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Scrcpy Linux on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/scrcpy-linux/</link><description>Recent content in Scrcpy Linux on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 01 Sep 2026 09:51:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/scrcpy-linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Cómo integrar Linux y Android al máximo con Scrcpy</title><link>https://patojad.com.ar/post/2026/09/c%C3%B3mo-integrar-linux-y-android-al-m%C3%A1ximo-con-scrcpy/</link><pubDate>Tue, 01 Sep 2026 09:51:00 +0000</pubDate><guid>https://patojad.com.ar/post/2026/09/c%C3%B3mo-integrar-linux-y-android-al-m%C3%A1ximo-con-scrcpy/</guid><description>&lt;p&gt;Si eres usuario de Linux y buscas una forma fluida, rápida y sin anuncios de interactuar con tu teléfono Android directamente desde tu computadora, Scrcpy es la herramienta definitiva. No requiere root, es totalmente de código abierto y funciona con una baja latencia impresionante.&lt;/p&gt;
+&lt;p&gt;En este artículo veremos el proceso de instalación y los comandos esenciales para ir desde la replicación básica de pantalla hasta la ejecución de aplicaciones de forma independiente en tu escritorio Linux.&lt;/p&gt;
+&lt;h2 class="my-6 font-semibold" style="font-size:1.65rem;color:var(--oui-text-strong);letter-spacing:-0.022em" id="requisitos-previos"&gt;
+Requisitos previos
+&lt;a href="#requisitos-previos" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Antes de comenzar, asegúrate de cumplir con lo siguiente en tu teléfono Android:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ir a Ajustes &amp;gt; Acerca del teléfono y presionar varias veces sobre Número de compilación hasta desbloquear las Opciones de desarrollador.&lt;/li&gt;
+&lt;li&gt;Entrar en las Opciones de desarrollador y activar la Depuración por USB.&lt;/li&gt;
+&lt;li&gt;Conectar el teléfono a tu PC mediante un cable USB y aceptar el aviso de confianza de depuración en la pantalla del móvil.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="my-6 font-semibold" style="font-size:1.65rem;color:var(--oui-text-strong);letter-spacing:-0.022em" id="instalación-de-scrcpy-en-linux"&gt;
+Instalación de Scrcpy en Linux
+&lt;a href="#instalaci%c3%b3n-de-scrcpy-en-linux" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La instalación es sumamente sencilla ya que se encuentra en los repositorios oficiales de la gran mayoría de las distribuciones:&lt;/p&gt;
+&lt;h3 class="my-6 font-semibold" style="font-size:1.25rem;color:var(--oui-text-default)" id="ubuntu--debian-y-derivadas"&gt;
+Ubuntu / Debian y derivadas:
+&lt;a href="#ubuntu--debian-y-derivadas" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;
+&lt;div class="highlight-header flex flex-row justify-between"&gt;
+&lt;div&gt;
+&lt;em class="fas fa-code me-2" aria-hidden="true"&gt;&lt;/em&gt;&lt;span class="highlight-lang"&gt;bash&lt;/span&gt;
+&lt;/div&gt;
+&lt;button type="button" class="copy-code-button background" aria-label="Copiar código" title="Copiar código"&gt;&lt;em class="fas fa-copy" aria-hidden="true"&gt;&lt;/em&gt;&lt;em class="fas fa-check" aria-hidden="true"&gt;&lt;/em&gt;&lt;span&gt;Copiar&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install scrcpy&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 class="my-6 font-semibold" style="font-size:1.25rem;color:var(--oui-text-default)" id="arch-linux-y-derivadas"&gt;
+Arch Linux y derivadas:
+&lt;a href="#arch-linux-y-derivadas" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;
+&lt;div class="highlight-header flex flex-row justify-between"&gt;
+&lt;div&gt;
+&lt;em class="fas fa-code me-2" aria-hidden="true"&gt;&lt;/em&gt;&lt;span class="highlight-lang"&gt;bash&lt;/span&gt;
+&lt;/div&gt;
+&lt;button type="button" class="copy-code-button background" aria-label="Copiar código" title="Copiar código"&gt;&lt;em class="fas fa-copy" aria-hidden="true"&gt;&lt;/em&gt;&lt;em class="fas fa-check" aria-hidden="true"&gt;&lt;/em&gt;&lt;span&gt;Copiar&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo pacman -S scrcpy&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 class="my-6 font-semibold" style="font-size:1.25rem;color:var(--oui-text-default)" id="fedora--rhel-y-derivadas"&gt;
+Fedora / RHEL y derivadas:
+&lt;a href="#fedora--rhel-y-derivadas" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;
+&lt;div class="highlight-header flex flex-row justify-between"&gt;
+&lt;div&gt;
+&lt;em class="fas fa-code me-2" aria-hidden="true"&gt;&lt;/em&gt;&lt;span class="highlight-lang"&gt;bash&lt;/span&gt;
+&lt;/div&gt;
+&lt;button type="button" class="copy-code-button background" aria-label="Copiar código" title="Copiar código"&gt;&lt;em class="fas fa-copy" aria-hidden="true"&gt;&lt;/em&gt;&lt;em class="fas fa-check" aria-hidden="true"&gt;&lt;/em&gt;&lt;span&gt;Copiar&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf install scrcpy&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class="my-6 font-semibold" style="font-size:1.65rem;color:var(--oui-text-strong);letter-spacing:-0.022em" id="comandos-esenciales-para-dominar-scrcpy"&gt;
+Comandos esenciales para dominar Scrcpy
+&lt;a href="#comandos-esenciales-para-dominar-scrcpy" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Una vez instalado, abre tu terminal y prueba los siguientes comandos para exprimir al máximo la integración entre ambos sistemas:&lt;/p&gt;
+&lt;h3 class="my-6 font-semibold" style="font-size:1.25rem;color:var(--oui-text-default)" id="replicación-básica-de-pantalla-screen-mirroring"&gt;
+Replicación básica de pantalla (Screen Mirroring)
+&lt;a href="#replicaci%c3%b3n-b%c3%a1sica-de-pantalla-screen-mirroring" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;
+&lt;div class="highlight-header flex flex-row justify-between"&gt;
+&lt;div&gt;
+&lt;em class="fas fa-code me-2" aria-hidden="true"&gt;&lt;/em&gt;&lt;span class="highlight-lang"&gt;bash&lt;/span&gt;
+&lt;/div&gt;
+&lt;button type="button" class="copy-code-button background" aria-label="Copiar código" title="Copiar código"&gt;&lt;em class="fas fa-copy" aria-hidden="true"&gt;&lt;/em&gt;&lt;em class="fas fa-check" aria-hidden="true"&gt;&lt;/em&gt;&lt;span&gt;Copiar&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;scrcpy&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Qué hace: Es el comando principal. Abre una ventana en tu escritorio de Linux que clava la pantalla de tu celular en tiempo real. Te permite controlar todo el dispositivo usando el mouse y el teclado de tu computadora de forma totalmente fluida y sin instalar aplicaciones adicionales en el teléfono.&lt;/p&gt;
+&lt;h3 class="my-6 font-semibold" style="font-size:1.25rem;color:var(--oui-text-default)" id="listar-las-aplicaciones-instaladas"&gt;
+Listar las aplicaciones instaladas
+&lt;a href="#listar-las-aplicaciones-instaladas" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;
+&lt;div class="highlight-header flex flex-row justify-between"&gt;
+&lt;div&gt;
+&lt;em class="fas fa-code me-2" aria-hidden="true"&gt;&lt;/em&gt;&lt;span class="highlight-lang"&gt;bash&lt;/span&gt;
+&lt;/div&gt;
+&lt;button type="button" class="copy-code-button background" aria-label="Copiar código" title="Copiar código"&gt;&lt;em class="fas fa-copy" aria-hidden="true"&gt;&lt;/em&gt;&lt;em class="fas fa-check" aria-hidden="true"&gt;&lt;/em&gt;&lt;span&gt;Copiar&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;scrcpy --list-apps&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Qué hace: Si tu objetivo es interactuar con una app en específico sin duplicar todo el sistema, primero necesitas conocer su nombre de paquete técnico (por ejemplo, com.instagram.android). Este comando imprime en la terminal el listado completo de todas las aplicaciones instaladas junto con sus respectivos identificadores para que puedas copiarlos fácilmente.&lt;/p&gt;
+&lt;h3 class="my-6 font-semibold" style="font-size:1.25rem;color:var(--oui-text-default)" id="abrir-una-aplicación-de-forma-independiente"&gt;
+Abrir una aplicación de forma independiente
+&lt;a href="#abrir-una-aplicaci%c3%b3n-de-forma-independiente" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;
+&lt;div class="highlight-header flex flex-row justify-between"&gt;
+&lt;div&gt;
+&lt;em class="fas fa-code me-2" aria-hidden="true"&gt;&lt;/em&gt;&lt;span class="highlight-lang"&gt;bash&lt;/span&gt;
+&lt;/div&gt;
+&lt;button type="button" class="copy-code-button background" aria-label="Copiar código" title="Copiar código"&gt;&lt;em class="fas fa-copy" aria-hidden="true"&gt;&lt;/em&gt;&lt;em class="fas fa-check" aria-hidden="true"&gt;&lt;/em&gt;&lt;span&gt;Copiar&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;scrcpy --start-app&lt;span class="o"&gt;=&lt;/span&gt;com.nombre.paquete&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Qué hace: Salta el espejo general de la pantalla y lanza una aplicación directamente en su propia ventana de manera aislada.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tip extra: Puedes añadir un signo + antes del nombre del paquete (ej: &amp;ndash;start-app=+com.app.name) para forzar el cierre de la app si ya se encontraba ejecutándose en segundo plano en el dispositivo.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 class="my-6 font-semibold" style="font-size:1.25rem;color:var(--oui-text-default)" id="lanzar-apps-en-una-pantalla-virtual-separada"&gt;
+Lanzar apps en una pantalla virtual separada
+&lt;a href="#lanzar-apps-en-una-pantalla-virtual-separada" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;
+&lt;div class="highlight-header flex flex-row justify-between"&gt;
+&lt;div&gt;
+&lt;em class="fas fa-code me-2" aria-hidden="true"&gt;&lt;/em&gt;&lt;span class="highlight-lang"&gt;bash&lt;/span&gt;
+&lt;/div&gt;
+&lt;button type="button" class="copy-code-button background" aria-label="Copiar código" title="Copiar código"&gt;&lt;em class="fas fa-copy" aria-hidden="true"&gt;&lt;/em&gt;&lt;em class="fas fa-check" aria-hidden="true"&gt;&lt;/em&gt;&lt;span&gt;Copiar&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;scrcpy --new-display&lt;span class="o"&gt;=&lt;/span&gt;1920x1080 --start-app&lt;span class="o"&gt;=&lt;/span&gt;com.nombre.paquete&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Qué hace: Es una de las funciones más potentes de las versiones recientes. En lugar de superponerse o duplicar la interfaz principal, le ordena a Android que cree una pantalla virtual dedicada (en este caso con resolución 1920x1080) donde correrá exclusivamente la aplicación elegida. Esto te permite tener la app abierta en tu escritorio de Linux funcionando como si fuera una ventana nativa más, ideal para potenciar la multitarea.&lt;/p&gt;
+&lt;h2 class="my-6 font-semibold" style="font-size:1.65rem;color:var(--oui-text-strong);letter-spacing:-0.022em" id="conclusión"&gt;
+Conclusión
+&lt;a href="#conclusi%c3%b3n" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Combinar Linux y Android mediante Scrcpy transforma por completo tu flujo de trabajo diario, permitiéndote gestionar notificaciones, redactar mensajes o probar aplicaciones directamente desde el teclado y mouse de tu PC sin distracciones. ¡Pruébalo y lleva tu productividad al siguiente nivel!&lt;/p&gt;</description></item></channel></rss>
