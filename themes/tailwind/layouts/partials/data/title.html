@@ -1,24 +1,17 @@
-{{- $title := .Title -}} {{- $siteTitle := .Site.Title -}} {{- if .IsHome -}}
-<!-- Homepage, and it's pagination -->
-
-<!-- Build paginator -->
-{{ $pages := where .Site.RegularPages "Section" "in" .Site.Params.mainSections
-}} {{ $notHidden := where .Site.RegularPages "Params.hidden" "!=" true }} {{
-$filtered := ($pages | intersect $notHidden) }} {{ $pag := .Paginate ($filtered)
-}} {{ if .Paginator.HasPrev }}
-<!-- Paginated. Append page number to title -->
-{{ $title = printf "%s - %s" .Paginator $siteTitle }} {{ else }} {{ $title =
-$siteTitle}} {{ end }} {{- else if eq .Kind "term" -}}
-<!-- Taxonomy page -->
-
-<!-- Build paginator -->
-{{ $notHidden := where .Pages "Params.hidden" "!=" true }} {{ $pag := .Paginate
-($notHidden) }}
-
-<!-- {TAXONOMY_TYPE}: {TAXONOMY_TERM} -->
-{{ $title = slice (title .Data.Singular) ": " $title }} {{ if .Paginator.HasPrev
-}}
-<!-- Add page number-->
-{{ $title = $title | append " - " .Paginator }} {{ end }} {{ $title = $title |
-append " - " $siteTitle }} {{ $title = delimit $title "" }} {{- end -}} {{
-return $title }}
+{{- /* Título SEO: "Página | PatoJAD ..." (máx ~60 caracteres) */ -}}
+{{- $siteTitle := .Site.Title -}}
+{{- $title := "" -}}
+{{- if .IsHome -}}
+  {{- $title = $siteTitle -}}
+{{- else if eq .Kind "404" -}}
+  {{- $title = printf "Página no encontrada | %s" $siteTitle -}}
+{{- else if .IsPage -}}
+  {{- $title = printf "%s | %s" .Title $siteTitle -}}
+{{- else if eq .Kind "term" -}}
+  {{- $title = printf "%s: %s | %s" (title (.Data.Singular | default "Tag")) .Title $siteTitle -}}
+{{- else if eq .Kind "taxonomy" -}}
+  {{- $title = printf "%s | %s" (title (.Data.Plural | default .Title)) $siteTitle -}}
+{{- else -}}
+  {{- $title = printf "%s | %s" .Title $siteTitle -}}
+{{- end -}}
+{{- return (truncate 60 $title) -}}

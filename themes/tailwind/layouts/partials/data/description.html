@@ -1,10 +1,8 @@
-<!-- Use site subtitle by default -->
+<!-- Descripción SEO: máx ~155 caracteres, texto plano -->
 {{ $description := .Site.Params.description }}
 
-<!-- Seprate description exists -->
-{{ if .Site.Params.description }} {{ $description = .Site.Params.description }}
-{{ end }} {{ if .Description }}
+{{ if .Description }}
 <!-- Page description exists -->
 {{ $description = .Description }} {{ else if .IsPage }}
 <!-- Use page summary -->
-{{ $description = .Summary }} {{ end }} {{ return ($description | plainify)}}
+{{ $description = .Summary }} {{ end }} {{ return (($description | plainify | truncate 160) | strings.TrimSpace) }}

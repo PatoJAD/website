@@ -35,13 +35,14 @@
 " />
 
 <!-- OpenGrap locale -->
-{{- with .Params.locale -}}
-<meta property="og:locale" content="{{ . }}" />
-{{- end -}}
+<meta property="og:locale" content="{{ .Params.locale | default `es_AR` }}" />
 
 <!-- OpenGrap article -->
 {{- if .IsPage -}}
 <meta property="article:section" content="{{ .Section | title }}" />
+{{- with .Params.authors -}}
+<meta property="article:author" content="{{ delimit . `, ` }}" />
+{{- end -}}
 {{- range .Params.tags -}}
 <meta property="article:tag" content="{{ . }}" />
 {{- end -}} {{- end -}}
@@ -74,24 +75,39 @@
 <meta itemprop="name" content="{{ $title }}">
 
 <!-- OpenGrap Twitter card -->
-{{- if .Params.img -}}
-<meta property="og:image" content="{{ .Params.img }}" />
-<meta name="twitter:card" content="{{ default `summary_large_image` .Site.Params.opengraph.twitter.card }}" />
-<meta name="twitter:image" content="{{ .Params.img }}" />
-<meta itemprop="image" property="image" content="{{ .Params.img }}">
+{{- $ogImg := "" -}}
+{{- $ogImgAlt := $title -}}
+{{- with .Params.img -}}
+  {{- $ogImg = (. | absURL) -}}
 {{- else -}}
-{{- $ogImage := partial "modules/head/og-image.html" . -}}
-<meta property="og:image" content="{{ $ogImage | absURL }}" />
-<meta name="twitter:card" content="{{ default `summary_large_image` .Site.Params.opengraph.twitter.card }}" />
-<meta name="twitter:image" content="{{ $ogImage | absURL }}" />
-<meta itemprop="image" property="image" content="{{ $ogImage | absURL }}">
+  {{- $ogImg = (partial "modules/head/og-image.html" $) | absURL -}}
+  {{- $ogImgAlt = printf "%s — %s" $title $.Site.Title -}}
 {{- end -}}
+<meta property="og:image" content="{{ $ogImg }}" />
+{{- if not .Params.img }}
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+{{- end }}
+<meta property="og:image:alt" content="{{ $ogImgAlt }}" />
+<meta name="twitter:card" content="{{ default `summary_large_image` .Site.Params.opengraph.twitter.card }}" />
+<meta name="twitter:image" content="{{ $ogImg }}" />
+<meta name="twitter:image:alt" content="{{ $ogImgAlt }}" />
+<meta itemprop="image" property="image" content="{{ $ogImg }}">
 
 <meta name="ocs-site-verification" content="a5e3afcef7360a66c1b061fecc169ef1" />
 
 <!-- Control the behavior of search engine crawling and indexing -->
+{{- /* Nota: las paginadas (/page/N/) no se detectan acá porque el head se
+  renderiza antes que el .Paginate del template; su canonical ya apunta a la
+  página 1, lo que consolida el SEO sin marcar noindex. */ -}}
+{{- $noindex := or (eq .Kind "404") (eq (.Param "hidden") true) -}}
+{{- if $noindex }}
+<meta name="robots" content="noindex,follow" /><!-- All Search Engines -->
+<meta name="googlebot" content="noindex,follow" /><!-- Google Specific -->
+{{- else }}
 <meta name="robots" content="index,follow" /><!-- All Search Engines -->
 <meta name="googlebot" content="index,follow" /><!-- Google Specific -->
+{{- end }}
 <meta name="google-adsense-account" content="ca-pub-2459752565912421">
 
 <!-- JSON-LD Structured Data -->
@@ -135,6 +151,9 @@
 {{- end -}}
 {{- with .Params.author -}}
   {{- $authorName = . -}}
+{{- end -}}
+{{- with .Params.authors -}}
+  {{- $authorName = delimit . ", " -}}
 {{- end -}}
 {{- $image := "" -}}
 {{- with .Params.img -}}
