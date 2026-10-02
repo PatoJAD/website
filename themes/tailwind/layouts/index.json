@@ -1,5 +1,5 @@
 {{- $index := slice -}}
-{{- range .Site.RegularPages -}}
-  {{- $index = $index | append (dict "title" .Title "content" (.Plain | truncate 2000 "") "permalink" .Permalink "img" .Params.img "summary" (.Summary | plainify | truncate 200 "") "date" (.Date.Format "2 Jan 2006")) -}}
+{{- range where .Site.RegularPages "Params.hidden" "!=" true -}}
+  {{- $index = $index | append (dict "title" .Title "content" (.Plain | truncate 500 "") "permalink" .Permalink "img" .Params.img "summary" (.Summary | plainify | truncate 200 "") "date" (.Date.Format "2 Jan 2006")) -}}
 {{- end -}}
 {{- $index | jsonify -}}

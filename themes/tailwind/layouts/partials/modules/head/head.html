@@ -58,6 +58,10 @@
 
   <link rel="preconnect" href="https://i.postimg.cc" crossorigin />
   <link rel="dns-prefetch" href="https://i.postimg.cc" />
+  {{- if .IsHome }}
+  {{/* Preload de la imagen LCP del hero (misma URL que headers/home.html) */}}
+  <link rel="preload" as="image" href="https://i.postimg.cc/pL1XfwT4/Chat-GPT-Image-29-ene-2026-12-20-59-p-m.webp" fetchpriority="high" />
+  {{- end }}
 
   <!-- Critical CSS inlined for above-the-fold rendering -->
   {{ with resources.Get "css/critical.css" }}
