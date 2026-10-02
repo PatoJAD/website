@@ -1,33 +1,30 @@
-<article class="rounded-xl overflow-hidden shadow-xl background card-glow h-full transition-all duration-300 ease-in-out  hover:-translate-y-1  " data-reveal>
+<article class="overflow-hidden background card-glow h-full transition-all duration-300 ease-in-out" data-reveal>
   {{ $isLcp := .Scratch.Get "isLcp" | default false }}
   {{ $loading := cond $isLcp "eager" "lazy" }}
   <a href="{{ .RelPermalink }}" class="block group h-full">
-    <div class="relative h-full overflow-hidden">
-      <img src="{{ .Params.img }}" alt="{{ .Title }}" title="{{ .Title }}" loading="{{ $loading }}" {{ if $isLcp }}fetchpriority="high"{{ end }} decoding="async" class="w-full h-full object-cover object-center transform transition-transform duration-700 ease-in-out  group-hover:scale-105" />
+    <div class="relative h-full overflow-hidden m-2 mb-0 rounded-[14px]">
+      <img src="{{ .Params.img }}" alt="{{ .Title }}" title="{{ .Title }}" loading="{{ $loading }}" {{ if $isLcp }}fetchpriority="high"{{ end }} decoding="async" class="w-full aspect-[16/10] object-cover object-center transform transition-transform duration-500 ease-out group-hover:scale-[1.02]" />
 
-      <!-- gradient overlay to improve contrast for text -->
-      <div class="absolute inset-0 bg-linear-to-t from-black/60 to-transparent transition-opacity duration-300 ease-in-out  group-hover:opacity-100"></div>
+      <div class="absolute inset-0" style="background:linear-gradient(to top, rgba(0,0,0,.55), transparent 55%)"></div>
 
-      <!-- date ribbon (subtle) -->
-      <div class="absolute top-3 left-3 bg-fuchsia-700 text-white text-xs font-semibold px-3 py-1 rounded-full drop-shadow">{{ partial "helper/date-es.html" .Date }}</div>
+      <div class="absolute top-3 left-3 text-[11.5px] font-medium px-2.5 py-1 rounded-full" style="background:rgba(0,0,0,.5);color:#fff;border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(8px)">{{ partial "helper/date-es.html" .Date }}</div>
+    </div>
 
-      <!-- content overlay: title, badges, summary -->
-      <div class="absolute left-0 right-0 bottom-0 p-4">
-        <h2 class="text-lg md:text-xl font-bold text-white line-clamp-2 transition-colors duration-200 ease-in-out  group-hover:text-fuchsia-200">{{ .Title }}</h2>
+    <div class="p-5">
+      <h2 class="text-[17px] leading-snug font-semibold line-clamp-2" style="color:var(--oui-text-strong)">{{ .Title }}</h2>
 
-        <div class="flex-wrap gap-2 mt-2 hidden md:flex">
-          {{ $technologies := .Params.technologies }}
-          {{ range first 3 .Site.Params.technologies.main }}
-            {{ $usedTech := in $technologies .name }}
-            {{ if $usedTech }}
-              {{ $bg := .params.color | default "#111827" }}
-              <div class="background flex items-center gap-2 px-4 py-2 rounded-md text-xs font-semibold shadow-inner transition-all duration-200 ease-in-out  group-hover:scale-[1.02]" style="--tech-bg: {{ $bg }};">
-                <img src="{{ .image | safeURL }}" alt="{{ .name }}" title="{{ .name }}" class="h-5 w-5 object-contain" loading="lazy" decoding="async">
-                <span>{{ .name }}</span>
-              </div>
-            {{ end }}
+      <div class="flex-wrap gap-2 mt-3 hidden md:flex">
+        {{ $technologies := .Params.technologies }}
+        {{ range first 3 .Site.Params.technologies.main }}
+          {{ $usedTech := in $technologies .name }}
+          {{ if $usedTech }}
+            {{ $bg := .params.color | default "#111827" }}
+            <div class="flex items-center gap-2 px-2.5 py-1 rounded-full text-[12px] font-medium" style="background:var(--oui-surface-2);border:1px solid var(--oui-border-weak);color:var(--oui-text-default)">
+              <img src="{{ .image | safeURL }}" alt="{{ .name }}" title="{{ .name }}" class="h-4 w-4 object-contain" loading="lazy" decoding="async">
+              <span>{{ .name }}</span>
+            </div>
           {{ end }}
-        </div>
+        {{ end }}
       </div>
     </div>
   </a>

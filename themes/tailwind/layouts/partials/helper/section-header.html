@@ -1,17 +1,20 @@
 {{- /*
-  Encabezado de sección reutilizable, con más presencia.
+  Encabezado de sección Once UI.
   Uso:
     {{ partialCached "helper/section-header.html" (dict "title" "Experiencia Laboral") "Experiencia Laboral" }}
   Opcionales:
     "class"  → clases extra para el wrapper (default "mb-6")
     "id"     → id del wrapper
-  Barra de acento + título en degradé + línea que se "dibuja" al hacer scroll.
+    "eyebrow" → texto pequeño superior (opcional)
 */ -}}
 {{- $title := .title -}}
 {{- $extra := .class | default "mb-6" -}}
-<div class="flex items-center gap-3 md:gap-4 {{ $extra }}"{{ with .id }} id="{{ . }}"{{ end }} data-reveal-group data-reveal-stagger="90">
-  <span data-reveal="scale" class="h-7 md:h-9 w-1.5 rounded-full bg-gradient-to-b from-fuchsia-400 to-fuchsia-700 shrink-0"></span>
-  <h2 data-reveal class="text-2xl md:text-3xl font-bold text-gradient shrink-0 pb-1 leading-tight">{{ $title }}</h2>
-  <span data-reveal="line" class="hr-brand flex-1 min-w-[1rem]"></span>
+<div class="flex flex-col gap-2 {{ $extra }}"{{ with .id }} id="{{ . }}"{{ end }} data-reveal-group data-reveal-stagger="90">
+  {{ with .eyebrow }}<span data-reveal class="oui-eyebrow">{{ . }}</span>{{ end }}
+  <div class="flex items-center gap-3">
+    <span data-reveal="scale" class="h-2 w-2 rounded-full shrink-0" style="background:var(--oui-brand-500)"></span>
+    <h2 data-reveal class="text-[22px] md:text-[26px] font-semibold shrink-0 leading-tight" style="color:var(--oui-text-strong);letter-spacing:-0.022em">{{ $title }}</h2>
+    <span data-reveal="line" class="oui-line flex-1 min-w-[1rem]"></span>
+  </div>
 </div>
 {{- /* Nota: el título va en h2 para mantener la jerarquía semántica previa. */ -}}

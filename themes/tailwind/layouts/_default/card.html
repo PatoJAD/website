@@ -1,35 +1,35 @@
-<article class="group w-full background card-glow rounded-xl overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-1 flex flex-col" data-reveal>
-  <a href="{{ .RelPermalink }}" class="block relative overflow-hidden" aria-label="{{ .Title }}">
-    <img class="w-full aspect-video object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+<article class="group w-full background card-glow overflow-hidden transition-all duration-300 ease-in-out flex flex-col" data-reveal>
+  <a href="{{ .RelPermalink }}" class="block relative overflow-hidden m-2 mb-0 rounded-[14px]" aria-label="{{ .Title }}">
+    <img class="w-full aspect-[16/9] object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
       src="{{ .Params.img }}" alt="{{ .Title }}" title="{{ .Title }}" loading="lazy" decoding="async" />
-    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
     {{ with .GetTerms "categories" }}
-    <div class="absolute top-3 left-3 flex flex-wrap">
+    <div class="absolute top-3 left-3 flex flex-wrap gap-2">
       {{ range . }}
       {{ $cat := . }}
       {{ with .Params.style }}
-      <span class="text-xs px-3 py-1 rounded-full card-cat-badge font-medium backdrop-blur mr-2" style="--cat-bg: {{ .background }}; --cat-color: {{ .color }};">{{ $cat.LinkTitle }}</span>
+      <span class="text-[11.5px] px-2.5 py-1 rounded-full card-cat-badge font-medium" style="--cat-bg: {{ .background }}; --cat-color: {{ .color }};">{{ $cat.LinkTitle }}</span>
       {{ else }}
-      <span class="text-xs px-3 py-1 rounded-full card-cat-badge font-medium backdrop-blur mr-2">{{ $cat.LinkTitle }}</span>
+      <span class="text-[11.5px] px-2.5 py-1 rounded-full card-cat-badge font-medium">{{ $cat.LinkTitle }}</span>
       {{ end }}
       {{ end }}
     </div>
     {{ end }}
   </a>
   <div class="p-5 flex flex-col flex-1">
-    <div class="flex items-center gap-3 text-xs text-zinc-400 mb-2">
+    <div class="oui-meta flex items-center gap-3 mb-2.5">
       <span>
         <em class="fa fa-calendar mr-1" aria-hidden="true"></em>
         {{ partial "helper/date-es.html" .Date }}
       </span>
-      <span><em class="fa fa-clock-o mr-1" aria-hidden="true"></em>{{ .ReadingTime }} min de lectura</span>
+      <span aria-hidden="true" style="opacity:.4">·</span>
+      <span><em class="fa fa-clock-o mr-1" aria-hidden="true"></em>{{ .ReadingTime }} min</span>
     </div>
     <a href="{{ .RelPermalink }}" class="block">
-      <h2 class="text-xl font-bold text-white transition-colors duration-200 group-hover:text-fuchsia-400 line-clamp-2 mb-2">{{ .Title }}</h2>
+      <h2 class="text-[17px] leading-snug font-semibold transition-colors duration-200 group-hover:text-white line-clamp-2 mb-2" style="color:var(--oui-text-strong)">{{ .Title }}</h2>
     </a>
-    <p class="text-white/60 text-sm line-clamp-3 mb-4 hidden md:block">{{ .Summary | plainify | truncate 160 }}</p>
-    <a href="{{ .RelPermalink }}" class="fx-nudge mt-auto inline-flex items-center gap-2 text-fuchsia-400 font-semibold text-sm self-start hover:text-fuchsia-300 transition-colors">
-      Leer artículo <em class="fas fa-arrow-right-long" aria-hidden="true"></em>
+    <p class="text-[14px] leading-relaxed line-clamp-2 mb-4 hidden md:block" style="color:var(--oui-text-weak)">{{ .Summary | plainify | truncate 140 }}</p>
+    <a href="{{ .RelPermalink }}" class="fx-nudge mt-auto inline-flex items-center gap-2 font-medium text-[13.5px] self-start transition-colors" style="color:var(--oui-brand-300)">
+      Leer artículo <em class="fas fa-arrow-right text-xs" aria-hidden="true"></em>
     </a>
   </div>
 </article>

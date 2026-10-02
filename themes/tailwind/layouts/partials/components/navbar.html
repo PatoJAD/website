@@ -1,30 +1,30 @@
-<header class="w-full flex justify-center h-24 z-20 fixed top-0 pt-4">
+<header class="w-full flex justify-center z-20 fixed top-0 pt-3 px-4" style="height:4.5rem">
   <nav
-    class="navbar-shine bg-linear-to-r from-zinc-800 to-zinc-900/20 px-6 flex align-middle justify-between p-2 rounded-full w-[90%] backdrop-blur-md border border-zinc-200/10">
-    <a href="{{ "/" | relLangURL }}" class="my-auto flex items-center" aria-label="PatoJAD — Inicio">
+    class="oui-nav px-2.5 py-1.5 pl-4 flex align-middle justify-between w-full">
+    <a href="{{ "/" | relLangURL }}" class="my-auto flex items-center shrink-0" aria-label="PatoJAD — Inicio">
       <img src="/img/logo-patojad.png" title="PatoJAD" alt="PatoJAD"
-        width="130" height="42" sizes="130px" loading="eager" decoding="async" fetchpriority="high" />
+        width="120" height="39" sizes="120px" loading="eager" decoding="async" fetchpriority="high" />
     </a>
-    <div class="ml-auto mr-auto hidden md:flex flex-wrap">
+    <div class="ml-auto mr-auto hidden md:flex flex-wrap items-center gap-1 px-4">
       {{ range .Site.Menus.main }}
       {{ $active := $.IsMenuCurrent "main" . }}
       <a href="{{ .URL | relLangURL }}" {{ if eq .Params.newtab true }}target="_blank" rel="noopener" {{ end }} title="{{- .Name -}} "
         {{ if $active }}aria-current="page"{{ end }}
-        class="px-2 py-1 mx-2 cursor-pointer text-sm flex content-center items-center transition-all duration-200 ease-in-out hover:text-fuchsia-700 hover:-translate-y-0.5 {{ if $active }}text-fuchsia-500 font-semibold{{ end }}">
-        <span class="mx-1 hidden md:block"> {{- .Name -}} </span>
+        class="oui-nav-link px-3 py-2 {{ if $active }}oui-nav-link-active{{ end }}">
+        <span> {{- .Name -}} </span>
       </a>
       {{ end }}
     </div>
     <div class="md:hidden ml-auto mr-auto flex items-center">
       <button id="mobile-menu-button" aria-label="Abrir menú" aria-controls="mobile-menu-modal" aria-expanded="false"
-        class="w-11 h-11 flex items-center justify-center rounded-full text-base hover:text-fuchsia-700 transition-transform duration-200 ease-in-out hover:scale-110" title="Menú">
+        class="oui-icon-button !w-10 !h-10 !border-0 !bg-transparent" title="Menú">
         <em class="fas fa-bars" aria-hidden="true"></em>
       </button>
     </div>
-    <div class="flex items-center">
+    <div class="flex items-center gap-2">
       <button id="search-button" aria-label="Buscar"
-        class="w-11 h-11 flex items-center justify-center rounded-full text-base hover:text-fuchsia-700 transition-transform duration-200 ease-in-out hover:scale-110" title="Buscar">
-        <em class="fas fa-search" aria-hidden="true"></em>
+        class="oui-icon-button !w-10 !h-10" title="Buscar">
+        <em class="fas fa-search text-sm" aria-hidden="true"></em>
       </button>
     </div>
   </nav>
@@ -36,19 +36,19 @@
   <div id="mobile-menu-overlay"
     class="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-300 ease-in-out "></div>
   <div id="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Menú de navegación"
-    class="absolute inset-x-0 top-0 mt-28 mx-auto w-[92%] max-w-md rounded-2xl background p-4 opacity-0 translate-y-4 transition-all duration-300 ease-in-out ">
-    <div class="flex items-center justify-between">
-      <span class="text-sm uppercase tracking-wide text-zinc-300">Menú</span>
-      <button id="mobile-menu-close" aria-label="Cerrar menú" class="w-11 h-11 flex items-center justify-center rounded-full text-base hover:text-fuchsia-700" title="Cerrar">
+    class="absolute inset-x-0 top-0 mt-28 mx-auto w-[92%] max-w-md oui-dialog p-3 opacity-0 translate-y-4 transition-all duration-300 ease-in-out ">
+    <div class="flex items-center justify-between px-2">
+      <span class="oui-eyebrow">Menú</span>
+      <button id="mobile-menu-close" aria-label="Cerrar menú" class="oui-icon-button !w-10 !h-10 !border-0 !bg-transparent" title="Cerrar">
         <em class="fas fa-times" aria-hidden="true"></em>
       </button>
     </div>
-    <div class="mt-3 flex flex-col">
+    <div class="mt-2 flex flex-col gap-1">
       {{ range .Site.Menus.main }}
       {{ $active := $.IsMenuCurrent "main" . }}
       <a href="{{ .URL | relLangURL }}" {{ if eq .Params.newtab true }}target="_blank" rel="noopener" {{ end }} title="{{- .Name -}} "
         {{ if $active }}aria-current="page"{{ end }}
-        class="px-3 py-2 rounded-xl text-sm transition-all duration-200 ease-in-out hover:background hover:text-fuchsia-700 hover:-translate-y-0.5 {{ if $active }}text-fuchsia-500 font-semibold{{ end }}">
+        class="oui-nav-link !px-4 !py-3 !text-[14px] {{ if $active }}oui-nav-link-active{{ end }}">
         <span>{{- .Name -}}</span>
       </a>
       {{ end }}

@@ -1,42 +1,37 @@
-<footer class="relative mt-24 md:mt-32">
-  {{/* Glow decorativo detrás del footer (no interfiere con clics ni con el flujo) */}}
-  <div class="absolute inset-0 -z-50 flex items-end justify-center pointer-events-none overflow-hidden" aria-hidden="true">
-    <div class="bg-fuchsia-700 h-40 w-full max-w-6xl rounded-full blur-[100px] animate-pulse opacity-80"></div>
-  </div>
-
-  {{/* Contenido en flujo normal → el footer ocupa alto real y no se superpone */}}
-  <div class="flex flex-col">
-    <div class="text-zinc-300 text-xl md:text-2xl py-10 md:py-16 px-4 w-full text-center font-semibold border-t border-zinc-200/10" data-reveal>
-      "Una comunidad unida es más fuerte que la suma de sus partes"
-    </div>
-
-    <div class="flex flex-wrap px-4 justify-center items-center gap-4" data-reveal-group data-reveal-stagger="60">
-      {{ range .Site.Params.footer.social }}
-      <a href="{{ .url }}" alt="{{ .name }}" aria-label="{{ .name }}" data-reveal="scale"
-        class="rounded-full h-14 w-14 flex items-center justify-center text-xl p-2 fx-pop hover:bg-fuchsia-700 mb-2 border border-zinc-200/10 duration-300 ease-in-out hover:-translate-y-1 hover:scale-[1.03]"
-        rel="noopener" target="_blank">
-        {{ if strings.HasPrefix .params.icon "fa fa" }}
-        <em class="{{ .params.icon }}" aria-hidden="true"></em>
-        {{ else }}
-        {{ partial "helper/icon" .params.icon }}
-        {{ end }}
-      </a>
-      {{ end }}
-    </div>
-
-    <div class="flex justify-center items-center" data-reveal="scale">
+<footer class="relative mt-14 md:mt-20" style="border-top:1px solid var(--oui-border-weak)">
+  <div class="oui-container flex flex-col">
+    <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-5 md:gap-6" data-reveal>
       <img src="https://i.postimg.cc/pL1XfwT4/Chat-GPT-Image-29-ene-2026-12-20-59-p-m.webp" alt="PatoJAD"
-        title="PatoJAD" class="h-40 md:h-50 mt-6 w-auto object-contain" width="482" height="482"
-        sizes="(min-width: 1024px) 482px, 70vw" loading="lazy" decoding="async" />
+        title="PatoJAD" class="h-24 w-24 md:h-28 md:w-28 object-cover rounded-full aspect-square shrink-0" style="border:1px solid rgba(217,70,239,.35);box-shadow:0 0 0 4px rgba(217,70,239,.08)" width="482" height="482"
+        sizes="112px" loading="lazy" decoding="async" />
+      <div class="flex-1 min-w-0 text-center">
+        <p class="oui-body text-[17px] md:text-[19px] font-medium m-0" style="color:var(--oui-text-strong)">
+          “Una comunidad unida es más fuerte que la suma de sus partes”
+        </p>
+        <div class="flex flex-wrap justify-center items-center gap-2 mt-4" data-reveal-group data-reveal-stagger="60">
+          {{ range .Site.Params.footer.social }}
+          <a href="{{ .url }}" alt="{{ .name }}" aria-label="{{ .name }}" data-reveal="scale"
+            class="oui-icon-button !w-10 !h-10"
+            rel="noopener" target="_blank" title="{{ .name }}">
+            {{ if strings.HasPrefix .params.icon "fa fa" }}
+            <em class="{{ .params.icon }}" aria-hidden="true"></em>
+            {{ else }}
+            {{ partial "helper/icon" .params.icon }}
+            {{ end }}
+          </a>
+          {{ end }}
+        </div>
+      </div>
     </div>
 
-    <div class="flex flex-col sm:flex-row justify-between items-center gap-3 bg-zinc-900 p-6 text-base md:text-lg">
+    <div class="oui-line w-full mt-6"></div>
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-3 w-full py-6 text-[13.5px]" style="color:var(--oui-text-weak)">
       <div>
-        Creado por&nbsp;<a href="https://vasak.net.ar" target="_blank" rel="noopener" class="text-fuchsia-700 hover:underline">Vasak Group</a></div>
-      <div class="flex flex-wrap justify-center px-2 gap-2">
+        Creado por&nbsp;<a href="https://vasak.net.ar" target="_blank" rel="noopener" class="transition-colors hover:text-white">Vasak Group</a></div>
+      <div class="flex flex-wrap justify-center px-2 gap-4">
         {{ range .Site.Menus.footer }}
         <a href="{{ .URL | relLangURL }}" {{ if eq .Params.newtab true }}target="_blank" {{ end }}
-          title="{{- .Name -}} " class="hover:text-fuchsia-700 transition-colors"> {{- .Name -}}
+          title="{{- .Name -}} " class="transition-colors hover:text-white"> {{- .Name -}}
         </a>
         {{ end }}
       </div>

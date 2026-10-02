@@ -1,13 +1,13 @@
 {{ if .Site.Params.technologies.enabled }}
 <div class="w-full">
-  {{ partialCached "helper/section-header.html" (dict "title" .Site.Params.technologies.title) .Site.Params.technologies.title }}
-  <div class="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-12 gap-4 px-0 md:px-12" data-reveal-group data-reveal-stagger="45">
+  {{ partialCached "helper/section-header.html" (dict "title" .Site.Params.technologies.title "eyebrow" "Stack") .Site.Params.technologies.title }}
+  <div class="grid grid-cols-3 sm:grid-cols-6 lg:grid-cols-12 gap-2.5" data-reveal-group data-reveal-stagger="45">
     {{ range .Site.Params.technologies.main }}
     <a href="{{ .url }}" alt="{{ .name }}" aria-label="{{ .name }}" data-reveal="scale"
-      class="group background rounded-xl aspect-square flex items-center justify-center overflow-hidden p-2 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:scale-[1.01]"
+      class="group oui-card !rounded-2xl aspect-square flex items-center justify-center overflow-hidden p-4 card-glow"
       rel="noopener" target="_blank">
 
-      <img src="{{ .image | safeURL }}" alt="{{ .name }}" class="max-h-full max-w-full object-contain transition-all duration-300 ease-in-out group-hover:scale-105" loading="lazy"
+      <img src="{{ .image | safeURL }}" alt="{{ .name }}" class="max-h-full max-w-full object-contain transition-transform duration-300 ease-out group-hover:scale-105" loading="lazy"
         decoding="async" title="{{ .name }}">
 
     </a>

@@ -2,25 +2,27 @@
   {{ partialCached "helper/section-header.html" (dict "title" "Contenido Relacionado") "Contenido Relacionado" }}
   {{ $posts := (where (.Site.RegularPages.Related .) "Params.hidden" "!=" true) | first 3 }}
 
+  <div class="flex flex-col gap-2.5">
   {{ range $i, $p := $posts }}
-  <a href="{{ $p.RelPermalink }}" class="group background card-glow rounded-xl p-4 mb-4 flex items-center" data-reveal>
-    <div class="flex gap-4 items-center">
-      <div class="relative w-24 h-20 overflow-hidden rounded-xl shrink-0 bg-zinc-800/50">
+  <a href="{{ $p.RelPermalink }}" class="group oui-card !rounded-2xl p-3 flex items-center card-glow" data-reveal>
+    <div class="flex gap-3.5 items-center min-w-0">
+      <div class="relative w-20 h-[68px] overflow-hidden rounded-xl shrink-0" style="background:var(--oui-surface-2);border:1px solid var(--oui-border-weak)">
         {{ with $p.Params.img }}
-        <img src="{{ . }}" alt="{{ $p.Title }}" loading="lazy" decoding="async" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105">
+        <img src="{{ . }}" alt="{{ $p.Title }}" loading="lazy" decoding="async" class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-[1.03]">
         {{ else }}
-        <div class="w-full h-full bg-gradient-to-br from-fuchsia-700/30 to-zinc-800"></div>
+        <div class="w-full h-full" style="background:linear-gradient(135deg, rgba(217,70,239,.18), rgba(255,255,255,.03))"></div>
         {{ end }}
       </div>
-      <div>
-        <h3 class="font-medium text-white transition-colors group-hover:text-fuchsia-400">{{ $p.Title }}</h3>
-        <p class="mt-2 text-sm text-zinc-400">
+      <div class="min-w-0">
+        <h3 class="font-medium text-[14px] leading-snug line-clamp-2 transition-colors group-hover:text-white" style="color:var(--oui-text-default)">{{ $p.Title }}</h3>
+        <p class="oui-meta mt-1.5">
           <time datetime="{{ $p.Date }}">{{ partial "helper/date-es.html" $p.Date }}</time>
         </p>
       </div>
     </div>
   </a>
   {{ end }}
+  </div>
   
 
 </div>

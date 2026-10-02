@@ -1,28 +1,30 @@
 {{ define "main" }}
 
-<div class="flex flex-col justify-center items-center px-6 max-w-[1400px] m-auto pt-32">
+<div class="oui-container pt-24" style="max-width:1280px">
   {{- if or (and (eq .Section "posts") .Params.categories) (eq .Params.type "project") -}}
-  <div class="w-full px-3 mb-2">
+  <div class="w-full mb-4">
     {{ partial "components/breadcrumbs.html" . }}
   </div>
   {{- end -}}
-  <div class="grid grid-cols-1 md:grid-cols-3 w-full">
-    <div id="information" class="col-span-2 w-full px-3 mb-4">
+  <div class="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_300px] lg:grid-cols-[minmax(0,1fr)_360px] gap-6 w-full">
+    <div id="information" class="w-full min-w-0 mb-4">
 
       {{ if eq .Params.type "video" }}
-      <h1 class="text-fuchsia-700 text-3xl font-bold mb-4 py-4">{{ .Title }}</h1>
+      <span class="oui-eyebrow mb-3">Video</span>
+      <h1 class="oui-display text-3xl md:text-[40px] mb-4">{{ .Title }}</h1>
       
       <iframe src='https://www.youtube.com/embed/{{ .Params.videoId }}?rel=0'
-        class="w-full h-auto rounded-xl aspect-video mb-4" title="Video de Youtube" allowfullscreen>
+        class="w-full h-auto rounded-[20px] aspect-video mb-6" style="border:1px solid var(--oui-border-weak)" title="Video de Youtube" allowfullscreen>
       </iframe>
       {{ end }}
       {{ if eq .Params.type "project" }}
-      <img src="{{ .Params.img }}" alt="{{ .Title }}" class="w-full h-auto rounded-xl aspect-video mb-4" title="{{ .Title }}" loading="lazy" />
+      <img src="{{ .Params.img }}" alt="{{ .Title }}" class="w-full h-auto rounded-[20px] aspect-video mb-6 object-cover" style="border:1px solid var(--oui-border-weak)" title="{{ .Title }}" loading="lazy" />
       {{ end }}
 
-      <article class="background w-full mb-8 shadow-xl rounded-xl p-4 md:p-8">
+      <article class="oui-panel-solid w-full mb-6 p-5 md:p-8" style="border-radius:var(--oui-radius-l)">
         {{ if or (eq .Params.type "post") (eq .Params.type "project") }}
-        <h1 class="mb-4 text-fuchsia-700 text-3xl md:text-5xl text-center">{{ .Title }}</h1>
+        <span class="oui-eyebrow">Artículo</span>
+        <h1 class="mb-4 mt-2 oui-display text-3xl md:text-[40px] text-left">{{ .Title }}</h1>
         {{end}}
         <div id="reading-content">{{ .Content }}</div>
         {{ partial "components/widgets/social-share.html" . }}

@@ -1,31 +1,31 @@
 {{ if gt .Paginator.TotalPages 1 }}
-<div class="pagination col-span-2 relative z-50">
-	<ul class="flex justify-center">
+<div class="pagination col-span-2 relative z-10 mt-8">
+	<ul class="flex justify-center gap-2">
 		{{ $.Scratch.Set "hasPrevDots" false }} {{ $.Scratch.Set "hasNextDots"
 		false }} {{ range .Paginator.Pagers }} {{ if eq . $.Paginator }}
-		<li class="pagination-shine mx-1 flex h-10 w-10 items-center justify-center rounded-xl background border border-fuchsia-700 text-fuchsia-700 p-0 text-sm transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:scale-[1.03] hover:shadow-[0_0_16px_rgba(217,70,239,0.35)]">
-			<span class="active" aria-current="page" aria-label="Página {{ .PageNumber }}, actual">
+		<li class="flex h-10 min-w-10 px-2 items-center justify-center rounded-full text-[13.5px] font-semibold" style="background:var(--oui-brand-600);color:#fff;box-shadow:0 8px 24px -10px rgba(192,38,211,.55)" aria-current="page" aria-label="Página {{ .PageNumber }}, actual">
+			<span class="active">
 				{{- .PageNumber -}}
 			</span>
 		</li>
 		{{ else if or (or (eq . $.Paginator.First) (eq . $.Paginator.Prev)) (or
 		(eq . $.Paginator.Next) (eq . $.Paginator.Last )) }}
-		<li class="mx-1 flex h-10 w-10 items-center justify-center rounded-xl background p-0 text-sm transition-all duration-200 ease-in-out  hover:-translate-y-0.5 hover:scale-[1.03] hover:shadow-[0_0_16px_rgba(217,70,239,0.25)] hover:ring-1 hover:ring-fuchsia-500/40">
-			<a href="{{ .URL }}" aria-label="Ir a la página {{- .PageNumber -}}">
+		<li class="oui-icon-button !w-10 !h-10 !rounded-full text-[13.5px]">
+			<a href="{{ .URL }}" aria-label="Ir a la página {{- .PageNumber -}}" class="w-full h-full flex items-center justify-center">
 				{{- .PageNumber -}} 
 			</a>
 		</li>
 		{{ else }} {{ if and (not ($.Scratch.Get "hasPrevDots")) (lt .PageNumber
 		$.Paginator.PageNumber) }} {{ $.Scratch.Set "hasPrevDots" true }}
-		<li class="mx-1 flex h-10 w-10 items-center justify-center rounded-xl background p-0 text-sm text-fuchsia-700 transition-all duration-200 ease-in-out  hover:-translate-y-0.5 hover:scale-[1.03] hover:shadow-[0_0_16px_rgba(217,70,239,0.25)] hover:ring-1 hover:ring-fuchsia-500/40">
-			<a href="{{ .URL }}" aria-label="Páginas anteriores">
+		<li class="oui-icon-button !w-10 !h-10 !rounded-full text-[13.5px]">
+			<a href="{{ .URL }}" aria-label="Páginas anteriores" class="w-full h-full flex items-center justify-center">
 				<em class="fa fa-arrow-left"aria-hidden="true"></em>
 				</a>
 		</li>
 		{{ else if and (not ($.Scratch.Get "hasNextDots")) (gt .PageNumber
 		$.Paginator.PageNumber) }} {{ $.Scratch.Set "hasNextDots" true }}
-		<li class="mx-1 flex h-10 w-10 items-center justify-center rounded-xl background p-0 text-sm text-fuchsia-700 transition-all duration-200 ease-in-out  hover:-translate-y-0.5 hover:scale-[1.03] hover:shadow-[0_0_16px_rgba(217,70,239,0.25)] hover:ring-1 hover:ring-fuchsia-500/40">
-			<a href="{{ .URL }}" aria-label="Páginas siguientes">
+		<li class="oui-icon-button !w-10 !h-10 !rounded-full text-[13.5px]">
+			<a href="{{ .URL }}" aria-label="Páginas siguientes" class="w-full h-full flex items-center justify-center">
 				<em class="fa fa-arrow-right" aria-hidden="true"></em>
 				</a>
 		</li>

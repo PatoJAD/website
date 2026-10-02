@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 	{{- partial "modules/head/head.html" . -}}
-	<body class="bg-zinc-900 overflow-x-hidden min-h-screen flex flex-col">
+	<body class="bg-[#0b0b0c] overflow-x-hidden min-h-screen flex flex-col">
+		<div class="oui-page-bg" aria-hidden="true"></div>
 		<div id="scroll-progress" aria-hidden="true"><div id="scroll-progress-bar"></div></div>
 		{{- partial "components/navbar.html" . -}}
 		<main id="main" class="grow">{{- block "main" . }}{{- end }}</main>
 		{{- partial "components/footer.html" . -}}
 
 		<!-- SW Update Toast -->
-		<div id="sw-update-toast" role="alert" aria-live="polite" style="display:none;position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);background:#a21caf;color:#fff;padding:0.75rem 1.5rem;border-radius:0.5rem;font-size:0.875rem;z-index:9999;box-shadow:0 4px 12px rgba(0,0,0,0.3);align-items:center;gap:0.75rem;">
-			<span>Nueva versión disponible</span>
-			<button onclick="window.location.reload()" style="background:#fff;color:#a21caf;border:none;padding:0.25rem 0.75rem;border-radius:0.25rem;font-weight:600;cursor:pointer;font-size:0.8rem;">Actualizar</button>
-			<button onclick="this.parentElement.style.display='none'" style="background:none;border:none;color:#fff;cursor:pointer;font-size:1.2rem;line-height:1;" aria-label="Cerrar">&times;</button>
+		<div id="sw-update-toast" role="alert" aria-live="polite" style="display:none;position:fixed;bottom:1.25rem;left:50%;transform:translateX(-50%);background:#131315;border:1px solid rgba(255,255,255,.12);color:#fff;padding:0.65rem 0.65rem 0.65rem 1.1rem;border-radius:14px;font-size:0.875rem;z-index:9999;box-shadow:0 16px 40px -16px rgba(0,0,0,.6);align-items:center;gap:0.75rem;">
+			<span style="color:rgba(255,255,255,.72)">Nueva versión disponible</span>
+			<button onclick="window.location.reload()" style="background:#fff;color:#0b0b0c;border:none;padding:0.45rem 0.9rem;border-radius:10px;font-weight:600;cursor:pointer;font-size:0.8rem;">Actualizar</button>
+			<button onclick="this.parentElement.style.display='none'" style="background:none;border:none;color:rgba(255,255,255,.5);cursor:pointer;font-size:1.2rem;line-height:1;" aria-label="Cerrar">&times;</button>
 		</div>
 
 		<!-- Service Worker Registration -->
