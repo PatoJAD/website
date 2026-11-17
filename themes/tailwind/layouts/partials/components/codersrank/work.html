@@ -42,7 +42,7 @@
         {{ $companyStartDisplay = $fallbackStart.dates }}
         {{ end }}
 
-        {{ if gt (len $validEndRoles) 0 }}
+        {{ if and (eq (len $validEndRoles) $firstRolesCount) (gt (len $validEndRoles) 0) }}
         {{ $sortedEnds := sort $validEndRoles "end_date" }}
         {{ $endRole := index $sortedEnds (sub (len $sortedEnds) 1) }}
         {{ $cEnd := time $endRole.end_date }}
@@ -52,9 +52,32 @@
         {{ else }}
         {{ $companyEndDisplay = "Actualidad" }}
         {{ end }}
+        {{ $companyTotalMonths := 0 }}
+        {{ range $first.roles }}
+        {{ if .start_date }}
+        {{ $roleStart := time .start_date }}
+        {{ $roleEnd := now }}
+        {{ if and .end_date (ne .end_date "") }}
+        {{ $roleEnd = time .end_date }}
+        {{ end }}
+        {{ $roleYears := sub ((dateFormat "2006" $roleEnd) | int) ((dateFormat "2006" $roleStart) | int) }}
+        {{ $roleMonths := sub ((replaceRE "^0" "" (dateFormat "01" $roleEnd)) | int) ((replaceRE "^0" "" (dateFormat "01" $roleStart)) | int) }}
+        {{ if lt $roleMonths 0 }}
+        {{ $roleYears = sub $roleYears 1 }}
+        {{ $roleMonths = add $roleMonths 12 }}
+        {{ end }}
+        {{ $companyTotalMonths = add $companyTotalMonths (add (mul $roleYears 12) $roleMonths) }}
+        {{ end }}
+        {{ end }}
+        {{ $companyTotalYears := div $companyTotalMonths 12 }}
+        {{ $companyRemainingMonths := mod $companyTotalMonths 12 }}
         <div class="text-sm text-white/60 flex items-center gap-4 mt-1">
           <em class="fa fa-calendar"></em>
           <span>{{ $companyStartDisplay }} - {{ $companyEndDisplay }}</span>
+        </div>
+        <div class="text-sm text-white/60 flex items-center gap-4 mt-1">
+          <em class="fa fa-hourglass-start"></em>
+          <span>Tiempo total: {{ if gt $companyTotalYears 0 }}{{ $companyTotalYears }} {{ if eq $companyTotalYears 1 }}año{{ else }}años{{ end }}{{ end }}{{ if and (gt $companyTotalYears 0) (gt $companyRemainingMonths 0) }} y {{ end }}{{ if gt $companyRemainingMonths 0 }}{{ $companyRemainingMonths }} {{ if eq $companyRemainingMonths 1 }}mes{{ else }}meses{{ end }}{{ end }}</span>
         </div>
         {{ end }}
         {{ $firstRolesOdd := eq (mod $firstRolesCount 2) 1 }}
@@ -197,7 +220,7 @@
           {{ $companyStartDisplay = $fallbackStart.dates }}
           {{ end }}
 
-          {{ if gt (len $validEndRoles) 0 }}
+          {{ if and (eq (len $validEndRoles) $companyRolesCount) (gt (len $validEndRoles) 0) }}
           {{ $sortedEnds := sort $validEndRoles "end_date" }}
           {{ $endRole := index $sortedEnds (sub (len $sortedEnds) 1) }}
           {{ $cEnd := time $endRole.end_date }}
@@ -207,9 +230,32 @@
           {{ else }}
           {{ $companyEndDisplay = "Actualidad" }}
           {{ end }}
+          {{ $companyTotalMonths := 0 }}
+          {{ range $company.roles }}
+          {{ if .start_date }}
+          {{ $roleStart := time .start_date }}
+          {{ $roleEnd := now }}
+          {{ if and .end_date (ne .end_date "") }}
+          {{ $roleEnd = time .end_date }}
+          {{ end }}
+          {{ $roleYears := sub ((dateFormat "2006" $roleEnd) | int) ((dateFormat "2006" $roleStart) | int) }}
+          {{ $roleMonths := sub ((replaceRE "^0" "" (dateFormat "01" $roleEnd)) | int) ((replaceRE "^0" "" (dateFormat "01" $roleStart)) | int) }}
+          {{ if lt $roleMonths 0 }}
+          {{ $roleYears = sub $roleYears 1 }}
+          {{ $roleMonths = add $roleMonths 12 }}
+          {{ end }}
+          {{ $companyTotalMonths = add $companyTotalMonths (add (mul $roleYears 12) $roleMonths) }}
+          {{ end }}
+          {{ end }}
+          {{ $companyTotalYears := div $companyTotalMonths 12 }}
+          {{ $companyRemainingMonths := mod $companyTotalMonths 12 }}
           <div class="text-sm text-white/60 flex items-center gap-4 mt-1">
             <em class="fa fa-calendar"></em>
             <span>{{ $companyStartDisplay }} - {{ $companyEndDisplay }}</span>
+          </div>
+          <div class="text-sm text-white/60 flex items-center gap-4 mt-1">
+            <em class="fa fa-hourglass-start"></em>
+            <span>Tiempo total: {{ if gt $companyTotalYears 0 }}{{ $companyTotalYears }} {{ if eq $companyTotalYears 1 }}año{{ else }}años{{ end }}{{ end }}{{ if and (gt $companyTotalYears 0) (gt $companyRemainingMonths 0) }} y {{ end }}{{ if gt $companyRemainingMonths 0 }}{{ $companyRemainingMonths }} {{ if eq $companyRemainingMonths 1 }}mes{{ else }}meses{{ end }}{{ end }}</span>
           </div>
           {{ end }}
         </div>
