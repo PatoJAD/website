@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Alexia on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/alexia/</link><description>Recent content in Alexia on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Tue, 17 Nov 2026 11:31:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/alexia/index.xml" rel="self" type="application/rss+xml"/><item><title>Auditoría de seguridad en Linux sin romper nada: probamos Linaudit</title><link>https://patojad.com.ar/post/2026/11/auditor%C3%ADa-de-seguridad-en-linux-sin-romper-nada-probamos-linaudit/</link><pubDate>Tue, 17 Nov 2026 11:31:00 +0000</pubDate><guid>https://patojad.com.ar/post/2026/11/auditor%C3%ADa-de-seguridad-en-linux-sin-romper-nada-probamos-linaudit/</guid><description>&lt;p&gt;Siempre se repite la misma frase en el mundo tech: &lt;em&gt;&amp;ldquo;Linux es súper seguro&amp;rdquo;&lt;/em&gt;. Pero la realidad es que esa seguridad depende en gran medida de cómo configuremos nuestro entorno, qué permisos otorguemos y qué malas prácticas arrastremos en el día a día (especialmente quienes desarrollamos y dejamos secretos o claves a la vista).&lt;/p&gt;
+&lt;p&gt;Para sacarnos las dudas de qué tan expuesto está nuestro sistema, hoy probamos &lt;strong&gt;Linaudit&lt;/strong&gt;, una herramienta de auditoría de seguridad de solo lectura creada en &lt;strong&gt;Rust&lt;/strong&gt; por &lt;strong&gt;Alexia&lt;/strong&gt; &lt;em&gt;(La Chica de Sistemas)&lt;/em&gt;.&lt;/p&gt;
+&lt;h2 class="my-6 font-semibold" style="font-size:1.65rem;color:var(--oui-text-strong);letter-spacing:-0.022em" id="qué-es-linaudit-y-por-qué-es-segura-de-ejecutar"&gt;
+¿Qué es Linaudit y por qué es segura de ejecutar?
+&lt;a href="#qu%c3%a9-es-linaudit-y-por-qu%c3%a9-es-segura-de-ejecutar" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;A diferencia de otros scripts o utilidades de hardening que intentan modificar archivos de configuración o aplicar parches automáticos que pueden romper dependencias, Linaudit funciona en modo de solo lectura.&lt;/p&gt;
+&lt;p&gt;Mira el sistema como lo haría un auditor de seguridad o un atacante, analiza diferentes vectores críticos y te devuelve un reporte claro con un puntaje del 1 al 10, clasificando los hallazgos según su nivel de criticidad (Bajo, Medio, Alto o Crítico).&lt;/p&gt;
+&lt;p&gt;Entre sus principales ventajas destacan:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cero riesgo de rotura: Solo analiza y reporta, no altera nada.&lt;/li&gt;
+&lt;li&gt;Interfaz moderna en terminal (TUI): Clara, rápida e intuitiva.&lt;/li&gt;
+&lt;li&gt;Totalmente en español (y en inglés): Un valor enorme para nuestra comunidad.&lt;/li&gt;
+&lt;li&gt;Orientación práctica: Al presionar Enter sobre un hallazgo, no solo explica el problema sino también cómo solucionarlo paso a paso.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="my-6 font-semibold" style="font-size:1.65rem;color:var(--oui-text-strong);letter-spacing:-0.022em" id="qué-aspectos-analiza-del-sistema"&gt;
+¿Qué aspectos analiza del sistema?
+&lt;a href="#qu%c3%a9-aspectos-analiza-del-sistema" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;El análisis toma menos de un minuto y cubre áreas esenciales como:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cuentas y privilegios de usuario.&lt;/li&gt;
+&lt;li&gt;Configuración del servicio SSH.&lt;/li&gt;
+&lt;li&gt;Permisos del File System (archivos sensibles, binarios con capabilities dudosas).&lt;/li&gt;
+&lt;li&gt;Secretos y credenciales expuestas (variables de entorno, URLs con contraseñas en texto plano).&lt;/li&gt;
+&lt;li&gt;Red y cortafuegos.&lt;/li&gt;
+&lt;li&gt;Módulos de seguridad (SELinux, AppArmor).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="my-6 font-semibold" style="font-size:1.65rem;color:var(--oui-text-strong);letter-spacing:-0.022em" id="cómo-instalar-linaudit"&gt;
+Cómo instalar Linaudit
+&lt;a href="#c%c3%b3mo-instalar-linaudit" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;La herramienta cuenta con distintas formas de instalación según la distribución que uses:&lt;/p&gt;
+&lt;h3 class="my-6 font-semibold" style="font-size:1.25rem;color:var(--oui-text-default)" id="en-debian-ubuntu-y-derivadas"&gt;
+En Debian, Ubuntu y derivadas
+&lt;a href="#en-debian-ubuntu-y-derivadas" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Linaudit ya forma parte de los repositorios oficiales de Debian, por lo que la instalación es directa:&lt;/p&gt;
+&lt;div class="highlight"&gt;
+&lt;div class="highlight-header flex flex-row justify-between"&gt;
+&lt;div&gt;
+&lt;em class="fas fa-code me-2" aria-hidden="true"&gt;&lt;/em&gt;&lt;span class="highlight-lang"&gt;bash&lt;/span&gt;
+&lt;/div&gt;
+&lt;button type="button" class="copy-code-button background" aria-label="Copiar código" title="Copiar código"&gt;&lt;em class="fas fa-copy" aria-hidden="true"&gt;&lt;/em&gt;&lt;em class="fas fa-check" aria-hidden="true"&gt;&lt;/em&gt;&lt;span&gt;Copiar&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo apt install linaudit&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 class="my-6 font-semibold" style="font-size:1.25rem;color:var(--oui-text-default)" id="en-arch-linux-y-derivadas-aur"&gt;
+En Arch Linux y derivadas (AUR)
+&lt;a href="#en-arch-linux-y-derivadas-aur" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Para los usuarios de Arch Linux, empaqueté la versión Git en AUR para facilitar la instalación con tu helper favorito (como &lt;code&gt;yay&lt;/code&gt; o &lt;code&gt;paru&lt;/code&gt;):&lt;/p&gt;
+&lt;div class="highlight"&gt;
+&lt;div class="highlight-header flex flex-row justify-between"&gt;
+&lt;div&gt;
+&lt;em class="fas fa-code me-2" aria-hidden="true"&gt;&lt;/em&gt;&lt;span class="highlight-lang"&gt;bash&lt;/span&gt;
+&lt;/div&gt;
+&lt;button type="button" class="copy-code-button background" aria-label="Copiar código" title="Copiar código"&gt;&lt;em class="fas fa-copy" aria-hidden="true"&gt;&lt;/em&gt;&lt;em class="fas fa-check" aria-hidden="true"&gt;&lt;/em&gt;&lt;span&gt;Copiar&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;yay -S linaudit-git&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 class="my-6 font-semibold" style="font-size:1.25rem;color:var(--oui-text-default)" id="compilación-desde-el-código-fuente-rust"&gt;
+Compilación desde el código fuente (Rust)
+&lt;a href="#compilaci%c3%b3n-desde-el-c%c3%b3digo-fuente-rust" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Si utilizas otra distribución o prefieres compilarla directamente, necesitas contar con Rust (versión 1.85 o superior):&lt;/p&gt;
+&lt;div class="highlight"&gt;
+&lt;div class="highlight-header flex flex-row justify-between"&gt;
+&lt;div&gt;
+&lt;em class="fas fa-code me-2" aria-hidden="true"&gt;&lt;/em&gt;&lt;span class="highlight-lang"&gt;bash&lt;/span&gt;
+&lt;/div&gt;
+&lt;button type="button" class="copy-code-button background" aria-label="Copiar código" title="Copiar código"&gt;&lt;em class="fas fa-copy" aria-hidden="true"&gt;&lt;/em&gt;&lt;em class="fas fa-check" aria-hidden="true"&gt;&lt;/em&gt;&lt;span&gt;Copiar&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git clone https://github.com/alexia/linaudit.git
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; linaudit
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cargo build --release
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo cp target/release/linaudit /usr/local/bin/&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class="my-6 font-semibold" style="font-size:1.65rem;color:var(--oui-text-strong);letter-spacing:-0.022em" id="ejecución-modo-usuario-vs-modo-root-sudo"&gt;
+Ejecución: Modo usuario vs. Modo Root (sudo)
+&lt;a href="#ejecuci%c3%b3n-modo-usuario-vs-modo-root-sudo" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Puedes correr la herramienta directamente con:&lt;/p&gt;
+&lt;div class="highlight"&gt;
+&lt;div class="highlight-header flex flex-row justify-between"&gt;
+&lt;div&gt;
+&lt;em class="fas fa-code me-2" aria-hidden="true"&gt;&lt;/em&gt;&lt;span class="highlight-lang"&gt;bash&lt;/span&gt;
+&lt;/div&gt;
+&lt;button type="button" class="copy-code-button background" aria-label="Copiar código" title="Copiar código"&gt;&lt;em class="fas fa-copy" aria-hidden="true"&gt;&lt;/em&gt;&lt;em class="fas fa-check" aria-hidden="true"&gt;&lt;/em&gt;&lt;span&gt;Copiar&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;linaudit&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Sin embargo, al ejecutarla como usuario estándar sin privilegios, la auditoría tiene un límite máximo de 6/10, ya que hay archivos y configuraciones del sistema a los que no puede acceder sin permisos administrativos. Para una auditoría completa de extremo a extremo, lo recomendable es ejecutarla con sudo:&lt;/p&gt;
+&lt;div class="highlight"&gt;
+&lt;div class="highlight-header flex flex-row justify-between"&gt;
+&lt;div&gt;
+&lt;em class="fas fa-code me-2" aria-hidden="true"&gt;&lt;/em&gt;&lt;span class="highlight-lang"&gt;bash&lt;/span&gt;
+&lt;/div&gt;
+&lt;button type="button" class="copy-code-button background" aria-label="Copiar código" title="Copiar código"&gt;&lt;em class="fas fa-copy" aria-hidden="true"&gt;&lt;/em&gt;&lt;em class="fas fa-check" aria-hidden="true"&gt;&lt;/em&gt;&lt;span&gt;Copiar&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo linaudit&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Al iniciar, Linaudit te consultará el perfil de tu máquina (Escritorio/Notebook, Servidor o Contenedor/VM efímera), adaptando los chequeos a cada caso.&lt;/p&gt;
+&lt;h2 class="my-6 font-semibold" style="font-size:1.65rem;color:var(--oui-text-strong);letter-spacing:-0.022em" id="los-resultados-de-mi-prueba-en-vivo"&gt;
+Los resultados de mi prueba en vivo
+&lt;a href="#los-resultados-de-mi-prueba-en-vivo" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Al correr la prueba en mi entorno de trabajo principal, el resultado final fue de 6/10, desglosado en:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;1 problema crítico:&lt;/strong&gt; Configuración heredada en la gestión de sesiones/PAM de SSH.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;6 problemas altos:&lt;/strong&gt; Ausencia de perfiles como AppArmor y credenciales embebidas detectadas en algunos archivos.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;11 problemas medios.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;7 problemas bajos.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Lo mejor de la herramienta es que al navegar por la lista y presionar Enter, se abre el detalle exacto: qué archivo genera el conflicto, por qué representa un riesgo y cuál es el comando o ajuste necesario para corregirlo.&lt;/p&gt;
+&lt;h2 class="my-6 font-semibold" style="font-size:1.65rem;color:var(--oui-text-strong);letter-spacing:-0.022em" id="y-a-ti-qué-puntaje-te-dio"&gt;
+¿Y a ti, qué puntaje te dio?
+&lt;a href="#y-a-ti-qu%c3%a9-puntaje-te-dio" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Te invito a clonar o instalar la herramienta, ejecutarla en tu distribución favorita y dejar en los comentarios de este post (o en el video) qué nota obtuvo tu instalación. ¿Qué tan protegido estaba tu Linux antes de revisarlo?&lt;/p&gt;</description></item></channel></rss>

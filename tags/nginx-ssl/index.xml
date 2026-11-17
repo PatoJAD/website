@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nginx Ssl on PatoJAD | Pasion por la Tecnologia</title><link>https://patojad.com.ar/tags/nginx-ssl/</link><description>Recent content in Nginx Ssl on PatoJAD | Pasion por la Tecnologia</description><generator>Hugo -- gohugo.io</generator><language>es-AR</language><lastBuildDate>Mon, 21 Apr 2025 09:13:00 +0000</lastBuildDate><atom:link href="https://patojad.com.ar/tags/nginx-ssl/index.xml" rel="self" type="application/rss+xml"/><item><title>Configurar Nginx con SSL en AlmaLinux: Guía Definitiva 2025</title><link>https://patojad.com.ar/post/2025/04/configurar-nginx-con-ssl-en-almalinux-gu%C3%ADa-definitiva-2025/</link><pubDate>Mon, 21 Apr 2025 09:13:00 +0000</pubDate><guid>https://patojad.com.ar/post/2025/04/configurar-nginx-con-ssl-en-almalinux-gu%C3%ADa-definitiva-2025/</guid><description>&lt;p&gt;Nginx es uno de los servidores web más rápidos y eficientes para entornos Linux. En esta guía aprenderás a:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Instalar y configurar Nginx en &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/03/almalinux-gu%c3%ada-definitiva-historia-ventajas-y-comparativa-vs-rhelcentos/" class="text-fuchsia-700 hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+AlmaLinux
+&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Habilitar HTTPS con Let&amp;rsquo;s Encrypt&lt;/li&gt;
+&lt;li&gt;Optimizar el rendimiento para producción&lt;/li&gt;
+&lt;li&gt;Solucionar errores comunes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class="my-6 font-semibold" style="font-size:1.65rem;color:var(--oui-text-strong);letter-spacing:-0.022em" id="-instalación-de-nginx"&gt;
+🛠️ Instalación de Nginx
+&lt;a href="#-instalaci%c3%b3n-de-nginx" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;Instalar desde repositorios
+&lt;div class="highlight"&gt;
+&lt;div class="highlight-header flex flex-row justify-between"&gt;
+&lt;div&gt;
+&lt;em class="fas fa-code me-2" aria-hidden="true"&gt;&lt;/em&gt;&lt;span class="highlight-lang"&gt;bash&lt;/span&gt;
+&lt;/div&gt;
+&lt;button type="button" class="copy-code-button background" aria-label="Copiar código" title="Copiar código"&gt;&lt;em class="fas fa-copy" aria-hidden="true"&gt;&lt;/em&gt;&lt;em class="fas fa-check" aria-hidden="true"&gt;&lt;/em&gt;&lt;span&gt;Copiar&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf install nginx -y&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;Iniciar y habilitar el servicio
+&lt;div class="highlight"&gt;
+&lt;div class="highlight-header flex flex-row justify-between"&gt;
+&lt;div&gt;
+&lt;em class="fas fa-code me-2" aria-hidden="true"&gt;&lt;/em&gt;&lt;span class="highlight-lang"&gt;bash&lt;/span&gt;
+&lt;/div&gt;
+&lt;button type="button" class="copy-code-button background" aria-label="Copiar código" title="Copiar código"&gt;&lt;em class="fas fa-copy" aria-hidden="true"&gt;&lt;/em&gt;&lt;em class="fas fa-check" aria-hidden="true"&gt;&lt;/em&gt;&lt;span&gt;Copiar&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo systemctl &lt;span class="nb"&gt;enable&lt;/span&gt; --now nginx&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;Verificar instalación
+&lt;div class="highlight"&gt;
+&lt;div class="highlight-header flex flex-row justify-between"&gt;
+&lt;div&gt;
+&lt;em class="fas fa-code me-2" aria-hidden="true"&gt;&lt;/em&gt;&lt;span class="highlight-lang"&gt;bash&lt;/span&gt;
+&lt;/div&gt;
+&lt;button type="button" class="copy-code-button background" aria-label="Copiar código" title="Copiar código"&gt;&lt;em class="fas fa-copy" aria-hidden="true"&gt;&lt;/em&gt;&lt;em class="fas fa-check" aria-hidden="true"&gt;&lt;/em&gt;&lt;span&gt;Copiar&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl -I localhost&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+Deberías ver: HTTP/1.1 200 OK&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 class="my-6 font-semibold" style="font-size:1.65rem;color:var(--oui-text-strong);letter-spacing:-0.022em" id="-configuración-básica"&gt;
+📂 Configuración Básica
+&lt;a href="#-configuraci%c3%b3n-b%c3%a1sica" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="my-6 font-semibold" style="font-size:1.25rem;color:var(--oui-text-default)" id="estructura-de-archivos-clave"&gt;
+Estructura de archivos clave
+&lt;a href="#estructura-de-archivos-clave" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="overflow-x-auto w-full my-4"&gt;
+&lt;table class="min-w-full background rounded-xl"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th class="px-3 py-1"&gt;Ruta&lt;/th&gt;
+&lt;th class="px-3 py-1"&gt;Propósito&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class="border-t-2 border-gray-500"&gt;
+&lt;td class="px-3 py-1"&gt;/etc/nginx/nginx.conf&lt;/td&gt;
+&lt;td class="px-3 py-1"&gt;Configuración principal&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="border-t-2 border-gray-500"&gt;
+&lt;td class="px-3 py-1"&gt;/etc/nginx/conf.d/&lt;/td&gt;
+&lt;td class="px-3 py-1"&gt;Configs de sitios adicionales&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="border-t-2 border-gray-500"&gt;
+&lt;td class="px-3 py-1"&gt;/var/www/html/&lt;/td&gt;
+&lt;td class="px-3 py-1"&gt;Directorio raíz por defecto&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;h3 class="my-6 font-semibold" style="font-size:1.25rem;color:var(--oui-text-default)" id="ejemplo-de-configuración-mínima"&gt;
+Ejemplo de configuración mínima
+&lt;a href="#ejemplo-de-configuraci%c3%b3n-m%c3%adnima" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;
+&lt;div class="highlight-header flex flex-row justify-between"&gt;
+&lt;div&gt;
+&lt;em class="fas fa-code me-2" aria-hidden="true"&gt;&lt;/em&gt;&lt;span class="highlight-lang"&gt;conf&lt;/span&gt;
+&lt;/div&gt;
+&lt;button type="button" class="copy-code-button background" aria-label="Copiar código" title="Copiar código"&gt;&lt;em class="fas fa-copy" aria-hidden="true"&gt;&lt;/em&gt;&lt;em class="fas fa-check" aria-hidden="true"&gt;&lt;/em&gt;&lt;span&gt;Copiar&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# /etc/nginx/conf.d/tusitio.conf&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;server&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;listen&lt;/span&gt; &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;server_name&lt;/span&gt; &lt;span class="n"&gt;tusitio&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt; &lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tusitio&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;root&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;location&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;try_files&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="n"&gt;uri&lt;/span&gt; &lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="n"&gt;uri&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;404&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Verificar y recargar:&lt;/p&gt;
+&lt;div class="highlight"&gt;
+&lt;div class="highlight-header flex flex-row justify-between"&gt;
+&lt;div&gt;
+&lt;em class="fas fa-code me-2" aria-hidden="true"&gt;&lt;/em&gt;&lt;span class="highlight-lang"&gt;bash&lt;/span&gt;
+&lt;/div&gt;
+&lt;button type="button" class="copy-code-button background" aria-label="Copiar código" title="Copiar código"&gt;&lt;em class="fas fa-copy" aria-hidden="true"&gt;&lt;/em&gt;&lt;em class="fas fa-check" aria-hidden="true"&gt;&lt;/em&gt;&lt;span&gt;Copiar&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo nginx -t &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo systemctl reload nginx&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class="my-6 font-semibold" style="font-size:1.65rem;color:var(--oui-text-strong);letter-spacing:-0.022em" id="-certificado-ssl-con-lets-encrypt"&gt;
+🔒 Certificado SSL con Let&amp;rsquo;s Encrypt
+&lt;a href="#-certificado-ssl-con-lets-encrypt" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;Instalar Certbot
+&lt;div class="highlight"&gt;
+&lt;div class="highlight-header flex flex-row justify-between"&gt;
+&lt;div&gt;
+&lt;em class="fas fa-code me-2" aria-hidden="true"&gt;&lt;/em&gt;&lt;span class="highlight-lang"&gt;bash&lt;/span&gt;
+&lt;/div&gt;
+&lt;button type="button" class="copy-code-button background" aria-label="Copiar código" title="Copiar código"&gt;&lt;em class="fas fa-copy" aria-hidden="true"&gt;&lt;/em&gt;&lt;em class="fas fa-check" aria-hidden="true"&gt;&lt;/em&gt;&lt;span&gt;Copiar&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo dnf install certbot python3-certbot-nginx -y&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;Obtener certificado
+&lt;div class="highlight"&gt;
+&lt;div class="highlight-header flex flex-row justify-between"&gt;
+&lt;div&gt;
+&lt;em class="fas fa-code me-2" aria-hidden="true"&gt;&lt;/em&gt;&lt;span class="highlight-lang"&gt;bash&lt;/span&gt;
+&lt;/div&gt;
+&lt;button type="button" class="copy-code-button background" aria-label="Copiar código" title="Copiar código"&gt;&lt;em class="fas fa-copy" aria-hidden="true"&gt;&lt;/em&gt;&lt;em class="fas fa-check" aria-hidden="true"&gt;&lt;/em&gt;&lt;span&gt;Copiar&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo certbot --nginx -d tusitio.com -d www.tusitio.com&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;Renovación automática
+Añadir al cron:
+&lt;div class="highlight"&gt;
+&lt;div class="highlight-header flex flex-row justify-between"&gt;
+&lt;div&gt;
+&lt;em class="fas fa-code me-2" aria-hidden="true"&gt;&lt;/em&gt;&lt;span class="highlight-lang"&gt;bash&lt;/span&gt;
+&lt;/div&gt;
+&lt;button type="button" class="copy-code-button background" aria-label="Copiar código" title="Copiar código"&gt;&lt;em class="fas fa-copy" aria-hidden="true"&gt;&lt;/em&gt;&lt;em class="fas fa-check" aria-hidden="true"&gt;&lt;/em&gt;&lt;span&gt;Copiar&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="se"&gt;\*&lt;/span&gt; &lt;span class="se"&gt;\*&lt;/span&gt; &lt;span class="se"&gt;\*&lt;/span&gt; /usr/bin/certbot renew --quiet&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 class="my-6 font-semibold" style="font-size:1.65rem;color:var(--oui-text-strong);letter-spacing:-0.022em" id="-optimización-de-rendimiento"&gt;
+⚡ Optimización de Rendimiento
+&lt;a href="#-optimizaci%c3%b3n-de-rendimiento" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="my-6 font-semibold" style="font-size:1.25rem;color:var(--oui-text-default)" id="ajustes-recomendados-en-etcnginxnginxconf"&gt;
+Ajustes recomendados en /etc/nginx/nginx.conf
+&lt;a href="#ajustes-recomendados-en-etcnginxnginxconf" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;
+&lt;div class="highlight-header flex flex-row justify-between"&gt;
+&lt;div&gt;
+&lt;em class="fas fa-code me-2" aria-hidden="true"&gt;&lt;/em&gt;&lt;span class="highlight-lang"&gt;conf&lt;/span&gt;
+&lt;/div&gt;
+&lt;button type="button" class="copy-code-button background" aria-label="Copiar código" title="Copiar código"&gt;&lt;em class="fas fa-copy" aria-hidden="true"&gt;&lt;/em&gt;&lt;em class="fas fa-check" aria-hidden="true"&gt;&lt;/em&gt;&lt;span&gt;Copiar&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;worker_processes auto;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;worker_connections 1024;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;keepalive_timeout 30;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gzip on;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gzip_types text/css application/javascript;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 class="my-6 font-semibold" style="font-size:1.25rem;color:var(--oui-text-default)" id="comandos-útiles"&gt;
+Comandos útiles
+&lt;a href="#comandos-%c3%batiles" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;
+&lt;div class="highlight-header flex flex-row justify-between"&gt;
+&lt;div&gt;
+&lt;em class="fas fa-code me-2" aria-hidden="true"&gt;&lt;/em&gt;&lt;span class="highlight-lang"&gt;bash&lt;/span&gt;
+&lt;/div&gt;
+&lt;button type="button" class="copy-code-button background" aria-label="Copiar código" title="Copiar código"&gt;&lt;em class="fas fa-copy" aria-hidden="true"&gt;&lt;/em&gt;&lt;em class="fas fa-check" aria-hidden="true"&gt;&lt;/em&gt;&lt;span&gt;Copiar&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Reinicio seguro&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo systemctl restart nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Ver estado&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo systemctl status nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Monitorear peticiones&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo tail -f /var/log/nginx/access.log&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class="my-6 font-semibold" style="font-size:1.65rem;color:var(--oui-text-strong);letter-spacing:-0.022em" id="-solución-de-problemas-comunes"&gt;
+🚨 Solución de Problemas Comunes
+&lt;a href="#-soluci%c3%b3n-de-problemas-comunes" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;h3 class="my-6 font-semibold" style="font-size:1.25rem;color:var(--oui-text-default)" id="error-port-80-already-in-use"&gt;
+Error: &amp;ldquo;Port 80 already in use&amp;rdquo;
+&lt;a href="#error-port-80-already-in-use" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;div class="highlight"&gt;
+&lt;div class="highlight-header flex flex-row justify-between"&gt;
+&lt;div&gt;
+&lt;em class="fas fa-code me-2" aria-hidden="true"&gt;&lt;/em&gt;&lt;span class="highlight-lang"&gt;bash&lt;/span&gt;
+&lt;/div&gt;
+&lt;button type="button" class="copy-code-button background" aria-label="Copiar código" title="Copiar código"&gt;&lt;em class="fas fa-copy" aria-hidden="true"&gt;&lt;/em&gt;&lt;em class="fas fa-check" aria-hidden="true"&gt;&lt;/em&gt;&lt;span&gt;Copiar&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo netstat -tulnp &lt;span class="p"&gt;|&lt;/span&gt; grep :80
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo &lt;span class="nb"&gt;kill&lt;/span&gt; -9 &amp;lt;PID&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3 class="my-6 font-semibold" style="font-size:1.25rem;color:var(--oui-text-default)" id="error-ssl-handshake-failed"&gt;
+Error: &amp;ldquo;SSL handshake failed&amp;rdquo;
+&lt;a href="#error-ssl-handshake-failed" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h3&gt;&lt;p&gt;Verificar que el puerto 443 esté abierto:&lt;/p&gt;
+&lt;div class="highlight"&gt;
+&lt;div class="highlight-header flex flex-row justify-between"&gt;
+&lt;div&gt;
+&lt;em class="fas fa-code me-2" aria-hidden="true"&gt;&lt;/em&gt;&lt;span class="highlight-lang"&gt;bash&lt;/span&gt;
+&lt;/div&gt;
+&lt;button type="button" class="copy-code-button background" aria-label="Copiar código" title="Copiar código"&gt;&lt;em class="fas fa-copy" aria-hidden="true"&gt;&lt;/em&gt;&lt;em class="fas fa-check" aria-hidden="true"&gt;&lt;/em&gt;&lt;span&gt;Copiar&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo firewall-cmd --add-service&lt;span class="o"&gt;=&lt;/span&gt;https --permanent
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo firewall-cmd --reload&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 class="my-6 font-semibold" style="font-size:1.65rem;color:var(--oui-text-strong);letter-spacing:-0.022em" id="-comparativa-nginx-vs-apache"&gt;
+📊 Comparativa Nginx vs Apache
+&lt;a href="#-comparativa-nginx-vs-apache" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;div class="overflow-x-auto w-full my-4"&gt;
+&lt;table class="min-w-full background rounded-xl"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th class="px-3 py-1"&gt;Característica&lt;/th&gt;
+&lt;th class="px-3 py-1"&gt;Nginx&lt;/th&gt;
+&lt;th class="px-3 py-1"&gt;Apache&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class="border-t-2 border-gray-500"&gt;
+&lt;td class="px-3 py-1"&gt;Velocidad&lt;/td&gt;
+&lt;td class="px-3 py-1"&gt;Rapido&lt;/td&gt;
+&lt;td class="px-3 py-1"&gt;Lento&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="border-t-2 border-gray-500"&gt;
+&lt;td class="px-3 py-1"&gt;Rendimiento&lt;/td&gt;
+&lt;td class="px-3 py-1"&gt;Alto&lt;/td&gt;
+&lt;td class="px-3 py-1"&gt;Medio&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="border-t-2 border-gray-500"&gt;
+&lt;td class="px-3 py-1"&gt;Consumo RAM&lt;/td&gt;
+&lt;td class="px-3 py-1"&gt;Bajo&lt;/td&gt;
+&lt;td class="px-3 py-1"&gt;Moderado&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="border-t-2 border-gray-500"&gt;
+&lt;td class="px-3 py-1"&gt;Facilidad&lt;/td&gt;
+&lt;td class="px-3 py-1"&gt;Intermedia&lt;/td&gt;
+&lt;td class="px-3 py-1"&gt;Sencilla&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="border-t-2 border-gray-500"&gt;
+&lt;td class="px-3 py-1"&gt;Soporte .htaccess&lt;/td&gt;
+&lt;td class="px-3 py-1"&gt;No&lt;/td&gt;
+&lt;td class="px-3 py-1"&gt;Sí&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;h2 class="my-6 font-semibold" style="font-size:1.65rem;color:var(--oui-text-strong);letter-spacing:-0.022em" id="-conclusión"&gt;
+📌 Conclusión
+&lt;a href="#-conclusi%c3%b3n" style="color:var(--oui-text-faint)"&gt;#&lt;/a&gt;
+&lt;/h2&gt;&lt;p&gt;Con esta guía has aprendido a:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Desplegar Nginx en &lt;strong&gt;&lt;a href="https://patojad.com.ar/post/2025/03/almalinux-gu%c3%ada-definitiva-historia-ventajas-y-comparativa-vs-rhelcentos/" class="text-fuchsia-700 hover:text-fuchsia-800 font-semibold"&gt;
+&lt;i class="fas fa-link"&gt;&lt;/i&gt;&amp;nbsp;
+AlmaLinux
+&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Configurar sitios virtuales&lt;/li&gt;
+&lt;li&gt;Implementar HTTPS automático&lt;/li&gt;
+&lt;li&gt;Optimizar para entornos productivos&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>
