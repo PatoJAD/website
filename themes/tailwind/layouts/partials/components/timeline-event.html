@@ -1,0 +1,27 @@
+<div class="relative">
+  {{ if eq .kind "Puesto" }}
+    <span class="absolute -top-5 left-1/2 -translate-x-1/2 text-[10px] font-semibold text-white/60">{{ .year }}</span>
+  {{ else }}
+    <span class="absolute top-10 left-1/2 -translate-x-1/2 text-[10px] font-semibold text-white/60">{{ .year }}</span>
+  {{ end }}
+  <div class="relative z-10 aspect-square h-8 w-8 shrink-0 overflow-hidden rounded-full border-2 border-fuchsia-700 bg-zinc-950 shadow-sm transition duration-200 group-hover:scale-110 group-focus-within:scale-110">
+    {{ with .image }}
+      <img class="h-full w-full object-cover" src="{{ . }}" alt="" loading="lazy" decoding="async">
+    {{ else }}
+      <span class="flex h-full w-full items-center justify-center text-xs text-fuchsia-400" aria-hidden="true">{{ if eq .kind "Puesto" }}P{{ else }}P{{ end }}</span>
+    {{ end }}
+  </div>
+  {{ $tooltipPosition := "bottom-10" }}
+  {{ if eq .kind "Puesto" }}{{ $tooltipPosition = "top-10" }}{{ end }}
+  <div class="pointer-events-none absolute {{ $tooltipPosition }} left-1/2 z-20 w-40 -translate-x-1/2 scale-95 rounded-lg border border-white/10 bg-zinc-950/95 p-1.5 text-left opacity-0 shadow-xl transition duration-200 group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:scale-100 group-focus-within:opacity-100">
+    <div class="text-[9px] uppercase tracking-wide text-white/60">
+      <span class="text-fuchsia-400">{{ .kind }}</span> · <time datetime="{{ dateFormat "2006-01-02" .date }}">{{ .dateLabel }}</time>
+    </div>
+    <h3 class="mt-0.5 line-clamp-2 text-[11px] font-bold text-fuchsia-700">{{ .title }}</h3>
+    {{ with .context }}<p class="mt-0.5 text-[10px] text-white/70">{{ . }}</p>{{ end }}
+    {{ with .description }}<p class="mt-0.5 line-clamp-2 text-[10px] leading-relaxed text-white/80">{{ . }}</p>{{ end }}
+    {{ with .link }}
+      <a class="pointer-events-auto mt-0.5 inline-flex text-[10px] text-fuchsia-400 underline underline-offset-4 hover:text-fuchsia-300" href="{{ . }}">Ver proyecto</a>
+    {{ end }}
+  </div>
+</div>

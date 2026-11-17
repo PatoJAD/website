@@ -1,0 +1,66 @@
+{{ $data := hugo.Data.linkedin }}
+{{ $months := slice "enero" "febrero" "marzo" "abril" "mayo" "junio" "julio" "agosto" "septiembre" "octubre" "noviembre" "diciembre" }}
+{{ $events := slice }}
+
+{{ range $company := $data.positions }}
+  {{ range $role := $company.roles }}
+    {{ if $role.start_date }}
+      {{ $eventDate := time $role.start_date }}
+      {{ $eventMonth := (replaceRE "^0" "" (dateFormat "01" $eventDate)) | int }}
+      {{ $events = $events | append (dict
+        "date" $eventDate
+        "dateLabel" (print (index $months (sub $eventMonth 1)) " " (dateFormat "2006" $eventDate))
+        "year" (dateFormat "2006" $eventDate)
+        "kind" "Puesto"
+        "title" $role.title
+        "context" $company.company
+        "image" $company.company_logo
+        "description" $role.description
+        "link" ""
+      ) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ range where .Site.RegularPages "Section" "projects" }}
+  {{ $eventDate := .Date }}
+  {{ $eventMonth := (replaceRE "^0" "" (dateFormat "01" $eventDate)) | int }}
+  {{ $events = $events | append (dict
+    "date" $eventDate
+    "dateLabel" (print (index $months (sub $eventMonth 1)) " " (dateFormat "2006" $eventDate))
+    "year" (dateFormat "2006" $eventDate)
+    "kind" "Proyecto"
+    "title" .Title
+    "context" ""
+    "image" .Params.img
+    "description" .Description
+    "link" .RelPermalink
+  ) }}
+{{ end }}
+
+{{ partialCached "helper/section-header.html" (dict "title" "Trayectoria") "Trayectoria" }}
+
+{{ if gt (len $events) 0 }}
+  <div class="relative mt-8 h-56 overflow-x-auto overflow-y-clip [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" tabindex="0" aria-label="Línea de tiempo de trayectoria">
+    <div class="relative flex h-56 min-w-max items-stretch px-6 py-2">
+      <div class="pointer-events-none absolute inset-x-0 top-1/2 z-0 h-0.5 bg-fuchsia-400/70" aria-hidden="true"></div>
+      {{ range sort $events "date" }}
+        <article class="group relative z-10 flex h-52 w-20 shrink-0 flex-col px-2 text-center">
+          {{ if eq .kind "Puesto" }}
+            <div class="flex h-1/2 items-end justify-center pb-4">
+              {{ partial "components/timeline-event.html" . }}
+            </div>
+            <div class="h-1/2"></div>
+          {{ else }}
+            <div class="h-1/2"></div>
+            <div class="flex h-1/2 items-start justify-center pt-4">
+              {{ partial "components/timeline-event.html" . }}
+            </div>
+          {{ end }}
+        </article>
+      {{ end }}
+    </div>
+  </div>
+{{ else }}
+  <p class="text-sm text-white/60">Todavía no hay eventos para mostrar.</p>
+{{ end }}
